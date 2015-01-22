@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/resultLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:maxLines="1"
+        android:paddingBottom="2dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="2dp"
+        android:text="@string/Label"
+        android:textColor="@android:color/secondary_text_dark"
+        style="@android:style/TextAppearance.Small">
+    </TextView>
+
+    <EditText
+        android:id="@+id/resultValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="@android:color/background_dark"
+        android:inputType="textMultiLine"
+        android:paddingBottom="2dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="2dp"
+        android:text="@string/Value"
+        android:textColor="@color/greendark"
+        android:gravity="top|left"
+        android:scrollHorizontally="false"
+        android:scrollbars="vertical"
+        style="@android:style/TextAppearance.Medium"/>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:drawable/divider_horizontal_dark" />
+    
+
+</LinearLayout>

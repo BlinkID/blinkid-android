@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Label">Label</string>
+    <string name="Value">Value</string>
+    <string name="IsDataCorrect">Is all data correct?</string>
+    <string name="YesPay">Confirm data</string>
+    <string name="NoBack">Cancel</string>
+
+    <!-- MRTD -->
+    <string name="PPPrimaryId">Primary ID</string>
+    <string name="PPSecondaryId">Secondary ID</string>
+    <string name="PPIssuer">Issuer</string>
+    <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPDocumentNumber">Document number</string>
+    <string name="PPNationality">Nationality</string>
+    <string name="PPSex">Sex</string>
+    <string name="PPDocumentCode">Document code</string>
+    <string name="PPDateOfExpiry">Date of expiry</string>
+    <string name="PPOpt1">OPT1</string>
+    <string name="PPOpt2">OPT2</string>
+</resources>

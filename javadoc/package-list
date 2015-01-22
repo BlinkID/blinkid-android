@@ -1,0 +1,12 @@
+com.microblink.activity
+com.microblink.directApi
+com.microblink.geometry
+com.microblink.hardware
+com.microblink.hardware.camera.focus
+com.microblink.recognizers
+com.microblink.recognizers.ocr.mrtd
+com.microblink.recognizers.settings
+com.microblink.results.lines
+com.microblink.results.ocr
+com.microblink.view
+com.microblink.view.recognition
