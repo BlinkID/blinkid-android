@@ -3,6 +3,7 @@ com.microblink.directApi
 com.microblink.geometry
 com.microblink.hardware
 com.microblink.hardware.camera.focus
+com.microblink.locale
 com.microblink.recognizers
 com.microblink.recognizers.ocr.mrtd
 com.microblink.recognizers.settings

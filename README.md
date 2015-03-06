@@ -5,6 +5,7 @@
   * [Quick start with demo app](#quickDemo)
   * [Quick integration of _BlinkID_ into your app](#quickIntegration)
   * [Eclipse integration instructions](#eclipseIntegration)
+  * [How to integrate _BlinkID_ into your project using Maven](#mavenIntegration)
   * [Performing your first scan](#quickScan)
 * [Advanced _BlinkID_ integration instructions](#advancedIntegration)
   * [Checking if _BlinkID_ is supported](#supportCheck)
@@ -24,13 +25,15 @@
 
 # <a name="intro"></a> Android _BlinkID_ integration instructions
 
-The package contains Android Archive (AAR) that contains everything you need to use _BlinkID_ library. Besides AAR, package also contains a demo project that contains two modules:
+The package contains Android Archive (AAR) that contains everything you need to use _BlinkID_ library. Besides AAR, package also contains a demo project that contains following modules:
 
  - BlinkIDDemo module demonstrates quick and simple integration of _BlinkID_ library
  - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity
+
  
 _BlinkID_ is supported on Android SDK version 8 (Android 2.2) or later.
- 
+
+
 The library contains one activity: `ScanId`. It is responsible for camera control and barcode recognition. If you create your own scanning UI, you will need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process.
 
 # <a name="quickStart"></a> Quick Start
@@ -38,7 +41,7 @@ The library contains one activity: `ScanId`. It is responsible for camera contro
 ## <a name="quickDemo"></a> Quick start with demo app
 
 1. Open Android Studio.
-2. In Quick Start dialog choose _Import Non-Android Studio project_.
+2. In Quick Start dialog choose _Import project (Eclipse ADT, Gradle, etc.)_.
 3. In File dialog select _BlinkIDDemo_ folder.
 4. Wait for project to load. If Android studio asks you to reload project on startup, select `Yes`.
 
@@ -65,9 +68,9 @@ We do not provide Eclipse integration demo apps. We encourage you to use Android
 1. In Eclipse, create a new _Android library project_ in your workspace.
 2. Clear the `src` and `res` folders.
 3. Unzip the `LibRecognizer.aar` file. You can rename it to zip and then unzip it or use any tool.
-4. Copy the `classes.jar` to `lib` folder of your Eclipse library project. If `lib` folder does not exist, create it.
-5. Copy `android-support-v4.jar` to `lib` folder of your Eclipse library project. You can find `android-support-v4.jar` in `/path/to/your/android/SDK/extras/android/support/v4/android-support-v4.jar`.
-6. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project. If `libs` folder does not exist, create it.
+4. Copy the `classes.jar` to `libs` folder of your Eclipse library project. If `libs` folder does not exist, create it.
+5. Copy `android-support-v4.jar` to `libs` folder of your Eclipse library project. You can find `android-support-v4.jar` in `/path/to/your/android/SDK/extras/android/support/v4/android-support-v4.jar`.
+6. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 7. Replace the `res` folder on library project with the `res` folder of the `LibRecognizer.aar` file.
 
 You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
@@ -75,6 +78,50 @@ You’ve already created the project that contains almost everything you need. N
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibRecognizer.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
 3. Clean and Rebuild your target project
+
+## <a name="mavenIntegration"></a> How to integrate _BlinkID_ into your project using Maven
+
+Maven repository for _BlinkID_ SDK is: [http://maven.microblink.com](http://maven.microblink.com).
+
+### Using gradle
+In your build.gradle you first need to add _BlinkID_ maven repository to repositories list:
+
+```
+repositories {
+	maven { url 'http://maven.microblink.com' }
+}
+```
+
+After that, you just need to add _BlinkID_ as a dependency to your application:
+
+```
+dependencies {
+    compile 'com.microblink:blinkid:1.0.0'
+}
+```
+
+### Using android-maven-plugin
+
+Open your pom.xml file and add these directives as appropriate:
+
+```xml
+<repositories>
+   	<repository>
+       	<id>MicroblinkRepo</id>
+       	<url>http://maven.microblink.com</url>
+   	</repository>
+</repositories>
+
+<dependencies>
+	<dependency>
+		  <groupId>com.microblink</groupId>
+		  <artifactId>blinkid</artifactId>
+		  <version>1.0.0</version>
+  	</dependency>
+<dependencies>
+```
+
+Maven dependency requires android-maven-plugin version 4.0.0 (AAR support is required).
 
 ## <a name="quickScan"></a> Performing your first scan
 1. You can start recognition process by starting `ScanId` activity with Intent initialized in the following way:
@@ -211,7 +258,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	License key is bound to package name of your application. For example, if you have license key that is bound to `my.namespace` app package, you cannot use the same key in other applications. However, if you purchase Premium license, you will get license key that can be used in multiple applications. This license key will then not be bound to package name of the app. Instead, it will be bound to the licensee string that needs to be provided to the library together with the license key. To provide license owner string, use the `EXTRAS_LICENSEE` intent extra like this:
+	License key is bound to package name of your application. For example, if you have license key that is bound to `com.microblink.blinkid.demo` app package, you cannot use the same key in other applications. However, if you purchase Premium license, you will get license key that can be used in multiple applications. This license key will then not be bound to package name of the app. Instead, it will be bound to the licensee string that needs to be provided to the library together with the license key. To provide license owner string, use the `EXTRAS_LICENSEE` intent extra like this:
 
 	```java
 	// set the license key
@@ -230,10 +277,6 @@ While loading camera, `ScanId` displays a splash screen. The layout of splash sc
 #### Modifying other resources.
 
 Generally, you can also change other resources that `ScanId` uses, but you are encouraged to create your own custom scan activity instead (see [Embedding `RecognizerView` into custom scan activity](#recognizerView)). Just do not modify the contents of `raw` folder, as it contains files necessary for native part of the library - without those files _BlinkID_ will not work.
-
-#### Changing viewfinder appearance
-
-To change the colour of viewfinder in `ScanId`, change or override the colours defined in `res/values/colors.xml` (colours `default_frame` and `recognized_frame`).
 
 ## <a name="recognizerView"></a> Embedding `RecognizerView` into custom scan activity
 This section will discuss how to embed `RecognizerView` into your scan activity and perform scan.
@@ -261,7 +304,10 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
 			setarr = RecognizerSettingsUtils.filterOutRecognizersThatRequireAutofocus(setarr);
 		}
 		mRecognizerView.setRecognitionSettings(settings);
-		   
+		
+        // set license key
+        mRecognizerView.setLicenseKey("your license key here");
+           
 		// scan result listener will be notified when scan result gets available
 		mRecognizerView.setScanResultListener(this);
 		// camera events listener will be notified about camera lifecycle and errors
@@ -401,7 +447,7 @@ __Important__
 If you use `sensor` or similar screen orientation for your scan activity there is a catch. No matter if your activity is set to be restarted on configuration change or only notified via `onConfigurationChanged` method, if your activity's orientation is changed from `portrait` to `reversePortrait` or from `landscape` to `reverseLandscape` or vice versa, your activity will not be notified of this change in any way - it will not be neither restarted nor `onConfigurationChanged` will be called - the views in your activity will just be rotated by 180 degrees. This is a problem because it will make your camera preview upside down. In order to fix this, you first need to [find a way how to get notified of this change](https://stackoverflow.com/questions/9909037/how-to-detect-screen-rotation-through-180-degrees-from-landscape-to-landscape-or) and then you should call `changeConfiguration` method of `RecognizerView` so it will correct camera preview orientation.
 
 ## <a name="recognizerViewReference"></a> `RecognizerView` reference
-The complete reference of `RecognizerView` is available in [Javadoc](javadoc/com/microblink/view/recognition/RecognizerView.html). The usage example is provided in `BlinkIDDemoCustomUI` demo app provided with SDK. This section just gives a quick overview of `RecognizerView's` most important methods.
+The complete reference of `RecognizerView` is available in [Javadoc](javadoc/com/microblink/view/recognition/RecognizerView.html). The usage example is provided in ` - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity` demo app provided with SDK. This section just gives a quick overview of `RecognizerView's` most important methods.
 
 ##### `create()`
 This method should be called in activity's `onCreate` method. It will initialize `RecognizerView's` internal fields and will initialize camera control thread. This method must be called after all other settings are already defined, such as listeners and recognition settings. After calling this method, you can add child views to `RecognizerView` with method `addChildView(View, boolean)`.
@@ -439,6 +485,9 @@ With this method you can set the generic settings that will be affect all enable
 ##### `reconfigureRecognizers(RecognizerSettings[], GenericRecognizerSettings)`
 With this method you can reconfigure the recognition process while recognizer is active. Unlike `setRecognitionSettings` and `setGenericRecognizerSettings`, this method can be called while recognizer is active (i.e. after `resume` was called), but paused (either `pauseScanning` was called or `onScanningDone` callback is being handled). For more information about recognition settings see [Recognition settings and results](#recognitionSettingsAndResults).
 
+##### `reconfigureRecognizers(RecognizerSettings[])`
+With this method you can reconfigure the recognition process while recognizer is active. Unlike `setRecognitionSettings`, this method can be called while recognizer is active (i.e. after `resume` was called), but paused (either `pauseScanning` was called or `onScanningDone` callback is being handled). For more information about recognition settings see [Recognition settings and results](#recognitionSettingsAndResults).
+
 ##### `setOrientationAllowedListener(OrientationAllowedListener)`
 With this method you can set a [OrientationAllowedListener](javadoc/com/microblink/view/OrientationAllowedListener.html) which will be asked if current orientation is allowed. If orientation is allowed, it will be used to rotate rotatable views to it and it will be passed to native library so that recognizers can be aware of the new orientation.
 
@@ -455,7 +504,13 @@ With this method you can set a [CameraEventsListener](javadoc/com/microblink/vie
 This method pauses the scanning loop, but keeps both camera and native library initialized. This method is called internally when scan completes before `onScanningDone` is called.
 
 ##### `resumeScanning()`
-With this method you can resume the paused scanning loop.
+With this method you can resume the paused scanning loop. This method implicitly calls `resetRecognitionState()`.
+
+##### `resumeScanningWithoutStateReset()`
+With this method you can resume the paused scanning loop without resetting recognition state. Be aware that after resuming, old recognition state might be reused for boosting recognition result. This may not be always a desired behaviour.
+
+##### `resetRecognitionState()`
+With this method you can reset internal recognition state. State is usually kept to improve recognition quality over time, but without resetting recognition state sometimes you might get poorer results (for example if you scan one object and then another without resetting state you might end up with result that contains properties from both scanned objects).
 
 ##### `addChildView(View, boolean)`
 With this method you can add your own view on top of `RecognizerView`. `RecognizerView` will ensure that your view will be layouted exactly above camera preview surface (which can be letterboxed if aspect ratio of camera preview size does not match the aspect ratio of `RecognizerView` and camera aspect mode is set to `ASPECT_FIT`). Boolean parameter defines whether your view should be rotated with device orientation changes. The rotation is independent of host activity's orientation changes and allowed orientations will be determined from [OrientationAllowedListener](javadoc/com/microblink/view/OrientationAllowedListener.html). See also [Scan activity's orientation](#scanOrientation) for more information why you should rotate your views independently of activity.
@@ -512,6 +567,12 @@ public class DirectAPIActivity extends Activity implements ScanResultListener {
 	   super.onStart();
 	   mRecognizer = Recognizer.getSingletonInstance();
 		
+	   // set license key
+	   boolean success = mRecognizer.setLicenseKey(this, "your license key");
+	   if (!success) {
+	   		return;
+	   }
+
 		// setupSettingsArray method is described in chapter "Recognition 
 		// settings and results")
 		mRecognizer.initialize(this, null, setupSettingsArray());
@@ -605,43 +666,43 @@ public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType re
 Available getters are:
 
 ##### `boolean isValid()`
-    Returns `true` if scan result is valid, i.e. if all required elements were scanned with good confidence and can be used. If `false` is returned that indicates that some crucial data fields are missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain payslip, please report that as a bug to <support@microblink.com>. Please include problematic payslips.
+Returns `true` if scan result is valid, i.e. if all required elements were scanned with good confidence and can be used. If `false` is returned that indicates that some crucial data fields are missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain payslip, please report that as a bug to <support@microblink.com>. Please include problematic payslips.
 
 ##### `boolean isEmpty()`
-    Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
+Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
 
 ##### `String getPrimaryId()`
-    Returns the primary indentifier. Where is more than one component, they are separated with space.
+Returns the primary indentifier. If there is more than one component, they are separated with space.
 
 ##### `String getSecondaryId()`
-    Returns the secondary identifier. Where is more than one component, they are separated with space.
+Returns the secondary identifier. If there is more than one component, they are separated with space.
 
 ##### `String getIssuer()`
-    Returns three-letter code which indicate the issuing State. Three-letter codes are based on Aplha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
+Returns three-letter code which indicate the issuing State. Three-letter codes are based on Aplha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
 
 ##### `String getDateOfBirth()`
-    Returns holder's date of birth in format YYMMDD.
+Returns holder's date of birth in format YYMMDD.
 
 ##### `String getDocumentNumber()`
-    Returns document number. Document number contains up to 9 characters.
+Returns document number. Document number contains up to 9 characters.
 
 ##### `String getNationality()`
-    Returns nationality of the holder represented by a three-letter code. Three-letter codes are based on Aplha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
+Returns nationality of the holder represented by a three-letter code. Three-letter codes are based on Alpha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
 
 ##### `String getSex()`
-    Returns sex of the hodler. Sex is pecified by use of the single initial, capital letter F for female, M for male or `<` for unspecified.
+Returns sex of the card holder. Sex is specified by use of the single initial, capital letter F for female, M for male or `<` for unspecified.
 
 ##### `String getDocumentCode()`
-    Returns document code. Document code contains two characters. For MRTD the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports(MRP) first character shall be `P` to designate an MRP. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular MRP. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
+Returns document code. Document code contains two characters. For MRTD the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports (MRP) first character shall be `P` to designate an MRP. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular MRP. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
 
 ##### `String getDateOfExpiry()`
-    Returns date of expiry of the document in format YYMMDD.
+Returns date of expiry of the document in format YYMMDD.
 
 ##### `String getOpt1()`
-    Returns first optional data. Returns `null` or empty string if not available.
+Returns first optional data. Returns `null` or empty string if not available.
 
 ##### `String getOpt2()`
-    Returns second optional data. Returns `null` or empty string if not available.
+Returns second optional data. Returns `null` or empty string if not available.
 
 # <a name="translation"></a> Translation and localization
 
