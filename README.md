@@ -179,7 +179,7 @@ Even before starting the scan activity, you should check if _BlinkID_ is support
 
 OpenGL ES 2.0 can be used to accelerate _BlinkID's_ processing but is not mandatory. However, it should be noted that if OpenGL ES 2.0 is not available processing time will be significantly large, especially on low end devices. 
 
-Android 2.2 is the minimum android version on which _BlinkID_ is supported, but if required we may support even Android 2.1 devices, however additional testing on those devices will be required.
+Android 2.3 is the minimum android version on which _BlinkID_ is supported, but if required we may support even Android 2.2 devices, however additional testing on those devices will be required.
 
 Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution cannot be too low. _BlinkID_ requires minimum 480p camera preview resolution in order to perform scan. It must be noted that camera preview resolution is not the same as the video record resolution, although on most devices those are the same. However, there are some devices that allow recording of HD video (720p resolution), but do not allow high enough camera preview resolution (for example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports video record resolution at 720p, but camera preview resolution is only 320p - _BlinkID_ does not work on that device).
 
