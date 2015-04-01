@@ -96,7 +96,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application:
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:1.0.0'
+    compile 'com.microblink:blinkid:1.0.1'
 }
 ```
 
@@ -116,7 +116,7 @@ Open your pom.xml file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>1.0.0</version>
+		  <version>1.0.1</version>
   	</dependency>
 <dependencies>
 ```
