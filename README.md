@@ -678,25 +678,25 @@ Returns the primary indentifier. If there is more than one component, they are s
 Returns the secondary identifier. If there is more than one component, they are separated with space.
 
 ##### `String getIssuer()`
-Returns three-letter code which indicate the issuing State. Three-letter codes are based on Aplha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
+Returns three-letter or two-letter code which indicate the issuing State. Three-letter codes are based on `Aplha-3` codes for entities specified in `ISO 3166-1`, with extensions for certain States. Two-letter codes are based on `Aplha-2` codes for entities specified in `ISO 3166-1`, with extensions for certain States.
 
 ##### `String getDateOfBirth()`
-Returns holder's date of birth in format YYMMDD.
+Returns holder's date of birth in format `YYMMDD`.
 
 ##### `String getDocumentNumber()`
 Returns document number. Document number contains up to 9 characters.
 
 ##### `String getNationality()`
-Returns nationality of the holder represented by a three-letter code. Three-letter codes are based on Alpha-3 codes for entities specified in ISO 3166-1, with extensions for certain States.
+Returns nationality of the holder represented by a three-letter or two-letter code. Three-letter codes are based on `Alpha-3` codes for entities specified in `ISO 3166-1`, with extensions for certain States. Two-letter codes are based on `Aplha-2` codes for entities specified in `ISO 3166-1`, with extensions for certain States.
 
 ##### `String getSex()`
-Returns sex of the card holder. Sex is specified by use of the single initial, capital letter F for female, M for male or `<` for unspecified.
+Returns sex of the card holder. Sex is specified by use of the single initial, capital letter `F` for female, `M` for male or `<` for unspecified.
 
 ##### `String getDocumentCode()`
-Returns document code. Document code contains two characters. For MRTD the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports (MRP) first character shall be `P` to designate an MRP. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular MRP. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
+Returns document code. Document code contains two characters. For `MRTD` the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports `(MRP)` first character shall be `P` to designate an `MRP`. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular `MRP`. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
 
 ##### `String getDateOfExpiry()`
-Returns date of expiry of the document in format YYMMDD.
+Returns date of expiry of the document in format `YYMMDD`.
 
 ##### `String getOpt1()`
 Returns first optional data. Returns `null` or empty string if not available.
