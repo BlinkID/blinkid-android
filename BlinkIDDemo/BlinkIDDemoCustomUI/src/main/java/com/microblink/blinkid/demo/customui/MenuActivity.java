@@ -46,8 +46,7 @@ public class MenuActivity extends Activity {
             btnScan.setEnabled(true);
         } else {
             btnScan.setEnabled(false);
-            Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
     }
 

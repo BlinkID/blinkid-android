@@ -76,6 +76,10 @@ public class MRTDBaseRecognitionResultExtractor implements IBaseRecognitionResul
                     mContext.getString(R.string.PPOpt2),
                     mrtdResult.getOpt2()
             ));
+            mExtractedData.add(new RecognitionResultEntry(
+                    mContext.getString(R.string.PPMRZText),
+                    mrtdResult.getMRZText()
+            ));
         }
 
         return mExtractedData;

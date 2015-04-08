@@ -18,4 +18,5 @@
     <string name="PPDateOfExpiry">Date of expiry</string>
     <string name="PPOpt1">OPT1</string>
     <string name="PPOpt2">OPT2</string>
+    <string name="PPMRZText">MRZ text</string>
 </resources>
