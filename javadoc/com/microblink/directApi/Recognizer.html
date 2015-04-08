@@ -190,6 +190,12 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#setOrientation(Orientation)">setOrientation</a></strong>(Orientation&nbsp;imageOrientation)</code>
+<div class="block">Define orientation of the image that will be recognized next.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#terminate()">terminate</a></strong>()</code>
 <div class="block">Terminates the native library.</div>
 </td>
@@ -284,6 +290,18 @@ extends java.lang.Object</pre>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is already initialized</dd>
 <dd><code>java.lang.NullPointerException</code> - if context or settings array is null</dd></dl>
+</li>
+</ul>
+<a name="setOrientation(Orientation)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOrientation</h4>
+<pre>public&nbsp;void&nbsp;setOrientation(Orientation&nbsp;imageOrientation)</pre>
+<div class="block">Define orientation of the image that will be recognized next. This is required for
+ recognizers that cannot automatically detect image orientation.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>imageOrientation</code> - Orientation of the image expressed as orientation of the device when image was taken.</dd></dl>
 </li>
 </ul>
 <a name="recognize(android.graphics.Bitmap, com.microblink.view.recognition.ScanResultListener)">
