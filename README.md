@@ -96,7 +96,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application:
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:1.0.1'
+    compile 'com.microblink:blinkid:1.1.0'
 }
 ```
 
@@ -116,7 +116,7 @@ Open your pom.xml file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>1.0.1</version>
+		  <version>1.1.0</version>
   	</dependency>
 <dependencies>
 ```
@@ -666,7 +666,7 @@ public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType re
 Available getters are:
 
 ##### `boolean isValid()`
-Returns `true` if scan result is valid, i.e. if all required elements were scanned with good confidence and can be used. If `false` is returned that indicates that some crucial data fields are missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain payslip, please report that as a bug to <support@microblink.com>. Please include problematic payslips.
+Returns `true` if scan result is valid, i.e. if all required elements were scanned with good confidence and can be used. If `false` is returned that indicates that some crucial data fields are missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain document, please report that as a bug to [help.microblink.com](http://help.microblink.com). Please include high resolution photographs of problematic documents.
 
 ##### `boolean isEmpty()`
 Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
@@ -703,6 +703,9 @@ Returns first optional data. Returns `null` or empty string if not available.
 
 ##### `String getOpt2()`
 Returns second optional data. Returns `null` or empty string if not available.
+
+##### `String getMRZText()`
+Returns the entire Machine Readable Zone text from ID. This text is usually used for parsing other elements.
 
 # <a name="translation"></a> Translation and localization
 
@@ -830,8 +833,8 @@ In case of problems with using the SDK, you should do as follows:
 
 After this line, library will display as much information about its work as possible. Make sure to remove this line in your production code as lots of log outputs may slow down the performance of library.
 
-If you cannot solve problems by yourself, do not hesitate to contact us at <support@microblink.com>. Make sure you include the logs when contacting us to minimize the time to find and correct a bug. Also, if having misrecognitions, please send us high resolution images that are not scanned correctly.
+If you cannot solve problems by yourself, do not hesitate to contact us at [help.microblink.com](http://help.microblink.com). Make sure you include the logs when contacting us to minimize the time to find and correct a bug. Also, if having misrecognitions, please send us high resolution images that are not scanned correctly.
 
 # <a name="info"></a> Additional info
-For any other questions, feel free to contact us at <support@microblink.com>.
+For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
 
