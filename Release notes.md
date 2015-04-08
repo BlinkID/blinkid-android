@@ -1,5 +1,9 @@
 # Release notes
 
+## 1.1.0
+- added support for obtaining complete unparsed MRZ lines
+- fixed crash on Motorola Lex755 and Sony Xperia Z
+
 ## 1.0.1
 - Support for two-letter country codes
 
