@@ -1,6 +1,7 @@
 package com.microblink.blinkid.demo.config;
 
 import com.microblink.locale.Language;
+import com.microblink.recognizers.barcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
 
@@ -17,9 +18,10 @@ public class Config {
     /** Returns recognizer settings */
     public static RecognizerSettings[] getRecognizerSettings() {
         MRTDRecognizerSettings sett = new MRTDRecognizerSettings();
+        USDLRecognizerSettings usdlSett = new USDLRecognizerSettings();
 
         return new RecognizerSettings[] {
-                sett
+                sett, usdlSett
         };
     }
 }

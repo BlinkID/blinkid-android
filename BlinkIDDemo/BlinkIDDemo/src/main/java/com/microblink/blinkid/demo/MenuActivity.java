@@ -84,7 +84,7 @@ public class MenuActivity extends Activity {
         /** set the license key (for commercial versions only) - obtain your key at
          *  https://microblink.com/idscan
          */
-        intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "J73M-33DV-3U55-L46U-SXUF-XSWF-A2DY-ZMWL"); // demo license key for package com.microblink.blinkid.demo
+        intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "RQQO6OZ2-GK6MFNGS-UVWVK2JA-P5TRPIYK-S4JFOYPW-ZDXIA2SU-J2V2Y5O5-HORDTOL2"); // demo license key for package com.microblink.blinkid.demo
 
         /**
          * Start activity for result.

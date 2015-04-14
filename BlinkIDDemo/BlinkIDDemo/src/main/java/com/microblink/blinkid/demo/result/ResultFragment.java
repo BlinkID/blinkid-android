@@ -14,11 +14,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
+import com.microblink.blinkid.demo.result.extract.BaseRecognitionResultExtractor;
 import com.microblink.blinkid.demo.result.extract.IBaseRecognitionResultExtractor;
 import com.microblink.blinkid.demo.result.extract.MRTDBaseRecognitionResultExtractor;
 import com.microblink.blinkid.demo.result.extract.RecognitionResultEntry;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
+import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;
 
 import java.util.List;
 
@@ -52,9 +54,6 @@ public class ResultFragment extends Fragment {
         LanguageUtils.setLanguageConfiguration(getResources());
         super.onCreate(savedInstanceState);
 
-        // Set extractor
-        mResultExtractor = new MRTDBaseRecognitionResultExtractor(getActivity());
-
         if (savedInstanceState != null && savedInstanceState.containsKey(DATA)) {
             mData = savedInstanceState.getParcelable(DATA);
         }
@@ -63,6 +62,13 @@ public class ResultFragment extends Fragment {
             if (extras != null) {
                 mData =  extras.getParcelable(RESULT_PARCELABLE);
             }
+        }
+
+        if(mData instanceof MRTDRecognitionResult) {
+            // Set extractor
+            mResultExtractor = new MRTDBaseRecognitionResultExtractor(getActivity());
+        } else {
+            mResultExtractor = new BaseRecognitionResultExtractor(getActivity());
         }
 
         // Extract data from BaseRecognitionResult

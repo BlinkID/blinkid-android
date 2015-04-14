@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
         mRecognizer = Recognizer.getSingletonInstance();
 
         // set license key
-        boolean success = mRecognizer.setLicenseKey(this, "J73M-33DV-3U55-L46U-SXUF-XSWF-A2DY-ZMWL");
+        boolean success = mRecognizer.setLicenseKey(this, "RQQO6OZ2-GK6MFNGS-UVWVK2JA-P5TRPIYK-S4JFOYPW-ZDXIA2SU-J2V2Y5O5-HORDTOL2");
         if (!success) {
             Log.e(TAG, "Failed to set licence key!");
             Toast.makeText(this, "Failed to set licence key!", Toast.LENGTH_LONG).show();

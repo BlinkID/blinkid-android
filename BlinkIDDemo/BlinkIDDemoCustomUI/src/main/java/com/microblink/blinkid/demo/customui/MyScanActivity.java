@@ -88,7 +88,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         /* add license that allows creating custom camera overlay - obtain your key at
          * https://microblink.com/idscan
          */
-        mRecognizerView.setLicenseKey("J73M-33DV-3U55-L46U-SXUF-XSWF-A2DY-ZMWL"); // demo license key for package com.microblink.blinkid.demo
+        mRecognizerView.setLicenseKey("RQQO6OZ2-GK6MFNGS-UVWVK2JA-P5TRPIYK-S4JFOYPW-ZDXIA2SU-J2V2Y5O5-HORDTOL2"); // demo license key for package com.microblink.blinkid.demo
 
         // scan result listener will be notified when scan result gets available
         mRecognizerView.setScanResultListener(this);
