@@ -2,13 +2,13 @@
 <!-- NewPage -->
 <html lang="en">
 <head>
-<title>RecognizerSettings (LibRecognizer API)</title>
+<title>BarcodeDetailedData (LibRecognizer API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="RecognizerSettings (LibRecognizer API)";
+        parent.document.title="BarcodeDetailedData (LibRecognizer API)";
     }
 //-->
 </script>
@@ -33,12 +33,12 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html" title="class in com.microblink.recognizers.settings"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../com/microblink/recognizers/settings/RecognizerSettingsStatus.html" title="enum in com.microblink.recognizers.settings"><span class="strong">Next Class</span></a></li>
+<li>Prev Class</li>
+<li><a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../index.html?com/microblink/recognizers/settings/RecognizerSettings.html" target="_top">Frames</a></li>
-<li><a href="RecognizerSettings.html" target="_top">No Frames</a></li>
+<li><a href="../../../../index.html?com/microblink/results/barcode/BarcodeDetailedData.html" target="_top">Frames</a></li>
+<li><a href="BarcodeDetailedData.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
 <li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
@@ -76,15 +76,15 @@
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="subTitle">com.microblink.recognizers.settings</div>
-<h2 title="Class RecognizerSettings" class="title">Class RecognizerSettings</h2>
+<div class="subTitle">com.microblink.results.barcode</div>
+<h2 title="Class BarcodeDetailedData" class="title">Class BarcodeDetailedData</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>com.microblink.recognizers.settings.RecognizerSettings</li>
+<li>com.microblink.results.barcode.BarcodeDetailedData</li>
 </ul>
 </li>
 </ul>
@@ -95,13 +95,9 @@
 <dt>All Implemented Interfaces:</dt>
 <dd>android.os.Parcelable</dd>
 </dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../com/microblink/recognizers/settings/GenericRecognizerSettings.html" title="class in com.microblink.recognizers.settings">GenericRecognizerSettings</a>, <a href="../../../../com/microblink/recognizers/ocr/mrtd/MRTDRecognizerSettings.html" title="class in com.microblink.recognizers.ocr.mrtd">MRTDRecognizerSettings</a>, <a href="../../../../com/microblink/recognizers/barcode/usdl/USDLRecognizerSettings.html" title="class in com.microblink.recognizers.barcode.usdl">USDLRecognizerSettings</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public abstract class <span class="strong">RecognizerSettings</span>
+<pre>public class <span class="strong">BarcodeDetailedData</span>
 extends java.lang.Object
 implements android.os.Parcelable</pre>
 </li>
@@ -138,9 +134,9 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected android.os.Bundle</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#mSettingsBundle">mSettingsBundle</a></strong></code>
-<div class="block">bundle that contains all settings data</div>
+<td class="colFirst"><code>static android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html" title="class in com.microblink.results.barcode">BarcodeDetailedData</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#CREATOR">CREATOR</a></strong></code>
+<div class="block">Parcelable creator object</div>
 </td>
 </tr>
 </table>
@@ -162,19 +158,16 @@ implements android.os.Parcelable</pre>
 <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Modifier</th>
-<th class="colLast" scope="col">Constructor and Description</th>
+<th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#RecognizerSettings()">RecognizerSettings</a></strong>()</code>
-<div class="block">Default constructor with all recognizers turned off.</div>
+<td class="colOne"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#BarcodeDetailedData()">BarcodeDetailedData</a></strong>()</code>
+<div class="block">Default constructor</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#RecognizerSettings(android.os.Parcel)">RecognizerSettings</a></strong>(android.os.Parcel&nbsp;in)</code>
-<div class="block">private constructor for constructing from parcelable</div>
+<td class="colOne"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#BarcodeDetailedData(android.os.Parcel)">BarcodeDetailedData</a></strong>(android.os.Parcel&nbsp;in)</code>
+<div class="block">Constructor from Parcel</div>
 </td>
 </tr>
 </table>
@@ -193,40 +186,32 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#addElement(com.microblink.results.barcode.BarcodeElement)">addElement</a></strong>(<a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode">BarcodeElement</a>&nbsp;element)</code>
+<div class="block">add new element to the barcode data</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents()">describeContents</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>android.os.Bundle</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getAsBundle()">getAsBundle</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#describeContents()">describeContents</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled()">isEnabled</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#log()">log</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus()">requiresAutofocus</a></strong>()</code>
-<div class="block">Returns true if this recognizer requires camera with autofocus.</div>
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#getAllData()">getAllData</a></strong>()</code>
+<div class="block">Use this method to get all barcode data in one byte array.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode()">requiresLandscapeMode</a></strong>()</code>
-<div class="block">Returns true if this recognizer works only in landscape mode.</div>
-</td>
+<td class="colFirst"><code>java.util.List&lt;<a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode">BarcodeElement</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#getElements()">getElements</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled(boolean)">setEnabled</a></strong>(boolean&nbsp;enabled)</code>&nbsp;</td>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></strong>(android.os.Parcel&nbsp;dest,
+<td class="colLast"><code><strong><a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></strong>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
@@ -235,7 +220,7 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -251,14 +236,14 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="mSettingsBundle">
+<a name="CREATOR">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>mSettingsBundle</h4>
-<pre>protected&nbsp;android.os.Bundle mSettingsBundle</pre>
-<div class="block">bundle that contains all settings data</div>
+<h4>CREATOR</h4>
+<pre>public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/barcode/BarcodeDetailedData.html" title="class in com.microblink.results.barcode">BarcodeDetailedData</a>&gt; CREATOR</pre>
+<div class="block">Parcelable creator object</div>
 </li>
 </ul>
 </li>
@@ -269,25 +254,25 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="RecognizerSettings()">
+<a name="BarcodeDetailedData()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>RecognizerSettings</h4>
-<pre>protected&nbsp;RecognizerSettings()</pre>
-<div class="block">Default constructor with all recognizers turned off.</div>
+<h4>BarcodeDetailedData</h4>
+<pre>public&nbsp;BarcodeDetailedData()</pre>
+<div class="block">Default constructor</div>
 </li>
 </ul>
-<a name="RecognizerSettings(android.os.Parcel)">
+<a name="BarcodeDetailedData(android.os.Parcel)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>RecognizerSettings</h4>
-<pre>protected&nbsp;RecognizerSettings(android.os.Parcel&nbsp;in)</pre>
-<div class="block">private constructor for constructing from parcelable</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - parcelable from which will construct object</dd></dl>
+<h4>BarcodeDetailedData</h4>
+<pre>public&nbsp;BarcodeDetailedData(android.os.Parcel&nbsp;in)</pre>
+<div class="block">Constructor from Parcel</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - </dd></dl>
 </li>
 </ul>
 </li>
@@ -298,63 +283,25 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="requiresAutofocus()">
+<a name="getElements()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>requiresAutofocus</h4>
-<pre>public&nbsp;boolean&nbsp;requiresAutofocus()</pre>
-<div class="block">Returns true if this recognizer requires camera with autofocus.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if this recognizer requires camera with autofocus.</dd></dl>
+<h4>getElements</h4>
+<pre>public&nbsp;java.util.List&lt;<a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode">BarcodeElement</a>&gt;&nbsp;getElements()</pre>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the elements of the barcode</dd></dl>
 </li>
 </ul>
-<a name="requiresLandscapeMode()">
+<a name="addElement(com.microblink.results.barcode.BarcodeElement)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>requiresLandscapeMode</h4>
-<pre>public&nbsp;boolean&nbsp;requiresLandscapeMode()</pre>
-<div class="block">Returns true if this recognizer works only in landscape mode.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if this recognizer works only in landscape mode.</dd></dl>
-</li>
-</ul>
-<a name="setEnabled(boolean)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setEnabled</h4>
-<pre>public&nbsp;void&nbsp;setEnabled(boolean&nbsp;enabled)</pre>
-</li>
-</ul>
-<a name="isEnabled()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isEnabled</h4>
-<pre>public&nbsp;boolean&nbsp;isEnabled()</pre>
-</li>
-</ul>
-<a name="log()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>log</h4>
-<pre>public&nbsp;void&nbsp;log()</pre>
-</li>
-</ul>
-<a name="getAsBundle()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAsBundle</h4>
-<pre>public&nbsp;android.os.Bundle&nbsp;getAsBundle()</pre>
-<dl><dt><span class="strong">Returns:</span></dt><dd>RecognizerSettings object as Android bundle</dd></dl>
+<h4>addElement</h4>
+<pre>public&nbsp;void&nbsp;addElement(<a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode">BarcodeElement</a>&nbsp;element)</pre>
+<div class="block">add new element to the barcode data</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>element</code> - element to be added</dd></dl>
 </li>
 </ul>
 <a name="describeContents()">
@@ -373,7 +320,7 @@ implements android.os.Parcelable</pre>
 <a name="writeToParcel(android.os.Parcel, int)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
@@ -381,6 +328,32 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getAllData()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllData</h4>
+<pre>public&nbsp;byte[]&nbsp;getAllData()</pre>
+<div class="block">Use this method to get all barcode data in one byte array.
+ This is useful if you know how to interpret barcode data
+ and don't want to bother with all barcode elements.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>all barcode data in one byte array</dd></dl>
+</li>
+</ul>
+<a name="toString()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toString</h4>
+<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 </dl>
 </li>
 </ul>
@@ -409,12 +382,12 @@ implements android.os.Parcelable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html" title="class in com.microblink.recognizers.settings"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../com/microblink/recognizers/settings/RecognizerSettingsStatus.html" title="enum in com.microblink.recognizers.settings"><span class="strong">Next Class</span></a></li>
+<li>Prev Class</li>
+<li><a href="../../../../com/microblink/results/barcode/BarcodeElement.html" title="class in com.microblink.results.barcode"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../index.html?com/microblink/recognizers/settings/RecognizerSettings.html" target="_top">Frames</a></li>
-<li><a href="RecognizerSettings.html" target="_top">No Frames</a></li>
+<li><a href="../../../../index.html?com/microblink/results/barcode/BarcodeDetailedData.html" target="_top">Frames</a></li>
+<li><a href="BarcodeDetailedData.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">
 <li><a href="../../../../allclasses-noframe.html">All Classes</a></li>

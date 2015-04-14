@@ -16,6 +16,7 @@
 * [Recognition settings and results](#recognitionSettingsAndResults)
   * [Generic settings](#genericSettings)
   * [Scanning machine-readable travel documents](#mrtd)
+  * [Scanning US Driver's licence barcodes](#usdl)
 * [Translation and localization](#translation)
 * [Processor architecture considerations](#archConsider)
   * [Reducing the final size of your app](#reduceSize)
@@ -29,12 +30,12 @@ The package contains Android Archive (AAR) that contains everything you need to 
 
  - BlinkIDDemo module demonstrates quick and simple integration of _BlinkID_ library
  - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity
-
+ - BlinkIDDirectApiDemo module demonstrates integration of _BlinkID_ library without camera management
  
 _BlinkID_ is supported on Android SDK version 8 (Android 2.2) or later.
 
 
-The library contains one activity: `ScanId`. It is responsible for camera control and barcode recognition. If you create your own scanning UI, you will need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process.
+The library contains one activity: `ScanId`. It is responsible for camera control and recognition. If you create your own scanning UI, you will need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process.
 
 # <a name="quickStart"></a> Quick Start
 
@@ -96,7 +97,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application:
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:1.1.0'
+    compile 'com.microblink:blinkid:1.2.0'
 }
 ```
 
@@ -116,7 +117,7 @@ Open your pom.xml file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>1.1.0</version>
+		  <version>1.2.0</version>
   	</dependency>
 <dependencies>
 ```
@@ -129,6 +130,11 @@ Maven dependency requires android-maven-plugin version 4.0.0 (AAR support is req
 	```java
 	// Intent for ScanId Activity
 	Intent intent = new Intent(this, ScanId.class);
+	
+	// set your licence key
+	// obtain your free licence key at http://microblink.com/login or
+	// contact us at http://help.microblink.com
+	intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "Add your licence key here");
 
 	// setup array of recognition settings (described in chapter "Recognition 
 	// settings and results")
@@ -251,14 +257,14 @@ This section will discuss possible parameters that can be sent over `Intent` for
     ```
 	
 
-* **`ScanId.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can use _BlinkID_ free of charge and without license key for development and non-commercial projects. Once you obtain a license key from [blinkID website](https://microblink.com/idscan/), you can set it with following snippet:
+* **`ScanId.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
 
 	```java
 	// set the license key
 	intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	License key is bound to package name of your application. For example, if you have license key that is bound to `com.microblink.blinkid.demo` app package, you cannot use the same key in other applications. However, if you purchase Premium license, you will get license key that can be used in multiple applications. This license key will then not be bound to package name of the app. Instead, it will be bound to the licensee string that needs to be provided to the library together with the license key. To provide license owner string, use the `EXTRAS_LICENSEE` intent extra like this:
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid.demo` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
 
 	```java
 	// set the license key
@@ -537,10 +543,10 @@ View width and height are defined in current context, i.e. they depend on screen
 Note that scanning region only reflects to native code - it does not have any impact on user interface. You are required to create a matching user interface that will visualize the same scanning region you set here.
 
 ##### `setLicenseKey(String licenseKey)`
-This method sets the license key that will unlock all features of the native library. You can obtain your license key from [blinkID website](https://microblink.com/idscan/).
+This method sets the license key that will unlock all features of the native library. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
 ##### `setLicenseKey(String licenseKey, String licenseOwner)`
-Use this method to set a license key that is bound to a license owner, not the application package name. You will use this method when you obtain a license key that allows you to use _BlinkID_ SDK in multiple applications. You can obtain your license key from [blinkID website](https://microblink.com/idscan/).
+Use this method to set a license key that is bound to a license owner, not the application package name. You will use this method when you obtain a license key that allows you to use _BlinkID_ SDK in multiple applications. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
 ## <a name="directAPI"></a> Using direct API for recognition of android Bitmaps
 
@@ -706,6 +712,83 @@ Returns second optional data. Returns `null` or empty string if not available.
 
 ##### `String getMRZText()`
 Returns the entire Machine Readable Zone text from ID. This text is usually used for parsing other elements.
+
+## <a name="usdl"></a> Scanning US Driver's licence barcodes
+
+This section discusses the settings for setting up USDL recognizer and explains how to obtain results from it.
+
+### Setting up USDL recognizer
+To activate USDL recognizer, you need to create [USDLRecognizerSettings](javadoc/com/microblink/recognizers/barcode/usdl/USDLRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	USDLRecognizerSettings sett = new USDLRecognizerSettings();
+	// disallow scanning of barcodes that have invalid checksum
+	sett.setUncertainScanning(false);
+	// disable automatic scale detection
+	sett.setAutoScaleDetection(false);
+	// disable scanning of barcodes that do not have quiet zone
+	// as defined by the standard
+	sett.setNullQuietZoneAllowed(false);
+       
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+As can be seen from example, you can tweak USDL recognition parameters with methods of `USDLRecognizerSettings`.
+
+##### `setUncertainScanning(boolean)`
+By setting this to `true`, you will enable scanning of non-standard elements, but there is no guarantee that all data will be read. This option is used when multiple rows are missing (e.g. not whole barcode is printed). Default is `false`.
+
+##### `setNullQuietZoneAllowed(boolean)`
+By setting this to `true`, you will allow scanning barcodes which don't have quiet zone surrounding it (e.g. text concatenated with barcode). This option can significantly increase recognition time. Default is `false`.
+
+##### `setAutoScaleDetection(boolean)`
+If set to `true`, prior reading barcode, image scale will be corrected. This enables correct reading of barcodes on high resolution images but slows down the recognition process. Default is `false`.
+
+### Obtaining results from USDL recognizer
+
+USDL recognizer produces [USDLScanResult](javadoc/com/microblink/recognizers/barcode/usdl/USDLScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `USDLScanResult`. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType recognitionType) {
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof USDLScanResult) {
+			USDLScanResult result = (USDLScanResult) baseResult;
+			
+	        // getStringData getter will return the string version of barcode contents (not parsed)
+			String barcodeData = result.getStringData();
+			// isUncertain getter will tell you if scanned barcode is uncertain
+			boolean uncertainData = result.isUncertain();
+			// getRawData getter will return the raw data information object of barcode contents
+			BarcodeDetailedData rawData = result.getRawData();
+			// BarcodeDetailedData contains information about barcode's binary layout, if you
+			// are only interested in raw bytes, you can obtain them with getAllData getter
+			byte[] rawDataBuffer = rawData.getAllData();
+			
+			// if you need specific parsed driver's licence element, you can
+			// use getField method
+			// for example, to obtain AAMVA version, you should use:
+			String aamvaVersion = result.getField(USDLScanResult.kAamvaVersionNumber);
+		}
+	}
+}
+```
+
+##### `String getStringData()`
+This method will return the string representation of barcode contents (not parsed). Note that PDF417 barcode can contain binary data so sometimes it makes little sense to obtain only string representation of barcode data.
+
+##### `boolean isUncertain()`
+This method will return the boolean indicating if scanned barcode is uncertain. This can return `true` only if scanning of uncertain barcodes is allowed, as explained earlier.
+
+##### `BarcodeDetailedData getRawData()`
+This method will return the object that contains information about barcode's binary layout. You can see information about that object in [javadoc](javadoc/com/microblink/results/barcode/BarcodeDetailedData.html). However, if you only need to access byte array containing, you can call method `getAllData` of `BarcodeDetailedData` object.
+
+##### `getField(String)`
+This method will return a parsed US Driver's licence element. The method requires a key that defines which element should be returned and returns either a string representation of that element or `null` if that element does not exist in barcode. To see a list of available keys, refer to [Keys for obtaining US Driver's license data](DriversLicenseKeys.md)
 
 # <a name="translation"></a> Translation and localization
 
