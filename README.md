@@ -32,7 +32,7 @@ The package contains Android Archive (AAR) that contains everything you need to 
  - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity
  - BlinkIDDirectApiDemo module demonstrates integration of _BlinkID_ library without camera management
  
-_BlinkID_ is supported on Android SDK version 8 (Android 2.2) or later.
+_BlinkID_ is supported on Android SDK version 10 (Android 2.3) or later.
 
 
 The library contains one activity: `ScanId`. It is responsible for camera control and recognition. If you create your own scanning UI, you will need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process.
@@ -97,7 +97,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application:
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:1.2.0'
+    compile 'com.microblink:blinkid:1.3.0'
 }
 ```
 
@@ -117,7 +117,7 @@ Open your pom.xml file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>1.2.0</version>
+		  <version>1.3.0</version>
   	</dependency>
 <dependencies>
 ```
@@ -132,7 +132,7 @@ Maven dependency requires android-maven-plugin version 4.0.0 (AAR support is req
 	Intent intent = new Intent(this, ScanId.class);
 	
 	// set your licence key
-	// obtain your free licence key at http://microblink.com/login or
+	// obtain your licence key at http://microblink.com/login or
 	// contact us at http://help.microblink.com
 	intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "Add your licence key here");
 
