@@ -1,5 +1,8 @@
 # Release notes
 
+## 1.3.1
+- Improved parsing of some problematic US Driver's Licence barcodes
+
 ## 1.3.0
 - Added support for non-standard issuing authorities
 
