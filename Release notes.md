@@ -1,5 +1,12 @@
 # Release notes
 
+## 1.4.0
+- added support for defining region for scanning MRZ
+- added support for scannin UK Driver's Licence, check [README](Readme.md) for details
+- improved parsing of MRZ (Machine Readable Zones)
+- support for defining camera zoom level
+- fixed NPE when null SuccessCallback was given
+
 ## 1.3.1
 - Improved parsing of some problematic US Driver's Licence barcodes
 
