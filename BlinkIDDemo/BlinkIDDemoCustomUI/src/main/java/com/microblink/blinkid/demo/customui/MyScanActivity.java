@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.microblink.activity.ScanActivity;
-import com.microblink.activity.ScanId;
 import com.microblink.blinkid.demo.R;
 import com.microblink.blinkid.demo.config.Config;
 import com.microblink.geometry.Point;
@@ -88,7 +87,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         /* add license that allows creating custom camera overlay - obtain your key at
          * https://microblink.com/idscan
          */
-        mRecognizerView.setLicenseKey("RQQO6OZ2-GK6MFNGS-UVWVK2JA-P5TRPIYK-S4JFOYPW-ZDXIA2SU-J2V2Y5O5-HORDTOL2"); // demo license key for package com.microblink.blinkid.demo
+        mRecognizerView.setLicenseKey("TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3"); // demo license key for package com.microblink.blinkid.demo
 
         // scan result listener will be notified when scan result gets available
         mRecognizerView.setScanResultListener(this);

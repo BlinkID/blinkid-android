@@ -19,4 +19,13 @@
     <string name="PPOpt1">OPT1</string>
     <string name="PPOpt2">OPT2</string>
     <string name="PPMRZText">MRZ text</string>
+
+    <!-- UKDL -->
+    <string name="PPFirstName">First name</string>
+    <string name="PPLastName">Last name</string>
+    <string name="PPAddress">Address</string>
+    <string name="PPPlaceOfBirth">Place of birth</string>
+    <string name="PPDriverNumber">Driver number</string>
+    <string name="PPIssueDate">Issue date</string>
+    <string name="PPExpiryDate">Expiry date</string>
 </resources>

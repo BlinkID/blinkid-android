@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.microblink.activity.ScanId;
+import com.microblink.activity.ScanCard;
 import com.microblink.blinkid.demo.config.Config;
 import com.microblink.blinkid.demo.result.ResultActivity;
 import com.microblink.locale.LanguageUtils;
@@ -58,33 +58,40 @@ public class MenuActivity extends Activity {
 
     public void myClickHandler(View view) {
         // Intent for ScanId Activity
-        final Intent intent = new Intent(this, ScanId.class);
+        final Intent intent = new Intent(this, ScanCard.class);
 
         /**
          * If you want sound to be played after the scanning process ends, put
          * here the resource ID of your sound file.
          */
-        intent.putExtra(ScanId.EXTRAS_BEEP_RESOURCE, R.raw.beep);
+        intent.putExtra(ScanCard.EXTRAS_BEEP_RESOURCE, R.raw.beep);
 
         /**
          * If you want to disable moving of camera viewfinder to detected
          * position of slip, set this parameter to false (default is true;
          * applies only to default BlinkID camera UI).
          */
-        intent.putExtra(ScanId.EXTRAS_VIEWFINDER_MOVEABLE, Config.VIEWFINDER_MOVEABLE);
+        intent.putExtra(ScanCard.EXTRAS_VIEWFINDER_MOVEABLE, Config.VIEWFINDER_MOVEABLE);
 
         /**
          * Prepare settings for recognition.
          */
         RecognizerSettings[] settArray = Config.getRecognizerSettings();
         if (settArray != null) {
-            intent.putExtra(ScanId.EXTRAS_RECOGNIZER_SETTINGS_ARRAY, settArray);
+            intent.putExtra(ScanCard.EXTRAS_RECOGNIZER_SETTINGS_ARRAY, settArray);
         }
 
         /** set the license key (for commercial versions only) - obtain your key at
          *  https://microblink.com/idscan
          */
-        intent.putExtra(ScanId.EXTRAS_LICENSE_KEY, "RQQO6OZ2-GK6MFNGS-UVWVK2JA-P5TRPIYK-S4JFOYPW-ZDXIA2SU-J2V2Y5O5-HORDTOL2"); // demo license key for package com.microblink.blinkid.demo
+        intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3"); // demo license key for package com.microblink.blinkid.demo
+
+        /**
+         * if you want, you can enable pinch to zoom feature
+         */
+        intent.putExtra(ScanCard.EXTRAS_ALLOW_PINCH_TO_ZOOM, true);
+
+        intent.putExtra(ScanCard.EXTRAS_SHOW_FOCUS_RECTANGLE, true);
 
         /**
          * Start activity for result.
@@ -97,10 +104,10 @@ public class MenuActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == MY_BLINK_ID_REQUEST_CODE) {
-            if (resultCode == ScanId.RESULT_OK && data != null) {
+            if (resultCode == ScanCard.RESULT_OK && data != null) {
 
                 // dump Recognition data list
-                Parcelable[] multiData = data.getParcelableArrayExtra(ScanId.EXTRAS_RECOGNITION_RESULT_LIST);
+                Parcelable[] multiData = data.getParcelableArrayExtra(ScanCard.EXTRAS_RECOGNITION_RESULT_LIST);
                 if(multiData != null) {
                     Log.i(TAG, "Data count: " + multiData.length);
                     int i = 1;

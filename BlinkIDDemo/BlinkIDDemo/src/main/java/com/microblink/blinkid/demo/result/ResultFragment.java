@@ -16,11 +16,13 @@ import android.widget.Toast;
 import com.microblink.blinkid.demo.R;
 import com.microblink.blinkid.demo.result.extract.BaseRecognitionResultExtractor;
 import com.microblink.blinkid.demo.result.extract.IBaseRecognitionResultExtractor;
-import com.microblink.blinkid.demo.result.extract.MRTDBaseRecognitionResultExtractor;
+import com.microblink.blinkid.demo.result.extract.MRTDRecognitionResultExtractor;
 import com.microblink.blinkid.demo.result.extract.RecognitionResultEntry;
+import com.microblink.blinkid.demo.result.extract.UKDLRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;
+import com.microblink.recognizers.ocr.ukdl.UKDLRecognitionResult;
 
 import java.util.List;
 
@@ -66,7 +68,9 @@ public class ResultFragment extends Fragment {
 
         if(mData instanceof MRTDRecognitionResult) {
             // Set extractor
-            mResultExtractor = new MRTDBaseRecognitionResultExtractor(getActivity());
+            mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
+        } else if(mData instanceof UKDLRecognitionResult) {
+            mResultExtractor = new UKDLRecognitionResultExtractor(getActivity());
         } else {
             mResultExtractor = new BaseRecognitionResultExtractor(getActivity());
         }

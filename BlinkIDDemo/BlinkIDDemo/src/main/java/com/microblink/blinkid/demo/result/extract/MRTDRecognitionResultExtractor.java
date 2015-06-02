@@ -12,12 +12,12 @@ import java.util.List;
 /**
  * Created by igor on 12/19/14.
  */
-public class MRTDBaseRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
+public class MRTDRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
 
     Context mContext;
     List<RecognitionResultEntry> mExtractedData;
 
-    public MRTDBaseRecognitionResultExtractor(Context mContext) {
+    public MRTDRecognitionResultExtractor(Context mContext) {
         this.mContext = mContext;
         mExtractedData = new ArrayList<>();
     }
