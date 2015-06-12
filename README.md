@@ -13,7 +13,7 @@
   * [Customization of `ScanCard` activity](#scanActivityCustomization)
   * [Embedding `RecognizerView` into custom scan activity](#recognizerView)
   * [`RecognizerView` reference](#recognizerViewReference)
-  * [Using direct API for recognition of android Bitmaps](#directAPI)
+  * [Using direct API for recognition of Android Bitmaps](#directAPI)
 * [Recognition settings and results](#recognitionSettingsAndResults)
   * [Generic settings](#genericSettings)
   * [Scanning machine-readable travel documents](#mrtd)
@@ -509,7 +509,7 @@ This method should be called in activity's `onConfigurationChanged` method. It w
 With this method you can define which camera on device will be used. Default camera used is back facing camera.
 
 ##### <a name="recognizerView_setAspectMode"></a> `setAspectMode(CameraAspectMode)`
-Define the aspect mode of camera. If set to `ASPECT_FIT` (default), then camera preview will be fit inside available view space. If set to `ASPECT_FILL`, camera preview will be zoomed and cropped to use the entire view space.
+Define the [aspect mode of camera](javadoc/com/microblink/view/CameraAspectMode.html). If set to `ASPECT_FIT` (default), then camera preview will be letterboxed inside available view space. If set to `ASPECT_FILL`, camera preview will be zoomed and cropped to use the entire view space.
 
 ##### <a name="recognizerView_setRecognitionSettings"></a> `setRecognitionSettings(RecognizerSettings[])`
 With this method you can set the array of `RecognizerSettings` objects. Those objects will contain information about what will be scanned and how will scan be performed. For more information about recognition settings and results see [Recognition settings and results](#recognitionSettingsAndResults). This method must be called before `create()`.
@@ -580,7 +580,7 @@ This method sets the license key that will unlock all features of the native lib
 ##### `setLicenseKey(String licenseKey, String licenseOwner)`
 Use this method to set a license key that is bound to a license owner, not the application package name. You will use this method when you obtain a license key that allows you to use _BlinkID_ SDK in multiple applications. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
-## <a name="directAPI"></a> Using direct API for recognition of android Bitmaps
+## <a name="directAPI"></a> Using direct API for recognition of Android Bitmaps
 
 This section will describe how to use direct API to recognize android Bitmaps without the need for camera. You can use direct API anywhere from your application, not just from activities.
 
@@ -652,7 +652,7 @@ This chapter will discuss various recognition settings used to configure differe
 Generic settings affect all enabled recognizers and the whole recognition process. The complete reference can be found in [javadoc](javadoc/com/microblink/recognizers/settings/GenericRecognizerSettings.html). Here is the list of methods that are most relevant:
 
 ##### `setAllowMultipleScanResultsOnSingleImage(boolean)`
-Sets whether or not outputting of multiple scan results from same image is allowed. If that is `true`, it is possible to return multiple recognition results from same image. By default, this option is `false`, i.e. the array of `BaseRecognitionResults` will contain at most 1 element. The upside of setting that option to `false` is the speed - if you enable lots of recognizers, as soon as the first recognizer succeeds in scanning, recognition chain will be terminated and other recognizers will not get a chance to analyze the image. The downside is that you are then unable to obtain multiple results from single image.
+Sets whether or not outputting of multiple scan results from same image is allowed. If that is `true`, it is possible to return multiple recognition results produced by different recognizers from same image. However, single recognizer can still produce only a single result from single image. By default, this option is `false`, i.e. the array of `BaseRecognitionResults` will contain at most 1 element. The upside of setting that option to `false` is the speed - if you enable lots of recognizers, as soon as the first recognizer succeeds in scanning, recognition chain will be terminated and other recognizers will not get a chance to analyze the image. The downside is that you are then unable to obtain multiple results from different recognizers from single image.
 
 ##### `setNumMsBeforeTimeout(int)`
 Sets the number of miliseconds _BlinkID_ will attempt to perform the scan it exits with timeout error. On timeout returned array of `BaseRecognitionResults` might be null, empty or may contain only elements that are not valid (`isValid` returns `false`) or are empty (`isEmpty` returns `true`).
@@ -965,26 +965,39 @@ However, there are some issues to be considered:
 If your final app is too large because of _BlinkID_, you can decide to create multiple flavors of your app - one flavor for ARMv6, one for ARMv7 and one for x86 devices. With gradle and Android studio this is very easy - just add the following code to `build.gradle` file of your app:
 
 ```
-productFlavors {
-   x86 {
-       ndk {
-           abiFilter "x86"
-       }
-   }
-   armv7 {
-       ndk {
-           abiFilter "armeabi-v7a"
-       }
-   }
-   arm {
-       ndk {
-           abiFilter "armeabi"
-       }
-   }
+android {
+  ...
+  splits {
+    abi {
+      enable true
+      reset()
+      include 'x86', 'armeabi-v7a', 'armeabi'
+      universalApk true
+    }
+  }
 }
 ```
 
-With that build instructions, gradle will build three different APK files for your app. Each APK will contain only native library for one processor architecture. You can find more information about multiple APK support in Google Play Store on [this link](https://developer.android.com/google/play/publishing/multiple-apks.html).
+With that build instructions, gradle will build four different APK files for your app. Each APK will contain only native library for one processor architecture and one APK will contain all architectures. In order for Google Play to accept multiple APKs of the same app, you need to ensure that each APK has different version code. This can easily be done by defining a version code prefix that is dependent on architecture and adding real version code number to it in following gradle script:
+
+```
+// map for the version code
+def abiVersionCodes = ['armeabi':1, 'armeabi-v7a':2, 'x86':3]
+
+android.applicationVariants.all { variant ->
+    // assign different version code for each output
+    variant.outputs.each { output ->
+        def filter = output.getFilter(OutputFile.ABI)
+        if(filter != null) {
+            output.versionCodeOverride = abiVersionCodes.get(output.getFilter(OutputFile.ABI)) * 1000000 + android.defaultConfig.versionCode
+        }
+    }
+}
+```
+
+For more information about creating APK splits with gradle, check [this article from Google](https://sites.google.com/a/android.com/tools/tech-docs/new-build-system/user-guide/apk-splits#TOC-ABIs-Splits).
+
+After generating multiple APK's, you need to upload them to Google Play. For tutorial and rules about uploading multiple APK's to Google Play, please read the [official Google article about multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks.html).
 
 However, if you are using Eclipse, things get complicated. Eclipse does not support build flavors and you will either need to remove support for some processors or create three different library projects from `LibRecognizer.aar` - each one for specific processor architecture. In the next section, we will discuss how to remove processor architecture support from Eclipse library project.
 
