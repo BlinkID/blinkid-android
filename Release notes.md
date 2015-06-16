@@ -1,8 +1,13 @@
 # Release notes
 
+## 1.5.0
+- support for defining camera aspect mode via intent
+- removed autoscale setting from USDL recognizer - autoscale is now always used
+- added MRZ detector to MRTD recognizer - Machine Readable Zone location can now be detected almost everywhere on the image
+
 ## 1.4.0
 - added support for defining region for scanning MRZ
-- added support for scannin UK Driver's Licence, check [README](Readme.md) for details
+- added support for scanning UK Driver's Licence, check [README](Readme.md) for details
 - improved parsing of MRZ (Machine Readable Zones)
 - support for defining camera zoom level
 - fixed NPE when null SuccessCallback was given
