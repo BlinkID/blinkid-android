@@ -105,7 +105,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application:
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:1.4.0'
+    compile 'com.microblink:blinkid:1.5.0'
 }
 ```
 
@@ -127,7 +127,7 @@ Open your pom.xml file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>1.4.0</version>
+		  <version>1.5.0</version>
   	</dependency>
 <dependencies>
 ```
@@ -241,6 +241,12 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	
 	```java
 	intent.putExtra(ScanCard.EXTRAS_CAMERA_TYPE, (Parcelable)CameraType.CAMERA_FRONTFACE);
+	```
+	
+* **`ScanCard.EXTRAS_CAMERA_ASPECT_MODE`** - with this extra you can define which [camera aspect mode](javadoc/com/microblink/view/CameraAspectMode.html) will be used. If set to `ASPECT_FIT` (default), then camera preview will be letterboxed inside available view space. If set to `ASPECT_FILL`, camera preview will be zoomed and cropped to use the entire view space. To set the extra to intent, use the following code snippet:
+
+	```java
+	intent.putExtra(ScanCard.EXTRAS_CAMERA_ASPECT_MODE, (Parcelable)CameraAspectMode.ASPECT_FIT);
 	```
 	
 * **`ScanCard.EXTRAS_RECOGNIZER_SETTINGS_ARRAY`** - with this extra you must set the array of `RecognizerSettings` objects. Each `RecognizerSettings` object will define settings for specific recognizer object. Each recognizer object then creates its version of `BaseRecognitionResult` object in array returned via `ScanCard.EXTRAS_RECOGNITION_RESULT_LIST` extra. For more information about recognition settings and result, see [Recognition settings and results](#recognitionSettingsAndResults).  After defining recognition settings array, you need to put them into intent extra with following code snippet:
@@ -684,6 +690,9 @@ With this method you can define the region on image where Machine Readable Zone 
 sett.setMRZRegion(new Rectangle(0.f, 0.75f, 1.f, 0.25f));
 ```
 
+##### `setDetectMRZ(boolean)`
+With this method you can turn on/off the detection of Machine Readable Zone. When detection is on (default), MRZ location if first detected on image and then OCR is performed. If you turn this off, you must ensure correct positioning of MRZ with your UI. MRZ detection introduces a performance penalty.
+
 ### Obtaining results from machine-readable travel documents recognizer
 
 MRTD recognizer produces [MRTDRecognitionResult](javadoc/com/microblink/recognizers/ocr/mrtd/MRTDRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MRTDRecognitionResult` class. See the following snippet for an example:
@@ -766,8 +775,6 @@ private RecognizerSettings[] setupSettingsArray() {
 	USDLRecognizerSettings sett = new USDLRecognizerSettings();
 	// disallow scanning of barcodes that have invalid checksum
 	sett.setUncertainScanning(false);
-	// disable automatic scale detection
-	sett.setAutoScaleDetection(false);
 	// disable scanning of barcodes that do not have quiet zone
 	// as defined by the standard
 	sett.setNullQuietZoneAllowed(false);

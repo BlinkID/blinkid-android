@@ -14,9 +14,11 @@ import android.widget.Toast;
 import com.microblink.activity.ScanCard;
 import com.microblink.blinkid.demo.config.Config;
 import com.microblink.blinkid.demo.result.ResultActivity;
+import com.microblink.hardware.camera.CameraType;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.recognizers.settings.RecognizerSettingsUtils;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -78,6 +80,9 @@ public class MenuActivity extends Activity {
          */
         RecognizerSettings[] settArray = Config.getRecognizerSettings();
         if (settArray != null) {
+            if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_DEFAULT, this)) {
+                settArray = RecognizerSettingsUtils.filterOutRecognizersThatRequireAutofocus(settArray);
+            }
             intent.putExtra(ScanCard.EXTRAS_RECOGNIZER_SETTINGS_ARRAY, settArray);
         }
 

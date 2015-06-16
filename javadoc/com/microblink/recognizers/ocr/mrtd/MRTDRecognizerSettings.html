@@ -201,8 +201,20 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../../com/microblink/recognizers/ocr/mrtd/MRTDRecognizerSettings.html#setDetectMRZ(boolean)">setDetectMRZ</a></strong>(boolean&nbsp;detectMRZ)</code>
+<div class="block">Defines whether Machine Readable Zone location detection will be used.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/microblink/recognizers/ocr/mrtd/MRTDRecognizerSettings.html#setMRZRegion(com.microblink.geometry.Rectangle)">setMRZRegion</a></strong>(<a href="../../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;region)</code>
 <div class="block">Defines the region on image where Machine Readable Zone (MRZ) is expected.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../../com/microblink/recognizers/ocr/mrtd/MRTDRecognizerSettings.html#shouldDetectMRZ()">shouldDetectMRZ</a></strong>()</code>
+<div class="block">Returns true if Machine Readable Zone location detection is used.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -301,6 +313,29 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
  null if default region is used.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the region on image where Machine Readable Zone (MRZ) is expected or
  null if default region is used.</dd></dl>
+</li>
+</ul>
+<a name="setDetectMRZ(boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetectMRZ</h4>
+<pre>public&nbsp;void&nbsp;setDetectMRZ(boolean&nbsp;detectMRZ)</pre>
+<div class="block">Defines whether Machine Readable Zone location detection will be used. Set this
+ to true to detect MRZ location on image prior performing OCR and data extraction.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>detectMRZ</code> - whether Machine Readable Zone location detection will be used</dd></dl>
+</li>
+</ul>
+<a name="shouldDetectMRZ()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldDetectMRZ</h4>
+<pre>public&nbsp;boolean&nbsp;shouldDetectMRZ()</pre>
+<div class="block">Returns true if Machine Readable Zone location detection is used.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>true if Machine Readable Zone location detection is used.</dd></dl>
 </li>
 </ul>
 <a name="describeContents()">
