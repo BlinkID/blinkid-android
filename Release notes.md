@@ -1,5 +1,10 @@
 # Release notes
 
+## 1.6.0
+- removed support for ARMv5 and ARMv6 processors (armeabi) because of their very poor scanning performance
+- optimized MRZ text extraction algorithm - 0-O confusion now does not cause extremely long processing that resulted in freezing the device
+- updated documentation with use cases for which BlinkID is applicable
+
 ## 1.5.0
 - support for defining camera aspect mode via intent
 - removed autoscale setting from USDL recognizer - autoscale is now always used
