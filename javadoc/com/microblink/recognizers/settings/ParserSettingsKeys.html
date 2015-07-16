@@ -116,14 +116,26 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kAmount">kAmount</a></strong></code>
-<div class="block">Amount parser</div>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kAllowAlpha">kAllowAlpha</a></strong></code>
+<div class="block">Key for defining whether uppercase letters will be allowed in serbian and bosnian reference parsers</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kAmount">kAmount</a></strong></code>
+<div class="block">Amount parser</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kCroReference">kCroReference</a></strong></code>
 <div class="block">Croatian reference parser</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kDate">kDate</a></strong></code>
+<div class="block">Date parser</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -138,38 +150,62 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kFavorMod97">kFavorMod97</a></strong></code>
+<div class="block">Key for defining whether mod97 reference will be favored in serbian reference parser</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kIBAN">kIBAN</a></strong></code>
 <div class="block">IBAN parser</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kMacedonianAccount">kMacedonianAccount</a></strong></code>
+<div class="block">Macedonian account parser</div>
+</td>
+</tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kMacedonianReference">kMacedonianReference</a></strong></code>
+<div class="block">Macedonian reference parser</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kOcrEngineOptions">kOcrEngineOptions</a></strong></code>
 <div class="block">Key for defining OCR engine options for specific parser</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kParserType">kParserType</a></strong></code>
 <div class="block">Parser type.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kRaw">kRaw</a></strong></code>
 <div class="block">Raw parser</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kRegex">kRegex</a></strong></code>
 <div class="block">Generic Regex parser</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kSerbianAccount">kSerbianAccount</a></strong></code>
 <div class="block">Serbian account parser</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><strong><a href="../../../../com/microblink/recognizers/settings/ParserSettingsKeys.html#kSerbianReference">kSerbianReference</a></strong></code>
+<div class="block">Serbian reference parser</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -369,6 +405,17 @@ extends java.lang.Object</pre>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kEMail">Constant Field Values</a></dd></dl>
 </li>
 </ul>
+<a name="kDate">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kDate</h4>
+<pre>public static final&nbsp;java.lang.String kDate</pre>
+<div class="block">Date parser</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kDate">Constant Field Values</a></dd></dl>
+</li>
+</ul>
 <a name="kRegex">
 <!--   -->
 </a>
@@ -405,12 +452,67 @@ extends java.lang.Object</pre>
 <a name="kSerbianAccount">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>kSerbianAccount</h4>
 <pre>public static final&nbsp;java.lang.String kSerbianAccount</pre>
 <div class="block">Serbian account parser</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kSerbianAccount">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="kSerbianReference">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kSerbianReference</h4>
+<pre>public static final&nbsp;java.lang.String kSerbianReference</pre>
+<div class="block">Serbian reference parser</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kSerbianReference">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="kMacedonianAccount">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kMacedonianAccount</h4>
+<pre>public static final&nbsp;java.lang.String kMacedonianAccount</pre>
+<div class="block">Macedonian account parser</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kMacedonianAccount">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="kMacedonianReference">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kMacedonianReference</h4>
+<pre>public static final&nbsp;java.lang.String kMacedonianReference</pre>
+<div class="block">Macedonian reference parser</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kMacedonianReference">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="kFavorMod97">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>kFavorMod97</h4>
+<pre>public static final&nbsp;java.lang.String kFavorMod97</pre>
+<div class="block">Key for defining whether mod97 reference will be favored in serbian reference parser</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kFavorMod97">Constant Field Values</a></dd></dl>
+</li>
+</ul>
+<a name="kAllowAlpha">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>kAllowAlpha</h4>
+<pre>public static final&nbsp;java.lang.String kAllowAlpha</pre>
+<div class="block">Key for defining whether uppercase letters will be allowed in serbian and bosnian reference parsers</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../constant-values.html#com.microblink.recognizers.settings.ParserSettingsKeys.kAllowAlpha">Constant Field Values</a></dd></dl>
 </li>
 </ul>
 </li>

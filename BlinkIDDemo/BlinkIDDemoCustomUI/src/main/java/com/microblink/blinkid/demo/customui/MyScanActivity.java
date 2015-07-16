@@ -27,6 +27,7 @@ import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.hardware.orientation.OrientationChangeListener;
 import com.microblink.locale.LanguageUtils;
+import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.view.CameraEventsListener;
@@ -87,7 +88,14 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         /* add license that allows creating custom camera overlay - obtain your key at
          * https://microblink.com/idscan
          */
-        mRecognizerView.setLicenseKey("TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3"); // demo license key for package com.microblink.blinkid.demo
+        try {
+            mRecognizerView.setLicenseKey("TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3"); // demo license key for package com.microblink.blinkid.demo
+        } catch (InvalidLicenceKeyException e) {
+            e.printStackTrace();
+            Log.e(TAG, "Invalid licence key!");
+            Toast.makeText(this, "Invalid licence key!", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         // scan result listener will be notified when scan result gets available
         mRecognizerView.setScanResultListener(this);

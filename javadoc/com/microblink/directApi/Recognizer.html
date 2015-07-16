@@ -33,7 +33,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev Class</li>
+<li><a href="../../../com/microblink/directApi/DirectApiErrorListener.html" title="interface in com.microblink.directApi"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../com/microblink/directApi/Recognizer.State.html" title="enum in com.microblink.directApi"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -147,9 +147,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#initialize(android.content.Context, com.microblink.recognizers.settings.GenericRecognizerSettings, com.microblink.recognizers.settings.RecognizerSettings[])">initialize</a></strong>(android.content.Context&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#initialize(android.content.Context, com.microblink.recognizers.settings.GenericRecognizerSettings, com.microblink.recognizers.settings.RecognizerSettings[], com.microblink.directApi.DirectApiErrorListener)">initialize</a></strong>(android.content.Context&nbsp;context,
           <a href="../../../com/microblink/recognizers/settings/GenericRecognizerSettings.html" title="class in com.microblink.recognizers.settings">GenericRecognizerSettings</a>&nbsp;genericSettings,
-          <a href="../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>[]&nbsp;settings)</code>
+          <a href="../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>[]&nbsp;settings,
+          <a href="../../../com/microblink/directApi/DirectApiErrorListener.html" title="interface in com.microblink.directApi">DirectApiErrorListener</a>&nbsp;errorListener)</code>
 <div class="block">Initialize native library for recognition.</div>
 </td>
 </tr>
@@ -175,14 +176,14 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#setLicenseKey(android.content.Context, java.lang.String)">setLicenseKey</a></strong>(android.content.Context&nbsp;context,
              java.lang.String&nbsp;licenseKey)</code>
 <div class="block">Sets the license key required for unlocking the library.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../com/microblink/directApi/Recognizer.html#setLicenseKey(java.lang.String, java.lang.String)">setLicenseKey</a></strong>(java.lang.String&nbsp;licenseKey,
              java.lang.String&nbsp;licensee)</code>
 <div class="block">Sets the license key required for unlocking the library.</div>
@@ -250,13 +251,14 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLicenseKey</h4>
-<pre>public&nbsp;boolean&nbsp;setLicenseKey(android.content.Context&nbsp;context,
-                    java.lang.String&nbsp;licenseKey)</pre>
+<pre>public&nbsp;void&nbsp;setLicenseKey(android.content.Context&nbsp;context,
+                 java.lang.String&nbsp;licenseKey)
+                   throws <a href="../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></pre>
 <div class="block">Sets the license key required for unlocking the library.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - Application context used for license checking.</dd><dd><code>licenseKey</code> - License key.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if license check passed, false otherwise</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code> - if recognizer is not in offline state (use getCurrentState method to obtain the state)</dd></dl>
+<dd><code>java.lang.IllegalStateException</code> - if recognizer is not in offline state (use getCurrentState method to obtain the state)</dd>
+<dd><code><a href="../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></code> - if licence key is invalid</dd></dl>
 </li>
 </ul>
 <a name="setLicenseKey(java.lang.String, java.lang.String)">
@@ -265,18 +267,19 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLicenseKey</h4>
-<pre>public&nbsp;boolean&nbsp;setLicenseKey(java.lang.String&nbsp;licenseKey,
-                    java.lang.String&nbsp;licensee)</pre>
+<pre>public&nbsp;void&nbsp;setLicenseKey(java.lang.String&nbsp;licenseKey,
+                 java.lang.String&nbsp;licensee)
+                   throws <a href="../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></pre>
 <div class="block">Sets the license key required for unlocking the library. Use this method when having license
  key that allows usage of library in multiple different applications (i.e. license key not bound
  to application's package name).</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>licenseKey</code> - License key.</dd><dd><code>licensee</code> - Licensee to which license key is bound.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if license check passed, false otherwise</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>java.lang.IllegalStateException</code> - if recognizer is not in offline state (use getCurrentState method to obtain the state)</dd></dl>
+<dd><code>java.lang.IllegalStateException</code> - if recognizer is not in offline state (use getCurrentState method to obtain the state)</dd>
+<dd><code><a href="../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></code> - if licence key is invalid</dd></dl>
 </li>
 </ul>
-<a name="initialize(android.content.Context, com.microblink.recognizers.settings.GenericRecognizerSettings, com.microblink.recognizers.settings.RecognizerSettings[])">
+<a name="initialize(android.content.Context, com.microblink.recognizers.settings.GenericRecognizerSettings, com.microblink.recognizers.settings.RecognizerSettings[], com.microblink.directApi.DirectApiErrorListener)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -284,12 +287,14 @@ extends java.lang.Object</pre>
 <h4>initialize</h4>
 <pre>public&nbsp;void&nbsp;initialize(android.content.Context&nbsp;context,
               <a href="../../../com/microblink/recognizers/settings/GenericRecognizerSettings.html" title="class in com.microblink.recognizers.settings">GenericRecognizerSettings</a>&nbsp;genericSettings,
-              <a href="../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>[]&nbsp;settings)</pre>
+              <a href="../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>[]&nbsp;settings,
+              <a href="../../../com/microblink/directApi/DirectApiErrorListener.html" title="interface in com.microblink.directApi">DirectApiErrorListener</a>&nbsp;errorListener)</pre>
 <div class="block">Initialize native library for recognition.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - Application context used for loading required resources.</dd><dd><code>genericSettings</code> - Generic settings applied to all recognizers and whole recognition process.</dd><dd><code>settings</code> - Array of enabled recognizer settings that define the scanning process.</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - Application context used for loading required resources.</dd><dd><code>genericSettings</code> - Generic settings applied to all recognizers and whole recognition process.</dd><dd><code>settings</code> - Array of enabled recognizer settings that define the scanning process.</dd><dd><code>errorListener</code> - Listener that will be notified of any error during initialization of native library
+                      in background thread.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is already initialized</dd>
-<dd><code>java.lang.NullPointerException</code> - if context or settings array is null</dd></dl>
+<dd><code>java.lang.NullPointerException</code> - if context, settings array or errorListener is null</dd></dl>
 </li>
 </ul>
 <a name="setOrientation(Orientation)">
@@ -385,7 +390,7 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev Class</li>
+<li><a href="../../../com/microblink/directApi/DirectApiErrorListener.html" title="interface in com.microblink.directApi"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../com/microblink/directApi/Recognizer.State.html" title="enum in com.microblink.directApi"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">

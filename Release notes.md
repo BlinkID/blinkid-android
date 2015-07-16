@@ -4,6 +4,7 @@
 - removed support for ARMv5 and ARMv6 processors (armeabi) because of their very poor scanning performance
 - optimized MRZ text extraction algorithm - 0-O confusion now does not cause extremely long processing that resulted in freezing the device
 - updated documentation with use cases for which BlinkID is applicable
+- fixed crash in DirectAPI when recognizer was terminated in the middle of recognition process
 
 ## 1.5.0
 - support for defining camera aspect mode via intent
