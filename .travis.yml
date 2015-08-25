@@ -1,0 +1,9 @@
+language: android
+sudo: false
+android:
+    components:
+        - build-tools-22.0.0
+        - android-22
+script:
+    - cd BlinkIDDemo
+    - ./gradlew clean assembleRelease
