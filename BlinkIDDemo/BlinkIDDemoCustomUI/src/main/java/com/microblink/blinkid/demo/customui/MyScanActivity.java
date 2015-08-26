@@ -232,7 +232,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mRecognizerView.resumeScanning();
+                    mRecognizerView.resumeScanning(true);
                 }
             }, 2000);
         }
@@ -252,6 +252,11 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     public void onCameraPreviewStarted() {
         // this method is called just after camera preview has started
         enableTorchButtonIfPossible();
+    }
+
+    @Override
+    public void onCameraPreviewStopped() {
+        // this method is called just after camera preview has stopped
     }
 
     private void enableTorchButtonIfPossible() {
