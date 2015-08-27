@@ -1,5 +1,9 @@
 # Release notes
 
+## 1.7.1
+- fixed NullPointerException when RecognizerSettings array element was `null`
+- fixed black rectangle bug on some devices
+
 ## 1.7.0
 - utilize Camera2 API on devices that support it to achieve much better frame grabbing performance
 - new algorithm for determining which video frame is of good enough quality to be processed - it uses much less memory than last one and works in separate thread so it does not impact image recognition thread
