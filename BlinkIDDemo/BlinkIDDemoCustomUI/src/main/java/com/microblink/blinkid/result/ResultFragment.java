@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result;
+package com.microblink.blinkid.result;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.blinkid.demo.result.extract.BaseRecognitionResultExtractor;
-import com.microblink.blinkid.demo.result.extract.IBaseRecognitionResultExtractor;
-import com.microblink.blinkid.demo.result.extract.MRTDRecognitionResultExtractor;
-import com.microblink.blinkid.demo.result.extract.RecognitionResultEntry;
-import com.microblink.blinkid.demo.result.extract.UKDLRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.BaseRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.IBaseRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.MRTDRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.RecognitionResultEntry;
+import com.microblink.blinkid.result.extract.UKDLRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;

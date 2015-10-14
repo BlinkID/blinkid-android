@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result.extract;
+package com.microblink.blinkid.result.extract;
 
 
 import com.microblink.recognizers.BaseRecognitionResult;

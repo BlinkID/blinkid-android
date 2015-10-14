@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result;
+package com.microblink.blinkid.result;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.microblink.blinkid.demo.R;
-import com.microblink.blinkid.demo.result.extract.RecognitionResultEntry;
+import com.microblink.blinkid.R;
+import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 
 import java.util.List;
 

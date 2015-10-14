@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result.extract;
+package com.microblink.blinkid.result.extract;
 
 /**
  * Created by igor on 12/4/14.

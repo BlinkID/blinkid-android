@@ -1,8 +1,8 @@
-package com.microblink.blinkid.demo.result.extract;
+package com.microblink.blinkid.result.extract;
 
 import android.content.Context;
 
-import com.microblink.blinkid.demo.R;
+import com.microblink.blinkid.R;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;
 

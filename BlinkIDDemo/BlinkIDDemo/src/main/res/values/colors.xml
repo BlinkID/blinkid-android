@@ -12,4 +12,7 @@
     <color name="helpButtonForeground">#DDEEEEEE</color>
 
     <color name="greendark">#FF669900</color>
+
+    <color name="help_background">#ff434343</color>
+    <color name="text_white">#FFFFFFFF</color>
 </resources>

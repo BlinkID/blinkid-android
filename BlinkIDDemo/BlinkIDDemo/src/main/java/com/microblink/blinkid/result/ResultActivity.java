@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result;
+package com.microblink.blinkid.result;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.microblink.activity.ScanActivity;
-import com.microblink.blinkid.demo.R;
+import com.microblink.blinkid.R;
 import com.microblink.recognizers.BaseRecognitionResult;
 
 /**

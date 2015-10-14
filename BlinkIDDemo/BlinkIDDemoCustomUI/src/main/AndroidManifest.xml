@@ -34,7 +34,7 @@
             android:label="@string/title_activity_my_scan" >
         </activity>
         <activity
-            android:name="com.microblink.blinkid.demo.result.ResultActivity"
+            android:name="com.microblink.blinkid.result.ResultActivity"
             android:screenOrientation="sensor"
             android:label="@string/title_activity_my_scan" >
         </activity>

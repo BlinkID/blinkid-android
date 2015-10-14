@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.result;
+package com.microblink.blinkid.result;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

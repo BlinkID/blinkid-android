@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.microblink.activity.ScanActivity;
 import com.microblink.blinkid.demo.R;
 import com.microblink.blinkid.demo.config.Config;
-import com.microblink.blinkid.demo.result.ResultActivity;
+import com.microblink.blinkid.result.ResultActivity;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.util.RecognizerCompatibility;
