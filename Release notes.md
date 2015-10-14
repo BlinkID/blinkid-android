@@ -1,5 +1,28 @@
 # Release notes
 
+## 1.8.0
+- added support for scanning barcodes with _BlinkID_
+- added support for performing raw OCR with _BlinkID_
+- improved USDL barcode parsing
+	- better handling of FullName, FullAddress, Height and Weight of cardholder
+- fixed crash in USDL parser
+- fixed race condition causing memory leak or rare crashes
+- fixed `NullPointerException` in `BaseCameraView.dispatchTouchEvent`
+- fixed bug that caused returning scan result from old video frame
+- fixed `NullPointerException` in camera2 management
+- fixed rare race condition in gesture recognizer
+- fixed segmentation fault on recognizer reconfiguration operation
+- fixed freeze when camera was being quickly turned on and off
+- ensured `RecognizerView` lifecycle methods are called on UI thread
+- ensure `onCameraPreviewStarted` is not called if camera is immediately closed after start before the call should have taken place
+- ensure `onScanningDone` is not called after `RecognizerView` has been paused, even if it had result ready just before pausing
+- added support for using _BlinkID_ as camera capture API. To do that, implement following:
+	- when using `RecognizerView` do not call `setRecognitionSettings` or call it with `null` or empty array
+	- implement `ImageListener` interface and set the listener with `setImageListener`
+	- as a reminder - you can process video frames obtained that way using DirectAPI method `recognizeImageWithSettings`
+- added `BlinkIDDemoCustomSegmentScan ` demo app that demonstrates advanced integration of SegmentScan feature within custom scan activity. It also demonstrates how to perform generic OCR of full camera frame, how to draw OCR results on screen and how to obtain OcrResult object for further processing.
+- all demo apps now use Maven integration method because it is much easier than importing AAR manually
+
 ## 1.7.1
 - fixed NullPointerException when RecognizerSettings array element was `null`
 - fixed black rectangle bug on some devices
