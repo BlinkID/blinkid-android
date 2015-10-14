@@ -8,6 +8,8 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [United States' Driver's License barcodes](https://en.wikipedia.org/wiki/Driver%27s_license_in_the_United_States)
 * [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
 
+As of version `1.8.0` you can also scan barcodes and perform OCR of structurized or free-form text. Supported barcodes are the same as in sister product [PDF417.mobi](https://github.com/PDF417/pdf417-android).
+
 Using _BlinkID_ in your app requires a valid license key. You can obtain a trial license key by registering to [Microblink dashboard](https://microblink.com/login). After registering, you will be able to generate a license key for your app. License key is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked.
 
 See below for more information about how to integrate _BlinkID_ SDK into your app and also check latest [Release notes](Release notes.md).
@@ -17,14 +19,16 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
 * [Android _BlinkID_ integration instructions](#intro)
 * [Quick Start](#quickStart)
   * [Quick start with demo app](#quickDemo)
-  * [Quick integration of _BlinkID_ into your app](#quickIntegration)
+  * [Integrating _BlinkID_ into your project using Maven](#mavenIntegration)
+  * [Android studio integration instructions](#quickIntegration)
   * [Eclipse integration instructions](#eclipseIntegration)
-  * [How to integrate _BlinkID_ into your project using Maven](#mavenIntegration)
   * [_BlinkID's_ dependencies](#dependencies)
   * [Performing your first scan](#quickScan)
+  * [Performing your first segment scan](#quickScan)
 * [Advanced _BlinkID_ integration instructions](#advancedIntegration)
   * [Checking if _BlinkID_ is supported](#supportCheck)
   * [Customization of `ScanCard` activity](#scanActivityCustomization)
+  * [Customization of `BlinkOCRActivity` activity](#segmentScanActivityCustomization)
   * [Embedding `RecognizerView` into custom scan activity](#recognizerView)
   * [`RecognizerView` reference](#recognizerViewReference)
 * [Using direct API for recognition of Android Bitmaps](#directAPI)
@@ -36,6 +40,10 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning machine-readable travel documents](#mrtd)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning United Kingdom's driver's licences](#ukdl)
+  * [Scanning PDF417 barcodes](#pdf417Recognizer)
+  * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
+  * [Scanning barcodes with ZXing implementation](#zxing)
+  * [Scanning segments with BlinkOCR recognizer](#blinkOCR)
 * [Translation and localization](#translation)
 * [Processor architecture considerations](#archConsider)
   * [Reducing the final size of your app](#reduceSize)
@@ -49,14 +57,20 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
 
 The package contains Android Archive (AAR) that contains everything you need to use _BlinkID_ library. Besides AAR, package also contains a demo project that contains following modules:
 
- - BlinkIDDemo module demonstrates quick and simple integration of _BlinkID_ library
- - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity
- - BlinkIDDirectApiDemo module demonstrates integration of _BlinkID_ library without camera management
+- _BlinkIDDemo_ module demonstrates quick and simple integration of _BlinkID_ library
+- _BlinkIDDemoCustomUI_ demonstrates advanced integration within custom scan activity
+- _BlinkIDDemoCustomSegmentScan_ demonstrates advanced integration of SegmentScan feature within custom scan activity. It also demonstrates how to perform generic OCR of full camera frame, how to draw OCR results on screen and how to obtain [OcrResult](https://blinkocr.github.io/blinkocr-android/com/microblink/results/ocr/OcrResult.html) object for further processing.
+- _BlinkIDDirectApiDemo_ demonstrates how to perform scanning of [Android Bitmaps](https://developer.android.com/reference/android/graphics/Bitmap.html)
  
-_BlinkID_ is supported on Android SDK version 10 (Android 2.3) or later.
+_BlinkID_ is supported on Android SDK version 10 (Android 2.3.3) or later.
 
+The library contains several activities that are responsible for camera control and recognition:
 
-The library contains one activity: `ScanCard`. It is responsible for camera control and recognition. If you create your own scanning UI, you will need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process.
+- `ScanCard` is designed for scanning ID documents, passports and driver licenses (both UK and US)
+- `Pdf417ScanActivity` is designed for scanning barcodes
+- `BlinkOCRActivity` is specifically designed for segment scanning. Unlike other activities, `BlinkOCRActivity` does not extend `BaseScanActivity`, so it requires a bit different initialization parameters. Please see _BlinkIDDemo_ app for example and read [section about customizing `BlinkOCRActivity`](#segmentScanActivityCustomization).
+
+You can also create your own scanning UI - you just need to embed `RecognizerView` into your activity and pass activity's lifecycle events to it and it will control the camera and recognition process. For more information, see [Embedding `RecognizerView` into custom scan activity](#recognizerView).
 
 # <a name="quickStart"></a> Quick Start
 
@@ -67,7 +81,66 @@ The library contains one activity: `ScanCard`. It is responsible for camera cont
 3. In File dialog select _BlinkIDDemo_ folder.
 4. Wait for project to load. If Android studio asks you to reload project on startup, select `Yes`.
 
-## <a name="quickIntegration"></a> Quick integration of _BlinkID_ into your app
+## <a name="mavenIntegration"></a> Integrating _BlinkID_ into your project using Maven
+
+Maven repository for _BlinkID_ SDK is: [http://maven.microblink.com](http://maven.microblink.com). If you do not want to perform integration via Maven, simply skip to [Android Studio integration instructions](#quickIntegration) or [Eclipse integration instructions](#eclipseIntegration).
+
+### Using gradle or Android Studio
+
+In your `build.gradle` you first need to add _BlinkID_ maven repository to repositories list:
+
+```
+repositories {
+	maven { url 'http://maven.microblink.com' }
+}
+```
+
+After that, you just need to add _BlinkID_ as a dependency to your application:
+
+```
+dependencies {
+    compile 'com.microblink:blinkid:1.8.0'
+}
+```
+
+If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
+	
+```
+-keep class com.microblink.** { *; }
+-keepclassmembers class com.microblink.** { *; }
+-dontwarn android.hardware.**
+-dontwarn android.support.v4.**
+```
+
+Finally, add _BlinkID's_ dependencies. See [_BlinkID's_ dependencies](#dependencies) section for more information.
+
+### Using android-maven-plugin
+
+[Android Maven Plugin](https://simpligility.github.io/android-maven-plugin/) v4.0.0 or newer is required.
+
+Open your `pom.xml` file and add these directives as appropriate:
+
+```xml
+<repositories>
+   	<repository>
+       	<id>MicroblinkRepo</id>
+       	<url>http://maven.microblink.com</url>
+   	</repository>
+</repositories>
+
+<dependencies>
+	<dependency>
+		  <groupId>com.microblink</groupId>
+		  <artifactId>blinkid</artifactId>
+		  <version>1.8.0</version>
+		  <type>aar</type>
+  	</dependency>
+</dependencies>
+```
+
+Do not forget to add _BlinkID's_ dependencies to your app's dependencies. To see what are dependencies of _BlinkID_, check section [_BlinkID's_ dependencies](#dependencies).
+
+## <a name="quickIntegration"></a> Android studio integration instructions
 
 1. In Android Studio menu, click _File_, select _New_ and then select _Module_.
 2. In new window, select _Import .JAR or .AAR Package_, and click _Next_.
@@ -83,9 +156,7 @@ The library contains one activity: `ScanCard`. It is responsible for camera cont
 	
 	```
 	-keep class com.microblink.** { *; }
-	-keepclassmembers class com.microblink.** {
-		*;
-	}
+	-keepclassmembers class com.microblink.** { *; }
 	-dontwarn android.hardware.**
 	-dontwarn android.support.v4.**
 	```
@@ -101,68 +172,28 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 2. Clear the `src` and `res` folders.
 3. Unzip the `LibRecognizer.aar` file. You can rename it to zip and then unzip it or use any tool.
 4. Copy the `classes.jar` to `libs` folder of your Eclipse library project. If `libs` folder does not exist, create it.
-5. Copy `android-support-v4.jar` to `libs` folder of your Eclipse library project. You can find `android-support-v4.jar` in `/path/to/your/android/SDK/extras/android/support/v4/android-support-v4.jar`.
-6. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
-7. Replace the `res` folder on library project with the `res` folder of the `LibRecognizer.aar` file.
+5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
+6. Replace the `res` folder on library project with the `res` folder of the `LibRecognizer.aar` file.
 
 You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibRecognizer.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
 3. Clean and Rebuild your target project
-4. Add _BlinkID's_ dependencies. See [_BlinkID's_ dependencies](#dependencies) section for more information.
-
-## <a name="mavenIntegration"></a> How to integrate _BlinkID_ into your project using Maven
-
-Maven repository for _BlinkID_ SDK is: [http://maven.microblink.com](http://maven.microblink.com).
-
-### Using gradle
-In your build.gradle you first need to add _BlinkID_ maven repository to repositories list:
-
-```
-repositories {
-	maven { url 'http://maven.microblink.com' }
-}
-```
-
-After that, you just need to add _BlinkID_ as a dependency to your application:
-
-```
-dependencies {
-    compile 'com.microblink:blinkid:1.7.1'
-}
-```
-
-Do not forget to add _BlinkID's_ dependencies to your app's dependencies. To see what are dependencies of _BlinkID_, check section [_BlinkID's_ dependencies](#dependencies).
-
-### Using android-maven-plugin
-
-Open your pom.xml file and add these directives as appropriate:
-
-```xml
-<repositories>
-   	<repository>
-       	<id>MicroblinkRepo</id>
-       	<url>http://maven.microblink.com</url>
-   	</repository>
-</repositories>
-
-<dependencies>
-	<dependency>
-		  <groupId>com.microblink</groupId>
-		  <artifactId>blinkid</artifactId>
-		  <version>1.7.1</version>
-  	</dependency>
-<dependencies>
-```
-
-Maven dependency requires android-maven-plugin version 4.0.0 (AAR support is required).
-
-Do not forget to add _BlinkID's_ dependencies to your app's dependencies. To see what are dependencies of _BlinkID_, check section [_BlinkID's_ dependencies](#dependencies).
+4. If you plan to use ProGuard, add same statements as in [Android studio guide](#quickIntegration) to your ProGuard configuration file.
+5. Add _BlinkID's_ dependencies. See [_BlinkID's_ dependencies](#dependencies) section for more information.
 
 ## <a name="dependencies"></a> _BlinkID's_ dependencies
 
-_BlinkID_ does not have any additional dependencies.
+_BlinkID_ depends on [Android support library](https://developer.android.com/tools/support-library/index.html).
+
+To include that library into your app, in Android studio simply add following line in `dependencies` section:
+
+```
+compile 'com.android.support:support-v4:23.0.1'
+```
+
+If using Eclipse, you have already performed the step in [Eclipse integration instructions](#eclipseIntegration) in which you have copied `android-support-v4.jar` into `libs` folder of your Eclipse library. Just make sure Android support library version is at least `23.0.1`.
 
 ## <a name="quickScan"></a> Performing your first scan
 1. You can start recognition process by starting `ScanCard` activity with Intent initialized in the following way:
@@ -214,6 +245,61 @@ _BlinkID_ does not have any additional dependencies.
 	
 	For more information about defining recognition settings and obtaining scan results see [Recognition settings and results](#recognitionSettingsAndResults).
 
+## <a name="quickScan"></a> Performing your first segment scan
+1. You can start recognition process by starting `BlinkOCRActivity` activity with Intent initialized in the following way:
+	
+	```java
+	// Intent for BlinkOCRActivity Activity
+	Intent intent = new Intent(this, BlinkOCRActivity.class);
+	
+	// set your licence key
+	// obtain your licence key at http://microblink.com/login or
+	// contact us at http://help.microblink.com
+	intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, "Add your licence key here");
+
+	// setup array of scan configurations. Each scan configuration
+	// contains 4 elements: resource ID for title displayed
+	// in BlinkOCRActivity activity, resource ID for text
+	// displayed in activity, name of the scan element (used
+	// for obtaining results) and parser setting defining
+	// how the data will be extracted.
+	// For more information about parser setting, check the
+	// chapter "Scanning segments with BlinkOCR recognizer"
+	ScanConfiguration[] confArray = new ScanConfiguration[] {
+                new ScanConfiguration(R.string.amount_title, R.string.amount_msg, "Amount", new AmountParserSettings()),
+                new ScanConfiguration(R.string.email_title, R.string.email_msg, "EMail", new EMailParserSettings()),
+                new ScanConfiguration(R.string.raw_title, R.string.raw_msg, "Raw", new RawParserSettings())
+        };
+	intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, confArray);
+
+	// Starting Activity
+	startActivityForResult(intent, MY_REQUEST_CODE);
+	```
+2. After `BlinkOCRActivity` activity finishes the scan, it will return to the calling activity and will call method `onActivityResult`. You can obtain the scanning results in that method.
+
+	```java
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if (requestCode == MY_REQUEST_CODE) {
+			if (resultCode == BlinkOCRActivity.RESULT_OK && data != null) {
+				// perform processing of the data here
+				
+				// for example, obtain parcelable recognition result
+				Bundle extras = data.getExtras();
+				Bundle results = extras.getBundle(BlinkOCRActivity.EXTRAS_SCAN_RESULTS);
+				
+				// results bundle contains result strings in keys defined
+				// by scan configuration name
+				// for example, if set up as in step 1, then you can obtain
+				// e-mail address with following line
+				String email = results.getString("EMail");
+			}
+		}
+	}
+	```
+
 # <a name="advancedIntegration"></a> Advanced _BlinkID_ integration instructions
 This section will cover more advanced details in _BlinkID_ integration. First part will discuss the methods for checking whether _BlinkID_ is supported on current device. Second part will cover the possible customization of builtin `ScanCard` activity, third part will describe how to embed `RecognizerView` into your activity and fourth part will describe how to use direct API to recognize directly android bitmaps without the need of camera.
 
@@ -225,7 +311,7 @@ Even before starting the scan activity, you should check if _BlinkID_ is support
 
 OpenGL ES 2.0 can be used to accelerate _BlinkID's_ processing but is not mandatory. However, it should be noted that if OpenGL ES 2.0 is not available processing time will be significantly large, especially on low end devices. 
 
-Android 2.3 is the minimum android version on which _BlinkID_ is supported, but if required we may support even Android 2.2 devices, however additional testing on those devices will be required.
+Android 2.3 is the minimum android version on which _BlinkID_ is supported.
 
 Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution cannot be too low. _BlinkID_ requires minimum 480p camera preview resolution in order to perform scan. It must be noted that camera preview resolution is not the same as the video record resolution, although on most devices those are the same. However, there are some devices that allow recording of HD video (720p resolution), but do not allow high enough camera preview resolution (for example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports video record resolution at 720p, but camera preview resolution is only 320p - _BlinkID_ does not work on that device).
 
@@ -321,7 +407,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid.demo` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
 
 	```java
 	// set the license key
@@ -336,7 +422,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(ScanCard.EXTRAS_SHOW_OCR_RESULT, false);
 	```
 
-* **`ScanCard.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener)
+* **`ScanCard.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener). Please make sure that images that you obtained with ImageListener given over Intent cannot be used for processing via [DirectAPI](#directAPI). If you are interested in using [DirectAPI](#directAPI) together with [RecognizerView](#recognizerView), please [check this section](#directAPIWithRecognizer).
 
 ### Customizing `ScanCard` appearance
 
@@ -349,6 +435,58 @@ While loading camera, `ScanCard` displays a splash screen. The layout of splash 
 #### Modifying other resources.
 
 Generally, you can also change other resources that `ScanCard` uses, but you are encouraged to create your own custom scan activity instead (see [Embedding `RecognizerView` into custom scan activity](#recognizerView)). Just do not modify the contents of `raw` folder, as it contains files necessary for native part of the library - without those files _BlinkID_ will not work.
+
+## <a name="segmentScanActivityCustomization"></a> Customization of `BlinkOCRActivity` activity
+
+### `BlinkOCRActivity` intent extras
+
+This section will discuss possible parameters that can be sent over `Intent` for `BlinkOCRActivity` activity that can customize default behaviour. There are several intent extras that can be sent to `BlinkOCRActivity` actitivy:
+	
+* **`BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION`** - with this extra you must set the array of [ScanConfiguration](https://blinkid.github.io/blinkid-android/com/microblink/ocr/ScanConfiguration.html) objects. Each `ScanConfiguration` object will define specific scan configuration that will be performed. `ScanConfiguration` defines two string resource ID's - title of the scanned item and text that will be displayed above field where scan is performed. Besides that it defines the name of scanned item and object defining the OCR parser settings. More information about parser settings can be found in chapter [Scanning segments with BlinkOCR recognizer](#blinkOCR). Here is only important that each scan configuration represents a single parser group and BlinkOCRActivity ensures that only one parser group is active at a time. After defining scan configuration array, you need to put it into intent extra with following code snippet:
+	
+	```java
+	intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, confArray);
+	```
+	
+* **`BlinkOCRActivity.EXTRAS_SCAN_RESULTS`** - you can use this extra in `onActivityResult` method of calling activity to obtain bundle with recognition results. Bundle will contain only strings representing scanned data under keys defined with each scan configuration. If you also need to obtain OCR result structure, then you need to perform [advanced integration](#recognizerView). You can use the following snippet to obtain scan results:
+
+	```java
+	Bundle results = data.getBundle(BlinkOCRActivity.EXTRAS_SCAN_RESULTS);
+	```
+	
+* **`BlinkOCRActivity.EXTRAS_HELP_INTENT`** - with this extra you can set fully initialized intent that will be sent when user clicks the help button. You can put any extras you want to your intent - all will be delivered to your activity when user clicks the help button. If you do not set help intent, help button will not be shown in camera interface. To set the intent for help activity, use the following code snippet:
+	
+	```java
+	/** Set the intent which will be sent when user taps help button. 
+	 *  If you don't set the intent, help button will not be shown.
+	 *  Note that this applies only to default PhotoPay camera UI.
+	 * */
+	intent.putExtra(BlinkOCRActivity.EXTRAS_HELP_INTENT, new Intent(this, HelpActivity.class));
+	```
+
+* **`ScanCard.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
+
+	```java
+	// set the license key
+	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
+	```
+	
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
+
+	```java
+	// set the license key
+	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
+	intent.putExtra(ScanCard.EXTRAS_LICENSEE, "Enter_Licensee_Here");
+	```
+
+* **`ScanCard.EXTRAS_SHOW_OCR_RESULT`** - with this extra you can define whether OCR result should be drawn on camera preview as it arrives. This is enabled by default, to disable it, use the following snippet:
+
+	```java
+	// set the license key
+	intent.putExtra(ScanCard.EXTRAS_SHOW_OCR_RESULT, false);
+	```
+
+* **`ScanCard.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener). Please make sure that images that you obtained with ImageListener given over Intent cannot be used for processing via [DirectAPI](#directAPI). If you are interested in using [DirectAPI](#directAPI) together with [RecognizerView](#recognizerView), please [check this section](#directAPIWithRecognizer).
 
 ## <a name="recognizerView"></a> Embedding `RecognizerView` into custom scan activity
 This section will discuss how to embed `RecognizerView` into your scan activity and perform scan.
@@ -530,7 +668,7 @@ __Important__
 If you use `sensor` or similar screen orientation for your scan activity there is a catch. No matter if your activity is set to be restarted on configuration change or only notified via `onConfigurationChanged` method, if your activity's orientation is changed from `portrait` to `reversePortrait` or from `landscape` to `reverseLandscape` or vice versa, your activity will not be notified of this change in any way - it will not be neither restarted nor `onConfigurationChanged` will be called - the views in your activity will just be rotated by 180 degrees. This is a problem because it will make your camera preview upside down. In order to fix this, you first need to [find a way how to get notified of this change](https://stackoverflow.com/questions/9909037/how-to-detect-screen-rotation-through-180-degrees-from-landscape-to-landscape-or) and then you should call `changeConfiguration` method of `RecognizerView` so it will correct camera preview orientation.
 
 ## <a name="recognizerViewReference"></a> `RecognizerView` reference
-The complete reference of `RecognizerView` is available in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html). The usage example is provided in ` - BlinkIDDemoCustomUI demonstrates advanced integration within custom scan activity` demo app provided with SDK. This section just gives a quick overview of `RecognizerView's` most important methods.
+The complete reference of `RecognizerView` is available in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html). The usage example is provided in `BlinkIDDemoCustomUI` demo app provided with SDK. This section just gives a quick overview of `RecognizerView's` most important methods.
 
 ##### <a name="recognizerView_create"></a> `create()`
 This method should be called in activity's `onCreate` method. It will initialize `RecognizerView's` internal fields and will initialize camera control thread. This method must be called after all other settings are already defined, such as listeners and recognition settings. After calling this method, you can add child views to `RecognizerView` with method `addChildView(View, boolean)`.
@@ -1009,6 +1147,9 @@ By setting this to `true`, you will enable scanning of non-standard elements, bu
 ##### `setNullQuietZoneAllowed(boolean)`
 By setting this to `true`, you will allow scanning barcodes which don't have quiet zone surrounding it (e.g. text concatenated with barcode). This option can significantly increase recognition time. Default is `true`.
 
+##### `setScan1DBarcodes(boolean)`
+Some driver's licenses contain 1D Code39 and Code128 barcodes alongside PDF417 barcode. These barcodes usually contain only reduntant information and are therefore not read by default. However, if you feel that some information is missing, you can enable scanning of those barcodes by setting this to `true`.
+
 ### Obtaining results from USDL recognizer
 
 USDL recognizer produces [USDLScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/usdl/USDLScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `USDLScanResult`. See the following snippet for an example:
@@ -1124,6 +1265,354 @@ Returns the expiry date of the Driver's Licence.
 ##### `String getPlaceOfBirth()`
 Returns the place of birth of Driver's Licence owner.
 
+## <a name="pdf417Recognizer"></a> Scanning PDF417 barcodes
+
+This section discusses the settings for setting up PDF417 recognizer and explains how to obtain results from PDF417 recognizer.
+
+### Setting up PDF417 recognizer
+
+To activate PDF417 recognizer, you need to create a [Pdf417RecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/pdf417/Pdf417RecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	Pdf417RecognizerSettings sett = new Pdf417RecognizerSettings();
+	// disable scanning of white barcodes on black background
+	sett.setInverseScanning(false);
+	// allow scanning of barcodes that have invalid checksum
+	sett.setUncertainScanning(true);
+	// disable scanning of barcodes that do not have quiet zone
+	// as defined by the standard
+	sett.setNullQuietZoneAllowed(false);
+
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+As can be seen from example, you can tweak PDF417 recognition parameters with methods of `Pdf417RecognizerSettings`.
+
+##### `setUncertainScanning(boolean)`
+By setting this to `true`, you will enable scanning of non-standard elements, but there is no guarantee that all data will be read. This option is used when multiple rows are missing (e.g. not whole barcode is printed). Default is `false`.
+
+##### `setNullQuietZoneAllowed(boolean)`
+By setting this to `true`, you will allow scanning barcodes which don't have quiet zone surrounding it (e.g. text concatenated with barcode). This option can significantly increase recognition time. Default is `false`.
+
+##### `setInverseScanning(boolean)`
+By setting this to `true`, you will enable scanning of barcodes with inverse intensity values (i.e. white barcodes on dark background). This option can significantly increase recognition time. Default is `false`.
+
+### Obtaining results from PDF417 recognizer
+PDF417 recognizer produces [Pdf417ScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/pdf417/Pdf417ScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `Pdf417ScanResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType recognitionType) {
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof Pdf417ScanResult) {
+			Pdf417ScanResult result = (Pdf417ScanResult) baseResult;
+			
+	        // getStringData getter will return the string version of barcode contents
+			String barcodeData = result.getStringData();
+			// isUncertain getter will tell you if scanned barcode is uncertain
+			boolean uncertainData = result.isUncertain();
+			// getRawData getter will return the raw data information object of barcode contents
+			BarcodeDetailedData rawData = result.getRawData();
+			// BarcodeDetailedData contains information about barcode's binary layout, if you
+			// are only interested in raw bytes, you can obtain them with getAllData getter
+			byte[] rawDataBuffer = rawData.getAllData();
+		}
+	}
+}
+```
+
+As you can see from the example, obtaining data is rather simple. You just need to call several methods of the `Pdf417ScanResult` object:
+
+##### `String getStringData()`
+This method will return the string representation of barcode contents. Note that PDF417 barcode can contain binary data so sometimes it makes little sense to obtain only string representation of barcode data.
+
+##### `boolean isUncertain()`
+This method will return the boolean indicating if scanned barcode is uncertain. This can return `true` only if scanning of uncertain barcodes is allowed, as explained earlier.
+
+##### `BarcodeDetailedData getRawData()`
+This method will return the object that contains information about barcode's binary layout. You can see information about that object in [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/results/barcode/BarcodeDetailedData.html). However, if you only need to access byte array containing, you can call method `getAllData` of `BarcodeDetailedData` object.
+
+##### `Quadrilateral getPositionOnImage()`
+Returns the position of barcode on image. Note that returned coordinates are in image's coordinate system which is not related to view coordinate system used for UI.
+
+## <a name="custom1DBarDecoder"></a> Scanning one dimensional barcodes with _BlinkID_'s implementation
+
+This section discusses the settings for setting up 1D barcode recognizer that uses _BlinkID_'s implementation of scanning algorithms and explains how to obtain results from that recognizer. Henceforth, the 1D barcode recognizer that uses _BlinkID_'s implementation of scanning algorithms will be refered as "Bardecoder recognizer".
+
+### Setting up Bardecoder recognizer
+
+To activate Bardecoder recognizer, you need to create a [BarDecoderRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/bardecoder/BarDecoderRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	BarDecoderRecognizerSettings sett = new BarDecoderRecognizerSettings();
+	// activate scanning of Code39 barcodes
+	sett.setScanCode39(true);
+	// activate scanning of Code128 barcodes
+	sett.setScanCode128(true);
+	// disable scanning of white barcodes on black background
+	sett.setInverseScanning(false);
+	// disable slower algorithm for low resolution barcodes
+	sett.setTryHarder(false);
+
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+As can be seen from example, you can tweak Bardecoder recognition parameters with methods of `BarDecoderRecognizerSettings`.
+
+##### `setScanCode128(boolean)`
+Method activates or deactivates the scanning of Code128 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanCode39(boolean)`
+Method activates or deactivates the scanning of Code39 1D barcodes. Default (initial) value is `false`.
+
+##### `setInverseScanning(boolean)`
+By setting this to `true`, you will enable scanning of barcodes with inverse intensity values (i.e. white barcodes on dark background). This option can significantly increase recognition time. Default is `false`.
+
+##### `setTryHarder(boolean)`
+By setting this to `true`, you will enabled scanning of lower resolution barcodes at cost of additional processing time. This option can significantly increase recognition time. Default is `false`.
+
+### Obtaining results from Bardecoder recognizer
+
+Bardecoder recognizer produces [BarDecoderScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/bardecoder/BarDecoderScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `BarDecoderScanResult` class. See the following snippet for example:
+
+```java
+@Override
+public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType recognitionType) {
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof BarDecoderScanResult) {
+			BarDecoderScanResult result = (BarDecoderScanResult) baseResult;
+			
+			// getBarcodeType getter will return a BarcodeType enum that will define
+			// the type of the barcode scanned
+			BarcodeType barType = result.getBarcodeType();
+	        // getStringData getter will return the string version of barcode contents
+			String barcodeData = result.getStringData();
+			// getRawData getter will return the raw data information object of barcode contents
+			BarcodeDetailedData rawData = result.getRawData();
+			// BarcodeDetailedData contains information about barcode's binary layout, if you
+			// are only interested in raw bytes, you can obtain them with getAllData getter
+			byte[] rawDataBuffer = rawData.getAllData();
+		}
+	}
+}
+```
+
+As you can see from the example, obtaining data is rather simple. You just need to call several methods of the `BarDecoderScanResult` object:
+
+##### `String getStringData()`
+This method will return the string representation of barcode contents. 
+
+##### `BarcodeDetailedData getRawData()`
+This method will return the object that contains information about barcode's binary layout. You can see information about that object in [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/results/barcode/BarcodeDetailedData.html). However, if you only need to access byte array containing, you can call method `getAllData` of `BarcodeDetailedData` object.
+
+##### `String getExtendedStringData()`
+This method will return the string representation of extended barcode contents. This is available only if barcode that supports extended encoding mode was scanned (e.g. code39).
+
+##### `BarcodeDetailedData getExtendedRawData()`
+This method will return the object that contains information about barcode's binary layout when decoded in extended mode. You can see information about that object in [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/results/barcode/BarcodeDetailedData.html). However, if you only need to access byte array containing, you can call method `getAllData` of `BarcodeDetailedData` object. This is available only if barcode that supports extended encoding mode was scanned (e.g. code39).
+
+##### `getBarcodeType()`
+This method will return a [BarcodeType](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/BarcodeType.html) enum that defines the type of barcode scanned.
+
+## <a name="zxing"></a> Scanning barcodes with ZXing implementation
+
+This section discusses the settings for setting up barcode recognizer that use ZXing's implementation of scanning algorithms and explains how to obtain results from it. _BlinkID_ uses ZXing's [c++ port](https://github.com/zxing/zxing/tree/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp) to support barcodes for which we still do not have our own scanning algorithms. Also, since ZXing's c++ port is not maintained anymore, we also provide updates and bugfixes to it inside our codebase.
+
+### Setting up ZXing recognizer
+
+To activate ZXing recognizer, you need to create [ZXingRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/zxing/ZXingRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	ZXingRecognizerSettings sett=  new ZXingRecognizerSettings();
+	// disable scanning of white barcodes on black background
+	sett.setInverseScanning(false);
+	// activate scanning of QR codes
+	sett.setScanQRCode(true);
+
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+As can be seen from example, you can tweak ZXing recognition parameters with methods of `ZXingRecognizerSettings`. Note that some barcodes, such as Code 39 are available for scanning with [_BlinkID_'s implementation](#custom1DBarDecoder). You can choose to use only one implementation or both (just put both settings objects into `RecognizerSettings` array). Using both implementations increases the chance of correct barcode recognition, but requires more processing time. Of course, we recommend using the _BlinkID_'s implementation for supported barcodes.
+
+##### `setScanAztecCode(boolean)`
+Method activates or deactivates the scanning of Aztec 2D barcodes. Default (initial) value is `false`.
+
+##### `setScanCode128(boolean)`
+Method activates or deactivates the scanning of Code128 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanCode39(boolean)`
+Method activates or deactivates the scanning of Code39 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanDataMatrixCode(boolean)`
+Method activates or deactivates the scanning of Data Matrix 2D barcodes. Default (initial) value is `false`.
+
+##### `setScanEAN13Code(boolean)`
+Method activates or deactivates the scanning of EAN 13 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanEAN8Code(boolean)`
+Method activates or deactivates the scanning of EAN 8 1D barcodes. Default (initial) value is `false`.
+
+##### `shouldScanITFCode(boolean)`
+Method activates or deactivates the scanning of ITF 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanQRCode(boolean)`
+Method activates or deactivates the scanning of QR 2D barcodes. Default (initial) value is `false`.
+
+##### `setScanUPCACode(boolean)`
+Method activates or deactivates the scanning of UPC A 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanUPCECode(boolean)`
+Method activates or deactivates the scanning of UPC E 1D barcodes. Default (initial) value is `false`.
+
+##### `setInverseScanning(boolean)`
+By setting this to `true`, you will enable scanning of barcodes with inverse intensity values (i.e. white barcodes on dark background). This option can significantly increase recognition time. Default is `false`.
+
+##### `setSlowThoroughScan(boolean)`
+Use this method to enable slower, but more thorough scan procedure when scanning barcodes. By default, this option is turned on.
+
+### Obtaining results from ZXing recognizer
+
+ZXing recognizer produces [ZXingScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/zxing/ZXingScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `ZXingScanResult` class. See the following snippet for example:
+
+```java
+@Override
+public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType recognitionType) {
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof ZXingScanResult) {
+			ZXingScanResult result = (ZXingScanResult) baseResult;
+			
+			// getBarcodeType getter will return a BarcodeType enum that will define
+			// the type of the barcode scanned
+			BarcodeType barType = result.getBarcodeType();
+	        // getStringData getter will return the string version of barcode contents
+			String barcodeData = result.getStringData();
+		}
+	}
+}
+```
+
+As you can see from the example, obtaining data is rather simple. You just need to call several methods of the `ZXingScanResult` object:
+
+##### `String getStringData()`
+This method will return the string representation of barcode contents. 
+
+##### `getBarcodeType()`
+This method will return a [BarcodeType](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/barcode/BarcodeType.html) enum that defines the type of barcode scanned.
+
+## <a name="blinkOCR"></a> Scanning segments with BlinkOCR recognizer
+
+This section discusses the setting up of BlinkOCR recognizer and obtaining results from it. You should also check the demo for example.
+
+### Setting up BlinkOCR recognizer
+
+BlinkOCR recognizer is consisted of one or more parsers that are grouped in parser groups. Each parser knows how to extract certain element from OCR result and also knows what are the best OCR engine options required to perform OCR on image. Parsers can be grouped in parser groups. Parser groups contain one or more parsers and are responsible for merging required OCR engine options of each parser in group and performing OCR only once and then letting each parser in group parse the data. Thus, you can make for own best tradeoff between speed and accuracy - putting each parser into its own group will give best accuracy, but will perform OCR of image for each parser which can consume a lot of processing time. On the other hand, putting all parsers into same group will perform only one OCR but with settings that are combined for all parsers in group, thus possibly reducing parsing quality.
+
+Let's see this on example: assume we have two parsers at our disposal: `AmountParser` and `EMailParser`. `AmountParser` knows how to extract amount's from OCR result and requires from OCR only to recognise digits, periods and commas and ignore letters. On the other hand, `EMailParser` knows how to extract e-mails from OCR result and requires from OCR to recognise letters, digits, '@' characters and periods, but not commas. 
+
+If we put both `AmountParser` and `EMailParser` into same parser group, the merged OCR engine settings will require recognition od all letters, all digits, '@' character, both period and comma. Such OCR result will contain all characters for `EMailParser` to properly parse e-mail, but might confuse `AmountParser` if OCR misclassifies some characters into digits.
+
+If we put `AmountParser` in one parser group and `EMailParser` in another parser group, OCR will be performed for each parser group independently, thus preventing the `AmountParser` confusion, but two OCR passes of image will be performed, which can have a performance impact.
+
+So to sum it up, BlinkOCR recognizer performs OCR of image for each available parser group and then runs all parsers in that group on obtained OCR result and saves parsed data. 
+
+By definition, each parser results with string that represents a parsed data. The parsed string is stored under parser's name which has to be unique within parser group. So, when defining settings for BlinkOCR recognizer, when adding parsers, you need to provide a name for the parser (you will use that name for obtaining result later) and optionally provide a name for the parser group in which parser will be put into.
+
+To activate BlinkOCR recognizer, you need to create [BlinkOCRRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/BlinkOCRRecognizerSettings.html), add some parsers to it and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	BlinkOCRRecognizerSettings sett = new BlinkOCRRecognizerSettings();
+	
+	// add amount parser to default parser group
+	sett.addParser("myAmountParser", new AmountParserSettings());
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+The following is a list of available parsers:
+
+
+- Amount parser - represented by [AmountParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/parser/generic/AmountParserSettings.html)
+	- used for parsing amounts from OCR result
+- IBAN parser - represented by [IbanParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/parser/generic/IbanParserSettings.html)
+	- used for parsing International Bank Account Numbers (IBANs) from OCR result
+- E-mail parser - represented by [EMailParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/parser/generic/EMailParserSettings.html)
+	- used for parsing e-mail addresses
+- Date parser - represented by [DateParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/parser/generic/DateParserSettings.html)
+	- used for parsing dates in various formats
+- Raw parser - represented by [RawParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/parser/generic/RawParserSettings.html)
+	- used for obtaining raw OCR result
+
+### Obtaining results from BlinkOCR recognizer
+
+BlinkOCR recognizer produces [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/ocr/blinkocr/BlinkOCRRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `BlinkOCRRecognitionResult` class. See the following snipper for an example:
+
+```java
+@Override
+public void onScanningDone(BaseRecognitionResult[] dataArray, RecognitionType recognitionType) {
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof BlinkOCRRecognitionResult) {
+			BlinkOCRRecognitionResult result = (BlinkOCRRecognitionResult) baseResult;
+			
+	        // you can use getters of BlinkOCRRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+	        	 // use the parser name provided to BlinkOCRRecognizerSettings to
+	        	 // obtain parsed result provided by given parser
+	        	 // obtain result of "myAmountParser" in default parsing group
+		        String parsedAmount = result.getParsedResult("myAmountParser");
+		        // note that parsed result can be null or empty even if result
+		        // is marked as non-empty and valid
+		        if(parsedAmount != null && !parsedAmount.isEmpty()) {
+		        	// do whatever you want with parsed result
+		        }
+		        // obtain OCR result for default parsing group
+		        // OCR result exists if result is valid and non-empty
+		        OcrResult ocrResult = result.getOcrResult();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+Available getters are:
+
+##### `boolean isValid()`
+Returns `true` if scan result contains at least one OCR result in one parsing group.
+
+##### `boolean isEmpty()`
+Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
+
+##### `String getParsedResult(String parserName)`
+Returns the parsed result provided by parser with name `parserName` added to default parser group. If parser with name `parserName` does not exists in default parser group, returns `null`. If parser exists, but has failed to parse any data, returns empty string.
+
+##### `String getParsedResult(String parserGroupName, String parserName)`
+Returns the parsed result provided by parser with name `parserName` added to parser group named `parserGroupName`. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns empty string.
+
+##### `OcrResult getOcrResult()`
+Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for default parser group.
+
+##### `OcrResult getOcrResult(String parserGroupName)`
+Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for parser group named `parserGroupName`.
+
 # <a name="translation"></a> Translation and localization
 
 `BlinkID` can be localized to any language. If you are using `RecognizerView` in your custom scan activity, you should handle localization as in any other Android app - `RecognizerView` does not use strings nor drawables, it only uses raw resources from `res/raw` folder. Those resources must not be touched as they are required for recognition to work correctly.
@@ -1204,7 +1693,7 @@ With that build instructions, gradle will build four different APK files for you
 
 ```
 // map for the version code
-def abiVersionCodes = ['armeabi-v7a':1, 'x86':2, 'arm64-v8a':3]
+def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3]
 
 import com.android.build.OutputFile
 

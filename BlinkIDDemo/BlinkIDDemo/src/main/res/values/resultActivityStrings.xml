@@ -28,4 +28,12 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPIssueDate">Issue date</string>
     <string name="PPExpiryDate">Expiry date</string>
+
+    <!-- Barcode -->
+    <string name="PPUncertain">Uncertain data</string>
+    <string name="PPBarcodeData">Barcode data</string>
+    <string name="PPBarcodeRawData">Barcode raw data</string>
+    <string name="PPBarcodeType">Barcode type</string>
+    <string name="PPExtendedBarcodeData">Extended barcode data</string>
+
 </resources>

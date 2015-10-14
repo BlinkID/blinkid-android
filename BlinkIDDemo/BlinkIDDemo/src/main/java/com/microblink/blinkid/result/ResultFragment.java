@@ -14,13 +14,21 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.R;
+import com.microblink.blinkid.result.extract.BardecoderRecognitionResultExtractor;
 import com.microblink.blinkid.result.extract.BaseRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.BlinkOcrRecognitionResultExtractor;
 import com.microblink.blinkid.result.extract.IBaseRecognitionResultExtractor;
 import com.microblink.blinkid.result.extract.MRTDRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.Pdf417RecognitionResultExtractor;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 import com.microblink.blinkid.result.extract.UKDLRecognitionResultExtractor;
+import com.microblink.blinkid.result.extract.ZXingRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
+import com.microblink.recognizers.barcode.bardecoder.BarDecoderScanResult;
+import com.microblink.recognizers.barcode.pdf417.Pdf417ScanResult;
+import com.microblink.recognizers.barcode.zxing.ZXingScanResult;
+import com.microblink.recognizers.ocr.blinkocr.BlinkOCRRecognitionResult;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.ocr.ukdl.UKDLRecognitionResult;
 
@@ -67,10 +75,17 @@ public class ResultFragment extends Fragment {
         }
 
         if(mData instanceof MRTDRecognitionResult) {
-            // Set extractor
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof UKDLRecognitionResult) {
             mResultExtractor = new UKDLRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof Pdf417ScanResult) {
+            mResultExtractor = new Pdf417RecognitionResultExtractor(getActivity());
+        } else if (mData instanceof ZXingScanResult) {
+            mResultExtractor = new ZXingRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof BarDecoderScanResult) {
+            mResultExtractor = new BardecoderRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof BlinkOCRRecognitionResult) {
+            mResultExtractor = new BlinkOcrRecognitionResultExtractor(getActivity());
         } else {
             mResultExtractor = new BaseRecognitionResultExtractor(getActivity());
         }
