@@ -1,19 +1,21 @@
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-
+    buildToolsVersion '23.0.1'
     defaultConfig {
-        applicationId "com.microblink.blinkid"
+        applicationId 'com.microblink.blinkid'
         minSdkVersion 10
         targetSdkVersion 22
     }
-
+    lintOptions {
+        checkReleaseBuilds false
+    }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig = debug.signingConfig
         }
     }
 }

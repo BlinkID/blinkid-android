@@ -11,5 +11,14 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+//        maven { url 'http://maven.microblink.com' }
+        mavenLocal()
     }
+}
+
+// versions of libraries that all modules require
+
+project.ext {
+    blinkIdVersion = '1.8.0'
+    androidSupportVersion = '23.0.1'
 }

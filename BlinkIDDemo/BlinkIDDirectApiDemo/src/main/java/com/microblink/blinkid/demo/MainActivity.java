@@ -11,12 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.microblink.blinkid.demo.config.Config;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.Recognizer;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.ocr.mrtd.MRTDRecognitionResult;
+import com.microblink.recognizers.ocr.mrtd.MRTDRecognizerSettings;
+import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.view.recognition.ScanResultListener;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.view.recognition.RecognitionType;
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
 
         // set license key
         try {
-            mRecognizer.setLicenseKey(this, "TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3");
+            mRecognizer.setLicenseKey(this, "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N");
         } catch (InvalidLicenceKeyException e) {
             Log.e(TAG, "Failed to set licence key!");
             Toast.makeText(this, "Failed to set licence key!", Toast.LENGTH_LONG).show();
@@ -57,7 +58,7 @@ public class MainActivity extends Activity {
         }
 
         // initialize recognizer singleton
-        mRecognizer.initialize(this, null, Config.getRecognizerSettings(), new DirectApiErrorListener() {
+        mRecognizer.initialize(this, null, new RecognizerSettings[] {new MRTDRecognizerSettings()}, new DirectApiErrorListener() {
             @Override
             public void onRecognizerError(Throwable throwable) {
                 Log.e(TAG, "Failed to initialize recognizer.", throwable);

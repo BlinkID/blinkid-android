@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="overlay_background">#77000000</color>
+    <color name="result_background">#7750ff00</color>
+    <color name="text_white">#FFFFFFFF</color>
+    <color name="text_gray">#b1b1b1b1</color>
+    <color name="help_background">#ff434343</color>
+</resources>

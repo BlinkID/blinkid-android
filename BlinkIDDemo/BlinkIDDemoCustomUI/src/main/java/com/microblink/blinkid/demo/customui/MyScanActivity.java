@@ -89,7 +89,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
          * https://microblink.com/idscan
          */
         try {
-            mRecognizerView.setLicenseKey("TIS6J3KZ-JDJLDMNR-WGYDQF5D-BKLREV3B-63EO5ADK-KRHKXLDV-3U52ETVL-VR22VLU3"); // demo license key for package com.microblink.blinkid.demo
+            mRecognizerView.setLicenseKey("UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N"); // demo license key for package com.microblink.blinkid
         } catch (InvalidLicenceKeyException e) {
             e.printStackTrace();
             Log.e(TAG, "Invalid licence key!");
