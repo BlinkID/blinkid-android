@@ -56,10 +56,6 @@ public class UKDLRecognitionResultExtractor implements IBaseRecognitionResultExt
                     ukdlResult.getDateOfBirth() == null ? "" : df.format(ukdlResult.getDateOfBirth())
             ));
             mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPPlaceOfBirth),
-                    ukdlResult.getPlaceOfBirth()
-            ));
-            mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPDriverNumber),
                     ukdlResult.getDriverNumber()
             ));
