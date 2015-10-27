@@ -1,5 +1,14 @@
 # Release notes
 
+## 1.9.0
+- fixed autofocus issue on devices that do not support continuous autofocus
+- improved performance and quality of United Kingdom's Driver's Licence scanning
+- improved OCR quality when scanning documents with machine readable zone
+- support for defining camera video resolution preset
+	- to define video resolution preset via Intent, use `BlinkOCRActivity.EXTRAS_CAMERA_VIDEO_PRESET`
+	- to define video resolution preset on `RecognizerView`, use method `setVideoResolutionPreset`
+
+
 ## 1.8.0
 - added support for scanning barcodes with _BlinkID_
 - added support for performing raw OCR with _BlinkID_
