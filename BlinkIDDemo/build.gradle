@@ -19,6 +19,9 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '1.9.0'
-    androidSupportVersion = '23.0.1'
+    blinkIdVersion = '2.0.0'
+    appCompatVersion = '23.1.1'
+    compileSdkVersion = 23
+    targetSdkVersion = 23
+    buildToolsVersion = '23.0.2'
 }

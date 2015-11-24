@@ -1,5 +1,16 @@
 # Release notes
 
+## 2.0.0
+- new API which is easier to understand, but is not backward compatible. Please check [README](README.md) and updated demo applications for more information.
+- removed support for ARMv7 devices which do not support NEON SIMD
+	- this enabled us to increase recognition speed at cost of not supporting old devices like those using NVIDIA Tegra 2
+	- you can check [this article](https://microblink.zendesk.com/hc/en-us/articles/206113151-Removing-support-for-devices-without-NEON-SIMD-extensions) for more information about NEON and why we use it
+- added official support for Android 6.0 and it's runtime camera permissions
+	- if using provided activities, the logic behind asking user to give camera permission is handled internally
+	- if integrating using custom UI, you are required to ask user to give you permission to use camera. To make this easier, we have provided a _CameraPermissionManager_ class which does all heavylifting code about managing states when asking user for camera permission. Refer to demo apps to see how it is used.
+- BlinkID now depends on appcompat-v7 library, instead of full android-support library.
+	- even older versions of BlinkID required only features from appcompat-v7 so we now decided to make appcompat-v7 as dependency because it is much smaller than full support library and is also default dependency of all new Android apps.
+
 ## 1.9.0
 - fixed autofocus issue on devices that do not support continuous autofocus
 - improved performance and quality of United Kingdom's Driver's Licence scanning
