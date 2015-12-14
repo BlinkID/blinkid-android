@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Label">Label</string>
+    <string name="Value">Value</string>
+    <string name="IsDataCorrect">Is all data correct?</string>
+    <string name="YesPay">Confirm data</string>
+    <string name="NoBack">Cancel</string>
+
+    <!-- MRTD -->
+    <string name="PPPrimaryId">Primary ID</string>
+    <string name="PPSecondaryId">Secondary ID</string>
+    <string name="PPIssuer">Issuer</string>
+    <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPDocumentNumber">Document number</string>
+    <string name="PPNationality">Nationality</string>
+    <string name="PPSex">Sex</string>
+    <string name="PPDocumentCode">Document code</string>
+    <string name="PPDateOfExpiry">Date of expiry</string>
+    <string name="PPOpt1">OPT1</string>
+    <string name="PPOpt2">OPT2</string>
+    <string name="PPMRZText">MRZ text</string>
+
+    <!-- UKDL -->
+    <string name="PPFirstName">First name</string>
+    <string name="PPLastName">Last name</string>
+    <string name="PPAddress">Address</string>
+    <string name="PPPlaceOfBirth">Place of birth</string>
+    <string name="PPDriverNumber">Driver number</string>
+    <string name="PPIssueDate">Issue date</string>
+    <string name="PPExpiryDate">Expiry date</string>
+
+    <!-- Barcode -->
+    <string name="PPUncertain">Uncertain data</string>
+    <string name="PPBarcodeData">Barcode data</string>
+    <string name="PPBarcodeRawData">Barcode raw data</string>
+    <string name="PPBarcodeType">Barcode type</string>
+    <string name="PPExtendedBarcodeData">Extended barcode data</string>
+
+</resources>

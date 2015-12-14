@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_light">#00FF00</color>
+    <color name="green_button_unpressed_background">#FF355B00</color>
+    <color name="green_button_pressed_background">#FF589700</color>
+    <color name="red_button_unpressed_background">#FF6F0000</color>
+    <color name="red_button_pressed_background">#FFB70000</color>
+
+
+    <color name="greendark">#FF669900</color>
+
+    <color name="helpButtonBorder">#AABBBBBB</color>
+    <color name="helpButtonForeground">#DDEEEEEE</color>
+    <color name="help_background">#ff434343</color>
+    <color name="text_white">#FFFFFFFF</color>
+</resources>
