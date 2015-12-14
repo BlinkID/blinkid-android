@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".result.ResultActivity"
+            android:name="com.microblink.libresult.ResultActivity"
             android:screenOrientation="sensor" >
         </activity>
     </application>

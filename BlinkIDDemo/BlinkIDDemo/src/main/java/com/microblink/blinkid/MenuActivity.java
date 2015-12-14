@@ -17,22 +17,21 @@ import com.microblink.activity.Pdf417ScanActivity;
 import com.microblink.activity.ScanActivity;
 import com.microblink.activity.ScanCard;
 import com.microblink.activity.ShowOcrResultMode;
-import com.microblink.blinkid.result.ResultActivity;
 import com.microblink.help.HelpActivity;
+import com.microblink.libresult.ResultActivity;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.barcode.bardecoder.BarDecoderRecognizerSettings;
-import com.microblink.recognizers.barcode.pdf417.Pdf417RecognizerSettings;
-import com.microblink.recognizers.barcode.usdl.USDLRecognizerSettings;
-import com.microblink.recognizers.barcode.zxing.ZXingRecognizerSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.AmountParserSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.DateParserSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.EMailParserSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.IbanParserSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.RawParserSettings;
-import com.microblink.recognizers.ocr.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.ocr.ukdl.UKDLRecognizerSettings;
-import com.microblink.recognizers.settings.GenericRecognizerSettings;
+import com.microblink.recognizers.RecognitionResults;
+import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
+import com.microblink.recognizers.blinkid.ukdl.UKDLRecognizerSettings;
+import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
+import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
+import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
+import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.util.Log;
 import com.microblink.util.RecognizerCompatibility;
@@ -42,8 +41,10 @@ import java.util.ArrayList;
 
 public class MenuActivity extends Activity {
 
-    public static final int MY_PHOTOPAY_REQUEST_CODE = 0x101;
+    public static final int MY_BLINKID_REQUEST_CODE = 0x101;
 
+    // obtain your licence key at http://microblink.com/login or
+    // contact us at http://help.microblink.com
     private static final String LICENSE_KEY = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
 
     private ListElement[] mElements;
@@ -51,7 +52,7 @@ public class MenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // use this to change PhotoPay language. Device default is used by default.
+        // use this to change BlinkID language. Device default is used by default.
 //        LanguageUtils.setLanguage(Language.English, this);
 
         // in case of problems with the SDK (crashes or ANRs, uncomment following line to enable
@@ -62,10 +63,10 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        // check if PhotoPay is supported on the device
+        // check if BlinkID is supported on the device
         RecognizerCompatibilityStatus supportStatus = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
         if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
-            Toast.makeText(this, "Photopay is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
 
         // build list elements
@@ -76,7 +77,7 @@ public class MenuActivity extends Activity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivityForResult(mElements[position].getScanIntent(), MY_PHOTOPAY_REQUEST_CODE);
+                startActivityForResult(mElements[position].getScanIntent(), MY_BLINKID_REQUEST_CODE);
             }
         });
     }
@@ -91,36 +92,36 @@ public class MenuActivity extends Activity {
 
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
-        // that we have really returned from PhotoPay activity.
-        if (requestCode == MY_PHOTOPAY_REQUEST_CODE) {
+        // that we have really returned from BlinkID activity.
+        if (requestCode == MY_BLINKID_REQUEST_CODE) {
 
-            // make sure PhotoPay activity returned result
+            // make sure BlinkID activity returned result
             if (resultCode == ScanActivity.RESULT_OK && data != null) {
 
                 // depending on settings, we may have multiple scan results.
                 // we first need to obtain list of recognition results
-                Parcelable[] multiData = data.getParcelableArrayExtra(ScanActivity.EXTRAS_RECOGNITION_RESULT_LIST);
-
-                if (multiData != null) {
-
-                    Log.i(this, "Data count: " + multiData.length);
+                Bundle extras = data.getExtras();
+                RecognitionResults results = data.getParcelableExtra(ScanActivity.EXTRAS_RECOGNITION_RESULTS);
+                BaseRecognitionResult[] resArray = null;
+                if (results != null) {
+                    // get array of recognition results
+                    resArray = results.getRecognitionResults();
+                }
+                if (resArray != null) {
+                    Log.i(this, "Data count: " + resArray.length);
                     int i = 1;
 
-                    for (Parcelable parc : multiData) {
+                    for (BaseRecognitionResult res : resArray) {
                         Log.i(this, "Data #" + Integer.valueOf(i++).toString());
 
-                        // each element in multiData is actually class derived from BaseRecognitionResult
-                        // so it is always safe to cast
-                        // Moreover, as is specified in README file, you can use instanceof operator
-                        // to determine the actual type of result. Here we will simply pass
-                        // the result list to ResultActivity and there we will explain
-                        // how to retrieve data from result.
+                        // Each element in resultArray inherits BaseRecognitionResult class and
+                        // represents the scan result of one of activated recognizers that have
+                        // been set up.
 
-                        BaseRecognitionResult rd = (BaseRecognitionResult) parc;
-                        rd.log();
+                        res.log();
                     }
                 } else {
-                    Log.e(this, "Unable to retrieve list of recognition data!");
+                    Log.e(this, "Unable to retrieve recognition results!");
                 }
 
                 // set intent's component to ResultActivity and pass its contents
@@ -130,7 +131,7 @@ public class MenuActivity extends Activity {
                 data.setComponent(new ComponentName(this, ResultActivity.class));
                 startActivity(data);
             } else {
-                // if PhotoPay activity did not return result, user has probably
+                // if BlinkID activity did not return result, user has probably
                 // pressed Back button and cancelled scanning
                 Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
             }
@@ -139,7 +140,7 @@ public class MenuActivity extends Activity {
 
 
     /**
-     * This method will build scan intent for PhotoPay. Method needs array of recognizer settings
+     * This method will build scan intent for BlinkID. Method needs array of recognizer settings
      * to know which recognizers to enable, activity to which intent will be sent and optionally
      * an intent for HelpActivity that will be used if user taps the Help button on scan activity.
      */
@@ -158,20 +159,15 @@ public class MenuActivity extends Activity {
             intent.putExtra(ScanActivity.EXTRAS_HELP_INTENT, helpIntent);
         }
 
-        // now add array with recognizer settings so that scan activity will know
-        // what do you want to scan. Setting recognizer settings array is mandatory.
-        intent.putExtra(ScanActivity.EXTRAS_RECOGNIZER_SETTINGS_ARRAY, settArray);
-
-        // generic recognizer settings are optional and give you the ability to
-        // define settings that are valid for all recognizers.
-        GenericRecognizerSettings genSett = new GenericRecognizerSettings();
+        // prepare the recognition settings
+        RecognitionSettings settings = new RecognitionSettings();
 
         // with setNumMsBeforeTimeout you can define number of miliseconds that must pass
         // after first partial scan result has arrived before scan activity triggers a timeout.
         // Timeout is good for preventing infinitely long scanning experience when user attempts
         // to scan damaged or unsupported slip. After timeout, scan activity will return only
         // data that was read successfully. This might be incomplete data.
-        genSett.setNumMsBeforeTimeout(10000);
+        settings.setNumMsBeforeTimeout(1000);
 
         // If you add more recognizers to recognizer settings array, you can choose whether you
         // want to have the ability to obtain multiple scan results from same video frame. For example,
@@ -180,16 +176,18 @@ public class MenuActivity extends Activity {
         // from barcode and slip. If this is false (default), you will get the first valid result
         // (i.e. first result that contains all required data). Having this option turned off
         // creates better and faster user experience.
-//        genSett.setAllowMultipleScanResultsOnSingleImage(true);
+//        settings.setAllowMultipleScanResultsOnSingleImage(true);
 
-        // once generic settings are prepared, you can set them with EXTRAS_GENERIC_SETTINGS extra
-        // Setting generic settings is optional.
-        intent.putExtra(ScanActivity.EXTRAS_GENERIC_SETTINGS, genSett);
+        // now add array with recognizer settings so that scan activity will know
+        // what do you want to scan. Setting recognizer settings array is mandatory.
+        settings.setRecognizerSettingsArray(settArray);
+        intent.putExtra(ScanActivity.EXTRAS_RECOGNITION_SETTINGS, settings);
 
         // In order for scanning to work, you must enter a valid licence key. Without licence key,
         // scanning will not work. Licence key is bound the the package name of your app, so when
         // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app.
+        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
+        // at http://help.microblink.com.
         // Licence key also defines which recognizers are enabled and which are not. Since the licence
         // key validation is performed on image processing thread in native code, all enabled recognizers
         // that are disallowed by licence key will be turned off without any error and information
@@ -201,7 +199,7 @@ public class MenuActivity extends Activity {
         // performance penalty.
         // intent.putExtra(ScanActivity.EXTRAS_SHOW_OCR_RESULT, false);
 
-        // If you want you can have scan activity display the focus rectangle whenever camera
+        /// If you want you can have scan activity display the focus rectangle whenever camera
         // attempts to focus, similarly to various camera app's touch to focus effect.
         // By default this is off, and you can turn this on by setting EXTRAS_SHOW_FOCUS_RECTANGLE
         // extra to true.
@@ -214,11 +212,21 @@ public class MenuActivity extends Activity {
 
         // Enable showing of OCR results as animated dots. This does not have effect if non-OCR recognizer like
         // barcode recognizer is active.
-        intent.putExtra(ScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
+        intent.putExtra(BlinkOCRActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
         return intent;
     }
 
+    /**
+     * Builds intent for segment scan.
+     * @param configArray Array of scan configurations. Each scan configuration
+     *          contains 4 elements: resource ID for title displayed
+     *          in BlinkOCRActivity activity, resource ID for text
+     *          displayed in activity, name of the scan element (used
+     *          for obtaining results) and parser setting defining
+     *          how the data will be extracted.
+     * @return Built intent for segment scan.
+     */
     private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
         final Intent intent = new Intent(this, BlinkOCRActivity.class);
 
@@ -237,7 +245,7 @@ public class MenuActivity extends Activity {
     /**
      * This method is used to build the array of ListElement objects. Each ListElement
      * object will have its title that will be shown in ListView and prepared intent
-     * for PhotoPay.
+     * for BlinkID.
      */
     private void buildElements() {
         ArrayList<ListElement> elements = new ArrayList<ListElement>();
@@ -326,6 +334,10 @@ public class MenuActivity extends Activity {
         return new ListElement("Segment scan", buildSegmentScanIntent(conf));
     }
 
+    /**
+     * Element of {@link ArrayAdapter} for {@link ListView} that holds information about title
+     * which should be displayed in list and {@link Intent} that should be started on click.
+     */
     private class ListElement {
         private String mTitle;
         private Intent mScanIntent;
