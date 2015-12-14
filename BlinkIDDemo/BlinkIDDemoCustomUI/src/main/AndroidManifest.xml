@@ -24,7 +24,6 @@
             android:screenOrientation="sensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,7 +33,7 @@
             android:label="@string/title_activity_my_scan" >
         </activity>
         <activity
-            android:name="com.microblink.blinkid.result.ResultActivity"
+            android:name="com.microblink.libresult.ResultActivity"
             android:screenOrientation="sensor"
             android:label="@string/title_activity_my_scan" >
         </activity>

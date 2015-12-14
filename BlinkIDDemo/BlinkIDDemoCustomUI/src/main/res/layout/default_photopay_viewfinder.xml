@@ -14,7 +14,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:padding="6dp"
-        android:text="@string/AlignBill"
+        android:text="@string/Align"
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:textColor="@color/statusForeground"
@@ -28,7 +28,7 @@
          android:layout_height="40dp"
          android:layout_gravity="right|top"
          android:layout_margin="8dp"
-         android:background="@drawable/photopay_button"
+         android:background="@drawable/microblink_button"
          android:drawableLeft="@drawable/lightoff"
          android:drawablePadding="5dp"
          android:minHeight="1dp"
@@ -38,8 +38,8 @@
          android:paddingRight="6dp"
          android:paddingTop="4dp"
          android:alpha="0.9"
-         android:text="@string/photopayLightOff"
-         android:textColor="@color/photopayButtonForeground"
+         android:text="@string/mbLightOff"
+         android:textColor="@color/mbButtonForeground"
          android:textSize="14sp" />
 
     <Button
@@ -48,7 +48,7 @@
         android:layout_height="40dp"
         android:layout_gravity="left|top"
         android:layout_margin="8dp"
-        android:background="@drawable/photopay_button"
+        android:background="@drawable/microblink_button"
         android:minHeight="1dp"
         android:minWidth="50dp"
         android:paddingBottom="4dp"
@@ -56,8 +56,8 @@
         android:paddingRight="6dp"
         android:paddingTop="4dp"
         android:alpha="0.9"
-        android:text="@string/photopayHome"
-        android:textColor="@color/photopayButtonForeground"
+        android:text="@string/mbHome"
+        android:textColor="@color/mbButtonForeground"
         android:textSize="14sp" />
 
 </FrameLayout>
