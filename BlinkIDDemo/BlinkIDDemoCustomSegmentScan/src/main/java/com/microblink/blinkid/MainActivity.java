@@ -9,12 +9,14 @@ import android.widget.Toast;
 import com.microblink.activity.BlinkOCRActivity;
 import com.microblink.help.HelpActivity;
 import com.microblink.ocr.ScanConfiguration;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.AmountParserSettings;
-import com.microblink.recognizers.ocr.blinkocr.parser.generic.IbanParserSettings;
-
+import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
+import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
 
 public class MainActivity extends Activity {
 
+    // obtain your licence key at http://microblink.com/login or
+    // contact us at http://help.microblink.com
+    private static final String LICENSE = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
     private static final int BLINK_OCR_REQUEST_CODE = 100;
 
     @Override
@@ -23,12 +25,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * Called as handler for "Full Screen OCR" button.
+     */
     public void fullScreenOCR(View v) {
         // example of how to use full screen OCR is demonstrated in FullScreenOCR activity
         Intent intent = new Intent(this, FullScreenOCR.class);
         startActivity(intent);
     }
 
+    /**
+     * Called as handler for "Custom scan UI integration" button.
+     */
     public void advancedIntegration(View v) {
         // advanced integration example is given in ScanActivity source code
         Intent intent = new Intent(this, ScanActivity.class);
@@ -46,7 +54,8 @@ public class MainActivity extends Activity {
          */
 
         Intent intent = new Intent(this, BlinkOCRActivity.class);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N");
+        // license key is required for recognizer to work.
+        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, LICENSE);
 
         // we need to scan 3 items, so we will add 3 scan configurations to scan configuration array
         ScanConfiguration conf[] = new ScanConfiguration[] {
