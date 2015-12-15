@@ -10,6 +10,19 @@
 	- if integrating using custom UI, you are required to ask user to give you permission to use camera. To make this easier, we have provided a _CameraPermissionManager_ class which does all heavylifting code about managing states when asking user for camera permission. Refer to demo apps to see how it is used.
 - BlinkID now depends on appcompat-v7 library, instead of full android-support library.
 	- even older versions of BlinkID required only features from appcompat-v7 so we now decided to make appcompat-v7 as dependency because it is much smaller than full support library and is also default dependency of all new Android apps.
+- added support for scanning front side of Malaysian MyKad documents
+- completely rewritten JNI bridge between Java and native code
+	- this caused almost 3x increase in recognition performance in our internal tests
+- fixed camera orientation bug on Nexus 5X
+- DirectAPI no longer recycles Bitmap after performing recognition of it
+	- this now gives you the possibility to reuse the Bitmap after it has been recognised
+- **IMPORTANT** - `onScanningDone` callback method does not automatically pause scanning loop anymore. As soon as `onScanningDone` method ends, scanning will be automatically resumed without resetting state
+	- if you need to reset state, please call `resetRecognitionState` in your implementation of `onScanningDone`
+	- if you need to have scanning paused after `onScanningDone` ends, please call `pauseScanning` in your implementation of `onScanningDone`. Do not forget to call `resumeScanning` to resume scanning after it has been paused.
+- `pauseScanning` and `resumeScanning` calls are now counted, i.e. if you call `pauseScanning` twice, you will also need to call `resumeScanning` twice to actually resume scanning
+	- this is practical if you show multiple onboarding views over camera and you want the scanning paused while each is shown and you do not know in which order they will be dismissed. Now you can simply call `pauseScanning` on showing the onboarding view and `resumeScanning` on dismissing it, regardless of how many onboarding views you have
+	- if you want to show onboarding help first time your scan activity starts, you can call `setInitialScanningPaused(true)` which will ensure that first time camera is started, the scanning will not automatically start - you will need to call `resumeScanning` to start scanning after your onboarding view is dismissed
+- added support for `x86_64` architecture
 
 ## 1.9.0
 - fixed autofocus issue on devices that do not support continuous autofocus
