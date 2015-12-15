@@ -45,14 +45,7 @@ import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 
 public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener, MetadataListener{
 
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
-
     public static final String TAG = "MyScanActivity";
-
-    final double mMarginsLandscape[] = new double[]{0.3, 0.3};
-    final double mMarginsPortrait[] = new double[]{0.0, 0.6};
 
     private int mScansDone = 0;
     private Handler mHandler = new Handler();
@@ -104,7 +97,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
         try {
-            mRecognizerView.setLicenseKey(LICENSE);
+            mRecognizerView.setLicenseKey(com.microblink.Config.LICENSE_KEY);
         } catch (InvalidLicenceKeyException e) {
             e.printStackTrace();
             Log.e(TAG, "Invalid licence key!");

@@ -18,6 +18,7 @@ import com.microblink.libresult.extract.BaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.BlinkOcrRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
+import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.UKDLRecognitionResultExtractor;
@@ -27,6 +28,7 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingScanResult;
+import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.ukdl.UKDLRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
@@ -85,6 +87,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new BardecoderRecognitionResultExtractor(getActivity());
         } else if (mData instanceof BlinkOCRRecognitionResult) {
             mResultExtractor = new BlinkOcrRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof MyKadRecognitionResult) {
+            mResultExtractor = new MyKadRecognitionResultExtractor(getActivity());
         } else {
             mResultExtractor = new BaseRecognitionResultExtractor(getActivity());
         }
@@ -112,7 +116,7 @@ public class ResultFragment extends Fragment {
         // some id is required so that android can save listview's scroll state
         // when activity goes to background
         // the id does not need to be unique
-        listView.setId(113);
+        listView.setId(android.R.id.text2);
         return listView;
     }
 

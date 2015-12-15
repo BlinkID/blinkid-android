@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.microblink.Config;
 import com.microblink.activity.BlinkOCRActivity;
 import com.microblink.help.HelpActivity;
 import com.microblink.ocr.ScanConfiguration;
@@ -16,7 +17,6 @@ public class MainActivity extends Activity {
 
     // obtain your licence key at http://microblink.com/login or
     // contact us at http://help.microblink.com
-    private static final String LICENSE = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
     private static final int BLINK_OCR_REQUEST_CODE = 100;
 
     @Override
@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(this, BlinkOCRActivity.class);
         // license key is required for recognizer to work.
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, LICENSE);
+        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // we need to scan 3 items, so we will add 3 scan configurations to scan configuration array
         ScanConfiguration conf[] = new ScanConfiguration[] {

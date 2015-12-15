@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.Config;
 import com.microblink.activity.BlinkOCRActivity;
 import com.microblink.activity.Pdf417ScanActivity;
 import com.microblink.activity.ScanActivity;
@@ -26,6 +27,7 @@ import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSe
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.ukdl.UKDLRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
@@ -42,10 +44,6 @@ import java.util.ArrayList;
 public class MenuActivity extends Activity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 0x101;
-
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE_KEY = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
 
     private ListElement[] mElements;
 
@@ -192,7 +190,7 @@ public class MenuActivity extends Activity {
         // key validation is performed on image processing thread in native code, all enabled recognizers
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
-        intent.putExtra(ScanActivity.EXTRAS_LICENSE_KEY, LICENSE_KEY);
+        intent.putExtra(ScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // If you want, you can disable drawing of OCR results on scan activity. Drawing OCR results can be visually
         // appealing and might entertain the user while waiting for scan to complete, but might introduce a small
@@ -235,7 +233,7 @@ public class MenuActivity extends Activity {
         intent.putExtra(BlinkOCRActivity.EXTRAS_HELP_INTENT, helpIntent);
 
         intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, configArray);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, LICENSE_KEY);
+        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         intent.putExtra(BlinkOCRActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
@@ -254,6 +252,8 @@ public class MenuActivity extends Activity {
         elements.add(buildMrtdElement());
         elements.add(buildUkdlElement());
         elements.add(buildUsdlElement());
+        // currently disabled in Demo
+//        elements.add(buildMyKadElement());
 
         // barcode list entries
         elements.add(buildPDF417Element());
@@ -283,6 +283,15 @@ public class MenuActivity extends Activity {
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("UK Driver's Licence", buildIntent(new RecognizerSettings[]{ukdl}, ScanCard.class, null));
+    }
+
+    private ListElement buildMyKadElement() {
+        // prepare settings for Malaysian MyKad ID document recognizer
+        MyKadRecognizerSettings myKad = new MyKadRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning MyKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Malaysian MyKad document", buildIntent(new RecognizerSettings[]{myKad}, ScanCard.class, null));
     }
 
     private ListElement buildUsdlElement() {

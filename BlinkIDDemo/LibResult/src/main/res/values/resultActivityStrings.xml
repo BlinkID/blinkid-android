@@ -36,4 +36,8 @@
     <string name="PPBarcodeType">Barcode type</string>
     <string name="PPExtendedBarcodeData">Extended barcode data</string>
 
+    <!-- MyKad specific -->
+    <string name="PPFullName">Full name</string>
+    <string name="PPReligion">Religion</string>
+    <string name="PPNRICNumber">National Registration Identity Card Number</string>
 </resources>

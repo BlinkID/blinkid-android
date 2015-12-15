@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.microblink.Config;
+import com.microblink.hardware.camera.VideoResolutionPreset;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.metadata.Metadata;
 import com.microblink.metadata.MetadataListener;
@@ -37,10 +39,6 @@ import com.microblink.view.recognition.ScanResultListener;
 import com.microblink.view.viewfinder.PointSetView;
 
 public class FullScreenOCR extends Activity implements MetadataListener, CameraEventsListener, ScanResultListener {
-
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE_KEY = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
 
     /** RecognizerView is the built-in view that controls camera and recognition */
     private RecognizerView mRecognizerView;
@@ -100,7 +98,7 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
         try {
-            mRecognizerView.setLicenseKey(LICENSE_KEY);
+            mRecognizerView.setLicenseKey(Config.LICENSE_KEY);
         } catch (InvalidLicenceKeyException e) {
             e.printStackTrace();
             Toast.makeText(this, "Invalid licence key", Toast.LENGTH_SHORT).show();
@@ -111,6 +109,9 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
 
         // use all available view area for displaying camera, possibly cropping the camera frame
         mRecognizerView.setAspectMode(CameraAspectMode.ASPECT_FILL);
+
+        // set 720p resolution (if available) - this will work much faster than default 1080p resolution
+        mRecognizerView.setVideoResolutionPreset(VideoResolutionPreset.VIDEO_RESOLUTION_720p);
 
         // configure metadata settings and chose detection metadata
         // that will be passed to metadata listener

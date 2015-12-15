@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.microblink.Config;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.Recognizer;
 import com.microblink.hardware.orientation.Orientation;
@@ -29,10 +30,6 @@ import java.io.InputStream;
 
 
 public class MainActivity extends Activity {
-
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
 
     private static final String TAG = "DirectApiDemo";
 
@@ -72,7 +69,7 @@ public class MainActivity extends Activity {
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
         try {
-            mRecognizer.setLicenseKey(this, LICENSE);
+            mRecognizer.setLicenseKey(this, Config.LICENSE_KEY);
         } catch (InvalidLicenceKeyException e) {
             Log.e(TAG, "Failed to set licence key!");
             Toast.makeText(this, "Failed to set licence key!", Toast.LENGTH_LONG).show();
