@@ -252,8 +252,7 @@ public class MenuActivity extends Activity {
         elements.add(buildMrtdElement());
         elements.add(buildUkdlElement());
         elements.add(buildUsdlElement());
-        // currently disabled in Demo
-//        elements.add(buildMyKadElement());
+        elements.add(buildMyKadElement());
 
         // barcode list entries
         elements.add(buildPDF417Element());
