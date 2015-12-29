@@ -64,7 +64,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     private boolean mTorchEnabled = false;
     /** This is a text field that contains status messages */
     private TextView mStatusTextView = null;
-    /** This is PhotoPay's built-in helper for built-in view that draws detection location */
+    /** This is BlinkID's built-in helper for built-in view that draws detection location */
     QuadViewManager mQvManager = null;
     /** MediaPlayer will be used for beep sound */
     private MediaPlayer mMediaPlayer = null;

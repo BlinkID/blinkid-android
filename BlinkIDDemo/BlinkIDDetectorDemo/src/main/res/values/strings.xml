@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BlinkIDDetectorDemo</string>
+    <string name="autofocus_fail">Camera cannot autofocus. Please try scanning under better light</string>
+</resources>

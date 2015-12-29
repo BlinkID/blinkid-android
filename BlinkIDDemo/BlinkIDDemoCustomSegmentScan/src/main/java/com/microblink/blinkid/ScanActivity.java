@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.microblink.Config;
 import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.help.HelpActivity;
@@ -38,10 +39,6 @@ import com.microblink.view.recognition.ScanResultListener;
 
 
 public class ScanActivity extends Activity implements CameraEventsListener, ScanResultListener {
-
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE = "UF57DWJN-MCIEASQR-3FUVQU2V-WQ2YBMT4-SH4UTH2I-Z6MDB6FO-36NHEV7P-CZYI7I5N";
 
     /** RecognizerView is the builtin view that controls camera and recognition */
     private RecognizerView mRecognizerView;
@@ -136,7 +133,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
         try {
-            mRecognizerView.setLicenseKey(LICENSE);
+            mRecognizerView.setLicenseKey(Config.LICENSE_KEY);
         } catch (InvalidLicenceKeyException e) {
             e.printStackTrace();
             Toast.makeText(this, "Invalid license key!", Toast.LENGTH_SHORT).show();

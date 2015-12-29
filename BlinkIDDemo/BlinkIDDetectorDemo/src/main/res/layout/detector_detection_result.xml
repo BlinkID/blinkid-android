@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#AA000000"
+    >
+
+    <ImageView
+        android:id="@+id/imgDewarped"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"/>
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:text="Cancel"/>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btnCancel"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="Save"/>
+</RelativeLayout>
