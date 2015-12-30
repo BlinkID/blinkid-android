@@ -5,12 +5,14 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +21,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.microblink.Config;
-import com.microblink.detectors.DecodingInfo;
 import com.microblink.detectors.DetectorSettings;
-import com.microblink.detectors.document.DocumentDetectorSettings;
-import com.microblink.detectors.document.DocumentSpecification;
-import com.microblink.detectors.document.DocumentSpecificationPreset;
 import com.microblink.detectors.multi.MultiDetectorSettings;
-import com.microblink.detectors.quad.mrtd.MRTDDetectorSettings;
-import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
@@ -56,6 +51,11 @@ import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
 import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 
 public class DetectorActivity extends Activity implements CameraEventsListener, ScanResultListener, MetadataListener, OnSizeChangedListener {
+
+    /** Key for setting the array of {@link DetectorSettings} */
+    public static final String EXTRAS_DETECTOR_SETTINGS = "EXTRAS_DETECTOR_SETTINGS";
+    /** Key for setting the license key */
+    public static final String EXTRAS_LICENSE_KEY = "EXTRAS_LICENSE_KEY";
 
     private final int MY_STORAGE_REQUEST_CODE = 6969;
 
@@ -106,6 +106,9 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // obtain reference to RecognizerView
         mRecognizerView = (RecognizerView) findViewById(R.id.rec_view);
 
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
         // In order for scanning to work, you must enter a valid licence key. Without licence key,
         // scanning will not work. Licence key is bound the the package name of your app, so when
         // obtaining your licence key from Microblink make sure you give us the correct package name
@@ -116,37 +119,29 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
         try {
-            mRecognizerView.setLicenseKey(Config.LICENSE_KEY);
+            mRecognizerView.setLicenseKey(extras.getString(EXTRAS_LICENSE_KEY));
         } catch (InvalidLicenceKeyException e) {
             e.printStackTrace();
-            showErrorDialog("Invalid licence key");
+            showErrorDialog(getString(R.string.err_license));
+            mRecognizerView.create();
             mRecognizerView = null;
             return;
         }
 
-        // define document specification for idCard, use provided preset
-        DocumentSpecification idCard = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
-        // define document specification for cheque, use provided preset
-        DocumentSpecification cheque = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_CHEQUE);
-
-        // prepare document detector settings with defined specifications of documents that can be detected
-        DocumentDetectorSettings dds = new DocumentDetectorSettings(new DocumentSpecification[] {idCard, cheque});
-        // set minimum number of stable detections to return detector result
-        dds.setNumStableDetectionsThreshold(3);
-
-
-        // Decoding info is used to define the position in the detected location that is
-        // interesting (it is expressed as rectangle relative to detected rectangle)
-        // and the height of the dewarped image obtained from that position.
-        DecodingInfo di = new DecodingInfo(new Rectangle(0.f, 0.f, 1.f, 1.f), 100);
-
-        // Prepare machine readable travel document detector settings with defined
-        // decoding info.
-        MRTDDetectorSettings mrtds = new MRTDDetectorSettings(new DecodingInfo[] {di});
+        // obtain detector settings from intent
+        Parcelable[] settParc = extras.getParcelableArray(EXTRAS_DETECTOR_SETTINGS);
+        if (settParc == null || settParc.length == 0) {
+            throw new NullPointerException("EXTRAS_DETECTOR_SETTINGS not set."
+                    + " Please set detector settings intent extra!");
+        }
+        DetectorSettings[] detSett = new DetectorSettings[settParc.length];
+        for (int i = 0; i < settParc.length; i++) {
+            detSett[i] = (DetectorSettings)settParc[i];
+        }
 
         // Prepare settings for multi detector that returns the first successful result from one of the
-        // given detectors, here we use document detector and MRTD detector.
-        MultiDetectorSettings mds = new MultiDetectorSettings(new DetectorSettings[] {dds, mrtds});
+        // given detectors, here we use detector settings passed by intent.
+        MultiDetectorSettings mds = new MultiDetectorSettings(detSett);
 
         // Prepare detector recognizer settings, this recognizer is used to detect the
         // desired objects.
