@@ -1,5 +1,20 @@
 # Release notes
 
+## 2.1.0
+- added Detector Recognizer which gives you ability to use one of provided detectors to obtain location of object in camera frame or in image
+- improved performance of conversion of [Image](https://blinkid.github.io/blinkid-android/com/microblink/image/Image.html) object into Bitmap
+- added support for obtaining image of scanned MyKad document
+- added support for obtaining image of scanned UKDL document
+- added support for scanning MyKad document via DirectAPI
+- fixed crash that could be caused by quickly restarting camera activity
+- fixed bug in camera layout in certain aspect ratios of camera view
+- fixed bug in segment scan when put on landscape activity
+- added support for scanning MRTD with wrong checkdigit on date field
+- fixed bug in handling setMeteringAreas
+- setMeteringAreas now receives boolean indicating whether set areas should be rotated with device
+- added support for specifying camera aspect mode from XML
+
+
 ## 2.0.0
 - new API which is easier to understand, but is not backward compatible. Please check [README](README.md) and updated demo applications for more information.
 - removed support for ARMv7 devices which do not support NEON SIMD
