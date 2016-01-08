@@ -45,6 +45,11 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
   * [Scanning barcodes with ZXing implementation](#zxing)
   * [Scanning segments with BlinkOCR recognizer](#blinkOCR)
+  * [Performing detection of various documents](#detectorRecognizer)
+* [Detection settings and results](#detectionSettingsAndResults)
+  * [Detection of documents with Machine Readable Zone](#mrtdDetector)
+  * [Detection of documents with Document Detector](#documentDetector)
+  * [Combining detectors with MultiDetector](#multiDetector)
 * [Translation and localization](#translation)
 * [Processor architecture considerations](#archConsider)
   * [Reducing the final size of your app](#reduceSize)
@@ -100,7 +105,7 @@ After that, you just need to add _BlinkID_ and appCompat-v7 as a dependencies to
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:2.0.0'
+    compile 'com.microblink:blinkid:2.1.0'
     compile "com.android.support:appcompat-v7:23.1.1"
 }
 ```
@@ -132,7 +137,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>2.0.0</version>
+		  <version>2.1.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -782,21 +787,23 @@ View width and height are defined in current context, i.e. they depend on screen
 
 Note that scanning region only reflects to native code - it does not have any impact on user interface. You are required to create a matching user interface that will visualize the same scanning region you set here.
 
-##### <a name="recognizerView_setMeteringAreas"/></a> [`setMeteringAreas(Rectangle[])`](https://blinkid.github.io/blinkid-android/com/microblink/view/BaseCameraView.html#setMeteringAreas(com.microblink.geometry.Rectangle[]))
+##### <a name="recognizerView_setMeteringAreas"/></a> [`setMeteringAreas(Rectangle[],boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/view/BaseCameraView.html#setMeteringAreas(com.microblink.geometry.Rectangle[],boolean))
 This method can only be called when camera is active. You can use this method to define regions which camera will use to perform meterings for focus, white balance and exposure corrections. On devices that do not support metering areas, this will be ignored. Some devices support multiple metering areas and some support only one. If device supports only one metering area, only the first rectangle from array will be used.
 
 Each region is defined as [Rectangle](https://blinkid.github.io/blinkid-android/com/microblink/geometry/Rectangle.html). First parameter of rectangle is x-coordinate represented as percentage of view width, second parameter is y-coordinate represented as percentage of view height, third parameter is region width represented as percentage of view width and fourth parameter is region height represented as percentage of view height.
 
-View width and height are defined in current context, i.e. they depend on screen orientation, as defined in `AndroidManifest.xml`. In portrait orientation view width will be smaller than height, whilst in landscape orientation width will be larger than height. This complies with view designer preview.
+View width and height are defined in current context, i.e. they depend on current device orientation. If you have custom [OrientationAllowedListener](https://blinkid.github.io/blinkid-android/com/microblink/view/OrientationAllowedListener.html), then device orientation will be the last orientation that you have allowed in your listener. If you don't have it set, orientation will be the orientation of activity as defined in `AndroidManifest.xml`. In portrait orientation view width will be smaller than height, whilst in landscape orientation width will be larger than height. This complies with view designer preview.
+
+Second boolean parameter indicates whether or not metering areas should be automatically updated when device orientation changes.
 
 ##### <a name="recognizerView_setMetadataListener"></a> [`setMetadadaListener(MetadataListener, MetadataSettings)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setMetadataListener(com.microblink.metadata.MetadataListener, com.microblink.metadata.MetadataSettings))
 You can use this method to define [metadata listener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) that will obtain various metadata
 from the current recognition process. Which metadata will be available depends on [metadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). For more information and examples, check demo applications.
 
-##### `setLicenseKey(String licenseKey)`
+##### <a name="recognizerView_setLicenseKey1"></a> [`setLicenseKey(String licenseKey)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKey(java.lang.String))
 This method sets the license key that will unlock all features of the native library. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
-##### `setLicenseKey(String licenseKey, String licenseOwner)`
+##### <a name="recognizerView_setLicenseKey2"></a> [`setLicenseKey(String licenseKey, String licenseOwner)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKey(java.lang.String, java.lang.String))
 Use this method to set a license key that is bound to a licensee, not the application package name. You will use this method when you obtain a license key that allows you to use _BlinkID_ SDK in multiple applications. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
 # <a name="directAPI"></a> Using direct API for recognition of Android Bitmaps
@@ -1247,6 +1254,9 @@ Defines if expiry date should be extracted. Default is `true`.
 ##### `setExtractAddress(boolean)`
 Defines if address should be extracted. Default is `true`.
 
+##### `setShowFullDocument(boolean)`
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"UKDL"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled(boolean)) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+
 ### Obtaining results from UK Driver's Licence recognizer
 
 UKDL recognizer produces [UKDLRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/ukdl/UKDLRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `UKDLRecognitionResult` class. See the following snippet for an example:
@@ -1305,7 +1315,7 @@ Returns the place of birth of Driver's Licence owner.
 
 ## <a name="myKad"></a> Scanning Malaysian MyKad ID documents
 
-This section discussed the setting up of Malaysian ID documents (MyKad) recognizer and obtaining results from it.
+This section will discuss the setting up of Malaysian ID documents (MyKad) recognizer and obtaining results from it.
 
 ### Setting up MyKad recognizer
 
@@ -1320,6 +1330,11 @@ private RecognizerSettings[] setupSettingsArray() {
 	return new RecognizerSettings[] { sett };
 }
 ```
+
+You can also tweak MyKad recognition parameters with methods of [MyKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html).
+
+##### `setShowFullDocument(boolean)`
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"MyKad"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled(boolean)) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
 ### Obtaining results from MyKad recognizer
 
@@ -1727,6 +1742,242 @@ Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblin
 
 ##### `OcrResult getOcrResult(String parserGroupName)`
 Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for parser group named `parserGroupName`.
+
+## <a name="detectorRecognizer"></a> Performing detection of various documents
+
+This section will discuss how to set up a special kind of recognizer called `DetectorRecognizer` whose only purpose is to perform a detection of a document and return position of the detected document on the image or video frame.
+
+### Setting up Detector Recognizer
+
+To activate Detector Recognizer, you need to create [DetectorRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html) and add it to `RecognizerSettings` array. When creating `DetectorRecognizerSettings`, you need to initialize it with already prepared [DetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorSettings.html). Check [this chapter](#detectionSettingsAndResults) for more information about available detectors and how to configure them.
+
+You can use the following code snippet to create `DetectorRecognizerSettings` and add it to `RecognizerSettings` array:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	DetectorRecognizerSettings sett = new DetectorRecognizerSettings(setupDetector());
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+Please note that snippet above assumes existance of method `setupDetector()` which returns a fully configured `DetectorSettings` as explained in chapter [Detection settings and results](#detectionSettingsAndResults).
+
+### Obtaining results from Detector Recognizer
+
+Detector Recognizer produces [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `DetectorRecognitionResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof DetectorRecognitionResult) {
+			DetectorRecognitionResult result = (DetectorRecognitionResult) baseResult;
+			
+	        // you can use getters of DetectorRecognitionResult class to 
+	        // obtain detection result
+	        if(result.isValid() && !result.isEmpty()) {
+				DetectorResult detection = result.getDetectorResult();
+				// the type of DetectorResults depends on type of configured
+				// detector when setting up the DetectorRecognizer
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+Available getters are:
+
+##### `boolean isValid()`
+Returns `true` if detection result is valid, i.e. if all required elements were detected with good confidence and can be used. If `false` is returned that indicates that some crucial data is missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain document, please report that as a bug to [help.microblink.com](http://help.microblink.com). Please include high resolution photographs of problematic documents.
+
+##### `boolean isEmpty()`
+Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
+
+##### `DetectorResult getDetectorResult()`
+Returns the [DetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorResult.html) generated by detector that was used to configure Detector Recognizer.
+
+# <a name="detectionSettingsAndResults"></a> Detection settings and results
+
+This chapter will discuss various detection settings used to configure different detectors that some recognizers can use to perform object detection prior performing further recognition of detected object's contents.
+
+Each detector has its own version of `DetectorSettings` which derives [DetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorSettings.html) class. Besides that, each detector also produces its own version of `DetectorResult` which derives [DetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorResult.html) class. Appropriate recognizers, such as [Detector Recognizer](#detectorRecognizer), require `DetectorSettings` for their initialization and provide `DetectorResult` in their recognition result.
+
+#### [DetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorSettings.html)
+
+Abstract `DetectorSettings` contains following setters that are inherited by all derived settings objects:
+
+##### `setDisplayDetectedLocation(boolean)`
+
+Defines whether detection location will be delivered as detection metadata to [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html). In order for this to work, you need to set `MetadataListener` to [RecognizerView](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html}) and you need to allow receiving of detection metadata in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setDetectionMetadataAllowed(boolean)).
+
+#### [DetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorResult.html)
+
+Abstract `DetectorResult` contains following getters that are inherited by all derived result objects:
+
+##### `DetectionCode getDetectionCode()`
+
+Returns the [Detection code](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorResult.DetectionCode.html) which indicates the status of detection (failed, fallback or success).
+
+## <a name="mrtdDetector"></a> Detection of documents with Machine Readable Zone
+
+This section discusses how to use MRTD detector to perform detection of Machine Readable Zones used in various Machine Readable Travel Documents (MRTDs - ID cards and passports). This detector is used internally in [Machine Readable Travel Documents recognizer](#mrtd) to perform detection of Machine Readable Zone (MRZ) prior performing OCR and data extraction.
+
+### Setting up MRTD detector
+
+To use MRTD detector, you need to create [MRTDDetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html) and give it to appropriate recognizer. You can use following snippet to perform that:
+
+```java
+private DetectorSettings setupDetector() {
+	MRTDDetectorSettings settings = new MRTDDetectorSettings();
+
+	// with following setter you can control whether you want to detect
+	// machine readable zone only or full travel document
+	settings.setDetectFullDocument(false);
+	
+	return settings;
+}
+```
+
+As you can see from the snippet, `MRTDDetectorSettings` can be tweaked with following methods:
+
+##### `setDetectFullDocument(boolean)`
+
+This method allows you to enable detection of full Machine Readable Travel Documents. The position of the document is calculated from location of detected Machine Readable Zone. If this is set to `false` (default), then only location of Machine Readable Zone will be returned.
+
+### Obtaining MRTD detection result
+
+MRTD detector produces [MRTDDetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html). You can use `instanceof` operator to check if obtained `DetectorSettings` is instance of `MRTDDetectorResult` class. See the following snippet for an example:
+
+```java
+public void handleDetectorResult(DetectorResult detResult) {
+	if (detResult instanceof MRTDDetectorResult) {
+		MRTDDetectorResult result = (MRTDDetectorResult) detResult;
+		Quadrilateral pos = result.getDetectionLocation();
+	}
+}
+```
+
+The available getters of `MRTDDetectorResults` are as follows:
+
+##### `Quadrilateral getDetectionLocation()`
+
+Returns the [Quadrilateral](https://blinkid.github.io/blinkid-android/com/microblink/geometry/Quadrilateral.html) containing the position of detection. If position is empty, all four Quadrilateral points will have coordinates `(0,0)`.
+
+##### `int[] getElementsCountPerLine()`
+
+Returns the array of integers defining the number of char-like elements per each line of detected machine readable zone.
+
+##### `MRTDDetectionCode getMRTDDetectionCode()`
+
+Returns the [MRTDDetectionCode enum](https://blinkid.github.io/blinkid-android/com/microblink/detectors/quad/mrtd/MRTDDetectorResult.MRTDDetectionCode.html) defining the type of detection or `null` if nothing was detected.
+
+## <a name="documentDetector"></a> Detection of documents with Document Detector
+
+This section discusses how to use Document detector to perform detection of documents of certain aspect ratios. This detector can be used to detect cards, cheques, A4-sized documents, receipts and much more.
+
+### Setting up of Document Detector
+
+To use Document Detector, you need to create [DocumentDetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentDetectorSettings.html). When creating `DocumentDetectorSettings` you need to specify at least one [DocumentSpecification](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) which defines how specific document should be detected. `DocumentSpecification` can be created directly or from [preset](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html#createFromPreset(com.microblink.detectors.document.DocumentSpecificationPreset)) (recommended). Please refer to [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) for more information on document specification.
+
+In the following snippet, we will show how to setup `DocumentDetectorSettings` to perform detection of credit cards:
+
+```java
+private DetectorSettings setupDetector() {
+	DocumentSpecification cardDoc = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
+
+	DocumentDetectorSettings settings = new DocumentDetectorSettings(new DocumentSpecification[] {cardDoc});
+
+	// require at least 3 subsequent close detections (in 3 subsequent 
+	// video frames) to treat detection as 'stable'
+	settings.setNumStableDetectionsThreshold(3)
+	
+	return settings;
+}
+```
+
+As you can see from the snippet, `DocumentDetectorSettings` can be tweaked with following methods:
+
+##### `setNumStableDetectionsThreshold(int)`
+
+Sets the number of subsequent close detections must occur before treating document detection as stable. Default is 1. Larger number guarantees more robust document detection at price of slower performance.
+
+##### `setDocumentSpecifications(DocumentSpecification[])`
+
+Sets the array of document specifications that define documents that can be detected. See javadoc for [DocumentSpecification](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) for more information about document specifications.
+
+### Obtaining document detection result
+
+Document detector produces [DocumentDetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentDetectorResult.html). You can use `instanceof` operator to check if obtained `DetectorSettings` is instance of `DocumentDetectorResult` class. See the following snippet for an example:
+
+```java
+public void handleDetectorResult(DetectorResult detResult) {
+	if (detResult instanceof DocumentDetectorResult) {
+		DocumentDetectorResult result = (DocumentDetectorResult) detResult;
+		Quadrilateral pos = result.getDetectionLocation();
+	}
+}
+```
+
+Available getters of `DocumentDetectorResult` are as follows:
+
+##### `Quadrilateral getDetectionLocation()`
+
+Returns the [Quadrilateral](https://blinkid.github.io/blinkid-android/com/microblink/geometry/Quadrilateral.html) containing the position of detection. If position is empty, all four Quadrilateral points will have coordinates `(0,0)`.
+
+##### `double getAspectRatio()`
+
+Returns the aspect ratio of detected document. This will be equal to aspect ratio of one of `DocumentSpecification` objects given to `DocumentDetectorSettings`.
+
+##### `ScreenOrientation getScreenOrientation()`
+
+Returns the orientation of the screen that was active at the moment document was detected.
+
+## <a name="multiDetector"></a> Combining detectors with MultiDetector
+
+This section discusses how to use Multi detector to combine multiple different detectors.
+
+### Setting up Multi Detector
+
+To use Multi Detector, you need to create [MultiDetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/multi/MultiDetectorSettings.html). When creating `MultiDetectorSettings` you need to specify at least one other `DetectorSettings` that will be wrapped with Multi Detector. In the following snippet, we demonstrate how to create a Multi detector that wraps both [MRTDDetector](#mrtdDetector) and [Document Detector](#documentDetector) and has ability to detect either Machine Readable Zone or card document:
+
+```java
+private DetectorSettings setupDetector() {
+	DocumentSpecification cardDoc = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
+	DocumentDetectorSettings dds = new DocumentDetectorSettings(new DocumentSpecification[] {cardDoc});
+
+	MRTDDetectorSettings mrtds = new MRTDDetectorSettings(100);
+
+    MultiDetectorSettings mds = new MultiDetectorSettings(new DetectorSettings[] {dds, mrtds});
+	
+	return mds;
+}
+```
+
+### Obtaining results from Multi Detector
+
+Multi detector produces [MultiDetectorResult](https://blinkid.github.io/blinkid-android/com/microblink/detectors/multi/MultiDetectorResult.html). You can use `instanceof` operator to check if obtained `DetectorSettings` is instance of `MultiDetectorResult` class. See the following snippet for an example:
+
+```java
+public void handleDetectorResult(DetectorResult detResult) {
+	if (detResult instanceof MultiDetectorResult) {
+		MultiDetectorResult result = (MultiDetectorResult) detResult;
+		DetectorResults[] results = result.getDetectionResults();
+	}
+}
+```
+
+As you can see from the snippet, `MultiDetectorResult` contains one getter:
+
+##### `getDetectionResults()`
+
+Returns the array of detection results contained within. You can iterate over the array to inspect each detection result's contents.
 
 # <a name="translation"></a> Translation and localization
 

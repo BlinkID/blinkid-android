@@ -139,22 +139,26 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
             detSett[i] = (DetectorSettings)settParc[i];
         }
 
-        // Prepare settings for multi detector that returns the first successful result from one of the
-        // given detectors, here we use detector settings passed by intent.
-        MultiDetectorSettings mds = new MultiDetectorSettings(detSett);
-
         // Prepare detector recognizer settings, this recognizer is used to detect the
         // desired objects.
-        DetectorRecognizerSettings drs = new DetectorRecognizerSettings();
-        // defined multi detector will be used
-        drs.setDetectorSettings(mds);
+        DetectorRecognizerSettings drs = null;
+
+        if (detSett.length == 1) {
+            // if only one detector settings was sent via intent, use it directly
+            drs = new DetectorRecognizerSettings(detSett[0]);
+        } else {
+            // Otherwise, prepare settings for multi detector that returns the first successful result from one of the
+            // given detectors, here we use detector settings passed by intent.
+            MultiDetectorSettings mds = new MultiDetectorSettings(detSett);
+
+            drs = new DetectorRecognizerSettings(mds);
+        }
 
         // Finally, prepare settings for recognition.
         RecognitionSettings settings = new RecognitionSettings();
         // Set recognizer settings array that is used to configure recognition,
         // detector recognizer will be used.
         settings.setRecognizerSettingsArray(new RecognizerSettings[]{drs});
-
 
         mRecognizerView.setRecognitionSettings(settings);
 

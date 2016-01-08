@@ -178,8 +178,6 @@
                     android:id="@+id/txtResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:editable="true"
-                    android:singleLine="true"
                     android:text="123,54"
                     android:textAlignment="center"
                     android:textColor="@color/text_white"
