@@ -1,5 +1,13 @@
 # Release notes
 
+## 2.2.0
+- support detecting on activity flip event
+- fix recognition of long names in MyKad ID cards
+- fixed crash in RecognizerCompatibility on ARMv7 without NEON
+- added RecognizerCompatibility to javadoc
+- added Sony Xperia L to OpenGL blacklist
+- fixed NPE in BarcodeDetailedData
+
 ## 2.1.0
 - added Detector Recognizer which gives you ability to use one of provided detectors to obtain location of object in camera frame or in image
 - improved performance of conversion of [Image](https://blinkid.github.io/blinkid-android/com/microblink/image/Image.html) object into Bitmap
