@@ -21,7 +21,7 @@ import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
 import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
-import com.microblink.libresult.extract.UKDLRecognitionResultExtractor;
+import com.microblink.libresult.extract.EUDLRecognitionResultExtractor;
 import com.microblink.libresult.extract.ZXingRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
@@ -30,7 +30,7 @@ import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingScanResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
-import com.microblink.recognizers.blinkid.ukdl.UKDLRecognitionResult;
+import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
 
 import java.util.List;
@@ -77,8 +77,8 @@ public class ResultFragment extends Fragment {
 
         if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
-        } else if(mData instanceof UKDLRecognitionResult) {
-            mResultExtractor = new UKDLRecognitionResultExtractor(getActivity());
+        } else if(mData instanceof EUDLRecognitionResult) {
+            mResultExtractor = new EUDLRecognitionResultExtractor(getActivity());
         } else if (mData instanceof Pdf417ScanResult) {
             mResultExtractor = new Pdf417RecognitionResultExtractor(getActivity());
         } else if (mData instanceof ZXingScanResult) {

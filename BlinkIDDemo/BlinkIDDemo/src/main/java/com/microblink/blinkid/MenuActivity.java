@@ -27,9 +27,10 @@ import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSe
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.blinkid.ukdl.UKDLRecognizerSettings;
+import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
@@ -165,7 +166,7 @@ public class MenuActivity extends Activity {
         // Timeout is good for preventing infinitely long scanning experience when user attempts
         // to scan damaged or unsupported slip. After timeout, scan activity will return only
         // data that was read successfully. This might be incomplete data.
-        settings.setNumMsBeforeTimeout(1000);
+        settings.setNumMsBeforeTimeout(2000);
 
         // If you add more recognizers to recognizer settings array, you can choose whether you
         // want to have the ability to obtain multiple scan results from same video frame. For example,
@@ -250,7 +251,8 @@ public class MenuActivity extends Activity {
 
         // ID document list entry
         elements.add(buildMrtdElement());
-        elements.add(buildUkdlElement());
+        elements.add(buildUKDLElement());
+        elements.add(buildGermanDLlement());
         elements.add(buildUsdlElement());
         elements.add(buildMyKadElement());
 
@@ -275,13 +277,24 @@ public class MenuActivity extends Activity {
         return new ListElement("ID document", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
     }
 
-    private ListElement buildUkdlElement() {
-        // prepare settings for United Kingdom Driver's Licence recognizer
-        UKDLRecognizerSettings ukdl = new UKDLRecognizerSettings();
+    private ListElement buildUKDLElement() {
+        // prepare settings for EU Driver's Licence recognizer
+        // set country to UK
+        EUDLRecognizerSettings ukdl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK);
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("UK Driver's Licence", buildIntent(new RecognizerSettings[]{ukdl}, ScanCard.class, null));
+    }
+
+    private ListElement buildGermanDLlement() {
+        // prepare settings for EU Driver's Licence recognizer
+        // set country to Germany
+        EUDLRecognizerSettings germanDL = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_GERMANY);
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("German Driver's Licence", buildIntent(new RecognizerSettings[]{germanDL}, ScanCard.class, null));
     }
 
     private ListElement buildMyKadElement() {

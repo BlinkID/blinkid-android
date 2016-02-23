@@ -28,6 +28,7 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPIssueDate">Issue date</string>
     <string name="PPExpiryDate">Expiry date</string>
+    <string name="PPIssuingAuthority">Issuing Authority</string>
 
     <!-- Barcode -->
     <string name="PPUncertain">Uncertain data</string>

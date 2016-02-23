@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.microblink.libresult.R;
 import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.blinkid.ukdl.UKDLRecognitionResult;
+import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -14,11 +14,11 @@ import java.util.List;
 /**
  * Created by dodo on 02/06/15.
  */
-public class UKDLRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
+public class EUDLRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
     Context mContext;
     List<RecognitionResultEntry> mExtractedData;
 
-    public UKDLRecognitionResultExtractor(Context mContext) {
+    public EUDLRecognitionResultExtractor(Context mContext) {
         this.mContext = mContext;
         mExtractedData = new ArrayList<>();
     }
@@ -32,43 +32,46 @@ public class UKDLRecognitionResultExtractor implements IBaseRecognitionResultExt
 
         DateFormat df = new SimpleDateFormat("dd.mm.yyyy.");
 
-        if (result instanceof UKDLRecognitionResult) {
-            UKDLRecognitionResult ukdlResult = (UKDLRecognitionResult) result;
+        if (result instanceof EUDLRecognitionResult) {
+            EUDLRecognitionResult eudlResult = (EUDLRecognitionResult) result;
 
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPFirstName),
-                    ukdlResult.getFirstName()
+                    eudlResult.getFirstName()
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPLastName),
-                    ukdlResult.getLastName()
+                    eudlResult.getLastName()
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPAddress),
-                    ukdlResult.getAddress()
+                    eudlResult.getAddress()
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPPlaceOfBirth),
-                    ukdlResult.getPlaceOfBirth()
+                    eudlResult.getPlaceOfBirth()
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPDateOfBirth),
-                    ukdlResult.getDateOfBirth() == null ? "" : df.format(ukdlResult.getDateOfBirth())
-            ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDriverNumber),
-                    ukdlResult.getDriverNumber()
+                    eudlResult.getDateOfBirth() == null ? "" : df.format(eudlResult.getDateOfBirth())
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPIssueDate),
-                    ukdlResult.getDocumentIssueDate() == null ? "" : df.format(ukdlResult.getDocumentIssueDate())
+                    eudlResult.getDocumentIssueDate() == null ? "" : df.format(eudlResult.getDocumentIssueDate())
             ));
             mExtractedData.add(new RecognitionResultEntry(
                     mContext.getString(R.string.PPExpiryDate),
-                    ukdlResult.getDocumentExpiryDate() == null ? "" : df.format(ukdlResult.getDocumentExpiryDate())
+                    eudlResult.getDocumentExpiryDate() == null ? "" : df.format(eudlResult.getDocumentExpiryDate())
+            ));
+            mExtractedData.add(new RecognitionResultEntry(
+                    mContext.getString(R.string.PPDriverNumber),
+                    eudlResult.getDriverNumber()
+            ));
+            mExtractedData.add(new RecognitionResultEntry(
+                    mContext.getString(R.string.PPIssuingAuthority),
+                    eudlResult.getDocumentIssuingAuthority()
             ));
         }
-
         return mExtractedData;
     }
 }
