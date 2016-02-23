@@ -1,5 +1,19 @@
 # Release notes
 
+## 2.3.0
+- reconfigureRecognizers method now throws an error if phone does not have autofocus and at least one of new recognizers require it
+- raw resources are now packed as assets
+- fixed bug with isScanningPaused which sometimes returned bogus value and caused scanning to work even if initial scanning was set to be paused
+- support for scanning custom camera frames via DirectAPI
+- added support for scanning german driver licences
+    - this is achieved by renaming UKDL recognizer to EUDL recognizer which now supports
+      both UK driver's licences and german driver's licences
+    - this recognizer will be expanded in future with support for other DL's from European contries
+- fixed bug on some devices causing it to never start scanning if device was not shaken
+- increased OCR engine initialisation speed
+- improved Frame Quality Estimation on low-end devices (fixed regression introduced in v1.7.0)
+- added new options to BlinkOcrEngineOptions
+
 ## 2.2.0
 - support detecting on activity flip event
 - fix recognition of long names in MyKad ID cards
