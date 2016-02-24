@@ -39,7 +39,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [[Recognition settings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/settings/RecognitionSettings.html)](#recognitionSettings)
   * [Scanning machine-readable travel documents](#mrtd)
   * [Scanning US Driver's licence barcodes](#usdl)
-  * [Scanning United Kingdom's driver's licences](#ukdl)
+  * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning PDF417 barcodes](#pdf417Recognizer)
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
@@ -105,7 +105,7 @@ After that, you just need to add _BlinkID_ and appCompat-v7 as a dependencies to
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:2.2.0'
+    compile 'com.microblink:blinkid:2.3.0'
     compile "com.android.support:appcompat-v7:23.1.1"
 }
 ```
@@ -137,7 +137,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>2.2.0</version>
+		  <version>2.3.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -175,7 +175,7 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 
 1. In Eclipse, create a new _Android library project_ in your workspace.
 2. Clear the `src` and `res` folders.
-3. Unzip the `LibRecognizer.aar` file. You can rename it to zip and then unzip it or use any tool.
+3. Unzip the `LibRecognizer.aar` file. You can rename it to zip and then unzip it using any tool.
 4. Copy the `classes.jar` to `libs` folder of your Eclipse library project. If `libs` folder does not exist, create it.
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 6. Replace the `res` folder on library project with the `res` folder of the `LibRecognizer.aar` file.
@@ -184,9 +184,10 @@ You’ve already created the project that contains almost everything you need. N
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibRecognizer.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
-3. Clean and Rebuild your target project
-4. If you plan to use ProGuard, add same statements as in [Android studio guide](#quickIntegration) to your ProGuard configuration file.
-5. Add appcompat-v7 library to your workspace and reference it by target project (modern ADT plugin for Eclipse does this automatically for all new android projects).
+3. Copy the contents of `assets` folder from `LibRecognizer.aar` into `assets` folder of target project. If `assets` folder in target project does not exist, create it.
+4. Clean and Rebuild your target project
+5. If you plan to use ProGuard, add same statements as in [Android studio guide](#quickIntegration) to your ProGuard configuration file.
+6. Add appcompat-v7 library to your workspace and reference it by target project (modern ADT plugin for Eclipse does this automatically for all new android projects).
 
 ## <a name="quickScan"></a> Performing your first scan
 1. You can start recognition process by starting `ScanCard` activity with Intent initialized in the following way:
@@ -439,7 +440,7 @@ Besides possibility to put various intent extras for customizing `ScanCard` beha
 
 #### Modifying other resources.
 
-Generally, you can also change other resources that `ScanCard` uses, but you are encouraged to create your own custom scan activity instead (see [Embedding `RecognizerView` into custom scan activity](#recognizerView)). Just do not modify the contents of `raw` folder, as it contains files required for native part of the library - without those files _BlinkID_ will not work.
+Generally, you can also change other resources that `ScanCard` uses, but you are encouraged to create your own custom scan activity instead (see [Embedding `RecognizerView` into custom scan activity](#recognizerView)).
 
 ## <a name="segmentScanActivityCustomization"></a> Customization of `BlinkOCRActivity` activity
 
@@ -1215,17 +1216,20 @@ This method will return the object that contains information about barcode's bin
 ##### `getField(String)`
 This method will return a parsed US Driver's licence element. The method requires a key that defines which element should be returned and returns either a string representation of that element or `null` if that element does not exist in barcode. To see a list of available keys, refer to [Keys for obtaining US Driver's license data](DriversLicenseKeys.md)
 
-## <a name="ukdl"></a> Scanning United Kingdom's driver's licences
+## <a name="eudl"></a> Scanning EU driver's licences
 
-This section discusses the setting up of UK Driver's Licence recognizer and obtaining results from it.
+This section discusses the setting up of EU Driver's Licence recognizer and obtaining results from it. United Kingdom's and German's driver's licenses are supported.
 
-### Setting up UK Driver's Licence recognizer
+### Setting up EU Driver's Licence recognizer
 
-To activate UKDL recognizer, you need to create [UKDLRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/ukdl/UKDLRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate EUDL recognizer, you need to create [EUDLRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
-	UKDLRecognizerSettings sett = new UKDLRecognizerSettings();
+	// pass country to EUDLRecognizerSettings constructor, supported countries are:
+	// - UK (EUDLCountry.EUDL_COUNTRY_UK)
+	// - Germany (EUDLCountry.EUDL_COUNTRY_GERMANY)
+	EUDLRecognizerSettings sett = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK)
 	
 	// now add sett to recognizer settings array that is used to configure
 	// recognition
@@ -1233,7 +1237,10 @@ private RecognizerSettings[] setupSettingsArray() {
 }
 ```
 
-You can also tweak UKDL recognition parameters with methods of [UKDLRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/ukdl/UKDLRecognizerSettings.html).
+You can also tweak EUDL recognition parameters with methods of [EUDLRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html).
+
+##### `setCountry(EUDLCountry country)`
+Method activates scanning settings for given country. United Kingdom's and German's driver's licenses are supported.
 
 ##### `setExtractIssueDate(boolean)`
 Defines if issue date should be extracted. Default is `true`.
@@ -1245,21 +1252,21 @@ Defines if expiry date should be extracted. Default is `true`.
 Defines if address should be extracted. Default is `true`.
 
 ##### `setShowFullDocument(boolean)`
-Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"UKDL"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"EUDL"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
-### Obtaining results from UK Driver's Licence recognizer
+### Obtaining results from EU Driver's Licence recognizer
 
-UKDL recognizer produces [UKDLRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/ukdl/UKDLRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `UKDLRecognitionResult` class. See the following snippet for an example:
+EUDL recognizer produces [EUDLRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/eudl/EUDLRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `EUDLRecognitionResult` class. See the following snippet for an example:
 
 ```java
 @Override
 public void onScanningDone(RecognitionResults results) {
 	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
 	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof UKDLRecognitionResult) {
-			UKDLRecognitionResult result = (UKDLRecognitionResult) baseResult;
+		if(baseResult instanceof EUDLRecognitionResult) {
+			EUDLRecognitionResult result = (EUDLRecognitionResult) baseResult;
 			
-	        // you can use getters of UKDLRecognitionResult class to 
+	        // you can use getters of EUDLRecognitionResult class to 
 	        // obtain scanned information
 	        if(result.isValid() && !result.isEmpty()) {
 	           String firstName = result.getFirstName();
@@ -1286,10 +1293,13 @@ Returns `true` if scan result is empty, i.e. nothing was scanned. All getters sh
 Returns the first name of the Driver's Licence owner.
 
 ##### `String getLastName()`
-Returns the address of the Driver's Licence owner.
+Returns the last name of the Driver's Licence owner.
 
 ##### `String getDriverNumber()`
 Returns the driver number.
+
+##### `String getAddress()`
+Returns the address of the Driver's Licence owner, if it exists.
 
 ##### `Date getDateOfBirth()`
 Returns date of birth of the Driver's Licence owner.
@@ -1302,6 +1312,12 @@ Returns the expiry date of the Driver's Licence.
 
 ##### `String getPlaceOfBirth()`
 Returns the place of birth of Driver's Licence owner.
+
+##### `String getDocumentIssuingAuthority()`
+Returns document issuing authority.
+
+##### `String getCountry()`
+Returns the country where the Driver's License has been issued or null if country is unknown.
 
 ## <a name="myKad"></a> Scanning Malaysian MyKad ID documents
 
@@ -1971,7 +1987,7 @@ Returns the array of detection results contained within. You can iterate over th
 
 # <a name="translation"></a> Translation and localization
 
-`BlinkID` can be localized to any language. If you are using `RecognizerView` in your custom scan activity, you should handle localization as in any other Android app - `RecognizerView` does not use strings nor drawables, it only uses raw resources from `res/raw` folder. Those resources must not be touched as they are required for recognition to work correctly.
+`BlinkID` can be localized to any language. If you are using `RecognizerView` in your custom scan activity, you should handle localization as in any other Android app - `RecognizerView` does not use strings nor drawables, it only uses assets from `assets/microblink` folder. Those assets must not be touched as they are required for recognition to work correctly.
 
 However, if you use our builtin `ScanCard` activity, it will use resources packed with library project to display strings and images on top of camera view. We have already prepared string in several languages which you can use out of the box. You can also [modify those strings](#stringChanging), or you can [add your own language](#addLanguage).
 
