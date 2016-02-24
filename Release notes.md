@@ -1,5 +1,8 @@
 # Release notes
 
+## 2.3.1
+- fixed bug in parsing dates from German's Driver's licenses
+
 ## 2.3.0
 - reconfigureRecognizers method now throws an error if phone does not have autofocus and at least one of new recognizers require it
 - raw resources are now packed as assets
