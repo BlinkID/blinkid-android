@@ -105,7 +105,7 @@ After that, you just need to add _BlinkID_ and appCompat-v7 as a dependencies to
 
 ```
 dependencies {
-    compile 'com.microblink:blinkid:2.3.0'
+    compile 'com.microblink:blinkid:2.3.1'
     compile "com.android.support:appcompat-v7:23.1.1"
 }
 ```
@@ -137,7 +137,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>2.3.0</version>
+		  <version>2.3.1</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
