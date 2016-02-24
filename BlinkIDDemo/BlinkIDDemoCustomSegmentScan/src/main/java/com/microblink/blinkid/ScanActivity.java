@@ -69,11 +69,6 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
 
         setContentView(R.layout.activity_scan);
 
-        // load configuration titles from string resources in application context
-        for(ScanConfiguration conf : mConfiguration) {
-            conf.loadTitle(this);
-        }
-
         // obtain references to needed member variables
         mRecognizerView = (RecognizerView) findViewById(R.id.rec_view);
         mFlashButton = (ImageButton) findViewById(R.id.btnFlash);
