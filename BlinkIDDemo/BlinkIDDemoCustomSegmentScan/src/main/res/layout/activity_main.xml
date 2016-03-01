@@ -1,37 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context="com.microblink.blinkid.MainActivity">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <Button
-        android:id="@+id/btnSimple"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:onClick="simpleIntegration"
-        android:text="Simple integration"/>
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
 
-    <Button
-        android:id="@+id/btnAdvanced"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="advancedIntegration"
-        android:text="Custom scan UI integration"
-        android:layout_below="@+id/btnSimple"
-        android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/mb_logo">
+        </ImageView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="fullScreenOCR"
-        android:text="Full Screen OCR"
-        android:layout_below="@+id/btnAdvanced"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/image_logo"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
+            android:text="@string/title_activity_main"
+            android:layout_below="@+id/image_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/detectorList"
+        android:layout_below="@id/header"
+        android:layout_alignParentBottom="true"
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
 
 
 </RelativeLayout>
