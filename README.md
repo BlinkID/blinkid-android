@@ -7,6 +7,7 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [Passports and IDs that contain Machine Readable Zone](https://en.wikipedia.org/wiki/Machine-readable_passport)
 * [United States' Driver's License barcodes](https://en.wikipedia.org/wiki/Driver%27s_license_in_the_United_States)
 * [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
+* [German Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Germany)
 * [Malaysian identity card's front side](https://en.wikipedia.org/wiki/Malaysian_identity_card)
 
 As of version `1.8.0` you can also scan barcodes and perform OCR of structurized or free-form text. Supported barcodes are the same as in sister product [PDF417.mobi](https://github.com/PDF417/pdf417-android).
