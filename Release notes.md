@@ -1,5 +1,9 @@
 # Release notes
 
+## 2.4.0
+- fixed ANR on Samsung Galaxy S3 Mini VE
+- added RegexParser which can parse almost any regular expression from OCR result
+
 ## 2.3.1
 - fixed bug in parsing dates from German's Driver's licenses
 
