@@ -5,4 +5,5 @@
     <dimen name="result_horizontal_margin">32dp</dimen>
     <dimen name="result_vertical_margin">32dp</dimen>
     <dimen name="text_size">20sp</dimen>
+    <dimen name="margin_segment_scan_button_bottom">6dp</dimen>
 </resources>

@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/margin_segment_scan_button_bottom"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/margin_segment_scan_button_bottom"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/margin_segment_scan_button_bottom"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -104,26 +104,34 @@
                 android:visibility="gone"
                 tools:visibility="visible"/>
 
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:layout_above="@+id/txtMessage"
+                          android:layout_below="@+id/btnExit"
+                          android:gravity="center_vertical"
+                          android:orientation="vertical">
+
+                <com.microblink.ocr.SlidingTabLayout
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:background="@android:color/white"/>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/txtMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/text_white"
                 android:text="Position scan element in this frame"/>
-
-            <com.microblink.ocr.SlidingTabLayout
-                android:id="@+id/indicator"
-                android:layout_below="@+id/btnExit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_below="@+id/indicator"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:background="@android:color/white"/>
 
         </RelativeLayout>
 
