@@ -1,6 +1,6 @@
 # _BlinkID_ SDK for Android
 
-[![Build Status](https://travis-ci.org/BlinkID/blinkid-android.png)](https://travis-ci.org/BlinkID/blinkid-android)
+[![Build Status](https://travis-ci.org/BlinkID/blinkid-android.svg?branch=master)](https://travis-ci.org/BlinkID/blinkid-android)
 
 _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID cards in your app. You can simply integrate the SDK into your app by following the instructions below and your app will be able to benefit the scanning feature for following ID card standards:
 
