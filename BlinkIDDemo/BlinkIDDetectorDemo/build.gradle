@@ -20,7 +20,8 @@ android {
 }
 
 dependencies {
-    compile "com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar"
-    compile "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
+    compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
+        transitive = true
+    }
     compile project(':LibResult')
 }
