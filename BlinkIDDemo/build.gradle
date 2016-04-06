@@ -22,5 +22,5 @@ project.ext {
     blinkIdVersion = '2.5.0'
     compileSdkVersion = 23
     targetSdkVersion = 23
-    buildToolsVersion = '23.0.2'
+    buildToolsVersion = '23.0.3'
 }
