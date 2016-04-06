@@ -1,5 +1,13 @@
 # Release notes
 
+## 2.5.0
+- FailedDetectionMetadata, PointsDetectionMetadata and QuadDetectionMetadata have been replaced with DetectionMetadata which now holds a DetectorResult
+    - DetectorResult is more flexible as it allows more different detection types to be added in future
+- fixed several possible crashes in camera management
+- fixed autofocus bug on LG devices when metering areas or non-default zoom level were set
+- fixed autofocus bug on LG G4 (not related to bug above)
+- fixed bug which caused document number to have zeros and Os misrecognized, even if OCR was 100% correct
+
 ## 2.4.0
 - fixed ANR on Samsung Galaxy S3 Mini VE
 - added RegexParser which can parse almost any regular expression from OCR result
