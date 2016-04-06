@@ -10,13 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.microblink.Config;
+import com.microblink.detectors.DetectorResult;
+import com.microblink.detectors.points.PointsDetectorResult;
 import com.microblink.hardware.camera.VideoResolutionPreset;
 import com.microblink.hardware.orientation.Orientation;
+import com.microblink.metadata.DetectionMetadata;
 import com.microblink.metadata.Metadata;
 import com.microblink.metadata.MetadataListener;
 import com.microblink.metadata.MetadataSettings;
 import com.microblink.metadata.OcrMetadata;
-import com.microblink.metadata.detection.PointsDetectionMetadata;
 import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
@@ -163,7 +165,7 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         mRecognizerView.addChildView(mOcrResultView, false);
 
         // we do the same with PointSetView
-        mPointSetView = new PointSetView(this, null);
+        mPointSetView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation());
         mRecognizerView.addChildView(mPointSetView, false);
 
     }
@@ -254,9 +256,20 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         if (metadata instanceof OcrMetadata) {
             // get the ocr result and show it inside ocr result view
             mOcrResultView.setOcrResult(((OcrMetadata) metadata).getOcrResult());
-        } else if (metadata instanceof PointsDetectionMetadata) {
-            // show the points of interest inside point set view
-            mPointSetView.setPointSet(((PointsDetectionMetadata) metadata).getPoints());
+        } else if (metadata instanceof DetectionMetadata) {
+            // detection location is written inside DetectorResult
+            DetectorResult detectorResult = ((DetectionMetadata) metadata).getDetectionResult();
+            // DetectorResult can be null - this means that detection has failed
+            if (detectorResult == null) {
+                if (mPointSetView != null) {
+                    // clear points
+                    mPointSetView.setPointsDetectionResult(null);
+                }
+                // when points of interested have been detected (e.g. QR code), this will be returned as PointsDetectorResult
+            } else if (detectorResult instanceof PointsDetectorResult) {
+                // show the points of interest inside points view
+                mPointSetView.setPointsDetectionResult((PointsDetectorResult) detectorResult);
+            }
         }
     }
 

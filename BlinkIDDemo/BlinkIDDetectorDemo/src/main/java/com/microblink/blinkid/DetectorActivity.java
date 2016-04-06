@@ -21,17 +21,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.microblink.detectors.DetectorResult;
 import com.microblink.detectors.DetectorSettings;
 import com.microblink.detectors.multi.MultiDetectorSettings;
+import com.microblink.detectors.quad.QuadDetectorResult;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
+import com.microblink.metadata.DetectionMetadata;
 import com.microblink.metadata.ImageMetadata;
 import com.microblink.metadata.Metadata;
 import com.microblink.metadata.MetadataListener;
 import com.microblink.metadata.MetadataSettings;
-import com.microblink.metadata.detection.FailedDetectionMetadata;
-import com.microblink.metadata.detection.QuadrilateralDetectionMetadata;
 import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.RecognitionResults;
 import com.microblink.recognizers.detector.DetectorRecognizerSettings;
@@ -509,18 +510,21 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // This method will be called when metadata becomes available during recognition process.
         // Here, for every metadata type that is allowed through metadata settings,
         // desired actions can be performed.
-        if (metadata instanceof FailedDetectionMetadata) {
-            // this metadata object indicates that during recognition process nothing was detected.
-            if (mQuadViewManager != null) {
-                // begin quadrilateral animation to its default position
-                mQuadViewManager.animateQuadToDefaultPosition();
+        if (metadata instanceof DetectionMetadata) {
+            // detection location is written inside DetectorResult
+            DetectorResult detectorResult = ((DetectionMetadata) metadata).getDetectionResult();
+            // DetectorResult can be null - this means that detection has failed
+            if (detectorResult == null) {
+                if (mQuadViewManager != null) {
+                    // begin quadrilateral animation to its default position
+                    // (internally displays FAIL status)
+                    mQuadViewManager.animateQuadToDefaultPosition();
+                }
+                // when points of interested have been detected (e.g. QR code), this will be returned as PointsDetectorResult
+            } else if (detectorResult instanceof QuadDetectorResult) {
+                // begin quadrilateral animation to detected quadrilateral
+                mQuadViewManager.animateQuadToDetectionPosition((QuadDetectorResult) detectorResult);
             }
-        } else if (mQuadViewManager != null && metadata instanceof QuadrilateralDetectionMetadata) {
-            // this metadata object is passed when recognizer detects an object that is represented by quadrilateral
-            // update detection position
-            QuadrilateralDetectionMetadata qmd = (QuadrilateralDetectionMetadata)metadata;
-            // begin quadrilateral animation to detected quadrilateral
-            mQuadViewManager.animateQuadToDetectionPosition(qmd.getQuadrilateral(), qmd.getDetectionStatus());
         } else if (metadata instanceof ImageMetadata) {
             // here we will get dewarped image
             mLastDewarpedImg = ((ImageMetadata) metadata).getImage().clone();
