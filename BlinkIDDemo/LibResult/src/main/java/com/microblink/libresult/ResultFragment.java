@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.microblink.libresult.extract.BardecoderRecognitionResultExtractor;
 import com.microblink.libresult.extract.BaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.BlinkOcrRecognitionResultExtractor;
+import com.microblink.libresult.extract.CroatianIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.CroatianIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
 import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
@@ -28,6 +30,8 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingScanResult;
+import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
@@ -75,7 +79,14 @@ public class ResultFragment extends Fragment {
             }
         }
 
-        if(mData instanceof MRTDRecognitionResult) {
+        // CroatianIDBackSideRecognitionResult extends MRTDRecognitionResult so we first need
+        // to check for CroatianIDBackSideRecognitionResult and then for MRTDRecognitionResult
+
+        if (mData instanceof CroatianIDBackSideRecognitionResult) {
+            mResultExtractor = new CroatianIDBackSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof CroatianIDFrontSideRecognitionResult) {
+            mResultExtractor = new CroatianIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof EUDLRecognitionResult) {
             mResultExtractor = new EUDLRecognitionResultExtractor(getActivity());

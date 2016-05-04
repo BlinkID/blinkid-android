@@ -14,6 +14,7 @@
     <string name="PPDocumentNumber">Document number</string>
     <string name="PPNationality">Nationality</string>
     <string name="PPSex">Sex</string>
+    <string name="PPCitizenship">Citizenship</string>
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDateOfExpiry">Date of expiry</string>
     <string name="PPOpt1">OPT1</string>

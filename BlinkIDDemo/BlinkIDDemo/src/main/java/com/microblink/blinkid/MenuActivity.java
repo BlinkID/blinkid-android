@@ -27,10 +27,13 @@ import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSe
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
+import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
@@ -39,6 +42,8 @@ import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.util.Log;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
+import com.microblink.util.templating.CroatianIDBackSide;
+import com.microblink.util.templating.CroatianIDFrontSide;
 
 import java.util.ArrayList;
 
@@ -251,10 +256,16 @@ public class MenuActivity extends Activity {
 
         // ID document list entry
         elements.add(buildMrtdElement());
+        elements.add(buildCroIDFrontElement());
+        elements.add(buildCroIDBackElement());
         elements.add(buildUKDLElement());
         elements.add(buildGermanDLlement());
         elements.add(buildUsdlElement());
         elements.add(buildMyKadElement());
+
+        // Templating API entries
+        elements.add(buildTemplatingCroIDFrontSideElement());
+        elements.add(buildTemplatingCroIDBackSideElement());
 
         // barcode list entries
         elements.add(buildPDF417Element());
@@ -274,7 +285,25 @@ public class MenuActivity extends Activity {
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("ID document", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
+        return new ListElement("ID document or Passport", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
+    }
+
+    private ListElement buildCroIDFrontElement() {
+        // prepare settings for Croatian ID Front Side Recognizer
+        CroatianIDFrontSideRecognizerSettings croIDFront = new CroatianIDFrontSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning Croatian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
+        return new ListElement("Croatian ID Front Side", buildIntent(new RecognizerSettings[]{croIDFront}, ScanCard.class, null));
+    }
+
+    private ListElement buildCroIDBackElement() {
+        // prepare settings for Croatian ID Back Side Recognizer
+        CroatianIDBackSideRecognizerSettings croIDBack = new CroatianIDBackSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning Croatian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
+        return new ListElement("Croatian ID Back Side", buildIntent(new RecognizerSettings[]{croIDBack}, ScanCard.class, null));
     }
 
     private ListElement buildUKDLElement() {
@@ -353,6 +382,28 @@ public class MenuActivity extends Activity {
                 new ScanConfiguration(R.string.raw_title, R.string.raw_msg, "PaymentDescription", new RawParserSettings())
         };
         return new ListElement("Segment scan", buildSegmentScanIntent(conf));
+    }
+
+    private ListElement buildTemplatingCroIDFrontSideElement() {
+        // use helper class to build settings for recognition
+        // see code comments in helper class implementation for more information
+        BlinkOCRRecognizerSettings sett = CroatianIDFrontSide.buildCroatianIDFrontSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when using templating API, it is possible to use any activity available. We will be using ScanActivity
+        // because it has detection indicators which can help us see how document detection is performed
+        return new ListElement("Template API Cro ID Front", buildIntent(new RecognizerSettings[] {sett}, ScanActivity.class, null));
+    }
+
+    private ListElement buildTemplatingCroIDBackSideElement() {
+        // use helper class to build settings for recognition
+        // see code comments in helper class implementation for more information
+        MRTDRecognizerSettings sett = CroatianIDBackSide.buildCroatianIDBackSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when using templating API, it is possible to use any activity available. We will be using ScanCard
+        // because it is most appropriate for scanning of back side of croatian IDs
+        return new ListElement("Template API Cro ID Back", buildIntent(new RecognizerSettings[] {sett}, ScanCard.class, null));
     }
 
     /**
