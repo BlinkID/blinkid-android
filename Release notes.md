@@ -1,5 +1,21 @@
 # Release notes
 
+## 2.6.0
+- added support for templating API
+	- templating API gives you possiblity to combine various detectors with parsers and thus create your own recognizer that can recognize any type of document
+	- check updated `BlinkID` demo app for example of how templating API could be used to scan both front and rear side of croatian ID cards
+- updated `BlinkOCRActivity`:
+	- `ScanConfiguration` can now define following new features: 
+		- whether this configuration is required or optional
+		- size of field displayed
+- added support for scanning North Carolina driver license barcodes
+- added support for following MRZ codes:
+	- austrian ID
+	- kuwait ID
+	- pakistani ID
+- added recognizers specialized for scanning front and back side of Croatian ID cards
+	- although this can be achieved using templating API, we also added dedicated recognizers for convenience
+
 ## 2.5.0
 - FailedDetectionMetadata, PointsDetectionMetadata and QuadDetectionMetadata have been replaced with DetectionMetadata which now holds a DetectorResult
     - DetectorResult is more flexible as it allows more different detection types to be added in future
