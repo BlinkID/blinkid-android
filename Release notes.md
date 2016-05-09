@@ -15,6 +15,7 @@
 	- pakistani ID
 - added recognizers specialized for scanning front and back side of Croatian ID cards
 	- although this can be achieved using templating API, we also added dedicated recognizers for convenience
+- added support for scanning Singapore ID cards
 
 ## 2.5.0
 - FailedDetectionMetadata, PointsDetectionMetadata and QuadDetectionMetadata have been replaced with DetectionMetadata which now holds a DetectorResult
