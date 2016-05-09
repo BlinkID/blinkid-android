@@ -33,6 +33,7 @@ import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
+import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognizerSettings;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
@@ -262,6 +263,7 @@ public class MenuActivity extends Activity {
         elements.add(buildGermanDLlement());
         elements.add(buildUsdlElement());
         elements.add(buildMyKadElement());
+        elements.add(buildSingaporeIDElement());
 
         // Templating API entries
         elements.add(buildTemplatingCroIDFrontSideElement());
@@ -333,6 +335,17 @@ public class MenuActivity extends Activity {
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning MyKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("Malaysian MyKad document", buildIntent(new RecognizerSettings[]{myKad}, ScanCard.class, null));
+    }
+
+    private ListElement buildSingaporeIDElement() {
+        // prepare settings for Singapore ID document recognizer
+        SingaporeIDRecognizerSettings singID = new SingaporeIDRecognizerSettings();
+        singID.setExtractBloodGroup(true);
+        singID.setExtractDateOfIssue(true);
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning UD documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Singapore ID document", buildIntent(new RecognizerSettings[]{singID}, ScanCard.class, null));
     }
 
     private ListElement buildUsdlElement() {

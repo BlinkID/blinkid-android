@@ -24,6 +24,7 @@ import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.EUDLRecognitionResultExtractor;
+import com.microblink.libresult.extract.SingaporeIDRecognitionResultExtractor;
 import com.microblink.libresult.extract.ZXingRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
@@ -35,6 +36,7 @@ import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecog
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
+import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
 
 import java.util.List;
@@ -82,7 +84,9 @@ public class ResultFragment extends Fragment {
         // CroatianIDBackSideRecognitionResult extends MRTDRecognitionResult so we first need
         // to check for CroatianIDBackSideRecognitionResult and then for MRTDRecognitionResult
 
-        if (mData instanceof CroatianIDBackSideRecognitionResult) {
+        if (mData instanceof SingaporeIDRecognitionResult) {
+            mResultExtractor = new SingaporeIDRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof CroatianIDBackSideRecognitionResult) {
             mResultExtractor = new CroatianIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CroatianIDFrontSideRecognitionResult) {
             mResultExtractor = new CroatianIDFrontSideRecognitionResultExtractor(getActivity());

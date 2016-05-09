@@ -42,4 +42,10 @@
     <string name="PPFullName">Full name</string>
     <string name="PPReligion">Religion</string>
     <string name="PPNRICNumber">National Registration Identity Card Number</string>
+
+    <!-- Singapore ID specific -->
+    <string name="PPDocumentClassification">Document classification</string>
+    <string name="PPRace">Race</string>
+    <string name="PPCountryOfBirth">Country of birth</string>
+    <string name="PPBloodGroup">Blood group</string>
 </resources>
