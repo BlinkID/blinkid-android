@@ -591,6 +591,12 @@ For example, `ZC` would be the designator for a California or Colorado jurisdict
 
 Standard vehicle classification code(s) for cardholder. This data element is a placeholder for future efforts to standardize vehicle classifications.
 
+#### `USDLScanResult.kIssuingJurisdictionName`
+
+- Optional on all AAMVA and Magnetic barcodes
+
+Name of issuing jurisdiction. For example: _Alabama_, _Alaska_, ...
+
 #### `USDLScanResult.kStandardEndorsementCode` 
 
 - Optional on all AAMVA barcodes.
