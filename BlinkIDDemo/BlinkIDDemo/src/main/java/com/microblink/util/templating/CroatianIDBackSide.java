@@ -50,41 +50,41 @@ public class CroatianIDBackSide {
 
     /**
      * This function will setup address parser and location on back side of Croatian ID cards.
-     *
+     * <p/>
      * The Croatian ID card has width of 85mm and height of 54mm. If we take a ruler and measure
      * the locations of address field, we get the following measurements:
-     *
+     * <p/>
      * on old croatian ID card, address field is located in following rectangle:
      * left = 21 mm
      * right = 60 mm
      * top = 3 mm
      * bottom = 11 mm
-     *
+     * <p/>
      * {@link DecodingInfo} requires converting this rectangle into relative coordinates so we get
      * the following:
-     *
+     * <p/>
      * x = 21mm / 85mm = 0.247
      * y = 3mm / 54mm = 0.056
      * width = (60mm - 21mm) / 85mm = 0.459
      * height = (11mm - 3mm) / 54mm = 0.148
-     *
+     * <p/>
      * The address field on old croatian ID cards can hold up to two lines of text. Therefore, we
      * will require that dewarped image from this location has height of 200 pixels.
      * The width of the image will be automatically determined to keep the original aspect ratio.
-     *
+     * <p/>
      * Similarly, on new croatian ID card, address field is located in following rectangle:
      * left = 21 mm
      * right = 60 mm
      * top = 3 mm
      * bottom = 13 mm
-     *
+     * <p/>
      * After converting this to relative coordinates, we get the following:
-     *
+     * <p/>
      * x = 21mm / 8mm5 = 0.247
      * y = 3mm / 54mm = 0.056
      * width = (60mm - 21mm) / 85mm = 0.459
      * height = (13mm - 3mm) / 54mm = 0.185
-     *
+     * <p/>
      * The address field on new croatian ID cards can hold up to three lines of text. Therefore, we
      * will require that dewarped image from this location has height of 300 pixels.
      * The width of the image will be automatically determined to keep the original aspect ratio.
@@ -126,7 +126,7 @@ public class CroatianIDBackSide {
 
     /**
      * This function will setup issuing authority parser and location on back side of Croatian ID cards.
-     *
+     * <p/>
      * The setting up is same as shown in {@link #setupAddress(TemplatingRecognizerSettings, List, List)},
      * except different regular expression and locations are used.
      */
@@ -144,7 +144,7 @@ public class CroatianIDBackSide {
 
     /**
      * This function will setup date of issue parser and location on back side of Croatian ID cards.
-     *
+     * <p/>
      * The setting up is almost the same as shown in {@link #setupAddress(TemplatingRecognizerSettings, List, List)}, except
      * dedicated {@link DateParserSettings} is used for setting up date parser, instead of using Regular Expression parser.
      */
