@@ -9,4 +9,5 @@ android:
         - extra-android-m2repository
 script:
     - cd BlinkIDDemo
+    - ulimit -s 1082768  # Require a bit of more memory.
     - ./gradlew clean assembleRelease
