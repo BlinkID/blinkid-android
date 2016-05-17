@@ -13,11 +13,13 @@ import java.util.List;
  * Created by dodo on 25/09/15.
  */
 public class BlinkOcrRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
+    protected RecognitionResultEntry.Builder mBuilder;
     protected Context mContext;
     protected List<RecognitionResultEntry> mExtractedData;
 
-    public BlinkOcrRecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public BlinkOcrRecognitionResultExtractor(Context context) {
+        mContext = context;
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 

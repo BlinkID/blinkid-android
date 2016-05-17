@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class Pdf417RecognitionResultExtractor implements IBaseRecognitionResultExtractor {
 
-    private Context mContext;
+    private RecognitionResultEntry.Builder mBuilder;
     private List<RecognitionResultEntry> mExtractedData;
 
-    public Pdf417RecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public Pdf417RecognitionResultExtractor(Context context) {
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 
@@ -39,19 +39,19 @@ public class Pdf417RecognitionResultExtractor implements IBaseRecognitionResultE
             // result is obtained from scanning PDF417 barcode
             Pdf417ScanResult pdf417Result = (Pdf417ScanResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPUncertain),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPUncertain,
                     Boolean.toString(pdf417Result.isUncertain())
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPBarcodeData),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPBarcodeData,
                     pdf417Result.getStringData()
             ));
 
             byte[] rawDataBytes = pdf417Result.getRawData().getAllData();
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPBarcodeRawData),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPBarcodeRawData,
                     Arrays.toString(rawDataBytes)
             ));
         }

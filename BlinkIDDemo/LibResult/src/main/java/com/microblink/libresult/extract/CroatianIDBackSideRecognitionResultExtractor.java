@@ -28,17 +28,17 @@ public class CroatianIDBackSideRecognitionResultExtractor extends MRTDRecognitio
             // result is obtained by scanning back side of croatian ID
             CroatianIDBackSideRecognitionResult croIDBackResult = (CroatianIDBackSideRecognitionResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPAddress),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPAddress,
                     croIDBackResult.getAddress()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPIssuingAuthority),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPIssuingAuthority,
                     croIDBackResult.getIssuingAuthority()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPIssueDate),
-                    croIDBackResult.getDocumentDateOfIssue() == null ? null : croIDBackResult.getDocumentDateOfIssue().toString()
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPIssueDate,
+                    croIDBackResult.getDocumentDateOfIssue()
             ));
 
             super.extractMRZData(croIDBackResult);

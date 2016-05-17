@@ -15,10 +15,10 @@ import java.util.List;
 public class MyKadRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
     List<RecognitionResultEntry> mExtractedData;
 
-    Context mContext;
+    private RecognitionResultEntry.Builder mBuilder;
 
-    public MyKadRecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public MyKadRecognitionResultExtractor(Context context) {
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 
@@ -32,12 +32,12 @@ public class MyKadRecognitionResultExtractor implements IBaseRecognitionResultEx
         if (result instanceof MyKadRecognitionResult) {
             MyKadRecognitionResult myKadResult = (MyKadRecognitionResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPFullName), myKadResult.getOwnerFullName()));
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPAddress), myKadResult.getOwnerAddress()));
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPDateOfBirth), myKadResult.getOwnerBirthDate()));
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPSex), myKadResult.getOwnerSex()));
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPReligion), myKadResult.getOwnerReligion()));
-            mExtractedData.add(new RecognitionResultEntry(mContext.getString(R.string.PPNRICNumber), myKadResult.getNRICNumber()));
+            mExtractedData.add(mBuilder.build(R.string.PPFullName, myKadResult.getOwnerFullName()));
+            mExtractedData.add(mBuilder.build(R.string.PPAddress, myKadResult.getOwnerAddress()));
+            mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, myKadResult.getOwnerBirthDate()));
+            mExtractedData.add(mBuilder.build(R.string.PPSex, myKadResult.getOwnerSex()));
+            mExtractedData.add(mBuilder.build(R.string.PPReligion, myKadResult.getOwnerReligion()));
+            mExtractedData.add(mBuilder.build(R.string.PPNRICNumber, myKadResult.getNRICNumber()));
         }
 
         return mExtractedData;

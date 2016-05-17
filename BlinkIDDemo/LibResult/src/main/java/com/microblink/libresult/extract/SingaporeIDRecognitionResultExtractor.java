@@ -30,48 +30,47 @@ public class SingaporeIDRecognitionResultExtractor extends BlinkOcrRecognitionRe
 
             SingaporeIDRecognitionResult.SingaporeIDClassification classification = singaporeIDResult.getDocumentClassification();
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDocumentClassification),
+            mExtractedData.add(mBuilder.build(R.string.PPDocumentClassification,
                     classification.toString()
             ));
 
             if (classification == SingaporeIDRecognitionResult.SingaporeIDClassification.BACK_SIDE) {
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPBloodGroup),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPBloodGroup,
                         singaporeIDResult.getBloodGroup()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPIssueDate),
-                        singaporeIDResult.getDocumentDateOfIssue() == null ? null : singaporeIDResult.getDocumentDateOfIssue().toString()
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPIssueDate,
+                        singaporeIDResult.getDocumentDateOfIssue()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPAddress),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPAddress,
                         singaporeIDResult.getAddress()
                 ));
             } else {
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPDocumentNumber),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPDocumentNumber,
                         singaporeIDResult.getCardNumber()
                 ));
 
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPFullName),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPFullName,
                         singaporeIDResult.getName()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPRace),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPRace,
                         singaporeIDResult.getRace()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPDateOfBirth),
-                        singaporeIDResult.getDateOfBirth() == null ? null : singaporeIDResult.getDateOfBirth().toString()
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPDateOfBirth,
+                        singaporeIDResult.getDateOfBirth()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPSex),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPSex,
                         singaporeIDResult.getSex()
                 ));
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPCountryOfBirth),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPCountryOfBirth,
                         singaporeIDResult.getCountryOfBirth()
                 ));
             }

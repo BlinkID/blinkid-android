@@ -14,11 +14,11 @@ import java.util.List;
  * Created by dodo on 25/09/15.
  */
 public class BardecoderRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
-    private Context mContext;
+    private RecognitionResultEntry.Builder mBuilder;
     private List<RecognitionResultEntry> mExtractedData;
 
-    public BardecoderRecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public BardecoderRecognitionResultExtractor(Context context) {
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 
@@ -38,20 +38,20 @@ public class BardecoderRecognitionResultExtractor implements IBaseRecognitionRes
             // result is obtained from scanning PDF417 barcode
             BarDecoderScanResult barcodeResult = (BarDecoderScanResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPBarcodeType),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPBarcodeType,
                     barcodeResult.getBarcodeType().name()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPBarcodeData),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPBarcodeData,
                     barcodeResult.getStringData()
             ));
 
             if (barcodeResult.getBarcodeType() == BarcodeType.CODE39) {
                 // special case for code39 barcodes that can have special extended encoding
-                mExtractedData.add(new RecognitionResultEntry(
-                        mContext.getString(R.string.PPExtendedBarcodeData),
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPExtendedBarcodeData,
                         barcodeResult.getExtendedStringData()
                 ));
             }

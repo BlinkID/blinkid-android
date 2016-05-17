@@ -17,7 +17,6 @@ public class BaseRecognitionResultExtractor implements IBaseRecognitionResultExt
      */
     protected List<RecognitionResultEntry> mExtractedData;
 
-    private Map<String, String> mNameMappings;
     Context mContext;
 
     public BaseRecognitionResultExtractor(Context mContext) {
@@ -32,15 +31,9 @@ public class BaseRecognitionResultExtractor implements IBaseRecognitionResultExt
         }
         for (String s : result.getResultHolder().keySet()) {
             String value = result.getStringElement(s);
-            mExtractedData.add(new RecognitionResultEntry(s,value));
+            mExtractedData.add(new RecognitionResultEntry(s, value));
         }
         return mExtractedData;
     }
 
-    private String resolveUIName(String key) {
-        if (mNameMappings.containsKey(key)) {
-            return mNameMappings.get(key);
-        }
-        return key;
-    }
 }

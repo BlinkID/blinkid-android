@@ -14,61 +14,61 @@ import java.util.List;
  */
 public class MRTDRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
 
-    Context mContext;
+    protected RecognitionResultEntry.Builder mBuilder;
     List<RecognitionResultEntry> mExtractedData;
 
-    public MRTDRecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public MRTDRecognitionResultExtractor(Context context) {
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 
     protected final void extractMRZData(MRTDRecognitionResult mrtdResult) {
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPPrimaryId),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPPrimaryId,
                 mrtdResult.getPrimaryId()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPSecondaryId),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPSecondaryId,
                 mrtdResult.getSecondaryId()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPIssuer),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPIssuer,
                 mrtdResult.getIssuer()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPNationality),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPNationality,
                 mrtdResult.getNationality()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPDateOfBirth),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPDateOfBirth,
                 mrtdResult.getDateOfBirth()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPDocumentNumber),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPDocumentNumber,
                 mrtdResult.getDocumentNumber()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPSex),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPSex,
                 mrtdResult.getSex()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPDocumentCode),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPDocumentCode,
                 mrtdResult.getDocumentCode()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPDateOfExpiry),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPDateOfExpiry,
                 mrtdResult.getDateOfExpiry()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPOpt1),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPOpt1,
                 mrtdResult.getOpt1()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPOpt2),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPOpt2,
                 mrtdResult.getOpt2()
         ));
-        mExtractedData.add(new RecognitionResultEntry(
-                mContext.getString(R.string.PPMRZText),
+        mExtractedData.add(mBuilder.build(
+                R.string.PPMRZText,
                 mrtdResult.getMRZText()
         ));
     }

@@ -15,11 +15,11 @@ import java.util.List;
  * Created by dodo on 02/06/15.
  */
 public class EUDLRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
-    Context mContext;
+    private RecognitionResultEntry.Builder mBuilder;
     List<RecognitionResultEntry> mExtractedData;
 
-    public EUDLRecognitionResultExtractor(Context mContext) {
-        this.mContext = mContext;
+    public EUDLRecognitionResultExtractor(Context context) {
+        mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
 
@@ -30,45 +30,43 @@ public class EUDLRecognitionResultExtractor implements IBaseRecognitionResultExt
             return mExtractedData;
         }
 
-        DateFormat df = new SimpleDateFormat("dd.mm.yyyy.");
-
         if (result instanceof EUDLRecognitionResult) {
             EUDLRecognitionResult eudlResult = (EUDLRecognitionResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPFirstName),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPFirstName,
                     eudlResult.getFirstName()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPLastName),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPLastName,
                     eudlResult.getLastName()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPAddress),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPAddress,
                     eudlResult.getAddress()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPPlaceOfBirth),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPPlaceOfBirth,
                     eudlResult.getPlaceOfBirth()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDateOfBirth),
-                    eudlResult.getDateOfBirth() == null ? "" : df.format(eudlResult.getDateOfBirth())
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfBirth,
+                    eudlResult.getDateOfBirth()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPIssueDate),
-                    eudlResult.getDocumentIssueDate() == null ? "" : df.format(eudlResult.getDocumentIssueDate())
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPIssueDate,
+                    eudlResult.getDocumentIssueDate()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPExpiryDate),
-                    eudlResult.getDocumentExpiryDate() == null ? "" : df.format(eudlResult.getDocumentExpiryDate())
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPExpiryDate,
+                    eudlResult.getDocumentExpiryDate()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDriverNumber),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDriverNumber,
                     eudlResult.getDriverNumber()
             ));
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPIssuingAuthority),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPIssuingAuthority,
                     eudlResult.getDocumentIssuingAuthority()
             ));
         }

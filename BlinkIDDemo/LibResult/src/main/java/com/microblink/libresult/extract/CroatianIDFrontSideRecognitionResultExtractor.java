@@ -26,39 +26,39 @@ public class CroatianIDFrontSideRecognitionResultExtractor extends BlinkOcrRecog
             // result is obtained by scanning front side of Croatian ID
             CroatianIDFrontSideRecognitionResult croIdFrontResult = (CroatianIDFrontSideRecognitionResult) result;
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPLastName),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPLastName,
                     croIdFrontResult.getLastName()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPFirstName),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPFirstName,
                     croIdFrontResult.getFirstName()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDocumentNumber),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDocumentNumber,
                     croIdFrontResult.getIdentityCardNumber()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPSex),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPSex,
                     croIdFrontResult.getSex()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPCitizenship),
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPCitizenship,
                     croIdFrontResult.getCitizenship()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDateOfBirth),
-                    croIdFrontResult.getDateOfBirth() == null ? null : croIdFrontResult.getDateOfBirth().toString()
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfBirth,
+                    croIdFrontResult.getDateOfBirth()
             ));
 
-            mExtractedData.add(new RecognitionResultEntry(
-                    mContext.getString(R.string.PPDateOfExpiry),
-                    croIdFrontResult.getDocumentDateOfExpiry() == null ? null : croIdFrontResult.getDocumentDateOfExpiry().toString()
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfExpiry,
+                    croIdFrontResult.getDocumentDateOfExpiry()
             ));
         }
 
