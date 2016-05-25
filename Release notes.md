@@ -1,5 +1,10 @@
 # Release notes
 
+## 2.7.0
+- added support for scanning front and back side of Austrian ID cards
+- improved support for scanning Croatian ID cards
+- Singapore ID scanning now works even when scanning ID which is positioned upside down
+
 ## 2.6.0
 - added support for templating API
 	- templating API gives you possiblity to combine various detectors with parsers and thus create your own recognizer that can recognize any type of document
