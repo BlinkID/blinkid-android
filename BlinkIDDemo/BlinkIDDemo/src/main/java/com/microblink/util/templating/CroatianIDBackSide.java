@@ -203,9 +203,9 @@ public class CroatianIDBackSide {
 
         @Override
         public String classifyDocument(MRTDRecognitionResult mrzExtractionResult) {
-            // classification will not be performed if extracted MRZ data is not valid
-            if (mrzExtractionResult.isValid()) {
-                // if MRZ data is valid, we can discriminate new and old ID card
+            // ensure we are scanning Croatian Identity card
+            if ("HRV".equals(mrzExtractionResult.getIssuer()) && "IO".equals(mrzExtractionResult.getDocumentCode())) {
+                // if MRZ data is from Croatian ID card, we can discriminate new and old ID card
                 // by opt1 field - old croatian ID cards have this field empty,
                 // i.e. the value of that field is '<<<<<<<<<<<<<<<'.
                 // New ID cards contain personal identification number in this field.
@@ -215,6 +215,7 @@ public class CroatianIDBackSide {
                     return CLASS_NEW_ID;
                 }
             }
+            // if not scanning Croatian ID, refuse classification
             return null;
         }
 

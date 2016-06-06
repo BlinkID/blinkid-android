@@ -54,7 +54,7 @@ public class CroatianIDFrontSide {
     private static final String ID_DOCUMENT_NUMBER_NEW = "DocumentNumberNew";
 
     private static final String CLASS_OLD_ID = "oldCroId";
-    private static final String CLASS_NEW_ID = "newCrogd";
+    private static final String CLASS_NEW_ID = "newCroId";
 
     /**
      * This function will setup {@link BlinkOCREngineOptions} to allow recognition
@@ -382,29 +382,24 @@ public class CroatianIDFrontSide {
 
         @Override
         public String classifyDocument(BlinkOCRRecognitionResult extractionResult) {
-            // classification will not be performed if data extracted from detector's inherent decoding locations
-            // is not valid
-            if (extractionResult.isValid()) {
-                // if extracted data is valid, we first check if document number parser has succeeded in
-                // parsing document number from location on old Croatian ID (Decoding Info object with
-                // name ID_DOCUMENT_NUMBER_OLD defined in method setupDocumentNumber above).
-                String documentNumber = extractionResult.getParsedResult(ID_DOCUMENT_NUMBER_OLD, ID_DOCUMENT_NUMBER);
-                if (documentNumber != null && !"".equals(documentNumber)) {
-                    // if document number has been successfully parsed from location unique to old
-                    // Croatian ID, then classify the document as old Croatian ID
-                    return CLASS_OLD_ID;
-                }
-                // if document number was not parsed from location unique to old ID, let's check if
-                // it has been parsed on location unique to new ID
-                documentNumber = extractionResult.getParsedResult(ID_DOCUMENT_NUMBER_NEW, ID_DOCUMENT_NUMBER);
-                if (documentNumber != null && !"".equals(documentNumber)) {
-                    // if document number has been successfully parsed from location unique to new
-                    // Croatian ID, then classify the document as new Croatian ID
-                    return CLASS_NEW_ID;
-                }
-                // if this line is reached, then classifier cannot correctly classify the document
-                return null;
+            // we first check if document number parser has succeeded in
+            // parsing document number from location on old Croatian ID (Decoding Info object with
+            // name ID_DOCUMENT_NUMBER_OLD defined in method setupDocumentNumber above).
+            String documentNumber = extractionResult.getParsedResult(ID_DOCUMENT_NUMBER_OLD, ID_DOCUMENT_NUMBER);
+            if (documentNumber != null && !"".equals(documentNumber)) {
+                // if document number has been successfully parsed from location unique to old
+                // Croatian ID, then classify the document as old Croatian ID
+                return CLASS_OLD_ID;
             }
+            // if document number was not parsed from location unique to old ID, let's check if
+            // it has been parsed on location unique to new ID
+            documentNumber = extractionResult.getParsedResult(ID_DOCUMENT_NUMBER_NEW, ID_DOCUMENT_NUMBER);
+            if (documentNumber != null && !"".equals(documentNumber)) {
+                // if document number has been successfully parsed from location unique to new
+                // Croatian ID, then classify the document as new Croatian ID
+                return CLASS_NEW_ID;
+            }
+            // if this line is reached, then classifier cannot correctly classify the document
             return null;
         }
 
