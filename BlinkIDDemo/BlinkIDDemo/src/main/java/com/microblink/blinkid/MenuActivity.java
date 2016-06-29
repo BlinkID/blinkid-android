@@ -13,10 +13,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.microblink.Config;
-import com.microblink.activity.BlinkOCRActivity;
 import com.microblink.activity.Pdf417ScanActivity;
 import com.microblink.activity.ScanActivity;
 import com.microblink.activity.ScanCard;
+import com.microblink.activity.SegmentScanActivity;
 import com.microblink.activity.ShowOcrResultMode;
 import com.microblink.help.HelpActivity;
 import com.microblink.libresult.ResultActivity;
@@ -217,7 +217,7 @@ public class MenuActivity extends Activity {
 
         // Enable showing of OCR results as animated dots. This does not have effect if non-OCR recognizer like
         // barcode recognizer is active.
-        intent.putExtra(BlinkOCRActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
+        intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
         return intent;
     }
@@ -233,16 +233,16 @@ public class MenuActivity extends Activity {
      * @return Built intent for segment scan.
      */
     private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
-        final Intent intent = new Intent(this, BlinkOCRActivity.class);
+        final Intent intent = new Intent(this, SegmentScanActivity.class);
 
         // configure help activity to display help for segment scan
         Intent helpIntent = new Intent(this, HelpActivity.class);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_HELP_INTENT, helpIntent);
+        intent.putExtra(SegmentScanActivity.EXTRAS_HELP_INTENT, helpIntent);
 
-        intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, configArray);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
+        intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, configArray);
+        intent.putExtra(SegmentScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
-        intent.putExtra(BlinkOCRActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
+        intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
         return intent;
     }

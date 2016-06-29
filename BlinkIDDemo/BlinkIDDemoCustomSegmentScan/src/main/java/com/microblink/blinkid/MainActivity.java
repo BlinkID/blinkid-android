@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.microblink.Config;
-import com.microblink.activity.BlinkOCRActivity;
+import com.microblink.activity.SegmentScanActivity;
 import com.microblink.help.HelpActivity;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions;
@@ -102,7 +102,7 @@ public class MainActivity extends Activity {
 
     /**
      * Builds the {@link ListElement} with corresponding title and intent that can be
-     * used to start the {@link BlinkOCRActivity} activity for Simple Integration example.
+     * used to start the {@link SegmentScanActivity} activity for Simple Integration example.
      *
      * @return Built list element.
      */
@@ -113,9 +113,9 @@ public class MainActivity extends Activity {
          * to which amount has to be paid.
          */
 
-        Intent intent = new Intent(this, BlinkOCRActivity.class);
+        Intent intent = new Intent(this, SegmentScanActivity.class);
         // license key is required for recognizer to work.
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
+        intent.putExtra(SegmentScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // we need to scan 3 items, so we will add 3 scan configurations to scan configuration array
         ScanConfiguration conf[] = new ScanConfiguration[]{
@@ -127,19 +127,19 @@ public class MainActivity extends Activity {
                 new ScanConfiguration(R.string.iban_title, R.string.iban_msg, "IBAN", new IbanParserSettings())
         };
 
-        intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, conf);
+        intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, conf);
 
         // optionally, if we want the help screen to be available to user on camera screen,
         // we can simply prepare an intent for help activity and pass it to BlinkOCRActivity
         Intent helpIntent = new Intent(this, HelpActivity.class);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_HELP_INTENT, helpIntent);
+        intent.putExtra(SegmentScanActivity.EXTRAS_HELP_INTENT, helpIntent);
 
         return new ListElement(getString(R.string.simple_integration), intent);
     }
 
     /**
      * Builds the {@link ListElement} with corresponding title and intent that can be
-     * used to start the {@link BlinkOCRActivity} activity for Regex Parser example.
+     * used to start the {@link SegmentScanActivity} activity for Regex Parser example.
      *
      * @return Built list element.
      */
@@ -156,9 +156,9 @@ public class MainActivity extends Activity {
 
         // same as in simple integration example, we will invoke scanning on BlinkOCRActivity,
         // so we need to setup an Intent for it.
-        Intent intent = new Intent(this, BlinkOCRActivity.class);
+        Intent intent = new Intent(this, SegmentScanActivity.class);
         // license key is required for recognizer to work.
-        intent.putExtra(BlinkOCRActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
+        intent.putExtra(SegmentScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // now let's setup OCR engine parameters for scanning VIN:
         BlinkOCREngineOptions engineOptions = new BlinkOCREngineOptions();
@@ -179,12 +179,12 @@ public class MainActivity extends Activity {
                 new ScanConfiguration(R.string.vin_title, R.string.vin_msg, PARSER_NAME_VIN, regexParserSettings)
         };
 
-        intent.putExtra(BlinkOCRActivity.EXTRAS_SCAN_CONFIGURATION, conf);
+        intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, conf);
 
         // optionally, if we want the help screen to be available to user on camera screen,
         // we can simply prepare an intent for help activity and pass it to BlinkOCRActivity
         Intent helpIntent = new Intent(this, HelpActivity.class);
-        intent.putExtra(BlinkOCRActivity.EXTRAS_HELP_INTENT, helpIntent);
+        intent.putExtra(SegmentScanActivity.EXTRAS_HELP_INTENT, helpIntent);
 
         return new ListElement(getString(R.string.regex_example), intent);
 
@@ -199,9 +199,9 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         // first we need to check that we have indeed returned from BlinkOCRActivity with
         // success
-        if (resultCode == BlinkOCRActivity.RESULT_OK) {
+        if (resultCode == SegmentScanActivity.RESULT_OK) {
             // now we can obtain bundle with scan results
-            Bundle result = data.getBundleExtra(BlinkOCRActivity.EXTRAS_SCAN_RESULTS);
+            Bundle result = data.getBundleExtra(SegmentScanActivity.EXTRAS_SCAN_RESULTS);
             switch (requestCode) {
                 case SIMPLE_INTEGRATION_REQUEST_CODE:
                     // each result is stored under key equal to the name of the scan configuration
