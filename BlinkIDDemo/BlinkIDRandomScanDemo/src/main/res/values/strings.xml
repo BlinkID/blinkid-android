@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BlinkIDRandomScanDemo</string>
+
+    <string name="iban_title">IBAN</string>
+    <string name="amount_title">Amount</string>
+    <string name="date_title">Date</string>
+    <string name="email_title">Email</string>
+</resources>
