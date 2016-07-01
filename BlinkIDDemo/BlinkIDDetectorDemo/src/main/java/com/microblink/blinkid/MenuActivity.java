@@ -87,6 +87,16 @@ public class MenuActivity extends Activity {
                 DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_CHEQUE);
         elements.add(buildDocumentDetectorElement(getString(R.string.cheque_detector), chequeSpec));
 
+        // define document specification for A4 portrait, use provided preset
+        DocumentSpecification a4PortraitSpec = DocumentSpecification.createFromPreset(
+                DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_A4_PORTRAIT);
+        elements.add(buildDocumentDetectorElement(getString(R.string.a4_portrait_detector), a4PortraitSpec));
+
+        // define document specification for A4 landscape, use provided preset
+        DocumentSpecification a4LandscapeSpec = DocumentSpecification.createFromPreset(
+                DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_A4_LANDSCAPE);
+        elements.add(buildDocumentDetectorElement(getString(R.string.a4_landscape_detector), a4LandscapeSpec));
+
 
         // * MRTD list entry *
         elements.add(buildMRTDDetectorElement());
