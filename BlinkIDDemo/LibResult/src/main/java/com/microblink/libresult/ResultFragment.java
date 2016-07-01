@@ -13,11 +13,15 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.libresult.extract.AustrianIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.AustrianIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.BardecoderRecognitionResultExtractor;
 import com.microblink.libresult.extract.BaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.BlinkOcrRecognitionResultExtractor;
 import com.microblink.libresult.extract.CroatianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.CroatianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.CzechIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.CzechIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
 import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
@@ -31,8 +35,12 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingScanResult;
+import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
@@ -86,10 +94,18 @@ public class ResultFragment extends Fragment {
 
         if (mData instanceof SingaporeIDRecognitionResult) {
             mResultExtractor = new SingaporeIDRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof AustrianIDBackSideRecognitionResult) {
+            mResultExtractor = new AustrianIDBackSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof AustrianIDFrontSideRecognitionResult) {
+            mResultExtractor = new AustrianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CroatianIDBackSideRecognitionResult) {
             mResultExtractor = new CroatianIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CroatianIDFrontSideRecognitionResult) {
             mResultExtractor = new CroatianIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof CzechIDBackSideRecognitionResult) {
+            mResultExtractor = new CzechIDBackSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof CzechIDFrontSideRecognitionResult) {
+            mResultExtractor = new CzechIDFrontSideRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof EUDLRecognitionResult) {

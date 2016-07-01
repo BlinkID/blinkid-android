@@ -48,4 +48,14 @@
     <string name="PPRace">Race</string>
     <string name="PPCountryOfBirth">Country of birth</string>
     <string name="PPBloodGroup">Blood group</string>
+
+    <!-- Austrian ID specific -->
+    <string name="PPEyeColour">Eye colour</string>
+    <string name="PPHeight">Height</string>
+    <string name="PPPrincipalResidenceAtIssuance">Principal residence at issuance</string>
+
+    <!-- Czech ID specific -->
+    <string name="PPPersonalNumber">Personal number</string>
+    <string name="PPAuthority">Authority</string>
+
 </resources>
