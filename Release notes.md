@@ -4,6 +4,14 @@
 - added support for scanning front and back side of Austrian ID cards
 - improved support for scanning Croatian ID cards
 - Singapore ID scanning now works even when scanning ID which is positioned upside down
+- in templating API recognition data does not need to be valid anymore in classification step
+- added support for scanning MRZ of green cards
+- support for parsing Vehicle Identification Numbers (VINs)
+- support for parsing vehicle licence plates
+- renamed BlinkOCRActivity to SegmentScanActivity
+- added RandomScanActivity which is similar to SegmentScanActivity but it does not force the user to scan text segments in the predefined order
+- improved autofocus support on SGS6 and SGS7
+- fixed memory leak in RecognitionProcessCallback, leak was caused by Recognizer singleton holding reference to both Context and MetadataListener even after termination
 
 ## 2.6.0
 - added support for templating API
