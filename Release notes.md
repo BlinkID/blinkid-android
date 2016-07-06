@@ -1,5 +1,8 @@
 # Release notes
 
+## 2.7.1
+- added support for Alberta (Canada) DL
+
 ## 2.7.0
 - added support for scanning front and back side of Austrian ID cards
 - improved support for scanning Croatian ID cards
