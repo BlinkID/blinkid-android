@@ -1,5 +1,10 @@
 # Release notes
 
+## 2.8.0
+- enabled reading of longer ITF barcodes
+- added support for Malaysian visa
+- added support for Malaysian work permits
+
 ## 2.7.1
 - added support for Alberta (Canada) DL
 
