@@ -10,6 +10,7 @@
 
 ## 2.7.0
 - added support for scanning front and back side of Austrian ID cards
+- added support for scanning front and back side of Czech ID cards
 - improved support for scanning Croatian ID cards
 - Singapore ID scanning now works even when scanning ID which is positioned upside down
 - in templating API recognition data does not need to be valid anymore in classification step
