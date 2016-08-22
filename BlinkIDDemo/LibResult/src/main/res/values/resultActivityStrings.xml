@@ -58,4 +58,8 @@
     <string name="PPPersonalNumber">Personal number</string>
     <string name="PPAuthority">Authority</string>
 
+    <!-- Slovak ID specific -->
+    <string name="PPSurnameAtBirth">Surname at birth</string>
+    <string name="PPSpecialRemarks">Special remarks</string>
+
 </resources>
