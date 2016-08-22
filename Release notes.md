@@ -1,5 +1,12 @@
 # Release notes
 
+## 2.9.0
+- added support for scanning front and back side of Slovak ID cards
+- added support for scanning front and back side of German ID cards
+- added support for Austrian DL
+- improved support for scanning Croatian ID cards
+- fixed crashes on Nexus 6 (Android 7.0)
+
 ## 2.8.0
 - enabled reading of longer ITF barcodes
 - added support for Malaysian visa
