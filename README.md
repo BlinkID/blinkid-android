@@ -6,13 +6,16 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 
 * [Passports and IDs that contain Machine Readable Zone](https://en.wikipedia.org/wiki/Machine-readable_passport)
 * [United States' Driver's License barcodes](https://en.wikipedia.org/wiki/Driver%27s_license_in_the_United_States)
+* [Austrian Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Austria)
 * [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
 * [German Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Germany)
 * [Malaysian identity card's front side](https://en.wikipedia.org/wiki/Malaysian_identity_card)
 * [Front and rear side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card)
 * [Front and rear side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card)
 * [Front and rear side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card)
+* [Front and rear side of German identity card](https://en.wikipedia.org/wiki/German_identity_card)
 * [Front and rear side of Singapore ID card](https://en.wikipedia.org/wiki/National_Registration_Identity_Card)
+* [Front and rear side of Slovak identity card](https://en.wikipedia.org/wiki/Slovak_identity_card)
 
 As of version `1.8.0` you can also scan barcodes and perform OCR of structurized or free-form text. Supported barcodes are the same as in sister product [PDF417.mobi](https://github.com/PDF417/pdf417-android).
 
@@ -52,6 +55,10 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of Croatian ID documents](#croID_back)
   * [Scanning front side of Czech ID documents](#czID_front)
   * [Scanning back side of Czech ID documents](#czID_back)
+  * [Scanning front side of German ID documents](#germanID_front)
+  * [Scanning MRZ side of German ID documents](#germanID_MRZ)
+  * [Scanning front side of Slovak ID documents](#slovakID_front)
+  * [Scanning back side of Slovak ID documents](#slovakID_back)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
@@ -1736,6 +1743,212 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/back/CzechIDBackSideRecognitionResult.html).**
 
+## <a name="germanID_front"></a> Scanning front side of German ID documents
+
+This section will discuss the setting up of German ID Front Side recognizer and obtaining results from it.
+
+### Setting up German ID card front side recognizer
+
+To activate German ID front side recognizer, you need to create [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	GermanIDFrontSideRecognizerSettings sett = new GermanIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from German ID card front side recognizer
+
+German ID front side recognizer produces [GermanIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDFrontSideRecognitionResult` class. 
+
+**Note:** `GermanIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof GermanIDFrontSideRecognitionResult) {
+			GermanIDFrontSideRecognitionResult result = (GermanIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of GermanIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				String lastName = result.getLastName();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html).**
+
+## <a name="germanID_MRZ"></a> Scanning MRZ side of German ID documents
+
+This section will discuss the setting up of German ID MRZ Side recognizer and obtaining results from it.
+
+### Setting up German ID card MRZ side recognizer
+
+To activate German ID MRZ side recognizer, you need to create [GermanIDMRZSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	GermanIDMRZSideRecognizerSettings sett = new GermanIDMRZSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [GermanIDMRZSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from German ID card MRZ side recognizer
+
+German ID MRZ side recognizer produces [GermanIDMRZSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDMRZSideRecognitionResult` class. 
+
+**Note:** `GermanIDMRZSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof GermanIDMRZSideRecognitionResult) {
+			GermanIDMRZSideRecognitionResult result = (GermanIDMRZSideRecognitionResult) baseResult;
+			
+	        // you can use getters of GermanIDMRZSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String address = result.getAddress();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognitionResult.html).**
+
+## <a name="slovakID_front"></a> Scanning front side of Slovak ID documents
+
+This section will discuss the setting up of Slovak ID Front Side recognizer and obtaining results from it.
+
+### Setting up Slovak ID card front side recognizer
+
+To activate Slovak ID front side recognizer, you need to create [SlovakIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SlovakIDFrontSideRecognizerSettings sett = new SlovakIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovakIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Slovak ID card front side recognizer
+
+Slovak ID front side recognizer produces [SlovakIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovakIDFrontSideRecognitionResult ` class. 
+
+**Note:** `SlovakIDFrontSideRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SlovakIDFrontSideRecognitionResult) {
+			SlovakIDFrontSideRecognitionResult result = (SlovakIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SlovakIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				String lastName = result.getLastName();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognitionResult.html).**
+
+## <a name="slovakID_back"></a> Scanning back side of Slovak ID documents
+
+This section will discuss the setting up of Slovak ID Back Side recognizer and obtaining results from it.
+
+### Setting up Slovak ID card back side recognizer
+
+To activate Slovak ID back side recognizer, you need to create [SlovakIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SlovakIDBackSideRecognizerSettings sett = new SlovakIDBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovakIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Slovak ID card back side recognizer
+
+Slovak ID back side recognizer produces [SlovakIDBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovakIDBackSideRecognitionResult` class. 
+
+**Note:** `SlovakIDBackSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SlovakIDBackSideRecognitionResult) {
+			SlovakIDBackSideRecognitionResult result = (SlovakIDBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SlovakIDBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String address = result.getAddress();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognitionResult.html).**
+
 ## <a name="usdl"></a> Scanning US Driver's licence barcodes
 
 This section discusses the settings for setting up USDL recognizer and explains how to obtain results from it.
@@ -1825,6 +2038,7 @@ private RecognizerSettings[] setupSettingsArray() {
 	// pass country to EUDLRecognizerSettings constructor, supported countries are:
 	// - UK (EUDLCountry.EUDL_COUNTRY_UK)
 	// - Germany (EUDLCountry.EUDL_COUNTRY_GERMANY)
+	// - Austria (EUDLCountry.EUDL_COUNTRY_AUSTRIA)
 	EUDLRecognizerSettings sett = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK)
 	
 	// now add sett to recognizer settings array that is used to configure
