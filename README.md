@@ -10,10 +10,12 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
 * [German Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Germany)
 * [Malaysian identity card's front side](https://en.wikipedia.org/wiki/Malaysian_identity_card)
+* Malaysian iKad card
 * [Front and rear side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card)
 * [Front and rear side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card)
 * [Front and rear side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card)
 * [Front and rear side of German identity card](https://en.wikipedia.org/wiki/German_identity_card)
+* [Front and rear side of Serbian ID card](https://en.wikipedia.org/wiki/Serbian_identity_card)
 * [Front and rear side of Singapore ID card](https://en.wikipedia.org/wiki/National_Registration_Identity_Card)
 * [Front and rear side of Slovak identity card](https://en.wikipedia.org/wiki/Slovak_identity_card)
 
@@ -57,11 +59,14 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of Czech ID documents](#czID_back)
   * [Scanning front side of German ID documents](#germanID_front)
   * [Scanning MRZ side of German ID documents](#germanID_MRZ)
+  * [Scanning front side of Serbian ID documents](#serbianID_front)
+  * [Scanning back side of Serbian ID documents](#serbianID_back)
   * [Scanning front side of Slovak ID documents](#slovakID_front)
   * [Scanning back side of Slovak ID documents](#slovakID_back)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
+  * [Scanning Malaysian iKad documents](#iKad)
   * [Scanning Singapore ID documents](#singaporeID)
   * [Scanning PDF417 barcodes](#pdf417Recognizer)
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
@@ -137,7 +142,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:2.9.0@aar') {
+    compile('com.microblink:blinkid:3.0.0@aar') {
     	transitive = true
     }
 }
@@ -158,7 +163,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-2.9.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.0.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -183,7 +188,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>2.9.0</version>
+		  <version>3.0.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -199,7 +204,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
    		compile project(':LibRecognizer')
- 		compile "com.android.support:appcompat-v7:24.0.0"
+ 		compile "com.android.support:appcompat-v7:24.2.1"
 	}
 	```
 5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
@@ -1390,8 +1395,11 @@ Returns the secondary identifier. If there is more than one component, they are 
 ##### `String getIssuer()`
 Returns three-letter or two-letter code which indicate the issuing State. Three-letter codes are based on `Alpha-3` codes for entities specified in `ISO 3166-1`, with extensions for certain States. Two-letter codes are based on `Alpha-2` codes for entities specified in `ISO 3166-1`, with extensions for certain States.
 
-##### `String getDateOfBirth()`
-Returns holder's date of birth in format `YYMMDD`.
+##### `Date getDateOfBirth()`
+Returns holder's date of birth if it is successfully converted to `Date` from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to `Date`.
+
+##### `String getRawDateOfBirth()`
+Returns holder's date of birth as raw string from MRZ zone in format `YYMMDD`.
 
 ##### `String getDocumentNumber()`
 Returns document number. Document number contains up to 9 characters.
@@ -1405,8 +1413,11 @@ Returns sex of the card holder. Sex is specified by use of the single initial, c
 ##### `String getDocumentCode()`
 Returns document code. Document code contains two characters. For `MRTD` the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports `(MRP)` first character shall be `P` to designate an `MRP`. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular `MRP`. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
 
-##### `String getDateOfExpiry()`
-Returns date of expiry of the document in format `YYMMDD`.
+##### `Date getDateOfExpiry()`
+Returns date of expiry if it is successfully converted to `Date` from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to `Date`.
+
+##### `String getRawDateOfExpiry()`
+Returns date of expiry as raw string from MRZ zone in format `YYMMDD`.
 
 ##### `String getOpt1()`
 Returns first optional data. Returns `null` or empty string if not available.
@@ -1846,6 +1857,109 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/mrz/GermanIDMRZSideRecognitionResult.html).**
 
+## <a name="serbianID_front"></a> Scanning front side of Serbian ID documents
+
+This section will discuss the setting up of Serbian ID Front Side recognizer and obtaining results from it.
+
+### Setting up Serbian ID card front side recognizer
+
+To activate Serbian ID front side recognizer, you need to create [SerbianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SerbianIDFrontSideRecognizerSettings sett = new SerbianIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SerbianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Serbian ID card front side recognizer
+
+Serbian ID front side recognizer produces [SerbianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SerbianIDFrontSideRecognitionResult` class. 
+
+**Note:** `SerbianIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SerbianIDFrontSideRecognitionResult) {
+			SerbianIDFrontSideRecognitionResult result = (SerbianIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SerbianIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String documentNumber = result.getDocumentNumber();
+				Date issuingDate = result.getIssuingDate();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognitionResult.html).**
+
+## <a name="serbianID_back"></a> Scanning back side of Serbian ID documents
+
+This section will discuss the setting up of Serbian ID Back Side recognizer and obtaining results from it.
+
+### Setting up Serbian ID card back side recognizer
+
+To activate Serbian ID back side recognizer, you need to create [SerbianIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/back/SerbianIDBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SerbianIDBackSideRecognizerSettings sett = new SerbianIDBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SerbianIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/back/SerbianIDBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/back/SerbianIDBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Serbian ID card back side recognizer
+
+Serbian ID back side recognizer produces [SerbianIDBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/back/SerbianIDBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SerbianIDBackSideRecognitionResult` class. 
+
+**Note:** `SerbianIDBackSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SerbianIDBackSideRecognitionResult) {
+			SerbianIDBackSideRecognitionResult result = (SerbianIDBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SerbianIDBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				Date birthDate = result.getDateOfBirth()
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/back/SerbianIDBackSideRecognitionResult.html).**
+
 ## <a name="slovakID_front"></a> Scanning front side of Slovak ID documents
 
 This section will discuss the setting up of Slovak ID Front Side recognizer and obtaining results from it.
@@ -2207,6 +2321,54 @@ Returns the address of the card holder.
 ##### `String getOwnerReligion()`
 Returns the religion of the card holder. Possible values are `ISLAM` and `null`.
 
+## <a name="iKad"></a> Scanning Malaysian iKad documents
+
+This section will discuss the setting up of Malaysian iKad documents recognizer and obtaining results from it.
+
+### Setting up iKad recognizer
+
+To activate iKad recognizer, you need to create [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	IKadRecognizerSettings sett = new IKadRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html) for more information.**
+
+### Obtaining results from iKad recognizer
+
+iKad recognizer produces [IKadRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `IKadRecognitionResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof IKadRecognitionResult) {
+			IKadRecognitionResult result = (IKadRecognitionResult) baseResult;
+			
+	        // you can use getters of IKadRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String passportNumber = result.getPassportNumber();
+				String fullName = result.getFullName();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html).**
+
 ## <a name="singaporeID"></a> Scanning Singapore ID documents
 
 This section will discuss the setting up of Singapore ID recognizer and obtaining results from it.
@@ -2567,6 +2729,9 @@ The following is a list of available parsers:
 	- used for parsing arbitrary regular expressions
 	- please note that some features, like back references, match grouping and certain regex metacharacters are not supported. See javadoc for more info.
 
+- Mobile coupons parser - represented by [MobileCouponsParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/mobilecoupons/MobileCouponsParserSettings.html)
+	- used for parsing prepaid codes from mobile phone coupons
+
 ### <a name="blinkOCR_results"></a> Obtaining results from BlinkOCR recognizer
 
 BlinkOCR recognizer produces [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `BlinkOCRRecognitionResult` class. See the following snippet for an example:
@@ -2616,6 +2781,12 @@ Returns the parsed result provided by parser with name `parserName` added to def
 
 ##### `String getParsedResult(String parserGroupName, String parserName)`
 Returns the parsed result provided by parser with name `parserName` added to parser group named `parserGroupName`. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns empty string.
+
+##### `Object getSpecificParsedResult(String parserName)`
+Returns specific parser result for concrete parser with the given parser name in default parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as `Date` object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in default parser group, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
+
+##### `Object getSpecificParsedResult(String parserGroupName, String parserName)`
+Returns specific parser result for concrete parser with the given parser name in the given parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as `Date` object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
 
 ##### `OcrResult getOcrResult()`
 Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for default parser group.
