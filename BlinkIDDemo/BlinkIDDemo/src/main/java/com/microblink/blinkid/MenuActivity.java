@@ -20,6 +20,7 @@ import com.microblink.activity.SegmentScanActivity;
 import com.microblink.activity.ShowOcrResultMode;
 import com.microblink.help.HelpActivity;
 import com.microblink.libresult.ResultActivity;
+import com.microblink.libresult.extract.SerbianIDFrontRecognitionResultExtractor;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
@@ -36,9 +37,13 @@ import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecogniz
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
+import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
@@ -269,12 +274,14 @@ public class MenuActivity extends Activity {
         elements.add(buildCroIDElement());
         elements.add(buildCzechIDElement());
         elements.add(buildDeIDElement());
+        elements.add(buildSerbiaIDElement());
         elements.add(buildSvkIDElement());
         elements.add(buildAusDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildGermanDLlement());
         elements.add(buildUsdlElement());
         elements.add(buildMyKadElement());
+        elements.add(buildIKadElement());
         elements.add(buildSingaporeIDElement());
 
         // Templating API entries
@@ -350,6 +357,18 @@ public class MenuActivity extends Activity {
         return new ListElement("German ID", buildIntent(new RecognizerSettings[]{deIDFront, deIDMrz}, ScanCard.class, null));
     }
 
+    private ListElement buildSerbiaIDElement() {
+        // prepare settings for Serbian ID Front Side Recognizer
+        SerbianIDFrontSideRecognizerSettings serbiaIDFront = new SerbianIDFrontSideRecognizerSettings();
+
+        // prepare settings for Serbian ID Back Side Recognizer
+        SerbianIDBackSideRecognizerSettings serbiaIDBack = new SerbianIDBackSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning Serbian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
+        return new ListElement("Serbian ID", buildIntent(new RecognizerSettings[]{serbiaIDFront, serbiaIDBack}, ScanCard.class, null));
+    }
+
     private ListElement buildSvkIDElement() {
         // prepare settings for Slovak ID Front Side Recognizer
         SlovakIDFrontSideRecognizerSettings svkIDFront = new SlovakIDFrontSideRecognizerSettings();
@@ -399,6 +418,15 @@ public class MenuActivity extends Activity {
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning MyKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("Malaysian MyKad document", buildIntent(new RecognizerSettings[]{myKad}, ScanCard.class, null));
+    }
+
+    private ListElement buildIKadElement() {
+        // prepare settings for Malaysian iKad ID document recognizer
+        IKadRecognizerSettings iKad = new IKadRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning iKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
     }
 
     private ListElement buildSingaporeIDElement() {

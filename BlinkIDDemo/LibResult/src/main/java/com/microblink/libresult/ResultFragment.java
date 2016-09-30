@@ -25,11 +25,14 @@ import com.microblink.libresult.extract.CzechIDFrontSideRecognitionResultExtract
 import com.microblink.libresult.extract.GermanIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.GermanIDMRZSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
+import com.microblink.libresult.extract.IKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
 import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.EUDLRecognitionResultExtractor;
+import com.microblink.libresult.extract.SerbianIDBackRecognitionResultExtractor;
+import com.microblink.libresult.extract.SerbianIDFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.SingaporeIDRecognitionResultExtractor;
 import com.microblink.libresult.extract.SlovakIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.SlovakIDFrontSideRecognitionResultExtractor;
@@ -47,9 +50,12 @@ import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognitio
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
+import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognitionResult;
@@ -122,6 +128,12 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SlovakIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SlovakIDFrontSideRecognitionResult) {
             mResultExtractor = new SlovakIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SerbianIDBackSideRecognitionResult) {
+            mResultExtractor = new SerbianIDBackRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SerbianIDFrontSideRecognitionResult) {
+            mResultExtractor = new SerbianIDFrontRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof IKadRecognitionResult) {
+            mResultExtractor = new IKadRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof EUDLRecognitionResult) {
