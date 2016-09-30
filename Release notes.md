@@ -1,5 +1,14 @@
 # Release notes
 
+## 3.0.0
+- added `MobileCouponsParser` for reading prepaid codes from mobile phone coupons
+- `DateParser` returns result as java `Date` object and as original date `String`
+- added method `getSpecificParsedResult` to `TemplatingRecognitionResult` (`BlinkOCRRecognitionResult`) which returns specific parser results, e.g. java `Date` for `DateParser`
+- added support for scanning front and back side of Serbian ID cards
+- added support for scanning Malaysian iKad documents
+- migrated to libc++ native runtime and used clang from NDKr12b for building the native code
+    - this enabled c++14 features which will help us yield much better performance in the future
+
 ## 2.9.0
 - added support for scanning front and back side of Slovak ID cards
 - added support for scanning front and back side of German ID cards
