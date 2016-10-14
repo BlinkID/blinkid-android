@@ -17,3 +17,4 @@ script:
     - ./gradlew clean :BlinkIDDetectorDemo:assembleRelease
     - ./gradlew clean :BlinkIDDirectApiDemo:assembleRelease
     - ./gradlew clean :BlinkIDRandomScanDemo:assembleRelease
+    - ./gradlew clean :BlinkIDImageListenerDemo:assembleRelease
