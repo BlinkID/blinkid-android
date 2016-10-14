@@ -100,6 +100,7 @@ The package contains Android Archive (AAR) that contains everything you need to 
 - _BlinkIDDemoCustomSegmentScan_ demonstrates advanced integration of SegmentScan feature within custom scan activity. It also demonstrates how to perform generic OCR of full camera frame, how to draw OCR results on screen and how to obtain [OcrResult](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) object for further processing.
 - _BlinkIDDetectorDemo_ demonstrates how to perform document detection and obtain dewarped image of detected document
 - _BlinkIDDirectApiDemo_ demonstrates how to perform scanning of [Android Bitmaps](https://developer.android.com/reference/android/graphics/Bitmap.html)
+- _BlinkIDImageListenerDemo_ demonstrates how to obtain document images by using provided _ScanCard_ activity and [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html)
 - _BlinkIDRandomScanDemo_ demonstrates the usage of the provided `RandomScanActivity` and random scan feature, which is similar to segment scan, but does not force the user to scan text segments in the predefined order.
  
 Source code of all demo apps is given to you to show you how to perform integration of _BlinkID_ SDK into your app. You can use this source code and all resources as you wish. You can use demo apps as basis for creating your own app, or you can copy/paste code and/or resources from demo apps into your app and use them as you wish without even asking us for permission.
