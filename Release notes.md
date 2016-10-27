@@ -1,5 +1,16 @@
 # Release notes
 
+## 3.1.0
+- US Driver's Licence:
+    - fixed parsing of Virgin Islands DL
+    - added support for Arkansas DL
+    - added support for new South Carolina DL
+- Malaysian ID:
+    - added support for returning face image
+    - fixed wrong parsing of birth date
+- fixed rare NPE in SegmentScanActivity
+- workaround for camera bug on some samsung devices
+
 ## 3.0.0
 - added `MobileCouponsParser` for reading prepaid codes from mobile phone coupons
 - `DateParser` returns result as java `Date` object and as original date `String`
