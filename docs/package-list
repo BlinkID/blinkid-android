@@ -2,6 +2,7 @@ com.microblink.activity
 com.microblink.detectors
 com.microblink.detectors.document
 com.microblink.detectors.face
+com.microblink.detectors.mrz
 com.microblink.detectors.multi
 com.microblink.detectors.points
 com.microblink.detectors.quad
@@ -30,6 +31,7 @@ com.microblink.recognizers.blinkid.croatia.back
 com.microblink.recognizers.blinkid.croatia.front
 com.microblink.recognizers.blinkid.czechia.back
 com.microblink.recognizers.blinkid.czechia.front
+com.microblink.recognizers.blinkid.documentface
 com.microblink.recognizers.blinkid.eudl
 com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.mrz
