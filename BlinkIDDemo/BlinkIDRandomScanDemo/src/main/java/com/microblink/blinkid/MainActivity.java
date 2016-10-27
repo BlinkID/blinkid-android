@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.microblink.Config;
 import com.microblink.activity.RandomScanActivity;
 import com.microblink.ocr.RandomScanElement;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
@@ -14,10 +15,6 @@ import com.microblink.recognizers.blinkocr.parser.generic.EMailParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
 
 public class MainActivity extends Activity {
-
-    // obtain your licence key at http://microblink.com/login or
-    // contact us at http://help.microblink.com
-    private static final String LICENSE_KEY = "VFUDUOHQ-UY2ZJRMP-SH2HFL4N-LQCPIDAN-T5EM7GBQ-7CXN7GTS-K7XR52QM-AUX5RGYJ";
 
     private static final int SINGLE_GROUP_REQ_CODE = 123;
     private static final int MULTIPLE_GROUPS_REQ_CODE = 234;
@@ -61,7 +58,7 @@ public class MainActivity extends Activity {
         // key validation is performed on image processing thread in native code, all enabled recognizers
         // that are disallowed by licence key will be turned off without any error and information
         // about turning them off will be logged to ADB logcat.
-        intent.putExtra(RandomScanActivity.EXTRAS_LICENSE_KEY, LICENSE_KEY);
+        intent.putExtra(RandomScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // we need to scan 3 fields, so we will add 3 random scan elements to elements array
         RandomScanElement date = new RandomScanElement(R.string.date_title, DATE_PARSER_NAME, new DateParserSettings());
@@ -109,7 +106,7 @@ public class MainActivity extends Activity {
          */
         Intent intent = new Intent(this, RandomScanActivity.class);
 
-        intent.putExtra(RandomScanActivity.EXTRAS_LICENSE_KEY, LICENSE_KEY);
+        intent.putExtra(RandomScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
 
         // we will put parsers in two parser groups
         // PAYMENT: IBAN, amount and date parsers

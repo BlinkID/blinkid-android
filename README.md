@@ -143,7 +143,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.0.0@aar') {
+    compile('com.microblink:blinkid:3.1.0@aar') {
     	transitive = true
     }
 }
@@ -164,7 +164,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.0.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.1.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -189,7 +189,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.0.0</version>
+		  <version>3.1.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -523,6 +523,11 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	```java
 	intent.putExtra(ScanCard.EXTRAS_CAMERA_VIDEO_PRESET, (Parcelable)VideoResolutionPreset.VIDEO_RESOLUTION_720p);
 	```
+* <a name="intent_EXTRAS_SET_FLAG_SECURE" href="#intent_EXTRAS_SET_FLAG_SECURE">#</a> **`ScanCard.EXTRAS_SET_FLAG_SECURE`** - with this extra you can request setting of `FLAG_SECURE` on activity window which indicates that the display has a secure video output and supports compositing secure surfaces. Use this to prevent taking screenshots of the activity window content and to prevent content from being viewed on non-secure displays. To set `FLAG_SECURE` on camera activity, use the following code snippet:
+
+	```java
+	intent.putExtra(ScanCard.EXTRAS_SET_FLAG_SECURE, true);
+	```
 
 * <a name="intent_EXTRAS_LICENSE_KEY" href="#intent_EXTRAS_LICENSE_KEY">#</a> **`ScanCard.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
 
@@ -597,6 +602,12 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	```java
 	intent.putExtra(SegmentScanActivity.EXTRAS_CAMERA_VIDEO_PRESET, (Parcelable)VideoResolutionPreset.VIDEO_RESOLUTION_720p);
 	```
+	
+* <a name="intent_EXTRAS_SET_FLAG_SECURE" href="#intent_EXTRAS_SET_FLAG_SECURE">#</a> **`SegmentScanActivity.EXTRAS_SET_FLAG_SECURE`** - with this extra you can request setting of `FLAG_SECURE` on activity window which indicates that the display has a secure video output and supports compositing secure surfaces. Use this to prevent taking screenshots of the activity window content and to prevent content from being viewed on non-secure displays. To set `FLAG_SECURE` on camera activity, use the following code snippet:
+
+	```java
+	intent.putExtra(SegmentScanActivity.EXTRAS_SET_FLAG_SECURE, true);
+	
 
 * <a name="intent_EXTRAS_LICENSE_KEY" href="#intent_EXTRAS_LICENSE_KEY">#</a> **`ScanCard.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
 
@@ -2265,7 +2276,10 @@ private RecognizerSettings[] setupSettingsArray() {
 You can also tweak MyKad recognition parameters with methods of [MyKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html).
 
 ##### `setShowFullDocument(boolean)`
-Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"MyKad"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be equal to [`MyKadRecognizerSettings.FULL_DOCUMENT_IMAGE`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html#FULL_DOCUMENT_IMAGE).  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+
+##### `setShowFaceImage(boolean)`
+Sets whether face image from ID card should be sent to [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html). If enabled, image will be of type [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED), and the name of the image will be equal to [`MyKadRecognizerSettings.FACE_IMAGE_NAME`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html#FACE_IMAGE_NAME), so make sure you are subscribed to receiving of [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) images with [setDewarpedImageEnabled(true)](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-). By default, this is turned off.
 
 ### Obtaining results from MyKad recognizer
 
@@ -2310,8 +2324,11 @@ Returns the sex of the card holder. Possible values are:
 - `M` for male holder
 - `F` for female holder
 
-##### `String getOwnerBirthDate()`
-Returns the date of birth of card holder. The date format is `YYMMDD`.
+##### `Date getOwnerBirthDate()`
+Returns the date of birth of card holder as java `Date` if it is successfully converted from date format: `YYMMDD`. Raw date string can be obtained by using **getRawBirthDate()** method. Returns `null` if date is unknown or can not be converted to java `Date`.
+
+##### `String getRawBirthDate()`
+Returns owner's date of birth as raw string in format `YYMMDD`, or `null` if date is unknown.
 
 ##### `String getOwnerFullName()`
 Returns the full name of the card holder.
