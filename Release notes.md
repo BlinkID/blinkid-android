@@ -1,5 +1,14 @@
 # Release notes
 
+## 3.2.0
+
+- fixed camera management on LG X Cam
+- improved IBAN parser
+- _LibRecognizer.aar_ renamed to _LibBlinkID.aar_
+- added support for scanning Slovenian IDs
+- fixed crash on ARMv7 devices when using `ImageListener`
+- added support for drawing MRZ detection result
+
 ## 3.1.0
 - US Driver's Licence:
     - fixed parsing of Virgin Islands DL
