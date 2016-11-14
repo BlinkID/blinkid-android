@@ -13,30 +13,32 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.microblink.libresult.extract.AustrianIDBackSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.AustrianIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.BardecoderRecognitionResultExtractor;
+import com.microblink.libresult.extract.austria.AustrianIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.austria.AustrianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.barcode.BardecoderRecognitionResultExtractor;
 import com.microblink.libresult.extract.BaseRecognitionResultExtractor;
-import com.microblink.libresult.extract.BlinkOcrRecognitionResultExtractor;
-import com.microblink.libresult.extract.CroatianIDBackSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.CroatianIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.CzechIDBackSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.CzechIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.GermanIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.GermanIDMRZSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
+import com.microblink.libresult.extract.croatia.CroatianIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.croatia.CroatianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.czechia.CzechIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.czechia.CzechIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanIDMRZSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
-import com.microblink.libresult.extract.IKadRecognitionResultExtractor;
-import com.microblink.libresult.extract.MRTDRecognitionResultExtractor;
-import com.microblink.libresult.extract.MyKadRecognitionResultExtractor;
-import com.microblink.libresult.extract.Pdf417RecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
+import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.MyKadRecognitionResultExtractor;
+import com.microblink.libresult.extract.barcode.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
-import com.microblink.libresult.extract.EUDLRecognitionResultExtractor;
-import com.microblink.libresult.extract.SerbianIDBackRecognitionResultExtractor;
-import com.microblink.libresult.extract.SerbianIDFrontRecognitionResultExtractor;
-import com.microblink.libresult.extract.SingaporeIDRecognitionResultExtractor;
-import com.microblink.libresult.extract.SlovakIDBackSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.SlovakIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.ZXingRecognitionResultExtractor;
+import com.microblink.libresult.extract.eudl.EUDLRecognitionResultExtractor;
+import com.microblink.libresult.extract.serbia.SerbianIDBackRecognitionResultExtractor;
+import com.microblink.libresult.extract.serbia.SerbianIDFrontRecognitionResultExtractor;
+import com.microblink.libresult.extract.singapore.SingaporeIDRecognitionResultExtractor;
+import com.microblink.libresult.extract.slovakia.SlovakIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.slovakia.SlovakIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.barcode.ZXingRecognitionResultExtractor;
+import com.microblink.libresult.extract.slovenia.SlovenianIDBackRecognitionResultExtractor;
+import com.microblink.libresult.extract.slovenia.SlovenianIDFrontRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
@@ -59,6 +61,8 @@ import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecogni
 import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
 
 import java.util.List;
@@ -132,6 +136,10 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SerbianIDBackRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SerbianIDFrontSideRecognitionResult) {
             mResultExtractor = new SerbianIDFrontRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SlovenianIDBackSideRecognitionResult) {
+            mResultExtractor = new SlovenianIDBackRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SlovenianIDFrontSideRecognitionResult) {
+            mResultExtractor = new SlovenianIDFrontRecognitionResultExtractor(getActivity());
         } else if (mData instanceof IKadRecognitionResult) {
             mResultExtractor = new IKadRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {

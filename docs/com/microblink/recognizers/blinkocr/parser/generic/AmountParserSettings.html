@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -263,50 +263,62 @@ implements android.os.Parcelable</pre>
 </td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#isDisableDecimals--">isDisableDecimals</a></span>()</code>
+<div class="block">Returns whether parsing of amounts with decimals is disabled or not.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setAllowMissingDecimals-boolean-">setAllowMissingDecimals</a></span>(boolean&nbsp;allowMissingDecimals)</code>
 <div class="block">Sets whether amounts without decimal are accepted as valid amount, for example 1.465 is
  accepted as valid amount.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setAllowNegativeAmounts-boolean-">setAllowNegativeAmounts</a></span>(boolean&nbsp;allowNegativeAmounts)</code>
 <div class="block">Sets whether negative values are accepted as valid amounts, for example -27,56 is
  valid amount.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setAllowSpaceSeparators-boolean-">setAllowSpaceSeparators</a></span>(boolean&nbsp;allowSpaceSeparators)</code>
 <div class="block">Sets whether amounts with space separators between groups of digits(thousands) are allowed.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setArabicIndicModeEnabled-boolean-">setArabicIndicModeEnabled</a></span>(boolean&nbsp;enableArabicMode)</code>
 <div class="block">Sets whether the Arabic-Indic mode is enabled.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setDisableDecimals-boolean-">setDisableDecimals</a></span>(boolean&nbsp;disableDecimals)</code>
+<div class="block">If set to true, parser will assume that amounts that will be parsed do not contain decimal digits.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setExpectAsterixOrEqualsPrefix-boolean-">setExpectAsterixOrEqualsPrefix</a></span>(boolean&nbsp;expectAsterixOrEqualsPrefix)</code>
 <div class="block">Sets wether * or = is expected to be found before actual amount.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setExpectCurrencySymbol-boolean-">setExpectCurrencySymbol</a></span>(boolean&nbsp;expectCurrencySymbol)</code>
 <div class="block">Sets whether currency symbol is expected to be found before or after the actual amount.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#setIdealNumberOfDigits-int-">setIdealNumberOfDigits</a></span>(int&nbsp;idealNumberOfDigits)</code>
 <div class="block">Sets ideal(expected) number of digits.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/AmountParserSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -579,6 +591,37 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Current ideal number of digits before decimal part.</dd>
+</dl>
+</li>
+</ul>
+<a name="setDisableDecimals-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDisableDecimals</h4>
+<pre>public&nbsp;void&nbsp;setDisableDecimals(boolean&nbsp;disableDecimals)</pre>
+<div class="block">If set to true, parser will assume that amounts that will be parsed do not contain decimal digits.
+ This is useful for parsing amounts with dot as thousands separator, like 55.632. Without this option,
+ parser would prefer 55,63, instead of returning 55.632. Note that enabling this option will disable parsing
+ of amounts with decimals, like 24,56.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>disableDecimals</code> - Whether amounts that will be parsed will contain decimal digits.</dd>
+</dl>
+</li>
+</ul>
+<a name="isDisableDecimals--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDisableDecimals</h4>
+<pre>public&nbsp;boolean&nbsp;isDisableDecimals()</pre>
+<div class="block">Returns whether parsing of amounts with decimals is disabled or not.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether parsing of amounts with decimals is disabled or not.</dd>
 </dl>
 </li>
 </ul>

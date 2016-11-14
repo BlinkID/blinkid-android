@@ -17,6 +17,12 @@
     catch(err) {
     }
 //-->
+var methods = {"i0":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -69,13 +75,13 @@
 <li><a href="#nested.classes.inherited.from.class.com.microblink.detectors.DetectorResult">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.com.microblink.detectors.points.PointsDetectorResult">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -95,12 +101,7 @@
 <li><a href="../../../../com/microblink/detectors/DetectorResult.html" title="class in com.microblink.detectors">com.microblink.detectors.DetectorResult</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html" title="class in com.microblink.detectors.points">com.microblink.detectors.points.PointsDetectorResult</a></li>
-<li>
-<ul class="inheritance">
 <li>com.microblink.detectors.mrz.MrzDetectorResult</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -116,7 +117,7 @@
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">MrzDetectorResult</span>
-extends <a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html" title="class in com.microblink.detectors.points">PointsDetectorResult</a></pre>
+extends <a href="../../../../com/microblink/detectors/DetectorResult.html" title="class in com.microblink.detectors">DetectorResult</a></pre>
 <div class="block">Created by daniel on 10/5/16.</div>
 </li>
 </ul>
@@ -211,19 +212,23 @@ extends <a href="../../../../com/microblink/detectors/points/PointsDetectorResul
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.points.PointsDetectorResult">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;com.microblink.detectors.points.<a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html" title="class in com.microblink.detectors.points">PointsDetectorResult</a></h3>
-<code><a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html#describeContents--">describeContents</a>, <a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html#getPointSet--">getPointSet</a>, <a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html#getTransformedPointSet--">getTransformedPointSet</a>, <a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code></li>
-</ul>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html" title="class in com.microblink.detectors.points">PointsDetectorResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/mrz/MrzDetectorResult.html#getPointsDetectorResult--">getPointsDetectorResult</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.DetectorResult">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.detectors.<a href="../../../../com/microblink/detectors/DetectorResult.html" title="class in com.microblink.detectors">DetectorResult</a></h3>
-<code><a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCode--">getDetectionCode</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCodeName--">getDetectionCodeName</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCodeOrdinal--">getDetectionCodeOrdinal</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionStatus--">getDetectionStatus</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#setDetectionCode-int-">setDetectionCode</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#toString--">toString</a></code></li>
+<code><a href="../../../../com/microblink/detectors/DetectorResult.html#describeContents--">describeContents</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCode--">getDetectionCode</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCodeName--">getDetectionCodeName</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionCodeOrdinal--">getDetectionCodeOrdinal</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#getDetectionStatus--">getDetectionStatus</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#setDetectionCode-int-">setDetectionCode</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#toString--">toString</a>, <a href="../../../../com/microblink/detectors/DetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -286,6 +291,23 @@ extends <a href="../../../../com/microblink/detectors/points/PointsDetectorResul
 </ul>
 </li>
 </ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="getPointsDetectorResult--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getPointsDetectorResult</h4>
+<pre>public&nbsp;<a href="../../../../com/microblink/detectors/points/PointsDetectorResult.html" title="class in com.microblink.detectors.points">PointsDetectorResult</a>&nbsp;getPointsDetectorResult()</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -339,13 +361,13 @@ extends <a href="../../../../com/microblink/detectors/points/PointsDetectorResul
 <li><a href="#nested.classes.inherited.from.class.com.microblink.detectors.DetectorResult">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
-<li><a href="#methods.inherited.from.class.com.microblink.detectors.points.PointsDetectorResult">Method</a></li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

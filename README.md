@@ -18,6 +18,7 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [Front and rear side of Serbian ID card](https://en.wikipedia.org/wiki/Serbian_identity_card)
 * [Front and rear side of Singapore ID card](https://en.wikipedia.org/wiki/National_Registration_Identity_Card)
 * [Front and rear side of Slovak identity card](https://en.wikipedia.org/wiki/Slovak_identity_card)
+* [Front and rear side of Slovenian identity card](https://en.wikipedia.org/wiki/Slovenian_identity_card)
 
 As of version `1.8.0` you can also scan barcodes and perform OCR of structurized or free-form text. Supported barcodes are the same as in sister product [PDF417.mobi](https://github.com/PDF417/pdf417-android).
 
@@ -63,6 +64,8 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of Serbian ID documents](#serbianID_back)
   * [Scanning front side of Slovak ID documents](#slovakID_front)
   * [Scanning back side of Slovak ID documents](#slovakID_back)
+  * [Scanning front side of Slovenian ID documents](#slovenianID_front)
+  * [Scanning back side of Slovenian ID documents](#slovenianID_back)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
@@ -143,7 +146,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.1.0@aar') {
+    compile('com.microblink:blinkid:3.2.0@aar') {
     	transitive = true
     }
 }
@@ -164,7 +167,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.1.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.2.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -189,7 +192,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.1.0</version>
+		  <version>3.2.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -199,13 +202,13 @@ Open your `pom.xml` file and add these directives as appropriate:
 
 1. In Android Studio menu, click _File_, select _New_ and then select _Module_.
 2. In new window, select _Import .JAR or .AAR Package_, and click _Next_.
-3. In _File name_ field, enter the path to _LibRecognizer.aar_ and click _Finish_.
+3. In _File name_ field, enter the path to _LibBlinkID.aar_ and click _Finish_.
 4. In your app's `build.gradle`, add dependency to `LibRecognizer` and appcompat-v7:
 
 	```
 	dependencies {
    		compile project(':LibRecognizer')
- 		compile "com.android.support:appcompat-v7:24.2.1"
+ 		compile "com.android.support:appcompat-v7:25.0.0"
 	}
 	```
 5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
@@ -236,16 +239,16 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 
 1. In Eclipse, create a new _Android library project_ in your workspace.
 2. Clear the `src` and `res` folders.
-3. Unzip the `LibRecognizer.aar` file. You can rename it to zip and then unzip it using any tool.
+3. Unzip the `LibBlinkID.aar` file. You can rename it to zip and then unzip it using any tool.
 4. Copy the `classes.jar` to `libs` folder of your Eclipse library project. If `libs` folder does not exist, create it.
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
-6. Replace the `res` folder on library project with the `res` folder of the `LibRecognizer.aar` file.
+6. Replace the `res` folder on library project with the `res` folder of the `LibBlinkID.aar` file.
 
 You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
-2. Open the `AndroidManifest.xml` file inside `LibRecognizer.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
-3. Copy the contents of `assets` folder from `LibRecognizer.aar` into `assets` folder of target project. If `assets` folder in target project does not exist, create it.
+2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
+3. Copy the contents of `assets` folder from `LibBlinkID.aar` into `assets` folder of target project. If `assets` folder in target project does not exist, create it.
 4. Clean and Rebuild your target project
 5. If you plan to use ProGuard, add same statements as in [Android studio guide](#quickIntegration) to your ProGuard configuration file.
 6. Add appcompat-v7 library to your workspace and reference it by target project (modern ADT plugin for Eclipse does this automatically for all new android projects).
@@ -561,6 +564,13 @@ This section will discuss possible parameters that can be sent over `Intent` for
 * <a name="intent_EXTRAS_IMAGE_LISTENER" href="#intent_EXTRAS_IMAGE_LISTENER">#</a> **`ScanCard.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener). By default, _ImageListener_ will receive all possible images that become available during recognition process. This will introduce performance penalty because most of those images will probably not be used so sending them will just waste time. To control which images should become available to _ImageListener_, you can also set [ImageMetadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html) with `ScanCard.EXTRAS_IMAGE_METADATA_SETTINGS`
 
 * <a name="intent_EXTRAS_IMAGE_METADATA_SETTINGS" href="#intent_EXTRAS_IMAGE_METADATA_SETTINGS">#</a> **`ScanCard.EXTRAS_IMAGE_METADATA_SETTINGS`** - with this extra you can set [ImageMetadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html) which will define which images will be sent to [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) given via `ScanCard.EXTRAS_IMAGE_LISTENER` extra. If _ImageListener_ is not given via Intent, then this extra has no effect. You can see example usage of _ImageMetadata Settings_ in chapter [Obtaining various metadata with _MetadataListener_](#metadataListener) and in provided demo apps.
+
+* <a name="intent_EXTRAS_SHOW_MRZ_DETECTION" href="#intent_EXTRAS_SHOW_MRZ_DETECTION">#</a> **`ScanCard.EXTRAS_SHOW_MRZ_DETECTION`** - with this extra you can prevent drawing of little white dots that describe MRZ detection position on `ScanCard` activity. By default, each time scanner finds a candidate that could be a MRZ, its location is drawn. To prevent this, use the following snippet:
+	
+	```java
+	// disable drawing of MRZ detection result
+	intent.putExtra(ScanCard.EXTRAS_SHOW_MRZ_DETECTION, false);
+	```
 
 ### Customizing `ScanCard` appearance
 
@@ -2075,6 +2085,109 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognitionResult.html).**
 
+## <a name="slovenianID_front"></a> Scanning front side of Slovenian ID documents
+
+This section will discuss the setting up of Slovenian ID Front Side recognizer and obtaining results from it.
+
+### Setting up Slovenian ID card front side recognizer
+
+To activate Slovenian ID front side recognizer, you need to create [SlovenianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SlovenianIDFrontSideRecognizerSettings sett = new SlovenianIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovenianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Slovenian ID card front side recognizer
+
+Slovenian ID front side recognizer produces [SlovenianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovenianIDFrontSideRecognitionResult` class. 
+
+**Note:** `SlovenianIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SlovenianIDFrontSideRecognitionResult) {
+			SlovenianIDFrontSideRecognitionResult result = (SlovenianIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SlovenianIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				Date dateOfExpiry = result.getDateOfExpiry();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html).**
+
+## <a name="slovenianID_back"></a> Scanning back side of Slovenian ID documents
+
+This section will discuss the setting up of Slovenian ID Back Side recognizer and obtaining results from it.
+
+### Setting up Slovenian ID card back side recognizer
+
+To activate Slovenian ID back side recognizer, you need to create [SlovenianIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SlovenianIDBackSideRecognizerSettings sett = new SlovenianIDBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovenianIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Slovenian ID card back side recognizer
+
+Slovenian ID back side recognizer produces [SlovenianIDBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovenianIDBackSideRecognitionResult` class. 
+
+**Note:** `SlovenianIDBackSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SlovenianIDBackSideRecognitionResult) {
+			SlovenianIDBackSideRecognitionResult result = (SlovenianIDBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SlovenianIDBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				Date birthDate = result.getDateOfBirth()
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognitionResult.html).**
+
 ## <a name="usdl"></a> Scanning US Driver's licence barcodes
 
 This section discusses the settings for setting up USDL recognizer and explains how to obtain results from it.
@@ -3167,14 +3280,14 @@ To use a language, you have to enable it from the code:
 
 ### <a name="addLanguage"></a> Adding new language
 
-_BlinkID_ can easily be translated to other languages. The `res` folder in `LibRecognizer.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibRecognizer.aar` archive to get access to those files). Then, open that file and change the english version strings into croatian version. 
+_BlinkID_ can easily be translated to other languages. The `res` folder in `LibBlinkID.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibBlinkID.aar` archive to get access to those files). Then, open that file and change the english version strings into croatian version. 
 
 ### <a name="stringChanging"></a> Changing strings in the existing language
 	
 To modify an existing string, the best approach would be to:
 
 1. choose a language which you want to modify. For example Croatia ('hr').
-2. find strings.xml in `LibRecognizer.aar` archive folder `res/values-hr`
+2. find strings.xml in `LibBlinkID.aar` archive folder `res/values-hr`
 3. choose a string key which you want to change. For example, ```<string name="PhotoPayHelp">Help</string>```
 4. in your project create a file `strings.xml` in the folder `res/values-hr`, if it doesn't already exist
 5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomoć</string>```
@@ -3223,7 +3336,7 @@ At the time of writing this documentation, [Android does not have support for co
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibRecognizer.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its classes.jar to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its classes.jar to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk.
 
 # <a name="archConsider"></a> Processor architecture considerations
@@ -3249,7 +3362,7 @@ However, there are some issues to be considered:
 - x86_64 processors understand x86 instruction set, but x86 processors do not understand x86_64 instruction set
 - if x86_64 processor executes x86 code, it does not take advantage of 64-bit registers and use two instructions instead of one for 64-bit operations
 
-`LibRecognizer.aar` archive contains ARMv7, ARM64, x86 and x86_64 builds of native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64, x86 and x86_64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
+`LibBlinkID.aar` archive contains ARMv7, ARM64, x86 and x86_64 builds of native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64, x86 and x86_64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
 
 ## <a name="reduceSize"></a> Reducing the final size of your app
 
@@ -3318,9 +3431,9 @@ You can also remove multiple processor architectures by specifying `exclude` dir
 
 ### Removing processor architecture support in Eclipse
 
-This section assumes that you have set up and prepared your Eclipse project from `LibRecognizer.aar` as described in chapter [Eclipse integration instructions](#eclipseIntegration).
+This section assumes that you have set up and prepared your Eclipse project from `LibBlinkID.aar` as described in chapter [Eclipse integration instructions](#eclipseIntegration).
 
-If you are using Eclipse, removing processor architecture support gets really complicated. Eclipse does not support build flavors and you will either need to remove support for some processors or create several different library projects from `LibRecognizer.aar` - each one for specific processor architecture. 
+If you are using Eclipse, removing processor architecture support gets really complicated. Eclipse does not support build flavors and you will either need to remove support for some processors or create several different library projects from `LibBlinkID.aar` - each one for specific processor architecture. 
 
 Native libraryies in eclipse library project are located in subfolder `libs`:
 

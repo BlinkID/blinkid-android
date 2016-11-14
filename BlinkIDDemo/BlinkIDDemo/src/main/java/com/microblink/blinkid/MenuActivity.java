@@ -20,7 +20,6 @@ import com.microblink.activity.SegmentScanActivity;
 import com.microblink.activity.ShowOcrResultMode;
 import com.microblink.help.HelpActivity;
 import com.microblink.libresult.ResultActivity;
-import com.microblink.libresult.extract.SerbianIDFrontRecognitionResultExtractor;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
@@ -37,7 +36,6 @@ import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecogniz
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
@@ -47,6 +45,8 @@ import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecogni
 import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
@@ -274,15 +274,18 @@ public class MenuActivity extends Activity {
         elements.add(buildCroIDElement());
         elements.add(buildCzechIDElement());
         elements.add(buildDeIDElement());
-        elements.add(buildSerbiaIDElement());
-        elements.add(buildSvkIDElement());
-        elements.add(buildAusDLElement());
-        elements.add(buildUKDLElement());
-        elements.add(buildGermanDLlement());
-        elements.add(buildUsdlElement());
-        elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
+        elements.add(buildMyKadElement());
+        elements.add(buildSerbiaIDElement());
         elements.add(buildSingaporeIDElement());
+        elements.add(buildSvkIDElement());
+        elements.add(buildSloveniaIDElement());
+
+        // DL document list entry
+        elements.add(buildAusDLElement());
+        elements.add(buildGermanDLlement());
+        elements.add(buildUKDLElement());
+        elements.add(buildUsdlElement());
 
         // Templating API entries
         elements.add(buildTemplatingCroIDFrontSideElement());
@@ -379,6 +382,18 @@ public class MenuActivity extends Activity {
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning Slovak ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
         return new ListElement("Slovak ID", buildIntent(new RecognizerSettings[]{svkIDFront, svkIDBack}, ScanCard.class, null));
+    }
+
+    private ListElement buildSloveniaIDElement() {
+        // prepare settings for Serbian ID Front Side Recognizer
+        SlovenianIDFrontSideRecognizerSettings sloveniaIDFront = new SlovenianIDFrontSideRecognizerSettings();
+
+        // prepare settings for Serbian ID Back Side Recognizer
+        SlovenianIDBackSideRecognizerSettings sloveniaIDBack = new SlovenianIDBackSideRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning Serbian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
+        return new ListElement("Slovenian ID", buildIntent(new RecognizerSettings[]{sloveniaIDFront, sloveniaIDBack}, ScanCard.class, null));
     }
 
     private ListElement buildAusDLElement() {
