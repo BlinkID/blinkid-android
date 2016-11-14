@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.activity.ScanActivity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -156,6 +156,19 @@ extends <a href="../../../com/microblink/activity/ScanActivity.html" title="clas
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/ScanCard.html#EXTRAS_SHOW_MRZ_DETECTION">EXTRAS_SHOW_MRZ_DETECTION</a></span></code>
+<div class="block">Defines whether OCR results will be displayed in UI</div>
+</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.com.microblink.activity.ScanActivity">
 <!--   -->
@@ -236,13 +249,22 @@ extends <a href="../../../com/microblink/activity/ScanActivity.html" title="clas
 <div class="block">Called in onOrientationChange.</div>
 </td>
 </tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/ScanCard.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">onConfigureRecognizerView</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
+                         android.os.Bundle&nbsp;intentExtras)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/ScanCard.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></span>(<a href="../../../com/microblink/metadata/Metadata.html" title="class in com.microblink.metadata">Metadata</a>&nbsp;metadata)</code>&nbsp;</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.activity.ScanActivity">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.activity.<a href="../../../com/microblink/activity/ScanActivity.html" title="class in com.microblink.activity">ScanActivity</a></h3>
-<code><a href="../../../com/microblink/activity/ScanActivity.html#onActivityFlip--">onActivityFlip</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onAutofocusFailed--">onAutofocusFailed</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onConfigurationChanged-android.content.res.Configuration-">onConfigurationChanged</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-">onConfigureRecognizerView</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">onConfigureRecognizerView</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onDetectorResultAvailable-com.microblink.detectors.DetectorResult-">onDetectorResultAvailable</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></code></li>
+<code><a href="../../../com/microblink/activity/ScanActivity.html#onActivityFlip--">onActivityFlip</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onAutofocusFailed--">onAutofocusFailed</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onConfigurationChanged-android.content.res.Configuration-">onConfigurationChanged</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-">onConfigureRecognizerView</a>, <a href="../../../com/microblink/activity/ScanActivity.html#onDetectorResultAvailable-com.microblink.detectors.DetectorResult-">onDetectorResultAvailable</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.activity.BaseScanActivity">
@@ -294,6 +316,28 @@ extends <a href="../../../com/microblink/activity/ScanActivity.html" title="clas
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="EXTRAS_SHOW_MRZ_DETECTION">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>EXTRAS_SHOW_MRZ_DETECTION</h4>
+<pre>public static final&nbsp;java.lang.String EXTRAS_SHOW_MRZ_DETECTION</pre>
+<div class="block">Defines whether OCR results will be displayed in UI</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#com.microblink.activity.ScanCard.EXTRAS_SHOW_MRZ_DETECTION">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -317,6 +361,35 @@ extends <a href="../../../com/microblink/activity/ScanActivity.html" title="clas
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="onMetadataAvailable-com.microblink.metadata.Metadata-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onMetadataAvailable</h4>
+<pre>public&nbsp;void&nbsp;onMetadataAvailable(<a href="../../../com/microblink/metadata/Metadata.html" title="class in com.microblink.metadata">Metadata</a>&nbsp;metadata)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/metadata/MetadataListener.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../com/microblink/activity/ScanActivity.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/activity/ScanActivity.html" title="class in com.microblink.activity">ScanActivity</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onConfigureRecognizerView</h4>
+<pre>protected&nbsp;void&nbsp;onConfigureRecognizerView(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
+                                         android.os.Bundle&nbsp;intentExtras)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../com/microblink/activity/ScanActivity.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">onConfigureRecognizerView</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/activity/ScanActivity.html" title="class in com.microblink.activity">ScanActivity</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">
 <!--   -->
 </a>
@@ -418,13 +491,13 @@ extends <a href="../../../com/microblink/activity/ScanActivity.html" title="clas
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.activity.ScanActivity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
