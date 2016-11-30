@@ -1,5 +1,11 @@
 # Release notes
 
+## 3.3.0
+
+- removed `RecognizerView` method `setInitialScanningPaused`. For achieving the same functionality, method `pauseScanning` should be used.
+- added support for scanning IBANs that contain spaces and dashes
+- improved `MRTDRecognizer`: when obtaining of full document images is enabled with `setShowFullDocument` method, recognizer returns result only after the document image has been returned.
+
 ## 3.2.0
 
 - fixed camera management on LG X Cam
