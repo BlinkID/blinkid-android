@@ -3,14 +3,18 @@ package com.microblink.libresult.extract.germany;
 import android.content.Context;
 
 import com.microblink.libresult.R;
-import com.microblink.libresult.extract.RecognitionResultEntry;
-import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognitionResult;
+import com.microblink.libresult.extract.RecognitionResultEntry;
+import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
 
 import java.util.List;
 
+/**
+ * Created by igrce on 26/08/16.
+ */
 public class GermanIDFrontSideRecognitionResultExtractor extends BlinkOcrRecognitionResultExtractor {
+
     public GermanIDFrontSideRecognitionResultExtractor(Context context) {
         super(context);
     }
@@ -36,8 +40,13 @@ public class GermanIDFrontSideRecognitionResultExtractor extends BlinkOcrRecogni
             ));
 
             mExtractedData.add(mBuilder.build(
-                    R.string.PPDocumentNumber,
-                    deIdFrontResult.getIdentityCardNumber()
+                    R.string.PPNationality,
+                    deIdFrontResult.getNationality()
+            ));
+
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPPlaceOfBirth,
+                    deIdFrontResult.getPlaceOfBirth()
             ));
 
             mExtractedData.add(mBuilder.build(
@@ -46,13 +55,8 @@ public class GermanIDFrontSideRecognitionResultExtractor extends BlinkOcrRecogni
             ));
 
             mExtractedData.add(mBuilder.build(
-                    R.string.PPNationality,
-                    deIdFrontResult.getNationality()
-            ));
-
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPPlaceOfBirth,
-                    deIdFrontResult.getPlaceOfBirth()
+                    R.string.PPDocumentNumber,
+                    deIdFrontResult.getIdentityCardNumber()
             ));
 
             mExtractedData.add(mBuilder.build(

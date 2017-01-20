@@ -42,7 +42,8 @@ import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognizerSettings;
+import com.microblink.recognizers.blinkid.singapore.back.SingaporeIDBackRecognizerSettings;
+import com.microblink.recognizers.blinkid.singapore.front.SingaporeIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
@@ -445,14 +446,14 @@ public class MenuActivity extends Activity {
     }
 
     private ListElement buildSingaporeIDElement() {
-        // prepare settings for Singapore ID document recognizer
-        SingaporeIDRecognizerSettings singID = new SingaporeIDRecognizerSettings();
-        singID.setExtractBloodGroup(true);
-        singID.setExtractDateOfIssue(true);
+        // prepare settings for Singapore ID document recognizer (front side)
+        SingaporeIDFrontRecognizerSettings singFront = new SingaporeIDFrontRecognizerSettings();
+        // prepare settings for Singapore ID document recognizer (back side)
+        SingaporeIDBackRecognizerSettings singBack = new SingaporeIDBackRecognizerSettings();
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning UD documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Singapore ID document", buildIntent(new RecognizerSettings[]{singID}, ScanCard.class, null));
+        return new ListElement("Singapore ID document", buildIntent(new RecognizerSettings[]{ singFront, singBack }, ScanCard.class, null));
     }
 
     private ListElement buildUsdlElement() {

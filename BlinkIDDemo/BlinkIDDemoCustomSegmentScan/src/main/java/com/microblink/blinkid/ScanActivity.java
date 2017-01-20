@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -277,7 +278,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         // and auto exposure measurements
         // we set the same rectangle as for scanning region
         // we also define that this metering area will follow device orientation changes
-        mRecognizerView.setMeteringAreas(new Rectangle[] {new Rectangle(0.1f, 0.34f, 0.8f, 0.13f)}, true);
+        mRecognizerView.setMeteringAreas(new RectF[] {new RectF(0.1f, 0.34f, 0.1f + 0.8f, 0.34f + 0.13f)}, true);
     }
 
     @Override

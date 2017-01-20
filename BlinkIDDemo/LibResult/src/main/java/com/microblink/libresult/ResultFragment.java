@@ -33,7 +33,8 @@ import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.eudl.EUDLRecognitionResultExtractor;
 import com.microblink.libresult.extract.serbia.SerbianIDBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.serbia.SerbianIDFrontRecognitionResultExtractor;
-import com.microblink.libresult.extract.singapore.SingaporeIDRecognitionResultExtractor;
+import com.microblink.libresult.extract.singapore.SingaporeIDFrontRecognitionResultExtractor;
+import com.microblink.libresult.extract.singapore.SingaporeIDBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovakia.SlovakIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovakia.SlovakIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.ZXingRecognitionResultExtractor;
@@ -58,11 +59,12 @@ import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognitionResult;
-import com.microblink.recognizers.blinkid.singapore.SingaporeIDRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.singapore.back.SingaporeIDBackRecognitionResult;
+import com.microblink.recognizers.blinkid.singapore.front.SingaporeIDFrontRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
 
 import java.util.List;
@@ -110,8 +112,10 @@ public class ResultFragment extends Fragment {
         // CroatianIDBackSideRecognitionResult extends MRTDRecognitionResult so we first need
         // to check for CroatianIDBackSideRecognitionResult and then for MRTDRecognitionResult
 
-        if (mData instanceof SingaporeIDRecognitionResult) {
-            mResultExtractor = new SingaporeIDRecognitionResultExtractor(getActivity());
+        if (mData instanceof SingaporeIDFrontRecognitionResult) {
+            mResultExtractor = new SingaporeIDFrontRecognitionResultExtractor(getActivity());
+        } else if ( mData instanceof SingaporeIDBackRecognitionResult) {
+            mResultExtractor = new SingaporeIDBackRecognitionResultExtractor( getActivity() );
         } else if (mData instanceof AustrianIDBackSideRecognitionResult) {
             mResultExtractor = new AustrianIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof AustrianIDFrontSideRecognitionResult) {
