@@ -1,5 +1,22 @@
 # Release notes
 
+## 3.4.0
+
+- improved quality of german ID address recognition
+- added support for extracting place of birth on old German IDs
+- added support for scanning IBAN from Georgia in Segment Scan
+- added support for cancelling ongoing DirectAPI recognition call
+- added option to allow unverified results for `MRTDRecognizer`:
+    - by using method `setAllowUnverifiedResults` in `MRTDRecognizerSettings`,  it is possible to allow obtaining of results with incorrect check digits
+- Singapore ID recognizer is split in two recognizers - one for front and one for back side
+- added Belgian account number check to IBAN parser
+- added support for Android 7 multi-window mode
+- fixed autofocus bug on Huawei Honor 8
+- fixed black camera on Motorola Moto Z
+- made camera focusing more stable on some devices
+    - _stable_ means less "jumpy" when searching for focused image
+- added support for receiving of `GlareMetadata` which informs user that there is too much glare for performing recognition of ID document
+
 ## 3.3.0
 
 - removed `RecognizerView` method `setInitialScanningPaused`. For achieving the same functionality, method `pauseScanning` should be used.
