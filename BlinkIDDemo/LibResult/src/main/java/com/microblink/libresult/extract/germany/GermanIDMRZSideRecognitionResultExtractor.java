@@ -3,14 +3,17 @@ package com.microblink.libresult.extract.germany;
 import android.content.Context;
 
 import com.microblink.libresult.R;
-import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
-import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognitionResult;
+import com.microblink.libresult.extract.RecognitionResultEntry;
+import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Created by igrce on 26/08/16.
+ */
 public class GermanIDMRZSideRecognitionResultExtractor extends MRTDRecognitionResultExtractor {
 
     public GermanIDMRZSideRecognitionResultExtractor(Context context) {
@@ -63,6 +66,14 @@ public class GermanIDMRZSideRecognitionResultExtractor extends MRTDRecognitionRe
                 mExtractedData.add(mBuilder.build(
                         R.string.PPHeight,
                         Integer.toString(height) + " cm"
+                ));
+            }
+
+            String placeOfBirth = deIDMrzResult.getPlaceOfBirth();
+            if (placeOfBirth != null) {
+                mExtractedData.add(mBuilder.build(
+                        R.string.PPPlaceOfBirth,
+                        placeOfBirth
                 ));
             }
 

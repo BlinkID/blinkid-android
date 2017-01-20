@@ -70,7 +70,8 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning Malaysian iKad documents](#iKad)
-  * [Scanning Singapore ID documents](#singaporeID)
+  * [Scanning back side of Singapore ID documents](#singaporeID_back)
+  * [Scanning front side of Singapore ID documents](#singaporeID_front)
   * [Scanning PDF417 barcodes](#pdf417Recognizer)
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
   * [Scanning barcodes with ZXing implementation](#zxing)
@@ -92,6 +93,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
 * [Troubleshooting](#troubleshoot)
   * [Integration problems](#integrationTroubleshoot)
   * [SDK problems](#sdkTroubleshoot)
+  * [Frequently asked questions and known problems](#faq)
 * [Additional info](#info)
 
 # <a name="intro"></a> Android _BlinkID_ integration instructions
@@ -146,7 +148,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.3.0@aar') {
+    compile('com.microblink:blinkid:3.4.0@aar') {
     	transitive = true
     }
 }
@@ -167,7 +169,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.3.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.4.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -192,7 +194,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.3.0</version>
+		  <version>3.4.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -208,7 +210,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
    		compile project(':LibBlinkID')
- 		compile "com.android.support:appcompat-v7:25.0.1"
+ 		compile "com.android.support:appcompat-v7:25.1.0"
 	}
 	```
 5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
@@ -1304,6 +1306,11 @@ private RecognizerSettings[] setupSettingsArray() {
 ##### [`setAllowUnparsedResults(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setAllowUnparsedResults-boolean-)
 Set this to `true` to allow obtaining results that have not been parsed by SDK. By default this is off. The reason for this is that we want to ensure best possible data quality when returning results. For that matter we internally parse the MRZ and extract all data, taking all possible OCR mistakes into account. However, if you happen to have a document with MRZ that has format our internal parser still does not support, you need to allow returning of unparsed results. Unparsed results will not contain parsed data, but will contain OCR result received from OCR engine, so you can parse data yourself.
 
+##### [`setAllowUnverifiedResults(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setAllowUnverifiedResults-boolean-)
+Set this to `true` to allow obtaining of results with incorrect check digits. This flag will be taken
+into account only if Machine Readable Zone has been successfully parsed because only in that
+case check digits can be examined.
+
 ##### [`setShowMRZ(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowMRZ-boolean-)
 Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing only Machine Readable Zone. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"MRZ"`. You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
@@ -1448,6 +1455,9 @@ Returns the entire Machine Readable Zone text from ID. This text is usually used
 
 ##### `boolean isMRZParsed()`
 Returns `true` if Machine Readable Zone has been parsed, `false` otherwise. `false` can only be returned if in settings object you called `setAllowUnparsedResults(true)`. If Machine Readable Zone has not been parsed, you can still obtain OCR result with `getOcrResult()` and attempt to parse it yourself.
+
+##### `boolean isMRZVerified()`
+Returns `true` if all check digits inside MRZ are correct, `false` otherwise.
 
 ##### `OcrResult getOcrResult()`
 Returns the raw [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) that was used for parsing data. If `isMRZParsed()` returns `false`, you can use OCR result to parse data by yourself.
@@ -2496,17 +2506,17 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html).**
 
-## <a name="singaporeID"></a> Scanning Singapore ID documents
+## <a name="singaporeID_back"></a> Scanning back side of Singapore ID documents
 
-This section will discuss the setting up of Singapore ID recognizer and obtaining results from it.
+This section will discuss the setting up of Singapore ID Back Side recognizer and obtaining results from it.
 
-### Setting up Singapore ID recognizer
+### Setting up Singapore ID card back side recognizer
 
-To activate Singapore ID recognizer, you need to create [SingaporeIDRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/SingaporeIDRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate Singapore ID back side recognizer, you need to create [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
-	SingaporeIDRecognizerSettings sett = new SingaporeIDRecognizerSettings();
+	SingaporeIDBackRecognizerSettings sett = new SingaporeIDBackRecognizerSettings();
 	
 	// now add sett to recognizer settings array that is used to configure
 	// recognition
@@ -2514,13 +2524,13 @@ private RecognizerSettings[] setupSettingsArray() {
 }
 ```
 
-**You can also tweak recognition parameters with methods of [SingaporeIDRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/SingaporeIDRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/SingaporeIDRecognizerSettings.html) for more information.**
+**You can also tweak recognition parameters with methods of [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) for more information.**
 
-### Obtaining results from Singapore ID recognizer
+### Obtaining results from Singapore ID card back side recognizer
 
-Singapore ID recognizer produces [SingaporeIDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/SingaporeIDRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDRecognitionResult ` class. 
+Singapore ID back side recognizer produces [SingaporeIDBackRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDBackRecognitionResult` class. 
 
-**Note:** `SingaporeIDRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SingaporeIDBackRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2529,17 +2539,13 @@ See the following snippet for an example:
 public void onScanningDone(RecognitionResults results) {
 	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
 	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof SingaporeIDRecognitionResult) {
-			SingaporeIDRecognitionResult result = (SingaporeIDRecognitionResult) baseResult;
+		if(baseResult instanceof SingaporeIDBackRecognitionResult) {
+			SingaporeIDBackRecognitionResult result = (SingaporeIDBackRecognitionResult) baseResult;
 			
-	        // you can use getters of SingaporeIDRecognitionResult class to 
+	        // you can use getters of SingaporeIDBackRecognitionResult class to 
 	        // obtain scanned information
 	        if(result.isValid() && !result.isEmpty()) {
-				String name = result.getName();
-				// since singapore ID recognizer can recognize both front and back
-				// side of ID, you can check which side was scanned with
-				// getDocumentClassification:
-				SingaporeIDRecognitionResult.SingaporeIDClassification classification = result.getDocumentClassification();
+				String address = result.getAddress();
 	        } else {
 	        	// not all relevant data was scanned, ask user
 	        	// to try again
@@ -2549,7 +2555,59 @@ public void onScanningDone(RecognitionResults results) {
 }
 ```
 
-**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/SingaporeIDRecognitionResult.html).**
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html).**
+
+## <a name="singaporeID_front"></a> Scanning front side of Singapore ID documents
+
+This section will discuss the setting up of Singapore ID Front Side recognizer and obtaining results from it.
+
+### Setting up Singapore ID card front side recognizer
+
+To activate Singapore ID front side recognizer, you need to create [SingaporeIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SingaporeIDFrontRecognizerSettings sett = new SingaporeIDFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SingaporeIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Singapore ID card front side recognizer
+
+Singapore ID front side recognizer produces [SingaporeIDFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDFrontRecognitionResult` class. 
+
+**Note:** `SingaporeIDFrontRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SingaporeIDFrontRecognitionResult) {
+			SingaporeIDFrontRecognitionResult result = (SingaporeIDFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of SingaporeIDFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String name = result.getName();
+				String cardNumber = result.getCardNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognitionResult.html).**
 
 ## <a name="pdf417Recognizer"></a> Scanning PDF417 barcodes
 
@@ -3500,6 +3558,24 @@ If you are having problems with scanning certain items, undesired behaviour on s
 	* high resolution scan/photo of the item that you are trying to scan
 	* information about device that you are using - we need exact model name of the device. You can obtain that information with [this app](https://play.google.com/store/apps/details?id=com.jphilli85.deviceinfo&hl=en)
 	* please stress out that you are reporting problem related to Android version of _BlinkID_ SDK
+
+## <a name="faq"></a> Frequently asked questions and known problems
+Here is a list of frequently asked questions and solutions for them and also a list of known problems in the SDK and how to work around them.
+
+### <a name="android7MultiWindowButtons"></a> When automatic rotation is enabled, buttons are mislayouted on default scan activity after orientation change in Android 7.0 multi-window mode
+This is a known issue which can only be worked around by disabling multi window support in your entire activity stack which, as described in [Android documentation](https://developer.android.com/guide/topics/ui/multi-window.html#configuring) or by using [custom UI integration approach](#recognizerView). We are aware of the issue and will fix it in a future release.
+
+### <a name="featureNotSupportedByLicenseKey"></a> Sometimes scanning works, sometimes it says that feature is not supported by license key
+
+Each license key contains information about which features are allowed to use and which are not. This error can usually happens with production licence keys when you attempt to use recognizer which was not included in licence key. You should contact [support](http://help.microblink.com) to check if provided licence key is OK and that it really contains all features that you have purchased.
+
+### <a name="missingResources"></a> When my app starts, I get exception telling me that some resource/class cannot be found or I get `ClassNotFoundException`
+
+This usually happens when you perform integration into [Eclipse project](#eclipseIntegration) and you forget to add resources or native libraries into the project. You must alway take care that same versions of both resources, assets, java library and native libraries are used in combination. Combining different versions of resources, assets, java and native libraries will trigger crash in SDK. This problem can also occur when you have performed improper integration of _BlinkID_ SDK into your SDK. Please read how to [embed _BlinkID_ inside another SDK](#embedAAR).
+
+### <a name="unsatisfiedLinkError"></a> When my app starts, I get `UnsatisfiedLinkError`
+
+This error happens when JVM fails to load some native method from native library. If performing integration into [Eclipse project](#eclipseIntegration) make sure you have the same version of all native libraries and java wrapper. If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries). If this error also happens in our integration demo apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
 
 
 # <a name="info"></a> Additional info

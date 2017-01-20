@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -169,49 +169,73 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings.ImageMetadataSettings</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#getImageMetadataSettings--">getImageMetadataSettings</a></span>()</code>
-<div class="block">Returns the object containing settings defining which images should be available in MetadataListener.</div>
+<div class="block">Returns the object containing settings defining which images (presented with <a href="../../../com/microblink/metadata/ImageMetadata.html" title="class in com.microblink.metadata"><code>ImageMetadata</code></a>) should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isDebugMetadataAllowed--">isDebugMetadataAllowed</a></span>()</code>
-<div class="block">Returns true if debug metadata will be available in MetadataListener.</div>
+<div class="block">Returns true if debug metadata (presented as <a href="../../../com/microblink/metadata/TextMetadata.html" title="class in com.microblink.metadata"><code>TextMetadata</code></a>) will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isDetectionMetadataAllowed--">isDetectionMetadataAllowed</a></span>()</code>
-<div class="block">Returns true if detection metadata will be available in MetadataListener.</div>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isOcrMetadataAllowed--">isOcrMetadataAllowed</a></span>()</code>
-<div class="block">Returns true if OCR metadata will be available in MetadataListener.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isGlareMetadataAllowed--">isGlareMetadataAllowed</a></span>()</code>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setDebugMetadataAllowed-boolean-">setDebugMetadataAllowed</a></span>(boolean&nbsp;debugMetadataAllowed)</code>
-<div class="block">Sets whether debug metadata should be available in MetadataListener.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isOcrMetadataAllowed--">isOcrMetadataAllowed</a></span>()</code>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setDetectionMetadataAllowed-boolean-">setDetectionMetadataAllowed</a></span>(boolean&nbsp;detectionMetadataAllowed)</code>
-<div class="block">Sets whether detection metadata should be available in MetadataListener.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#isPartialResultMetadataAllowed--">isPartialResultMetadataAllowed</a></span>()</code>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setDebugMetadataAllowed-boolean-">setDebugMetadataAllowed</a></span>(boolean&nbsp;debugMetadataAllowed)</code>
+<div class="block">Sets whether debug metadata (presented as <a href="../../../com/microblink/metadata/TextMetadata.html" title="class in com.microblink.metadata"><code>TextMetadata</code></a>) should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setDetectionMetadataAllowed-boolean-">setDetectionMetadataAllowed</a></span>(boolean&nbsp;detectionMetadataAllowed)</code>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> should be available in MetadataListener.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setGlareMetadataAllowed-boolean-">setGlareMetadataAllowed</a></span>(boolean&nbsp;glareMetadataAllowed)</code>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setImageMetadataSettings-com.microblink.metadata.MetadataSettings.ImageMetadataSettings-">setImageMetadataSettings</a></span>(<a href="../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings.ImageMetadataSettings</a>&nbsp;imageMetadataSettings)</code>
 <div class="block">Sets object containing settings defining which images should be available in MetadataListener.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setOcrMetadataAllowed-boolean-">setOcrMetadataAllowed</a></span>(boolean&nbsp;ocrMetadataAllowed)</code>
-<div class="block">Sets whether OCR metadata should be available in MetadataListener.</div>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-">setPartialResultMetadataAllowed</a></span>(boolean&nbsp;partialResultMetadataAllowed)</code>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -260,12 +284,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isDetectionMetadataAllowed</h4>
 <pre>public&nbsp;boolean&nbsp;isDetectionMetadataAllowed()</pre>
-<div class="block">Returns true if detection metadata will be available in MetadataListener.
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
 
  Detection metadatas are all metadata objects from com.microblink.metadata.detection package.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if detection metadata will be available in MetadataListener.</dd>
+<dd>true if <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> will be available in MetadataListener.</dd>
 </dl>
 </li>
 </ul>
@@ -276,12 +300,40 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setDetectionMetadataAllowed</h4>
 <pre>public&nbsp;void&nbsp;setDetectionMetadataAllowed(boolean&nbsp;detectionMetadataAllowed)</pre>
-<div class="block">Sets whether detection metadata should be available in MetadataListener.
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> should be available in MetadataListener.
 
  Detection metadatas are all metadata objects from com.microblink.metadata.detection package.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>detectionMetadataAllowed</code> - whether detection metadata should be available in MetadataListener.</dd>
+<dd><code>detectionMetadataAllowed</code> - whether <a href="../../../com/microblink/metadata/DetectionMetadata.html" title="class in com.microblink.metadata"><code>DetectionMetadata</code></a> should be available in MetadataListener.</dd>
+</dl>
+</li>
+</ul>
+<a name="isPartialResultMetadataAllowed--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isPartialResultMetadataAllowed</h4>
+<pre>public&nbsp;boolean&nbsp;isPartialResultMetadataAllowed()</pre>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
+</dl>
+</li>
+</ul>
+<a name="setPartialResultMetadataAllowed-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPartialResultMetadataAllowed</h4>
+<pre>public&nbsp;void&nbsp;setPartialResultMetadataAllowed(boolean&nbsp;partialResultMetadataAllowed)</pre>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>partialResultMetadataAllowed</code> - whether <a href="../../../com/microblink/metadata/RecognitionResultMetadata.html" title="class in com.microblink.metadata"><code>RecognitionResultMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -292,10 +344,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isDebugMetadataAllowed</h4>
 <pre>public&nbsp;boolean&nbsp;isDebugMetadataAllowed()</pre>
-<div class="block">Returns true if debug metadata will be available in MetadataListener.</div>
+<div class="block">Returns true if debug metadata (presented as <a href="../../../com/microblink/metadata/TextMetadata.html" title="class in com.microblink.metadata"><code>TextMetadata</code></a>) will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if debug metadata will be available in MetadataListener.</dd>
+<dd>true if debug metadata will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -306,10 +358,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setDebugMetadataAllowed</h4>
 <pre>public&nbsp;void&nbsp;setDebugMetadataAllowed(boolean&nbsp;debugMetadataAllowed)</pre>
-<div class="block">Sets whether debug metadata should be available in MetadataListener.</div>
+<div class="block">Sets whether debug metadata (presented as <a href="../../../com/microblink/metadata/TextMetadata.html" title="class in com.microblink.metadata"><code>TextMetadata</code></a>) should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>debugMetadataAllowed</code> - whether debug metadata should be available in MetadataListener.</dd>
+<dd><code>debugMetadataAllowed</code> - whether debug metadata should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -320,12 +372,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isOcrMetadataAllowed</h4>
 <pre>public&nbsp;boolean&nbsp;isOcrMetadataAllowed()</pre>
-<div class="block">Returns true if OCR metadata will be available in MetadataListener.
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
 
- Regardless of this, OCR metadata can only be available if OCR-based recognizer is active.</div>
+ Regardless of this, <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> can only be available if OCR-based recognizer is active.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if OCR metadata will be available in MetadataListener.</dd>
+<dd>true if <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -336,12 +388,44 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setOcrMetadataAllowed</h4>
 <pre>public&nbsp;void&nbsp;setOcrMetadataAllowed(boolean&nbsp;ocrMetadataAllowed)</pre>
-<div class="block">Sets whether OCR metadata should be available in MetadataListener.
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
 
- Regardless of this setting, OCR metadata can only be available if OCR-based recognizer is active.</div>
+ Regardless of this setting, <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> can only be available if OCR-based recognizer is active.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ocrMetadataAllowed</code> - whether OCR metadata should be available in MetadataListener.</dd>
+<dd><code>ocrMetadataAllowed</code> - whether <a href="../../../com/microblink/metadata/OcrMetadata.html" title="class in com.microblink.metadata"><code>OcrMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
+</dl>
+</li>
+</ul>
+<a name="isGlareMetadataAllowed--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isGlareMetadataAllowed</h4>
+<pre>public&nbsp;boolean&nbsp;isGlareMetadataAllowed()</pre>
+<div class="block">Returns true if <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> will be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
+
+ <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> contains information about whether glare was detected in current video frame.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>, false otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="setGlareMetadataAllowed-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setGlareMetadataAllowed</h4>
+<pre>public&nbsp;void&nbsp;setGlareMetadataAllowed(boolean&nbsp;glareMetadataAllowed)</pre>
+<div class="block">Sets whether <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
+
+ <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> contains information about whether glare was detected in current video frame.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>glareMetadataAllowed</code> - whether <a href="../../../com/microblink/metadata/GlareMetadata.html" title="class in com.microblink.metadata"><code>GlareMetadata</code></a> should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -352,10 +436,10 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getImageMetadataSettings</h4>
 <pre>public&nbsp;<a href="../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings.ImageMetadataSettings</a>&nbsp;getImageMetadataSettings()</pre>
-<div class="block">Returns the object containing settings defining which images should be available in MetadataListener.</div>
+<div class="block">Returns the object containing settings defining which images (presented with <a href="../../../com/microblink/metadata/ImageMetadata.html" title="class in com.microblink.metadata"><code>ImageMetadata</code></a>) should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the object containing settings defining which images should be available in MetadataListener.</dd>
+<dd>the object containing settings defining which images (presented with <a href="../../../com/microblink/metadata/ImageMetadata.html" title="class in com.microblink.metadata"><code>ImageMetadata</code></a>) should be available in <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>

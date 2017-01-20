@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":9,"i36":9,"i37":10,"i38":6,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":6,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":9,"i36":10,"i37":10,"i38":6,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":6,"i47":10,"i48":10,"i49":10,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -118,6 +118,10 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt>All Implemented Interfaces:</dt>
 <dd>android.graphics.drawable.Drawable.Callback, android.view.accessibility.AccessibilityEventSource, android.view.KeyEvent.Callback, android.view.ViewManager, android.view.ViewParent</dd>
+</dl>
+<dl>
+<dt>Direct Known Subclasses:</dt>
+<dd><a href="../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view">CameraViewGroup</a></dd>
 </dl>
 <hr>
 <br>
@@ -444,7 +448,7 @@ extends android.view.ViewGroup</pre>
 </td>
 </tr>
 <tr id="i25" class="rowColor">
-<td class="colFirst"><code><a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a></code></td>
+<td class="colFirst"><code>android.graphics.RectF</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#getVisiblePart--">getVisiblePart</a></span>()</code>
 <div class="block">Returns the rectangle that which part of camera frame is visible in view</div>
 </td>
@@ -504,7 +508,7 @@ extends android.view.ViewGroup</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationSensor-int-">isRequestedOrientationSensor</a></span>(int&nbsp;requestedOrientation)</code>&nbsp;</td>
 </tr>
 <tr id="i36" class="altColor">
-<td class="colFirst"><code>protected static boolean</code></td>
+<td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationUser-int-">isRequestedOrientationUser</a></span>(int&nbsp;requestedOrientation)</code>&nbsp;</td>
 </tr>
 <tr id="i37" class="rowColor">
@@ -611,7 +615,7 @@ extends android.view.ViewGroup</pre>
 </tr>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setMeteringAreas-com.microblink.geometry.Rectangle:A-boolean-">setMeteringAreas</a></span>(<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>[]&nbsp;meteringAreas,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setMeteringAreas-android.graphics.RectF:A-boolean-">setMeteringAreas</a></span>(android.graphics.RectF[]&nbsp;meteringAreas,
                 boolean&nbsp;rotateAreasWithDevice)</code>
 <div class="block">Sets the areas where camera will perform focus, exposure and white balance meterings.</div>
 </td>
@@ -662,50 +666,57 @@ extends android.view.ViewGroup</pre>
 </tr>
 <tr id="i63" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">setRequestAutofocusOnShakingStopInContinousAutofocusMode</a></span>(boolean&nbsp;requestAutofocusOnShakingStopInContinousAutofocusMode)</code>
+<div class="block">If device supports continous autofocus mode, enabling this feature will request normal autofocus every time device shaking
+ stops.</div>
+</td>
+</tr>
+<tr id="i64" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setShakeListener-com.microblink.hardware.accelerometer.ShakeCallback-">setShakeListener</a></span>(<a href="../../../com/microblink/hardware/accelerometer/ShakeCallback.html" title="interface in com.microblink.hardware.accelerometer">ShakeCallback</a>&nbsp;shakeCallback)</code>
 <div class="block">Sets the shake callback that will be notified about device shake events.</div>
 </td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setTapToFocusAllowed-boolean-">setTapToFocusAllowed</a></span>(boolean&nbsp;allowTapToFocus)</code>
 <div class="block">Sets whether camera view will handle tap events to ask camera to perform autofocus
  on tapped area.</div>
 </td>
 </tr>
-<tr id="i65" class="rowColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setTorchState-boolean-com.microblink.hardware.SuccessCallback-">setTorchState</a></span>(boolean&nbsp;on,
              <a href="../../../com/microblink/hardware/SuccessCallback.html" title="interface in com.microblink.hardware">SuccessCallback</a>&nbsp;successCallback)</code>
 <div class="block">Turns the torch on the camera on or off.</div>
 </td>
 </tr>
-<tr id="i66" class="altColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setUseTextureViewForCameraDisplay-boolean-">setUseTextureViewForCameraDisplay</a></span>(boolean&nbsp;forceTextureView)</code>
 <div class="block">In order to display camera preview, camera view must use one of two android's view's that are
  capable of displaying camera preview video stream.</div>
 </td>
 </tr>
-<tr id="i67" class="rowColor">
+<tr id="i68" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setVideoResolutionPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setVideoResolutionPreset</a></span>(<a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="enum in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;preset)</code>&nbsp;</td>
 </tr>
-<tr id="i68" class="altColor">
+<tr id="i69" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setZoomLevel-float-">setZoomLevel</a></span>(float&nbsp;zoomLevel)</code>
 <div class="block">Sets the camera zoom level.</div>
 </td>
 </tr>
-<tr id="i69" class="rowColor">
+<tr id="i70" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#shouldStartCamera--">shouldStartCamera</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#start--">start</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i71" class="rowColor">
+<tr id="i72" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#stop--">stop</a></span>()</code>&nbsp;</td>
 </tr>
@@ -722,7 +733,7 @@ extends android.view.ViewGroup</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;android.view.View</h3>
-<code>addFocusables, addOnAttachStateChangeListener, addOnLayoutChangeListener, animate, announceForAccessibility, awakenScrollBars, awakenScrollBars, awakenScrollBars, bringToFront, buildDrawingCache, buildDrawingCache, buildLayer, callOnClick, cancelDragAndDrop, cancelLongPress, cancelPendingInputEvents, canResolveLayoutDirection, canResolveTextAlignment, canResolveTextDirection, canScrollHorizontally, canScrollVertically, checkInputConnectionProxy, clearAnimation, combineMeasuredStates, computeHorizontalScrollExtent, computeHorizontalScrollOffset, computeHorizontalScrollRange, computeScroll, computeSystemWindowInsets, computeVerticalScrollExtent, computeVerticalScrollOffset, computeVerticalScrollRange, createAccessibilityNodeInfo, createContextMenu, destroyDrawingCache, dispatchFinishTemporaryDetach, dispatchGenericMotionEvent, dispatchNestedFling, dispatchNestedPreFling, dispatchNestedPrePerformAccessibilityAction, dispatchNestedPreScroll, dispatchNestedScroll, dispatchPopulateAccessibilityEvent, dispatchStartTemporaryDetach, draw, drawableHotspotChanged, findViewById, findViewWithTag, fitSystemWindows, focusSearch, forceHasOverlappingRendering, forceLayout, generateViewId, getAccessibilityLiveRegion, getAccessibilityNodeProvider, getAccessibilityTraversalAfter, getAccessibilityTraversalBefore, getAlpha, getAnimation, getApplicationWindowToken, getBackground, getBackgroundTintList, getBackgroundTintMode, getBaseline, getBottom, getBottomFadingEdgeStrength, getBottomPaddingOffset, getCameraDistance, getClipBounds, getClipBounds, getClipToOutline, getContentDescription, getContext, getContextMenuInfo, getDefaultSize, getDisplay, getDrawableState, getDrawingCache, getDrawingCache, getDrawingCacheBackgroundColor, getDrawingCacheQuality, getDrawingRect, getDrawingTime, getElevation, getFilterTouchesWhenObscured, getFitsSystemWindows, getFocusables, getFocusedRect, getForeground, getForegroundGravity, getForegroundTintList, getForegroundTintMode, getGlobalVisibleRect, getGlobalVisibleRect, getHandler, getHasOverlappingRendering, getHeight, getHitRect, getHorizontalFadingEdgeLength, getHorizontalScrollbarHeight, getId, getImportantForAccessibility, getKeepScreenOn, getKeyDispatcherState, getLabelFor, getLayerType, getLayoutDirection, getLayoutParams, getLeft, getLeftFadingEdgeStrength, getLeftPaddingOffset, getLocalVisibleRect, getLocationInWindow, getLocationOnScreen, getMatrix, getMeasuredHeight, getMeasuredHeightAndState, getMeasuredState, getMeasuredWidth, getMeasuredWidthAndState, getMinimumHeight, getMinimumWidth, getNextFocusDownId, getNextFocusForwardId, getNextFocusLeftId, getNextFocusRightId, getNextFocusUpId, getOnFocusChangeListener, getOutlineProvider, getOverScrollMode, getPaddingBottom, getPaddingEnd, getPaddingLeft, getPaddingRight, getPaddingStart, getPaddingTop, getParent, getParentForAccessibility, getPivotX, getPivotY, getPointerIcon, getResources, getRight, getRightFadingEdgeStrength, getRightPaddingOffset, getRootView, getRootWindowInsets, getRotation, getRotationX, getRotationY, getScaleX, getScaleY, getScrollBarDefaultDelayBeforeFade, getScrollBarFadeDuration, getScrollBarSize, getScrollBarStyle, getScrollIndicators, getScrollX, getScrollY, getSolidColor, getStateListAnimator, getSuggestedMinimumHeight, getSuggestedMinimumWidth, getSystemUiVisibility, getTag, getTag, getTextAlignment, getTextDirection, getTop, getTopFadingEdgeStrength, getTopPaddingOffset, getTouchables, getTouchDelegate, getTransitionName, getTranslationX, getTranslationY, getTranslationZ, getVerticalFadingEdgeLength, getVerticalScrollbarPosition, getVerticalScrollbarWidth, getViewTreeObserver, getVisibility, getWidth, getWindowAttachCount, getWindowId, getWindowSystemUiVisibility, getWindowToken, getWindowVisibility, getWindowVisibleDisplayFrame, getX, getY, getZ, hasNestedScrollingParent, hasOnClickListeners, hasOverlappingRendering, hasWindowFocus, inflate, invalidate, invalidate, invalidate, invalidateDrawable, invalidateOutline, isAccessibilityFocused, isActivated, isAttachedToWindow, isClickable, isContextClickable, isDirty, isDrawingCacheEnabled, isDuplicateParentStateEnabled, isEnabled, isFocusable, isFocusableInTouchMode, isFocused, isHapticFeedbackEnabled, isHardwareAccelerated, isHorizontalFadingEdgeEnabled, isHorizontalScrollBarEnabled, isHovered, isImportantForAccessibility, isInEditMode, isInLayout, isInTouchMode, isLaidOut, isLayoutDirectionResolved, isLayoutRequested, isLongClickable, isNestedScrollingEnabled, isOpaque, isPaddingOffsetRequired, isPaddingRelative, isPressed, isSaveEnabled, isSaveFromParentEnabled, isScrollbarFadingEnabled, isScrollContainer, isSelected, isShown, isSoundEffectsEnabled, isTemporarilyDetached, isTextAlignmentResolved, isTextDirectionResolved, isVerticalFadingEdgeEnabled, isVerticalScrollBarEnabled, measure, mergeDrawableStates, offsetLeftAndRight, offsetTopAndBottom, onAnimationEnd, onAnimationStart, onApplyWindowInsets, onCancelPendingInputEvents, onCheckIsTextEditor, onConfigurationChanged, onCreateContextMenu, onCreateInputConnection, onDisplayHint, onDragEvent, onDraw, onDrawForeground, onDrawScrollBars, onFilterTouchEventForSecurity, onFinishInflate, onFinishTemporaryDetach, onFocusChanged, onGenericMotionEvent, onHoverChanged, onHoverEvent, onInitializeAccessibilityEvent, onInitializeAccessibilityNodeInfo, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyPreIme, onKeyShortcut, onKeyUp, onOverScrolled, onPopulateAccessibilityEvent, onProvideStructure, onProvideVirtualStructure, onRestoreInstanceState, onRtlPropertiesChanged, onSaveInstanceState, onScreenStateChanged, onScrollChanged, onSetAlpha, onSizeChanged, onStartTemporaryDetach, onTouchEvent, onTrackballEvent, onVisibilityAggregated, onVisibilityChanged, onWindowFocusChanged, onWindowSystemUiVisibilityChanged, onWindowVisibilityChanged, overScrollBy, performAccessibilityAction, performClick, performContextClick, performContextClick, performHapticFeedback, performHapticFeedback, performLongClick, performLongClick, playSoundEffect, post, postDelayed, postInvalidate, postInvalidate, postInvalidateDelayed, postInvalidateDelayed, postInvalidateOnAnimation, postInvalidateOnAnimation, postOnAnimation, postOnAnimationDelayed, refreshDrawableState, removeCallbacks, removeOnAttachStateChangeListener, removeOnLayoutChangeListener, requestApplyInsets, requestFitSystemWindows, requestFocus, requestFocus, requestFocusFromTouch, requestLayout, requestRectangleOnScreen, requestRectangleOnScreen, requestUnbufferedDispatch, resolveSize, resolveSizeAndState, restoreHierarchyState, saveHierarchyState, scheduleDrawable, scrollBy, scrollTo, sendAccessibilityEvent, sendAccessibilityEventUnchecked, setAccessibilityDelegate, setAccessibilityLiveRegion, setAccessibilityTraversalAfter, setAccessibilityTraversalBefore, setActivated, setAlpha, setAnimation, setBackground, setBackgroundColor, setBackgroundDrawable, setBackgroundResource, setBackgroundTintList, setBackgroundTintMode, setBottom, setCameraDistance, setClickable, setClipBounds, setClipToOutline, setContentDescription, setContextClickable, setDrawingCacheBackgroundColor, setDrawingCacheEnabled, setDrawingCacheQuality, setDuplicateParentStateEnabled, setElevation, setEnabled, setFadingEdgeLength, setFilterTouchesWhenObscured, setFitsSystemWindows, setFocusable, setFocusableInTouchMode, setForeground, setForegroundGravity, setForegroundTintList, setForegroundTintMode, setHapticFeedbackEnabled, setHasTransientState, setHorizontalFadingEdgeEnabled, setHorizontalScrollBarEnabled, setHovered, setId, setImportantForAccessibility, setKeepScreenOn, setLabelFor, setLayerPaint, setLayerType, setLayoutDirection, setLayoutParams, setLeft, setLongClickable, setMeasuredDimension, setMinimumHeight, setMinimumWidth, setNestedScrollingEnabled, setNextFocusDownId, setNextFocusForwardId, setNextFocusLeftId, setNextFocusRightId, setNextFocusUpId, setOnApplyWindowInsetsListener, setOnClickListener, setOnContextClickListener, setOnCreateContextMenuListener, setOnDragListener, setOnFocusChangeListener, setOnGenericMotionListener, setOnHoverListener, setOnKeyListener, setOnLongClickListener, setOnScrollChangeListener, setOnSystemUiVisibilityChangeListener, setOnTouchListener, setOutlineProvider, setOverScrollMode, setPadding, setPaddingRelative, setPivotX, setPivotY, setPointerIcon, setPressed, setRight, setRotation, setRotationX, setRotationY, setSaveEnabled, setSaveFromParentEnabled, setScaleX, setScaleY, setScrollBarDefaultDelayBeforeFade, setScrollBarFadeDuration, setScrollbarFadingEnabled, setScrollBarSize, setScrollBarStyle, setScrollContainer, setScrollIndicators, setScrollIndicators, setScrollX, setScrollY, setSelected, setSoundEffectsEnabled, setStateListAnimator, setSystemUiVisibility, setTag, setTag, setTextAlignment, setTextDirection, setTop, setTouchDelegate, setTransitionName, setTranslationX, setTranslationY, setTranslationZ, setVerticalFadingEdgeEnabled, setVerticalScrollBarEnabled, setVerticalScrollbarPosition, setVisibility, setWillNotCacheDrawing, setWillNotDraw, setX, setY, setZ, showContextMenu, showContextMenu, startActionMode, startActionMode, startAnimation, startDrag, startDragAndDrop, startNestedScroll, stopNestedScroll, toString, unscheduleDrawable, unscheduleDrawable, updateDragShadow, verifyDrawable, willNotCacheDrawing, willNotDraw</code></li>
+<code>addFocusables, addOnAttachStateChangeListener, addOnLayoutChangeListener, animate, announceForAccessibility, awakenScrollBars, awakenScrollBars, awakenScrollBars, bringToFront, buildDrawingCache, buildDrawingCache, buildLayer, callOnClick, cancelDragAndDrop, cancelLongPress, cancelPendingInputEvents, canResolveLayoutDirection, canResolveTextAlignment, canResolveTextDirection, canScrollHorizontally, canScrollVertically, checkInputConnectionProxy, clearAnimation, combineMeasuredStates, computeHorizontalScrollExtent, computeHorizontalScrollOffset, computeHorizontalScrollRange, computeScroll, computeSystemWindowInsets, computeVerticalScrollExtent, computeVerticalScrollOffset, computeVerticalScrollRange, createAccessibilityNodeInfo, createContextMenu, destroyDrawingCache, dispatchFinishTemporaryDetach, dispatchGenericMotionEvent, dispatchNestedFling, dispatchNestedPreFling, dispatchNestedPrePerformAccessibilityAction, dispatchNestedPreScroll, dispatchNestedScroll, dispatchPopulateAccessibilityEvent, dispatchStartTemporaryDetach, draw, drawableHotspotChanged, findViewById, findViewWithTag, fitSystemWindows, focusSearch, forceHasOverlappingRendering, forceLayout, generateViewId, getAccessibilityLiveRegion, getAccessibilityNodeProvider, getAccessibilityTraversalAfter, getAccessibilityTraversalBefore, getAlpha, getAnimation, getApplicationWindowToken, getBackground, getBackgroundTintList, getBackgroundTintMode, getBaseline, getBottom, getBottomFadingEdgeStrength, getBottomPaddingOffset, getCameraDistance, getClipBounds, getClipBounds, getClipToOutline, getContentDescription, getContext, getContextMenuInfo, getDefaultSize, getDisplay, getDrawableState, getDrawingCache, getDrawingCache, getDrawingCacheBackgroundColor, getDrawingCacheQuality, getDrawingRect, getDrawingTime, getElevation, getFilterTouchesWhenObscured, getFitsSystemWindows, getFocusables, getFocusedRect, getForeground, getForegroundGravity, getForegroundTintList, getForegroundTintMode, getGlobalVisibleRect, getGlobalVisibleRect, getHandler, getHasOverlappingRendering, getHeight, getHitRect, getHorizontalFadingEdgeLength, getHorizontalScrollbarHeight, getId, getImportantForAccessibility, getKeepScreenOn, getKeyDispatcherState, getLabelFor, getLayerType, getLayoutDirection, getLayoutParams, getLeft, getLeftFadingEdgeStrength, getLeftPaddingOffset, getLocalVisibleRect, getLocationInWindow, getLocationOnScreen, getMatrix, getMeasuredHeight, getMeasuredHeightAndState, getMeasuredState, getMeasuredWidth, getMeasuredWidthAndState, getMinimumHeight, getMinimumWidth, getNextFocusDownId, getNextFocusForwardId, getNextFocusLeftId, getNextFocusRightId, getNextFocusUpId, getOnFocusChangeListener, getOutlineProvider, getOverScrollMode, getPaddingBottom, getPaddingEnd, getPaddingLeft, getPaddingRight, getPaddingStart, getPaddingTop, getParent, getParentForAccessibility, getPivotX, getPivotY, getPointerIcon, getResources, getRevealOnFocusHint, getRight, getRightFadingEdgeStrength, getRightPaddingOffset, getRootView, getRootWindowInsets, getRotation, getRotationX, getRotationY, getScaleX, getScaleY, getScrollBarDefaultDelayBeforeFade, getScrollBarFadeDuration, getScrollBarSize, getScrollBarStyle, getScrollIndicators, getScrollX, getScrollY, getSolidColor, getStateListAnimator, getSuggestedMinimumHeight, getSuggestedMinimumWidth, getSystemUiVisibility, getTag, getTag, getTextAlignment, getTextDirection, getTop, getTopFadingEdgeStrength, getTopPaddingOffset, getTouchables, getTouchDelegate, getTransitionName, getTranslationX, getTranslationY, getTranslationZ, getVerticalFadingEdgeLength, getVerticalScrollbarPosition, getVerticalScrollbarWidth, getViewTreeObserver, getVisibility, getWidth, getWindowAttachCount, getWindowId, getWindowSystemUiVisibility, getWindowToken, getWindowVisibility, getWindowVisibleDisplayFrame, getX, getY, getZ, hasNestedScrollingParent, hasOnClickListeners, hasOverlappingRendering, hasWindowFocus, inflate, invalidate, invalidate, invalidate, invalidateDrawable, invalidateOutline, isAccessibilityFocused, isActivated, isAttachedToWindow, isClickable, isContextClickable, isDirty, isDrawingCacheEnabled, isDuplicateParentStateEnabled, isEnabled, isFocusable, isFocusableInTouchMode, isFocused, isHapticFeedbackEnabled, isHardwareAccelerated, isHorizontalFadingEdgeEnabled, isHorizontalScrollBarEnabled, isHovered, isImportantForAccessibility, isInEditMode, isInLayout, isInTouchMode, isLaidOut, isLayoutDirectionResolved, isLayoutRequested, isLongClickable, isNestedScrollingEnabled, isOpaque, isPaddingOffsetRequired, isPaddingRelative, isPressed, isSaveEnabled, isSaveFromParentEnabled, isScrollbarFadingEnabled, isScrollContainer, isSelected, isShown, isSoundEffectsEnabled, isTemporarilyDetached, isTextAlignmentResolved, isTextDirectionResolved, isVerticalFadingEdgeEnabled, isVerticalScrollBarEnabled, measure, mergeDrawableStates, offsetLeftAndRight, offsetTopAndBottom, onAnimationEnd, onAnimationStart, onApplyWindowInsets, onCancelPendingInputEvents, onCheckIsTextEditor, onConfigurationChanged, onCreateContextMenu, onCreateInputConnection, onDisplayHint, onDragEvent, onDraw, onDrawForeground, onDrawScrollBars, onFilterTouchEventForSecurity, onFinishInflate, onFinishTemporaryDetach, onFocusChanged, onGenericMotionEvent, onHoverChanged, onHoverEvent, onInitializeAccessibilityEvent, onInitializeAccessibilityNodeInfo, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyPreIme, onKeyShortcut, onKeyUp, onOverScrolled, onPopulateAccessibilityEvent, onProvideStructure, onProvideVirtualStructure, onRestoreInstanceState, onRtlPropertiesChanged, onSaveInstanceState, onScreenStateChanged, onScrollChanged, onSetAlpha, onSizeChanged, onStartTemporaryDetach, onTouchEvent, onTrackballEvent, onVisibilityAggregated, onVisibilityChanged, onWindowFocusChanged, onWindowSystemUiVisibilityChanged, onWindowVisibilityChanged, overScrollBy, performAccessibilityAction, performClick, performContextClick, performContextClick, performHapticFeedback, performHapticFeedback, performLongClick, performLongClick, playSoundEffect, post, postDelayed, postInvalidate, postInvalidate, postInvalidateDelayed, postInvalidateDelayed, postInvalidateOnAnimation, postInvalidateOnAnimation, postOnAnimation, postOnAnimationDelayed, refreshDrawableState, removeCallbacks, removeOnAttachStateChangeListener, removeOnLayoutChangeListener, requestApplyInsets, requestFitSystemWindows, requestFocus, requestFocus, requestFocusFromTouch, requestLayout, requestRectangleOnScreen, requestRectangleOnScreen, requestUnbufferedDispatch, resolveSize, resolveSizeAndState, restoreHierarchyState, saveHierarchyState, scheduleDrawable, scrollBy, scrollTo, sendAccessibilityEvent, sendAccessibilityEventUnchecked, setAccessibilityDelegate, setAccessibilityLiveRegion, setAccessibilityTraversalAfter, setAccessibilityTraversalBefore, setActivated, setAlpha, setAnimation, setBackground, setBackgroundColor, setBackgroundDrawable, setBackgroundResource, setBackgroundTintList, setBackgroundTintMode, setBottom, setCameraDistance, setClickable, setClipBounds, setClipToOutline, setContentDescription, setContextClickable, setDrawingCacheBackgroundColor, setDrawingCacheEnabled, setDrawingCacheQuality, setDuplicateParentStateEnabled, setElevation, setEnabled, setFadingEdgeLength, setFilterTouchesWhenObscured, setFitsSystemWindows, setFocusable, setFocusableInTouchMode, setForeground, setForegroundGravity, setForegroundTintList, setForegroundTintMode, setHapticFeedbackEnabled, setHasTransientState, setHorizontalFadingEdgeEnabled, setHorizontalScrollBarEnabled, setHovered, setId, setImportantForAccessibility, setKeepScreenOn, setLabelFor, setLayerPaint, setLayerType, setLayoutDirection, setLayoutParams, setLeft, setLongClickable, setMeasuredDimension, setMinimumHeight, setMinimumWidth, setNestedScrollingEnabled, setNextFocusDownId, setNextFocusForwardId, setNextFocusLeftId, setNextFocusRightId, setNextFocusUpId, setOnApplyWindowInsetsListener, setOnClickListener, setOnContextClickListener, setOnCreateContextMenuListener, setOnDragListener, setOnFocusChangeListener, setOnGenericMotionListener, setOnHoverListener, setOnKeyListener, setOnLongClickListener, setOnScrollChangeListener, setOnSystemUiVisibilityChangeListener, setOnTouchListener, setOutlineProvider, setOverScrollMode, setPadding, setPaddingRelative, setPivotX, setPivotY, setPointerIcon, setPressed, setRevealOnFocusHint, setRight, setRotation, setRotationX, setRotationY, setSaveEnabled, setSaveFromParentEnabled, setScaleX, setScaleY, setScrollBarDefaultDelayBeforeFade, setScrollBarFadeDuration, setScrollbarFadingEnabled, setScrollBarSize, setScrollBarStyle, setScrollContainer, setScrollIndicators, setScrollIndicators, setScrollX, setScrollY, setSelected, setSoundEffectsEnabled, setStateListAnimator, setSystemUiVisibility, setTag, setTag, setTextAlignment, setTextDirection, setTop, setTouchDelegate, setTransitionName, setTranslationX, setTranslationY, setTranslationZ, setVerticalFadingEdgeEnabled, setVerticalScrollBarEnabled, setVerticalScrollbarPosition, setVisibility, setWillNotCacheDrawing, setWillNotDraw, setX, setY, setZ, showContextMenu, showContextMenu, startActionMode, startActionMode, startAnimation, startDrag, startDragAndDrop, startNestedScroll, stopNestedScroll, toString, unscheduleDrawable, unscheduleDrawable, updateDragShadow, verifyDrawable, willNotCacheDrawing, willNotDraw</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -947,7 +958,7 @@ extends android.view.ViewGroup</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isRequestedOrientationUser</h4>
-<pre>protected static&nbsp;boolean&nbsp;isRequestedOrientationUser(int&nbsp;requestedOrientation)</pre>
+<pre>protected&nbsp;boolean&nbsp;isRequestedOrientationUser(int&nbsp;requestedOrientation)</pre>
 </li>
 </ul>
 <a name="getActivityOrientation--">
@@ -1445,14 +1456,14 @@ public final&nbsp;<a href="../../../com/microblink/view/BaseCameraView.CameraVie
 </dl>
 </li>
 </ul>
-<a name="setMeteringAreas-com.microblink.geometry.Rectangle:A-boolean-">
+<a name="setMeteringAreas-android.graphics.RectF:A-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMeteringAreas</h4>
 <pre>@UiThread
-public final&nbsp;void&nbsp;setMeteringAreas(<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>[]&nbsp;meteringAreas,
+public final&nbsp;void&nbsp;setMeteringAreas(android.graphics.RectF[]&nbsp;meteringAreas,
                                              boolean&nbsp;rotateAreasWithDevice)</pre>
 <div class="block">Sets the areas where camera will perform focus, exposure and white balance meterings.</div>
 <dl>
@@ -1618,6 +1629,23 @@ public final&nbsp;void&nbsp;setForceUseLegacyCamera(boolean&nbsp;useLegacyCamera
 </dl>
 </li>
 </ul>
+<a name="setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRequestAutofocusOnShakingStopInContinousAutofocusMode</h4>
+<pre>@UiThread
+public final&nbsp;void&nbsp;setRequestAutofocusOnShakingStopInContinousAutofocusMode(boolean&nbsp;requestAutofocusOnShakingStopInContinousAutofocusMode)</pre>
+<div class="block">If device supports continous autofocus mode, enabling this feature will request normal autofocus every time device shaking
+ stops. By default, this is off, as is expected from device which supports continous autofocus to do this automatically. However,
+ some devices do not meet that expectation so this tweak can be used to force autofocus after device has stopped moving.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>requestAutofocusOnShakingStopInContinousAutofocusMode</code> - will autofocus be requested each time device shaking stops.</dd>
+</dl>
+</li>
+</ul>
 <a name="setPhotoMode-boolean-">
 <!--   -->
 </a>
@@ -1728,7 +1756,7 @@ public&nbsp;void&nbsp;setCameraEventsListener(<a href="../../../com/microblink/v
 <ul class="blockList">
 <li class="blockList">
 <h4>getVisiblePart</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;getVisiblePart()</pre>
+<pre>public&nbsp;android.graphics.RectF&nbsp;getVisiblePart()</pre>
 <div class="block">Returns the rectangle that which part of camera frame is visible in view</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

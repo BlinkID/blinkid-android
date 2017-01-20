@@ -8,7 +8,6 @@ com.microblink.detectors.points
 com.microblink.detectors.quad
 com.microblink.detectors.quad.mrtd
 com.microblink.directApi
-com.microblink.directApi.frame
 com.microblink.geometry
 com.microblink.hardware
 com.microblink.hardware.accelerometer
@@ -28,6 +27,7 @@ com.microblink.recognizers.blinkbarcode.zxing
 com.microblink.recognizers.blinkid.austria.back
 com.microblink.recognizers.blinkid.austria.front
 com.microblink.recognizers.blinkid.croatia.back
+com.microblink.recognizers.blinkid.croatia.combined
 com.microblink.recognizers.blinkid.croatia.front
 com.microblink.recognizers.blinkid.czechia.back
 com.microblink.recognizers.blinkid.czechia.front
@@ -39,7 +39,8 @@ com.microblink.recognizers.blinkid.malaysia
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.serbia.back
 com.microblink.recognizers.blinkid.serbia.front
-com.microblink.recognizers.blinkid.singapore
+com.microblink.recognizers.blinkid.singapore.back
+com.microblink.recognizers.blinkid.singapore.front
 com.microblink.recognizers.blinkid.slovakia.back
 com.microblink.recognizers.blinkid.slovakia.front
 com.microblink.recognizers.blinkid.slovenia.back

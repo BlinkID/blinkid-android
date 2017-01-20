@@ -3,10 +3,10 @@ package com.microblink.libresult.extract.croatia;
 import android.content.Context;
 
 import com.microblink.libresult.R;
-import com.microblink.libresult.extract.RecognitionResultEntry;
-import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognitionResult;
+import com.microblink.libresult.extract.RecognitionResultEntry;
+import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
 
 import java.util.List;
 
