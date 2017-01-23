@@ -2302,6 +2302,30 @@
 <dd>
 <div class="block">Returns employer of the Malaysian iKad owner.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded full document image from the back side in JPEG format if image encoding
+ has been enabled in <a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined"><code>CroatianIDCombinedRecognizerSettings</code></a> and image has been
+ successfully encoded during recognition process, else returns <code>null</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html#getEncodedFaceImage--">getEncodedFaceImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded face image in JPEG format if image encoding has been enabled in
+ <a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined"><code>CroatianIDCombinedRecognizerSettings</code></a> and image has been successfully encoded
+ during recognition process, else returns <code>null</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded full document image from the front side in JPEG format if image encoding
+ has been enabled in <a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined"><code>CroatianIDCombinedRecognizerSettings</code></a> and image has been
+ successfully encoded during recognition process, else returns <code>null</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html#getEncodedSignatureImage--">getEncodedSignatureImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded signature image in JPEG format if image encoding has been enabled in
+ <a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined"><code>CroatianIDCombinedRecognizerSettings</code></a> and image has been successfully encoded
+ during recognition process, else returns <code>null</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html#getExpiryDate--">getExpiryDate()</a></span> - Method in class com.microblink.recognizers.blinkid.malaysia.<a href="com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.malaysia">IKadRecognitionResult</a></dt>
 <dd>
 <div class="block">Returns the expiry date of the Malaysian iKad</div>
@@ -5751,6 +5775,21 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled(boolean)</a></span> - Method in class com.microblink.recognizers.settings.<a href="com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeFaceImage-boolean-">setEncodeFaceImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
+ and written into the corresponding recognition result.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeSignatureImage-boolean-">setEncodeSignatureImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether signature image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setExtractAddress-boolean-">setExtractAddress(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.eudl.<a href="com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.eudl">EUDLRecognizerSettings</a></dt>
 <dd>
 <div class="block">Defines if address should be extracted from EU driver's license</div>
@@ -6543,6 +6582,19 @@
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html#shouldDisplaySignatureImage--">shouldDisplaySignatureImage()</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognizerSettings</a></dt>
 <dd>
 <div class="block">Returns whether sending of signature image from ID card to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeFaceImage--">shouldEncodeFaceImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
+ into the recognition result is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeSignatureImage--">shouldEncodeSignatureImage()</a></span> - Method in class com.microblink.recognizers.blinkid.croatia.combined.<a href="com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.croatia.combined">CroatianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether encoding of signature image from ID and writing it into the recognition result is enabled.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#shouldExtractAddress--">shouldExtractAddress()</a></span> - Method in class com.microblink.recognizers.blinkid.eudl.<a href="com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.eudl">EUDLRecognizerSettings</a></dt>
 <dd>

@@ -1,5 +1,11 @@
 # Release notes
 
+## 3.4.1
+
+- improved multi-window camera support
+- fix layouting of default activities in multi-window mode
+- fixed problem with front side Singapore recognizer
+
 ## 3.4.0
 
 - improved quality of german ID address recognition

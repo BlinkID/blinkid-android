@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -232,41 +232,81 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeFaceImage-boolean-">setEncodeFaceImage</a></span>(boolean&nbsp;encodeFaceImage)</code>
+<div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
+<div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
+ and written into the corresponding recognition result.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setEncodeSignatureImage-boolean-">setEncodeSignatureImage</a></span>(boolean&nbsp;encodeSignatureImage)</code>
+<div class="block">Sets whether signature image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-">setReturnFaceImage</a></span>(boolean&nbsp;returnFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-">setReturnSignatureImage</a></span>(boolean&nbsp;returnSignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
+<div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
+<div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
+ into the recognition result is enabled.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldEncodeSignatureImage--">shouldEncodeSignatureImage</a></span>()</code>
+<div class="block">Returns whether encoding of signature image from ID and writing it into the recognition result is enabled.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#shouldReturnSignatureImage--">shouldReturnSignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -438,6 +478,43 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 </dl>
 </li>
 </ul>
+<a name="setEncodeFaceImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodeFaceImage</h4>
+<pre>public&nbsp;void&nbsp;setEncodeFaceImage(boolean&nbsp;encodeFaceImage)</pre>
+<div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result. By default encoding of image is disabled. <br/>
+ <b>IMPORTANT NOTE: </b> Recognition result which contains encoded image cannot be parcelized and
+ passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ Passing large data objects through intent extras can cause application crash, depending on the device
+ characteristics. Do not enable image encoding if you are using one of the provided scan activities
+ and expect receiving of scan results as intent extras in <code>Activity.onActivityResult(int, int, Intent)</code>
+ method. In that case, use <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> and <a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-"><code>setReturnFaceImage(boolean)</code></a>
+ to enable returning of face images.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>encodeFaceImage</code> - whether face image should be encoded in JPEG format and written into the
+                        corresponding recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldEncodeFaceImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEncodeFaceImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldEncodeFaceImage()</pre>
+<div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether encoding of face image from ID and writing it into the recognition result is enabled.</dd>
+</dl>
+</li>
+</ul>
 <a name="setReturnSignatureImage-boolean-">
 <!--   -->
 </a>
@@ -467,6 +544,43 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>whether sending of signature image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</dd>
+</dl>
+</li>
+</ul>
+<a name="setEncodeSignatureImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodeSignatureImage</h4>
+<pre>public&nbsp;void&nbsp;setEncodeSignatureImage(boolean&nbsp;encodeSignatureImage)</pre>
+<div class="block">Sets whether signature image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result. By default encoding of image is disabled. <br/>
+ <b>IMPORTANT NOTE: </b> Recognition result which contains encoded image cannot be parcelized and
+ passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ Passing large data objects through intent extras can cause application crash, depending on the device
+ characteristics. Do not enable image encoding if you are using one of the provided scan activities
+ and expect receiving of scan results as intent extras in <code>Activity.onActivityResult(int, int, Intent)</code>
+ method. In that case, use <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> and <a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-"><code>setReturnSignatureImage(boolean)</code></a>
+ to enable returning of signature images.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>encodeSignatureImage</code> - whether signature image should be encoded in JPEG format and written into the
+                        corresponding recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldEncodeSignatureImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEncodeSignatureImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldEncodeSignatureImage()</pre>
+<div class="block">Returns whether encoding of signature image from ID and writing it into the recognition result is enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether encoding of signature image from ID and writing it into the recognition result is enabled.</dd>
 </dl>
 </li>
 </ul>
@@ -500,6 +614,45 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</dd>
+</dl>
+</li>
+</ul>
+<a name="setEncodeFullDocumentImag-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodeFullDocumentImag</h4>
+<pre>public&nbsp;void&nbsp;setEncodeFullDocumentImag(boolean&nbsp;encodeFullDocumentImage)</pre>
+<div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
+ and written into the corresponding recognition result. By default encoding of images is disabled. <br/>
+ <b>IMPORTANT NOTE: </b> Recognition result which contains encoded images cannot be parcelized and
+ passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ Passing large data objects through intent extras can cause application crash, depending on the device
+ characteristics. Do not enable images encoding if you are using one of the provided scan activities
+ and expect receiving of scan results as intent extras in <code>Activity.onActivityResult(int, int, Intent)</code>
+ method. In that case, use <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> and <a href="../../../../../../com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-"><code>setReturnFullDocumentImage(boolean)</code></a>
+ to enable returning of full document images.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>encodeFullDocumentImage</code> - whether full document images should be encoded in JPEG format and written into the
+                        corresponding recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldEncodeFullDocumentImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEncodeFullDocumentImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldEncodeFullDocumentImage()</pre>
+<div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
+ into the recognition result is enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether encoding of full document images from front and back side of the ID card and writing them
+ into the recognition result is enabled.</dd>
 </dl>
 </li>
 </ul>
