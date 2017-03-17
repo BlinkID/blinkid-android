@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -217,28 +217,34 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#documentForNonResident--">documentForNonResident</a></span>()</code>
+<div class="block">Returns true if document owner is non resident.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#getAddress--">getAddress</a></span>()</code>
 <div class="block">Returns the address of the Croatian ID owner.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.util.Date</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#getDocumentDateOfIssue--">getDocumentDateOfIssue</a></span>()</code>
 <div class="block">Returns the document date of issue of the Croatian ID</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#getIssuingAuthority--">getIssuingAuthority</a></span>()</code>
 <div class="block">Returns the issuing authority of Croatian ID.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>
@@ -265,7 +271,7 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.<a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html" title="class in com.microblink.recognizers">BaseRecognitionResult</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getBooleanElement-java.lang.String-">getBooleanElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -343,6 +349,21 @@ public&nbsp;java.lang.String&nbsp;getAddress()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the address of the Croatian ID owner.</dd>
+</dl>
+</li>
+</ul>
+<a name="documentForNonResident--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>documentForNonResident</h4>
+<pre>@Nullable
+public&nbsp;boolean&nbsp;documentForNonResident()</pre>
+<div class="block">Returns true if document owner is non resident.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if document owner is non resident.</dd>
 </dl>
 </li>
 </ul>

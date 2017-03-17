@@ -37,6 +37,7 @@
     <string name="PPBarcodeRawData">Barcode raw data</string>
     <string name="PPBarcodeType">Barcode type</string>
     <string name="PPExtendedBarcodeData">Extended barcode data</string>
+    <string name="PPSimNumber">Sim number</string>
 
     <!-- MyKad specific -->
     <string name="PPFullName">Full name</string>
@@ -66,5 +67,13 @@
     <string name="PPEmployer">Employer</string>
     <string name="PPPassportNumber">Passport number</string>
     <string name="PPSector">Sector</string>
+
+    <!-- Romanian specific -->
+    <string name="PPIdentityCardNumber">Identity card number</string>
+    <string name="PPSeries">Series</string>
+    <string name="PPCNP">CNP</string>
+    <string name="PPParentNames">Parent names</string>
+    <string name="PPValidFrom">Valid from</string>
+    <string name="PPValidUntil">Valid until</string>
 
 </resources>

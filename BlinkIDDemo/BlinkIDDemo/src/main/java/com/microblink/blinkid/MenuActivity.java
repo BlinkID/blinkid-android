@@ -25,6 +25,7 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
@@ -34,12 +35,13 @@ import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecog
 import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
+import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
+import com.microblink.recognizers.blinkid.romania.front.RomanianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.singapore.back.SingaporeIDBackRecognizerSettings;
@@ -48,10 +50,8 @@ import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecogniz
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
-import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;
-import com.microblink.recognizers.blinkocr.parser.generic.IbanParserSettings;
-import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
+import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
+import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
 import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.util.Log;
@@ -271,34 +271,36 @@ public class MenuActivity extends Activity {
 
         // ID document list entry
         elements.add(buildMrtdElement());
-        elements.add(buildAusIDElement());
-        elements.add(buildCroIDElement());
+        elements.add(buildAustrianIDElement());
+        elements.add(buildCroatianIDElement());
         elements.add(buildCzechIDElement());
-        elements.add(buildDeIDElement());
-        elements.add(buildIKadElement());
+        elements.add( buildGermanIDElement() );
         elements.add(buildMyKadElement());
-        elements.add(buildSerbiaIDElement());
+        elements.add( buildIKadElement() );
+        elements.add( bildRomanianElement() );
         elements.add(buildSingaporeIDElement());
-        elements.add(buildSvkIDElement());
-        elements.add(buildSloveniaIDElement());
+        elements.add(buildSerbianIDElement());
+        elements.add(buildSlovakIDElement());
+        elements.add( buildSlovenianIDElement() );
 
-        // DL document list entry
-        elements.add(buildAusDLElement());
-        elements.add(buildGermanDLlement());
+        // DL list entries
+        elements.add(buildAustrianDLElement());
+        elements.add(buildGermanDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
-
-        // Templating API entries
-        elements.add(buildTemplatingCroIDFrontSideElement());
-        elements.add(buildTemplatingCroIDBackSideElement());
 
         // barcode list entries
         elements.add(buildPDF417Element());
         elements.add(buildBardecoderElement());
+        elements.add( buildSimNumberElement() );
         elements.add(buildZXingElement());
 
         // Blink OCR entries
-        elements.add(buildGenericSegmentScanElement());
+        elements.add(buildVehicleSegmentScanElement());
+
+        // templating API entries
+        elements.add(buildTemplatingAPICroIDFrontElement());
+        elements.add(buildTemplatingAPICroIDBackElement());
 
         mElements = new ListElement[elements.size()];
         elements.toArray(mElements);
@@ -310,106 +312,67 @@ public class MenuActivity extends Activity {
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("ID document or Passport", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
+        return new ListElement("ID document", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
     }
 
-    private ListElement buildAusIDElement() {
-        // prepare settings for Austrian ID Front Side Recognizer
-        AustrianIDFrontSideRecognizerSettings ausIDFront = new AustrianIDFrontSideRecognizerSettings();
+    private ListElement buildAustrianIDElement() {
+        AustrianIDFrontSideRecognizerSettings ausFront = new AustrianIDFrontSideRecognizerSettings();
+        AustrianIDBackSideRecognizerSettings ausBack = new AustrianIDBackSideRecognizerSettings();
 
-        // prepare settings for Austrian ID Back Side Recognizer
-        AustrianIDBackSideRecognizerSettings ausIDBack = new AustrianIDBackSideRecognizerSettings();
+        return new ListElement("Austrian ID", buildIntent(new RecognizerSettings[]{ausFront, ausBack}, ScanCard.class, null));
+    }
 
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Austrian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Austrian ID", buildIntent(new RecognizerSettings[]{ausIDFront, ausIDBack}, ScanCard.class, null));
+    private ListElement buildCroatianIDElement() {
+        CroatianIDFrontSideRecognizerSettings croFront = new CroatianIDFrontSideRecognizerSettings();
+        CroatianIDBackSideRecognizerSettings croBack = new CroatianIDBackSideRecognizerSettings();
+
+        return new ListElement("Croatian ID", buildIntent(new RecognizerSettings[]{croFront, croBack}, ScanCard.class, null));
     }
 
     private ListElement buildCzechIDElement() {
-        // prepare settings for Czech ID Front Side Recognizer
-        CzechIDFrontSideRecognizerSettings czechIDFront = new CzechIDFrontSideRecognizerSettings();
+        CzechIDFrontSideRecognizerSettings czFront = new CzechIDFrontSideRecognizerSettings();
+        CzechIDBackSideRecognizerSettings czBack = new CzechIDBackSideRecognizerSettings();
 
-        // prepare settings for Czech ID Back Side Recognizer
-        CzechIDBackSideRecognizerSettings czechIDBack = new CzechIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Czech ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Czech ID", buildIntent(new RecognizerSettings[]{czechIDFront, czechIDBack}, ScanCard.class, null));
+        return new ListElement("Czech ID", buildIntent(new RecognizerSettings[]{czFront, czBack}, ScanCard.class, null));
     }
 
-    private ListElement buildCroIDElement() {
-        // prepare settings for Croatian ID Front Side Recognizer
-        CroatianIDFrontSideRecognizerSettings croIDFront = new CroatianIDFrontSideRecognizerSettings();
+    private ListElement buildGermanIDElement() {
+        GermanIDFrontSideRecognizerSettings deFront = new GermanIDFrontSideRecognizerSettings();
+        GermanIDMRZSideRecognizerSettings deMRZ = new GermanIDMRZSideRecognizerSettings();
 
-        // prepare settings for Croatian ID Back Side Recognizer
-        CroatianIDBackSideRecognizerSettings croIDBack = new CroatianIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Croatian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Croatian ID", buildIntent(new RecognizerSettings[]{croIDFront, croIDBack}, ScanCard.class, null));
+        return new ListElement( "German ID", buildIntent( new RecognizerSettings[] { deFront, deMRZ }, ScanCard.class, null ));
     }
 
-    private ListElement buildDeIDElement() {
-        // prepare settings for German ID Front Side Recognizer
-        GermanIDFrontSideRecognizerSettings deIDFront = new GermanIDFrontSideRecognizerSettings();
+    private ListElement buildSingaporeIDElement() {
+        SingaporeIDFrontRecognizerSettings singaporeFront = new SingaporeIDFrontRecognizerSettings();
+        SingaporeIDBackRecognizerSettings singaporeBack = new SingaporeIDBackRecognizerSettings();
 
-        // prepare settings for German ID MRZ Side Recognizer
-        GermanIDMRZSideRecognizerSettings deIDMrz = new GermanIDMRZSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning German ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("German ID", buildIntent(new RecognizerSettings[]{deIDFront, deIDMrz}, ScanCard.class, null));
+        return new ListElement("Singapore ID", buildIntent(new RecognizerSettings[]{singaporeFront, singaporeBack}, ScanCard.class, null));
     }
 
-    private ListElement buildSerbiaIDElement() {
-        // prepare settings for Serbian ID Front Side Recognizer
-        SerbianIDFrontSideRecognizerSettings serbiaIDFront = new SerbianIDFrontSideRecognizerSettings();
+    private ListElement buildSerbianIDElement() {
+        SerbianIDFrontSideRecognizerSettings serbFront = new SerbianIDFrontSideRecognizerSettings();
+        SerbianIDBackSideRecognizerSettings serbBack = new SerbianIDBackSideRecognizerSettings();
 
-        // prepare settings for Serbian ID Back Side Recognizer
-        SerbianIDBackSideRecognizerSettings serbiaIDBack = new SerbianIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Serbian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Serbian ID", buildIntent(new RecognizerSettings[]{serbiaIDFront, serbiaIDBack}, ScanCard.class, null));
+        return new ListElement("Serbian ID", buildIntent(new RecognizerSettings[]{serbFront, serbBack}, ScanCard.class, null));
     }
 
-    private ListElement buildSvkIDElement() {
-        // prepare settings for Slovak ID Front Side Recognizer
-        SlovakIDFrontSideRecognizerSettings svkIDFront = new SlovakIDFrontSideRecognizerSettings();
+    private ListElement buildSlovakIDElement() {
+        SlovakIDFrontSideRecognizerSettings svkFront = new SlovakIDFrontSideRecognizerSettings();
+        SlovakIDBackSideRecognizerSettings svkBack = new SlovakIDBackSideRecognizerSettings();
 
-        // prepare settings for Slovak ID Back Side Recognizer
-        SlovakIDBackSideRecognizerSettings svkIDBack = new SlovakIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Slovak ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Slovak ID", buildIntent(new RecognizerSettings[]{svkIDFront, svkIDBack}, ScanCard.class, null));
+        return new ListElement("Slovak ID", buildIntent(new RecognizerSettings[]{svkFront, svkBack}, ScanCard.class, null));
     }
 
-    private ListElement buildSloveniaIDElement() {
-        // prepare settings for Serbian ID Front Side Recognizer
-        SlovenianIDFrontSideRecognizerSettings sloveniaIDFront = new SlovenianIDFrontSideRecognizerSettings();
+    private ListElement buildSlovenianIDElement() {
+        SlovenianIDFrontSideRecognizerSettings sloFront = new SlovenianIDFrontSideRecognizerSettings();
+        SlovenianIDBackSideRecognizerSettings sloBack = new SlovenianIDBackSideRecognizerSettings();
 
-        // prepare settings for Serbian ID Back Side Recognizer
-        SlovenianIDBackSideRecognizerSettings sloveniaIDBack = new SlovenianIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning Serbian ID document, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("Slovenian ID", buildIntent(new RecognizerSettings[]{sloveniaIDFront, sloveniaIDBack}, ScanCard.class, null));
-    }
-
-    private ListElement buildAusDLElement() {
-        // prepare settings for EU Driver's Licence recognizer
-        // set country to AUSTRIA
-        EUDLRecognizerSettings ausDL = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_AUSTRIA);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Austrian Driver's Licence", buildIntent(new RecognizerSettings[]{ausDL}, ScanCard.class, null));
+        return new ListElement("Slovenian ID", buildIntent(new RecognizerSettings[]{sloFront, sloBack}, ScanCard.class, null));
     }
 
     private ListElement buildUKDLElement() {
-        // prepare settings for EU Driver's Licence recognizer
-        // set country to UK
+        // prepare settings for United Kingdom Driver's Licence recognizer
         EUDLRecognizerSettings ukdl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK);
 
         // build a scan intent by adding intent extras common to all other recognizers
@@ -417,23 +380,38 @@ public class MenuActivity extends Activity {
         return new ListElement("UK Driver's Licence", buildIntent(new RecognizerSettings[]{ukdl}, ScanCard.class, null));
     }
 
-    private ListElement buildGermanDLlement() {
-        // prepare settings for EU Driver's Licence recognizer
-        // set country to Germany
-        EUDLRecognizerSettings germanDL = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_GERMANY);
+    private ListElement buildGermanDLElement() {
+        // prepare settings for United Kingdom Driver's Licence recognizer
+        EUDLRecognizerSettings germanDl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_GERMANY);
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("German Driver's Licence", buildIntent(new RecognizerSettings[]{germanDL}, ScanCard.class, null));
+        return new ListElement("German Driver's Licence", buildIntent(new RecognizerSettings[]{germanDl}, ScanCard.class, null));
+    }
+
+    private ListElement buildAustrianDLElement() {
+        // prepare settings for United Kingdom Driver's Licence recognizer
+        EUDLRecognizerSettings ausDl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_AUSTRIA);
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Austrian Driver's Licence", buildIntent(new RecognizerSettings[]{ausDl}, ScanCard.class, null));
+    }
+
+    private ListElement buildUsdlElement() {
+        USDLRecognizerSettings usdl = new USDLRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("US Driver's License", buildIntent(new RecognizerSettings[]{usdl}, ScanCard.class, null));
     }
 
     private ListElement buildMyKadElement() {
-        // prepare settings for Malaysian MyKad ID document recognizer
-        MyKadRecognizerSettings myKad = new MyKadRecognizerSettings();
+        MyKadRecognizerSettings mykad = new MyKadRecognizerSettings();
 
         // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning MyKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Malaysian MyKad document", buildIntent(new RecognizerSettings[]{myKad}, ScanCard.class, null));
+        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Malaysian ID card", buildIntent(new RecognizerSettings[]{mykad}, ScanCard.class, null));
     }
 
     private ListElement buildIKadElement() {
@@ -445,23 +423,10 @@ public class MenuActivity extends Activity {
         return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
     }
 
-    private ListElement buildSingaporeIDElement() {
-        // prepare settings for Singapore ID document recognizer (front side)
-        SingaporeIDFrontRecognizerSettings singFront = new SingaporeIDFrontRecognizerSettings();
-        // prepare settings for Singapore ID document recognizer (back side)
-        SingaporeIDBackRecognizerSettings singBack = new SingaporeIDBackRecognizerSettings();
+    private ListElement bildRomanianElement () {
+        RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
 
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning UD documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Singapore ID document", buildIntent(new RecognizerSettings[]{ singFront, singBack }, ScanCard.class, null));
-    }
-
-    private ListElement buildUsdlElement() {
-        USDLRecognizerSettings usdl = new USDLRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("US Driver's License", buildIntent(new RecognizerSettings[]{usdl}, ScanCard.class, null));
+        return new ListElement("Romanian ID", buildIntent( new RecognizerSettings[] { romanianSettings }, ScanCard.class, null ));
     }
 
     private ListElement buildPDF417Element() {
@@ -496,35 +461,30 @@ public class MenuActivity extends Activity {
         return new ListElement("QR code", buildIntent(new RecognizerSettings[]{zxing}, Pdf417ScanActivity.class, null));
     }
 
-    private ListElement buildGenericSegmentScanElement() {
+    private ListElement buildSimNumberElement() {
+        SimNumberRecognizerSettings simNumber = new SimNumberRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
+        Intent intent = buildIntent(new RecognizerSettings[]{simNumber}, Pdf417ScanActivity.class, null);
+        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
+        return new ListElement("Sim number barcode", intent);
+    }
+
+    private ListElement buildVehicleSegmentScanElement() {
         ScanConfiguration[] conf = new ScanConfiguration[]{
-                new ScanConfiguration(R.string.amount_title, R.string.amount_msg, "Amount", new AmountParserSettings()),
-                new ScanConfiguration(R.string.iban_title, R.string.iban_msg, "IBAN", new IbanParserSettings()),
-                new ScanConfiguration(R.string.raw_title, R.string.raw_msg, "PaymentDescription", new RawParserSettings())
+                new ScanConfiguration("VIN", "Position VIN in this frame", "VIN", new VinParserSettings()),
+                new ScanConfiguration("License Plate", "Position license plate in this frame", "LicensePlate", new LicensePlatesParserSettings())
         };
-        return new ListElement("Segment scan", buildSegmentScanIntent(conf));
+        return new ListElement("Vehicle segment scan", buildSegmentScanIntent(conf));
     }
 
-    private ListElement buildTemplatingCroIDFrontSideElement() {
-        // use helper class to build settings for recognition
-        // see code comments in helper class implementation for more information
-        BlinkOCRRecognizerSettings sett = CroatianIDFrontSide.buildCroatianIDFrontSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when using templating API, it is possible to use any activity available. We will be using ScanActivity
-        // because it has detection indicators which can help us see how document detection is performed
-        return new ListElement("Template API Cro ID Front", buildIntent(new RecognizerSettings[] {sett}, ScanActivity.class, null));
+    private ListElement buildTemplatingAPICroIDFrontElement() {
+        return new ListElement("TemplatingAPI Cro ID Front", buildIntent(new RecognizerSettings[]{CroatianIDFrontSide.buildCroatianIDFrontSideRecognizerSettings()}, ScanCard.class, null));
     }
 
-    private ListElement buildTemplatingCroIDBackSideElement() {
-        // use helper class to build settings for recognition
-        // see code comments in helper class implementation for more information
-        MRTDRecognizerSettings sett = CroatianIDBackSide.buildCroatianIDBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when using templating API, it is possible to use any activity available. We will be using ScanCard
-        // because it is most appropriate for scanning of back side of croatian IDs
-        return new ListElement("Template API Cro ID Back", buildIntent(new RecognizerSettings[] {sett}, ScanCard.class, null));
+    private ListElement buildTemplatingAPICroIDBackElement() {
+        return new ListElement("TemplatingAPI Cro ID Back", buildIntent(new RecognizerSettings[]{CroatianIDBackSide.buildCroatianIDBackSideRecognizerSettings()}, ScanCard.class, null));
     }
 
     /**

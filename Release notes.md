@@ -1,5 +1,18 @@
 # Release notes
 
+## 3.5.0
+
+- `MobileCouponsParser` is renamed to `TopUpParser`
+- improved `TopUpParser`:
+    - added option to enable all prefixes at the same time (generic prefix)
+- fixed layouting of provided `SegmentScanActivity` and `RandomScanActivity` in multi-window mode
+- added `SimNumberRecognizer` which scans SIM numbers from barcodes
+- improved `MRTDRecognizer`:
+    - better support for arab MRZ
+- updated `CroatianIDFrontSideRecognizer`:
+    - returning sex as written on front side of a document
+- added support for scanning front side of Romanian ID cards
+
 ## 3.4.1
 
 - improved multi-window camera support

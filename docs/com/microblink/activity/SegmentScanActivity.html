@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -247,6 +247,12 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 <td class="colFirst"><code>protected <a href="../../../com/microblink/activity/ShowOcrResultMode.html" title="enum in com.microblink.activity">ShowOcrResultMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#mShowOcrResultMode">mShowOcrResultMode</a></span></code>&nbsp;</td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#STATE_SCANNED">STATE_SCANNED</a></span></code>
+<div class="block">Key for obtaining scan results from saved state on activity restart.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.app.Activity">
@@ -402,16 +408,20 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#onResume--">onResume</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i20" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#onSaveInstanceState-android.os.Bundle-">onSaveInstanceState</a></span>(android.os.Bundle&nbsp;outState)</code>&nbsp;</td>
+</tr>
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#onScanningDone-com.microblink.recognizers.RecognitionResults-">onScanningDone</a></span>(<a href="../../../com/microblink/recognizers/RecognitionResults.html" title="class in com.microblink.recognizers">RecognitionResults</a>&nbsp;results)</code>
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#onStart--">onStart</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/SegmentScanActivity.html#onStop--">onStop</a></span>()</code>&nbsp;</td>
 </tr>
@@ -421,7 +431,7 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;android.app.Activity</h3>
-<code>addContentView, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onBackPressed, onChildTitleChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsItemSelected, onOptionsMenuClosed, onPanelClosed, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRestart, onRestoreInstanceState, onRestoreInstanceState, onRetainNonConfigurationInstance, onSaveInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onStateNotSaved, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
+<code>addContentView, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onBackPressed, onChildTitleChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsItemSelected, onOptionsMenuClosed, onPanelClosed, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRestart, onRestoreInstanceState, onRestoreInstanceState, onRetainNonConfigurationInstance, onSaveInstanceState, onSearchRequested, onSearchRequested, onStateNotSaved, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.android.view.ContextThemeWrapper">
@@ -676,6 +686,20 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 </dl>
 </li>
 </ul>
+<a name="STATE_SCANNED">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>STATE_SCANNED</h4>
+<pre>public static final&nbsp;java.lang.String STATE_SCANNED</pre>
+<div class="block">Key for obtaining scan results from saved state on activity restart.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../constant-values.html#com.microblink.activity.SegmentScanActivity.STATE_SCANNED">Constant Field Values</a></dd>
+</dl>
+</li>
+</ul>
 <a name="mShowOcrResult">
 <!--   -->
 </a>
@@ -824,6 +848,19 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>onDestroy</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
+</dl>
+</li>
+</ul>
+<a name="onSaveInstanceState-android.os.Bundle-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onSaveInstanceState</h4>
+<pre>protected&nbsp;void&nbsp;onSaveInstanceState(android.os.Bundle&nbsp;outState)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>onSaveInstanceState</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
 </dl>
 </li>
 </ul>

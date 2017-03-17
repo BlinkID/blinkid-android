@@ -54,27 +54,34 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning machine-readable travel documents](#mrtd)
   * [Scanning front side of Austrian ID documents](#ausID_front)
   * [Scanning back side of Austrian ID documents](#ausID_back)
+  * [Scanning and combining results from front and back side of Austrian ID documents](#austrianIDCombined)
   * [Scanning front side of Croatian ID documents](#croID_front)
   * [Scanning back side of Croatian ID documents](#croID_back)
+  * [Scanning and combining results from front and back side of Croatian ID documents](#croIDCombined)
   * [Scanning front side of Czech ID documents](#czID_front)
   * [Scanning back side of Czech ID documents](#czID_back)
+  * [Scanning and combining results from front and back side of Czech ID documents](#czechIDCombined)
   * [Scanning front side of German ID documents](#germanID_front)
   * [Scanning MRZ side of German ID documents](#germanID_MRZ)
   * [Scanning front side of Serbian ID documents](#serbianID_front)
   * [Scanning back side of Serbian ID documents](#serbianID_back)
   * [Scanning front side of Slovak ID documents](#slovakID_front)
   * [Scanning back side of Slovak ID documents](#slovakID_back)
+  * [Scanning and combining results from front and back side of Slovak ID documents](#svkIDCombined)
   * [Scanning front side of Slovenian ID documents](#slovenianID_front)
   * [Scanning back side of Slovenian ID documents](#slovenianID_back)
+  * [Scanning and combining results from front and back side of Slovenian ID documents](#slovenianIDCombined)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning Malaysian iKad documents](#iKad)
-  * [Scanning back side of Singapore ID documents](#singaporeID_back)
   * [Scanning front side of Singapore ID documents](#singaporeID_front)
+  * [Scanning back side of Singapore ID documents](#singaporeID_back)
+  * [Scanning and combining results from front and back side of Singapore ID documents](#singaporeIDCombined)
   * [Scanning PDF417 barcodes](#pdf417Recognizer)
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
   * [Scanning barcodes with ZXing implementation](#zxing)
+  * [Scanning SIM number barcodes](#simNumberRecognizer)
   * [Scanning segments with BlinkOCR recognizer](#blinkOCR)
   * [Scanning templated documents with BlinkOCR recognizer](#blinkOCR_templating)
   * [Performing detection of various documents](#detectorRecognizer)
@@ -148,7 +155,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.4.1@aar') {
+    compile('com.microblink:blinkid:3.5.0@aar') {
     	transitive = true
     }
 }
@@ -169,7 +176,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.4.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.5.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -194,7 +201,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.4.1</version>
+		  <version>3.5.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -210,7 +217,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
    		compile project(':LibBlinkID')
- 		compile "com.android.support:appcompat-v7:25.1.0"
+ 		compile "com.android.support:appcompat-v7:25.2.0"
 	}
 	```
 5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
@@ -1576,6 +1583,74 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/back/AustrianIDBackSideRecognitionResult.html).**
 
+## <a name="austrianIDCombined"></a> Scanning and combining results from front and back side of Austrian ID documents
+
+This section will discuss the setting up of Austrian ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Austrian ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Austrian ID card combined recognizer
+
+To activate Austrian ID combined recognizer, you need to create [AustrianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    AustrianIDCombinedRecognizerSettings sett = new AustrianIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [AustrianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof AustrianIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Austrian ID card combined recognizer
+
+Austrian ID combined recognizer produces [AustrianIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustrianIDCombinedRecognitionResult` class. 
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof AustrianIDCombinedRecognitionResult) {
+            AustrianIDCombinedRecognitionResult result = (AustrianIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of AustrianIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognitionResult.html).**
+
 ## <a name="croID_front"></a> Scanning front side of Croatian ID documents
 
 This section will discuss the setting up of Croatian ID Front Side recognizer and obtaining results from it.
@@ -1679,6 +1754,76 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/back/CroatianIDBackSideRecognitionResult.html).**
 
+## <a name="croIDCombined"></a> Scanning and combining results from front and back side of Croatian ID documents
+
+This section will discuss the setting up of Croatian ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Croatian ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Croatian ID card combined recognizer
+
+To activate Croatian ID combined recognizer, you need to create [CroatianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    CroatianIDCombinedRecognizerSettings sett = new CroatianIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [CroatianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof CroatianIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Croatian ID card combined recognizer
+
+Croatian ID combined recognizer produces [CroatianIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `CroatianIDCombinedRecognitionResult` class. 
+
+**Note:** `CroatianIDCombinedRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof CroatianIDCombinedRecognitionResult) {
+            CroatianIDCombinedRecognitionResult result = (CroatianIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of CroatianIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/combined/CroatianIDCombinedRecognitionResult.html).**
+
 ## <a name="czID_front"></a> Scanning front side of Czech ID documents
 
 This section will discuss the setting up of Czech ID Front Side recognizer and obtaining results from it.
@@ -1781,6 +1926,76 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/back/CzechIDBackSideRecognitionResult.html).**
+
+## <a name="czechIDCombined"></a> Scanning and combining results from front and back side of Czech ID documents
+
+This section will discuss the setting up of Czech ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Czech ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Czech ID card combined recognizer
+
+To activate Czech ID combined recognizer, you need to create [CzechIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    CzechIDCombinedRecognizerSettings sett = new CzechIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [CzechIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof CzechIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Czech ID card combined recognizer
+
+Czech ID combined recognizer produces [CzechIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `CzechIDCombinedRecognitionResult` class. 
+
+**Note:** `CzechIDCombinedRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof CzechIDCombinedRecognitionResult) {
+            CzechIDCombinedRecognitionResult result = (CzechIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of CzechIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognitionResult.html).**
 
 ## <a name="germanID_front"></a> Scanning front side of German ID documents
 
@@ -2091,6 +2306,76 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognitionResult.html).**
 
+## <a name="svkIDCombined"></a> Scanning and combining results from front and back side of Slovak ID documents
+
+This section will discuss the setting up of Slovak ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Slovak ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Slovak ID card combined recognizer
+
+To activate Slovak ID combined recognizer, you need to create [SlovakIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/combined/SlovakIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    SlovakIDCombinedRecognizerSettings sett = new SlovakIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovakIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/combined/SlovakIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/combined/SlovakIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof SlovakIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Slovak ID card combined recognizer
+
+Slovak ID combined recognizer produces [SlovakIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/combined/SlovakIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovakIDCombinedRecognitionResult` class. 
+
+**Note:** `SlovakIDCombinedRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof SlovakIDCombinedRecognitionResult) {
+            SlovakIDCombinedRecognitionResult result = (SlovakIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of SlovakIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/combined/SlovakIDCombinedRecognitionResult.html).**
+
 ## <a name="slovenianID_front"></a> Scanning front side of Slovenian ID documents
 
 This section will discuss the setting up of Slovenian ID Front Side recognizer and obtaining results from it.
@@ -2193,6 +2478,76 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/back/SlovenianIDBackSideRecognitionResult.html).**
+
+## <a name="slovenianIDCombined"></a> Scanning and combining results from front and back side of Slovenian ID documents
+
+This section will discuss the setting up of Slovenian ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Slovenian ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Slovenian ID card combined recognizer
+
+To activate Slovenian ID combined recognizer, you need to create [SlovenianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    SlovenianIDCombinedRecognizerSettings sett = new SlovenianIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SlovenianIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof SlovenianIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Slovenian ID card combined recognizer
+
+Slovenian ID combined recognizer produces [SlovenianIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovenianIDCombinedRecognitionResult` class. 
+
+**Note:** `SlovenianIDCombinedRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof SlovenianIDCombinedRecognitionResult) {
+            SlovenianIDCombinedRecognitionResult result = (SlovenianIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of SlovenianIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognitionResult.html).**
 
 ## <a name="usdl"></a> Scanning US Driver's licence barcodes
 
@@ -2506,57 +2861,6 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html).**
 
-## <a name="singaporeID_back"></a> Scanning back side of Singapore ID documents
-
-This section will discuss the setting up of Singapore ID Back Side recognizer and obtaining results from it.
-
-### Setting up Singapore ID card back side recognizer
-
-To activate Singapore ID back side recognizer, you need to create [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
-
-```java
-private RecognizerSettings[] setupSettingsArray() {
-	SingaporeIDBackRecognizerSettings sett = new SingaporeIDBackRecognizerSettings();
-	
-	// now add sett to recognizer settings array that is used to configure
-	// recognition
-	return new RecognizerSettings[] { sett };
-}
-```
-
-**You can also tweak recognition parameters with methods of [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) for more information.**
-
-### Obtaining results from Singapore ID card back side recognizer
-
-Singapore ID back side recognizer produces [SingaporeIDBackRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDBackRecognitionResult` class. 
-
-**Note:** `SingaporeIDBackRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
-
-See the following snippet for an example:
-
-```java
-@Override
-public void onScanningDone(RecognitionResults results) {
-	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
-	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof SingaporeIDBackRecognitionResult) {
-			SingaporeIDBackRecognitionResult result = (SingaporeIDBackRecognitionResult) baseResult;
-			
-	        // you can use getters of SingaporeIDBackRecognitionResult class to 
-	        // obtain scanned information
-	        if(result.isValid() && !result.isEmpty()) {
-				String address = result.getAddress();
-	        } else {
-	        	// not all relevant data was scanned, ask user
-	        	// to try again
-	        }
-		}
-	}
-}
-```
-
-**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html).**
-
 ## <a name="singaporeID_front"></a> Scanning front side of Singapore ID documents
 
 This section will discuss the setting up of Singapore ID Front Side recognizer and obtaining results from it.
@@ -2608,6 +2912,126 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognitionResult.html).**
+
+## <a name="singaporeID_back"></a> Scanning back side of Singapore ID documents
+
+This section will discuss the setting up of Singapore ID Back Side recognizer and obtaining results from it.
+
+### Setting up Singapore ID card back side recognizer
+
+To activate Singapore ID back side recognizer, you need to create [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SingaporeIDBackRecognizerSettings sett = new SingaporeIDBackRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SingaporeIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognizerSettings.html) for more information.**
+
+### Obtaining results from Singapore ID card back side recognizer
+
+Singapore ID back side recognizer produces [SingaporeIDBackRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDBackRecognitionResult` class. 
+
+**Note:** `SingaporeIDBackRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SingaporeIDBackRecognitionResult) {
+			SingaporeIDBackRecognitionResult result = (SingaporeIDBackRecognitionResult) baseResult;
+			
+	        // you can use getters of SingaporeIDBackRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String address = result.getAddress();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html).**
+
+## <a name="singaporeIDCombined"></a> Scanning and combining results from front and back side of Singapore ID documents
+
+This section will discuss the setting up of Singapore ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Singapore ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Singapore ID card combined recognizer
+
+To activate Singapore ID combined recognizer, you need to create [SingaporeIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/combined/SingaporeIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    SingaporeIDCombinedRecognizerSettings sett = new SingaporeIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SingaporeIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/combined/SingaporeIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/combined/SingaporeIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof SingaporeIDFrontRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Singapore ID card combined recognizer
+
+Singapore ID combined recognizer produces [SingaporeIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/combined/SingaporeIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDCombinedRecognitionResult` class. 
+
+**Note:** `SingaporeIDCombinedRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof SingaporeIDCombinedRecognitionResult) {
+            SingaporeIDCombinedRecognitionResult result = (SingaporeIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of SingaporeIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.getDocumentBothSidesMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String name = result.getName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/combined/SingaporeIDCombinedRecognitionResult.html).**
 
 ## <a name="pdf417Recognizer"></a> Scanning PDF417 barcodes
 
@@ -2858,6 +3282,47 @@ This method will return the string representation of barcode contents.
 ##### `getBarcodeType()`
 This method will return a [BarcodeType](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/BarcodeType.html) enum that defines the type of barcode scanned.
 
+## <a name="simNumberRecognizer"></a> Scanning SIM number barcodes
+
+This section discusses the settings for setting up SIM number recognizer and explains how to obtain its results.
+
+### Setting up SIM number recognizer
+
+To activate SIM number recognizer, you need to create a [SimNumberRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SimNumberRecognizerSettings sett = new SimNumberRecognizerSettings();
+	// now add sett to recognizer settings array that is used to configure
+    // recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**Javadoc documentation for SimNumberRecognizerSettings can be found [here](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberRecognizerSettings.html).**
+
+### Obtaining results from SIM number recognizer
+SIM number recognizer produces [SimNumberScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `SimNumberScanResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SimNumberScanResult) {
+			SimNumberScanResult result = (SimNumberScanResult) baseResult;
+	       // get scanned sim number
+			String simNumber = result.getSimNumber();
+			if (simNumber != null) {
+				// do something
+			}
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberScanResult.html).**
+
 ## <a name="blinkOCR"></a> Scanning segments with BlinkOCR recognizer
 
 This section discusses the setting up of BlinkOCR recognizer and obtaining results from it. You should also check the demo for example.
@@ -2914,7 +3379,7 @@ The following is a list of available parsers:
 	- used for parsing arbitrary regular expressions
 	- please note that some features, like back references, match grouping and certain regex metacharacters are not supported. See javadoc for more info.
 
-- Mobile coupons parser - represented by [MobileCouponsParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/mobilecoupons/MobileCouponsParserSettings.html)
+- TopUp parser - represented by [TopUpParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html)
 	- used for parsing prepaid codes from mobile phone coupons
 
 ### <a name="blinkOCR_results"></a> Obtaining results from BlinkOCR recognizer
@@ -3561,9 +4026,6 @@ If you are having problems with scanning certain items, undesired behaviour on s
 
 ## <a name="faq"></a> Frequently asked questions and known problems
 Here is a list of frequently asked questions and solutions for them and also a list of known problems in the SDK and how to work around them.
-
-### <a name="android7MultiWindowButtons"></a> When automatic rotation is enabled, buttons are mislayouted on default scan activity after orientation change in Android 7.0 multi-window mode
-This is a known issue which can only be worked around by disabling multi window support in your entire activity stack which, as described in [Android documentation](https://developer.android.com/guide/topics/ui/multi-window.html#configuring) or by using [custom UI integration approach](#recognizerView). We are aware of the issue and will fix it in a future release.
 
 ### <a name="featureNotSupportedByLicenseKey"></a> Sometimes scanning works, sometimes it says that feature is not supported by license key
 

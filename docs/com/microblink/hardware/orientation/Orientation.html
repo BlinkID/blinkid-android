@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":9,"i9":9};
+var methods = {"i0":9,"i1":9,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -177,49 +177,53 @@ extends java.lang.Enum&lt;<a href="../../../../com/microblink/hardware/orientati
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#fromInt-int-">fromInt</a></span>(int&nbsp;value)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#fromActivityInfoCode-int-">fromActivityInfoCode</a></span>(int&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#fromInt-int-">fromInt</a></span>(int&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#intValue--">intValue</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#isHorizontal--">isHorizontal</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#isVertical--">isVertical</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#rotate180--">rotate180</a></span>()</code>
 <div class="block">Returns orientation obtained by rotating current orientation by 180 degrees.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#rotate90Clockwise--">rotate90Clockwise</a></span>()</code>
 <div class="block">Returns orientation obtained by rotating current orientation by 90 degrees clockwise.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#rotate90CounterClockwise--">rotate90CounterClockwise</a></span>()</code>
 <div class="block">Returns orientation obtained by rotating current orientation by 90 degrees counter-clockwise.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/hardware/orientation/Orientation.html#values--">values</a></span>()</code>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -449,10 +453,19 @@ not permitted.)</div>
 <a name="fromInt-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>fromInt</h4>
 <pre>public static&nbsp;<a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;fromInt(int&nbsp;value)</pre>
+</li>
+</ul>
+<a name="fromActivityInfoCode-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>fromActivityInfoCode</h4>
+<pre>public static&nbsp;<a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;fromActivityInfoCode(int&nbsp;value)</pre>
 </li>
 </ul>
 </li>
