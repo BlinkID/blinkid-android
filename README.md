@@ -71,6 +71,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Slovenian ID documents](#slovenianID_front)
   * [Scanning back side of Slovenian ID documents](#slovenianID_back)
   * [Scanning and combining results from front and back side of Slovenian ID documents](#slovenianIDCombined)
+  * [Scanning front side of Romanian ID documents](#romanianID_front)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
@@ -2548,6 +2549,58 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognitionResult.html).**
+
+## <a name="romanianID_front"></a> Scanning front side of Romanian ID documents
+
+This section will discuss the setting up of Romanian ID Front Side recognizer and obtaining results from it.
+
+### Setting up Romanian ID card front side recognizer
+
+To activate Romanian ID front side recognizer, you need to create [RomanianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	RomanianIDFrontSideRecognizerSettings sett = new RomanianIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [RomanianIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Romanian ID card front side recognizer
+
+Romanian ID front side recognizer produces [RomanianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `RomanianIDFrontSideRecognitionResult` class. 
+
+**Note:** `RomanianIDFrontSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof RomanianIDFrontSideRecognitionResult) {
+			RomanianIDFrontSideRecognitionResult result = (RomanianIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of RomanianIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				String lastName = result.getLastName();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html).**
 
 ## <a name="usdl"></a> Scanning US Driver's licence barcodes
 
