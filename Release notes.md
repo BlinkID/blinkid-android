@@ -1,5 +1,11 @@
 # Release notes
 
+## 3.6.0
+
+- added `AztecRecognizer` for scanning Aztec barcodes
+- improved `TopUpParser`:
+    - added suport for 14 digits long sim numbers in addition to existing lengths (12, 19, 20)
+
 ## 3.5.0
 
 - `MobileCouponsParser` is renamed to `TopUpParser`
