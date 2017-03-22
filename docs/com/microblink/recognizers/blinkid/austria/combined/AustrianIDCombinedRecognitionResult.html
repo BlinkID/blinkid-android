@@ -687,8 +687,8 @@ public&nbsp;byte[]&nbsp;getEncodedBackFullDocumentImage()</pre>
 <pre>@Nullable
 public&nbsp;boolean&nbsp;getDocumentBothSidesMatch()</pre>
 <div class="block">Returns true if both data on the front side of the document and on the back side of the document
- match, false otherwise. Only Address, issued by and date of issue is written only on back side,
- all other data elements are present on both sides and their values are matched.</div>
+ match, false otherwise. Date of birth, sex, document number and first and last name are being matched
+ while all other data is being copied.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if both front and back side data match, false otherwise.</dd>

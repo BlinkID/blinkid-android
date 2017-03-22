@@ -20,6 +20,7 @@ com.microblink.ocr
 com.microblink.recognition
 com.microblink.recognizers
 com.microblink.recognizers.blinkbarcode
+com.microblink.recognizers.blinkbarcode.aztec
 com.microblink.recognizers.blinkbarcode.bardecoder
 com.microblink.recognizers.blinkbarcode.pdf417
 com.microblink.recognizers.blinkbarcode.simnumber
@@ -41,6 +42,7 @@ com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.mrz
 com.microblink.recognizers.blinkid.malaysia
 com.microblink.recognizers.blinkid.mrtd
+com.microblink.recognizers.blinkid.mrtd.combined
 com.microblink.recognizers.blinkid.romania.front
 com.microblink.recognizers.blinkid.serbia.back
 com.microblink.recognizers.blinkid.serbia.front
@@ -59,6 +61,7 @@ com.microblink.recognizers.blinkocr.parser
 com.microblink.recognizers.blinkocr.parser.generic
 com.microblink.recognizers.blinkocr.parser.licenseplates
 com.microblink.recognizers.blinkocr.parser.regex
+com.microblink.recognizers.blinkocr.parser.topup
 com.microblink.recognizers.blinkocr.parser.vin
 com.microblink.recognizers.detector
 com.microblink.recognizers.settings
