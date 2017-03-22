@@ -23,6 +23,7 @@ import com.microblink.libresult.ResultActivity;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
+import com.microblink.recognizers.blinkbarcode.aztec.AztecRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSettings;
@@ -290,6 +291,10 @@ public class MenuActivity extends Activity {
         elements.add(buildUsdlElement());
 
         // barcode list entries
+
+        // to include aztec element, valid license key for the aztec recognizer is required,
+        // please set it in the buildAztecElement() method
+//        elements.add( buildAztecElement() );
         elements.add(buildPDF417Element());
         elements.add(buildBardecoderElement());
         elements.add( buildSimNumberElement() );
@@ -469,6 +474,16 @@ public class MenuActivity extends Activity {
         Intent intent = buildIntent(new RecognizerSettings[]{simNumber}, Pdf417ScanActivity.class, null);
         intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
         return new ListElement("Sim number barcode", intent);
+    }
+
+    private ListElement buildAztecElement() {
+        // please contact us to obtain valid license key for the aztec recognizer
+        // https://microblink.com/en/contact-us
+        AztecRecognizerSettings aztec = new AztecRecognizerSettings("<license_key>");
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
+        return new ListElement("Aztec barcode", buildIntent(new RecognizerSettings[]{aztec}, Pdf417ScanActivity.class, null));
     }
 
     private ListElement buildVehicleSegmentScanElement() {
