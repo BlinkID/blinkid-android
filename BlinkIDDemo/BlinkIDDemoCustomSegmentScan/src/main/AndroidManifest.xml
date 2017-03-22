@@ -32,7 +32,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-        android:largeHeap="true" >
+        android:largeHeap="true"
+        android:extractNativeLibs="false">
         <activity
             android:name="com.microblink.blinkid.ScanActivity"
             android:label="@string/title_activity_scan"
