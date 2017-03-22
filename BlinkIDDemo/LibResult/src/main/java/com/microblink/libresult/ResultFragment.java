@@ -18,6 +18,7 @@ import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.austria.AustrianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.barcode.AztecRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.BardecoderRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.ZXingRecognitionResultExtractor;
@@ -44,6 +45,7 @@ import com.microblink.libresult.extract.slovenia.SlovenianIDBackRecognitionResul
 import com.microblink.libresult.extract.slovenia.SlovenianIDFrontRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
+import com.microblink.recognizers.blinkbarcode.aztec.AztecScanResult;
 import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberScanResult;
@@ -164,6 +166,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new BardecoderRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SimNumberScanResult) {
             mResultExtractor = new SimNumberRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof AztecScanResult) {
+            mResultExtractor = new AztecRecognitionResultExtractor(getActivity());
         } else if (mData instanceof BlinkOCRRecognitionResult) {
             mResultExtractor = new BlinkOcrRecognitionResultExtractor(getActivity());
         } else if (mData instanceof MyKadRecognitionResult) {
