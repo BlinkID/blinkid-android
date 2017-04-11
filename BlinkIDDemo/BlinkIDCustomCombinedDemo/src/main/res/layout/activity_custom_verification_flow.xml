@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CustomVerificationFlowActivity">
+
+    <FrameLayout
+        android:id="@+id/rootRecognizerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.microblink.view.recognition.RecognizerView
+            android:id="@+id/recognizerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:animateRotation="true"
+            custom:animationDuration="250"
+            custom:initialOrientation="portrait"/>
+
+    </FrameLayout>
+
+</LinearLayout>

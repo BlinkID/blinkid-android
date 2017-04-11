@@ -1,1 +1,1 @@
-include ':BlinkIDDemo', ':BlinkIDDemoCustomUI', ':BlinkIDDirectApiDemo', ':BlinkIDDemoCustomSegmentScan', ':LibResult', ':BlinkIDDetectorDemo', ':BlinkIDRandomScanDemo', ':BlinkIDImageListenerDemo'
+include ':BlinkIDDemo', ':BlinkIDDemoCustomUI', ':BlinkIDDirectApiDemo', ':BlinkIDDemoCustomSegmentScan', ':LibResult', ':BlinkIDDetectorDemo', ':BlinkIDRandomScanDemo', ':BlinkIDImageListenerDemo', ':BlinkIDCustomCombinedDemo'
