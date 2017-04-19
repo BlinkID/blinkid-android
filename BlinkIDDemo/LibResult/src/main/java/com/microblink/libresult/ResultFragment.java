@@ -31,8 +31,10 @@ import com.microblink.libresult.extract.czechia.CzechIDBackSideRecognitionResult
 import com.microblink.libresult.extract.czechia.CzechIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.czechia.CzechIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.eudl.EUDLRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.germany.GermanIDMRZSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanOldIDRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
@@ -67,8 +69,10 @@ import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognitio
 import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
+import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognitionResult;
-import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognitionResult;
+import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognitionResult;
+import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
@@ -156,10 +160,14 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new CzechIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CzechIDCombinedRecognitionResult) {
             mResultExtractor = new CzechIDCombinedRecognitionResultExtractor(getActivity());
-        } else if (mData instanceof GermanIDMRZSideRecognitionResult) {
-            mResultExtractor = new GermanIDMRZSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof GermanIDBackSideRecognitionResult) {
+            mResultExtractor = new GermanIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanIDFrontSideRecognitionResult) {
             mResultExtractor = new GermanIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof GermanOldIDRecognitionResult) {
+            mResultExtractor = new GermanOldIDRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof GermanPassportRecognitionResult) {
+            mResultExtractor = new GermanPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof RomanianIDFrontSideRecognitionResult) {
             mResultExtractor = new RomanianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SlovakIDBackSideRecognitionResult) {

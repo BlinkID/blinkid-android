@@ -81,6 +81,13 @@
     <string name="PPValidFrom">Valid from</string>
     <string name="PPValidUntil">Valid until</string>
 
+    <!-- German ID specific -->
+    <string name="PPAddressZipCode">Address ZIP code</string>
+    <string name="PPAddressStreet">Address street</string>
+    <string name="PPAddressCity">Address city</string>
+    <string name="PPAddressState">Address state</string>
+    <string name="PPAddressHouseNumber">Address house number</string>
+
     <!-- Combined extractors -->
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
 
