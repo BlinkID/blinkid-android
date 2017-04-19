@@ -1,5 +1,46 @@
 # Release notes
 
+## 3.7.0
+
+- updated German ID recognizers:
+    - instead of `GermanIDMRZSideRecognizer`, which was used for scanning front side of the older ID cards and back side of the new ID cards, there are two specialised recognizers:  `GermanIDBackSideRecognizer`  and `GermanOldIDRecognizer`
+    - improved scanning accuracy of the `GermanIDFrontSideRecognizer` (name and surname)
+    - splitting address from back side of the new German ID (GermanIDBackSideRecognizer) to ZIP code, city, street and house number
+
+- better support for German passports: `GermanPassportRecognizer` reads passport data from MRZ and fields outside of the MRZ 
+
+- splitting address in `MyKadRecognizer` to street, ZIP code, city and state
+
+- improved Croatian ID recognizers:
+    - multiple scans are used for better confidence
+
+- `TopUpParser` improvements
+
+- `DateParser` can parse dates with month names in English (either full or abbreviated), if this option is enabled
+
+- added support for polish IBAN without PL prefix to `IBANParser`
+
+- fixed returning of images inside TemplatingAPI for frames when document was not correctly detected
+
+- introduced combined recognizers:
+    - `AustrianIDCombinedRecognizer`: scans front and back side of the Austrian ID
+    - `CroatianIDCombinedRecognizer`: scans front and back side of the Croatian ID
+    - `CzechIDCombinedRecognizer`: scans front and back side of the Czech ID
+    - `MRTDCombinedRecognizer`: scans face image from any type of the document and Machine Readable Zone
+    - `SerbianIDCombinedRecognizer`: scans front and back side of the Serbian ID
+    - `SingaporeIDCombinedRecognizer`: scans front and back side of the Singapore ID
+    - `SlovakIDCombinedRecognizer`: scans front and back side of the Slovak ID
+    - `SlovenianIDCombinedRecognizer`: scans front and back side of the Slovenian ID
+
+    Combined recognizers can be used for scanning multiple parts/sides of the document in predefined order. They combine results from individual scans to boost accuracy and merge them into the final result.
+
+- added `VerificationFlowActivity` which is designed for scanning multiple parts/sides of the document by using provided combined recognizers
+
+- optimised native binary size
+    - 15% size reduction for `arm64-v8a` ABI
+    - 14% size reduction for `x86` ABI
+    - 13% size reduction for `armeabi-v7a` and `x86_64 ABIs
+
 ## 3.6.0
 
 - added `AztecRecognizer` for scanning Aztec barcodes
