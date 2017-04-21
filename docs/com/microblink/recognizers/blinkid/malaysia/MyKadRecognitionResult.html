@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -213,44 +213,68 @@ extends <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerAddress--">getOwnerAddress</a></span>()</code>
-<div class="block">Returns owner address</div>
+<div class="block">Returns full owner address.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerAddressCity--">getOwnerAddressCity</a></span>()</code>
+<div class="block">Returns extracted city from the owner address.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerAddressState--">getOwnerAddressState</a></span>()</code>
+<div class="block">Returns extracted state from the owner address.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerAddressStreet--">getOwnerAddressStreet</a></span>()</code>
+<div class="block">Returns extracted street from the owner address.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerAddressZipCode--">getOwnerAddressZipCode</a></span>()</code>
+<div class="block">Returns extracted ZIP code from the owner address.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.util.Date</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerBirthDate--">getOwnerBirthDate</a></span>()</code>
 <div class="block">Returns owner's date of birth if it is successfully converted to <code>Date</code> from date format: <code>YYMMDD</code>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerFullName--">getOwnerFullName</a></span>()</code>
 <div class="block">Returns owner full name</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerReligion--">getOwnerReligion</a></span>()</code>
 <div class="block">Returns owner religion if written on MyKad</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getOwnerSex--">getOwnerSex</a></span>()</code>
 <div class="block">Returns owner sex (M for male, F for female)</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getRawBirthDate--">getRawBirthDate</a></span>()</code>
 <div class="block">Returns owner's date of birth as raw string in format <code>YYMMDD</code>.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>
@@ -263,7 +287,7 @@ extends <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.<a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html" title="class in com.microblink.recognizers">BaseRecognitionResult</a></h3>
-<code><a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getBooleanElement-java.lang.String-">getBooleanElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
+<code><a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getBooleanElement-java.lang.String-">getBooleanElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignature--">getSignature</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignatureVersion--">getSignatureVersion</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -406,10 +430,70 @@ public&nbsp;java.lang.String&nbsp;getOwnerFullName()</pre>
 <h4>getOwnerAddress</h4>
 <pre>@Nullable
 public&nbsp;java.lang.String&nbsp;getOwnerAddress()</pre>
-<div class="block">Returns owner address</div>
+<div class="block">Returns full owner address.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>owner address</dd>
+<dd>full owner address.</dd>
+</dl>
+</li>
+</ul>
+<a name="getOwnerAddressZipCode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOwnerAddressZipCode</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getOwnerAddressZipCode()</pre>
+<div class="block">Returns extracted ZIP code from the owner address.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extracted ZIP code from the owner address.</dd>
+</dl>
+</li>
+</ul>
+<a name="getOwnerAddressStreet--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOwnerAddressStreet</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getOwnerAddressStreet()</pre>
+<div class="block">Returns extracted street from the owner address.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extracted street from the owner address.</dd>
+</dl>
+</li>
+</ul>
+<a name="getOwnerAddressCity--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOwnerAddressCity</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getOwnerAddressCity()</pre>
+<div class="block">Returns extracted city from the owner address.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extracted city from the owner address.</dd>
+</dl>
+</li>
+</ul>
+<a name="getOwnerAddressState--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOwnerAddressState</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getOwnerAddressState()</pre>
+<div class="block">Returns extracted state from the owner address.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extracted state from the owner address.</dd>
 </dl>
 </li>
 </ul>

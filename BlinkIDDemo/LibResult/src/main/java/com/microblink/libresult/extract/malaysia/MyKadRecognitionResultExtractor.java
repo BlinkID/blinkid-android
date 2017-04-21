@@ -9,6 +9,7 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,7 +37,17 @@ public class MyKadRecognitionResultExtractor implements IBaseRecognitionResultEx
 
             mExtractedData.add(mBuilder.build(R.string.PPFullName, myKadResult.getOwnerFullName()));
             mExtractedData.add(mBuilder.build(R.string.PPAddress, myKadResult.getOwnerAddress()));
-            mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, myKadResult.getOwnerBirthDate()));
+            mExtractedData.add(mBuilder.build(R.string.PPAddressStreet, myKadResult.getOwnerAddressStreet()));
+            mExtractedData.add(mBuilder.build(R.string.PPAddressZipCode, myKadResult.getOwnerAddressZipCode()));
+            mExtractedData.add(mBuilder.build(R.string.PPAddressCity, myKadResult.getOwnerAddressCity()));
+            mExtractedData.add(mBuilder.build(R.string.PPAddressState, myKadResult.getOwnerAddressState()));
+
+            Date birthDate = myKadResult.getOwnerBirthDate();
+            if (birthDate != null) {
+                mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, birthDate));
+            } else {
+                mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, myKadResult.getRawBirthDate()));
+            }
             mExtractedData.add(mBuilder.build(R.string.PPSex, myKadResult.getOwnerSex()));
             mExtractedData.add(mBuilder.build(R.string.PPReligion, myKadResult.getOwnerReligion()));
             mExtractedData.add(mBuilder.build(R.string.PPNRICNumber, myKadResult.getNRICNumber()));

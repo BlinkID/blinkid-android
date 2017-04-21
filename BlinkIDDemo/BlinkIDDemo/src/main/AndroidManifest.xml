@@ -36,6 +36,11 @@
             android:name="com.microblink.libresult.ResultActivity"
             android:screenOrientation="sensor" >
         </activity>
+        <activity
+            android:name="com.microblink.activity.VerificationFlowActivity"
+            android:theme="@style/VerificationFlowTheme">
+        </activity>
+
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ import com.microblink.activity.ScanActivity;
 import com.microblink.activity.ScanCard;
 import com.microblink.activity.SegmentScanActivity;
 import com.microblink.activity.ShowOcrResultMode;
+import com.microblink.activity.VerificationFlowActivity;
 import com.microblink.help.HelpActivity;
 import com.microblink.libresult.ResultActivity;
 import com.microblink.ocr.ScanConfiguration;
@@ -29,27 +30,37 @@ import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
+import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.mrz.GermanIDMRZSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
+import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.romania.front.RomanianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.singapore.back.SingaporeIDBackRecognizerSettings;
+import com.microblink.recognizers.blinkid.singapore.combined.SingaporeIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.singapore.front.SingaporeIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.slovakia.combined.SlovakIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
 import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
@@ -60,6 +71,7 @@ import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 import com.microblink.util.templating.CroatianIDBackSide;
 import com.microblink.util.templating.CroatianIDFrontSide;
+import com.microblink.view.recognition.RecognitionType;
 
 import java.util.ArrayList;
 
@@ -116,32 +128,16 @@ public class MenuActivity extends Activity {
         if (requestCode == MY_BLINKID_REQUEST_CODE) {
 
             // make sure BlinkID activity returned result
-            if (resultCode == ScanActivity.RESULT_OK && data != null) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
 
-                // depending on settings, we may have multiple scan results.
-                // we first need to obtain list of recognition results
                 Bundle extras = data.getExtras();
-                RecognitionResults results = data.getParcelableExtra(ScanActivity.EXTRAS_RECOGNITION_RESULTS);
-                BaseRecognitionResult[] resArray = null;
-                if (results != null) {
-                    // get array of recognition results
-                    resArray = results.getRecognitionResults();
-                }
-                if (resArray != null) {
-                    Log.i(this, "Data count: " + resArray.length);
-                    int i = 1;
-
-                    for (BaseRecognitionResult res : resArray) {
-                        Log.i(this, "Data #" + Integer.valueOf(i++).toString());
-
-                        // Each element in resultArray inherits BaseRecognitionResult class and
-                        // represents the scan result of one of activated recognizers that have
-                        // been set up.
-
-                        res.log();
+                if (extras != null && extras.getParcelable(ScanActivity.EXTRAS_RECOGNITION_RESULTS) == null) {
+                    // VerificationFlowActivity does not return results as RecognitionResults object, prepare RecognitionResults
+                    // from combined recognizer result
+                    BaseRecognitionResult combinedResult = extras.getParcelable(VerificationFlowActivity.EXTRAS_COMBINED_RECOGNITION_RESULT);
+                    if (combinedResult != null) {
+                        data.putExtra(ScanActivity.EXTRAS_RECOGNITION_RESULTS, new RecognitionResults(new BaseRecognitionResult[]{combinedResult}, RecognitionType.SUCCESSFUL));
                     }
-                } else {
-                    Log.e(this, "Unable to retrieve recognition results!");
                 }
 
                 // set intent's component to ResultActivity and pass its contents
@@ -238,6 +234,19 @@ public class MenuActivity extends Activity {
     }
 
     /**
+     * This method will build scan intent for {@link com.microblink.activity.VerificationFlowActivity}
+     * with given combined recognizer settings.
+     * @param combinedRecognizerSettings settings for the combined recognizer that will be used.
+     */
+    private Intent buildCombinedIntent(CombinedRecognizerSettings combinedRecognizerSettings) {
+        Intent intent = new Intent(this, VerificationFlowActivity.class);
+        intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
+        intent.putExtra(VerificationFlowActivity.EXTRAS_COMBINED_RECOGNIZER_SETTINGS, combinedRecognizerSettings);
+        intent.putExtra(VerificationFlowActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
+        return intent;
+    }
+
+    /**
      * Builds intent for segment scan.
      * @param configArray Array of scan configurations. Each scan configuration
      *          contains 4 elements: resource ID for title displayed
@@ -273,16 +282,24 @@ public class MenuActivity extends Activity {
         // ID document list entry
         elements.add(buildMrtdElement());
         elements.add(buildAustrianIDElement());
+        elements.add(buildAustrianIDCombinedElement());
         elements.add(buildCroatianIDElement());
+        elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzechIDElement());
-        elements.add( buildGermanIDElement() );
+        elements.add(buildChechIDCombinedElement());
+        elements.add(buildGermanIDElement());
+        elements.add(buildGermanPassportElement());
         elements.add(buildMyKadElement());
-        elements.add( buildIKadElement() );
-        elements.add( bildRomanianElement() );
+        elements.add(buildIKadElement());
+        elements.add(bildRomanianElement());
         elements.add(buildSingaporeIDElement());
+        elements.add(buildSingaporeIDCombinedElement());
         elements.add(buildSerbianIDElement());
+        elements.add(buildSerbianIDCombinedElement());
         elements.add(buildSlovakIDElement());
-        elements.add( buildSlovenianIDElement() );
+        elements.add(buildSlovakIDCombinedElement());
+        elements.add(buildSlovenianIDElement());
+        elements.add(buildSlovenianIDCombinedElement());
 
         // DL list entries
         elements.add(buildAustrianDLElement());
@@ -297,7 +314,7 @@ public class MenuActivity extends Activity {
 //        elements.add( buildAztecElement() );
         elements.add(buildPDF417Element());
         elements.add(buildBardecoderElement());
-        elements.add( buildSimNumberElement() );
+        elements.add(buildSimNumberElement());
         elements.add(buildZXingElement());
 
         // Blink OCR entries
@@ -343,9 +360,16 @@ public class MenuActivity extends Activity {
 
     private ListElement buildGermanIDElement() {
         GermanIDFrontSideRecognizerSettings deFront = new GermanIDFrontSideRecognizerSettings();
-        GermanIDMRZSideRecognizerSettings deMRZ = new GermanIDMRZSideRecognizerSettings();
+        GermanIDBackSideRecognizerSettings deBack = new GermanIDBackSideRecognizerSettings();
+        GermanOldIDRecognizerSettings deOld = new GermanOldIDRecognizerSettings();
 
-        return new ListElement( "German ID", buildIntent( new RecognizerSettings[] { deFront, deMRZ }, ScanCard.class, null ));
+        return new ListElement( "German ID", buildIntent( new RecognizerSettings[] { deFront, deBack, deOld }, ScanCard.class, null ));
+    }
+
+    private ListElement buildGermanPassportElement() {
+        GermanPassportRecognizerSettings dePassport = new GermanPassportRecognizerSettings();
+
+        return new ListElement("German Passport", buildIntent(new RecognizerSettings[]{dePassport}, ScanCard.class, null));
     }
 
     private ListElement buildSingaporeIDElement() {
@@ -432,6 +456,48 @@ public class MenuActivity extends Activity {
         RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
 
         return new ListElement("Romanian ID", buildIntent( new RecognizerSettings[] { romanianSettings }, ScanCard.class, null ));
+    }
+
+    private ListElement buildCroatianIDCombinedElement() {
+        CroatianIDCombinedRecognizerSettings croIDCombined = new CroatianIDCombinedRecognizerSettings();
+
+        return new ListElement("Croatian ID combined", buildCombinedIntent(croIDCombined));
+    }
+
+    private ListElement buildSerbianIDCombinedElement() {
+        SerbianIDCombinedRecognizerSettings serbianIDCombined = new SerbianIDCombinedRecognizerSettings();
+
+        return new ListElement("Serbian ID combined", buildCombinedIntent(serbianIDCombined));
+    }
+
+    private ListElement buildSlovenianIDCombinedElement() {
+        SlovenianIDCombinedRecognizerSettings svnIDCombined = new SlovenianIDCombinedRecognizerSettings();
+
+        return new ListElement("Slovenian ID combined", buildCombinedIntent(svnIDCombined));
+    }
+
+    private ListElement buildSlovakIDCombinedElement() {
+        SlovakIDCombinedRecognizerSettings svkIDCombined = new SlovakIDCombinedRecognizerSettings();
+
+        return new ListElement("Slovak ID combined", buildCombinedIntent(svkIDCombined));
+    }
+
+    private ListElement buildSingaporeIDCombinedElement() {
+        SingaporeIDCombinedRecognizerSettings singaporeIDCombined = new SingaporeIDCombinedRecognizerSettings();
+
+        return new ListElement("Singapore ID combined", buildCombinedIntent(singaporeIDCombined));
+    }
+
+    private ListElement buildChechIDCombinedElement() {
+        CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
+
+        return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
+    }
+
+    private ListElement buildAustrianIDCombinedElement() {
+        AustrianIDCombinedRecognizerSettings ausIDCombined = new AustrianIDCombinedRecognizerSettings();
+
+        return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
     }
 
     private ListElement buildPDF417Element() {

@@ -18,3 +18,4 @@ script:
     - ./gradlew clean :BlinkIDDirectApiDemo:assembleRelease
     - ./gradlew clean :BlinkIDRandomScanDemo:assembleRelease
     - ./gradlew clean :BlinkIDImageListenerDemo:assembleRelease
+    - ./gradlew clean :BlinkIDCustomCombinedDemo:assembleRelease

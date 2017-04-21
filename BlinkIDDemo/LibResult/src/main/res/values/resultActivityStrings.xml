@@ -20,6 +20,7 @@
     <string name="PPOpt1">OPT1</string>
     <string name="PPOpt2">OPT2</string>
     <string name="PPMRZText">MRZ text</string>
+    <string name="PPMRZVerified">MRZ verified</string>
 
     <!-- UKDL -->
     <string name="PPFirstName">First name</string>
@@ -38,6 +39,10 @@
     <string name="PPBarcodeType">Barcode type</string>
     <string name="PPExtendedBarcodeData">Extended barcode data</string>
     <string name="PPSimNumber">Sim number</string>
+
+    <!-- Croatian ID specific -->
+    <string name="PPDocumentForNonResidents">Document for non residents</string>
+    <string name="PPDocumentBilingual">Document bilingual</string>
 
     <!-- MyKad specific -->
     <string name="PPFullName">Full name</string>
@@ -75,5 +80,15 @@
     <string name="PPParentNames">Parent names</string>
     <string name="PPValidFrom">Valid from</string>
     <string name="PPValidUntil">Valid until</string>
+
+    <!-- German ID specific -->
+    <string name="PPAddressZipCode">Address ZIP code</string>
+    <string name="PPAddressStreet">Address street</string>
+    <string name="PPAddressCity">Address city</string>
+    <string name="PPAddressState">Address state</string>
+    <string name="PPAddressHouseNumber">Address house number</string>
+
+    <!-- Combined extractors -->
+    <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
 
 </resources>
