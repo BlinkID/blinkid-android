@@ -122,7 +122,9 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public static enum <span class="typeNameLabel">DateParserSettings.DateFormat</span>
 extends java.lang.Enum&lt;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a>&gt;</pre>
-<div class="block">Available date formats for date parser.</div>
+<div class="block">Available date formats for date parser. To activate parsing of dates with month names in
+ English, use formats which contain <code>MONTH</code>, e.g. <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_DDMONTHYYYY"><code>DATE_FORMAT_DDMONTHYYYY</code></a>.
+ Month names in uppercase and short month names are supported (for example March and Mar).</div>
 </li>
 </ul>
 </div>
@@ -147,16 +149,34 @@ extends java.lang.Enum&lt;<a href="../../../../../../com/microblink/recognizers/
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_DDMMYYYY">DATE_FORMAT_DDMMYYYY</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_DDMONTHYY">DATE_FORMAT_DDMONTHYY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_DDMONTHYYYY">DATE_FORMAT_DDMONTHYYYY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_MMDDYY">DATE_FORMAT_MMDDYY</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_MMDDYYYY">DATE_FORMAT_MMDDYYYY</a></span></code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_MONTHDDYY">DATE_FORMAT_MONTHDDYY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_MONTHDDYYYY">DATE_FORMAT_MONTHDDYYYY</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_YYMMDD">DATE_FORMAT_YYMMDD</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_YYMONTHDD">DATE_FORMAT_YYMONTHDD</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_YYYYMMDD">DATE_FORMAT_YYYYMMDD</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html#DATE_FORMAT_YYYYMONTHDD">DATE_FORMAT_YYYYMONTHDD</a></span></code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -263,10 +283,64 @@ the order they are declared.</div>
 <a name="DATE_FORMAT_YYMMDD">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>DATE_FORMAT_YYMMDD</h4>
 <pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_YYMMDD</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_DDMONTHYYYY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATE_FORMAT_DDMONTHYYYY</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_DDMONTHYYYY</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_DDMONTHYY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATE_FORMAT_DDMONTHYY</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_DDMONTHYY</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_MONTHDDYYYY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATE_FORMAT_MONTHDDYYYY</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_MONTHDDYYYY</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_MONTHDDYY">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATE_FORMAT_MONTHDDYY</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_MONTHDDYY</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_YYYYMONTHDD">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>DATE_FORMAT_YYYYMONTHDD</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_YYYYMONTHDD</pre>
+</li>
+</ul>
+<a name="DATE_FORMAT_YYMONTHDD">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>DATE_FORMAT_YYMONTHDD</h4>
+<pre>public static final&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.DateFormat.html" title="enum in com.microblink.recognizers.blinkocr.parser.generic">DateParserSettings.DateFormat</a> DATE_FORMAT_YYMONTHDD</pre>
 </li>
 </ul>
 </li>

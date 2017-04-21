@@ -16,6 +16,7 @@ com.microblink.hardware.orientation
 com.microblink.image
 com.microblink.locale
 com.microblink.metadata
+com.microblink.metadata.liveness
 com.microblink.ocr
 com.microblink.recognition
 com.microblink.recognizers
@@ -38,13 +39,16 @@ com.microblink.recognizers.blinkid.czechia.combined
 com.microblink.recognizers.blinkid.czechia.front
 com.microblink.recognizers.blinkid.documentface
 com.microblink.recognizers.blinkid.eudl
+com.microblink.recognizers.blinkid.germany.back
 com.microblink.recognizers.blinkid.germany.front
-com.microblink.recognizers.blinkid.germany.mrz
+com.microblink.recognizers.blinkid.germany.old.front
+com.microblink.recognizers.blinkid.germany.passport
 com.microblink.recognizers.blinkid.malaysia
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.mrtd.combined
 com.microblink.recognizers.blinkid.romania.front
 com.microblink.recognizers.blinkid.serbia.back
+com.microblink.recognizers.blinkid.serbia.combined
 com.microblink.recognizers.blinkid.serbia.front
 com.microblink.recognizers.blinkid.singapore.back
 com.microblink.recognizers.blinkid.singapore.combined
@@ -73,4 +77,6 @@ com.microblink.results.ocr
 com.microblink.util
 com.microblink.view
 com.microblink.view.recognition
+com.microblink.view.viewfinder
+com.microblink.view.viewfinder.managers
 com.microblink.view.viewfinder.quadview
