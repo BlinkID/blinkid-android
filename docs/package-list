@@ -59,6 +59,7 @@ com.microblink.recognizers.blinkid.slovakia.front
 com.microblink.recognizers.blinkid.slovenia.back
 com.microblink.recognizers.blinkid.slovenia.combined
 com.microblink.recognizers.blinkid.slovenia.front
+com.microblink.recognizers.blinkid.usdl.combined
 com.microblink.recognizers.blinkocr
 com.microblink.recognizers.blinkocr.engine
 com.microblink.recognizers.blinkocr.parser
