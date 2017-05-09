@@ -17,9 +17,9 @@
             android:id="@+id/recognizerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            custom:animateRotation="true"
-            custom:animationDuration="250"
-            custom:initialOrientation="portrait"/>
+            custom:mb_animateRotation="true"
+            custom:mb_animationDuration="250"
+            custom:mb_initialOrientation="portrait"/>
 
     </FrameLayout>
 

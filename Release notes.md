@@ -1,5 +1,14 @@
 # Release notes
 
+## 3.7.1
+
+- prefixed custom attributes to avoid name collisions with attributes from other libraries:
+    - `CameraViewGroup`: renamed animateRotation to `mb_animateRotation`, animationDuration to `mb_animationDuration`, rotatable to `mb_rotatable`
+    - `BaseCameraView`:  renamed initialOrientation to `mb_initialOrientation`, aspectMode to `mb_aspectMode`
+- improved `MRTDRecognizer`:
+    - WSA (World Goverment of World Citizens) added as valid country code when parsing MRZ
+- added `USDLCombinedRecognizer`: scans face image and USDL barcode
+
 ## 3.7.0
 
 - updated German ID recognizers:

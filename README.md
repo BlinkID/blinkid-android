@@ -78,6 +78,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning and combining results from front and back side of Slovenian ID documents](#slovenianIDCombined)
   * [Scanning front side of Romanian ID documents](#romanianID_front)
   * [Scanning US Driver's licence barcodes](#usdl)
+  * [Scanning and combining results from front and back side of US Driver's licence](#usdlCombined)
   * [Scanning EU driver's licences](#eudl)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning Malaysian iKad documents](#iKad)
@@ -164,7 +165,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.7.0@aar') {
+    compile('com.microblink:blinkid:3.7.1@aar') {
     	transitive = true
     }
 }
@@ -185,7 +186,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.7.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.7.1` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -210,7 +211,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.7.0</version>
+		  <version>3.7.1</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -226,7 +227,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
    		compile project(':LibBlinkID')
- 		compile "com.android.support:appcompat-v7:25.3.0"
+ 		compile "com.android.support:appcompat-v7:25.3.1"
 	}
 	```
 5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
@@ -3027,6 +3028,76 @@ This method will return the object that contains information about barcode's bin
 
 ##### `getField(String)`
 This method will return a parsed US Driver's licence element. The method requires a key that defines which element should be returned and returns either a string representation of that element or `null` if that element does not exist in barcode. To see a list of available keys, refer to [Keys for obtaining US Driver's license data](DriversLicenseKeys.md)
+
+## <a name="usdlCombined"></a> Scanning and combining results from front and back side of US Driver's licence
+
+This section will discuss the setting up of USDL Combined Recognizer and obtaining results from it. This recognizer can be used for obtaining face image from the document and USDL barcode scan result in two steps. First, face image should be scanned (from the front side) and then recognizer initializes itself for scanning the USDL barcode.
+
+### Setting up USDL combined recognizer
+
+To activate USDL combined recognizer, you need to create [USDLCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    USDLCombinedRecognizerSettings sett = new USDLCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [USDLCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the face image is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to scan the USDL barcode (back side of the document). See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof DocumentFaceRecognitionResult) {
+            // notify user to scan the USDL barcode
+        }
+    }
+}
+```
+
+### Obtaining results from USDL combined recognizer
+
+USDL combined recognizer produces [USDLCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `USDLCombinedRecognitionResult` class. 
+
+**Note:** `USDLCombinedRecognitionResult` extends [USDLScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/usdl/USDLScanResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof USDLCombinedRecognitionResult) {
+            USDLCombinedRecognitionResult result = (USDLCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of USDLCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.isDocumentDataMatch()) {
+                   // face and USDL are not from the same document
+                } else {
+                    String firstName = result.getField(USDLScanResult.kCustomerFirstName);
+                    String familyName = result.getField(USDLScanResult.kCustomerFamilyName);
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html).**
 
 ## <a name="eudl"></a> Scanning EU driver's licences
 

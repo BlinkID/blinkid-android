@@ -647,6 +647,8 @@
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/recognizers/blinkid/slovenia/front/package-summary.html">com.microblink.recognizers.blinkid.slovenia.front</a> - package com.microblink.recognizers.blinkid.slovenia.front</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/microblink/recognizers/blinkid/usdl/combined/package-summary.html">com.microblink.recognizers.blinkid.usdl.combined</a> - package com.microblink.recognizers.blinkid.usdl.combined</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/microblink/recognizers/blinkocr/package-summary.html">com.microblink.recognizers.blinkocr</a> - package com.microblink.recognizers.blinkocr</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/recognizers/blinkocr/engine/package-summary.html">com.microblink.recognizers.blinkocr.engine</a> - package com.microblink.recognizers.blinkocr.engine</dt>
@@ -997,6 +999,10 @@
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html#CREATOR">CREATOR</a></span> - Static variable in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognitionResult</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html#CREATOR">CREATOR</a></span> - Static variable in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognizerSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#CREATOR">CREATOR</a></span> - Static variable in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#CREATOR">CREATOR</a></span> - Static variable in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html#CREATOR">CREATOR</a></span> - Static variable in class com.microblink.recognizers.blinkocr.<a href="com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognitionResult</a></dt>
 <dd>&nbsp;</dd>
@@ -1743,7 +1749,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/activity/BaseVerificationFlowActivity.html#EXTRAS_SCAN_RESULT_LISTENER">EXTRAS_SCAN_RESULT_LISTENER</a></span> - Static variable in class com.microblink.activity.<a href="com/microblink/activity/BaseVerificationFlowActivity.html" title="class in com.microblink.activity">BaseVerificationFlowActivity</a></dt>
 <dd>
-<div class="block">Key for passing a <code>ParcelableScanResultListener</code> with callback that will be called when
+<div class="block">Key for passing a <a href="com/microblink/view/recognition/ParcelableScanResultListener.html" title="interface in com.microblink.view.recognition"><code>ParcelableScanResultListener</code></a> with callback that will be called when
  valid recognition result is available (for each result that is produced by activated recognizers).</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/activity/RandomScanActivity.html#EXTRAS_SCAN_RESULTS">EXTRAS_SCAN_RESULTS</a></span> - Static variable in class com.microblink.activity.<a href="com/microblink/activity/RandomScanActivity.html" title="class in com.microblink.activity">RandomScanActivity</a></dt>
@@ -1979,6 +1985,11 @@
  contains face.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html#FACE_IMAGE_NAME">FACE_IMAGE_NAME</a></span> - Static variable in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognizerSettings</a></dt>
+<dd>
+<div class="block">Name of the image sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
+ contains face.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#FACE_IMAGE_NAME">FACE_IMAGE_NAME</a></span> - Static variable in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Name of the image sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
  contains face.</div>
@@ -2252,6 +2263,11 @@
  contains full document front side.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html#FULL_DOCUMENT_IMAGE_FRONT">FULL_DOCUMENT_IMAGE_FRONT</a></span> - Static variable in class com.microblink.recognizers.blinkid.slovenia.combined.<a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined">SlovenianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Name of the image sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
+ contains full document front side.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#FULL_DOCUMENT_IMAGE_FRONT">FULL_DOCUMENT_IMAGE_FRONT</a></span> - Static variable in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Name of the image sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
  contains full document front side.</div>
@@ -3013,6 +3029,12 @@
  <a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined"><code>SlovenianIDCombinedRecognizerSettings</code></a> and image has been successfully encoded
  during recognition process, else returns <code>null</code>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#getEncodedFaceImage--">getEncodedFaceImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded face image in JPEG format if image encoding has been enabled in
+ <a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined"><code>USDLCombinedRecognizerSettings</code></a> and image has been successfully encoded
+ during recognition process, else returns <code>null</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognitionResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.austria.combined.<a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.austria.combined">AustrianIDCombinedRecognitionResult</a></dt>
 <dd>
 <div class="block">Returns encoded full document image from the front side in JPEG format if image encoding
@@ -3059,6 +3081,12 @@
 <dd>
 <div class="block">Returns encoded full document image from the front side in JPEG format if image encoding
  has been enabled in <a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined"><code>SlovenianIDCombinedRecognizerSettings</code></a> and image has been
+ successfully encoded during recognition process, else returns <code>null</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns encoded full document image from the front side in JPEG format if image encoding
+ has been enabled in <a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined"><code>USDLCombinedRecognizerSettings</code></a> and image has been
  successfully encoded during recognition process, else returns <code>null</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/mrtd/combined/MRTDCombinedRecognitionResult.html#getEncodedMachineReadableZoneImage--">getEncodedMachineReadableZoneImage()</a></span> - Method in class com.microblink.recognizers.blinkid.mrtd.combined.<a href="com/microblink/recognizers/blinkid/mrtd/combined/MRTDCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd.combined">MRTDCombinedRecognitionResult</a></dt>
@@ -4216,6 +4244,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html#getTitle--">getTitle()</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognitionResult</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#getTitle--">getTitle()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/LibraryInfoResult.html#getTitle--">getTitle()</a></span> - Method in class com.microblink.recognizers.<a href="com/microblink/recognizers/LibraryInfoResult.html" title="class in com.microblink.recognizers">LibraryInfoResult</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/ocr/RandomScanElement.html#getTitleResource--">getTitleResource()</a></span> - Method in class com.microblink.ocr.<a href="com/microblink/ocr/RandomScanElement.html" title="class in com.microblink.ocr">RandomScanElement</a></dt>
@@ -4615,6 +4645,10 @@
 <dd>
 <div class="block">Returns <code>true</code> if both data on the front side of the document and on the back side of the document
  match, <code>false</code> otherwise.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#isDocumentDataMatch--">isDocumentDataMatch()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Returns <code>true</code> if data from all scanned parts of the document match, <code>false</code> otherwise.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/geometry/Quadrilateral.html#isEmpty--">isEmpty()</a></span> - Method in class com.microblink.geometry.<a href="com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a></dt>
 <dd>
@@ -6226,6 +6260,10 @@
 </a>
 <h2 class="title">P</h2>
 <dl>
+<dt><a href="com/microblink/view/recognition/ParcelableScanResultListener.html" title="interface in com.microblink.view.recognition"><span class="typeNameLink">ParcelableScanResultListener</span></a> - Interface in <a href="com/microblink/view/recognition/package-summary.html">com.microblink.view.recognition</a></dt>
+<dd>
+<div class="block">Scan result listener that can be passed to the activity by intent extras.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/view/BaseCameraView.html#pause--">pause()</a></span> - Method in class com.microblink.view.<a href="com/microblink/view/BaseCameraView.html" title="class in com.microblink.view">BaseCameraView</a></dt>
 <dd>
 <div class="block">This method must be called from activity's onPause.</div>
@@ -7223,6 +7261,11 @@
 <div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#setEncodeFaceImage-boolean-">setEncodeFaceImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.austria.combined.<a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.austria.combined">AustrianIDCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
@@ -7259,6 +7302,11 @@
  and written into the corresponding recognition result.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.combined.<a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined">SlovenianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
+ and written into the corresponding recognition result.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
  and written into the corresponding recognition result.</div>
@@ -7824,6 +7872,10 @@
 <dd>
 <div class="block">Sets whether face image from ID card should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#setReturnFaceImage-boolean-">setReturnFaceImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether face image from ID card should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html#setReturnFacePhoto-boolean-">setReturnFacePhoto(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.serbia.front.<a href="com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.serbia.front">SerbianIDFrontSideRecognizerSettings</a></dt>
 <dd>
 <div class="block">Sets whether face image from ID card should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
@@ -7857,6 +7909,10 @@
 <div class="block">Sets whether full document image should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.combined.<a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined">SlovenianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Sets whether full document image should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage(boolean)</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Sets whether full document image should be sent to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </dd>
@@ -8300,6 +8356,10 @@
 <dd>
 <div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#shouldEncodeFaceImage--">shouldEncodeFaceImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.austria.combined.<a href="com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.austria.combined">AustrianIDCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
@@ -8336,6 +8396,11 @@
  into the recognition result is enabled.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.combined.<a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined">SlovenianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
+ into the recognition result is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
  into the recognition result is enabled.</div>
@@ -8576,6 +8641,10 @@
 <dd>
 <div class="block">Returns whether sending of face image from ID card to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#shouldReturnFaceImage--">shouldReturnFaceImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether sending of face image from ID card to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html#shouldReturnFacePhoto--">shouldReturnFacePhoto()</a></span> - Method in class com.microblink.recognizers.blinkid.serbia.front.<a href="com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.serbia.front">SerbianIDFrontSideRecognizerSettings</a></dt>
 <dd>
 <div class="block">Returns whether sending of face image from ID card to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
@@ -8609,6 +8678,10 @@
 <div class="block">Returns whether sending of full document image to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.combined.<a href="com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.combined">SlovenianIDCombinedRecognizerSettings</a></dt>
+<dd>
+<div class="block">Returns whether sending of full document image to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage()</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>
 <div class="block">Returns whether sending of full document image to <a href="com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </dd>
@@ -9103,6 +9176,24 @@
 <h2 class="title">U</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/RecognitionResultConstants.html#UNCERTAIN">UNCERTAIN</a></span> - Static variable in interface com.microblink.recognizers.<a href="com/microblink/recognizers/RecognitionResultConstants.html" title="interface in com.microblink.recognizers">RecognitionResultConstants</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined"><span class="typeNameLink">USDLCombinedRecognitionResult</span></a> - Class in <a href="com/microblink/recognizers/blinkid/usdl/combined/package-summary.html">com.microblink.recognizers.blinkid.usdl.combined</a></dt>
+<dd>
+<div class="block">Represents a result of scanning of face from front side of documents and USDL barcode from back side of
+ US driver's license.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#USDLCombinedRecognitionResult-long-boolean-boolean-">USDLCombinedRecognitionResult(long, boolean, boolean)</a></span> - Constructor for class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>
+<div class="block">Creates the RecognitionData object.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html#USDLCombinedRecognitionResult-android.os.Parcel-">USDLCombinedRecognitionResult(Parcel)</a></span> - Constructor for class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognitionResult</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined"><span class="typeNameLink">USDLCombinedRecognizerSettings</span></a> - Class in <a href="com/microblink/recognizers/blinkid/usdl/combined/package-summary.html">com.microblink.recognizers.blinkid.usdl.combined</a></dt>
+<dd>
+<div class="block">Recognition Settings for combined reading of face from front side of documents and USDL barcode from back side of
+ US driver's license.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#USDLCombinedRecognizerSettings--">USDLCombinedRecognizerSettings()</a></span> - Constructor for class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html" title="class in com.microblink.recognizers.blinkbarcode.usdl"><span class="typeNameLink">USDLRecognizerSettings</span></a> - Class in <a href="com/microblink/recognizers/blinkbarcode/usdl/package-summary.html">com.microblink.recognizers.blinkbarcode.usdl</a></dt>
 <dd>
@@ -9659,6 +9750,8 @@ the order they are declared.</div>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel(Parcel, int)</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognitionResult</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel(Parcel, int)</a></span> - Method in class com.microblink.recognizers.blinkid.slovenia.front.<a href="com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.slovenia.front">SlovenianIDFrontSideRecognizerSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel(Parcel, int)</a></span> - Method in class com.microblink.recognizers.blinkid.usdl.combined.<a href="com/microblink/recognizers/blinkid/usdl/combined/USDLCombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.usdl.combined">USDLCombinedRecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel(Parcel, int)</a></span> - Method in class com.microblink.recognizers.blinkocr.<a href="com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognitionResult</a></dt>
 <dd>&nbsp;</dd>
