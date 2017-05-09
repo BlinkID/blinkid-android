@@ -10,7 +10,7 @@
         android:id="@+id/recognizerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        custom:initialOrientation="portrait">
+        custom:mb_initialOrientation="portrait">
 
     </com.microblink.view.recognition.RecognizerView>
 

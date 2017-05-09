@@ -62,11 +62,11 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
 import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
 import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
-import com.microblink.util.Log;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 import com.microblink.util.templating.CroatianIDBackSide;
@@ -306,6 +306,7 @@ public class MenuActivity extends Activity {
         elements.add(buildGermanDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
+        elements.add(buildUsdlCombinedElement());
 
         // barcode list entries
 
@@ -498,6 +499,12 @@ public class MenuActivity extends Activity {
         AustrianIDCombinedRecognizerSettings ausIDCombined = new AustrianIDCombinedRecognizerSettings();
 
         return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
+    }
+
+    private ListElement buildUsdlCombinedElement() {
+        USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
+
+        return new ListElement("US Driver's License combined", buildCombinedIntent(usdlCombined));
     }
 
     private ListElement buildPDF417Element() {
