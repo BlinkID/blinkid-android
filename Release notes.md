@@ -1,5 +1,15 @@
 # Release notes
 
+## 3.8.0
+- introduced ability to create minimum-size AAR
+	- a separate static library distribution now exists which contains a script that you can configure with features you need and it creates a AAR file which only contains features you need - this includes minimum-size native binary and only required assets. The rest (resources and java classes) can be thrown-away by ProGuard.
+- `LibBlinkID` is now fully ProGuard-compatible, i.e. you no longer need to exclude `com.microblink.**` classes in your ProGuard configuration
+- removed support for Android 2.3 and Android 4.0 - minimum required Android version is now Android 4.1 (API level 16)
+	- devices with Android 4.0 and earlier take [less than 2% of market share](https://developer.android.com/about/dashboards/index.html#Platform) and is very costly to support them
+- removed `isItalic` and `isBold` getters from `OcrChar` class
+    - they always returned `false`, since OCR engine cannot accurately detect that
+- removed `setLineGroupingEnabled` and `isLineGroupingEnabled` from `BlinkOCREngineOptions` because disabling line grouping completely destroyed the OCR accuracy
+
 ## 3.7.1
 
 - prefixed custom attributes to avoid name collisions with attributes from other libraries:
