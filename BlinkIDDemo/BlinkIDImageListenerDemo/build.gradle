@@ -28,5 +28,10 @@ dependencies {
     compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
+
+    // uncomment this to use custom LibBlinkID build
+//    compile project(':LibBlinkID-release')
+//    compile "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
+
     compile project(':LibResult')
 }

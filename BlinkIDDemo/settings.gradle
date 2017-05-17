@@ -1,1 +1,3 @@
 include ':BlinkIDDemo', ':BlinkIDDemoCustomUI', ':BlinkIDDirectApiDemo', ':BlinkIDDemoCustomSegmentScan', ':LibResult', ':BlinkIDDetectorDemo', ':BlinkIDRandomScanDemo', ':BlinkIDImageListenerDemo', ':BlinkIDCustomCombinedDemo'
+// uncomment this line if you have customised build of LibBLinkID
+//include ':LibBlinkID-release'
