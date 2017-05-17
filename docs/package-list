@@ -40,6 +40,7 @@ com.microblink.recognizers.blinkid.czechia.front
 com.microblink.recognizers.blinkid.documentface
 com.microblink.recognizers.blinkid.eudl
 com.microblink.recognizers.blinkid.germany.back
+com.microblink.recognizers.blinkid.germany.combined
 com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.old.front
 com.microblink.recognizers.blinkid.germany.passport

@@ -104,6 +104,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Ensuring the final app gets all resources required by _BlinkID_](#sdkIntegrationIntoApp)
 * [Processor architecture considerations](#archConsider)
   * [Reducing the final size of your app](#reduceSize)
+  * [Creating customized build of _BlinkID_](#staticDistrib)
   * [Combining _BlinkID_ with other native libraries](#combineNativeLibraries)
 * [Troubleshooting](#troubleshoot)
   * [Integration problems](#integrationTroubleshoot)
@@ -165,19 +166,10 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.7.1@aar') {
+    compile('com.microblink:blinkid:3.8.0@aar') {
     	transitive = true
     }
 }
-```
-
-If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
-	
-```
--keep class com.microblink.** { *; }
--keepclassmembers class com.microblink.** { *; }
--dontwarn android.hardware.**
--dontwarn android.support.v4.**
 ```
 
 #### Import Javadoc to Android Studio
@@ -186,7 +178,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.7.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.8.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -211,7 +203,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.7.1</version>
+		  <version>3.8.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -229,14 +221,6 @@ Open your `pom.xml` file and add these directives as appropriate:
    		compile project(':LibBlinkID')
  		compile "com.android.support:appcompat-v7:25.3.1"
 	}
-	```
-5. If you plan to use ProGuard, add following lines to your `proguard-rules.pro`:
-	
-	```
-	-keep class com.microblink.** { *; }
-	-keepclassmembers class com.microblink.** { *; }
-	-dontwarn android.hardware.**
-	-dontwarn android.support.v4.**
 	```
 	
 ### <a name="androidStudio_importAAR_javadoc"></a> Import Javadoc to Android Studio
@@ -269,8 +253,7 @@ You’ve already created the project that contains almost everything you need. N
 2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
 3. Copy the contents of `assets` folder from `LibBlinkID.aar` into `assets` folder of target project. If `assets` folder in target project does not exist, create it.
 4. Clean and Rebuild your target project
-5. If you plan to use ProGuard, add same statements as in [Android studio guide](#quickIntegration) to your ProGuard configuration file.
-6. Add appcompat-v7 library to your workspace and reference it by target project (modern ADT plugin for Eclipse does this automatically for all new android projects).
+5. Add appcompat-v7 library to your workspace and reference it by target project (modern ADT plugin for Eclipse does this automatically for all new android projects).
 
 ## <a name="quickScan"></a> Performing your first scan
 1. You can start recognition process by starting `ScanCard` activity with Intent initialized in the following way:
@@ -451,7 +434,7 @@ Even before starting the scan activity, you should check if _BlinkID_ is support
 
 OpenGL ES 2.0 can be used to accelerate _BlinkID's_ processing but is not mandatory. However, it should be noted that if OpenGL ES 2.0 is not available processing time will be significantly large, especially on low end devices. 
 
-Android 2.3 is the minimum android version on which _BlinkID_ is supported. For best performance and compatibility, we recommend Android 5.0 or newer.
+Android 4.1 is the minimum android version on which _BlinkID_ is supported. For best performance and compatibility, we recommend Android 5.0 or newer.
 
 Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution cannot be too low. _BlinkID_ requires minimum 480p camera preview resolution in order to perform scan. It must be noted that camera preview resolution is not the same as the video record resolution, although on most devices those are the same. However, there are some devices that allow recording of HD video (720p resolution), but do not allow high enough camera preview resolution (for example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports video record resolution at 720p, but camera preview resolution is only 320p - _BlinkID_ does not work on that device).
 
@@ -3449,7 +3432,6 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html).**
-
 ## <a name="singaporeIDCombined"></a> Scanning and combining results from front and back side of Singapore ID documents
 
 This section will discuss the setting up of Singapore ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Singapore ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
@@ -3806,7 +3788,6 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberScanResult.html).**
-
 ## <a name="aztecRecognizer"></a> Scanning aztec barcodes
 
 This section discusses the settings for setting up aztec recognizer and explains how to obtain its results.
@@ -3847,7 +3828,6 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecScanResult.html).**
-
 ## <a name="blinkOCR"></a> Scanning segments with BlinkOCR recognizer
 
 This section discusses the setting up of BlinkOCR recognizer and obtaining results from it. You should also check the demo for example.
@@ -4389,9 +4369,9 @@ _BlinkID_ is distributed with both ARMv7, ARM64, x86 and x86_64 native library b
 
 ARMv7 architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkID_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON instruction sets. Most popular are those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2) fall into this category. Since these devices are old by today's standard, _BlinkID_ does not support them.
 
-ARM64 is the new processor architecture that some new high end devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with single instruction.
+ARM64 is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with single instruction.
 
-x86 architecture gives the ability to obtain native speed on x86 android devices, like [Prestigio 5430](http://www.gsmarena.com/prestigio_multiphone_5430_duo-5721.php). Without that, _BlinkID_ will not work on such devices, or it will be run on top of ARM emulator that is shipped with device - this will give a huge performance penalty.
+x86 architecture gives the ability to obtain native speed on x86 android devices, like [Asus Zenfone 4](http://www.gsmarena.com/asus_zenfone_4-5951.php). Without that, _BlinkID_ will not work on such devices, or it will be run on top of ARM emulator that is shipped with device - this will give a huge performance penalty.
 
 x86_64 architecture gives better performance than x86 on devices that use 64-bit Intel Atom processor.
 
@@ -4504,10 +4484,106 @@ However, removing a processor architecture has some consequences:
 
 Our recommendation is to include all architectures into your app - it will work on all devices and will provide best user experience. However, if you really need to reduce the size of your app, we recommend releasing separate version of your app for each processor architecture. It is easiest to do that with [APK splits](#reduceSize).
 
+
+## <a name="staticDistrib"></a> Creating customized build of _BlinkID_
+
+If techniques explained in paragraph [Reducing the final size of your app](#reduceSize) did not reduce the size enough for your convenience, you have the ability to create customised build of _BlinkID_ which will contain only features that you plan to use. Using customised build of _BlinkID_ can reduce your app size by more than 60% with respect to app size when using the generic build.
+
+In order to create customised build of _BlinkID_, you first need to download the _static distribution of BlinkID_. A valid production licence key is required in order to gain access to the download link of _BlinkID static distribution_. Once you have a valid production licence key, please contact our [support team](http://help.microblink.com) and ask them to provide you with the download link. After they give you access to the _static distribution of BlinkID_, you will be able to download it from you account at [MicroBlink Developer Dashboard](https://www.microblink.com/login).
+
+The _static distribution of BlinkID_ is a large zip file (several hundred megabytes) which contains static libraries of BlinkID's native code, all assets and a script which will build the customised build for you.
+
+### Prerequisites for creating customised build
+
+In order to create customised build of _BlinkID_, you will need following tools:
+
+- [Android development tools and SDK](https://developer.android.com/studio/index.html)
+- [Android NDK](https://developer.android.com/ndk/index.html) - best if installed from Android Studio's package manager
+- NDK CMake toolchain - you have to install that from Android Studio's package manager
+- Java - for running both Android Studio and provided gradle script which will create customised build
+
+#### Important notes:
+
+- you must use the exact same version of NDK that we used to build the static libraries. Using different NDK version will either result with linker errors or will create non-working binary. Our script will check your NDK version and will fail if there is a version mismatch.
+- due to a known [NDK bug](https://github.com/android-ndk/ndk/issues/313), the script for creating customised build will fail on Windows. Until this is fixed, you need to run the script on Mac or Linux machine.
+
+### Steps for creating customised build (command line)
+
+1. Obtain the _static distribution of BlinkID_ by [contacting us](http://help.microblink.com)
+2. Download the zip from link that you will be provided
+3. Unzip the file into an empty folder
+4. Edit the file `static-distrib/enabled-features.cmake`
+	- you should enable only features that you need to use by setting appropriate variables to `ON`. 
+	- the list of all possible feature variables can be found in `static-distrib/features.cmake` 
+		- for each `feature_option` command, first parameter defines the feature variable, and the second is the description of the feature, i.e. what it provides. Other parameters are information for script to work correctly.
+	- you should not edit any file except `enabled-features.cmake` (except if instructed so by our support team) to ensure creation of customised build works well
+5. In folder _LibBlinkID_, create file `local.properties` with following entries:
+
+	```
+	sdk.dir=/path/to/your/android-sdk-folder 
+	ndk.dir=/path/to/your/android-sdk-folder/ndk-bundle
+	```
+	
+	- importing the project into android studio should do that automatically for you
+6. Open terminal and navigate to _LibBlinkID_ folder.
+7. Execute command ```./gradlew clean assembleRelease```
+8. After several minutes (depedending of CPU speed of your computer), customised build will appear as `LibBlinkID/build/outputs/aar/LibBlinkID-release.aar`. Use that AAR in your app instead of the default one.
+
+### Steps for creating customised build (Android Studio)
+
+1. Follow the steps 1.-4. as in command line version (see above)
+2. Import the `static-distrib/LibBlinkID` project into Android Studio
+3. Under `cpp` section of imported module, make sure that all required JNI static libraries are correctly referenced
+	- if they are not, edit the `enabled-features.cmake` to correct which features need to be included in build and then select `Build -> Refresh Linked C++ Projects` in Android Studio menu
+4. Open `Build Variants` pane and make sure `release` is selected for module `LibBlinkID`
+5. In Android Studio menu, select `Build -> Build APK`
+6. After several minutes (depedending of CPU speed of your computer), customised build will appear as `LibBlinkID/build/outputs/aar/LibBlinkID-release.aar`. Use that AAR in your app instead of the default one.
+
+#### Warning:
+
+Attempt to use feature within your app which was not enabled in customised build will result with your app crashing at the moment it tries to use that feature.
+
+### Troubleshooting:
+
+#### Getting `UnsatisfiedLinkError` when using customised build, while everything works OK with generic build
+
+This happens when your app is trying to use feature which was not enabled in customised build. Please make sure that you enable features that you need and not use unnecessary features within your app.
+
+#### App crashing when scanning starts with log message _Failed to load resource XX. The program will now crash._
+
+This means that a required resource was not packaged into final app. This usually indicates a bug in our gradle script that makes the customised build. Please [contact us](http://help.microblink.com) and send your version of `enabled-features.cmake` and crash log.
+
+#### CMake error while running gradle script.
+
+You probably have a typo in `enabled-features.cmake`. CMake is very sensitive language and will throw an non-understandable error if you have a typo or invoke any of its commands with wrong number of parameters.
+
+#### Keeping only `FEATURE_MRTD` creates rather large AAR
+
+`FEATURE_MRTD` marks the _MRTD recognizer_. However, _MRTD recognizer_ can also be used in _Templating API_ mode where non-MRZ data can be scanned. To perform OCR of non-MRZ data, a rather large OCR model must be used, which supports all fonts. If you only plan to scan MRZ part of the document, you can edit the `features.cmake` in following way:
+
+- find the following line:
+
+```
+feature_resources( FEATURE_MRTD model_mrtd model_general_blink_ocr model_micr model_arabic )
+```
+
+- keep only `model_mrtd` in the list, i.e. modify the line so that it will be like this:
+
+```
+feature_resources( FEATURE_MRTD model_mrtd )
+```
+
+This will keep only support for reading MRZ zone in OCR - you will not be able to scan non-MRZ data with such configuration using _MRTD recognizer_, however you will reduce final app size by almost 5MB.
+
+##### More information about OCR models in `FEATURE_MRTD`
+
+- `model_mrtd` is OCR model for performing OCR of MRZ zone
+- `model_arabic` is OCR model for performing OCR of digits used in arabic languages - text scanning is not supported
+- `model_micr` is OCR model for performing OCR of [Magnetic Ink Characters](https://en.wikipedia.org/wiki/Magnetic_ink_character_recognition)
+- `model_general_blink_ocr` is OCR model for performing general-purpose OCR. This model is usually required for performing OCR of non-MRZ text on documents.
 ## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries
 
 If you are combining _BlinkID_ library with some other libraries that contain native code into your application, make sure you match the architectures of all native libraries. For example, if third party library has got only ARMv7 and x86 versions, you must use exactly ARMv7 and x86 versions of _BlinkID_ with that library, but not ARM64. Using these architectures will crash your app in initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
-
 # <a name="troubleshoot"></a> Troubleshooting
 
 ## <a name="integrationTroubleshoot"></a> Integration problems
