@@ -6,13 +6,16 @@ android {
 
     defaultConfig {
         applicationId "com.microblink.blinkid"
-        minSdkVersion 10
+        minSdkVersion 16
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
@@ -26,5 +29,10 @@ dependencies {
     compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
+
+    // uncomment this to use custom LibBlinkID build
+//    compile project(':LibBlinkID-release')
+//    compile "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
+
     compile project(':LibResult')
 }

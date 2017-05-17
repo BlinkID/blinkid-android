@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId 'com.microblink.blinkid'
-        minSdkVersion 10
+        minSdkVersion 16
         targetSdkVersion rootProject.ext.targetSdkVersion
     }
     lintOptions {
@@ -13,9 +13,11 @@ android {
     }
     buildTypes {
         release {
+            debuggable true
             minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
-            signingConfig = debug.signingConfig
         }
     }
 }

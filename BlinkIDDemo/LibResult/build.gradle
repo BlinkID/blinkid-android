@@ -5,7 +5,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 16
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -22,4 +22,8 @@ dependencies {
     compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
+
+    // uncomment this to use custom LibBlinkID build
+//    compile project(':LibBlinkID-release')
+//    compile "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
 }

@@ -43,6 +43,7 @@ import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecogniz
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
@@ -289,6 +290,7 @@ public class MenuActivity extends Activity {
         elements.add(buildChechIDCombinedElement());
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
+        elements.add(buildGermanIDCombinedElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
         elements.add(bildRomanianElement());
@@ -505,6 +507,12 @@ public class MenuActivity extends Activity {
         USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
 
         return new ListElement("US Driver's License combined", buildCombinedIntent(usdlCombined));
+    }
+
+    private ListElement buildGermanIDCombinedElement() {
+        GermanIDCombinedRecognizerSettings deCombined = new GermanIDCombinedRecognizerSettings();
+
+        return new ListElement( "German ID combined", buildCombinedIntent( deCombined ) );
     }
 
     private ListElement buildPDF417Element() {
