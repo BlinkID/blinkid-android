@@ -9,6 +9,7 @@
 - removed `isItalic` and `isBold` getters from `OcrChar` class
     - they always returned `false`, since OCR engine cannot accurately detect that
 - removed `setLineGroupingEnabled` and `isLineGroupingEnabled` from `BlinkOCREngineOptions` because disabling line grouping completely destroyed the OCR accuracy
+- added `GermanIDCombinedRecognizer`: scans front and back side of the German ID
 
 ## 3.7.1
 
