@@ -32,6 +32,7 @@ import com.microblink.libresult.extract.czechia.CzechIDCombinedRecognitionResult
 import com.microblink.libresult.extract.czechia.CzechIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.eudl.EUDLRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.germany.GermanIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanOldIDRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultExtractor;
@@ -70,6 +71,7 @@ import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecogn
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognitionResult;
@@ -168,6 +170,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new GermanOldIDRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanPassportRecognitionResult) {
             mResultExtractor = new GermanPassportRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof GermanIDCombinedRecognitionResult) {
+            mResultExtractor = new GermanIDCombinedRecognitionResultExtractor(getActivity());
         } else if (mData instanceof RomanianIDFrontSideRecognitionResult) {
             mResultExtractor = new RomanianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SlovakIDBackSideRecognitionResult) {
