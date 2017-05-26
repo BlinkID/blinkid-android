@@ -312,9 +312,9 @@ public class MenuActivity extends Activity {
 
         // barcode list entries
 
-        // to include aztec element, valid license key for the aztec recognizer is required,
+        // valid license key for the aztec recognizer is required,
         // please set it in the buildAztecElement() method
-//        elements.add( buildAztecElement() );
+        elements.add(buildAztecElement());
         elements.add(buildPDF417Element());
         elements.add(buildBardecoderElement());
         elements.add(buildSimNumberElement());
@@ -334,6 +334,8 @@ public class MenuActivity extends Activity {
     private ListElement buildMrtdElement() {
         // prepare settings for Machine Readable Travel Document (MRTD) recognizer
         MRTDRecognizerSettings mrtd = new MRTDRecognizerSettings();
+        // allow results with incorrect check digits, only for demo
+        mrtd.setAllowUnverifiedResults(true);
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID documents
@@ -560,7 +562,8 @@ public class MenuActivity extends Activity {
     private ListElement buildAztecElement() {
         // please contact us to obtain valid license key for the aztec recognizer
         // https://microblink.com/en/contact-us
-        AztecRecognizerSettings aztec = new AztecRecognizerSettings("<license_key>");
+        // this license key has expired, because of that you will get '*' characters in result
+        AztecRecognizerSettings aztec = new AztecRecognizerSettings("jp7X3DD+IG1iNzljvwkwVL7L364g9NCzTUq4lGC/vdc=");
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
