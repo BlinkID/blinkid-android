@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -237,57 +237,79 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/Oc
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#getReturnCodeWithoutPrefix--">getReturnCodeWithoutPrefix</a></span>()</code>
+<div class="block">Returns <code>true</code> if scanned code will be returned without *digits* prefix and trailing #,
+ <code>false</code> otherwise.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#getUSSDCodeLength--">getUSSDCodeLength</a></span>()</code>
 <div class="block">Returns ussd code length i.e.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeGetAllowNoPrefix-long-">nativeGetAllowNoPrefix</a></span>(long&nbsp;nativePtr)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeGetPrefixString-long-">nativeGetPrefixString</a></span>(long&nbsp;nativePtr)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeGetReturnCodeWithoutPrefix-long-">nativeGetReturnCodeWithoutPrefix</a></span>(long&nbsp;nativePtr)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeGetUSSDCodeLength-long-">nativeGetUSSDCodeLength</a></span>(long&nbsp;nativePtr)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeSetAllowNoPrefix-long-boolean-">nativeSetAllowNoPrefix</a></span>(long&nbsp;nativePtr,
                       boolean&nbsp;allowNoPrefix)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeSetPrefixString-long-java.lang.String-">nativeSetPrefixString</a></span>(long&nbsp;nativePtr,
                      java.lang.String&nbsp;prefixString)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeSetReturnCodeWithoutPrefix-long-boolean-">nativeSetReturnCodeWithoutPrefix</a></span>(long&nbsp;nativePtr,
+                                boolean&nbsp;returnCodeWithoutPrefix)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#nativeSetUSSDCodeLength-long-int-">nativeSetUSSDCodeLength</a></span>(long&nbsp;nativePtr,
                        int&nbsp;ussdCodeLength)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#setAllowNoPrefix-boolean-">setAllowNoPrefix</a></span>(boolean&nbsp;allowNoPrefix)</code>
 <div class="block">Sets if ussd codes without prefix is allowed</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#setPrefixString-java.lang.String-">setPrefixString</a></span>(java.lang.String&nbsp;prefixString)</code>
 <div class="block">Sets prefix string for which extraction will be performed</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#setReturnCodeWithoutPrefix-boolean-">setReturnCodeWithoutPrefix</a></span>(boolean&nbsp;returnCodeWithoutPrefix)</code>
+<div class="block">Sets whether *digits* prefix and # at the end of scanned ussd code will be returned</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#setUSSDCodeLength-int-">setUSSDCodeLength</a></span>(int&nbsp;ussdCodeLength)</code>
 <div class="block">Sets ussd code length i.e.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -522,6 +544,56 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/Oc
 <li class="blockList">
 <h4>nativeGetAllowNoPrefix</h4>
 <pre>public static&nbsp;boolean&nbsp;nativeGetAllowNoPrefix(long&nbsp;nativePtr)</pre>
+</li>
+</ul>
+<a name="setReturnCodeWithoutPrefix-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setReturnCodeWithoutPrefix</h4>
+<pre>public&nbsp;void&nbsp;setReturnCodeWithoutPrefix(boolean&nbsp;returnCodeWithoutPrefix)</pre>
+<div class="block">Sets whether *digits* prefix and # at the end of scanned ussd code will be returned</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>returnCodeWithoutPrefix</code> - whether *digits* prefix and # at the end of scanned ussd
+                                 code will be returned</dd>
+</dl>
+</li>
+</ul>
+<a name="nativeSetReturnCodeWithoutPrefix-long-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nativeSetReturnCodeWithoutPrefix</h4>
+<pre>public static&nbsp;void&nbsp;nativeSetReturnCodeWithoutPrefix(long&nbsp;nativePtr,
+                                                    boolean&nbsp;returnCodeWithoutPrefix)</pre>
+</li>
+</ul>
+<a name="getReturnCodeWithoutPrefix--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getReturnCodeWithoutPrefix</h4>
+<pre>public&nbsp;boolean&nbsp;getReturnCodeWithoutPrefix()</pre>
+<div class="block">Returns <code>true</code> if scanned code will be returned without *digits* prefix and trailing #,
+ <code>false</code> otherwise.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if scanned code will be returned without *digits* prefix and trailing #,
+ <code>false</code> otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="nativeGetReturnCodeWithoutPrefix-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>nativeGetReturnCodeWithoutPrefix</h4>
+<pre>public static&nbsp;boolean&nbsp;nativeGetReturnCodeWithoutPrefix(long&nbsp;nativePtr)</pre>
 </li>
 </ul>
 <a name="writeToParcel-android.os.Parcel-int-">
