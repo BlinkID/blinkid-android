@@ -1,5 +1,12 @@
 # Release notes
 
+## 3.8.1
+- improved `CombinedRecognizers`:
+    - better handling of names containing dashes and extra long names
+- improved `TopUpParser`:
+    - added option to return USSD code without prefix
+- by default `MRTDRecognizer` does not return results with incorrect check digits
+
 ## 3.8.0
 - introduced ability to create minimum-size AAR
 	- a separate static library distribution now exists which contains a script that you can configure with features you need and it creates a AAR file which only contains features you need - this includes minimum-size native binary and only required assets. The rest (resources and java classes) can be thrown-away by ProGuard.
