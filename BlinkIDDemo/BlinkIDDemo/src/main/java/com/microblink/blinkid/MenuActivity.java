@@ -24,12 +24,11 @@ import com.microblink.libresult.ResultActivity;
 import com.microblink.ocr.ScanConfiguration;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkbarcode.aztec.AztecRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.barcode.BarcodeRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.zxing.ZXingRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.vin.VinRecognizerSettings;
 import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
@@ -287,10 +286,10 @@ public class MenuActivity extends Activity {
         elements.add(buildCroatianIDElement());
         elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzechIDElement());
-        elements.add(buildChechIDCombinedElement());
+        elements.add(buildCzechIDCombinedElement());
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
-        elements.add(buildGermanIDCombinedElement());
+        elements.add( buildGermanIDCombinedElement() );
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
         elements.add(bildRomanianElement());
@@ -312,13 +311,10 @@ public class MenuActivity extends Activity {
 
         // barcode list entries
 
-        // valid license key for the aztec recognizer is required,
-        // please set it in the buildAztecElement() method
-        elements.add(buildAztecElement());
         elements.add(buildPDF417Element());
-        elements.add(buildBardecoderElement());
+        elements.add(buildBarcodeElement());
         elements.add(buildSimNumberElement());
-        elements.add(buildZXingElement());
+        elements.add(buildVin());
 
         // Blink OCR entries
         elements.add(buildVehicleSegmentScanElement());
@@ -505,6 +501,12 @@ public class MenuActivity extends Activity {
         return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
     }
 
+    private ListElement buildCzechIDCombinedElement() {
+        CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
+
+        return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
+    }
+
     private ListElement buildUsdlCombinedElement() {
         USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
 
@@ -526,27 +528,26 @@ public class MenuActivity extends Activity {
         return new ListElement("PDF417 barcode", buildIntent(new RecognizerSettings[]{pdf417}, Pdf417ScanActivity.class, null));
     }
 
-    private ListElement buildBardecoderElement() {
-        // prepare settings for 1D barcode recognizer
-        BarDecoderRecognizerSettings bar1d = new BarDecoderRecognizerSettings();
-        // enable code39 and code128 barcodes
-        bar1d.setScanCode128(true);
-        bar1d.setScanCode39(true);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
-        return new ListElement("1D barcode", buildIntent(new RecognizerSettings[]{bar1d}, Pdf417ScanActivity.class, null));
-    }
-
-    private ListElement buildZXingElement() {
-        // prepare settings for ZXing barcode recognizer
-        ZXingRecognizerSettings zxing = new ZXingRecognizerSettings();
-        // enable scanning of QR codes
-        zxing.setScanQRCode(true);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
-        return new ListElement("QR code", buildIntent(new RecognizerSettings[]{zxing}, Pdf417ScanActivity.class, null));
+    private ListElement buildBarcodeElement() {
+        BarcodeRecognizerSettings barcode = new BarcodeRecognizerSettings();
+        barcode.setScanCode39(true);
+        barcode.setScanCode128(true);
+        barcode.setInverseScanning(true);
+        barcode.setScanAztecCode(true);
+        barcode.setScanDataMatrixCode(true);
+        barcode.setScanEAN13Code(true);
+        barcode.setScanEAN8Code(true);
+        barcode.setScanITFCode(true);
+        barcode.setScanQRCode(true);
+        barcode.setScanUPCACode(true);
+        barcode.setScanUPCECode(true);
+        // please contact us to obtain valid license key for the aztec recognizer
+        // https://microblink.com/en/contact-us
+        // this license key has expired, because of that you will get '*' characters in aztec result
+        barcode.setLicenseKey("jp7X3DD+IG1iNzljvwkwVL7L364g9NCzTUq4lGC/vdc=");
+        Intent intent = buildIntent(new RecognizerSettings[]{barcode}, Pdf417ScanActivity.class, null);
+        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
+        return new ListElement("Blink barcode", intent);
     }
 
     private ListElement buildSimNumberElement() {
@@ -559,15 +560,11 @@ public class MenuActivity extends Activity {
         return new ListElement("Sim number barcode", intent);
     }
 
-    private ListElement buildAztecElement() {
-        // please contact us to obtain valid license key for the aztec recognizer
-        // https://microblink.com/en/contact-us
-        // this license key has expired, because of that you will get '*' characters in result
-        AztecRecognizerSettings aztec = new AztecRecognizerSettings("jp7X3DD+IG1iNzljvwkwVL7L364g9NCzTUq4lGC/vdc=");
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
-        return new ListElement("Aztec barcode", buildIntent(new RecognizerSettings[]{aztec}, Pdf417ScanActivity.class, null));
+    private ListElement buildVin() {
+        VinRecognizerSettings vinSettings = new VinRecognizerSettings();
+        Intent intent = buildIntent(new RecognizerSettings[]{vinSettings}, Pdf417ScanActivity.class, null);
+        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
+        return new ListElement("VIN", intent);
     }
 
     private ListElement buildVehicleSegmentScanElement() {

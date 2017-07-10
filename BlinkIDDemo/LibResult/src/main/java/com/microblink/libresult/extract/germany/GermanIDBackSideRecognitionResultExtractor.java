@@ -7,8 +7,8 @@ import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognitionResult;
+import com.microblink.results.date.Date;
 
-import java.util.Date;
 import java.util.List;
 
 /**

@@ -7,9 +7,9 @@ import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
+import com.microblink.results.date.Date;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**

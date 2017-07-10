@@ -47,19 +47,18 @@ public class SlovakIDFrontSideRecognitionResultExtractor extends BlinkOcrRecogni
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPDocumentNumber,
-                    svkIdFrontResult.getIdentityCardNumber()
+                    svkIdFrontResult.getDocumentNumber()
             ));
 
             mExtractedData.add(mBuilder.build(
-                    R.string.PPIssuingAuthority,
-                    svkIdFrontResult.getIssuingAuthority()
+                    R.string.PPIssuedBy,
+                    svkIdFrontResult.getIssuedBy()
             ));
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPDateOfBirth,
                     svkIdFrontResult.getDateOfBirth()
             ));
-
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPPersonalNumber,

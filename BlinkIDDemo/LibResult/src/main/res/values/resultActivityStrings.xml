@@ -67,6 +67,7 @@
     <!-- Slovak ID specific -->
     <string name="PPSurnameAtBirth">Surname at birth</string>
     <string name="PPSpecialRemarks">Special remarks</string>
+    <string name="PPIssuedBy">Issued by</string>
 
     <!-- iKad specific -->
     <string name="PPEmployer">Employer</string>
