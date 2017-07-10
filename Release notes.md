@@ -1,6 +1,37 @@
 # Release notes
 
+## 3.9.0
+
+- bugfix in Croatian ID scanning:
+    - ensured that OIB number is not returned for old ID cards, where it does not exist
+- added Czech and Slovak translations
+- Date fields in recognition results are returned as `com.microblink.results.date.Date` class which represents immutable dates that are consisted of day, month and year
+- improved `IbanParser`:
+    - improved extraction of IBANs without prefix and introduced `setAlwaysReturnPrefix` option to always return prefix (country code)
+    - added support for french IBANs
+- enabled reading of Pdf417 barcodes having width/height bar aspect ratio less than 2:1
+- Added `VinRecognizer` for scanning VIN (*Vehicle Identification Number*) barcodes
+- Added unified `BarcodeRecognizer` for scanning various tipes of barcodes
+    - `ZXingRecognizer`, `BarDecoderRecognizer` and `AztecRecognizer` are **deprecated**, `BarcodeRecognizer` should be used for all barcode types that are supported by these recognizers
+- `OcrLine.getChars()` method returns `CharWithVariants` array. OCR char is defined by all its parameters (value, font, position, quality, etc.) and for each resulting char it is possible to have multiple variants. For example it is possible to have same char value with different font.
+- Fixed bug in SegmentScanActivity:
+    - scan results are no longer hidden on shake event
+- improved `IKadRecognizer`:
+    - added support for long addresses and employer names
+    - fixed returning of full document images as metadata
+- improved `Singapore ID Recognizers`:
+    - tuned reading positions
+    - more accurate reading of name and blood type fields
+- improved `Slovak ID Recognizers`:
+    - tuned reading positions of ID elements
+    - improved reading precision of address, place of birth, last name and issuing authority
+    - added options to disable/enable extraction of certain fields in recognizer settings
+    - result getters `getPersonalIdentificationNumber()` and `getIssuingAuthority()` are renamed to `getPersonalNumber()` and `getIssuedBy()`
+- Renamed `RomanianIDFrontSideRecognitionResult` element getters for Sex and Nationality outside of the MRZ to `getNonMRZNationality()` and `getNonMRZSex()`
+- For `Austrian ID Recognizers` added options to disable/enable extraction of certain fields in recognizer settings
+
 ## 3.8.1
+
 - improved `CombinedRecognizers`:
     - better handling of names containing dashes and extra long names
 - improved `TopUpParser`:
@@ -8,6 +39,7 @@
 - by default `MRTDRecognizer` does not return results with incorrect check digits
 
 ## 3.8.0
+
 - introduced ability to create minimum-size AAR
 	- a separate static library distribution now exists which contains a script that you can configure with features you need and it creates a AAR file which only contains features you need - this includes minimum-size native binary and only required assets. The rest (resources and java classes) can be thrown-away by ProGuard.
 - `LibBlinkID` is now fully ProGuard-compatible, i.e. you no longer need to exclude `com.microblink.**` classes in your ProGuard configuration
