@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -216,12 +216,48 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#setExtractPlaceOfBirth-boolean-">setExtractPlaceOfBirth</a></span>(boolean&nbsp;extractPlaceOfBirth)</code>
+<div class="block">Defines if place of birth should be extracted from ID</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#setExtractSpecialRemarks-boolean-">setExtractSpecialRemarks</a></span>(boolean&nbsp;extractSpecialRemarks)</code>
+<div class="block">Defines if special remarks should be extracted from ID</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#setExtractSurnameAtBirth-boolean-">setExtractSurnameAtBirth</a></span>(boolean&nbsp;extractSurnameAtBirth)</code>
+<div class="block">Defines if surname at birth should be extracted from ID</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#shouldDisplayFullDocumentImage--">shouldDisplayFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#shouldExtractPlaceOfBirth--">shouldExtractPlaceOfBirth</a></span>()</code>
+<div class="block">Returns true if place of birth is being extracted from ID</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#shouldExtractSpecialRemarks--">shouldExtractSpecialRemarks</a></span>()</code>
+<div class="block">Returns true if special remarks are being extracted from ID</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#shouldExtractSurnameAtBirth--">shouldExtractSurnameAtBirth</a></span>()</code>
+<div class="block">Returns true if surname at birth is being extracted from ID</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -232,7 +268,7 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.settings.<a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFaceImageName-java.lang.String-">getFaceImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFullDocumentImageName-java.lang.String-">getFullDocumentImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getMachineReadableZoneName-java.lang.String-">getMachineReadableZoneName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getSignatureImageName-java.lang.String-">getSignatureImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -267,10 +303,6 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/slovakia/back/SlovakIDBackSideRecognizerSettings.html#setDisplayFullDocumentImage-boolean-"><code>setDisplayFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings.FULL_DOCUMENT_IMAGE">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="CREATOR">
@@ -307,6 +339,90 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="setExtractSurnameAtBirth-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtractSurnameAtBirth</h4>
+<pre>public&nbsp;void&nbsp;setExtractSurnameAtBirth(boolean&nbsp;extractSurnameAtBirth)</pre>
+<div class="block">Defines if surname at birth should be extracted from ID</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractSurnameAtBirth</code> - defines if surname at birth will be extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldExtractSurnameAtBirth--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldExtractSurnameAtBirth</h4>
+<pre>public&nbsp;boolean&nbsp;shouldExtractSurnameAtBirth()</pre>
+<div class="block">Returns true if surname at birth is being extracted from ID</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if surname at birth is being extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="setExtractPlaceOfBirth-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtractPlaceOfBirth</h4>
+<pre>public&nbsp;void&nbsp;setExtractPlaceOfBirth(boolean&nbsp;extractPlaceOfBirth)</pre>
+<div class="block">Defines if place of birth should be extracted from ID</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractPlaceOfBirth</code> - defines if place of birth will be extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldExtractPlaceOfBirth--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldExtractPlaceOfBirth</h4>
+<pre>public&nbsp;boolean&nbsp;shouldExtractPlaceOfBirth()</pre>
+<div class="block">Returns true if place of birth is being extracted from ID</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if place of birth is being extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="setExtractSpecialRemarks-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtractSpecialRemarks</h4>
+<pre>public&nbsp;void&nbsp;setExtractSpecialRemarks(boolean&nbsp;extractSpecialRemarks)</pre>
+<div class="block">Defines if special remarks should be extracted from ID</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractSpecialRemarks</code> - defines if special remarks will be extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldExtractSpecialRemarks--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldExtractSpecialRemarks</h4>
+<pre>public&nbsp;boolean&nbsp;shouldExtractSpecialRemarks()</pre>
+<div class="block">Returns true if special remarks are being extracted from ID</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if special remarks are being extracted</dd>
+</dl>
+</li>
+</ul>
 <a name="setDisplayFullDocumentImage-boolean-">
 <!--   -->
 </a>

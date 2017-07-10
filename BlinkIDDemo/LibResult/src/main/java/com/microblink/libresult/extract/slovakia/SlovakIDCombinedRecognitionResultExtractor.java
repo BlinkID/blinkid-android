@@ -48,7 +48,7 @@ public class SlovakIDCombinedRecognitionResultExtractor implements IBaseRecognit
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPDocumentNumber,
-                    combinedResult.getIdentityCardNumber()
+                    combinedResult.getDocumentNumber()
             ));
 
             mExtractedData.add(mBuilder.build(
@@ -77,7 +77,7 @@ public class SlovakIDCombinedRecognitionResultExtractor implements IBaseRecognit
             ));
 
             mExtractedData.add(mBuilder.build(
-                    R.string.PPIssuingAuthority,
+                    R.string.PPIssuedBy,
                     combinedResult.getIssuingAuthority()
             ));
 
@@ -88,7 +88,7 @@ public class SlovakIDCombinedRecognitionResultExtractor implements IBaseRecognit
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPPersonalNumber,
-                    combinedResult.getPersonalIdentificationNumber()
+                    combinedResult.getPersonalNumber()
             ));
 
             mExtractedData.add(mBuilder.build(

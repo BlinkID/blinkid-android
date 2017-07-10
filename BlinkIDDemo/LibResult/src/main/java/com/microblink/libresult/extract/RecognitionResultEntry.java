@@ -5,8 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
+import com.microblink.results.date.Date;
+
 import java.text.DateFormat;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by igor on 12/4/14.
@@ -47,10 +50,12 @@ public class RecognitionResultEntry {
         }
 
         public RecognitionResultEntry build(@StringRes int key, Date value) {
-            String strVal = "null";
+            String strVal = "";
             if (value != null) {
+                Calendar cal = GregorianCalendar.getInstance();
+                cal.set(value.getYear(), value.getMonth() - 1, value.getDay());
                 DateFormat df = DateFormat.getDateInstance();
-                strVal = df.format(value);
+                strVal = df.format(cal.getTime());
             }
             return new RecognitionResultEntry(mContext.getString(key), strVal);
         }

@@ -2,24 +2,22 @@ package com.microblink.libresult.extract.barcode;
 
 import android.content.Context;
 
+
 import com.microblink.libresult.R;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.BarcodeType;
-import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
+import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dodo on 25/09/15.
- */
-public class BardecoderRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
+public class BarcodeRecognitionResultExtractor implements IBaseRecognitionResultExtractor {
     private RecognitionResultEntry.Builder mBuilder;
     private List<RecognitionResultEntry> mExtractedData;
 
-    public BardecoderRecognitionResultExtractor(Context context) {
+    public BarcodeRecognitionResultExtractor(Context context) {
         mBuilder = new RecognitionResultEntry.Builder(context);
         mExtractedData = new ArrayList<>();
     }
@@ -36,13 +34,13 @@ public class BardecoderRecognitionResultExtractor implements IBaseRecognitionRes
             return mExtractedData;
         }
 
-        if (result instanceof BarDecoderScanResult) {
+        if (result instanceof BarcodeScanResult) {
             // result is obtained from scanning PDF417 barcode
-            BarDecoderScanResult barcodeResult = (BarDecoderScanResult) result;
+            BarcodeScanResult barcodeResult = (BarcodeScanResult) result;
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPBarcodeType,
-                    barcodeResult.getBarcodeType().name()
+                    barcodeResult.getBarcodeType() != null ? barcodeResult.getBarcodeType().name() : "null"
             ));
 
             mExtractedData.add(mBuilder.build(

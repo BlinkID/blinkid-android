@@ -22,10 +22,12 @@ com.microblink.recognition
 com.microblink.recognizers
 com.microblink.recognizers.blinkbarcode
 com.microblink.recognizers.blinkbarcode.aztec
+com.microblink.recognizers.blinkbarcode.barcode
 com.microblink.recognizers.blinkbarcode.bardecoder
 com.microblink.recognizers.blinkbarcode.pdf417
 com.microblink.recognizers.blinkbarcode.simnumber
 com.microblink.recognizers.blinkbarcode.usdl
+com.microblink.recognizers.blinkbarcode.vin
 com.microblink.recognizers.blinkbarcode.zxing
 com.microblink.recognizers.blinkid
 com.microblink.recognizers.blinkid.austria.back

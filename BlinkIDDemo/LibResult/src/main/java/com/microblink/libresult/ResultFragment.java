@@ -19,10 +19,8 @@ import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.austria.AustrianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDFrontSideRecognitionResultExtractor;
-import com.microblink.libresult.extract.barcode.AztecRecognitionResultExtractor;
-import com.microblink.libresult.extract.barcode.BardecoderRecognitionResultExtractor;
+import com.microblink.libresult.extract.barcode.BarcodeRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.Pdf417RecognitionResultExtractor;
-import com.microblink.libresult.extract.barcode.ZXingRecognitionResultExtractor;
 import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
 import com.microblink.libresult.extract.croatia.CroatianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.croatia.CroatianIDCombinedRecognitionResultExtractor;
@@ -55,11 +53,9 @@ import com.microblink.libresult.extract.slovenia.SlovenianIDCombinedRecognitionR
 import com.microblink.libresult.extract.slovenia.SlovenianIDFrontRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.blinkbarcode.aztec.AztecScanResult;
-import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
+import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberScanResult;
-import com.microblink.recognizers.blinkbarcode.zxing.ZXingScanResult;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognitionResult;
@@ -200,14 +196,10 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new EUDLRecognitionResultExtractor(getActivity());
         } else if (mData instanceof Pdf417ScanResult) {
             mResultExtractor = new Pdf417RecognitionResultExtractor(getActivity());
-        } else if (mData instanceof ZXingScanResult) {
-            mResultExtractor = new ZXingRecognitionResultExtractor(getActivity());
-        } else if (mData instanceof BarDecoderScanResult) {
-            mResultExtractor = new BardecoderRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof BarcodeScanResult) {
+            mResultExtractor = new BarcodeRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SimNumberScanResult) {
             mResultExtractor = new SimNumberRecognitionResultExtractor(getActivity());
-        } else if (mData instanceof AztecScanResult) {
-            mResultExtractor = new AztecRecognitionResultExtractor(getActivity());
         } else if (mData instanceof BlinkOCRRecognitionResult) {
             mResultExtractor = new BlinkOcrRecognitionResultExtractor(getActivity());
         } else if (mData instanceof MyKadRecognitionResult) {

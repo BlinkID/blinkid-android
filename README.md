@@ -86,10 +86,12 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of Singapore ID documents](#singaporeID_back)
   * [Scanning and combining results from front and back side of Singapore ID documents](#singaporeIDCombined)
   * [Scanning PDF417 barcodes](#pdf417Recognizer)
+  * [Scanning barcodes with BarcodeRecognizer](#barcodeRecognizer)
   * [Scanning one dimensional barcodes with _BlinkID_'s implementation](#custom1DBarDecoder)
   * [Scanning barcodes with ZXing implementation](#zxing)
   * [Scanning SIM number barcodes](#simNumberRecognizer)
-  * [Scanning aztec barcodes](#aztecRecognizer)
+  * [Scanning VIN barcodes](#vinRecognizer)
+  * [Scanning aztec barcodes](#aztecBarcodes)
   * [Scanning segments with BlinkOCR recognizer](#blinkOCR)
   * [Scanning templated documents with BlinkOCR recognizer](#blinkOCR_templating)
   * [Performing detection of various documents](#detectorRecognizer)
@@ -166,7 +168,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.8.1@aar') {
+    compile('com.microblink:blinkid:3.9.0@aar') {
     	transitive = true
     }
 }
@@ -178,7 +180,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.8.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.9.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -203,7 +205,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.8.1</version>
+		  <version>3.9.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -1071,7 +1073,7 @@ View width and height are defined in current context, i.e. they depend on curren
 
 Second boolean parameter indicates whether or not metering areas should be automatically updated when device orientation changes.
 
-##### <a name="recognizerView_setMetadataListener"></a> [`setMetadadaListener(MetadataListener, MetadataSettings)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setMetadataListener-com.microblink.metadata.MetadataListener-com.microblink.metadata.MetadataSettings-)
+##### <a name="recognizerView_setMetadataListener"></a> [`setMetadataListener(MetadataListener, MetadataSettings)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setMetadataListener-com.microblink.metadata.MetadataListener-com.microblink.metadata.MetadataSettings-)
 You can use this method to define [metadata listener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) that will obtain various metadata
 from the current recognition process. Which metadata will be available depends on [metadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). For more information and examples, check demo applications and section [Obtaining various metadata with _MetadataListener_](#metadataListener).
 
@@ -1530,7 +1532,7 @@ Returns the secondary identifier. If there is more than one component, they are 
 Returns three-letter or two-letter code which indicate the issuing State. Three-letter codes are based on `Alpha-3` codes for entities specified in `ISO 3166-1`, with extensions for certain States. Two-letter codes are based on `Alpha-2` codes for entities specified in `ISO 3166-1`, with extensions for certain States.
 
 ##### `Date getDateOfBirth()`
-Returns holder's date of birth if it is successfully converted to `Date` from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to `Date`.
+Returns holder's date of birth if it is successfully converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html).
 
 ##### `String getRawDateOfBirth()`
 Returns holder's date of birth as raw string from MRZ zone in format `YYMMDD`.
@@ -1548,7 +1550,7 @@ Returns sex of the card holder. Sex is specified by use of the single initial, c
 Returns document code. Document code contains two characters. For `MRTD` the first character shall be `A`, `C` or `I`. The second character shall be discretion of the issuing State or organization except that V shall not be used, and `C` shall not be used after `A` except in the crew member certificate. On machine-readable passports `(MRP)` first character shall be `P` to designate an `MRP`. One additional letter may be used, at the discretion of the issuing State or organization, to designate a particular `MRP`. If the second character position is not used for this purpose, it shall be filled by the filter character `<`.
 
 ##### `Date getDateOfExpiry()`
-Returns date of expiry if it is successfully converted to `Date` from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to `Date`.
+Returns date of expiry if it is successfully converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) from MRZ date format: `YYMMDD` or null if date is unknown or can not be converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html).
 
 ##### `String getRawDateOfExpiry()`
 Returns date of expiry as raw string from MRZ zone in format `YYMMDD`.
@@ -3256,7 +3258,7 @@ Returns the sex of the card holder. Possible values are:
 - `F` for female holder
 
 ##### `Date getOwnerBirthDate()`
-Returns the date of birth of card holder as java `Date` if it is successfully converted from date format: `YYMMDD`. Raw date string can be obtained by using **getRawBirthDate()** method. Returns `null` if date is unknown or can not be converted to java `Date`.
+Returns the date of birth of card holder as [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) if it is successfully converted from date format: `YYMMDD`. Raw date string can be obtained by using **getRawBirthDate()** method. Returns `null` if date is unknown or can not be converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html).
 
 ##### `String getRawBirthDate()`
 Returns owner's date of birth as raw string in format `YYMMDD`, or `null` if date is unknown.
@@ -3574,7 +3576,97 @@ This method will return the object that contains information about barcode's bin
 ##### `Quadrilateral getPositionOnImage()`
 Returns the position of barcode on image. Note that returned coordinates are in image's coordinate system which is not related to view coordinate system used for UI.
 
+## <a name="barcodeRecognizer"></a> Scanning barcodes with BarcodeRecognizer
+
+This section discusses the settings for setting up barcode recognizer and explains how to obtain results from it.
+
+### Setting up Barcode recognizer
+
+To activate Barcode recognizer, you need to create [BarcodeRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	BarcodeRecognizerSettings sett = new BarcodeRecognizerSettings();
+	// disable scanning of white barcodes on black background
+	sett.setInverseScanning(false);
+	// activate scanning of QR codes
+	sett.setScanQRCode(true);
+
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+As can be seen from example, you can tweak barcode recognition parameters with methods of `BarcodeRecognizerSettings`.
+
+##### `setScanAztecCode(boolean)`
+Method activates or deactivates the scanning of Aztec 2D barcodes. Default (initial) value is `false`. For better Aztec scanning, you should set the license key by using the `setLicenseKey(String)` method. Please contact us to obtain valid license key.
+
+##### `setScanCode128(boolean)`
+Method activates or deactivates the scanning of Code128 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanCode39(boolean)`
+Method activates or deactivates the scanning of Code39 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanDataMatrixCode(boolean)`
+Method activates or deactivates the scanning of Data Matrix 2D barcodes. Default (initial) value is `false`.
+
+##### `setScanEAN13Code(boolean)`
+Method activates or deactivates the scanning of EAN 13 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanEAN8Code(boolean)`
+Method activates or deactivates the scanning of EAN 8 1D barcodes. Default (initial) value is `false`.
+
+##### `shouldScanITFCode(boolean)`
+Method activates or deactivates the scanning of ITF 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanQRCode(boolean)`
+Method activates or deactivates the scanning of QR 2D barcodes. Default (initial) value is `false`.
+
+##### `setScanUPCACode(boolean)`
+Method activates or deactivates the scanning of UPC A 1D barcodes. Default (initial) value is `false`.
+
+##### `setScanUPCECode(boolean)`
+Method activates or deactivates the scanning of UPC E 1D barcodes. Default (initial) value is `false`.
+
+##### `setInverseScanning(boolean)`
+By setting this to `true`, you will enable scanning of barcodes with inverse intensity values (i.e. white barcodes on dark background). This option can significantly increase recognition time. Default is `false`.
+
+##### `setSlowThoroughScan(boolean)`
+Use this method to enable slower, but more thorough scan procedure when scanning barcodes. By default, this option is turned on.
+
+##### `setLicenseKey(String)`
+Use this method to set the license key and unlock better support for Aztec scanning. Please contact us to obtain valid license key for the Aztec scanning.
+
+### Obtaining results from Barcode recognizer
+
+Barcode recognizer produces [BarcodeScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `BarcodeScanResult` class. See the following snippet for example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof BarcodeScanResult) {
+			BarcodeScanResult result = (BarcodeScanResult) baseResult;
+			
+			// getBarcodeType getter will return a BarcodeType enum that will define
+			// the type of the barcode scanned
+			BarcodeType barType = result.getBarcodeType();
+	        // getStringData getter will return the string version of barcode contents
+			String barcodeData = result.getStringData();
+		}
+	}
+}
+```
+
+As you can see from the example, obtaining data is rather simple. You just need to call several methods of the `BarcodeScanResult` object.
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeScanResult.html).**
 ## <a name="custom1DBarDecoder"></a> Scanning one dimensional barcodes with _BlinkID_'s implementation
+
+**Note: [BarDecoderRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/bardecoder/BarDecoderRecognizerSettings.html) is deprecated, you should use [BarcodeRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html) instead.** 
 
 This section discusses the settings for setting up 1D barcode recognizer that uses _BlinkID_'s implementation of scanning algorithms and explains how to obtain results from that recognizer. Henceforth, the 1D barcode recognizer that uses _BlinkID_'s implementation of scanning algorithms will be refered as "Bardecoder recognizer".
 
@@ -3659,6 +3751,8 @@ This method will return the object that contains information about barcode's bin
 This method will return a [BarcodeType](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/BarcodeType.html) enum that defines the type of barcode scanned.
 
 ## <a name="zxing"></a> Scanning barcodes with ZXing implementation
+
+**Note: [ZXingRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/zxing/ZXingRecognizerSettings.html) is deprecated, you should use [BarcodeRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html) instead.** 
 
 This section discusses the settings for setting up barcode recognizer that use ZXing's implementation of scanning algorithms and explains how to obtain results from it. _BlinkID_ uses ZXing's [c++ port](https://github.com/zxing/zxing/tree/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp) to support barcodes for which we still do not have our own scanning algorithms. Also, since ZXing's c++ port is not maintained anymore, we also provide updates and bugfixes to it inside our codebase.
 
@@ -3788,46 +3882,94 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/simnumber/SimNumberScanResult.html).**
-## <a name="aztecRecognizer"></a> Scanning aztec barcodes
+## <a name="vinRecognizer"></a> Scanning VIN barcodes
 
-This section discusses the settings for setting up aztec recognizer and explains how to obtain its results.
+This section discusses the settings for setting up VIN (*Vehicle Identification Number*) number recognizer and explains how to obtain its results.
 
-### Setting up aztec recognizer
+### Setting up VIN recognizer
 
-To activate aztec recognizer, you need to create a [AztecRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
+To activate VIN recognizer, you need to create a [VinRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/vin/VinRecognizerSettings.html) and add it to `RecognizerSettings` array. You can do this using following code snippet:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
-    // please contact us to obtain valid license key for the aztec recognizer
+	VinRecognizerSettings sett = new VinRecognizerSettings();
+	// now add sett to recognizer settings array that is used to configure
+    // recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**Javadoc documentation for VinRecognizerSettings can be found [here](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/vin/VinRecognizerSettings.html).**
+
+### Obtaining results from VIN recognizer
+
+VIN recognizer produces [VinScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/vin/VinScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `VinScanResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof VinScanResult) {
+			VinScanResult result = (VinScanResult) baseResult;
+	       // get scanned VIN
+			String vin = result.getVin();
+			if (vin != null) {
+				// do something
+			}
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/vin/VinScanResult.html).**
+## <a name="aztecBarcodes"></a> Scanning aztec barcodes
+
+**Note: [AztecRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecRecognizerSettings.html) is deprecated, you should use [BarcodeRecognizer](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html) instead.**
+
+This section discusses the settings for setting up `BarcodeRecognizer` for scanning the Aztec barcodes and explains how to obtain its results.
+
+### Setting up Barcode recognizer for scanning Aztec barcodes
+
+To activate barcode recognizer for scanning Aztec barcodes, you need to create a [BarcodeRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html) and set the license key to unlock the Aztec feature. Then you should add prepared `BarcodeRecognizerSettings` to `RecognizerSettings` array. You can do this by using the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    BarcodeRecognizerSettings sett = new BarcodeRecognizerSettings();
+    // please contact us to obtain valid license key to unlock the aztec feature
     // https://microblink.com/en/contact-us
     String aztecLicenseKey = getAztecLicenseKey();
-    AztecRecognizerSettings sett = new AztecRecognizerSettings(aztecLicenseKey);
+    // set license key and unlock the aztec scanning feature.
+    sett.setLicenseKey(aztecLicenseKey);
     // now add sett to recognizer settings array that is used to configure
     // recognition
     return new RecognizerSettings[] { sett };
 }
 ```
 
-**Javadoc documentation for AztecRecognizerSettings can be found [here](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecRecognizerSettings.html).**
+**Javadoc documentation for BarcodeRecognizerSettings can be found [here](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeRecognizerSettings.html).**
 
-### Obtaining results from aztec recognizer
-Aztec recognizer produces [AztecScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `AztecScanResult` class. See the following snippet for an example:
+### Obtaining Aztec results
+Barcode recognizer produces [BarcodeScanResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/barcode/BarcodeScanResult.html). You can use `instanceof` operator to check if element in results array is instance of `BarcodeScanResult` class and `getBarcodeType()` method to check whether the scanned barcode is Aztec. See the following snippet for example:
 
 ```java
 @Override
 public void onScanningDone(RecognitionResults results) {
-    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
-    for(BaseRecognitionResult baseResult : dataArray) {
-        if(baseResult instanceof AztecScanResult) {
-            AztecScanResult result = (AztecScanResult) baseResult;
-            // getStringData getter will return the string version of barcode contents
-            String barcodeData = result.getStringData();
-        }
-    }
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof BarcodeScanResult) {
+			BarcodeScanResult result = (BarcodeScanResult) baseResult;
+			// getBarcodeType getter will return a BarcodeType enum that will define
+			// the type of the barcode scanned
+			BarcodeType barType = result.getBarcodeType();
+			if (barType == BarcodeType.AZTEC) {
+				// we have Aztec result
+				String aztecData = result.getStringData();
+			}
+		}
+	}
 }
 ```
-
-**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkbarcode/aztec/AztecScanResult.html).**
 ## <a name="blinkOCR"></a> Scanning segments with BlinkOCR recognizer
 
 This section discusses the setting up of BlinkOCR recognizer and obtaining results from it. You should also check the demo for example.
@@ -3938,10 +4080,10 @@ Returns the parsed result provided by parser with name `parserName` added to def
 Returns the parsed result provided by parser with name `parserName` added to parser group named `parserGroupName`. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns empty string.
 
 ##### `Object getSpecificParsedResult(String parserName)`
-Returns specific parser result for concrete parser with the given parser name in default parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as `Date` object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in default parser group, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
+Returns specific parser result for concrete parser with the given parser name in default parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in default parser group, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
 
 ##### `Object getSpecificParsedResult(String parserGroupName, String parserName)`
-Returns specific parser result for concrete parser with the given parser name in the given parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as `Date` object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
+Returns specific parser result for concrete parser with the given parser name in the given parser group. For example, date parser which is represented with `DateParserSettings` can return parsed date as [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) object. It is always possible to obtain parsed result as raw string by using *getParsedResult(String)* or *getParsedResult(String, String)* method. If parser with name `parserName` does not exists in parser group with name `parserGroupName` or if parser group does not exists, returns `null`. If parser exists, but has failed to parse any data, returns null or empty string.
 
 ##### `OcrResult getOcrResult()`
 Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for default parser group.

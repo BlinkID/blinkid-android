@@ -364,7 +364,7 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.settings.<a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFaceImageName-java.lang.String-">getFaceImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFullDocumentImageName-java.lang.String-">getFullDocumentImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getMachineReadableZoneName-java.lang.String-">getMachineReadableZoneName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getSignatureImageName-java.lang.String-">getSignatureImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -399,10 +399,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of face image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-"><code>setReturnFaceImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FACE_IMAGE_NAME_PASSPORT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="SIGNATURE_IMAGE_NAME_PASSPORT">
@@ -417,10 +413,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of signature image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-"><code>setReturnSignatureImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.SIGNATURE_IMAGE_NAME_PASSPORT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE_PASSPORT">
@@ -435,10 +427,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-"><code>setReturnFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FULL_DOCUMENT_IMAGE_PASSPORT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FACE_IMAGE_NAME_FRONT">
@@ -453,10 +441,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of face image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-"><code>setReturnFaceImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FACE_IMAGE_NAME_FRONT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="SIGNATURE_IMAGE_NAME_FRONT">
@@ -471,10 +455,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of signature image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-"><code>setReturnSignatureImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.SIGNATURE_IMAGE_NAME_FRONT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE_FRONT">
@@ -489,10 +469,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-"><code>setReturnFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FULL_DOCUMENT_IMAGE_FRONT">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FACE_IMAGE_NAME_OLD">
@@ -507,10 +483,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of face image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-"><code>setReturnFaceImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FACE_IMAGE_NAME_OLD">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="SIGNATURE_IMAGE_NAME_OLD">
@@ -525,10 +497,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of signature image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-"><code>setReturnSignatureImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.SIGNATURE_IMAGE_NAME_OLD">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE_OLD">
@@ -543,10 +511,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-"><code>setReturnFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FULL_DOCUMENT_IMAGE_OLD">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE_BACK">
@@ -561,10 +525,6 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-"><code>setReturnFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings.FULL_DOCUMENT_IMAGE_BACK">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="CREATOR">

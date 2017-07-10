@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -173,8 +173,8 @@ implements android.os.Parcelable</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#OcrChar-long-com.microblink.results.ocr.OcrLine-">OcrChar</a></span>(long&nbsp;nativePtr,
-       <a href="../../../../com/microblink/results/ocr/OcrLine.html" title="class in com.microblink.results.ocr">OcrLine</a>&nbsp;parentLine)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#OcrChar-long-java.lang.Object-">OcrChar</a></span>(long&nbsp;nativePtr,
+       java.lang.Object&nbsp;parent)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -220,28 +220,22 @@ implements android.os.Parcelable</pre>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#getRecognitionVariants--">getRecognitionVariants</a></span>()</code>
-<div class="block">Returns the recognition variants of this char or null if there are no variants.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
 <td class="colFirst"><code>char</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#getValue--">getValue</a></span>()</code>
 <div class="block">Returns the value of the char.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#isUncertain--">isUncertain</a></span>()</code>
 <div class="block">Returns true if OCR engine thinks this char is uncertain</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrChar.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -285,14 +279,14 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="OcrChar-long-com.microblink.results.ocr.OcrLine-">
+<a name="OcrChar-long-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OcrChar</h4>
 <pre>public&nbsp;OcrChar(long&nbsp;nativePtr,
-               <a href="../../../../com/microblink/results/ocr/OcrLine.html" title="class in com.microblink.results.ocr">OcrLine</a>&nbsp;parentLine)</pre>
+               java.lang.Object&nbsp;parent)</pre>
 </li>
 </ul>
 </li>
@@ -384,22 +378,6 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the font of the character</dd>
-</dl>
-</li>
-</ul>
-<a name="getRecognitionVariants--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRecognitionVariants</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>[]&nbsp;getRecognitionVariants()</pre>
-<div class="block">Returns the recognition variants of this char or null if there are no variants.
- Note that char is defined by all its parameters (value, font, position, quality, etc.),
- so in recognition variants it is possible to have same char value with different font.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the recognition variants of this char or null if there are no variants</dd>
 </dl>
 </li>
 </ul>

@@ -62,7 +62,7 @@ public class RomanianIDFrontSideRecognitionResultExtractor extends MRTDRecogniti
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPNationality,
-                    romanianIdFrontResult.getNationality()
+                    romanianIdFrontResult.getNonMRZNationality()
             ));
 
             mExtractedData.add(mBuilder.build(
@@ -82,7 +82,7 @@ public class RomanianIDFrontSideRecognitionResultExtractor extends MRTDRecogniti
 
             mExtractedData.add(mBuilder.build(
                     R.string.PPSex,
-                    romanianIdFrontResult.getSex()
+                    romanianIdFrontResult.getNonMRZSex()
             ));
 
             mExtractedData.add(mBuilder.build(

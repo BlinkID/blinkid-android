@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -217,6 +217,18 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/IbanParserSettings.html#setAlwaysReturnPrefix-boolean-">setAlwaysReturnPrefix</a></span>(boolean&nbsp;allwaysReturnPrefix)</code>
+<div class="block">Sets whether prefix (country code) should always be returned.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/IbanParserSettings.html#shouldAlwaysReturnPrefix--">shouldAlwaysReturnPrefix</a></span>()</code>
+<div class="block">whether prefix (country code) should be always returned.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/IbanParserSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
@@ -318,6 +330,35 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>set of all allowed IBAN country codes</dd>
+</dl>
+</li>
+</ul>
+<a name="setAlwaysReturnPrefix-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAlwaysReturnPrefix</h4>
+<pre>public&nbsp;void&nbsp;setAlwaysReturnPrefix(boolean&nbsp;allwaysReturnPrefix)</pre>
+<div class="block">Sets whether prefix (country code) should always be returned.
+ If enabled, country code will always be returned with check digits and The Basic Bank Account Number (BBAN).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>allwaysReturnPrefix</code> - whether prefix should be always returned</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldAlwaysReturnPrefix--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldAlwaysReturnPrefix</h4>
+<pre>public&nbsp;boolean&nbsp;shouldAlwaysReturnPrefix()</pre>
+<div class="block">whether prefix (country code) should be always returned.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if prefix should be always returned</dd>
 </dl>
 </li>
 </ul>
