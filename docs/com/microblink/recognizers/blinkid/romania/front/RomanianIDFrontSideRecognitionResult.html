@@ -260,26 +260,26 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getNationality--">getNationality</a></span>()</code>
-<div class="block">Returns nationality of the Romanian ID owner.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getNonMRZNationality--">getNonMRZNationality</a></span>()</code>
+<div class="block">Returns nationality of the Romanian ID owner which is extracted from the non MRZ field.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getNonMRZSex--">getNonMRZSex</a></span>()</code>
+<div class="block">Returns sex of the Romanian ID owner which is extracted from the non MRZ field.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getParentNames--">getParentNames</a></span>()</code>
 <div class="block">Returns the parent names of Romanian ID owner.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getPlaceOfBirth--">getPlaceOfBirth</a></span>()</code>
 <div class="block">Returns place of birth of the Romanian ID owner.</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getSex--">getSex</a></span>()</code>
-<div class="block">Returns sex of the Romanian ID owner.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -287,13 +287,13 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
-<td class="colFirst"><code>java.util.Date</code></td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getValidFrom--">getValidFrom</a></span>()</code>
 <div class="block">Returns the valid from date of Romanian ID.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
-<td class="colFirst"><code>java.util.Date</code></td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/romania/front/RomanianIDFrontSideRecognitionResult.html#getValidUntil--">getValidUntil</a></span>()</code>
 <div class="block">Returns the valid until date of Romanian ID.</div>
 </td>
@@ -311,7 +311,7 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.blinkid.mrtd.<a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd">MRTDRecognitionResult</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getAlienNumber--">getAlienNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getApplicationReceiptNumber--">getApplicationReceiptNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDateOfBirth--">getDateOfBirth</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDateOfExpiry--">getDateOfExpiry</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentClassificationResult--">getDocumentClassificationResult</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentCode--">getDocumentCode</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentNumber--">getDocumentNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentType--">getDocumentType</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getImmigrantCaseNumber--">getImmigrantCaseNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getIssuer--">getIssuer</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getMRZText--">getMRZText</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOcrResult--">getOcrResult</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOpt1--">getOpt1</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOpt2--">getOpt2</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getPrimaryId--">getPrimaryId</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getRawDateOfBirth--">getRawDateOfBirth</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getRawDateOfExpiry--">getRawDateOfExpiry</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getSecondaryId--">getSecondaryId</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#isMRZParsed--">isMRZParsed</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#isMRZVerified--">isMRZVerified</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getAlienNumber--">getAlienNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getApplicationReceiptNumber--">getApplicationReceiptNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDateOfBirth--">getDateOfBirth</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDateOfExpiry--">getDateOfExpiry</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentClassificationResult--">getDocumentClassificationResult</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentCode--">getDocumentCode</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentNumber--">getDocumentNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getDocumentType--">getDocumentType</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getImmigrantCaseNumber--">getImmigrantCaseNumber</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getIssuer--">getIssuer</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getMRZText--">getMRZText</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getNationality--">getNationality</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOcrResult--">getOcrResult</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOpt1--">getOpt1</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getOpt2--">getOpt2</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getPrimaryId--">getPrimaryId</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getRawDateOfBirth--">getRawDateOfBirth</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getRawDateOfExpiry--">getRawDateOfExpiry</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getSecondaryId--">getSecondaryId</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getSex--">getSex</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#isMRZParsed--">isMRZParsed</a>, <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#isMRZVerified--">isMRZVerified</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.templating.TemplatingRecognitionResult">
@@ -325,7 +325,7 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDR
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.<a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html" title="class in com.microblink.recognizers">BaseRecognitionResult</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getBooleanElement-java.lang.String-">getBooleanElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignature--">getSignature</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignatureVersion--">getSignatureVersion</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getBooleanElement-java.lang.String-">getBooleanElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getEncodedImageName-java.lang.String-">getEncodedImageName</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getIntElement-java.lang.String-">getIntElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getResultHolder--">getResultHolder</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignature--">getSignature</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getSignatureVersion--">getSignatureVersion</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#getStringElement-java.lang.String-">getStringElement</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isEmpty--">isEmpty</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#isValid--">isValid</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#log--">log</a>, <a href="../../../../../../com/microblink/recognizers/BaseRecognitionResult.html#toString--">toString</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -481,20 +481,18 @@ public&nbsp;java.lang.String&nbsp;getParentNames()</pre>
 </dl>
 </li>
 </ul>
-<a name="getNationality--">
+<a name="getNonMRZNationality--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getNationality</h4>
+<h4>getNonMRZNationality</h4>
 <pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getNationality()</pre>
-<div class="block">Returns nationality of the Romanian ID owner.</div>
+public&nbsp;java.lang.String&nbsp;getNonMRZNationality()</pre>
+<div class="block">Returns nationality of the Romanian ID owner which is extracted from the non MRZ field.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getNationality--">getNationality</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd">MRTDRecognitionResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>nationality of the Romanian ID owner</dd>
+<dd>nationality of the Romanian ID owner which is extracted from the non MRZ field.</dd>
 </dl>
 </li>
 </ul>
@@ -550,7 +548,7 @@ public&nbsp;java.lang.String&nbsp;getIssuedBy()</pre>
 <li class="blockList">
 <h4>getValidFrom</h4>
 <pre>@Nullable
-public&nbsp;java.util.Date&nbsp;getValidFrom()</pre>
+public&nbsp;<a href="../../../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;getValidFrom()</pre>
 <div class="block">Returns the valid from date of Romanian ID.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -565,7 +563,7 @@ public&nbsp;java.util.Date&nbsp;getValidFrom()</pre>
 <li class="blockList">
 <h4>getValidUntil</h4>
 <pre>@Nullable
-public&nbsp;java.util.Date&nbsp;getValidUntil()</pre>
+public&nbsp;<a href="../../../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;getValidUntil()</pre>
 <div class="block">Returns the valid until date of Romanian ID.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -573,20 +571,18 @@ public&nbsp;java.util.Date&nbsp;getValidUntil()</pre>
 </dl>
 </li>
 </ul>
-<a name="getSex--">
+<a name="getNonMRZSex--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getSex</h4>
+<h4>getNonMRZSex</h4>
 <pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getSex()</pre>
-<div class="block">Returns sex of the Romanian ID owner.</div>
+public&nbsp;java.lang.String&nbsp;getNonMRZSex()</pre>
+<div class="block">Returns sex of the Romanian ID owner which is extracted from the non MRZ field.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html#getSex--">getSex</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd">MRTDRecognitionResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>sex of the Romanian ID owner</dd>
+<dd>sex of the Romanian ID owner which is extracted from the non MRZ field.</dd>
 </dl>
 </li>
 </ul>

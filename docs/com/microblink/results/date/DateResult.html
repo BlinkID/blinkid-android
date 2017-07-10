@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -114,7 +114,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">DateResult</span>
 extends java.lang.Object
 implements android.os.Parcelable, <a href="../../../../com/microblink/results/Result.html" title="interface in com.microblink.results">Result</a></pre>
-<div class="block">Helper class for obtaining recognition date results.</div>
+<div class="block">Helper class for obtaining date results.</div>
 </li>
 </ul>
 </div>
@@ -185,16 +185,19 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateResult.html#createFromDMY-java.lang.String-">createFromDMY</a></span>(java.lang.String&nbsp;originalDateString)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateResult.html#createUnparsed-java.lang.String-">createUnparsed</a></span>(java.lang.String&nbsp;originalDateString)</code>
+<div class="block">This method is called from native code to build <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> from native object, when
+ date has not been successfully parsed from the given <code>originalDateString</code>.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateResult.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.util.Date</code></td>
+<td class="colFirst"><code><a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateResult.html#getDate--">getDate</a></span>()</code>
-<div class="block">Date getter, if <code>Date</code> representation of date result exists returns it,
+<div class="block">Date getter, if <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> representation of date result exists returns it,
  otherwise returns null.</div>
 </td>
 </tr>
@@ -269,7 +272,7 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getOriginalDateString()</pre>
 <div class="block">Returns original string representation of the date which has been extracted from the OCR result.
- If it is successfully parsed to <code>Date</code> object, it can be obtained by using <a href="../../../../com/microblink/results/date/DateResult.html#getDate--"><code>getDate()</code></a> method.</div>
+ If it is successfully parsed to <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object, it can be obtained by using <a href="../../../../com/microblink/results/date/DateResult.html#getDate--"><code>getDate()</code></a> method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>original string representation of the date which has been extracted from the OCR result</dd>
@@ -283,13 +286,13 @@ public&nbsp;java.lang.String&nbsp;getOriginalDateString()</pre>
 <li class="blockList">
 <h4>getDate</h4>
 <pre>@Nullable
-public&nbsp;java.util.Date&nbsp;getDate()</pre>
-<div class="block">Date getter, if <code>Date</code> representation of date result exists returns it,
+public&nbsp;<a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;getDate()</pre>
+<div class="block">Date getter, if <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> representation of date result exists returns it,
  otherwise returns null. To obtain original date string use <a href="../../../../com/microblink/results/date/DateResult.html#getOriginalDateString--"><code>getOriginalDateString()</code></a>
  method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>if <code>Date</code> representation of date result exists returns it,
+<dd>if <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> representation of date result exists returns it,
  otherwise returns null.</dd>
 </dl>
 </li>
@@ -309,22 +312,31 @@ public&nbsp;java.util.Date&nbsp;getDate()</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>day</code> - day of the month</dd>
-<dd><code>month</code> - month of the year</dd>
-<dd><code>year</code> - year</dd>
+<dd><code>month</code> - month of the year from interval [1,12]</dd>
+<dd><code>year</code> - full year</dd>
 <dd><code>originalDateString</code> - original string from which native object has been parsed</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> object</dd>
 </dl>
 </li>
 </ul>
-<a name="createFromDMY-java.lang.String-">
+<a name="createUnparsed-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createFromDMY</h4>
-<pre>public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createFromDMY(@NonNull
-                                       java.lang.String&nbsp;originalDateString)</pre>
+<h4>createUnparsed</h4>
+<pre>public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createUnparsed(@NonNull
+                                        java.lang.String&nbsp;originalDateString)</pre>
+<div class="block">This method is called from native code to build <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> from native object, when
+ date has not been successfully parsed from the given <code>originalDateString</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>originalDateString</code> - original string from which native object has been created and
+                           which has not been successfully parsed to date.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> object</dd>
+</dl>
 </li>
 </ul>
 <a name="describeContents--">
@@ -364,7 +376,7 @@ public&nbsp;java.util.Date&nbsp;getDate()</pre>
 public&nbsp;java.lang.Object&nbsp;getNativeResult()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/results/Result.html#getNativeResult--">Result</a></code></span></div>
 <div class="block">Returns the native java object containing the result. For example, for <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a>, this method
- will return <code>Date</code> object.</div>
+ will return <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../com/microblink/results/Result.html#getNativeResult--">getNativeResult</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/results/Result.html" title="interface in com.microblink.results">Result</a></code></dd>
@@ -419,7 +431,7 @@ public&nbsp;java.lang.String&nbsp;getStringResult()</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

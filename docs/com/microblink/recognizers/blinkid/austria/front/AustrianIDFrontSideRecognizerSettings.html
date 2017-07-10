@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -243,24 +243,48 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#setExtractDateOfBirth-boolean-">setExtractDateOfBirth</a></span>(boolean&nbsp;extractDateOfBirth)</code>
+<div class="block">Defines if date of birth of Austrian ID owner should be extracted</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#setExtractSex-boolean-">setExtractSex</a></span>(boolean&nbsp;extractSex)</code>
+<div class="block">Defines if sex of Austrian ID owner should be extracted</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#shouldDisplayFaceImage--">shouldDisplayFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#shouldDisplayFullDocumentImage--">shouldDisplayFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#shouldDisplaySignatureImage--">shouldDisplaySignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#shouldExtractDateOfBirth--">shouldExtractDateOfBirth</a></span>()</code>
+<div class="block">Returns true if date of birth of Austrian ID owner is being extracted</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#shouldExtractSex--">shouldExtractSex</a></span>()</code>
+<div class="block">Returns true if sex of Austrian ID owner is being extracted</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -271,7 +295,7 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.settings.<a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></h3>
-<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
+<code><a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFaceImageName-java.lang.String-">getFaceImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFullDocumentImageName-java.lang.String-">getFullDocumentImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getMachineReadableZoneName-java.lang.String-">getMachineReadableZoneName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getSignatureImageName-java.lang.String-">getSignatureImageName</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -306,10 +330,6 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
  during recognition process if displaying of face image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#setDisplayFaceImage-boolean-"><code>setDisplayFaceImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings.FACE_IMAGE_NAME">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="SIGNATURE_IMAGE_NAME">
@@ -324,10 +344,6 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
  during recognition process if displaying of signature image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#setDisplaySignatureImage-boolean-"><code>setDisplaySignatureImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings.SIGNATURE_IMAGE_NAME">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE">
@@ -342,10 +358,6 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
  during recognition process if displaying of full document image is enabled (see <a href="../../../../../../com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognizerSettings.html#setDisplayFullDocumentImage-boolean-"><code>setDisplayFullDocumentImage(boolean)</code></a>,
  and receiving of <a href="../../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../../constant-values.html#com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings.FULL_DOCUMENT_IMAGE">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="CREATOR">
@@ -382,6 +394,62 @@ extends <a href="../../../../../../com/microblink/recognizers/settings/Recognize
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="setExtractSex-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtractSex</h4>
+<pre>public&nbsp;void&nbsp;setExtractSex(boolean&nbsp;extractSex)</pre>
+<div class="block">Defines if sex of Austrian ID owner should be extracted</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractSex</code> - defines if sex will be extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldExtractSex--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldExtractSex</h4>
+<pre>public&nbsp;boolean&nbsp;shouldExtractSex()</pre>
+<div class="block">Returns true if sex of Austrian ID owner is being extracted</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if sex is being extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="setExtractDateOfBirth-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setExtractDateOfBirth</h4>
+<pre>public&nbsp;void&nbsp;setExtractDateOfBirth(boolean&nbsp;extractDateOfBirth)</pre>
+<div class="block">Defines if date of birth of Austrian ID owner should be extracted</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractDateOfBirth</code> - defines if date of birth will be extracted</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldExtractDateOfBirth--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldExtractDateOfBirth</h4>
+<pre>public&nbsp;boolean&nbsp;shouldExtractDateOfBirth()</pre>
+<div class="block">Returns true if date of birth of Austrian ID owner is being extracted</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if date of birth is being extracted</dd>
+</dl>
+</li>
+</ul>
 <a name="setDisplayFaceImage-boolean-">
 <!--   -->
 </a>

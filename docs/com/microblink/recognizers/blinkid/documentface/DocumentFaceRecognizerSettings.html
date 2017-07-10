@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -228,17 +228,29 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#setShowFaceImage-boolean-">setShowFaceImage</a></span>(boolean&nbsp;showFaceImage)</code>
+<div class="block">Sets whether face image should be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#setShowFullDocument-boolean-">setShowFullDocument</a></span>(boolean&nbsp;showFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#shouldShowFaceImage--">shouldShowFaceImage</a></span>()</code>
+<div class="block">Returns whether sending of face image to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#shouldShowFullDocument--">shouldShowFullDocument</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -249,7 +261,7 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.settings.<a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></h3>
-<code><a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
+<code><a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#describeContents--">describeContents</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#finalize--">finalize</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFaceImageName-java.lang.String-">getFaceImageName</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getFullDocumentImageName-java.lang.String-">getFullDocumentImageName</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getMachineReadableZoneName-java.lang.String-">getMachineReadableZoneName</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#getSignatureImageName-java.lang.String-">getSignatureImageName</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#isEnabled--">isEnabled</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresAutofocus--">requiresAutofocus</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#requiresLandscapeMode--">requiresLandscapeMode</a>, <a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html#setEnabled-boolean-">setEnabled</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -283,10 +295,6 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
  This image will be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> during recognition
  process if receiving of <a href="../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#com.microblink.recognizers.blinkid.documentface.DocumentFaceRecognizerSettings.FACE_IMAGE_NAME">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="FULL_DOCUMENT_IMAGE">
@@ -301,10 +309,6 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
  if displaying of full document image is enabled (see <a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#setShowFullDocument-boolean-"><code>setShowFullDocument(boolean)</code></a>,
  and receiving of <a href="../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
  <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../constant-values.html#com.microblink.recognizers.blinkid.documentface.DocumentFaceRecognizerSettings.FULL_DOCUMENT_IMAGE">Constant Field Values</a></dd>
-</dl>
 </li>
 </ul>
 <a name="CREATOR">
@@ -385,6 +389,38 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>showFullDocumentImage</code> - whether full document image should be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldShowFaceImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldShowFaceImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldShowFaceImage()</pre>
+<div class="block">Returns whether sending of face image to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether sending of face image to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</dd>
+</dl>
+</li>
+</ul>
+<a name="setShowFaceImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowFaceImage</h4>
+<pre>public&nbsp;void&nbsp;setShowFaceImage(boolean&nbsp;showFaceImage)</pre>
+<div class="block">Sets whether face image should be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.
+ If enabled, image will be of type <a href="../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a>, and the name of the
+ image (see <a href="../../../../../com/microblink/image/Image.html#getImageName--"><code>Image.getImageName()</code></a>) will be equal to <a href="../../../../../com/microblink/recognizers/blinkid/documentface/DocumentFaceRecognizerSettings.html#FACE_IMAGE_NAME"><code>FACE_IMAGE_NAME</code></a>, so make sure
+ you subscribe to receiving of <a href="../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> images with
+ <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showFaceImage</code> - whether face image should be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</dd>
 </dl>
 </li>
 </ul>
