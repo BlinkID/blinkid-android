@@ -122,7 +122,7 @@ implements android.os.Parcelable</pre>
 <div class="block">Represents a parser which parses OCR result according to given regular expression.
  Regular expression parsing is not performed with java's regex engine. Instead, it is performed
  with custom regular expression engine which can work with multiple char recognition alternatives
- (if enabled in <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine"><code>BlinkOCREngineOptions</code></a>). Due to differences between parsing normal strings
+ (if enabled in <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine"><code>AbstractOCREngineOptions</code></a>). Due to differences between parsing normal strings
  and OCR results, this parser does not support some regex features found in java's regex engine,
  like back references. See <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setRegex-java.lang.String-"><code>setRegex(String)</code></a> for more information about what is supported.</div>
 </li>
@@ -196,8 +196,8 @@ implements android.os.Parcelable</pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">RegexParserSettings</a></span>(java.lang.String&nbsp;regex,
-                   <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;ocrEngineOptions)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">RegexParserSettings</a></span>(java.lang.String&nbsp;regex,
+                   <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;ocrEngineOptions)</code>
 <div class="block">Constructor using provided OCR engine options and provided regular expression.</div>
 </td>
 </tr>
@@ -221,7 +221,7 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#getOcrEngineOptions--">getOcrEngineOptions</a></span>()</code>
 <div class="block">Returns the OCR engine options used in Regex OCR parser.</div>
 </td>
@@ -265,7 +265,7 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">setOcrEngineOptions</a></span>(<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;ocrEngineOptions)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">setOcrEngineOptions</a></span>(<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;ocrEngineOptions)</code>
 <div class="block">Sets the OCR engine options used in Regex OCR parser.</div>
 </td>
 </tr>
@@ -344,7 +344,7 @@ implements android.os.Parcelable</pre>
 <div class="block">Constructor using default OCR engine options and provided regular expression.
  Since default OCR engine options does not have character whitelist, the regex alphabet
  is empty - this means that '.' metacharacter which represents any character is not supported.
- To use regular expressions that contain this metacharacter, use <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-"><code>RegexParserSettings(String, BlinkOCREngineOptions)</code></a>
+ To use regular expressions that contain this metacharacter, use <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-"><code>RegexParserSettings(String, AbstractOCREngineOptions)</code></a>
  constructor. For more information about regex support, see <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setRegex-java.lang.String-"><code>setRegex(String)</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -354,7 +354,7 @@ implements android.os.Parcelable</pre>
 </dl>
 </li>
 </ul>
-<a name="RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">
+<a name="RegexParserSettings-java.lang.String-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -363,7 +363,7 @@ implements android.os.Parcelable</pre>
 <pre>public&nbsp;RegexParserSettings(@NonNull
                            java.lang.String&nbsp;regex,
                            @NonNull
-                           <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;ocrEngineOptions)</pre>
+                           <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;ocrEngineOptions)</pre>
 <div class="block">Constructor using provided OCR engine options and provided regular expression.
  Some regex metacharacters, like '.' (represents any character) may not be supported if
  provided OCR engine options do not have character whitelist.
@@ -422,14 +422,14 @@ implements android.os.Parcelable</pre>
 </dl>
 </li>
 </ul>
-<a name="setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">
+<a name="setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setOcrEngineOptions</h4>
 <pre>public&nbsp;void&nbsp;setOcrEngineOptions(@NonNull
-                                <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;ocrEngineOptions)</pre>
+                                <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;ocrEngineOptions)</pre>
 <div class="block">Sets the OCR engine options used in Regex OCR parser.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -445,7 +445,11 @@ implements android.os.Parcelable</pre>
 <h4>setUseSieve</h4>
 <pre>public&nbsp;void&nbsp;setUseSieve(boolean&nbsp;useSieve)</pre>
 <div class="block">Enable the usage of algorithm for combining consecutive OCR results between video frames
- for improving OCR quality. By default this is turned off.</div>
+ for improving OCR quality. By default this is turned off.
+
+ Note: This option works together only with if instance of <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine"><code>BlinkOCREngineOptions</code></a> is given
+ to <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-"><code>setOcrEngineOptions(AbstractOCREngineOptions)</code></a>. Otherwise, it will not be
+ enabled and <code>IllegalArgumentException</code> will be thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>useSieve</code> - whether or not sieve algorithm should be used</dd>
@@ -532,7 +536,7 @@ implements android.os.Parcelable</pre>
 <li class="blockList">
 <h4>getOcrEngineOptions</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;getOcrEngineOptions()</pre>
+public&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;getOcrEngineOptions()</pre>
 <div class="block">Returns the OCR engine options used in Regex OCR parser.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

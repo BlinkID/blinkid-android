@@ -62,6 +62,16 @@ public class CroatianIDFrontSideRecognitionResultExtractor extends BlinkOcrRecog
                     R.string.PPDateOfExpiry,
                     croIdFrontResult.getDocumentDateOfExpiry()
             ));
+
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfExpiryPermanent,
+                    croIdFrontResult.getDocumentDateOfExpiryPermanent()
+            ));
+
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDocumentBilingual,
+                    croIdFrontResult.isDocumentBilingual()
+            ));
         }
 
         return mExtractedData;

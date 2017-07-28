@@ -1,5 +1,34 @@
 # Release notes
 
+## 3.10.0
+
+### New features:
+
+- added support for scanning Austrian passports - use `AustrianPassportRecognizerSettings`
+- added support for scanning Swiss passports -  use `SwissPassportRecognizerSettings`
+- added support for scanning Mexican Voting Cards - use `MRTDRecognizerSettings`
+
+### Minor API changes:
+
+- `RegexParserSettings` and `RawParserSettings` now work with `AbstractOCREngineOptions`, which is a base class of `BlinkOCREngineOptions`
+	- default engine options returned by method `getOcrEngineOptions` for both parser settings return instance of `BlinkOCREngineOptions`
+
+### Improvements for existing features
+
+- improved address parsing on Malaysian iKad documents
+	- affects only iKad recognizer (represented by `IKadRecognizerSettings`)
+- added support for scanning non-expiring Croatian ID documents
+	- affects:
+		- Croatian ID front recognizer (represented by `CroatianIDFrontSideRecognizerSettings`) - date of expiry is keyword **TRAJNO**
+		- Croatian ID back recognizer (represented by `CroatianIDBackSideRecognizerSettings`) - date of expiry inside MRZ is `991231`
+		- Croatian ID combined recognizer (represented by `CroatianIDCombinedRecognizerSettings`)
+
+### Bug fixes:
+
+- fixed occassional crash in MRTD detection algorithm
+	- this affects both _MRTD Recognizer_ (represented by `MRTDRecognizerSettings`) and _MRTD Detector_ (represented by `MRTDDetectorSettings`)
+ 
+
 ## 3.9.0
 
 - bugfix in Croatian ID scanning:

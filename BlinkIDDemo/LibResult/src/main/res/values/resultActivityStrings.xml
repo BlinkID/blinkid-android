@@ -30,6 +30,7 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPIssueDate">Issue date</string>
     <string name="PPExpiryDate">Expiry date</string>
+    <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
     <string name="PPIssuingAuthority">Issuing Authority</string>
 
     <!-- Barcode -->
@@ -91,5 +92,8 @@
 
     <!-- Combined extractors -->
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
+
+    <!-- Swiss passport specific -->
+    <string name="PPPlaceOfOrigin">Place of origin</string>
 
 </resources>

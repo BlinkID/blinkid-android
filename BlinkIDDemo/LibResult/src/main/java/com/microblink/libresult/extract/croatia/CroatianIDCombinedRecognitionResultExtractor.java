@@ -73,6 +73,11 @@ public class CroatianIDCombinedRecognitionResultExtractor implements IBaseRecogn
             ));
 
             mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfExpiryPermanent,
+                    combinedResult.getDocumentDateOfExpiryPermanent()
+            ));
+
+            mExtractedData.add(mBuilder.build(
                     R.string.PPAddress,
                     combinedResult.getAddress()
             ));
