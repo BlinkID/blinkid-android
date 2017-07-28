@@ -144,7 +144,7 @@ public class CroatianIDFrontSide {
         /**
          * tweak OCR engine options - allow only recognition of uppercase letters used in Croatia
          */
-        addAllCroatianUppercaseCharsToWhitelist(nameParser.getOcrEngineOptions());
+        addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)nameParser.getOcrEngineOptions());
 
         /**
          * add parser to parser group
@@ -224,7 +224,7 @@ public class CroatianIDFrontSide {
          * final whitelist for OCR will be obtained by merging all whitelists of all
          * parsers in same parser group.
          */
-        sexParser.getOcrEngineOptions().addCharToWhitelist('M', OcrFont.OCR_FONT_ANY)
+        ((BlinkOCREngineOptions)sexParser.getOcrEngineOptions()).addCharToWhitelist('M', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('F', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('Ž', OcrFont.OCR_FONT_ANY)
                 .addCharToWhitelist('/', OcrFont.OCR_FONT_ANY);
@@ -241,7 +241,7 @@ public class CroatianIDFrontSide {
          * which will be added to same parser group
          */
         RegexParserSettings citizenshipParser = new RegexParserSettings("[A-Z]{3}");
-        addAllCroatianUppercaseCharsToWhitelist(citizenshipParser.getOcrEngineOptions());
+        addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)citizenshipParser.getOcrEngineOptions());
         citizenshipParser.setMustEndWithWhitespace(true);
         citizenshipParser.setMustStartWithWhitespace(true);
 
@@ -288,7 +288,7 @@ public class CroatianIDFrontSide {
          * regex parser which only allows digits in OCR engine settings.
          */
         RegexParserSettings documentNumberParser = new RegexParserSettings("\\d{9}");
-        documentNumberParser.getOcrEngineOptions().addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
+        ((BlinkOCREngineOptions)documentNumberParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
         documentNumberParser.getOcrEngineOptions().setMinimumCharHeight(35);
 
         /**

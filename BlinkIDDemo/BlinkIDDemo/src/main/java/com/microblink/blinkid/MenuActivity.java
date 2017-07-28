@@ -33,6 +33,7 @@ import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.austria.passport.AustrianPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognizerSettings;
@@ -62,6 +63,7 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
 import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
@@ -236,6 +238,7 @@ public class MenuActivity extends Activity {
     /**
      * This method will build scan intent for {@link com.microblink.activity.VerificationFlowActivity}
      * with given combined recognizer settings.
+     *
      * @param combinedRecognizerSettings settings for the combined recognizer that will be used.
      */
     private Intent buildCombinedIntent(CombinedRecognizerSettings combinedRecognizerSettings) {
@@ -248,12 +251,13 @@ public class MenuActivity extends Activity {
 
     /**
      * Builds intent for segment scan.
+     *
      * @param configArray Array of scan configurations. Each scan configuration
-     *          contains 4 elements: resource ID for title displayed
-     *          in BlinkOCRActivity activity, resource ID for text
-     *          displayed in activity, name of the scan element (used
-     *          for obtaining results) and parser setting defining
-     *          how the data will be extracted.
+     *                    contains 4 elements: resource ID for title displayed
+     *                    in BlinkOCRActivity activity, resource ID for text
+     *                    displayed in activity, name of the scan element (used
+     *                    for obtaining results) and parser setting defining
+     *                    how the data will be extracted.
      * @return Built intent for segment scan.
      */
     private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
@@ -283,13 +287,14 @@ public class MenuActivity extends Activity {
         elements.add(buildMrtdElement());
         elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
+        elements.add(buildAustrianPassportElement());
         elements.add(buildCroatianIDElement());
         elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzechIDElement());
         elements.add(buildCzechIDCombinedElement());
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
-        elements.add( buildGermanIDCombinedElement() );
+        elements.add(buildGermanIDCombinedElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
         elements.add(bildRomanianElement());
@@ -301,6 +306,7 @@ public class MenuActivity extends Activity {
         elements.add(buildSlovakIDCombinedElement());
         elements.add(buildSlovenianIDElement());
         elements.add(buildSlovenianIDCombinedElement());
+        elements.add(buildSwissPassportElement());
 
         // DL list entries
         elements.add(buildAustrianDLElement());
@@ -345,6 +351,11 @@ public class MenuActivity extends Activity {
         return new ListElement("Austrian ID", buildIntent(new RecognizerSettings[]{ausFront, ausBack}, ScanCard.class, null));
     }
 
+    private ListElement buildAustrianPassportElement() {
+        AustrianPassportRecognizerSettings ausPass = new AustrianPassportRecognizerSettings();
+        return new ListElement("Austrian Passport", buildIntent(new RecognizerSettings[]{ausPass}, ScanCard.class, null));
+    }
+
     private ListElement buildCroatianIDElement() {
         CroatianIDFrontSideRecognizerSettings croFront = new CroatianIDFrontSideRecognizerSettings();
         CroatianIDBackSideRecognizerSettings croBack = new CroatianIDBackSideRecognizerSettings();
@@ -364,7 +375,7 @@ public class MenuActivity extends Activity {
         GermanIDBackSideRecognizerSettings deBack = new GermanIDBackSideRecognizerSettings();
         GermanOldIDRecognizerSettings deOld = new GermanOldIDRecognizerSettings();
 
-        return new ListElement( "German ID", buildIntent( new RecognizerSettings[] { deFront, deBack, deOld }, ScanCard.class, null ));
+        return new ListElement("German ID", buildIntent(new RecognizerSettings[]{deFront, deBack, deOld}, ScanCard.class, null));
     }
 
     private ListElement buildGermanPassportElement() {
@@ -399,6 +410,12 @@ public class MenuActivity extends Activity {
         SlovenianIDBackSideRecognizerSettings sloBack = new SlovenianIDBackSideRecognizerSettings();
 
         return new ListElement("Slovenian ID", buildIntent(new RecognizerSettings[]{sloFront, sloBack}, ScanCard.class, null));
+    }
+
+    private ListElement buildSwissPassportElement() {
+        SwissPassportRecognizerSettings swissPass = new SwissPassportRecognizerSettings();
+
+        return new ListElement("Swiss Passport", buildIntent(new RecognizerSettings[]{swissPass}, ScanCard.class, null));
     }
 
     private ListElement buildUKDLElement() {
@@ -453,10 +470,10 @@ public class MenuActivity extends Activity {
         return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
     }
 
-    private ListElement bildRomanianElement () {
+    private ListElement bildRomanianElement() {
         RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
 
-        return new ListElement("Romanian ID", buildIntent( new RecognizerSettings[] { romanianSettings }, ScanCard.class, null ));
+        return new ListElement("Romanian ID", buildIntent(new RecognizerSettings[]{romanianSettings}, ScanCard.class, null));
     }
 
     private ListElement buildCroatianIDCombinedElement() {
@@ -516,7 +533,7 @@ public class MenuActivity extends Activity {
     private ListElement buildGermanIDCombinedElement() {
         GermanIDCombinedRecognizerSettings deCombined = new GermanIDCombinedRecognizerSettings();
 
-        return new ListElement( "German ID combined", buildCombinedIntent( deCombined ) );
+        return new ListElement("German ID combined", buildCombinedIntent(deCombined));
     }
 
     private ListElement buildPDF417Element() {

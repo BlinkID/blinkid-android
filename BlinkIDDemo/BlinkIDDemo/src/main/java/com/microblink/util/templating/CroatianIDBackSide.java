@@ -7,6 +7,7 @@ import com.microblink.geometry.Rectangle;
 import com.microblink.recognizers.blinkid.mrtd.MRTDDocumentClassifier;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
+import com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions;
 import com.microblink.recognizers.blinkocr.parser.generic.DateParserSettings;
 import com.microblink.recognizers.blinkocr.parser.regex.RegexParserSettings;
 import com.microblink.recognizers.templating.TemplatingRecognizerSettings;
@@ -99,8 +100,8 @@ public class CroatianIDBackSide {
          * To ensure optimal OCR results, we will allow only uppercase letters and digits in OCR. Thus, OCR
          * will not return lowercase letters, reducing the possibility of misreads.
          */
-        CroatianIDFrontSide.addAllCroatianUppercaseCharsToWhitelist(addressParser.getOcrEngineOptions());
-        addressParser.getOcrEngineOptions().addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
+        CroatianIDFrontSide.addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)addressParser.getOcrEngineOptions());
+        ((BlinkOCREngineOptions)addressParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
         addressParser.getOcrEngineOptions().setColorDropoutEnabled(false);
         addressParser.getOcrEngineOptions().setMinimumCharHeight(35);
 
@@ -132,7 +133,7 @@ public class CroatianIDBackSide {
      */
     private static void setupIssuedBy(TemplatingRecognizerSettings settings, List<DecodingInfo> oldId, List<DecodingInfo> newId) {
         RegexParserSettings issuedByParser = new RegexParserSettings("P[PU] ([A-ZŠĐŽČĆ]+ ?)+");
-        CroatianIDFrontSide.addAllCroatianUppercaseCharsToWhitelist(issuedByParser.getOcrEngineOptions());
+        CroatianIDFrontSide.addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)issuedByParser.getOcrEngineOptions());
         issuedByParser.getOcrEngineOptions().setColorDropoutEnabled(false);
         issuedByParser.getOcrEngineOptions().setMinimumCharHeight(20);
 

@@ -42,6 +42,10 @@ public class CroatianIDBackSideRecognitionResultExtractor extends MRTDRecognitio
                     R.string.PPIssueDate,
                     croIDBackResult.getDocumentDateOfIssue()
             ));
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPDateOfExpiryPermanent,
+                    croIDBackResult.getDocumentDateOfExpiryPermanent()
+            ));
 
             super.extractMRZData(croIDBackResult);
         }

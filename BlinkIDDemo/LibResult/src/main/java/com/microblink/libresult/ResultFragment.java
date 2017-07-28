@@ -19,6 +19,7 @@ import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.libresult.extract.austria.AustrianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.austria.AustrianPassportRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.BarcodeRecognitionResultExtractor;
 import com.microblink.libresult.extract.barcode.Pdf417RecognitionResultExtractor;
 import com.microblink.libresult.extract.blinkInput.BlinkOcrRecognitionResultExtractor;
@@ -51,6 +52,7 @@ import com.microblink.libresult.extract.slovakia.SlovakIDFrontSideRecognitionRes
 import com.microblink.libresult.extract.slovenia.SlovenianIDBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovenia.SlovenianIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovenia.SlovenianIDFrontRecognitionResultExtractor;
+import com.microblink.libresult.extract.switzerland.SwissPassportRecognitionResultExtractor;
 import com.microblink.locale.LanguageUtils;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
@@ -59,6 +61,7 @@ import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberScanResult;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.austria.passport.AustrianPassportRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognitionResult;
@@ -87,6 +90,7 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognitionResult;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
 
 import java.util.List;
@@ -146,6 +150,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new AustrianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof AustrianIDCombinedRecognitionResult) {
             mResultExtractor = new AustrianIDCombinedRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof AustrianPassportRecognitionResult) {
+            mResultExtractor = new AustrianPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CroatianIDBackSideRecognitionResult) {
             mResultExtractor = new CroatianIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CroatianIDFrontSideRecognitionResult) {
@@ -188,6 +194,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SlovenianIDFrontRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SlovenianIDCombinedRecognitionResult) {
             mResultExtractor = new SlovenianIDCombinedRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SwissPassportRecognitionResult) {
+            mResultExtractor = new SwissPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof IKadRecognitionResult) {
             mResultExtractor = new IKadRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {
