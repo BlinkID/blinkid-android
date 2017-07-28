@@ -8,6 +8,11 @@
 - added support for scanning Swiss passports -  use `SwissPassportRecognizerSettings`
 - added support for scanning Mexican Voting Cards - use `MRTDRecognizerSettings`
 
+### Minor API changes:
+
+- `RegexParserSettings` and `RawParserSettings` now work with `AbstractOCREngineOptions`, which is a base class of `BlinkOCREngineOptions`
+	- default engine options returned by method `getOcrEngineOptions` for both parser settings return instance of `BlinkOCREngineOptions`
+
 ### Improvements for existing features
 
 - improved address parsing on Malaysian iKad documents

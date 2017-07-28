@@ -33,6 +33,7 @@ com.microblink.recognizers.blinkid
 com.microblink.recognizers.blinkid.austria.back
 com.microblink.recognizers.blinkid.austria.combined
 com.microblink.recognizers.blinkid.austria.front
+com.microblink.recognizers.blinkid.austria.passport
 com.microblink.recognizers.blinkid.croatia.back
 com.microblink.recognizers.blinkid.croatia.combined
 com.microblink.recognizers.blinkid.croatia.front
@@ -62,6 +63,7 @@ com.microblink.recognizers.blinkid.slovakia.front
 com.microblink.recognizers.blinkid.slovenia.back
 com.microblink.recognizers.blinkid.slovenia.combined
 com.microblink.recognizers.blinkid.slovenia.front
+com.microblink.recognizers.blinkid.switzerland.passport
 com.microblink.recognizers.blinkid.usdl.combined
 com.microblink.recognizers.blinkocr
 com.microblink.recognizers.blinkocr.engine

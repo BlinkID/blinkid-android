@@ -207,7 +207,7 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#getOcrEngineOptions--">getOcrEngineOptions</a></span>()</code>
 <div class="block">Returns the OCR engine options used in Raw OCR parser.</div>
 </td>
@@ -221,7 +221,7 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">setOcrEngineOptions</a></span>(<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;options)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">setOcrEngineOptions</a></span>(<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;options)</code>
 <div class="block">Sets the OCR engine options used in Raw OCR parser.</div>
 </td>
 </tr>
@@ -299,7 +299,7 @@ implements android.os.Parcelable</pre>
 <pre>public&nbsp;RawParserSettings()</pre>
 <div class="block">Constructor for Raw Parser Settings, initialised with default OCR engine options.
  To customise scanning experience, you should specify custom OCR engine options, see
- <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-"><code>setOcrEngineOptions(BlinkOCREngineOptions)</code></a> and/or you should enable reusing of
+ <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-"><code>setOcrEngineOptions(AbstractOCREngineOptions)</code></a> and/or you should enable reusing of
  time redundant information between consecutive video frames to improve OCR quality with
  <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setUseSieve-boolean-"><code>setUseSieve(boolean)</code></a>.</div>
 </li>
@@ -320,7 +320,11 @@ implements android.os.Parcelable</pre>
 <h4>setUseSieve</h4>
 <pre>public&nbsp;void&nbsp;setUseSieve(boolean&nbsp;useSieve)</pre>
 <div class="block">Enable the usage of algorithm for combining consecutive OCR results between video frames
- for improving OCR quality. By default this is turned off.</div>
+ for improving OCR quality. By default this is turned off.
+
+ Note: This option works together only with if instance of <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine"><code>BlinkOCREngineOptions</code></a> is given
+ to <a href="../../../../../../com/microblink/recognizers/blinkocr/parser/generic/RawParserSettings.html#setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-"><code>setOcrEngineOptions(AbstractOCREngineOptions)</code></a>. Otherwise, it will not be
+ enabled and <code>IllegalArgumentException</code> will be thrown.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>useSieve</code> - whether or not sieve algorithm should be used</dd>
@@ -349,7 +353,7 @@ implements android.os.Parcelable</pre>
 <li class="blockList">
 <h4>getOcrEngineOptions</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;getOcrEngineOptions()</pre>
+public&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;getOcrEngineOptions()</pre>
 <div class="block">Returns the OCR engine options used in Raw OCR parser.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -357,14 +361,14 @@ public&nbsp;<a href="../../../../../../com/microblink/recognizers/blinkocr/engin
 </dl>
 </li>
 </ul>
-<a name="setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions-">
+<a name="setOcrEngineOptions-com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setOcrEngineOptions</h4>
 <pre>public&nbsp;void&nbsp;setOcrEngineOptions(@NonNull
-                                <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;options)</pre>
+                                <a href="../../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&nbsp;options)</pre>
 <div class="block">Sets the OCR engine options used in Raw OCR parser.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

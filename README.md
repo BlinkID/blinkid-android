@@ -57,6 +57,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Austrian ID documents](#ausID_front)
   * [Scanning back side of Austrian ID documents](#ausID_back)
   * [Scanning and combining results from front and back side of Austrian ID documents](#austrianIDCombined)
+  * [Scanning Austrian passports](#aus_passport)
   * [Scanning front side of Croatian ID documents](#croID_front)
   * [Scanning back side of Croatian ID documents](#croID_back)
   * [Scanning and combining results from front and back side of Croatian ID documents](#croIDCombined)
@@ -76,6 +77,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Slovenian ID documents](#slovenianID_front)
   * [Scanning back side of Slovenian ID documents](#slovenianID_back)
   * [Scanning and combining results from front and back side of Slovenian ID documents](#slovenianIDCombined)
+  * [Scanning Swiss passports](#swiss_passport)
   * [Scanning front side of Romanian ID documents](#romanianID_front)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning and combining results from front and back side of US Driver's licence](#usdlCombined)
@@ -168,7 +170,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.9.0@aar') {
+    compile('com.microblink:blinkid:3.10.0@aar') {
     	transitive = true
     }
 }
@@ -180,7 +182,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.9.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.10.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -205,7 +207,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.9.0</version>
+		  <version>3.10.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -1825,6 +1827,57 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/combined/AustrianIDCombinedRecognitionResult.html).**
 
+## <a name="aus_passport"></a> Scanning Austrian passports
+
+This section will discuss the setting up of Austrian passport recognizer and obtaining results from it.
+
+### Setting up Austrian passport recognizer
+
+To activate Austrian passport recognizer, you need to create [AustrianPassportRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/passport/AustrianPassportRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	AustrianPassportRecognizerSettings sett = new AustrianPassportRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [AustrianPassportRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/passport/AustrianPassportRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/passport/AustrianPassportRecognizerSettings.html) for more information.**
+
+### Obtaining results from Austrian passport recognizer
+
+Austrian passport recognizer produces [AustrianPassportRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/passport/AustrianPassportRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustrianPassportRecognitionResult` class. 
+
+**Note:** `AustrianPassportRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof AustrianPassportRecognitionResult) {
+			AustrianPassportRecognitionResult result = (AustrianPassportRecognitionResult) baseResult;
+			
+	        // you can use getters of AustrianPassportRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String placeOfBirth = result.getPlaceOfBirth();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/passport/AustrianPassportRecognitionResult.html).**
+
 ## <a name="croID_front"></a> Scanning front side of Croatian ID documents
 
 This section will discuss the setting up of Croatian ID Front Side recognizer and obtaining results from it.
@@ -2885,6 +2938,57 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognitionResult.html).**
+
+## <a name="swiss_passport"></a> Scanning Swiss passports
+
+This section will discuss the setting up of Swiss passport recognizer and obtaining results from it.
+
+### Setting up Swiss passport recognizer
+
+To activate Swiss passport recognizer, you need to create [SwissPassportRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/passport/SwissPassportRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SwissPassportRecognizerSettings sett = new SwissPassportRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SwissPassportRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/passport/SwissPassportRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/passport/SwissPassportRecognizerSettings.html) for more information.**
+
+### Obtaining results from Swiss passport recognizer
+
+Swiss passport recognizer produces [SwissPassportRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/passport/SwissPassportRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SwissPassportRecognitionResult` class. 
+
+**Note:** `SwissPassportRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SwissPassportRecognitionResult) {
+			SwissPassportRecognitionResult result = (SwissPassportRecognitionResult) baseResult;
+			
+	        // you can use getters of AustrianPassportRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String placeOfOrigin = result.getPlaceOfOrigin();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/passport/SwissPassportRecognitionResult.html).**
 
 ## <a name="romanianID_front"></a> Scanning front side of Romanian ID documents
 
@@ -4767,6 +4871,7 @@ If you are having problems with scanning certain items, undesired behaviour on s
 	* information about device that you are using - we need exact model name of the device. You can obtain that information with [this app](https://play.google.com/store/apps/details?id=com.jphilli85.deviceinfo&hl=en)
 	* please stress out that you are reporting problem related to Android version of _BlinkID_ SDK
 
+
 ## <a name="faq"></a> Frequently asked questions and known problems
 Here is a list of frequently asked questions and solutions for them and also a list of known problems in the SDK and how to work around them.
 
@@ -4782,6 +4887,24 @@ This usually happens when you perform integration into [Eclipse project](#eclips
 
 This error happens when JVM fails to load some native method from native library. If performing integration into [Eclipse project](#eclipseIntegration) make sure you have the same version of all native libraries and java wrapper. If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries). If this error also happens in our integration demo apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
 
+### <a name="requiredParserDidntProduceResult"></a> While scanning, I get `Required parser 'X' from parser group 'Y' did not produce result!` in my app logs
+
+This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn’t succeed while processing the current camera frame. This can happen due to:
+
+* poor camera frame (out of focus, poor light, glare)
+    * message appears occasionally while moving the camera frame
+    * this is common behavior given the camera frame quality, focus the camera and scan in better light conditions
+* incorrect regex
+    * message appears constantly, even with a high-quality camera frame
+    * check and fix your parser regex and keep in mind that some features, like back references, match grouping and certain regex metacharacters are not supported. See [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/regex/RegexParserSettings.html#setRegex-java.lang.String-) for more info.
+* incorrect OCR engine settings
+    * message appears often, even with a high-quality camera frame
+    * check that all letters that are referenced in your regular expression are added to [whitelist](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#addCharToWhitelist-com.microblink.recognizers.blinkocr.engine.BlinkOCRCharKey-)
+* if using [Templating API](#blinkOCR_templating): 
+	* if message appears often:
+		* check relative positions of your [DecodingInfos](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) as they might not be correctly set up
+	* if message appears occasionally:
+		* document detection has failed for the current video frame due to a poor camera frame, or document part that needs to be extracted is covered with glare
 
 # <a name="info"></a> Additional info
 Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android/index.html). 

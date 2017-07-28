@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions</a>&lt;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&gt;</li>
+<li>
+<ul class="inheritance">
 <li>com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -111,12 +116,9 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <span class="typeNameLabel">BlinkOCREngineOptions</span>
-extends java.lang.Object
-implements android.os.Parcelable</pre>
-<div class="block">Options used in OCR.
- <p/>
- Created by dodo on 22/05/15.</div>
+<pre>public final class <span class="typeNameLabel">BlinkOCREngineOptions</span>
+extends <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&lt;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&gt;</pre>
+<div class="block">Options used in BlinkOCR engine.</div>
 </li>
 </ul>
 </div>
@@ -155,6 +157,13 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;com.microblink.recognizers.blinkocr.engine.<a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a></h3>
+<code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#mNativeContext">mNativeContext</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
 <!--   -->
@@ -239,141 +248,94 @@ implements android.os.Parcelable</pre>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCRCharKey.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCRCharKey</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getCharWhitelist--">getCharWhitelist</a></span>()</code>
 <div class="block">Returns the set of all supported char+font combinations.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/OcrDocumentType.html" title="enum in com.microblink.recognizers.blinkocr.engine">OcrDocumentType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getDocumentType--">getDocumentType</a></span>()</code>
 <div class="block">Returns the current OCR document type.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getMaximumAllowedCharRecognitionVariants--">getMaximumAllowedCharRecognitionVariants</a></span>()</code>
-<div class="block">Returns the maximum allowed number of char recognition variants OCR engine will produce
- for each OcrChar.</div>
-</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getMaximumCharsExpected--">getMaximumCharsExpected</a></span>()</code>
-<div class="block">Returns the maximum number of chars expected in the image.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getMaximumLineHeight--">getMaximumLineHeight</a></span>()</code>
-<div class="block">Returns the maximum height of the line of text given in pixels.</div>
-</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getMinimumCharHeight--">getMinimumCharHeight</a></span>()</code>
-<div class="block">Returns the minimum height of char that can be classified.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getMinimumLineHeight--">getMinimumLineHeight</a></span>()</code>
-<div class="block">Returns the minimum height of the line of text given in pixels.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#getNativeContext--">getNativeContext</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i17" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isCasePostprocessorEnabled--">isCasePostprocessorEnabled</a></span>()</code>
 <div class="block">Returns whether case postprocessing is enabled.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isColorDropoutEnabled--">isColorDropoutEnabled</a></span>()</code>
-<div class="block">Returns true if the additional image processing which drops background colors will be performed.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isCutoffCharFilterEnabled--">isCutoffCharFilterEnabled</a></span>()</code>
 <div class="block">Returns whether cutoff char filter is enabled.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isDetectFlippedTextEnabled--">isDetectFlippedTextEnabled</a></span>()</code>
 <div class="block">Returns whether flipped text detection is enabled.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isImageProcessingEnabled--">isImageProcessingEnabled</a></span>()</code>
 <div class="block">Returns true if image processing is performed on image.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isNoisePostprocessingEnabled--">isNoisePostprocessingEnabled</a></span>()</code>
 <div class="block">Returns whether noise postprocessing is enabled.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isRatioPostprocessorEnabled--">isRatioPostprocessorEnabled</a></span>()</code>
 <div class="block">Returns whether ratio postprocessor is enabled.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#isWordProcessingEnabled--">isWordProcessingEnabled</a></span>()</code>
 <div class="block">Returns whether word processing is enabled.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#loadFromParcel-android.os.Parcel-">loadFromParcel</a></span>(android.os.Parcel&nbsp;in)</code>&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setCasePostprocessorEnabled-boolean-">setCasePostprocessorEnabled</a></span>(boolean&nbsp;casePostprocessorEnabled)</code>
 <div class="block">If enabled, classification will be aided by character position in line.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setColorDropoutEnabled-boolean-">setColorDropoutEnabled</a></span>(boolean&nbsp;colorDropoutEnabled)</code>
-<div class="block">Specifies if the additional image processing which drops the background colors should be performed.</div>
-</td>
-</tr>
-<tr id="i27" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setCutoffCharFilterEnabled-boolean-">setCutoffCharFilterEnabled</a></span>(boolean&nbsp;cutoffCharFilterEnabled)</code>
 <div class="block">If enabled, all chars that are classified as cutoff, in other words chars
  that exceed image bounds, will be removed from the result.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setDetectFlippedTextEnabled-boolean-">setDetectFlippedTextEnabled</a></span>(boolean&nbsp;detectFlippedTextEnabled)</code>
 <div class="block">If enabled, OCR will produce result for the input image and for
  input image rotated by 180 degrees.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setDocumentType-com.microblink.recognizers.blinkocr.engine.OcrDocumentType-">setDocumentType</a></span>(<a href="../../../../../com/microblink/recognizers/blinkocr/engine/OcrDocumentType.html" title="enum in com.microblink.recognizers.blinkocr.engine">OcrDocumentType</a>&nbsp;documentType)</code>
 <div class="block">Specifies the OCR document type that will be used to adjust the ocr engine settings.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setImageProcessingEnabled-boolean-">setImageProcessingEnabled</a></span>(boolean&nbsp;imageProcessingEnabled)</code>
 <div class="block">Specifies if the image processing is performed on image
@@ -381,51 +343,20 @@ implements android.os.Parcelable</pre>
  By default it's set to true.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMaximumAllowedCharRecognitionVariants-int-">setMaximumAllowedCharRecognitionVariants</a></span>(int&nbsp;maximumAllowedCharRecognitionVariants)</code>
-<div class="block">Sets the maximum allowed number of char recognition variants OCR engine will produce
- for each OcrChar.</div>
-</td>
-</tr>
-<tr id="i32" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMaximumCharsExpected-int-">setMaximumCharsExpected</a></span>(int&nbsp;maximumCharsExpected)</code>
-<div class="block">Sets the maximum number of chars expected in the image.</div>
-</td>
-</tr>
-<tr id="i33" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMaximumLineHeight-int-">setMaximumLineHeight</a></span>(int&nbsp;maximumLineHeight)</code>
-<div class="block">Sets the maximum height of the line of text given in pixels.</div>
-</td>
-</tr>
-<tr id="i34" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMinimumCharHeight-int-">setMinimumCharHeight</a></span>(int&nbsp;minimumCharHeight)</code>
-<div class="block">Sets the minimum height of the char that can be classified.</div>
-</td>
-</tr>
-<tr id="i35" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMinimumLineHeight-int-">setMinimumLineHeight</a></span>(int&nbsp;minimumLineHeight)</code>
-<div class="block">Sets the minimum height of the line of thxt given in pixels.</div>
-</td>
-</tr>
-<tr id="i36" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setNoisePostprocessingEnabled-boolean-">setNoisePostprocessingEnabled</a></span>(boolean&nbsp;noisePostprocessingEnabled)</code>
 <div class="block">If enabled noisy lines will be removed from the result.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setRatioPostprocessorEnabled-boolean-">setRatioPostprocessorEnabled</a></span>(boolean&nbsp;ratioPostprocessorEnabled)</code>
 <div class="block">If enabled, char quality will be influenced by character ratio difference
  from the original character in font specified by classification.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setWordProcessingEnabled-boolean-">setWordProcessingEnabled</a></span>(boolean&nbsp;wordProcessingEnabled)</code>
 <div class="block">If the option is enabled, words in the OCR result will be
@@ -433,12 +364,19 @@ implements android.os.Parcelable</pre>
  words, upper case, ...</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.blinkocr.engine.AbstractOCREngineOptions">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.recognizers.blinkocr.engine.<a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a></h3>
+<code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#describeContents--">describeContents</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getMaximumAllowedCharRecognitionVariants--">getMaximumAllowedCharRecognitionVariants</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getMaximumCharsExpected--">getMaximumCharsExpected</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getMaximumLineHeight--">getMaximumLineHeight</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getMinimumCharHeight--">getMinimumCharHeight</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getMinimumLineHeight--">getMinimumLineHeight</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#getNativeContext--">getNativeContext</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#isColorDropoutEnabled--">isColorDropoutEnabled</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setColorDropoutEnabled-boolean-">setColorDropoutEnabled</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setMaximumAllowedCharRecognitionVariants-int-">setMaximumAllowedCharRecognitionVariants</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setMaximumCharsExpected-int-">setMaximumCharsExpected</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setMaximumLineHeight-int-">setMaximumLineHeight</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setMinimumCharHeight-int-">setMinimumCharHeight</a>, <a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#setMinimumLineHeight-int-">setMinimumLineHeight</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -507,225 +445,6 @@ implements android.os.Parcelable</pre>
 <dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Throwable</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getNativeContext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getNativeContext</h4>
-<pre>public&nbsp;long&nbsp;getNativeContext()</pre>
-</li>
-</ul>
-<a name="getMaximumAllowedCharRecognitionVariants--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMaximumAllowedCharRecognitionVariants</h4>
-<pre>public&nbsp;int&nbsp;getMaximumAllowedCharRecognitionVariants()</pre>
-<div class="block">Returns the maximum allowed number of char recognition variants OCR engine will produce
- for each OcrChar.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the maximum allowed number of char recognition variants OCR engine will produce
- for each OcrChar.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr"><code>OcrChar</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="setMaximumAllowedCharRecognitionVariants-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMaximumAllowedCharRecognitionVariants</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setMaximumAllowedCharRecognitionVariants(int&nbsp;maximumAllowedCharRecognitionVariants)</pre>
-<div class="block">Sets the maximum allowed number of char recognition variants OCR engine will produce
- for each OcrChar. By default, OCR engine will not produce char recognition variants
- (i.e. maximum allowed char recognition variants is 0). By setting this number to higher
- values, you can create more flexible OCR postprocessing algorithm because more char
- recognition variants will be available to you. However, setting it too high can lead
- to significant performance problems.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maximumAllowedCharRecognitionVariants</code> - maximum allowed number of char recognition
-                                              variants OCR engine will produce for each OcrChar</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr"><code>OcrChar</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="getMinimumLineHeight--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMinimumLineHeight</h4>
-<pre>public&nbsp;int&nbsp;getMinimumLineHeight()</pre>
-<div class="block">Returns the minimum height of the line of text given in pixels. All lines smaller
- than this value are ignored. Line height is defined as height of largest character
- in line.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>minimum height of the line</dd>
-</dl>
-</li>
-</ul>
-<a name="setMinimumLineHeight-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinimumLineHeight</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setMinimumLineHeight(int&nbsp;minimumLineHeight)</pre>
-<div class="block">Sets the minimum height of the line of thxt given in pixels. All chars smaller
- than this value will be ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>minimumLineHeight</code> - minimum height of the line</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations.</dd>
-</dl>
-</li>
-</ul>
-<a name="getMinimumCharHeight--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMinimumCharHeight</h4>
-<pre>public&nbsp;int&nbsp;getMinimumCharHeight()</pre>
-<div class="block">Returns the minimum height of char that can be classified. All chars smaller than this
- value are ignored.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>minimum height of the char</dd>
-</dl>
-</li>
-</ul>
-<a name="setMinimumCharHeight-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMinimumCharHeight</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setMinimumCharHeight(int&nbsp;minimumCharHeight)</pre>
-<div class="block">Sets the minimum height of the char that can be classified. All chars smaller than this
- value are ignored. Unlike <a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMinimumLineHeight-int-"><code>setMinimumLineHeight(int)</code></a>, this value refers to individual
- chars, while <a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html#setMinimumLineHeight-int-"><code>setMinimumLineHeight(int)</code></a> refers to line height, which equals to height
- of largest char in line.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>minimumCharHeight</code> - minimum height of the char</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations</dd>
-</dl>
-</li>
-</ul>
-<a name="getMaximumLineHeight--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMaximumLineHeight</h4>
-<pre>public&nbsp;int&nbsp;getMaximumLineHeight()</pre>
-<div class="block">Returns the maximum height of the line of text given in pixels. All chars larger
- than this value are ignored.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>maximum height of the line</dd>
-</dl>
-</li>
-</ul>
-<a name="setMaximumLineHeight-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMaximumLineHeight</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setMaximumLineHeight(int&nbsp;maximumLineHeight)</pre>
-<div class="block">Sets the maximum height of the line of text given in pixels. All chars larger
- than this value will be ignored.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maximumLineHeight</code> - maximum height of the line</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations.</dd>
-</dl>
-</li>
-</ul>
-<a name="getMaximumCharsExpected--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getMaximumCharsExpected</h4>
-<pre>public&nbsp;int&nbsp;getMaximumCharsExpected()</pre>
-<div class="block">Returns the maximum number of chars expected in the image.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the maximum number of chars expected in the image.</dd>
-</dl>
-</li>
-</ul>
-<a name="setMaximumCharsExpected-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setMaximumCharsExpected</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setMaximumCharsExpected(int&nbsp;maximumCharsExpected)</pre>
-<div class="block">Sets the maximum number of chars expected in the image.
- Setting this value can speed up the OCR processing because all images with more chars than specified will be ignored
- (becuase in most cases they are noise). Please note that noise characters are also counted. This means that if you
- expect 17 characters and usually get 25 characters (8 of which are noise), setting this to 17 will cause to return
- empty OCR result (because 25 characters is more than expected 17, even though 8 characters are noise).
- Use this option solely to increase OCR speed. This option will not increase OCR accuracy.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>maximumCharsExpected</code> - the maximum number of chars expected in the image.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations.</dd>
-</dl>
-</li>
-</ul>
-<a name="isColorDropoutEnabled--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isColorDropoutEnabled</h4>
-<pre>public&nbsp;boolean&nbsp;isColorDropoutEnabled()</pre>
-<div class="block">Returns true if the additional image processing which drops background colors will be performed.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if the additional image processing which drops background colors will be performed.</dd>
-</dl>
-</li>
-</ul>
-<a name="setColorDropoutEnabled-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setColorDropoutEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&nbsp;setColorDropoutEnabled(boolean&nbsp;colorDropoutEnabled)</pre>
-<div class="block">Specifies if the additional image processing which drops the background colors should be performed.
- <p/>
- Use this if you have black text on color backgrounds.
- If you have black text on white background, using this is not needed as it slows down processing.
- If you have color text, don't use it at all because color dropout will remove the text.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>colorDropoutEnabled</code> - whether dropping of colors from image should be performed</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>this object, to support chaining of operations.</dd>
 </dl>
 </li>
 </ul>
@@ -1129,23 +848,10 @@ implements android.os.Parcelable</pre>
 </dl>
 </li>
 </ul>
-<a name="describeContents--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>describeContents</h4>
-<pre>public&nbsp;int&nbsp;describeContents()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>describeContents</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
-</dl>
-</li>
-</ul>
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
@@ -1153,6 +859,21 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&lt;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadFromParcel-android.os.Parcel-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadFromParcel</h4>
+<pre>protected final&nbsp;void&nbsp;loadFromParcel(android.os.Parcel&nbsp;in)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html#loadFromParcel-android.os.Parcel-">loadFromParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/recognizers/blinkocr/engine/AbstractOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">AbstractOCREngineOptions</a>&lt;<a href="../../../../../com/microblink/recognizers/blinkocr/engine/BlinkOCREngineOptions.html" title="class in com.microblink.recognizers.blinkocr.engine">BlinkOCREngineOptions</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
