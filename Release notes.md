@@ -1,5 +1,13 @@
 # Release notes
 
+## 3.10.1
+
+### Bug fixes:
+
+- fixed pareclization of `BlinkOCREngineOptions`:
+	- when defining character whitelist chosen character font has been incorrectly passed to native code
+	- affects code where character whitelist is defined through `BlinkOCREngineOptions` for used parsers (e.g. `Templating API`)
+
 ## 3.10.0
 
 ### New features:

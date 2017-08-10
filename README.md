@@ -170,7 +170,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.10.0@aar') {
+    compile('com.microblink:blinkid:3.10.1@aar') {
     	transitive = true
     }
 }
@@ -182,7 +182,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.10.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.10.1` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -207,7 +207,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.10.0</version>
+		  <version>3.10.1</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -4905,7 +4905,6 @@ This is not an error - this is merely a debug message informing you, as the deve
 		* check relative positions of your [DecodingInfos](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) as they might not be correctly set up
 	* if message appears occasionally:
 		* document detection has failed for the current video frame due to a poor camera frame, or document part that needs to be extracted is covered with glare
-
 # <a name="info"></a> Additional info
 Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android/index.html). 
 
