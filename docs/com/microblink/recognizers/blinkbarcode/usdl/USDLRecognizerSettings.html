@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -208,30 +208,17 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#isScanning1DBarcodes--">isScanning1DBarcodes</a></span>()</code>
-<div class="block">Returns true if scanning of 1D barcodes on some driver's licenses is enabled.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#isUncertainScanMode--">isUncertainScanMode</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#setNullQuietZoneAllowed-boolean-">setNullQuietZoneAllowed</a></span>(boolean&nbsp;nullQuietZoneAllowed)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#setScan1DBarcodes-boolean-">setScan1DBarcodes</a></span>(boolean&nbsp;scan1DBarcodes)</code>
-<div class="block">Allow scanning of 1D Code39 and Code128 barcodes on driver's licenses that contain
- those barcodes alongside PDF417 barcode.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#setUncertainScanning-boolean-">setUncertainScanning</a></span>(boolean&nbsp;uncertainScanning)</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkbarcode/usdl/USDLRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -354,36 +341,6 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true, if scanning barcodes which do not have quiet zone
  surrounding it is allowed.</dd>
-</dl>
-</li>
-</ul>
-<a name="setScan1DBarcodes-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setScan1DBarcodes</h4>
-<pre>public&nbsp;void&nbsp;setScan1DBarcodes(boolean&nbsp;scan1DBarcodes)</pre>
-<div class="block">Allow scanning of 1D Code39 and Code128 barcodes on driver's licenses that contain
- those barcodes alongside PDF417 barcode. These barcodes usually contain redundant
- information, but if not, you can enable scanning them if some data is missing.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>scan1DBarcodes</code> - Whether or not 1D barcodes on some licenses will be scanned.</dd>
-</dl>
-</li>
-</ul>
-<a name="isScanning1DBarcodes--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isScanning1DBarcodes</h4>
-<pre>public&nbsp;boolean&nbsp;isScanning1DBarcodes()</pre>
-<div class="block">Returns true if scanning of 1D barcodes on some driver's licenses is enabled.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if scanning of 1D barcodes on some driver's licenses is enabled.</dd>
 </dl>
 </li>
 </ul>

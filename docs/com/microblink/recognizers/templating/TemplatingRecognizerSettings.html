@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">com.microblink.recognizers.settings.RecognizerSettings</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">com.microblink.recognizers.segment.SegmentRecognizerSettings</a></li>
+<li>
+<ul class="inheritance">
 <li>com.microblink.recognizers.templating.TemplatingRecognizerSettings</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -112,16 +117,17 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable</dd>
+<dd>android.os.Parcelable, <a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../../com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognizerSettings</a>, <a href="../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.mrtd">MRTDRecognizerSettings</a></dd>
+<dd><a href="../../../../com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognizerSettings</a>, <a href="../../../../com/microblink/recognizers/detector/DetectorRecognizerSettings.html" title="class in com.microblink.recognizers.detector">DetectorRecognizerSettings</a>, <a href="../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid.mrtd">MRTDRecognizerSettings</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">TemplatingRecognizerSettings</span>
-extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></pre>
+extends <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a>
+implements <a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></pre>
 <div class="block">Represents base of all recognizer settings which support specifying decoding
  infos and parser groups required for scanning generic documents.</div>
 </li>
@@ -151,17 +157,13 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <!--   -->
 </a>
 <h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#kDefaultParserGroup">kDefaultParserGroup</a></span></code>&nbsp;</td>
-</tr>
-</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;com.microblink.recognizers.segment.<a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></h3>
+<code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#kDefaultParserGroup">kDefaultParserGroup</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.settings.RecognizerSettings">
 <!--   -->
@@ -210,62 +212,28 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#addParser-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParser</a></span>(java.lang.String&nbsp;parserName,
-         <a href="../../../../com/microblink/recognizers/blinkocr/parser/OcrParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser">OcrParserSettings</a>&nbsp;parserSettings)</code>
-<div class="block">Adds parser to default parser group.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#addParserToParserGroup-java.lang.String-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParserToParserGroup</a></span>(java.lang.String&nbsp;parserGroupName,
-                      java.lang.String&nbsp;parserName,
-                      <a href="../../../../com/microblink/recognizers/blinkocr/parser/OcrParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser">OcrParserSettings</a>&nbsp;parserSettings)</code>
-<div class="block">Adds parser to given parser group.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#initFromParcel-android.os.Parcel-">initFromParcel</a></span>(android.os.Parcel&nbsp;in)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParserDecodingInfoSets--">removeAllParserDecodingInfoSets</a></span>()</code>
 <div class="block">Removes all decoding info sets.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParsers--">removeAllParsers</a></span>()</code>
-<div class="block">Removes all parsers from all parser groups.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParsersFromGroup-java.lang.String-">removeAllParsersFromGroup</a></span>(java.lang.String&nbsp;parserGroupName)</code>
-<div class="block">Removes all parsers from given parser group.</div>
-</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParser-java.lang.String-">removeParser</a></span>(java.lang.String&nbsp;parserName)</code>
-<div class="block">Removes parser from default parser group.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParserDecodingInfoSet-java.lang.String-">removeParserDecodingInfoSet</a></span>(java.lang.String&nbsp;decodingInfoSet)</code>
 <div class="block">Removes the decoding info set with the given name.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParserFromParserGroup-java.lang.String-java.lang.String-">removeParserFromParserGroup</a></span>(java.lang.String&nbsp;parserGroupName,
-                           java.lang.String&nbsp;parserName)</code>
-<div class="block">Removes parser from given parser group.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
+<div class="block">Defines whether glare detector will be used during recognition process.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-">setParserDecodingInfos</a></span>(<a href="../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos,
                       java.lang.String&nbsp;decodingInfoSet)</code>
@@ -274,12 +242,25 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
  specific field type of concrete recognizer.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
+<div class="block">Returns whether glare detector is enabled.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.recognizers.segment.<a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></h3>
+<code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#addParser-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParser</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#addParserToParserGroup-java.lang.String-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParserToParserGroup</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeAllParsers--">removeAllParsers</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeAllParsersFromGroup-java.lang.String-">removeAllParsersFromGroup</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeParser-java.lang.String-">removeParser</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeParserFromParserGroup-java.lang.String-java.lang.String-">removeParserFromParserGroup</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.settings.RecognizerSettings">
 <!--   -->
@@ -294,6 +275,13 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.android.os.Parcelable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;android.os.Parcelable</h3>
+<code>describeContents</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -302,27 +290,6 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="kDefaultParserGroup">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>kDefaultParserGroup</h4>
-<pre>public static final&nbsp;java.lang.String kDefaultParserGroup</pre>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#com.microblink.recognizers.templating.TemplatingRecognizerSettings.kDefaultParserGroup">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -346,103 +313,6 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="addParser-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addParser</h4>
-<pre>public&nbsp;void&nbsp;addParser(@NonNull
-                      java.lang.String&nbsp;parserName,
-                      @NonNull
-                      <a href="../../../../com/microblink/recognizers/blinkocr/parser/OcrParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser">OcrParserSettings</a>&nbsp;parserSettings)</pre>
-<div class="block">Adds parser to default parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserName</code> - Name of the parser (also the name where parser result will be stored in BlinkOCRRecognitionResult)</dd>
-<dd><code>parserSettings</code> - Settings for the parser that will be added.</dd>
-</dl>
-</li>
-</ul>
-<a name="addParserToParserGroup-java.lang.String-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addParserToParserGroup</h4>
-<pre>public&nbsp;void&nbsp;addParserToParserGroup(@NonNull
-                                   java.lang.String&nbsp;parserGroupName,
-                                   @NonNull
-                                   java.lang.String&nbsp;parserName,
-                                   @NonNull
-                                   <a href="../../../../com/microblink/recognizers/blinkocr/parser/OcrParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser">OcrParserSettings</a>&nbsp;parserSettings)</pre>
-<div class="block">Adds parser to given parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group where parser will be added.</dd>
-<dd><code>parserName</code> - Name of the parser (also the name where parser result will be stored in BlinkOCRRecognitionResult in given parser group)</dd>
-<dd><code>parserSettings</code> - Settings for the parser that will be added.</dd>
-</dl>
-</li>
-</ul>
-<a name="removeParser-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeParser</h4>
-<pre>public&nbsp;void&nbsp;removeParser(@NonNull
-                         java.lang.String&nbsp;parserName)</pre>
-<div class="block">Removes parser from default parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserName</code> - Name of the parser to be removed.</dd>
-</dl>
-</li>
-</ul>
-<a name="removeAllParsersFromGroup-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeAllParsersFromGroup</h4>
-<pre>public&nbsp;void&nbsp;removeAllParsersFromGroup(@NonNull
-                                      java.lang.String&nbsp;parserGroupName)</pre>
-<div class="block">Removes all parsers from given parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group to be cleared.</dd>
-</dl>
-</li>
-</ul>
-<a name="removeAllParsers--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeAllParsers</h4>
-<pre>public&nbsp;void&nbsp;removeAllParsers()</pre>
-<div class="block">Removes all parsers from all parser groups.</div>
-</li>
-</ul>
-<a name="removeParserFromParserGroup-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>removeParserFromParserGroup</h4>
-<pre>public&nbsp;void&nbsp;removeParserFromParserGroup(@NonNull
-                                        java.lang.String&nbsp;parserGroupName,
-                                        @NonNull
-                                        java.lang.String&nbsp;parserName)</pre>
-<div class="block">Removes parser from given parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group from which parser should be removed.</dd>
-<dd><code>parserName</code> - Name of the parser to be removed.</dd>
-</dl>
-</li>
-</ul>
 <a name="setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-">
 <!--   -->
 </a>
@@ -498,6 +368,46 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <div class="block">Removes all decoding info sets.</div>
 </li>
 </ul>
+<a name="setDetectGlare-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetectGlare</h4>
+<pre>public&nbsp;void&nbsp;setDetectGlare(boolean&nbsp;detectGlare)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#setDetectGlare-boolean-">GlareDetectorOptions</a></code></span></div>
+<div class="block">Defines whether glare detector will be used during recognition process. By default this
+ option is set to <code>true</code> and glare detector is used. If the glare detector is used and
+ obtaining of glare metadata is enabled in <a href="../../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata"><code>MetadataSettings</code></a> with
+ method <a href="../../../../com/microblink/metadata/MetadataSettings.html#setGlareMetadataAllowed-boolean-"><code>MetadataSettings.setGlareMetadataAllowed(boolean)</code></a>,
+ glare status will be reported to <a href="../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>. Also when
+ glare is detected OCR will not be performed on the affected document position to prevent errors
+ in the extracted data.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#setDetectGlare-boolean-">setDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>detectGlare</code> - whether glare detector will be used during recognition process.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldDetectGlare--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldDetectGlare</h4>
+<pre>public&nbsp;boolean&nbsp;shouldDetectGlare()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#shouldDetectGlare--">GlareDetectorOptions</a></code></span></div>
+<div class="block">Returns whether glare detector is enabled.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#shouldDetectGlare--">shouldDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>it the glare detector is enabled returns <code>true</code>, otherwise returns <code>false</code>.</dd>
+</dl>
+</li>
+</ul>
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
@@ -507,6 +417,12 @@ extends <a href="../../../../com/microblink/recognizers/settings/RecognizerSetti
 <pre>@CallSuper
 public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
                                      int&nbsp;flags)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="initFromParcel-android.os.Parcel-">
@@ -517,6 +433,10 @@ public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
 <h4>initFromParcel</h4>
 <pre>@CallSuper
 protected&nbsp;void&nbsp;initFromParcel(android.os.Parcel&nbsp;in)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#initFromParcel-android.os.Parcel-">initFromParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -572,13 +492,13 @@ protected&nbsp;void&nbsp;initFromParcel(android.os.Parcel&nbsp;in)</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#fields.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

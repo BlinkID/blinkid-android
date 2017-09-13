@@ -77,11 +77,14 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Slovenian ID documents](#slovenianID_front)
   * [Scanning back side of Slovenian ID documents](#slovenianID_back)
   * [Scanning and combining results from front and back side of Slovenian ID documents](#slovenianIDCombined)
+  * [Scanning front side of Swiss ID documents](#swissID_front)
+  * [Scanning back side of Swiss ID documents](#swissID_back)
   * [Scanning Swiss passports](#swiss_passport)
   * [Scanning front side of Romanian ID documents](#romanianID_front)
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning and combining results from front and back side of US Driver's licence](#usdlCombined)
   * [Scanning EU driver's licences](#eudl)
+  * [Scanning Australian driver's licences](#australianDL)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning Malaysian iKad documents](#iKad)
   * [Scanning front side of Singapore ID documents](#singaporeID_front)
@@ -94,8 +97,8 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning SIM number barcodes](#simNumberRecognizer)
   * [Scanning VIN barcodes](#vinRecognizer)
   * [Scanning aztec barcodes](#aztecBarcodes)
-  * [Scanning segments with BlinkOCR recognizer](#blinkOCR)
-  * [Scanning templated documents with BlinkOCR recognizer](#blinkOCR_templating)
+  * [Scanning segments with BlinkInput recognizer](#blinkInput)
+  * [Scanning templated documents with DetectorRecognizer](#detectorRecognizer_templating)
   * [Performing detection of various documents](#detectorRecognizer)
 * [Detection settings and results](#detectionSettingsAndResults)
   * [Detection of documents with Machine Readable Zone](#mrtdDetector)
@@ -170,7 +173,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.10.1@aar') {
+    compile('com.microblink:blinkid:3.11.0@aar') {
     	transitive = true
     }
 }
@@ -182,7 +185,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.10.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.11.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -207,7 +210,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.10.1</version>
+		  <version>3.11.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -331,7 +334,7 @@ You’ve already created the project that contains almost everything you need. N
 	// for obtaining results) and parser setting defining
 	// how the data will be extracted.
 	// For more information about parser setting, check the
-	// chapter "Scanning segments with BlinkOCR recognizer"
+	// chapter "Scanning segments with BlinkInput recognizer"
 	ScanConfiguration[] confArray = new ScanConfiguration[] {
 		new ScanConfiguration(R.string.amount_title, R.string.amount_msg, "Amount", new AmountParserSettings()),
 		new ScanConfiguration(R.string.email_title, R.string.email_msg, "EMail", new EMailParserSettings()),
@@ -386,7 +389,7 @@ You’ve already created the project that contains almost everything you need. N
 	// how the data will be extracted. In random scan, all scan elements should have
 	// distinct parser types.
 	// For more information about parser setting, check the
-	// chapter "Scanning segments with BlinkOCR recognizer"
+	// chapter "Scanning segments with BlinkInput recognizer"
 	
 	RandomScanElement date = new RandomScanElement(R.string.date_title, "Date", new DateParserSettings());
 	// element can be optional, which means that result can be returned without scannig that element
@@ -592,7 +595,7 @@ Generally, you can also change other resources that `ScanCard` uses, but you are
 
 This section will discuss possible parameters that can be sent over `Intent` for `SegmentScanActivity` activity that can customize default behaviour. There are several intent extras that can be sent to `SegmentScanActivity` actitivy:
 	
-* <a name="intent_EXTRAS_SCAN_CONFIGURATION" href="#intent_EXTRAS_SCAN_CONFIGURATION">#</a> **`SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION`** - with this extra you must set the array of [ScanConfiguration](https://blinkid.github.io/blinkid-android/com/microblink/ocr/ScanConfiguration.html) objects. Each `ScanConfiguration` object will define specific scan configuration that will be performed. `ScanConfiguration` defines two string resource ID's - title of the scanned item and text that will be displayed above field where scan is performed. Besides that it defines the name of scanned item and object defining the OCR parser settings. More information about parser settings can be found in chapter [Scanning segments with BlinkOCR recognizer](#blinkOCR). Here is only important that each scan configuration represents a single parser group and SegmentScanActivity ensures that only one parser group is active at a time. After defining scan configuration array, you need to put it into intent extra with following code snippet:
+* <a name="intent_EXTRAS_SCAN_CONFIGURATION" href="#intent_EXTRAS_SCAN_CONFIGURATION">#</a> **`SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION`** - with this extra you must set the array of [ScanConfiguration](https://blinkid.github.io/blinkid-android/com/microblink/ocr/ScanConfiguration.html) objects. Each `ScanConfiguration` object will define specific scan configuration that will be performed. `ScanConfiguration` defines two string resource ID's - title of the scanned item and text that will be displayed above field where scan is performed. Besides that it defines the name of scanned item and object defining the OCR parser settings. More information about parser settings can be found in chapter [Scanning segments with BlinkInput recognizer](#blinkInput). Here is only important that each scan configuration represents a single parser group and SegmentScanActivity ensures that only one parser group is active at a time. After defining scan configuration array, you need to put it into intent extra with following code snippet:
 	
 	```java
 	intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, confArray);
@@ -663,7 +666,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 `RandomScanActivity` accepts similar intent extras as `SegmentScanActivity` with few differences listed below.
 	
 * <a name="intent_EXTRAS_SCAN_CONFIGURATION_random" href="#intent_EXTRAS_SCAN_CONFIGURATION_random">#</a> **`RandomScanActivity.EXTRAS_SCAN_CONFIGURATION`** 
-With this extra you must set the array of [RandomScanElement](https://blinkid.github.io/blinkid-android/com/microblink/ocr/RandomScanElement.html) objects. Each `RandomScanElement` holds following information about scan element: title of the scanned item, name of scanned item and object defining the OCR parser settings. Additionally, it is possible to set parser group for a parser that is responsible for extracting the element data by using the `setParserGroup(String groupName)` method on `RandomScanElement` object. If all parsers are in the same parser group, recognition will be faster, but sometimes merged OCR engine options may cause that some parsers are unable to extract valid data from the scanned text. Putting each parser into its own group will give better accuracy, but will perform OCR of image for each parser which can consume a lot of processing time. By default, if parser groups are not defined, all parsers will be placed in the same parser group. More information about parser settings can be found in chapter [Scanning segments with BlinkOCR recognizer](#blinkOCR). 
+With this extra you must set the array of [RandomScanElement](https://blinkid.github.io/blinkid-android/com/microblink/ocr/RandomScanElement.html) objects. Each `RandomScanElement` holds following information about scan element: title of the scanned item, name of scanned item and object defining the OCR parser settings. Additionally, it is possible to set parser group for a parser that is responsible for extracting the element data by using the `setParserGroup(String groupName)` method on `RandomScanElement` object. If all parsers are in the same parser group, recognition will be faster, but sometimes merged OCR engine options may cause that some parsers are unable to extract valid data from the scanned text. Putting each parser into its own group will give better accuracy, but will perform OCR of image for each parser which can consume a lot of processing time. By default, if parser groups are not defined, all parsers will be placed in the same parser group. More information about parser settings can be found in chapter [Scanning segments with BlinkInput recognizer](#blinkInput). 
 
 *  <a name="intent_EXTRAS_SCAN_MESSAGE" href="#intent_EXTRAS_SCAN_MESSAGE">#</a> **`RandomScanActivity.EXTRAS_SCAN_MESSAGE`** 
 With this extra, it is possible to change default scan message that is displayed above the scanning
@@ -1430,6 +1433,9 @@ Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blink
 ##### [`setShowFullDocument(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowFullDocument-boolean-)
 Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing full document containing Machine Readable Zone. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"MRTD"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
+##### [`setMRZFilter(MRZFilter)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRZFilter-com.microblink.recognizers.blinkid.mrtd.MRZFilter-)
+Sets the [MRZFilter](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRZFilter.html) that will be used for filtering MRTD documents based on the MRZ zone result. MRZ filter should be used if only specific MRTD documents should be processed. Only recognition results from documents that are allowed by this filter can be returned.
+
 ### Extracting additional fields of interest from machine-readable travel documents (Templating API)
 
 If MRTD document contains additional fields of interest that should be extracted together with information from machine readable zone (MRZ), you can achieve this by specifying the locations of this fields relative to full document detection and choosing appropriate parsers that will be used to extract data from them. Additionally, it is possible to support multiple document types containing the MRZ zone (e.g. different versions of the ID card). To achieve this, document classifier, which classify the document based on the MRZ result and fields set with [`void setParserDecodingInfos(DecodingInfo[])`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-), should be implemented and provided to the MRTD recognizer and locations of additional fields should be defined for each document type, as separate location sets.
@@ -1680,7 +1686,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Austrian ID front side recognizer produces [AustrianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/austria/front/AustrianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustrianIDFrontSideRecognitionResult ` class. 
 
-**Note:** `AustrianIDFrontSideRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `AustrianIDFrontSideRecognitionResult ` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -1902,7 +1908,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Croatian ID front side recognizer produces [CroatianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/croatia/front/CroatianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `CroatianIDFrontSideRecognitionResult ` class. 
 
-**Note:** `CroatianIDFrontSideRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `CroatianIDFrontSideRecognitionResult ` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2073,7 +2079,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Czech ID front side recognizer produces [CzechIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/front/CzechIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `CzechIDFrontSideRecognitionResult ` class. 
 
-**Note:** `CzechIDFrontSideRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `CzechIDFrontSideRecognitionResult ` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2244,7 +2250,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 German ID front side recognizer produces [GermanIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDFrontSideRecognitionResult` class. 
 
-**Note:** `GermanIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `GermanIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2450,7 +2456,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Serbian ID front side recognizer produces [SerbianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/serbia/front/SerbianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SerbianIDFrontSideRecognitionResult` class. 
 
-**Note:** `SerbianIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SerbianIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2621,7 +2627,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Slovak ID front side recognizer produces [SlovakIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovakia/front/SlovakIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovakIDFrontSideRecognitionResult ` class. 
 
-**Note:** `SlovakIDFrontSideRecognitionResult ` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SlovakIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2792,7 +2798,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Slovenian ID front side recognizer produces [SlovenianIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/front/SlovenianIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SlovenianIDFrontSideRecognitionResult` class. 
 
-**Note:** `SlovenianIDFrontSideRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SlovenianIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -2939,6 +2945,109 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/slovenia/combined/SlovenianIDCombinedRecognitionResult.html).**
 
+## <a name="swissID_front"></a> Scanning front side of Swiss ID documents
+
+This section will discuss the setting up of Swiss ID Front Side recognizer and obtaining results from it.
+
+### Setting up Swiss ID card front side recognizer
+
+To activate Swiss ID front side recognizer, you need to create [SwissIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/front/SwissIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SwissIDFrontSideRecognizerSettings sett = new SwissIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SwissIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/front/SwissIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/front/SwissIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Swiss ID card front side recognizer
+
+Swiss ID front side recognizer produces [SwissIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/front/SwissIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SwissIDFrontSideRecognitionResult` class. 
+
+**Note:** `SwissIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SwissIDFrontSideRecognitionResult) {
+			SwissIDFrontSideRecognitionResult result = (SwissIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SwissIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				Date dateOfBirth = result.getDateOfBirth();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/front/SwissIDFrontSideRecognitionResult.html).**
+
+## <a name="swissID_back"></a> Scanning back side of Swiss ID documents
+
+This section will discuss the setting up of Swiss ID Back Side recognizer and obtaining results from it.
+
+### Setting up Swiss ID card back side recognizer
+
+To activate Swiss ID card back side recognizer, you need to create [SwissIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/back/SwissIDBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SwissIDBackSideRecognizerSettings sett = new SwissIDBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SwissIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/back/SwissIDBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/back/SwissIDBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Swiss ID card back side recognizer
+
+Swiss ID back side recognizer produces [SwissIDBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/back/SwissIDBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SwissIDBackSideRecognitionResult` class. 
+
+**Note:** `SwissIDBackSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SwissIDBackSideRecognitionResult) {
+			SwissIDBackSideRecognitionResult result = (SwissIDBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of SwissIDBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String placeOfOrigin = result.getPlaceOfOrigin();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/switzerland/back/SwissIDBackSideRecognitionResult.html).**
+
 ## <a name="swiss_passport"></a> Scanning Swiss passports
 
 This section will discuss the setting up of Swiss passport recognizer and obtaining results from it.
@@ -3071,9 +3180,6 @@ By setting this to `true`, you will enable scanning of non-standard elements, bu
 
 ##### `setNullQuietZoneAllowed(boolean)`
 By setting this to `true`, you will allow scanning barcodes which don't have quiet zone surrounding it (e.g. text concatenated with barcode). This option can significantly increase recognition time. Default is `true`.
-
-##### `setScan1DBarcodes(boolean)`
-Some driver's licenses contain 1D Code39 and Code128 barcodes alongside PDF417 barcode. These barcodes usually contain only reduntant information and are therefore not read by default. However, if you feel that some information is missing, you can enable scanning of those barcodes by setting this to `true`.
 
 ### Obtaining results from USDL recognizer
 
@@ -3292,6 +3398,58 @@ Returns document issuing authority.
 ##### `String getCountry()`
 Returns the country where the Driver's License has been issued or null if country is unknown.
 
+## <a name="australianDL"></a> Scanning Australian driver's licences
+
+This section will discuss the setting up of Australian Driver's Licence recognizer and obtaining results from it.
+
+### Setting up Australian Driver's Licence recognizer
+
+To activate Australian Driver's Licence recognizer, you need to create [AustralianDLFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	AustralianDLFrontSideRecognizerSettings sett = new AustralianDLFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [AustralianDLFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Australian Driver's Licence recognizer
+
+Australian Driver's Licence produces [AustralianDLFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustralianDLFrontSideRecognitionResult` class. 
+
+**Note:** `AustralianDLFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof AustralianDLFrontSideRecognitionResult) {
+			AustralianDLFrontSideRecognitionResult result = (AustralianDLFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of AustralianDLFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String fullName = result.getName();
+				String licenceNumber = result.getLicenceNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognitionResult.html).**
+
 ## <a name="myKad"></a> Scanning Malaysian MyKad ID documents
 
 This section will discuss the setting up of Malaysian ID documents (MyKad) recognizer and obtaining results from it.
@@ -3460,7 +3618,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Singapore ID front side recognizer produces [SingaporeIDFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/front/SingaporeIDFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDFrontRecognitionResult` class. 
 
-**Note:** `SingaporeIDFrontRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SingaporeIDFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -3512,7 +3670,7 @@ private RecognizerSettings[] setupSettingsArray() {
 
 Singapore ID back side recognizer produces [SingaporeIDBackRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/singapore/back/SingaporeIDBackRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SingaporeIDBackRecognitionResult` class. 
 
-**Note:** `SingaporeIDBackRecognitionResult` extends [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+**Note:** `SingaporeIDBackRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
 See the following snippet for an example:
 
@@ -4074,13 +4232,13 @@ public void onScanningDone(RecognitionResults results) {
 	}
 }
 ```
-## <a name="blinkOCR"></a> Scanning segments with BlinkOCR recognizer
+## <a name="blinkInput"></a> Scanning segments with BlinkInput recognizer
 
-This section discusses the setting up of BlinkOCR recognizer and obtaining results from it. You should also check the demo for example.
+This section discusses the setting up of BlinkInput recognizer and obtaining results from it. You should also check the demo for example.
 
-### Setting up BlinkOCR recognizer
+### Setting up BlinkInput recognizer
 
-BlinkOCR recognizer is consisted of one or more parsers that are grouped in parser groups. Each parser knows how to extract certain element from OCR result and also knows what are the best OCR engine options required to perform OCR on image. Parsers can be grouped in parser groups. Parser groups contain one or more parsers and are responsible for merging required OCR engine options of each parser in group and performing OCR only once and then letting each parser in group parse the data. Thus, you can make for own best tradeoff between speed and accuracy - putting each parser into its own group will give best accuracy, but will perform OCR of image for each parser which can consume a lot of processing time. On the other hand, putting all parsers into same group will perform only one OCR but with settings that are combined for all parsers in group, thus possibly reducing parsing quality.
+BlinkInput recognizer is consisted of one or more parsers that are grouped in parser groups. Each parser knows how to extract certain element from OCR result and also knows what are the best OCR engine options required to perform OCR on image. Parsers can be grouped in parser groups. Parser groups contain one or more parsers and are responsible for merging required OCR engine options of each parser in group and performing OCR only once and then letting each parser in group parse the data. Thus, you can make for own best tradeoff between speed and accuracy - putting each parser into its own group will give best accuracy, but will perform OCR of image for each parser which can consume a lot of processing time. On the other hand, putting all parsers into same group will perform only one OCR but with settings that are combined for all parsers in group, thus possibly reducing parsing quality.
 
 Let's see this on example: assume we have two parsers at our disposal: `AmountParser` and `EMailParser`. `AmountParser` knows how to extract amount's from OCR result and requires from OCR only to recognise digits, periods and commas and ignore letters. On the other hand, `EMailParser` knows how to extract e-mails from OCR result and requires from OCR to recognise letters, digits, '@' characters and periods, but not commas. 
 
@@ -4088,15 +4246,15 @@ If we put both `AmountParser` and `EMailParser` into same parser group, the merg
 
 If we put `AmountParser` in one parser group and `EMailParser` in another parser group, OCR will be performed for each parser group independently, thus preventing the `AmountParser` confusion, but two OCR passes of image will be performed, which can have a performance impact.
 
-So to sum it up, BlinkOCR recognizer performs OCR of image for each available parser group and then runs all parsers in that group on obtained OCR result and saves parsed data. 
+So to sum it up, BlinkInput recognizer performs OCR of image for each available parser group and then runs all parsers in that group on obtained OCR result and saves parsed data. 
 
-By definition, each parser results with string that represents a parsed data. The parsed string is stored under parser's name which has to be unique within parser group. So, when defining settings for BlinkOCR recognizer, when adding parsers, you need to provide a name for the parser (you will use that name for obtaining result later) and optionally provide a name for the parser group in which parser will be put into.
+By definition, each parser results with string that represents a parsed data. The parsed string is stored under parser's name which has to be unique within parser group. So, when defining settings for BlinkInput recognizer, when adding parsers, you need to provide a name for the parser (you will use that name for obtaining result later) and optionally provide a name for the parser group in which parser will be put into.
 
-To activate BlinkOCR recognizer, you need to create [BlinkOCRRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html), add some parsers to it and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate BlinkInput recognizer, you need to create [BlinkInputRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkinput/BlinkInputRecognizerSettings.html), add some parsers to it and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
-	BlinkOCRRecognizerSettings sett = new BlinkOCRRecognizerSettings();
+	BlinkInputRecognizerSettings sett = new BlinkInputRecognizerSettings();
 	
 	// add amount parser to default parser group
 	sett.addParser("myAmountParser", new AmountParserSettings());
@@ -4133,22 +4291,22 @@ The following is a list of available parsers:
 - TopUp parser - represented by [TopUpParserSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/topup/TopUpParserSettings.html)
 	- used for parsing prepaid codes from mobile phone coupons
 
-### <a name="blinkOCR_results"></a> Obtaining results from BlinkOCR recognizer
+### <a name="blinkInput_results"></a> Obtaining results from BlinkInput recognizer
 
-BlinkOCR recognizer produces [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `BlinkOCRRecognitionResult` class. See the following snippet for an example:
+BlinkInput recognizer produces [BlinkInputRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkinput/BlinkInputRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `BlinkInputRecognitionResult` class. See the following snippet for an example:
 
 ```java
 @Override
 public void onScanningDone(RecognitionResults results) {
 	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
 	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof BlinkOCRRecognitionResult) {
-			BlinkOCRRecognitionResult result = (BlinkOCRRecognitionResult) baseResult;
+		if(baseResult instanceof BlinkInputRecognitionResult) {
+			BlinkInputRecognitionResult result = (BlinkInputRecognitionResult) baseResult;
 			
-	        // you can use getters of BlinkOCRRecognitionResult class to 
+	        // you can use getters of BlinkInputRecognitionResult class to 
 	        // obtain scanned information
 	        if(result.isValid() && !result.isEmpty()) {
-	        	 // use the parser name provided to BlinkOCRRecognizerSettings to
+	        	 // use the parser name provided to BlinkInputRecognizerSettings to
 	        	 // obtain parsed result provided by given parser
 	        	 // obtain result of "myAmountParser" in default parsing group
 		        String parsedAmount = result.getParsedResult("myAmountParser");
@@ -4195,17 +4353,17 @@ Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblin
 ##### `OcrResult getOcrResult(String parserGroupName)`
 Returns the [OCR result](https://blinkid.github.io/blinkid-android/com/microblink/results/ocr/OcrResult.html) structure for parser group named `parserGroupName`.
 
-## <a name="blinkOCR_templating"></a> Scanning templated documents with BlinkOCR recognizer
+## <a name="detectorRecognizer_templating"></a> Scanning templated documents with DetectorRecognizer
 
-This section discusses the setting up of BlinkOCR recognizer for scanning templated documents. Please check demo app for examples.
+This section discusses the setting up of DetectorRecognizer for scanning templated documents. Please check demo app for examples.
 
 Templated document is any document which is defined by its template. Template contains the information about how the document should be detected, i.e. found on the camera scene and information about which part of document contains which useful information.
 
 ### Defining how document should be detected
 
-Before performing OCR of the document, _BlinkID_ first needs to find its location on camera scene. In order to perform detection, you need to define [DetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorSettings.html) which will be used to instantiate detector which perform document detection. You can set detector settings with method [`setDetectorSettings(DetectorSettings)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html#setDetectorSettings-com.microblink.detectors.DetectorSettings-). If you do not set detector settings, BlinkOCR recognizer will work in [Segment scan mode](#blinkOCR).
+Before performing OCR of the document, _BlinkID_ first needs to find its location on camera scene. In order to perform detection, you need to define [DetectorSettings](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DetectorSettings.html) which will be used to instantiate detector which perform document detection. You have to set detector settings when instantiating the `DetectorRecognizer` as parameter to its constructor. It is possible to update detector settings with method [`setDetectorSettings(DetectorSettings)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html#setDetectorSettings-com.microblink.detectors.DetectorSettings-).
 
-You can find out more information about about detectors that can be used in section [Detection settings and results](#detectionSettingsAndResults).
+You can find out more information about detectors that can be used in section [Detection settings and results](#detectionSettingsAndResults).
 
 ### Defining how document should be recognized
 
@@ -4218,30 +4376,30 @@ After document has been detected, it will be recognized. This is done in followi
 	- using optimal OCR settings OCR of the dewarped image is performed
 	- finally, OCR result is parsed with each parser from that parser group
 	- if parser group with the same name as current `DecodingInfo` cannot be found, no OCR will be performed, however image will be reported via [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) if receiving of [DEWARPED images](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) has [been enabled](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-)
-3. if no [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html) has been given with [`setDocumentClassifier(DocumentClassifier)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html#setDocumentClassifier-com.microblink.recognizers.blinkocr.DocumentClassifier-), recognition is done. If `DocumentClassifier` exists, its method [`classify(BlinkOCRRecognitionResult)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult-) is called to determine which type document has been detected
-4. If classifier returned string which is same as one used previously to [setup parser decoding infos](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-), then this array of `DecodingInfos` is obtained and step 2. is performed again with obtained array of `DecodingInfos`.
+3. if no [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html) has been given with [`setDocumentClassifier(DocumentClassifier)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html#setDocumentClassifier-com.microblink.recognizers.detector.DocumentClassifier-), recognition is done. If `DocumentClassifier` exists, its method [`classify(DetectorRecognitionResult)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.detector.DetectorRecognitionResult-) is called to determine which type of the document has been detected
+4. If classifier returned string which is same as one used previously to [setup parser decoding infos](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-), then this array of `DecodingInfos` is obtained and step 2. is performed again with obtained array of `DecodingInfos`.
 
-### When to use [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html)?
+### When to use [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html)?
 
 If you plan scanning several different documents of same size, for example different ID cards, which are all 85x54 mm (credit card) size, then you need to use `DocumentClassifer` to classify the type of document so correct [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) array can be used for obtaining relevant information. An example would be the case where you need to scan both front sides of croatian and german ID cards - the location of first and last names are not same on both documents. Therefore, you first need to classify the document based on some discriminative features.
 
 If you plan supporting only single document type, then you do not need to use `DocumentClassifier`.
 
-### How to implement [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html)?
+### How to implement [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html)?
 
-[DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html) is interface that should be implemented to support classification of documents that cannot be differentiated by detector. Classification result is used to determine which set of decoding infos will be used to extract classification-specific data. This interface extends the [Parcelable](http://developer.android.com/reference/android/os/Parcelable.html) interface and the parcelization should be implemented. Besides that, following method has to be implemented:
+[DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html) is interface that should be implemented to support classification of documents that cannot be differentiated by detector. Classification result is used to determine which set of decoding infos will be used to extract classification-specific data. This interface extends the [Parcelable](http://developer.android.com/reference/android/os/Parcelable.html) interface and the parcelization should be implemented. Besides that, following method has to be implemented:
 
-##### [`String classifyDocument(BlinkOCRRecognitionResult extractionResult)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult-)
+##### [`String classifyDocument(DetectorRecognitionResult extractionResult)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.detector.DetectorRecognitionResult-)
 
-Based on [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) which contains data extracted from decoding infos inherent to detector, classifies the document. For each document type that you want to support, returned result string has to be equal to the name of the corresponding set of [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects which are defined for that document type. Named decoding info sets should be defined using [`setParserDecodingInfos(DecodingInfo[], String)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-) method.
+Based on [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) which contains data extracted from decoding infos inherent to detector, classifies the document. For each document type that you want to support, returned result string has to be equal to the name of the corresponding set of [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects which are defined for that document type. Named decoding info sets should be defined using [`setParserDecodingInfos(DecodingInfo[], String)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-) method.
 
 ### How to obtain recognition results?
 
-Just like when using BlinkOCR recognizer in [segment scan mode](#blinkOCR), same principles apply here. You use the same approach as discussed in [Obtaining results from BlinkOCR recognizer](#blinkOCR_results). Just keep in mind to use parser group names that are equal to decoding info names. Check demo app that is delivered with SDK for detailed example.
+Just like when [using BlinkInput recognizer](#blinkInput), same principles apply here. You use the same approach as discussed in [Obtaining results from BlinkInput recognizer](#blinkInput_results). Just keep in mind to use parser group names that are equal to decoding info names. Check demo app that is delivered with SDK for detailed example.
 
 ## <a name="detectorRecognizer"></a> Performing detection of various documents
 
-This section will discuss how to set up a special kind of recognizer called `DetectorRecognizer` whose only purpose is to perform a detection of a document and return position of the detected document on the image or video frame.
+This section will discuss how to set up a special kind of recognizer called `DetectorRecognizer` which can be used to perform a detection of a document and return position of the detected document on the image or video frame.
 
 ### Setting up Detector Recognizer
 

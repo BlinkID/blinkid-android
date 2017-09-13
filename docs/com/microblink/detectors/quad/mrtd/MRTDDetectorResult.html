@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -104,7 +104,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">com.microblink.detectors.quad.QuadDetectorResult</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">com.microblink.detectors.quad.QuadDetectorWithSizeResult</a></li>
+<li>
+<ul class="inheritance">
 <li>com.microblink.detectors.quad.mrtd.MRTDDetectorResult</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -122,7 +127,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">MRTDDetectorResult</span>
-extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">QuadDetectorResult</a></pre>
+extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></pre>
 <div class="block">Represents a detector result created by MRTD detector initialised with <a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html" title="class in com.microblink.detectors.quad.mrtd"><code>MRTDDetectorSettings</code></a>.</div>
 </li>
 </ul>
@@ -229,7 +234,7 @@ extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult
                   float[]&nbsp;transformMatrix,
                   float[]&nbsp;detectionLocation,
                   float[]&nbsp;displayLocation,
-                  float&nbsp;confidence,
+                  float&nbsp;physicalSizeInInches,
                   long&nbsp;nativePtr)</code>
 <div class="block">Constructor which uses the given parameters to initialize the object.</div>
 </td>
@@ -271,34 +276,31 @@ extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html#getElementsCountPerLine--">getElementsCountPerLine</a></span>()</code>
-<div class="block">Returns the number of elements detected per OCR line.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.MRTDDetectionCode.html" title="enum in com.microblink.detectors.quad.mrtd">MRTDDetectorResult.MRTDDetectionCode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html#getMRTDDetectionCode--">getMRTDDetectionCode</a></span>()</code>
 <div class="block">Getter for detection code that is specific for results from MRTD detector and holds
  information about detection type.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html#setDetectionCode-int-">setDetectionCode</a></span>(int&nbsp;detectionCode)</code>
 <div class="block">Sets the detection code member variable(s) based on detection code from native library.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html#toString--">toString</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.quad.QuadDetectorWithSizeResult">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.detectors.quad.<a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></h3>
+<code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#getPhysicalSizeInInches--">getPhysicalSizeInInches</a>, <a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#toString--">toString</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.quad.QuadDetectorResult">
 <!--   -->
@@ -363,7 +365,7 @@ extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult
                           float[]&nbsp;transformMatrix,
                           float[]&nbsp;detectionLocation,
                           float[]&nbsp;displayLocation,
-                          float&nbsp;confidence,
+                          float&nbsp;physicalSizeInInches,
                           long&nbsp;nativePtr)</pre>
 <div class="block">Constructor which uses the given parameters to initialize the object.</div>
 <dl>
@@ -373,7 +375,6 @@ extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult
 <dd><code>transformMatrix</code> - Transformation matrix from native library.</dd>
 <dd><code>detectionLocation</code> - Location of the detection.</dd>
 <dd><code>displayLocation</code> - Display location</dd>
-<dd><code>confidence</code> - Detection confidence.</dd>
 <dd><code>nativePtr</code> - Pointer to native object that holds the detection data.</dd>
 </dl>
 </li>
@@ -400,20 +401,6 @@ extends <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getElementsCountPerLine--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getElementsCountPerLine</h4>
-<pre>public&nbsp;int[]&nbsp;getElementsCountPerLine()</pre>
-<div class="block">Returns the number of elements detected per OCR line.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Number of detected elements per OCR line.</dd>
-</dl>
-</li>
-</ul>
 <a name="getMRTDDetectionCode--">
 <!--   -->
 </a>
@@ -502,7 +489,7 @@ public&nbsp;<a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetec
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
@@ -511,20 +498,7 @@ public&nbsp;<a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetec
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">QuadDetectorResult</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="toString--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">QuadDetectorResult</a></code></dd>
+<dd><code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></code></dd>
 </dl>
 </li>
 </ul>

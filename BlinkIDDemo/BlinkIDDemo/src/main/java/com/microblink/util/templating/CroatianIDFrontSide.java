@@ -8,9 +8,9 @@ import com.microblink.detectors.document.DocumentDetectorSettings;
 import com.microblink.detectors.document.DocumentSpecification;
 import com.microblink.detectors.document.DocumentSpecificationPreset;
 import com.microblink.geometry.Rectangle;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
-import com.microblink.recognizers.blinkocr.DocumentClassifier;
+import com.microblink.recognizers.detector.DetectorRecognitionResult;
+import com.microblink.recognizers.detector.DetectorRecognizerSettings;
+import com.microblink.recognizers.detector.DocumentClassifier;
 import com.microblink.recognizers.blinkocr.engine.BlinkOCREngineOptions;
 import com.microblink.recognizers.blinkocr.parser.generic.DateParserSettings;
 import com.microblink.recognizers.blinkocr.parser.regex.RegexParserSettings;
@@ -22,10 +22,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class will show how a Templating API extension of {@link BlinkOCRRecognizerSettings} can be used
+ * This class will show how a Templating API extension of {@link DetectorRecognizerSettings} can be used
  * to scan elements from parts of detection.
  * <p/>
- * This example will show how to setup {@link BlinkOCRRecognizerSettings} to perform detection and
+ * This example will show how to setup {@link DetectorRecognizerSettings} to perform detection and
  * data extraction from front side of Croatian ID cards.
  * <p/>
  * The description of how ID cards in Croatia look like can be found on Wikipedia:
@@ -39,7 +39,7 @@ import java.util.List;
  * After this is determined, specific {@link DecodingInfo} objects will be used to extract other
  * data from locations specific to each version of Croatian ID.
  * <p/>
- * The process of setting up {@link BlinkOCRRecognizerSettings} for scanning front side of Croatian ID
+ * The process of setting up {@link DetectorRecognizerSettings} for scanning front side of Croatian ID
  * is shown in method {@link #buildCroatianIDFrontSideRecognizerSettings()}.
  */
 public class CroatianIDFrontSide {
@@ -260,29 +260,11 @@ public class CroatianIDFrontSide {
 
     /**
      * This function will show how to setup scanning of document number from {@link DecodingInfo} objects
-     * inherent to detector set with {@link BlinkOCRRecognizerSettings#setDetectorSettings(DetectorSettings)}.
-     * <p/>
-     * First, we will add two possible locations of document number - one location on old Croatian IDs
-     * and one location on new Croatian IDs. After that when card-like document will be detected,
-     * both locations will be dewarped and OCR and data extraction will be performed. After that,
-     * only one parser will succeed in parsing document number - either one on location for old
-     * Croatian ID or one on location for new Croatian ID. This information will then be used
-     * in {@link CroFrontIdClassifier} to determine whether the scanned document is old or new
-     * Croatian ID and appropriate array of {@link DecodingInfo} objects can then be used
-     * to extract other data as set up in functions {@link #setupName(TemplatingRecognizerSettings, List, List, boolean)}
-     * and {@link #setupSexCitizenshipAndDateOfBirth(TemplatingRecognizerSettings, List, List)}.
+     * inherent to detector set by {@link DetectorSettings} argument in {@link DetectorRecognizerSettings} constructor.
      *
      * @param settings      Settings object to which parser will be set.
-     * @param decodingInfos List of {@link DecodingInfo} objects inherent to the detector.
      */
-    private static void setupDocumentNumber(TemplatingRecognizerSettings settings, List<DecodingInfo> decodingInfos) {
-        /**
-         * First define locations of document number on both old and new Croatian ID cards. Make sure you use different
-         * names to later be able to distinguish which location produced result and which did not.
-         */
-        decodingInfos.add(new DecodingInfo(new Rectangle(0.047f, 0.519f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_OLD));
-        decodingInfos.add(new DecodingInfo(new Rectangle(0.047f, 0.685f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_NEW));
-
+    private static void setupDocumentNumberParsers(TemplatingRecognizerSettings settings) {
         /**
          * Document number on Croatian ID is 9-digit number. We will extract that with simple
          * regex parser which only allows digits in OCR engine settings.
@@ -299,26 +281,47 @@ public class CroatianIDFrontSide {
     }
 
     /**
-     * This method shows how {@link BlinkOCRRecognizerSettings} can be set up to scan front side of
-     * Croatian ID cards. At first, parser groups for first and last name and other data (sex, citizenship,
-     * date of birth) are created, together with associated parsers (see {@link com.microblink.recognizers.blinkocr.parser.OcrParserSettings})
-     * and {@link DecodingInfo} objects specific for old and new Croatian ID cards.
-     * Next, a list of {@link DecodingInfo} objects inherent to detector will be prepared and detector
-     * which can detect credit card sized documents will be set to be used. Finally, a {@link DocumentClassifier}
-     * will be implemented which will determine which version of Croatian ID document is being scanned.
-     *
-     * @return set-up {@link BlinkOCRRecognizerSettings} object which can scan front side of Croatian ID cards
+     * Creates array of document number {@link DecodingInfo} objects inherent to the detector.
+     * <p/>
+     * First, we will add two possible locations of document number - one location on old Croatian IDs
+     * and one location on new Croatian IDs. After that when card-like document will be detected,
+     * both locations will be dewarped and OCR and data extraction will be performed. After that,
+     * only one parser will succeed in parsing document number - either one on location for old
+     * Croatian ID or one on location for new Croatian ID. This information will then be used
+     * in {@link CroFrontIdClassifier} to determine whether the scanned document is old or new
+     * Croatian ID and appropriate array of {@link DecodingInfo} objects can then be used
+     * to extract other data as set up in functions {@link #setupName(TemplatingRecognizerSettings, List, List, boolean)}
+     * and {@link #setupSexCitizenshipAndDateOfBirth(TemplatingRecognizerSettings, List, List)}.
      */
-    public static BlinkOCRRecognizerSettings buildCroatianIDFrontSideRecognizerSettings() {
-        // settings object which will be set up
-        BlinkOCRRecognizerSettings settings = new BlinkOCRRecognizerSettings();
+    private static DecodingInfo[] createDocumentNumberDecodingInfos() {
+        DecodingInfo[] documentNumberDecodingInfos = new DecodingInfo[2];
+        /**
+         * First define locations of document number on both old and new Croatian ID cards. Make sure you use different
+         * names to later be able to distinguish which location produced result and which did not.
+         */
+        documentNumberDecodingInfos[0] = new DecodingInfo(new Rectangle(0.047f, 0.519f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_OLD);
+        documentNumberDecodingInfos[1] = new DecodingInfo(new Rectangle(0.047f, 0.685f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_NEW);
+        return documentNumberDecodingInfos;
+    }
 
-        // list of decoding info objects for old Croatian ID
-        List<DecodingInfo> oldIdDecodingInfos = new ArrayList<>();
-        // list of decoding info objects for new Croatian ID
-        List<DecodingInfo> newIdDecodingInfos = new ArrayList<>();
-        // list of decoding info objects inherent to detector and used for
-        // parsing document number and ID type classification
+    /**
+     * This method shows how {@link DetectorRecognizerSettings} can be set up to scan front side of
+     * Croatian ID cards.
+     *
+     * At first, a list of {@link DecodingInfo} objects inherent to detector will be prepared and detector
+     * which can detect credit card sized documents will be set to be used.
+     * Next, parser groups for first and last name and other data (sex, citizenship, date of birth) are created,
+     * together with associated parsers (see {@link com.microblink.recognizers.blinkocr.parser.OcrParserSettings})
+     * and {@link DecodingInfo} objects specific for old and new Croatian ID cards.
+     * Finally, a {@link DocumentClassifier} will be implemented which will determine which version of Croatian ID
+     * document is being scanned.
+     *
+     * @return set-up {@link DetectorRecognizerSettings} object which can scan front side of Croatian ID cards
+     */
+    public static DetectorRecognizerSettings buildCroatianIDFrontSideRecognizerSettings() {
+
+        // setup card detector
+        DocumentSpecification idSpec = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
         /**
          * NOTE: if you do not need document classification in your use case,
          *       you only need to set decoding info objects inherent to
@@ -327,23 +330,28 @@ public class CroatianIDFrontSide {
          *       #setParserDecodingInfos(DecodingInfo[], String) are only used
          *       after DocumentClassifier returns the same string.
          */
-        List<DecodingInfo> classificationDecodingInfos = new ArrayList<>();
-
-        // call methods for setting up locations and parsers for all fields
-        setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, false);
-        setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, true);
-        setupSexCitizenshipAndDateOfBirth(settings, oldIdDecodingInfos, newIdDecodingInfos);
-        setupDocumentNumber(settings, classificationDecodingInfos);
-
-        // setup card detector
-        DocumentSpecification idSpec = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
+        // array of decoding info objects inherent to detector and used for
+        // parsing document number and ID type classification
+        DecodingInfo[] classificationDecodingInfos = createDocumentNumberDecodingInfos();
         // set decoding info objects inherent to this document specification
-        idSpec.setDecodingInfos(TemplatingUtils.listToArray(classificationDecodingInfos));
+        idSpec.setDecodingInfos(classificationDecodingInfos);
         // create card detector with single document specification
         DocumentDetectorSettings dds = new DocumentDetectorSettings(new DocumentSpecification[]{idSpec});
 
-        // ensure this detector will be used when performing object detection
-        settings.setDetectorSettings(dds);
+        // create settings object which will be set up, and use prepared detector (with
+        // classification decoding infos) which can detect credit card sized documents
+        DetectorRecognizerSettings settings = new DetectorRecognizerSettings(dds);
+
+        // list of decoding info objects for old Croatian ID
+        List<DecodingInfo> oldIdDecodingInfos = new ArrayList<>();
+        // list of decoding info objects for new Croatian ID
+        List<DecodingInfo> newIdDecodingInfos = new ArrayList<>();
+
+        // call methods for setting up locations and parsers for all fields
+        setupDocumentNumberParsers(settings);
+        setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, false);
+        setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, true);
+        setupSexCitizenshipAndDateOfBirth(settings, oldIdDecodingInfos, newIdDecodingInfos);
 
         // set classifier which will analyse recognition result obtained from decoding locations
         // inherent to detector (set above) and return either string CLASS_OLD_ID or string CLASS_NEW_ID,
@@ -372,8 +380,8 @@ public class CroatianIDFrontSide {
     }
 
     /**
-     * This class implements {@link DocumentClassifier} interface. In its {@link #classifyDocument(BlinkOCRRecognitionResult)}
-     * method it must decide from {@link BlinkOCRRecognitionResult} containing data extracted from
+     * This class implements {@link DocumentClassifier} interface. In its {@link #classifyDocument(DetectorRecognitionResult)}
+     * method it must decide from {@link DetectorRecognitionResult} containing data extracted from
      * locations defined with {@link DecodingInfo} objects inherent to detector used whether document
      * being scanned is old or new Croatian ID. If document cannot be classified, empty string or
      * null can be returned.
@@ -381,7 +389,7 @@ public class CroatianIDFrontSide {
     private static class CroFrontIdClassifier implements DocumentClassifier {
 
         @Override
-        public String classifyDocument(BlinkOCRRecognitionResult extractionResult) {
+        public String classifyDocument(DetectorRecognitionResult extractionResult) {
             // we first check if document number parser has succeeded in
             // parsing document number from location on old Croatian ID (Decoding Info object with
             // name ID_DOCUMENT_NUMBER_OLD defined in method setupDocumentNumber above).
@@ -420,7 +428,7 @@ public class CroatianIDFrontSide {
 
         /**
          * {@link DocumentClassifier} interface extends {@link android.os.Parcelable} so it can
-         * be sent via Intent inside {@link BlinkOCRRecognizerSettings}. In order to be able to
+         * be sent via Intent inside {@link DetectorRecognizerSettings}. In order to be able to
          * extract the classifier from {@link Parcel}, {@link #CREATOR} field must be defined.
          */
         public static final Creator<CroFrontIdClassifier> CREATOR = new Creator<CroFrontIdClassifier>() {

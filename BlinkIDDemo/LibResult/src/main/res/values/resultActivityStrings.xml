@@ -96,4 +96,8 @@
     <!-- Swiss passport specific -->
     <string name="PPPlaceOfOrigin">Place of origin</string>
 
+    <!-- Australian DL specific -->
+    <string name="PPLicenceNumber">Licence Number</string>
+    <string name="PPLicenceType">Licence Type</string>
+
 </resources>
