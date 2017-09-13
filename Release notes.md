@@ -1,5 +1,47 @@
 # Release notes
 
+## 3.11.0
+
+### New features:
+
+- added support for scanning front and back side of Swiss ID - use `SwissIDFrontSideRecognizerSettings` and `SwissIDBackSideRecognizerSettings` ​
+- added support for reading front side of new Australian Driver's licence for state Victoria - use `AustralianDLFrontSideRecognizerSettings`
+- introduced `MRZFilter`:
+    - use  `MRTDRecognizerSettings` to enable it on  `MRTDRecognizer`
+    - determines whether document should be processed or it is filtered out, based on its MRZ (Machine Readable Zone)
+ - added `QuadDetectorWithSizeResult` which inherits existing `QuadDetectorResult`:
+    - it's subclasses are `DocumentDetectorResult` and `MRTDDetectorResult`
+    - returns information about physical size (height) in inches of the detected location when physical size is known
+- introduced `GlareDetector` which is by default used in all recognizers whose settings implement `GlareDetectorOptions`:
+    - when glare is detected, OCR will not be performed on the affected document position to prevent errors in the extracted data
+    - if the glare detector is used and obtaining of glare metadata is enabled in `MetadataSettings`, glare status will be reported to `MetadataListener`
+    - glare detector can be disabled by using `setDetectGlare(boolean)` method on the recognizer settings
+  
+### Minor API changes:
+
+- `BlinkOCRRecognizerSettings` is now deprecated and will be removed in `v4.0.0`
+	- use `DetectorRecognizerSettings` to perform scanning of templated documents 
+	- use `BlinkInputRecognizerSettings` for segment scan or for full-screen OCR 
+	- until `v4.0.0`, `BlinkOCRRecognizerSettings` will behave as before, however you are encouraged to update your code not to use it anymore
+- `DocumentClassifier` interface is moved from `com.microblink.recognizers.blinkocr` to `com.microblink.recognizers.detector` package and `DocumentClassifier.classifyDocument()` now accepts `DetectorRecognitionResult` as parameter for document classification
+- `USDLRecognizerSettings`:
+    - removed option to scan 1D Code39 and Code128 barcodes on driver's licenses that contain those barcodes alongside PDF417 barcode
+
+### Improvements for existing features
+
+- improved date parsing:
+	- affects date parser and all recognizers which perform date parsing
+- added support for reading mirrored QR codes:
+	- affects all recognizers that perform QR code scanning
+- improved `CroatianIDBackSideRecognizer`:
+    - better extraction of fields on back side of the Croatian ID card
+- improved `USDLRecognizer`:
+    - added support for new USDL standard
+
+### Bug fixes:
+- fixed crash in QR code reading
+- fixed returning valid data for MRZ based recognizers when not all fields outside of the MRZ have been scanned
+
 ## 3.10.1
 
 ### Bug fixes:
