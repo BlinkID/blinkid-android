@@ -27,8 +27,8 @@ import com.microblink.ocr.SlidingTabLayout;
 import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
+import com.microblink.recognizers.blinkinput.BlinkInputRecognitionResult;
+import com.microblink.recognizers.blinkinput.BlinkInputRecognizerSettings;
 import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.util.CameraPermissionManager;
@@ -137,17 +137,17 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         }
         mRecognizerView.setOptimizeCameraForNearScan(true);
 
-        // initialize BlinkOCR recognizer with currently selected parser
-        // create BlinkOCR recognizer settings object and add parser to it
-        BlinkOCRRecognizerSettings ocrSett = new BlinkOCRRecognizerSettings();
-        ocrSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
+        // initialize BlinkInput recognizer with currently selected parser
+        // create BlinkInput recognizer settings object and add parser to it
+        BlinkInputRecognizerSettings inputSett = new BlinkInputRecognizerSettings();
+        inputSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
                 mConfiguration[mSelectedConfiguration].getParserSettings());
 
         // prepare the recognition settings
         RecognitionSettings recognitionSettings = new RecognitionSettings();
-        // add BlinkOCR recognizer settings object to recognizer settings array
-        // BlinkOCR recognizer will be used in the recognition process
-        recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{ocrSett});
+        // add BlinkInput recognizer settings object to recognizer settings array
+        // BlinkInput recognizer will be used in the recognition process
+        recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{inputSett});
 
         mRecognizerView.setRecognitionSettings(recognitionSettings);
 
@@ -195,11 +195,11 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         if(updateRecognizerSettings) {
             RecognitionSettings recognitionSettings = new RecognitionSettings();
 
-            BlinkOCRRecognizerSettings ocrSett = new BlinkOCRRecognizerSettings();
-            ocrSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
+            BlinkInputRecognizerSettings inputSett = new BlinkInputRecognizerSettings();
+            inputSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
                     mConfiguration[mSelectedConfiguration].getParserSettings());
 
-            recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{ocrSett});
+            recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{inputSett});
 
             // unlike setRecognitionSettings that needs to be set before calling create,
             // reconfigureRecognizers is designed to be called while recognizer is active.
@@ -348,8 +348,8 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         BaseRecognitionResult[] dataArray = results.getRecognitionResults();
         // we've enabled only one recognizer, so we expect only one element in dataArray
         if (dataArray != null && dataArray.length == 1) {
-            if (dataArray[0] instanceof BlinkOCRRecognitionResult) {
-                BlinkOCRRecognitionResult result = (BlinkOCRRecognitionResult) dataArray[0];
+            if (dataArray[0] instanceof BlinkInputRecognitionResult) {
+                BlinkInputRecognitionResult result = (BlinkInputRecognitionResult) dataArray[0];
                 String scanned = result.getParsedResult(mConfiguration[mSelectedConfiguration].getParserName());
                 if(scanned != null && !scanned.isEmpty()) {
                     mResult.setText(scanned);

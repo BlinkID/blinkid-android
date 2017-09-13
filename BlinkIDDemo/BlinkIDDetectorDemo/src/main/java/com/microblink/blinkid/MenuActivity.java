@@ -114,7 +114,7 @@ public class MenuActivity extends Activity {
         // Decoding info is used to define the position in the detected location that is
         // interesting (it is expressed as rectangle relative to detected rectangle)
         // and the height of the dewarped image obtained from that position.
-        DecodingInfo di = new DecodingInfo(new Rectangle(0.f, 0.f, 1.f, 1.f), 100, "MRZ");
+        DecodingInfo di = new DecodingInfo(new Rectangle(0.f, 0.f, 1.f, 1.f), 400, "MRTD");
 
         // Prepare machine readable travel document detector settings with defined
         // decoding info.

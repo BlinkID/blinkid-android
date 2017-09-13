@@ -22,10 +22,10 @@ import com.microblink.metadata.OcrMetadata;
 import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.bardecoder.BarDecoderScanResult;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
-import com.microblink.recognizers.blinkocr.BlinkOCRRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.barcode.BarcodeRecognizerSettings;
+import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
+import com.microblink.recognizers.blinkinput.BlinkInputRecognitionResult;
+import com.microblink.recognizers.blinkinput.BlinkInputRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
 import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.recognizers.settings.RecognizerSettings;
@@ -63,21 +63,21 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         // set log level to information because ocr results will be passed to Log (information level)
         Log.setLogLevel(Log.LogLevel.LOG_INFORMATION);
 
-        // initialize BlinkOCR recognizer with only raw parser
-        BlinkOCRRecognizerSettings ocrSett = new BlinkOCRRecognizerSettings();
+        // initialize BlinkInput recognizer with only raw parser
+        BlinkInputRecognizerSettings ocrSett = new BlinkInputRecognizerSettings();
         RawParserSettings rawSett = new RawParserSettings();
         // add raw parser with name "Raw" to default parser group
         // parser name is important for obtaining results later
         ocrSett.addParser("Raw", rawSett);
 
-        // initialize 1D barcode recognizer and set it to scan Code39 and Code128 barcodes
-        BarDecoderRecognizerSettings barSett = new BarDecoderRecognizerSettings();
+        // initialize barcode recognizer and set it to scan Code39 and Code128 barcodes
+        BarcodeRecognizerSettings barSett = new BarcodeRecognizerSettings();
         barSett.setScanCode128(true);
         barSett.setScanCode39(true);
 
         // prepare the recognition settings
         RecognitionSettings recognitionSettings = new RecognitionSettings();
-        // BlinkOCRRecognizer and BarDecoderRecognizer will be used in the recognition process
+        // BlinkInput and BarcodeRecognizer will be used in the recognition process
         recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{ocrSett, barSett});
 
         mRecognizerView.setRecognitionSettings(recognitionSettings);
@@ -319,8 +319,8 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         // We also check if dataArray contains raw parser result and log it to ADB.
         BaseRecognitionResult[] dataArray = results.getRecognitionResults();
         for (BaseRecognitionResult r : dataArray) {
-            if (r instanceof BarDecoderScanResult) { // r is barcode scan result
-                BarDecoderScanResult bdsr = (BarDecoderScanResult) r;
+            if (r instanceof BarcodeScanResult) { // r is barcode scan result
+                BarcodeScanResult bdsr = (BarcodeScanResult) r;
 
                 // create toast with contents: Barcode type: barcode contents
 
@@ -330,8 +330,8 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
                 sb.append(bdsr.getStringData());
 
                 Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
-            } else if (r instanceof BlinkOCRRecognitionResult) {
-                BlinkOCRRecognitionResult bocrRes = (BlinkOCRRecognitionResult) r;
+            } else if (r instanceof BlinkInputRecognitionResult) {
+                BlinkInputRecognitionResult bocrRes = (BlinkInputRecognitionResult) r;
 
                 // obtain parse result of parser named "Raw"
                 String rawParsed = bocrRes.getParsedResult("Raw");

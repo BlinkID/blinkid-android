@@ -30,6 +30,7 @@ import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSett
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.vin.VinRecognizerSettings;
 import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.australia.driversLicense.front.AustralianDLFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings;
@@ -63,6 +64,8 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.switzerland.back.SwissIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.switzerland.front.SwissIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
@@ -306,10 +309,12 @@ public class MenuActivity extends Activity {
         elements.add(buildSlovakIDCombinedElement());
         elements.add(buildSlovenianIDElement());
         elements.add(buildSlovenianIDCombinedElement());
+        elements.add(buildSwissIDElement());
         elements.add(buildSwissPassportElement());
 
         // DL list entries
         elements.add(buildAustrianDLElement());
+        elements.add(buildAustralianDLElement());
         elements.add(buildGermanDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
@@ -445,6 +450,12 @@ public class MenuActivity extends Activity {
         return new ListElement("Austrian Driver's Licence", buildIntent(new RecognizerSettings[]{ausDl}, ScanCard.class, null));
     }
 
+    private ListElement buildAustralianDLElement() {
+        AustralianDLFrontSideRecognizerSettings ausDLFrontSettings = new AustralianDLFrontSideRecognizerSettings();
+
+        return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings}, ScanCard.class, null));
+    }
+
     private ListElement buildUsdlElement() {
         USDLRecognizerSettings usdl = new USDLRecognizerSettings();
 
@@ -474,6 +485,13 @@ public class MenuActivity extends Activity {
         RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
 
         return new ListElement("Romanian ID", buildIntent(new RecognizerSettings[]{romanianSettings}, ScanCard.class, null));
+    }
+
+    private ListElement buildSwissIDElement() {
+        SwissIDBackSideRecognizerSettings swissIDBackSettings = new SwissIDBackSideRecognizerSettings();
+        SwissIDFrontSideRecognizerSettings swissIDFrontSettings = new SwissIDFrontSideRecognizerSettings();
+
+        return new ListElement("Swiss ID", buildIntent(new RecognizerSettings[]{swissIDBackSettings, swissIDFrontSettings}, ScanCard.class, null));
     }
 
     private ListElement buildCroatianIDCombinedElement() {
