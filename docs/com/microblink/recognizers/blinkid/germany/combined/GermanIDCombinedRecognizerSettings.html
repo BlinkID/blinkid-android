@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,12 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable</dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GermanIDCombinedRecognizerSettings</span>
-extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid">CombinedRecognizerSettings</a></pre>
+extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid">CombinedRecognizerSettings</a>
+implements <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></pre>
 <div class="block">Recognition Settings for combined reading of both front and back side of German ID</div>
 </li>
 </ul>
@@ -279,81 +280,93 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
+<div class="block">Defines whether glare detector will be used during recognition process.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeFaceImage-boolean-">setEncodeFaceImage</a></span>(boolean&nbsp;encodeFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
 <div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
  and written into the corresponding recognition result.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeSignatureImage-boolean-">setEncodeSignatureImage</a></span>(boolean&nbsp;encodeSignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-">setReturnFaceImage</a></span>(boolean&nbsp;returnFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-">setReturnSignatureImage</a></span>(boolean&nbsp;returnSignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
+<div class="block">Returns whether glare detector is enabled.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
 <div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
  into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeSignatureImage--">shouldEncodeSignatureImage</a></span>()</code>
 <div class="block">Returns whether encoding of signature image from ID and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnSignatureImage--">shouldReturnSignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -372,6 +385,13 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.android.os.Parcelable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;android.os.Parcelable</h3>
+<code>describeContents</code></li>
 </ul>
 </li>
 </ul>
@@ -774,6 +794,46 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
 </dl>
 </li>
 </ul>
+<a name="setDetectGlare-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetectGlare</h4>
+<pre>public&nbsp;void&nbsp;setDetectGlare(boolean&nbsp;detectGlare)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#setDetectGlare-boolean-">GlareDetectorOptions</a></code></span></div>
+<div class="block">Defines whether glare detector will be used during recognition process. By default this
+ option is set to <code>true</code> and glare detector is used. If the glare detector is used and
+ obtaining of glare metadata is enabled in <a href="../../../../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata"><code>MetadataSettings</code></a> with
+ method <a href="../../../../../../com/microblink/metadata/MetadataSettings.html#setGlareMetadataAllowed-boolean-"><code>MetadataSettings.setGlareMetadataAllowed(boolean)</code></a>,
+ glare status will be reported to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>. Also when
+ glare is detected OCR will not be performed on the affected document position to prevent errors
+ in the extracted data.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#setDetectGlare-boolean-">setDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>detectGlare</code> - whether glare detector will be used during recognition process.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldDetectGlare--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldDetectGlare</h4>
+<pre>public&nbsp;boolean&nbsp;shouldDetectGlare()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#shouldDetectGlare--">GlareDetectorOptions</a></code></span></div>
+<div class="block">Returns whether glare detector is enabled.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#shouldDetectGlare--">shouldDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>it the glare detector is enabled returns <code>true</code>, otherwise returns <code>false</code>.</dd>
+</dl>
+</li>
+</ul>
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
@@ -782,6 +842,10 @@ extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRe
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+</dl>
 </li>
 </ul>
 </li>

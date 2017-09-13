@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html" target="_top">Frames</a></li>
@@ -101,10 +101,15 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">com.microblink.recognizers.settings.RecognizerSettings</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">com.microblink.recognizers.segment.SegmentRecognizerSettings</a></li>
+<li>
+<ul class="inheritance">
 <li><a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html" title="class in com.microblink.recognizers.templating">com.microblink.recognizers.templating.TemplatingRecognizerSettings</a></li>
 <li>
 <ul class="inheritance">
 <li>com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -117,7 +122,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable</dd>
+<dd>android.os.Parcelable, <a href="../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></dd>
 </dl>
 <hr>
 <br>
@@ -181,11 +186,11 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.templating.TemplatingRecognizerSettings">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">
 <!--   -->
 </a>
-<h3>Fields inherited from class&nbsp;com.microblink.recognizers.templating.<a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html" title="class in com.microblink.recognizers.templating">TemplatingRecognizerSettings</a></h3>
-<code><a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#kDefaultParserGroup">kDefaultParserGroup</a></code></li>
+<h3>Fields inherited from class&nbsp;com.microblink.recognizers.segment.<a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></h3>
+<code><a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#kDefaultParserGroup">kDefaultParserGroup</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.com.microblink.recognizers.settings.RecognizerSettings">
@@ -281,12 +286,18 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRZFilter-com.microblink.recognizers.blinkid.mrtd.MRZFilter-">setMRZFilter</a></span>(<a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd">MRZFilter</a>&nbsp;mrzFilter)</code>
+<div class="block">Sets the <a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><code>MRZFilter</code></a> that will be used for filtering MRTD documents based on the MRZ zone result.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-">setParserDecodingInfos</a></span>(<a href="../../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos)</code>
 <div class="block">Sets the decoding infos for desired additional document elements that should be recognized
  together with MRZ zone.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-">setParserDecodingInfos</a></span>(<a href="../../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos,
                       java.lang.String&nbsp;decodingInfoSet)</code>
@@ -295,21 +306,21 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
  the MRZ zone.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowFullDocument-boolean-">setShowFullDocument</a></span>(boolean&nbsp;showFullDocument)</code>
 <div class="block">Set this to true if you use MetadataListener and you want to obtain image containing
  full document containing Machine Readable Zone.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowMRZ-boolean-">setShowMRZ</a></span>(boolean&nbsp;showMRZ)</code>
 <div class="block">Set this to true if you use <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> and you want to obtain image containing
  only Machine Readable Zone.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -320,7 +331,14 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.recognizers.templating.<a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html" title="class in com.microblink.recognizers.templating">TemplatingRecognizerSettings</a></h3>
-<code><a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#addParser-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParser</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#addParserToParserGroup-java.lang.String-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParserToParserGroup</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#initFromParcel-android.os.Parcel-">initFromParcel</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParserDecodingInfoSets--">removeAllParserDecodingInfoSets</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParsers--">removeAllParsers</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParsersFromGroup-java.lang.String-">removeAllParsersFromGroup</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParser-java.lang.String-">removeParser</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParserDecodingInfoSet-java.lang.String-">removeParserDecodingInfoSet</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParserFromParserGroup-java.lang.String-java.lang.String-">removeParserFromParserGroup</a></code></li>
+<code><a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#initFromParcel-android.os.Parcel-">initFromParcel</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeAllParserDecodingInfoSets--">removeAllParserDecodingInfoSets</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#removeParserDecodingInfoSet-java.lang.String-">removeParserDecodingInfoSet</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#setDetectGlare-boolean-">setDetectGlare</a>, <a href="../../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#shouldDetectGlare--">shouldDetectGlare</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognizerSettings">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.recognizers.segment.<a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html" title="class in com.microblink.recognizers.segment">SegmentRecognizerSettings</a></h3>
+<code><a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#addParser-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParser</a>, <a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#addParserToParserGroup-java.lang.String-java.lang.String-com.microblink.recognizers.blinkocr.parser.OcrParserSettings-">addParserToParserGroup</a>, <a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeAllParsers--">removeAllParsers</a>, <a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeAllParsersFromGroup-java.lang.String-">removeAllParsersFromGroup</a>, <a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeParser-java.lang.String-">removeParser</a>, <a href="../../../../../com/microblink/recognizers/segment/SegmentRecognizerSettings.html#removeParserFromParserGroup-java.lang.String-java.lang.String-">removeParserFromParserGroup</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.settings.RecognizerSettings">
@@ -335,6 +353,13 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
 <code>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.android.os.Parcelable">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;android.os.Parcelable</h3>
+<code>describeContents</code></li>
 </ul>
 </li>
 </ul>
@@ -637,6 +662,23 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 </dl>
 </li>
 </ul>
+<a name="setMRZFilter-com.microblink.recognizers.blinkid.mrtd.MRZFilter-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMRZFilter</h4>
+<pre>public&nbsp;void&nbsp;setMRZFilter(@Nullable
+                         <a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd">MRZFilter</a>&nbsp;mrzFilter)</pre>
+<div class="block">Sets the <a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><code>MRZFilter</code></a> that will be used for filtering MRTD documents based on the MRZ zone result.
+ MRZ filter should be used if only specific MRTD documents should be processed. Only recognition results
+ from documents that are allowed by this filter can be returned.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mrzFilter</code> - MRZ filter that will be used for document filtering based on the MRZ results.</dd>
+</dl>
+</li>
+</ul>
 <a name="finalize--">
 <!--   -->
 </a>
@@ -697,7 +739,7 @@ extends <a href="../../../../../com/microblink/recognizers/templating/Templating
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html" title="class in com.microblink.recognizers.blinkid.mrtd"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html" target="_top">Frames</a></li>

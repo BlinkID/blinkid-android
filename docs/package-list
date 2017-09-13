@@ -30,6 +30,7 @@ com.microblink.recognizers.blinkbarcode.usdl
 com.microblink.recognizers.blinkbarcode.vin
 com.microblink.recognizers.blinkbarcode.zxing
 com.microblink.recognizers.blinkid
+com.microblink.recognizers.blinkid.australia.driversLicense.front
 com.microblink.recognizers.blinkid.austria.back
 com.microblink.recognizers.blinkid.austria.combined
 com.microblink.recognizers.blinkid.austria.front
@@ -63,8 +64,11 @@ com.microblink.recognizers.blinkid.slovakia.front
 com.microblink.recognizers.blinkid.slovenia.back
 com.microblink.recognizers.blinkid.slovenia.combined
 com.microblink.recognizers.blinkid.slovenia.front
+com.microblink.recognizers.blinkid.switzerland.back
+com.microblink.recognizers.blinkid.switzerland.front
 com.microblink.recognizers.blinkid.switzerland.passport
 com.microblink.recognizers.blinkid.usdl.combined
+com.microblink.recognizers.blinkinput
 com.microblink.recognizers.blinkocr
 com.microblink.recognizers.blinkocr.engine
 com.microblink.recognizers.blinkocr.parser
@@ -74,6 +78,7 @@ com.microblink.recognizers.blinkocr.parser.regex
 com.microblink.recognizers.blinkocr.parser.topup
 com.microblink.recognizers.blinkocr.parser.vin
 com.microblink.recognizers.detector
+com.microblink.recognizers.segment
 com.microblink.recognizers.settings
 com.microblink.recognizers.templating
 com.microblink.results

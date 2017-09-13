@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -101,7 +101,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../com/microblink/recognizers/BaseRecognitionResult.html" title="class in com.microblink.recognizers">com.microblink.recognizers.BaseRecognitionResult</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html" title="class in com.microblink.recognizers.segment">com.microblink.recognizers.segment.SegmentRecognitionResult</a></li>
+<li>
+<ul class="inheritance">
 <li>com.microblink.recognizers.templating.TemplatingRecognitionResult</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -121,7 +126,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">TemplatingRecognitionResult</span>
-extends <a href="../../../../com/microblink/recognizers/BaseRecognitionResult.html" title="class in com.microblink.recognizers">BaseRecognitionResult</a></pre>
+extends <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html" title="class in com.microblink.recognizers.segment">SegmentRecognitionResult</a></pre>
 <div class="block">Represents base class for all recognition results that are produced by recognizers
  which were configured with settings that derive <a href="../../../../com/microblink/recognizers/templating/TemplatingRecognizerSettings.html" title="class in com.microblink.recognizers.templating"><code>TemplatingRecognizerSettings</code></a></div>
 </li>
@@ -209,50 +214,14 @@ extends <a href="../../../../com/microblink/recognizers/BaseRecognitionResult.ht
 <div class="block">Returns result of document classification, if any.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getOcrResult--">getOcrResult</a></span>()</code>
-<div class="block">Gets the OCR result for default parser group.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getOcrResult-java.lang.String-">getOcrResult</a></span>(java.lang.String&nbsp;parserGroupName)</code>
-<div class="block">Gets the OCR result for given parser group.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-">getParsedResult</a></span>(java.lang.String&nbsp;parserName)</code>
-<div class="block">Get the result of parser from default parsing group.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-java.lang.String-">getParsedResult</a></span>(java.lang.String&nbsp;parserGroupName,
-               java.lang.String&nbsp;parserName)</code>
-<div class="block">Get the result of parser in given parser group.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParserKey-java.lang.String-java.lang.String-">getParserKey</a></span>(java.lang.String&nbsp;parserGroupName,
-            java.lang.String&nbsp;parserName)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getSpecificParsedResult-java.lang.String-">getSpecificParsedResult</a></span>(java.lang.String&nbsp;parserName)</code>
-<div class="block">Returns specific parser result for concrete parser with the given parser name in default parser group.</div>
-</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getSpecificParsedResult-java.lang.String-java.lang.String-">getSpecificParsedResult</a></span>(java.lang.String&nbsp;parserGroupName,
-                       java.lang.String&nbsp;parserName)</code>
-<div class="block">Returns specific parser result for concrete parser with the given parser name in the given parser group.</div>
-</td>
-</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.segment.SegmentRecognitionResult">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.recognizers.segment.<a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html" title="class in com.microblink.recognizers.segment">SegmentRecognitionResult</a></h3>
+<code><a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getOcrResult--">getOcrResult</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getOcrResult-java.lang.String-">getOcrResult</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getParsedResult-java.lang.String-">getParsedResult</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getParsedResult-java.lang.String-java.lang.String-">getParsedResult</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getParserKey-java.lang.String-java.lang.String-">getParserKey</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getSpecificParsedResult-java.lang.String-">getSpecificParsedResult</a>, <a href="../../../../com/microblink/recognizers/segment/SegmentRecognitionResult.html#getSpecificParsedResult-java.lang.String-java.lang.String-">getSpecificParsedResult</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.recognizers.BaseRecognitionResult">
 <!--   -->
@@ -320,131 +289,6 @@ extends <a href="../../../../com/microblink/recognizers/BaseRecognitionResult.ht
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getParserKey-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getParserKey</h4>
-<pre>protected&nbsp;java.lang.String&nbsp;getParserKey(java.lang.String&nbsp;parserGroupName,
-                                        java.lang.String&nbsp;parserName)</pre>
-</li>
-</ul>
-<a name="getParsedResult-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getParsedResult</h4>
-<pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getParsedResult(java.lang.String&nbsp;parserName)</pre>
-<div class="block">Get the result of parser from default parsing group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserName</code> - Name of the parser.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Parsed string if parsing was successful, null or empty string if parsing has failed.</dd>
-</dl>
-</li>
-</ul>
-<a name="getParsedResult-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getParsedResult</h4>
-<pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getParsedResult(java.lang.String&nbsp;parserGroupName,
-                                                  java.lang.String&nbsp;parserName)</pre>
-<div class="block">Get the result of parser in given parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group where parser was added.</dd>
-<dd><code>parserName</code> - Name of the parser.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Parsed string if parsing was successful, null or empty string if parsing has failed.</dd>
-</dl>
-</li>
-</ul>
-<a name="getSpecificParsedResult-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSpecificParsedResult</h4>
-<pre>@Nullable
-public&nbsp;java.lang.Object&nbsp;getSpecificParsedResult(java.lang.String&nbsp;parserName)</pre>
-<div class="block">Returns specific parser result for concrete parser with the given parser name in default parser group.
- For example, date parser which is represented with <a href="../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser.generic"><code>DateParserSettings</code></a>
- can return parsed date as <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object. It is always possible to obtain parsed result as raw string by using
- <a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-"><code>getParsedResult(String)</code></a> or <a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-java.lang.String-"><code>getParsedResult(String, String)</code></a> method.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserName</code> - Name of the parser.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>specific parser result for concrete parser. This object can be cast to result type
- that is expected for concrete parser. If parser with name <code>parserName</code> does not exists in default parser group, returns <code>null</code>.
- If parser exists, but has failed to parse any data, returns <code>null</code> or empty string.</dd>
-</dl>
-</li>
-</ul>
-<a name="getSpecificParsedResult-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSpecificParsedResult</h4>
-<pre>@Nullable
-public&nbsp;java.lang.Object&nbsp;getSpecificParsedResult(java.lang.String&nbsp;parserGroupName,
-                                                          java.lang.String&nbsp;parserName)</pre>
-<div class="block">Returns specific parser result for concrete parser with the given parser name in the given parser group.
- For example, date parser which is represented with <a href="../../../../com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.html" title="class in com.microblink.recognizers.blinkocr.parser.generic"><code>DateParserSettings</code></a>
- can return parsed date as <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object. It is always possible to obtain parsed result as raw string by using
- <a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-"><code>getParsedResult(String)</code></a> or <a href="../../../../com/microblink/recognizers/templating/TemplatingRecognitionResult.html#getParsedResult-java.lang.String-java.lang.String-"><code>getParsedResult(String, String)</code></a> method.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group where parser was added.</dd>
-<dd><code>parserName</code> - Name of the parser.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>specific parser result for concrete parser. This object can be cast to result type
- that is expected for concrete parser. If parser with name <code>parserName</code> does not exists in parser group with name
- <code>parserGroupName</code> or if parser group does not exists, returns <code>null</code>. If parser exists, but has failed to parse any data,
- returns <code>null</code> or empty string.</dd>
-</dl>
-</li>
-</ul>
-<a name="getOcrResult--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOcrResult</h4>
-<pre>@Nullable
-public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&nbsp;getOcrResult()</pre>
-<div class="block">Gets the OCR result for default parser group.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>OCR result structure or null if there is no OCR result for default parser group.</dd>
-</dl>
-</li>
-</ul>
-<a name="getOcrResult-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOcrResult</h4>
-<pre>@Nullable
-public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&nbsp;getOcrResult(java.lang.String&nbsp;parserGroupName)</pre>
-<div class="block">Gets the OCR result for given parser group.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>parserGroupName</code> - Name of the parser group for which OCR result should be returned.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>OCR result structure or null if there is no OCR result for requested parser group.</dd>
-</dl>
-</li>
-</ul>
 <a name="getDocumentClassificationResult--">
 <!--   -->
 </a>

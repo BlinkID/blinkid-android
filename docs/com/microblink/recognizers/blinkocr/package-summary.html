@@ -41,7 +41,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/microblink/recognizers/blinkid/usdl/combined/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../com/microblink/recognizers/blinkinput/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../com/microblink/recognizers/blinkocr/engine/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
@@ -73,24 +73,6 @@
 <div class="contentContainer">
 <ul class="blockList">
 <li class="blockList">
-<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Interface Summary table, listing interfaces, and an explanation">
-<caption><span>Interface Summary</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Interface</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../../com/microblink/recognizers/blinkocr/DocumentClassifier.html" title="interface in com.microblink.recognizers.blinkocr">DocumentClassifier</a></td>
-<td class="colLast">
-<div class="block">Classifier that is used to classify documents based on data extracted from detector's
- decoding info fields.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="blockList">
 <table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
 <caption><span>Class Summary</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
@@ -100,15 +82,18 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognitionResult</a></td>
-<td class="colLast">
-<div class="block">Represents recognition result produced by BlinkOCR recognizer which was configured
- with <a href="../../../../com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html" title="class in com.microblink.recognizers.blinkocr"><code>BlinkOCRRecognizerSettings</code></a>.</div>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">use <a href="../../../../com/microblink/recognizers/detector/DetectorRecognitionResult.html" title="class in com.microblink.recognizers.detector"><code>DetectorRecognitionResult</code></a> or
+ <a href="../../../../com/microblink/recognizers/blinkinput/BlinkInputRecognitionResult.html" title="class in com.microblink.recognizers.blinkinput"><code>BlinkInputRecognitionResult</code></a> depending on the used
+ recognizer.</span></div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html" title="class in com.microblink.recognizers.blinkocr">BlinkOCRRecognizerSettings</a></td>
-<td class="colLast">
-<div class="block">Represents settings for generic OCR recognizer used for scanning segments.</div>
+<td class="colLast">Deprecated
+<div class="block"><span class="deprecationComment">use <a href="../../../../com/microblink/recognizers/blinkinput/BlinkInputRecognizerSettings.html" title="class in com.microblink.recognizers.blinkinput"><code>BlinkInputRecognizerSettings</code></a> for segment
+ scan or for full-screen OCR or <a href="../../../../com/microblink/recognizers/detector/DetectorRecognizerSettings.html" title="class in com.microblink.recognizers.detector"><code>DetectorRecognizerSettings</code></a>
+ to perform scanning of templated documents.</span></div>
 </td>
 </tr>
 </tbody>
@@ -136,7 +121,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../com/microblink/recognizers/blinkid/usdl/combined/package-summary.html">Prev&nbsp;Package</a></li>
+<li><a href="../../../../com/microblink/recognizers/blinkinput/package-summary.html">Prev&nbsp;Package</a></li>
 <li><a href="../../../../com/microblink/recognizers/blinkocr/engine/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
