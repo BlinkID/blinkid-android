@@ -12,10 +12,11 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="wrap_content"
+            android:layout_width="64dp"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/mb_logo">
