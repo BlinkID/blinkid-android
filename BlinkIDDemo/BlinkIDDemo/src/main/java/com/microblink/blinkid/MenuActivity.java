@@ -51,6 +51,9 @@ import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecogni
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
+import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.poland.front.PolishIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.romania.front.RomanianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognizerSettings;
@@ -300,6 +303,8 @@ public class MenuActivity extends Activity {
         elements.add(buildGermanIDCombinedElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
+        elements.add(buildPolishIdElement());
+        elements.add(buildPolishIdCombinedElement());
         elements.add(bildRomanianElement());
         elements.add(buildSingaporeIDElement());
         elements.add(buildSingaporeIDCombinedElement());
@@ -481,6 +486,13 @@ public class MenuActivity extends Activity {
         return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
     }
 
+    private ListElement buildPolishIdElement() {
+        PolishIDFrontSideRecognizerSettings polIdFrontSettings = new PolishIDFrontSideRecognizerSettings();
+        PolishIDBackSideRecognizerSettings polIdBackSettings = new PolishIDBackSideRecognizerSettings();
+
+        return new ListElement("Polish ID", buildIntent(new RecognizerSettings[]{polIdFrontSettings, polIdBackSettings}, ScanCard.class, null));
+    }
+
     private ListElement bildRomanianElement() {
         RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
 
@@ -552,6 +564,12 @@ public class MenuActivity extends Activity {
         GermanIDCombinedRecognizerSettings deCombined = new GermanIDCombinedRecognizerSettings();
 
         return new ListElement("German ID combined", buildCombinedIntent(deCombined));
+    }
+
+    private ListElement buildPolishIdCombinedElement() {
+        PolishIDCombinedRecognizerSettings polIDCombined = new PolishIDCombinedRecognizerSettings();
+
+        return new ListElement("Polish ID Combined",  buildCombinedIntent(polIDCombined));
     }
 
     private ListElement buildPDF417Element() {

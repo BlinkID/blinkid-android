@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -111,7 +111,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../com/microblink/detectors/document/DocumentDetectorSettings.html" title="class in com.microblink.detectors.document">DocumentDetectorSettings</a>, <a href="../../../com/microblink/detectors/face/FaceDetectorSettings.html" title="class in com.microblink.detectors.face">FaceDetectorSettings</a>, <a href="../../../com/microblink/detectors/multi/MultiDetectorSettings.html" title="class in com.microblink.detectors.multi">MultiDetectorSettings</a>, <a href="../../../com/microblink/detectors/quad/QuadDetectorSettings.html" title="class in com.microblink.detectors.quad">QuadDetectorSettings</a></dd>
+<dd><a href="../../../com/microblink/detectors/document/DocumentDetectorSettings.html" title="class in com.microblink.detectors.document">DocumentDetectorSettings</a>, <a href="../../../com/microblink/detectors/face/FaceDetectorSettings.html" title="class in com.microblink.detectors.face">FaceDetectorSettings</a>, <a href="../../../com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html" title="class in com.microblink.detectors.quad.mrtd">MRTDDetectorSettings</a>, <a href="../../../com/microblink/detectors/multi/MultiDetectorSettings.html" title="class in com.microblink.detectors.multi">MultiDetectorSettings</a>, <a href="../../../com/microblink/detectors/quad/QuadDetectorSettings.html" title="class in com.microblink.detectors.quad">QuadDetectorSettings</a></dd>
 </dl>
 <hr>
 <br>
@@ -218,6 +218,12 @@ implements android.os.Parcelable</pre>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/detectors/DetectorSettings.html#initNativeFromParcel-android.os.Parcel-">initNativeFromParcel</a></span>(android.os.Parcel&nbsp;in)</code>
+<div class="block">Call this method from derived class after initializing native context.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/detectors/DetectorSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -352,7 +358,7 @@ implements android.os.Parcelable</pre>
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
@@ -360,6 +366,21 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+</dl>
+</li>
+</ul>
+<a name="initNativeFromParcel-android.os.Parcel-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>initNativeFromParcel</h4>
+<pre>@CallSuper
+protected&nbsp;void&nbsp;initNativeFromParcel(android.os.Parcel&nbsp;in)</pre>
+<div class="block">Call this method from derived class after initializing native context.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>in</code> - Parcel from which data is read.</dd>
 </dl>
 </li>
 </ul>

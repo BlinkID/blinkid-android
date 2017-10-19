@@ -13,15 +13,15 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@mipmap/ic_launcher">
+            android:src="@drawable/mb_logo">
         </ImageView>
 
         <TextView

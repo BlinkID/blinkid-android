@@ -68,6 +68,9 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of German ID documents](#germanID_back)
   * [Scanning front side of the older German ID documents](#germanID_oldFront)
   * [Scanning German passports](#germanPassport)
+  * [Scanning front side of Polish ID documents](#polishID_front)
+  * [Scanning back side of Polish ID documents](#polishID_back)
+  * [Scanning and combining results from front and back side of Polish ID documents](#polishIDCombined)
   * [Scanning front side of Serbian ID documents](#serbianID_front)
   * [Scanning back side of Serbian ID documents](#serbianID_back)
   * [Scanning and combining results from front and back side of Serbian ID documents](#serbianIDCombined)
@@ -173,7 +176,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.11.0@aar') {
+    compile('com.microblink:blinkid:3.12.0@aar') {
     	transitive = true
     }
 }
@@ -185,7 +188,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.11.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.12.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -210,7 +213,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.11.0</version>
+		  <version>3.12.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -540,6 +543,12 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	```java
 	intent.putExtra(ScanCard.EXTRAS_SET_FLAG_SECURE, true);
 	```
+	
+* <a name="intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING" href="#intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING">#</a> **`ScanCard.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING`** - with this extra you can disable warning toast for time limited license key which is enabled by default. This warning is shown to prevent unintentional publishing of application to production with the demo license key that will expire. To disable `TIME_LIMITED_LICENSE_KEY_WARNING` on camera activity, use the following code snippet:
+
+	```java
+	intent.putExtra(ScanCard.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING, false);
+	```
 
 * <a name="intent_EXTRAS_LICENSE_KEY" href="#intent_EXTRAS_LICENSE_KEY">#</a> **`ScanCard.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
 
@@ -626,8 +635,13 @@ This section will discuss possible parameters that can be sent over `Intent` for
 
 	```java
 	intent.putExtra(SegmentScanActivity.EXTRAS_SET_FLAG_SECURE, true);
+	```
 	
+* <a name="intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING" href="#intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING">#</a> **`SegmentScanActivity.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING`** - with this extra you can disable warning toast for time limited license key which is enabled by default. This warning is shown to prevent unintentional publishing of application to production with the demo license key that will expire. To disable `TIME_LIMITED_LICENSE_KEY_WARNING` on camera activity, use the following code snippet:
 
+	```java
+	intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING, false);
+	```
 * <a name="intent_EXTRAS_LICENSE_KEY" href="#intent_EXTRAS_LICENSE_KEY">#</a> **`ScanCard.EXTRAS_LICENSE_KEY`** - with this extra you can set the license key for _BlinkID_. You can obtain your licence key from [Microblink website](http://microblink.com/login) or you can contact us at [http://help.microblink.com](http://help.microblink.com). Once you obtain a license key, you can set it with following snippet:
 
 	```java
@@ -790,6 +804,12 @@ This section will discuss possible parameters that can be sent over `Intent` for
 * <a name="intent_EXTRAS_IMAGE_LISTENER_combined" href="#intent_EXTRAS_IMAGE_LISTENER_combined">#</a> **`VerificationFlowActivity.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener). By default, _ImageListener_ will receive all possible images that become available during recognition process. This will introduce performance penalty because most of those images will probably not be used so sending them will just waste time. To control which images should become available to _ImageListener_, you can also set [ImageMetadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html) with `VerificationFlowActivity.EXTRAS_IMAGE_METADATA_SETTINGS`
 
 * <a name="intent_EXTRAS_IMAGE_METADATA_SETTINGS_combined" href="#intent_EXTRAS_IMAGE_METADATA_SETTINGS_combined">#</a> **`VerificationFlowActivity.EXTRAS_IMAGE_METADATA_SETTINGS`** - with this extra you can set [ImageMetadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html) which will define which images will be sent to [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) given via `VerificationFlowActivity.EXTRAS_IMAGE_LISTENER` extra. If _ImageListener_ is not given via Intent, then this extra has no effect. You can see example usage of _ImageMetadata Settings_ in chapter [Obtaining various metadata with _MetadataListener_](#metadataListener) and in provided demo apps.
+
+* <a name="intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING_combined" href="#intent_EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING_combined">#</a> **`VerificationFlowActivity.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING`** - with this extra you can disable warning toast for time limited license key which is enabled by default. This warning is shown to prevent unintentional publishing of application to production with the demo license key that will expire. To disable `TIME_LIMITED_LICENSE_KEY_WARNING` on camera activity, use the following code snippet:
+
+	```java
+	intent.putExtra(VerificationFlowActivity.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING, false);
+	```
 
 ## <a name="recognizerView"></a> Embedding `RecognizerView` into custom scan activity
 This section will discuss how to embed [RecognizerView](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html) into your scan activity and perform scan.
@@ -1082,6 +1102,8 @@ Second boolean parameter indicates whether or not metering areas should be autom
 You can use this method to define [metadata listener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) that will obtain various metadata
 from the current recognition process. Which metadata will be available depends on [metadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). For more information and examples, check demo applications and section [Obtaining various metadata with _MetadataListener_](#metadataListener).
 
+##### <a name="recognizerView_setLicenseKeyTimeLimitedWarningEnabled"></a> [`setLicenseKeyTimeLimitedWarningEnabled(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKeyTimeLimitedWarningEnabled-boolean-)
+Defines whether warning toast for time limited license key will be displayed. The goal is to prevent unintentional publishing of application to production with the license key that will expire. To take effect, this method should be called before setting the license key. By default, warning is enabled. **Be careful, disable this warning only if necessary**.
 ##### <a name="recognizerView_setLicenseKey1"></a> [`setLicenseKey(String licenseKey)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKey-java.lang.String-)
 This method sets the license key that will unlock all features of the native library. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
@@ -2432,6 +2454,177 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/passport/GermanPassportRecognitionResult.html).**
 
+## <a name="polishID_front"></a> Scanning front side of Polish ID documents
+
+This section will discuss the setting up of Polish ID Front Side recognizer and obtaining results from it.
+
+### Setting up Polish ID card front side recognizer
+
+To activate Polish ID front side recognizer, you need to create [PolishIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/front/PolishIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	PolishIDFrontSideRecognizerSettings sett = new PolishIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [PolishIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/front/PolishIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/front/PolishIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Polish ID card front side recognizer
+
+Polish ID front side recognizer produces [PolishIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/front/PolishIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `PolishIDFrontSideRecognitionResult` class. 
+
+**Note:** `PolishIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof PolishIDFrontSideRecognitionResult) {
+			PolishIDFrontSideRecognitionResult result = (PolishIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of PolishIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String givenNames = result.getGivenNames();
+				String surname = result.getSurname();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/front/PolishIDFrontSideRecognitionResult.html).**
+
+## <a name="polishID_back"></a> Scanning back side of Polish ID documents
+
+This section will discuss the setting up of Polish ID Back Side recognizer and obtaining results from it.
+
+### Setting up Polish ID card back side recognizer
+
+To activate Polish ID back side recognizer, you need to create [PolishIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/back/PolishIDBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	PolishIDBackSideRecognizerSettings sett = new PolishIDBackSideRecognizerSettings();
+
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [PolishIDBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/back/PolishIDBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/back/PolishIDBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Polish ID card back side recognizer
+
+Polish ID back side recognizer produces [PolishIDBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/back/PolishIDBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `PolishIDBackSideRecognitionResult` class. 
+
+**Note:** `PolishIDBackSideRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof PolishIDBackSideRecognitionResult) {
+			PolishIDBackSideRecognitionResult result = (PolishIDBackSideRecognitionResult) baseResult;
+
+	        // you can use getters of PolishIDBackSideRecognitionResult class to
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String documentNumber = result.getDocumentNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/back/PolishIDBackSideRecognitionResult.html).**
+
+## <a name="polishIDCombined"></a> Scanning and combining results from front and back side of Polish ID documents
+
+This section will discuss the setting up of Polish ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Polish ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Polish ID card combined recognizer
+
+To activate Polish ID combined recognizer, you need to create [PolishIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/combined/PolishIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    PolishIDCombinedRecognizerSettings sett = new PolishIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [PolishIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/combined/PolishIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/combined/PolishIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof PolishIDFrontSideRecognitionResult) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Polish ID card combined recognizer
+
+Polish ID combined recognizer produces [PolishIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/combined/PolishIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `PolishIDCombinedRecognitionResult` class. 
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof PolishIDCombinedRecognitionResult) {
+            PolishIDCombinedRecognitionResult result = (PolishIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of PolishIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.isDocumentDataMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String givenNames = result.getGivenNames();
+                    String surname = result.getSurname();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/poland/combined/PolishIDCombinedRecognitionResult.html).**
+
 ## <a name="serbianID_front"></a> Scanning front side of Serbian ID documents
 
 This section will discuss the setting up of Serbian ID Front Side recognizer and obtaining results from it.
@@ -3331,7 +3524,10 @@ Defines if expiry date should be extracted. Default is `true`.
 Defines if address should be extracted. Default is `true`.
 
 ##### `setShowFullDocument(boolean)`
-Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"EUDL"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `EUDLRecognizerSettings.FULL_DOCUMENT_IMAGE`. You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+
+##### `setShowFaceImage(boolean)`
+Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain face image from the driver's license. The face image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `EUDLRecognizerSettings.FACE_IMAGE_NAME`. You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
 ### Obtaining results from EU Driver's Licence recognizer
 
@@ -4588,10 +4784,6 @@ Returns the [Quadrilateral](https://blinkid.github.io/blinkid-android/com/microb
 ##### `double getAspectRatio()`
 
 Returns the aspect ratio of detected document. This will be equal to aspect ratio of one of `DocumentSpecification` objects given to `DocumentDetectorSettings`.
-
-##### `ScreenOrientation getScreenOrientation()`
-
-Returns the orientation of the screen that was active at the moment document was detected.
 
 ## <a name="faceDetector"></a> Detection of faces with Face Detector
 

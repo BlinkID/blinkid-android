@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -241,12 +241,18 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/Recognizer.html#setLicenseKeyTimeLimitedWarningEnabled-boolean-">setLicenseKeyTimeLimitedWarningEnabled</a></span>(boolean&nbsp;warningEnabled)</code>
+<div class="block">Defines whether warning for time limited license key will be displayed.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/Recognizer.html#setMetadataListener-com.microblink.metadata.MetadataListener-com.microblink.metadata.MetadataSettings-">setMetadataListener</a></span>(<a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a>&nbsp;metadataListener,
                    <a href="../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings</a>&nbsp;metadataSettings)</code>
 <div class="block">Sets the listener that will obtain metadata that is being processed.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/Recognizer.html#terminate--">terminate</a></span>()</code>
 <div class="block">Terminates the native library.</div>
@@ -348,6 +354,25 @@ extends java.lang.Object</pre>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is not in offline state (use getCurrentState method to obtain the state)</dd>
 <dd><code><a href="../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></code> - if licence key is invalid</dd>
+</dl>
+</li>
+</ul>
+<a name="setLicenseKeyTimeLimitedWarningEnabled-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLicenseKeyTimeLimitedWarningEnabled</h4>
+<pre>public&nbsp;void&nbsp;setLicenseKeyTimeLimitedWarningEnabled(boolean&nbsp;warningEnabled)</pre>
+<div class="block">Defines whether warning for time limited license key will be displayed. The goal is to
+ prevent unintentional publishing of application to production with the license key that
+ will expire. To take effect, this method should be called before calling
+ <a href="../../../com/microblink/directApi/Recognizer.html#initialize-android.content.Context-com.microblink.recognizers.settings.RecognitionSettings-com.microblink.directApi.DirectApiErrorListener-"><code>initialize(Context, RecognitionSettings, DirectApiErrorListener)</code></a>.
+ By default, warning is enabled.<br>
+ <b>Be careful, disable this warning only if necessary.</b></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>warningEnabled</code> - defines whether the warning is enabled or disabled.</dd>
 </dl>
 </li>
 </ul>

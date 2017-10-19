@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":9,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -386,47 +386,53 @@ extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="cl
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#setLicenseKeyTimeLimitedWarningEnabled-boolean-">setLicenseKeyTimeLimitedWarningEnabled</a></span>(boolean&nbsp;warningEnabled)</code>
+<div class="block">Defines whether warning for time limited license key will be displayed.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#setMetadataListener-com.microblink.metadata.MetadataListener-com.microblink.metadata.MetadataSettings-">setMetadataListener</a></span>(<a href="../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a>&nbsp;metadataListener,
                    <a href="../../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings</a>&nbsp;metadataSettings)</code>
 <div class="block">Sets the listener that will obtain metadata that is being processed.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#setRecognitionSettings-com.microblink.recognizers.settings.RecognitionSettings-">setRecognitionSettings</a></span>(<a href="../../../../com/microblink/recognizers/settings/RecognitionSettings.html" title="class in com.microblink.recognizers.settings">RecognitionSettings</a>&nbsp;recognitionSettings)</code>
 <div class="block">Sets the generic settings that affect all recognizers and whole recognition process.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#setScanningRegion-com.microblink.geometry.Rectangle-boolean-">setScanningRegion</a></span>(<a href="../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion,
                  boolean&nbsp;rotateRegionWithDevice)</code>
 <div class="block">Define scanning region as a rectangle.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#setScanResultListener-com.microblink.view.recognition.ScanResultListener-">setScanResultListener</a></span>(<a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</code>
 <div class="block">Sets the listener that will obtain the results of the scanning.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#shouldRotateScanningRegion--">shouldRotateScanningRegion</a></span>()</code>
 <div class="block">Returns true if scanning region should be rotated with device.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#shouldStartCamera--">shouldStartCamera</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#start--">start</a></span>()</code>
 <div class="block">This method must be called from activity's onStart.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerView.html#stop--">stop</a></span>()</code>
 <div class="block">This method must be called from activity's onStop.</div>
@@ -868,6 +874,24 @@ public final&nbsp;void&nbsp;setLicenseKey(@NonNull
 <dd><code>licensee</code> - licensee</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></code> - if license key is not valid</dd>
+</dl>
+</li>
+</ul>
+<a name="setLicenseKeyTimeLimitedWarningEnabled-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLicenseKeyTimeLimitedWarningEnabled</h4>
+<pre>public&nbsp;void&nbsp;setLicenseKeyTimeLimitedWarningEnabled(boolean&nbsp;warningEnabled)</pre>
+<div class="block">Defines whether warning for time limited license key will be displayed. The goal is to
+ prevent unintentional publishing of application to production with the license key that
+ will expire. To take effect, this method should be called before setting the license key.
+ By default, warning is enabled.<br>
+ <b>Be careful, disable this warning only if necessary.</b></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>warningEnabled</code> - defines whether the warning is enabled or disabled.</dd>
 </dl>
 </li>
 </ul>

@@ -39,6 +39,9 @@ import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultE
 import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
+import com.microblink.libresult.extract.poland.PolishIDBackSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.poland.PolishIDCombinedRecognitionResultExtractor;
+import com.microblink.libresult.extract.poland.PolishIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.romania.RomanianIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.serbia.SerbianIDBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.serbia.SerbianIDCombinedRecognitionResultExtractor;
@@ -81,6 +84,9 @@ import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecogni
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
+import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognitionResult;
+import com.microblink.recognizers.blinkid.poland.front.PolishIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.romania.front.RomanianIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognitionResult;
@@ -182,6 +188,12 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new GermanPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanIDCombinedRecognitionResult) {
             mResultExtractor = new GermanIDCombinedRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof PolishIDBackSideRecognitionResult) {
+            mResultExtractor = new PolishIDBackSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof PolishIDFrontSideRecognitionResult) {
+            mResultExtractor = new PolishIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof PolishIDCombinedRecognitionResult) {
+            mResultExtractor = new PolishIDCombinedRecognitionResultExtractor(getActivity());
         } else if (mData instanceof RomanianIDFrontSideRecognitionResult) {
             mResultExtractor = new RomanianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SlovakIDBackSideRecognitionResult) {

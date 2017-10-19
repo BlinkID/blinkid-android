@@ -51,6 +51,9 @@ com.microblink.recognizers.blinkid.germany.passport
 com.microblink.recognizers.blinkid.malaysia
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.mrtd.combined
+com.microblink.recognizers.blinkid.poland.back
+com.microblink.recognizers.blinkid.poland.combined
+com.microblink.recognizers.blinkid.poland.front
 com.microblink.recognizers.blinkid.romania.front
 com.microblink.recognizers.blinkid.serbia.back
 com.microblink.recognizers.blinkid.serbia.combined

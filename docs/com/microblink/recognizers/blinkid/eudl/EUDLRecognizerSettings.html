@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -158,6 +158,13 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#FACE_IMAGE_NAME">FACE_IMAGE_NAME</a></span></code>
+<div class="block">Name of the image sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
+ contains face.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#FULL_DOCUMENT_IMAGE">FULL_DOCUMENT_IMAGE</a></span></code>
 <div class="block">Name of the image sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
  contains full document.</div>
@@ -219,60 +226,73 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#isShowingFaceImage--">isShowingFaceImage</a></span>()</code>
+<div class="block">Returns true if face image from the driver's license will be given to MetadataListener.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#isShowingFullDocument--">isShowingFullDocument</a></span>()</code>
 <div class="block">Returns true if image of scanned document will be given to MetadataListener.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setCountry-com.microblink.recognizers.blinkid.eudl.EUDLCountry-">setCountry</a></span>(<a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLCountry.html" title="enum in com.microblink.recognizers.blinkid.eudl">EUDLCountry</a>&nbsp;country)</code>
 <div class="block">Sets the country where the driver's license has been issued.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setExtractAddress-boolean-">setExtractAddress</a></span>(boolean&nbsp;extractAddress)</code>
 <div class="block">Defines if address should be extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setExtractExpiryDate-boolean-">setExtractExpiryDate</a></span>(boolean&nbsp;extractExpiryDate)</code>
 <div class="block">Defines if expiry date should be extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setExtractIssueDate-boolean-">setExtractIssueDate</a></span>(boolean&nbsp;extractIssueDate)</code>
 <div class="block">Defines if issue date should be extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setShowFaceImage-boolean-">setShowFaceImage</a></span>(boolean&nbsp;showFaceImage)</code>
+<div class="block">Set this to true if you use MetadataListener and you want to obtain face image from the
+ driver's license.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setShowFullDocument-boolean-">setShowFullDocument</a></span>(boolean&nbsp;showFullDocument)</code>
 <div class="block">Set this to true if you use MetadataListener and you want to obtain image containing
  scanned document.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#shouldExtractAddress--">shouldExtractAddress</a></span>()</code>
 <div class="block">Returns true is address is being extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#shouldExtractExpiryDate--">shouldExtractExpiryDate</a></span>()</code>
 <div class="block">Returns true is expiry date is being extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#shouldExtractIssueDate--">shouldExtractIssueDate</a></span>()</code>
 <div class="block">Returns true is issue date is being extracted from EU driver's license</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -306,6 +326,20 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="FACE_IMAGE_NAME">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FACE_IMAGE_NAME</h4>
+<pre>public static final&nbsp;java.lang.String FACE_IMAGE_NAME</pre>
+<div class="block">Name of the image sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> that
+ contains face. This image will be sent to <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>
+ during recognition process if displaying of face image is enabled (see <a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#setShowFaceImage-boolean-"><code>setShowFaceImage(boolean)</code></a>),
+ and receiving of <a href="../../../../../com/microblink/image/ImageType.html#DEWARPED"><code>ImageType.DEWARPED</code></a> image is enabled with
+ <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a></div>
+</li>
+</ul>
 <a name="FULL_DOCUMENT_IMAGE">
 <!--   -->
 </a>
@@ -475,6 +509,39 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 </dl>
 </li>
 </ul>
+<a name="setShowFaceImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowFaceImage</h4>
+<pre>public&nbsp;void&nbsp;setShowFaceImage(boolean&nbsp;showFaceImage)</pre>
+<div class="block">Set this to true if you use MetadataListener and you want to obtain face image from the
+ driver's license. The face image's orientation will be
+ corrected. The reported ImageType will be DEWARPED and image name will
+ be <a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#FACE_IMAGE_NAME"><code>FACE_IMAGE_NAME</code></a>. By default, this is turned off.
+ When enabling this, make sure you have enabled receiving of dewarped image metadata in
+ <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showFaceImage</code> - true to obtain image containing scanned document</dd>
+</dl>
+</li>
+</ul>
+<a name="isShowingFaceImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isShowingFaceImage</h4>
+<pre>public&nbsp;boolean&nbsp;isShowingFaceImage()</pre>
+<div class="block">Returns true if face image from the driver's license will be given to MetadataListener.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if face image from the driver's license will be given to MetadataListener.</dd>
+</dl>
+</li>
+</ul>
 <a name="setShowFullDocument-boolean-">
 <!--   -->
 </a>
@@ -485,7 +552,7 @@ extends <a href="../../../../../com/microblink/recognizers/settings/RecognizerSe
 <div class="block">Set this to true if you use MetadataListener and you want to obtain image containing
  scanned document. The document image's orientation will be
  corrected. The reported ImageType will be DEWARPED and image name will
- be "EUDL". By default, this is turned off.
+ be <a href="../../../../../com/microblink/recognizers/blinkid/eudl/EUDLRecognizerSettings.html#FULL_DOCUMENT_IMAGE"><code>FULL_DOCUMENT_IMAGE</code></a>. By default, this is turned off.
  When enabling this, make sure you enabled receiving of dewarped image metadata in
  <a href="../../../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-"><code>MetadataSettings.ImageMetadataSettings.setDewarpedImageEnabled(boolean)</code></a>.</div>
 <dl>
