@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.ScreenOrientation.html" title="enum in com.microblink.detectors.document"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/microblink/detectors/document/DocumentDetectorSettings.html" title="class in com.microblink.detectors.document"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/microblink/detectors/document/DocumentDetectorResult.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#nested.classes.inherited.from.class.com.microblink.detectors.DetectorResult">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -104,7 +104,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">com.microblink.detectors.quad.QuadDetectorResult</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">com.microblink.detectors.quad.QuadDetectorWithSizeResult</a></li>
+<li><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html" title="class in com.microblink.detectors.quad">com.microblink.detectors.quad.QuadWithSizeDetectorResult</a></li>
 <li>
 <ul class="inheritance">
 <li>com.microblink.detectors.document.DocumentDetectorResult</li>
@@ -127,7 +127,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">DocumentDetectorResult</span>
-extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></pre>
+extends <a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html" title="class in com.microblink.detectors.quad">QuadWithSizeDetectorResult</a></pre>
 <div class="block">Represents a detector result created by Document detector initialised with <a href="../../../../com/microblink/detectors/document/DocumentDetectorSettings.html" title="class in com.microblink.detectors.document"><code>DocumentDetectorSettings</code></a>.</div>
 </li>
 </ul>
@@ -141,17 +141,6 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <!--   -->
 </a>
 <h3>Nested Class Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
-<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Class and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.ScreenOrientation.html" title="enum in com.microblink.detectors.document">DocumentDetectorResult.ScreenOrientation</a></span></code>&nbsp;</td>
-</tr>
-</table>
 <ul class="blockList">
 <li class="blockList"><a name="nested.classes.inherited.from.class.com.microblink.detectors.DetectorResult">
 <!--   -->
@@ -222,13 +211,12 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.html#DocumentDetectorResult-int-int-float:A-float:A-float:A-float-int-double-">DocumentDetectorResult</a></span>(int&nbsp;detectionCode,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.html#DocumentDetectorResult-int-int-float:A-float:A-float:A-float-double-">DocumentDetectorResult</a></span>(int&nbsp;detectionCode,
                       int&nbsp;detectionStatus,
                       float[]&nbsp;transformMatrix,
                       float[]&nbsp;detectionLocation,
                       float[]&nbsp;displayLocation,
                       float&nbsp;physicalSizeInInches,
-                      int&nbsp;screenOrientation,
                       double&nbsp;aspectRatio)</code>
 <div class="block">Constructor which uses the given parameters to initialize the object.</div>
 </td>
@@ -260,27 +248,21 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.ScreenOrientation.html" title="enum in com.microblink.detectors.document">DocumentDetectorResult.ScreenOrientation</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.html#getScreenOrientation--">getScreenOrientation</a></span>()</code>
-<div class="block">Returns the screen orientation in which document detection was performed.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.quad.QuadDetectorWithSizeResult">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.quad.QuadWithSizeDetectorResult">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;com.microblink.detectors.quad.<a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></h3>
-<code><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#getPhysicalSizeInInches--">getPhysicalSizeInInches</a></code></li>
+<h3>Methods inherited from class&nbsp;com.microblink.detectors.quad.<a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html" title="class in com.microblink.detectors.quad">QuadWithSizeDetectorResult</a></h3>
+<code><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html#getPhysicalSizeInInches--">getPhysicalSizeInInches</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.quad.QuadDetectorResult">
@@ -335,7 +317,7 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="DocumentDetectorResult-int-int-float:A-float:A-float:A-float-int-double-">
+<a name="DocumentDetectorResult-int-int-float:A-float:A-float:A-float-double-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -347,7 +329,6 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
                               float[]&nbsp;detectionLocation,
                               float[]&nbsp;displayLocation,
                               float&nbsp;physicalSizeInInches,
-                              int&nbsp;screenOrientation,
                               double&nbsp;aspectRatio)</pre>
 <div class="block">Constructor which uses the given parameters to initialize the object.</div>
 <dl>
@@ -357,7 +338,6 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <dd><code>transformMatrix</code> - Transformation matrix from native library.</dd>
 <dd><code>detectionLocation</code> - Location of the detection.</dd>
 <dd><code>displayLocation</code> - Display location.</dd>
-<dd><code>screenOrientation</code> - Screen orientation in moment when detection has been performed.</dd>
 <dd><code>aspectRatio</code> - Detection aspect ratio.</dd>
 </dl>
 </li>
@@ -398,20 +378,6 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 </dl>
 </li>
 </ul>
-<a name="getScreenOrientation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getScreenOrientation</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.ScreenOrientation.html" title="enum in com.microblink.detectors.document">DocumentDetectorResult.ScreenOrientation</a>&nbsp;getScreenOrientation()</pre>
-<div class="block">Returns the screen orientation in which document detection was performed.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the screen orientation in which document detection was performed.</dd>
-</dl>
-</li>
-</ul>
 <a name="writeToParcel-android.os.Parcel-int-">
 <!--   -->
 </a>
@@ -424,7 +390,7 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></code></dd>
+<dd><code><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html" title="class in com.microblink.detectors.quad">QuadWithSizeDetectorResult</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -437,7 +403,7 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeResult.html" title="class in com.microblink.detectors.quad">QuadDetectorWithSizeResult</a></code></dd>
+<dd><code><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html#toString--">toString</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/quad/QuadWithSizeDetectorResult.html" title="class in com.microblink.detectors.quad">QuadWithSizeDetectorResult</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -469,7 +435,7 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../com/microblink/detectors/document/DocumentDetectorResult.ScreenOrientation.html" title="enum in com.microblink.detectors.document"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../com/microblink/detectors/document/DocumentDetectorSettings.html" title="class in com.microblink.detectors.document"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/microblink/detectors/document/DocumentDetectorResult.html" target="_top">Frames</a></li>
@@ -493,7 +459,7 @@ extends <a href="../../../../com/microblink/detectors/quad/QuadDetectorWithSizeR
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
+<li><a href="#nested.classes.inherited.from.class.com.microblink.detectors.DetectorResult">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
