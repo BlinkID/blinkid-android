@@ -100,4 +100,7 @@
     <string name="PPLicenceNumber">Licence Number</string>
     <string name="PPLicenceType">Licence Type</string>
 
+    <!-- Polish ID specific -->
+    <string name="PPFamilyName">Family Name</string>
+
 </resources>

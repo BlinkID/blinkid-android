@@ -21,10 +21,14 @@ import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.mrtd.combined.MRTDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.singapore.combined.SingaporeIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovakia.combined.SlovakIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
 import com.microblink.util.Log;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
@@ -84,16 +88,26 @@ public class MainActivity extends AppCompatActivity {
     private void buildElements() {
         ArrayList<ListElement> elements = new ArrayList<ListElement>();
 
+        elements.add(buildMRTDCombinedElement());
         elements.add(buildAustrianIDCombinedElement());
         elements.add(buildCroatianIDCombinedElement());
-        elements.add(buildChechIDCombinedElement());
+        elements.add(buildCzhechIDCombinedElement());
+        elements.add(buildGermanIDCombinedElement());
+        elements.add(buildPolishIDCombinedElement());
         elements.add(buildSerbianIDCombinedElement());
         elements.add(buildSingaporeIDCombinedElement());
         elements.add(buildSlovakIDCombinedElement());
         elements.add(buildSlovenianIDCombinedElement());
+        elements.add(buildUSDLCombinedElement());
 
         mElements = new ListElement[elements.size()];
         elements.toArray(mElements);
+    }
+
+    private ListElement buildMRTDCombinedElement() {
+        MRTDCombinedRecognizerSettings mrtdCombined = new MRTDCombinedRecognizerSettings();
+
+        return new ListElement("MRTD combined", mrtdCombined);
     }
 
     private ListElement buildAustrianIDCombinedElement() {
@@ -107,10 +121,22 @@ public class MainActivity extends AppCompatActivity {
         return new ListElement("Croatian ID combined", croIDCombined);
     }
 
-    private ListElement buildChechIDCombinedElement() {
+    private ListElement buildCzhechIDCombinedElement() {
         CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
 
         return new ListElement("Czech ID combined", czechIDCombined);
+    }
+
+    private ListElement buildGermanIDCombinedElement() {
+        GermanIDCombinedRecognizerSettings germanIDCombined = new GermanIDCombinedRecognizerSettings();
+
+        return new ListElement("German ID combined", germanIDCombined);
+    }
+
+    private ListElement buildPolishIDCombinedElement() {
+        PolishIDCombinedRecognizerSettings polishIDCombined = new PolishIDCombinedRecognizerSettings();
+
+        return new ListElement("Polish ID combined", polishIDCombined);
     }
 
     private ListElement buildSerbianIDCombinedElement() {
@@ -135,6 +161,12 @@ public class MainActivity extends AppCompatActivity {
         SlovenianIDCombinedRecognizerSettings svnIDCombined = new SlovenianIDCombinedRecognizerSettings();
 
         return new ListElement("Slovenian ID combined", svnIDCombined);
+    }
+
+    private ListElement buildUSDLCombinedElement() {
+        USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
+
+        return new ListElement("USDL combined", usdlCombined);
     }
 
     /**

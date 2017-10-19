@@ -6,5 +6,5 @@ package com.microblink;
 public class Config {
     // obtain your licence key at http://microblink.com/login or
     // contact us at http://help.microblink.com
-    public static final String LICENSE_KEY = "KJR4XLZZ-BWNSZ6Q6-NIFYJWQZ-KFTOCL5P-RVOAJ5AM-BWPURT4Y-GD4K477E-FEA7WOTZ";
+    public static final String LICENSE_KEY = "YXZLXGKQ-7CVHVMLO-6FYIMX3O-AILAYDM7-JDHZQMHY-V3PZU4SX-54PGVNWO-NQ5WS5HX";
 }
