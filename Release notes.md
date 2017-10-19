@@ -1,5 +1,35 @@
 # Release notes
 
+## 3.12.0
+
+### New features:
+
+- added support for scanning front and back side of Polish ID - use `PolishIDFrontSideRecognizerSettings`, `PolishIDBackSideRecognizerSettings` and `PolishIDCombinedRecognizerSettings`
+- new document specification presets in `DocumentSpecificationPreset` enum:  `DOCUMENT_SPECIFICATION_PRESET_ID1_VERTICAL_CARD` and  `DOCUMENT_SPECIFICATION_PRESET_ID2_VERTICAL_CARD` - use `DocumentSpecification.createFromPreset` method to create document specification for detector
+- `EUDLRecognizer` can return face image from the driver's license
+- warning for time limited license keys when using provided activities, custom UI integration or Direct API:
+    - the goal is to prevent unintentional publishing of application to production with the demo license key that will expire
+    - warning toast can be disabled by using `EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING` intent extra, `RecognizerView.setLicenseKeyTimeLimitedWarningEnabled` method when custom UI integration is used and `Recognizer.setLicenseKeyTimeLimitedWarningEnabled` method when Direct API is used
+  
+### Minor API changes:
+
+- `DocumentSpecification` does not have method `setPhysicalSizeInInches` any more
+- `DocumentDetectorResult` does not contain information about screen orientation any more
+- `QuadDetectorWithSizeResult` is renamed to `QuadWithSizeDetectorResult`
+
+### Improvements for existing features:
+
+- improved face detection in `DocumentFaceRecognizer`: stable detection is required to prevent returning of blurred images
+- improved reading of Malaysian `MyKad` documents:
+    - improved reading and parsing of address fields: previously recognizer was unable to read some documents because of the expected address format
+- improved reading of Malaysian visas and work permits
+- better reading of dates on Australian Driver's Licence
+
+### Bug fixes:
+
+- fixed crash in `GermanIDBackSideRecognitionResult` caused by ProGuard obfuscation, when it is not declared in ProGuard rules to keep the result constructor
+- fixed crash in `MRTDCombinedRecognizer`: recognizer does not support glare detection
+
 ## 3.11.0
 
 ### New features:
