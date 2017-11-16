@@ -9,7 +9,7 @@ The [next section](#mrtdTemplating) will explain how to use templating API exten
 
 ## <a name="mrtdTemplating"></a> Templating API for MRTD
 
-This section will explain how to use templating API for MRTD to add support for scanning back side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/0524096b6b2410d7e7235a12c6b7fd60dc3127fa/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDBackSide.java).
+This section will explain how to use templating API for MRTD to add support for scanning back side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDBackSide.java).
 
 Let's start by examining how back side of Croatian Identity card looks like. Here are the pictures of back sides of both old and new versions of Croatian Identity card:
 
@@ -233,7 +233,7 @@ private static class CroBackIdClassifier implements MRTDDocumentClassifier {
 
 ## <a name="detectorTemplating"></a> Templating API for generic documents
 
-This section will explain how to use templating API for generic documents to add support for scanning of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/0524096b6b2410d7e7235a12c6b7fd60dc3127fa/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDFrontSide.java).
+This section will explain how to use templating API for generic documents to add support for scanning of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDFrontSide.java).
 
 Let's start by examining how front side of Croatian Identity card looks like. Here are the pictures of front sides of both old and new versions of Croatian Identity card:
 
