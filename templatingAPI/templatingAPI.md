@@ -3,9 +3,9 @@ Customizing BlinkID with Templating API
 
 This article will discuss how templating API can be used to perform scanning of documents which are not supported out of the box by BlinkID SDK.
 
-The templating API is an extension to existing BlinkOCR and MRTD recognizers which are already part of BlinkID SDK. Until now, BlinkOCR recognizer could only be used together with parsers to add support for SegmentScan and MRTD recognizer only supported scanning Machine Readable Zone of documents with MRZ. 
+The templating API is an extension to existing DetectorRecognizer and MRTDRecognizer which are already part of BlinkID SDK. Until now, Detector recognizer could only be used for performing detection of various documents and MRTD recognizer only supported scanning Machine Readable Zone of documents with MRZ. 
 
-The [next section](#mrtdTemplating) will explain how to use templating API extension of MRTD recognizer to also scan fields outside of the Machine Readable Zone. The [section after](#blinkOcrTemplating) will explain how to use templating API extension of BlinkOCR recognizer to scan fields in documents without Machine Redable Zone.
+The [next section](#mrtdTemplating) will explain how to use templating API extension of MRTD recognizer to also scan fields outside of the Machine Readable Zone. The [section after](#detectorTemplating) will explain how to use templating API extension of Detector recognizer to scan fields in documents without Machine Redable Zone.
 
 ## <a name="mrtdTemplating"></a> Templating API for MRTD
 
@@ -102,7 +102,7 @@ RegexParserSettings addressParser = new RegexParserSettings("([A-ZŠĐŽČĆ]+,?
 We can further configure OCR engine options that will be used before applying regular expression matching. To improve OCR result quality, we will only allow uppercase letters and digits in OCR whitelist:
 
 ```java
-addressParser.getOcrEngineOptions().addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY)
+((BlinkOCREngineOptions)addressParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY)
 								   .addUppercaseCharsToWhitelist(OcrFont.OCR_FONT_ANY)
 								   .addCharToWhitelist('Š', OcrFont.OCR_FONT_ANY)
 								   .addCharToWhitelist('Đ', OcrFont.OCR_FONT_ANY)
@@ -131,7 +131,7 @@ When all this is combined, the final `setupAddress` method looks like this:
 private static void setupAddress(TemplatingRecognizerSettings settings, List<DecodingInfo> oldId, List<DecodingInfo> newId) {
     RegexParserSettings addressParser = new RegexParserSettings("([A-ZŠĐŽČĆ]+,? ?)+\n([A-ZŠĐŽČĆ]+ ?)+\\d+");
     
-    addressParser.getOcrEngineOptions().addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY)
+    ((BlinkOCREngineOptions)addressParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY)
 								       .addUppercaseCharsToWhitelist(OcrFont.OCR_FONT_ANY)
 								   	   .addCharToWhitelist('Š', OcrFont.OCR_FONT_ANY)
 								       .addCharToWhitelist('Đ', OcrFont.OCR_FONT_ANY)
@@ -153,7 +153,7 @@ In a similar way should be implemented methods `setupIssuedBy` and `setupDateOfI
 private static void setupIssuedBy(TemplatingRecognizerSettings settings, List<DecodingInfo> oldId, List<DecodingInfo> newId) {
     RegexParserSettings issuedByParser = new RegexParserSettings("P[PU] ([A-ZŠĐŽČĆ]+ ?)+");
     
-    issuedByParser.getOcrEngineOptions().addUppercaseCharsToWhitelist(OcrFont.OCR_FONT_ANY)
+    ((BlinkOCREngineOptions)issuedByParser.getOcrEngineOptions()).addUppercaseCharsToWhitelist(OcrFont.OCR_FONT_ANY)
 								   	    .addCharToWhitelist('Š', OcrFont.OCR_FONT_ANY)
 								        .addCharToWhitelist('Đ', OcrFont.OCR_FONT_ANY)
 								        .addCharToWhitelist('Ž', OcrFont.OCR_FONT_ANY)
@@ -231,25 +231,39 @@ private static class CroBackIdClassifier implements MRTDDocumentClassifier {
     }
 ```
 
-## <a name="blinkOcrTemplating"></a> Templating API for generic documents
+## <a name="detectorTemplating"></a> Templating API for generic documents
 
-THis section will explain how to use templating API for generic documents to add support for scanning of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/0524096b6b2410d7e7235a12c6b7fd60dc3127fa/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDFrontSide.java).
+This section will explain how to use templating API for generic documents to add support for scanning of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code samples will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/BlinkID/blinkid-android/blob/0524096b6b2410d7e7235a12c6b7fd60dc3127fa/BlinkIDDemo/BlinkIDDemo/src/main/java/com/microblink/util/templating/CroatianIDFrontSide.java).
 
 Let's start by examining how front side of Croatian Identity card looks like. Here are the pictures of front sides of both old and new versions of Croatian Identity card:
 
 ![Front side of the old Croatian ID card](images/oldFront.jpg)
 ![Front side of the new Croatian ID card](images/newFront.jpg)
 
-The idea of templating API is to combine detector with BlinkOCR recognizer. The detector first locates the document in the camera scene and performs dewarping (cropping and rotating) of elements withing detection, as specified with [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects inherent to detector. You can define your own Decoding infos on [detectors that can detect quadrilateral objects](https://blinkid.github.io/blinkid-android/com/microblink/detectors/quad/QuadDetectorSettings.html#setDecodingInfos-com.microblink.detectors.DecodingInfo:A-) (credit cards, A4 documents, ...). After that OCR is performed on each location defined by DecodingInfo objects and parsers are run to extract relevant information. Additionaly it is possible to use that information to classify the type of the document and then use additional decoding infos to extract information specific to classified document type.
+The idea of templating API is to extend functionality of Detector recognizer. The detector first locates the document in the camera scene and performs dewarping (cropping and rotating) of elements within detection, as specified with [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects inherent to detector. You can define your own Decoding infos on [detectors that can detect quadrilateral objects](https://blinkid.github.io/blinkid-android/com/microblink/detectors/quad/QuadDetectorSettings.html#setDecodingInfos-com.microblink.detectors.DecodingInfo:A-) (credit cards, A4 documents, ...). After that OCR is performed on each location defined by DecodingInfo objects and parsers are run to extract relevant information. Additionaly it is possible to use that information to classify the type of the document and then use additional decoding infos to extract information specific to classified document type.
 
 All this will be shown in this example. First, we will define locations of document number on both old and new versions of ID and then use classifier to tell us whether the scanned document is old or new. After classifications, the recognizer will be able to use correct locations for each document type to extract information.
 
 Let's start in a step by step manner.
 
-First, we need to instatiate [BlinkOCRRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognizerSettings.html):
+For performing detection of ID card, we will use [document detector](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentDetectorSettings.html). Document detector can detect one document which conforms to any of the [DocumentSpecifications](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) used in initialisation of document detector. DocumentSpecification object defines low level settings required for accurate detection of document, like aspect ratio, expected positions and much more. Refer to [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) for more information. To ease the creation of DocumentSpecification, BlinkID SDK already provides prebuilt DocumentSpecification objects for common document sizes, like ID1 card (credit-card-like document), cheques, etc. You can use method [createFromPreset](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html#createFromPreset-com.microblink.detectors.document.DocumentSpecificationPreset-) to automatically obtain DocumentSpecification tweaked with optimal parameters.
+
+DocumentSpecification object also contains array of [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects which define locations inside detection that need to be dewarped. We will set those DecodingInfos to those set up by `createDocumentNumberDecodingInfos` method which creates array of decoding info objects inherent to detector and used for parsing document number and ID type classification.
 
 ```java
-BlinkOCRRecognizerSettings settings = new BlinkOCRRecognizerSettings();
+// setup card detector
+DocumentSpecification idSpec = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
+DecodingInfo[] classificationDecodingInfos = createDocumentNumberDecodingInfos();
+// set decoding info objects inherent to this document specification
+idSpec.setDecodingInfos(classificationDecodingInfos);
+// create card detector with single document specification
+DocumentDetectorSettings dds = new DocumentDetectorSettings(new DocumentSpecification[]{idSpec});
+```
+
+After that, we need to instatiate [DetectorRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognizerSettings.html) which will be set up, and use prepared detector (with classification decoding infos) which can detect ID card sized documents:
+
+```java
+DetectorRecognizerSettings settings = new DetectorRecognizerSettings(dds);
 ```
 
 Since there are two versions of ID cards, we will need two lists of decoding locations - one for old ID card and one for new ID card:
@@ -259,41 +273,17 @@ List<DecodingInfo> oldIdDecodingInfos = new ArrayList<>();
 List<DecodingInfo> newIdDecodingInfos = new ArrayList<>();
 ```
 
-In order to be able to classify whether document is old ID or new ID, we will also need to provide list of DecodingInfos that will contain locations which will be OCRed before running classifier:
+Now, we will setup the locations and extraction rules for extracting document number, first and last name, sex, citizenship and  date of birth:
 
 ```java
-List<DecodingInfo> classificationDecodingInfos = new ArrayList<>();
-```
+setupDocumentNumberParsers(settings);
 
-Now, we will setup the locations and extraction rules for extracting first and last name, sex, citizenship, date of birth and document number:
-
-```java
 setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, false);
 setupName(settings, oldIdDecodingInfos, newIdDecodingInfos, true);
 setupSexCitizenshipAndDateOfBirth(settings, oldIdDecodingInfos, newIdDecodingInfos);
-// note that document number will be set up into classificationDecodingInfos array
-setupDocumentNumber(settings, classificationDecodingInfos);
 ```
 
-[It will be shown later](#blinkOcrExtractionRules) how those methods should be implemented. For now we will only say that these methods will set up parsing rules for all fields that need to be extracted and will also define locations of those fields on both old and new versions of Croatian identity card. Furthermore, method `setupDocumentNumber` will define parsing rules for extracting document number and locations of document number on both old and new versions of Croatian identity card. Both locations will be put inside same array because these will be used to classify which version of ID card is being scanned.
-
-After classification DecodingInfo array is set, we can set up the detector that will be used for detecting the ID:
-
-```java
-// setup card detector
-DocumentSpecification idSpec = DocumentSpecification.createFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
-// set decoding info objects inherent to this document specification
-idSpec.setDecodingInfos(listToArray(classificationDecodingInfos));
-// create card detector with single document specification
-DocumentDetectorSettings dds = new DocumentDetectorSettings(new DocumentSpecification[]{idSpec});
-
-// ensure this detector will be used when performing object detection
-settings.setDetectorSettings(dds);
-```
-
-For performing detection of ID card, we will use [document detector](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentDetectorSettings.html). Document detector can detect one document which conforms to any of the [DocumentSpecifications](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) used in initialisation of document detector. DocumentSpecification object defines low level settings required for accurate detection of document, like aspect ratio, expected positions and much more. Refer to [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html) for more information. To ease the creation of DocumentSpecification, BlinkID SDK already provides prebuilt DocumentSpecification objects for common document sizes, like ID1 card (credit-card-like document), cheques, etc. You can use method [createFromPreset](https://blinkid.github.io/blinkid-android/com/microblink/detectors/document/DocumentSpecification.html#createFromPreset-com.microblink.detectors.document.DocumentSpecificationPreset-) to automatically obtain DocumentSpecification tweaked with optimal parameters.
-
-DocumentSpecification object also contains array of [DecodingInfo](https://blinkid.github.io/blinkid-android/com/microblink/detectors/DecodingInfo.html) objects which define locations inside detection that need to be dewarped. We will set those DecodingInfos to those set up by `setupDocumentNumber` method.
+[It will be shown later](#detectorExtractionRules) how those methods should be implemented. For now we will only say that these methods will set up parsing rules for all fields that need to be extracted and will also define locations of those fields on both old and new versions of Croatian identity card. Both locations will be put inside same array because these will be used to classify which version of ID card is being scanned. Method `setupDocumentNumberParsers` defines only parsing rules for extracting document number, because document number locations have already been defined by `DecodingInfo` objects inherent to detector set by `DetectorSettings` argument in `DetectorRecognizerSettings` constructor.
 
 Next, we need to define which decoding infos belong to which class with method [setParserDecodingInfos](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/templating/TemplatingRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-):
 
@@ -302,7 +292,7 @@ settings.setParserDecodingInfos(listToArray(newIdDecodingInfos), CLASS_NEW_ID);
 settings.setParserDecodingInfos(listToArray(oldIdDecodingInfos), CLASS_OLD_ID);
 ```
 
-`CLASS_NEW_ID` and `CLASS_OLD_ID` are string constants which can be defined arbitrarly - it is only important that document classifier returns same constant when determining the correct type of document. [It will be shown later](#blinkOcrClassifier) how document classifier can be implemented, for now let's only see how to define which one to use:
+`CLASS_NEW_ID` and `CLASS_OLD_ID` are string constants which can be defined arbitrarly - it is only important that document classifier returns same constant when determining the correct type of document. [It will be shown later](#detectorClassifier) how document classifier can be implemented, for now let's only see how to define which one to use:
 
 ```java
 settings.setDocumentClassifier(new CroFrontIdClassifier());
@@ -316,25 +306,33 @@ settings.setAllowFlippedRecognition(true);
 
 This will ensure that after detection has been performed, classification decoding infos will be dewarped, OCRed and parsed as if detection orientation is correct. If neither of parsers succeeds in parsing OCR data from any location, the detection will be flipped and everything will be repeated. Keep in mind that allowing flipped recognition requires very robust parsing of classification locations.
 
-### <a name="blinkOcrExtractionRules"></a> Defining extraction rules and locations
+### <a name="detectorExtractionRules"></a> Defining extraction rules and locations
 
-Let's see now how previously mentioned methods `setupName`, `setupSexCitizenshipAndDateOfBirth` and  `setupDocumentNumber` should be implemented. We will start with `setupDocumentNumber`:
+Let's see now how previously mentioned methods `setupName`, `setupSexCitizenshipAndDateOfBirth` `createDocumentNumberDecodingInfos` and  `setupDocumentNumberParsers` should be implemented. We will start with `createDocumentNumberDecodingInfos` and `setupDocumentNumberParsers`:
 
 ```java
-private static void setupDocumentNumber(TemplatingRecognizerSettings settings, List<DecodingInfo> decodingInfos) {
+private static DecodingInfo[] createDocumentNumberDecodingInfos() {
+    DecodingInfo[] documentNumberDecodingInfos = new DecodingInfo[2];
     /**
      * First define locations of document number on both old and new Croatian ID cards. Make sure you use different
      * names to later be able to distinguish which location produced result and which did not.
      */
-    decodingInfos.add(new DecodingInfo(new Rectangle(0.047f, 0.519f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_OLD));
-    decodingInfos.add(new DecodingInfo(new Rectangle(0.047f, 0.685f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_NEW));
+    documentNumberDecodingInfos[0] = new DecodingInfo(new Rectangle(0.047f, 0.519f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_OLD);
+    documentNumberDecodingInfos[1] = new DecodingInfo(new Rectangle(0.047f, 0.685f, 0.224f, 0.111f), 150, ID_DOCUMENT_NUMBER_NEW);
+}
+```
 
+The defining of locations is done in the same way as in [MRTD example](#mrtdExtractionRules), so we will not repeat the same explanation again.
+
+
+```java
+private static void setupDocumentNumberParsers(TemplatingRecognizerSettings settings) {
     /**
      * Document number on Croatian ID is 9-digit number. We will extract that with simple
      * regex parser which only allows digits in OCR engine settings.
      */
     RegexParserSettings documentNumberParser = new RegexParserSettings("\\d{9}");
-    documentNumberParser.getOcrEngineOptions().addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
+    ((BlinkOCREngineOptions)documentNumberParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
     documentNumberParser.getOcrEngineOptions().setMinimumCharHeight(35);
 
     /**
@@ -345,9 +343,9 @@ private static void setupDocumentNumber(TemplatingRecognizerSettings settings, L
 }
 ```
 
-The defining of location is done in the same way as in [MRTD example](#mrtdExtractionRules), so we will not repeat the same explanation again. The regex for extracting document number expects 9 digits and OCR engine options allow only digits in whitelist not smaller than 35 pixels.
+The regex for extracting document number expects 9 digits and OCR engine options allow only digits in whitelist not smaller than 35 pixels.
 
-The interesting part is in last two lines: we add the document number parser to both parser group having the same name as decoding location on old ID and to parser group having the same anme as decoding location on new ID. The rationale behind this is to perform document number parsing on both locations and then classifier will classify document as old version only if parser in parser group `ID_DOCUMENT_NUMBER_OLD` has produced result - similary the classifier will classify document as new version only if parser in parser group `ID_DOCUMENT_NUMBER_NEW` has produced result.
+The interesting part is in last two lines: we add the document number parser to both parser group having the same name as decoding location on old ID and to parser group having the same name as decoding location on new ID. The rationale behind this is to perform document number parsing on both locations and then classifier will classify document as old version only if parser in parser group `ID_DOCUMENT_NUMBER_OLD` has produced result - similary the classifier will classify document as new version only if parser in parser group `ID_DOCUMENT_NUMBER_NEW` has produced result.
 
 The `ID_DOCUMENT_NUMBER_OLD` and `ID_DOCUMENT_NUMBER_NEW` are arbitrary string constants that will only be used inside document classifier for determining which document number parser has produced the result.
 
@@ -372,7 +370,7 @@ private static void setupSexCitizenshipAndDateOfBirth(TemplatingRecognizerSettin
      * final whitelist for OCR will be obtained by merging all whitelists of all
      * parsers in same parser group.
      */
-    sexParser.getOcrEngineOptions().addCharToWhitelist('M', OcrFont.OCR_FONT_ANY)
+    ((BlinkOCREngineOptions)sexParser.getOcrEngineOptions()).addCharToWhitelist('M', OcrFont.OCR_FONT_ANY)
             .addCharToWhitelist('F', OcrFont.OCR_FONT_ANY)
             .addCharToWhitelist('Ž', OcrFont.OCR_FONT_ANY)
             .addCharToWhitelist('/', OcrFont.OCR_FONT_ANY);
@@ -389,7 +387,7 @@ private static void setupSexCitizenshipAndDateOfBirth(TemplatingRecognizerSettin
      * which will be added to same parser group
      */
     RegexParserSettings citizenshipParser = new RegexParserSettings("[A-Z]{3}");
-    addAllCroatianUppercaseCharsToWhitelist(citizenshipParser.getOcrEngineOptions());
+    addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)citizenshipParser.getOcrEngineOptions());
     citizenshipParser.setMustEndWithWhitespace(true);
     citizenshipParser.setMustStartWithWhitespace(true);
 
@@ -407,21 +405,20 @@ private static void setupSexCitizenshipAndDateOfBirth(TemplatingRecognizerSettin
 }
 ```
 
-The method start off with defining location of field that contains sex, date of birth and citizenship in the usual manner. The DecodingInfo is named `ID_SEX_CITIZENSHIP_DOB`, which is an arbitrary string constant. Next, we define parsers for sex, citizenship and date of birth. For parsing citizenship and sex, we use usual Regex parser, and for parsing date of birth we use the builtin [DateParser](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.html). The only important thing to remember is to put all these parsers to same parser group named same as DecodingInfo, i.e. `ID_SEX_CITIZENSHIP_DOB` as is shown above.
+The method starts off with defining location of field that contains sex, date of birth and citizenship in the usual manner. The DecodingInfo is named `ID_SEX_CITIZENSHIP_DOB`, which is an arbitrary string constant. Next, we define parsers for sex, citizenship and date of birth. For parsing citizenship and sex, we use usual Regex parser, and for parsing date of birth we use the builtin [DateParser](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/parser/generic/DateParserSettings.html). The only important thing to remember is to put all these parsers to same parser group named same as DecodingInfo, i.e. `ID_SEX_CITIZENSHIP_DOB` as is shown above.
 
-### <a name="blinkOcrClassifier"></a> Implementing document classifier
+### <a name="detectorClassifier"></a> Implementing document classifier
 
-For classifying documents in templating API for generic documents you should implement [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html) interface. The interface requires you to implement method [classifyDocument](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult-) which receives [BlinkOCRRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkocr/BlinkOCRRecognitionResult.html) which contains information extracted from decoding locations defined inside detector.
+For classifying documents in templating API for generic documents you should implement [DocumentClassifier](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html) interface. The interface requires you to implement method [classifyDocument](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DocumentClassifier.html#classifyDocument-com.microblink.recognizers.detector.DetectorRecognitionResult-) which receives [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) which contains information extracted from decoding locations defined inside detector.
 
 The role of document classifier is to classify which type of document is being scanned. This information is then used to know which set of locations should be used for extracting remaining information - we do not want to use locations specific for new Croatian identity card when scanning old Croatian identity card and vice versa.
 
-The classifier implementation is always specific to the documents you are scanning - you need to know how to discriminate between documents. In this example we can notice that document number has different place on old and new IDs and in method `setupDocumentNumber` we created two different parser groups for each location. The idea is now to check in classifier on which location has document number been scanned and use that information for correct document classification:
+The classifier implementation is always specific to the documents you are scanning - you need to know how to discriminate between documents. In this example we can notice that document number has different place on old and new IDs and in method `setupDocumentNumberParsers` we created two different parser groups for each location. The idea is now to check in classifier on which location has document number been scanned and use that information for correct document classification:
 
 ```java
 private static class CroFrontIdClassifier implements DocumentClassifier {
-
     @Override
-    public String classifyDocument(BlinkOCRRecognitionResult extractionResult) {
+    public String classifyDocument(DetectorRecognitionResult extractionResult) {
         // we first check if document number parser has succeeded in
         // parsing document number from location on old Croatian ID (Decoding Info object with
         // name ID_DOCUMENT_NUMBER_OLD defined in method setupDocumentNumber above).
@@ -460,7 +457,7 @@ private static class CroFrontIdClassifier implements DocumentClassifier {
 
     /**
      * {@link DocumentClassifier} interface extends {@link android.os.Parcelable} so it can
-     * be sent via Intent inside {@link BlinkOCRRecognizerSettings}. In order to be able to
+     * be sent via Intent inside {@link DetectorRecognizerSettings}. In order to be able to
      * extract the classifier from {@link Parcel}, {@link #CREATOR} field must be defined.
      */
     public static final Creator<CroFrontIdClassifier> CREATOR = new Creator<CroFrontIdClassifier>() {
