@@ -68,6 +68,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of German ID documents](#germanID_back)
   * [Scanning front side of the older German ID documents](#germanID_oldFront)
   * [Scanning German passports](#germanPassport)
+  * [Scanning front side of Indonesian ID documents](#indonesianID_front)
   * [Scanning front side of Polish ID documents](#polishID_front)
   * [Scanning back side of Polish ID documents](#polishID_back)
   * [Scanning and combining results from front and back side of Polish ID documents](#polishIDCombined)
@@ -87,7 +88,8 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning US Driver's licence barcodes](#usdl)
   * [Scanning and combining results from front and back side of US Driver's licence](#usdlCombined)
   * [Scanning EU driver's licences](#eudl)
-  * [Scanning Australian driver's licences](#australianDL)
+  * [Scanning front side of Australian driver's licences](#australianDL_front)
+  * [Scanning back side of Australian driver's licences](#australianDL_back)
   * [Scanning Malaysian MyKad ID documents](#myKad)
   * [Scanning Malaysian iKad documents](#iKad)
   * [Scanning front side of Singapore ID documents](#singaporeID_front)
@@ -176,7 +178,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    compile('com.microblink:blinkid:3.12.0@aar') {
+    implementation('com.microblink:blinkid:3.13.0@aar') {
     	transitive = true
     }
 }
@@ -188,7 +190,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.12.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.13.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -213,7 +215,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.12.0</version>
+		  <version>3.13.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -228,8 +230,8 @@ Open your `pom.xml` file and add these directives as appropriate:
 
 	```
 	dependencies {
-   		compile project(':LibBlinkID')
- 		compile "com.android.support:appcompat-v7:25.3.1"
+		implementation project(':LibBlinkID')
+		implementation "com.android.support:appcompat-v7:27.0.0"
 	}
 	```
 	
@@ -1455,8 +1457,14 @@ Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blink
 ##### [`setShowFullDocument(boolean)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowFullDocument-boolean-)
 Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing full document containing Machine Readable Zone. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `"MRTD"`.  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
+##### [`setFullDocumentImageDPI(int)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#setFullDocumentImageDPI-int-)
+Use this method to set desired DPI (Dots Per Inch) in range [100, 400] for full document image which is returned by this recognizer.
+
 ##### [`setMRZFilter(MRZFilter)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRZFilter-com.microblink.recognizers.blinkid.mrtd.MRZFilter-)
 Sets the [MRZFilter](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRZFilter.html) that will be used for filtering MRTD documents based on the MRZ zone result. MRZ filter should be used if only specific MRTD documents should be processed. Only recognition results from documents that are allowed by this filter can be returned.
+
+##### [`void setMRTDSpecifications(MRTDSpecification[])`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRTDSpecifications-com.microblink.detectors.quad.mrtd.MRTDSpecification:A-)
+Sets array of specifications for MRTD documents that can be detected. Array must contain at least one element and at most three elements. Detection is limited only to document type specified with `MRTDSpecification`. When `MRTDSpecifications` are set, results will be returned only for specified MRTD documents. `MRTDSpecification` can be created by using `MRTDSpecification.createFromPreset` method.
 
 ### Extracting additional fields of interest from machine-readable travel documents (Templating API)
 
@@ -2453,6 +2461,58 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/passport/GermanPassportRecognitionResult.html).**
+
+## <a name="indonesianID_front"></a> Scanning front side of Indonesian ID documents
+
+This section will discuss the setting up of Indonesian ID Front Side recognizer and obtaining results from it.
+
+### Setting up Indonesian ID card front side recognizer
+
+To activate Indonesian ID front side recognizer, you need to create [IndonesianIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	IndonesianIDFrontRecognizerSettings sett = new IndonesianIDFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [IndonesianIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Indonesian ID card front side recognizer
+
+Indonesian ID front side recognizer produces [IndonesianIDFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `IndonesianIDFrontRecognitionResult` class. 
+
+**Note:** `IndonesianIDFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof IndonesianIDFrontRecognitionResult) {
+			IndonesianIDFrontRecognitionResult result = (IndonesianIDFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of IndonesianIDFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String name = result.getName();
+				String placeOfBirth = result.getPlaceOfBirth();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognitionResult.html).**
 
 ## <a name="polishID_front"></a> Scanning front side of Polish ID documents
 
@@ -3526,6 +3586,9 @@ Defines if address should be extracted. Default is `true`.
 ##### `setShowFullDocument(boolean)`
 Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `EUDLRecognizerSettings.FULL_DOCUMENT_IMAGE`. You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
+##### [`setFullDocumentImageDPI(int)`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#setFullDocumentImageDPI-int-)
+Use this method to set desired DPI (Dots Per Inch) in range [100, 400] for full document image which is returned by this recognizer.
+
 ##### `setShowFaceImage(boolean)`
 Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain face image from the driver's license. The face image's orientation will be corrected. The reported ImageType will be [DEWARPED](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be `EUDLRecognizerSettings.FACE_IMAGE_NAME`. You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
 
@@ -3594,13 +3657,13 @@ Returns document issuing authority.
 ##### `String getCountry()`
 Returns the country where the Driver's License has been issued or null if country is unknown.
 
-## <a name="australianDL"></a> Scanning Australian driver's licences
+## <a name="australianDL_front"></a> Scanning front side of Australian driver's licences
 
-This section will discuss the setting up of Australian Driver's Licence recognizer and obtaining results from it.
+This section will discuss the setting up of Australian Driver's Licence front side recognizer and obtaining results from it.
 
-### Setting up Australian Driver's Licence recognizer
+### Setting up Australian Driver's Licence front side recognizer
 
-To activate Australian Driver's Licence recognizer, you need to create [AustralianDLFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate Australian Driver's Licence front side recognizer, you need to create [AustralianDLFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
@@ -3614,9 +3677,9 @@ private RecognizerSettings[] setupSettingsArray() {
 
 **You can also tweak recognition parameters with methods of [AustralianDLFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html) for more information.**
 
-### Obtaining results from Australian Driver's Licence recognizer
+### Obtaining results from Australian Driver's Licence front side recognizer
 
-Australian Driver's Licence produces [AustralianDLFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustralianDLFrontSideRecognitionResult` class. 
+Australian Driver's Licence front side recognizer produces [AustralianDLFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustralianDLFrontSideRecognitionResult` class. 
 
 **Note:** `AustralianDLFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
 
@@ -3645,6 +3708,58 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognitionResult.html).**
+
+## <a name="australianDL_back"></a> Scanning back side of Australian driver's licences
+
+This section will discuss the setting up of Australian Driver's Licence back side recognizer and obtaining results from it.
+
+### Setting up Australian Driver's Licence back side recognizer
+
+To activate Australian Driver's Licence back side recognizer, you need to create [AustralianDLBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	AustralianDLBackSideRecognizerSettings sett = new AustralianDLBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [AustralianDLBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from Australian Driver's Licence back side recognizer
+
+Australian Driver's Licence back side recognizer produces [AustralianDLBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `AustralianDLBackSideRecognitionResult ` class. 
+
+**Note:** `AustralianDLBackSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof AustralianDLBackSideRecognitionResult) {
+			AustralianDLBackSideRecognitionResult result = (AustralianDLBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of AustralianDLBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String lastName = result.getLastName();
+				String licenceNumber = result.getLicenceNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognitionResult.html).**
 
 ## <a name="myKad"></a> Scanning Malaysian MyKad ID documents
 

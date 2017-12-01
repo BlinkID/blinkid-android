@@ -30,6 +30,7 @@ com.microblink.recognizers.blinkbarcode.usdl
 com.microblink.recognizers.blinkbarcode.vin
 com.microblink.recognizers.blinkbarcode.zxing
 com.microblink.recognizers.blinkid
+com.microblink.recognizers.blinkid.australia.driversLicense.back
 com.microblink.recognizers.blinkid.australia.driversLicense.front
 com.microblink.recognizers.blinkid.austria.back
 com.microblink.recognizers.blinkid.austria.combined
@@ -48,6 +49,7 @@ com.microblink.recognizers.blinkid.germany.combined
 com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.old.front
 com.microblink.recognizers.blinkid.germany.passport
+com.microblink.recognizers.blinkid.indonesia.front
 com.microblink.recognizers.blinkid.malaysia
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.mrtd.combined
@@ -83,6 +85,7 @@ com.microblink.recognizers.blinkocr.parser.vin
 com.microblink.recognizers.detector
 com.microblink.recognizers.segment
 com.microblink.recognizers.settings
+com.microblink.recognizers.settings.image
 com.microblink.recognizers.templating
 com.microblink.results
 com.microblink.results.barcode
