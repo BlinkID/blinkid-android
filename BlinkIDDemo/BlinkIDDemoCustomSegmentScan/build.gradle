@@ -23,8 +23,8 @@ android {
 }
 
 dependencies {
-    compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
+    implementation("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
-    compile project(':LibResult')
+    implementation project(':LibResult')
 }

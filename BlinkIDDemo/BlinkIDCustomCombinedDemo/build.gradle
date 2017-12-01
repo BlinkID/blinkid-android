@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.microblink.blinkid"
@@ -27,10 +27,10 @@ android {
 }
 
 dependencies {
-    compile("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
+    implementation("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
-    compile project(':LibResult')
-    compile "com.android.support:percent:${rootProject.ext.appCompatVersion}"
+    implementation project(':LibResult')
+    implementation "com.android.support:percent:${rootProject.ext.appCompatVersion}"
 
 }

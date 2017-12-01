@@ -103,4 +103,15 @@
     <!-- Polish ID specific -->
     <string name="PPFamilyName">Family Name</string>
 
+    <!-- Indonesia ID specific -->
+    <string name="PPProvince">Province</string>
+    <string name="PPCity">City</string>
+    <string name="PPName">Name</string>
+    <string name="PPRT">RT</string>
+    <string name="PPRW">RW</string>
+    <string name="PPKelDesa">Kel/Desa</string>
+    <string name="PPDistrict">District</string>
+    <string name="PPMaritalStatus">Marital status</string>
+    <string name="PPOccupation">Occupation</string>
+
 </resources>
