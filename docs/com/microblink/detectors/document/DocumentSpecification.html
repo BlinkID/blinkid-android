@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -98,7 +98,12 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">com.microblink.detectors.Specification</a></li>
+<li>
+<ul class="inheritance">
 <li>com.microblink.detectors.document.DocumentSpecification</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -112,9 +117,8 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">DocumentSpecification</span>
-extends java.lang.Object
-implements android.os.Parcelable</pre>
-<div class="block">Class representing specificatio of document that can be detected with DocumentDetector.</div>
+extends <a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">Specification</a></pre>
+<div class="block">Class representing specification of document that can be detected with DocumentDetector.</div>
 </li>
 </ul>
 </div>
@@ -153,6 +157,13 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.detectors.Specification">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;com.microblink.detectors.<a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">Specification</a></h3>
+<code><a href="../../../../com/microblink/detectors/Specification.html#mDecodingInfos">mDecodingInfos</a>, <a href="../../../../com/microblink/detectors/Specification.html#mNativeContext">mNativeContext</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
 <!--   -->
@@ -223,120 +234,113 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getAspectRatio--">getAspectRatio</a></span>()</code>
 <div class="block">Returns the aspect ratio of document that will be detected.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getLandscapeScale--">getLandscapeScale</a></span>()</code>
 <div class="block">Returns the scale and tolerance that will be used when detecting document in landscape orientation.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getMaxAngle--">getMaxAngle</a></span>()</code>
 <div class="block">Retrieves maximum angle for document detection</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getPhysicalSizeInInches--">getPhysicalSizeInInches</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getPortraitScale--">getPortraitScale</a></span>()</code>
 <div class="block">Returns the scale and tolerance that will be used when detecting document in portrait orientation.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/detectors/document/ScanningMode.html" title="enum in com.microblink.detectors.document">ScanningMode</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getScanningMode--">getScanningMode</a></span>()</code>
 <div class="block">Returns the scanning mode that defines in which orientations can this document be detected.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getXRange--">getXRange</a></span>()</code>
 <div class="block">Gets the percentage of possible document offset on x axis.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>double[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#getYRange--">getYRange</a></span>()</code>
 <div class="block">Gets the percentage of possible document offset on y axis.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setAspectRatio-double-">setAspectRatio</a></span>(double&nbsp;aspectRatio)</code>
 <div class="block">Sets the aspect ratio of document that will be detected.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setDecodingInfos-com.microblink.detectors.DecodingInfo:A-">setDecodingInfos</a></span>(<a href="../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos)</code>
-<div class="block">Sets the array of decoding infos that control how detection will be dewarped.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setLandscapeScale-double-double-">setLandscapeScale</a></span>(double&nbsp;scale,
                  double&nbsp;tolerance)</code>
 <div class="block">Sets the scale and scale tolerance that will be used when detecting document in landscape orientation.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setMaxAngle-double-">setMaxAngle</a></span>(double&nbsp;maxAngle)</code>
 <div class="block">Sets maximum angle for document detection.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setPortraitScale-double-double-">setPortraitScale</a></span>(double&nbsp;scale,
                 double&nbsp;tolerance)</code>
 <div class="block">Sets the scale and scale tolerance that will be used when detecting document in portrait orientation.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setScale-double-double-">setScale</a></span>(double&nbsp;scale,
         double&nbsp;tolerance)</code>
 <div class="block">Sets the scale and scale tolerance that will be used when detecting document in both orientations.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setScanningMode-com.microblink.detectors.document.ScanningMode-">setScanningMode</a></span>(<a href="../../../../com/microblink/detectors/document/ScanningMode.html" title="enum in com.microblink.detectors.document">ScanningMode</a>&nbsp;mode)</code>
 <div class="block">Sets the scanning mode that defines in which orientations can this document be detected.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setXRange-double-double-">setXRange</a></span>(double&nbsp;leftRange,
          double&nbsp;rightRange)</code>
 <div class="block">Sets percentage of possible document offset on x axis.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#setYRange-double-double-">setYRange</a></span>(double&nbsp;aboveRange,
          double&nbsp;belowRange)</code>
 <div class="block">Sets percentage of possible document offset on y axis.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/detectors/document/DocumentSpecification.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.detectors.Specification">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;com.microblink.detectors.<a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">Specification</a></h3>
+<code><a href="../../../../com/microblink/detectors/Specification.html#finalize--">finalize</a>, <a href="../../../../com/microblink/detectors/Specification.html#getDecodingInfoPtrs-com.microblink.detectors.DecodingInfo:A-">getDecodingInfoPtrs</a>, <a href="../../../../com/microblink/detectors/Specification.html#getPhysicalSizeInInches--">getPhysicalSizeInInches</a>, <a href="../../../../com/microblink/detectors/Specification.html#initFromParcel-android.os.Parcel-">initFromParcel</a>, <a href="../../../../com/microblink/detectors/Specification.html#obtainNativeDecodingInfos--">obtainNativeDecodingInfos</a>, <a href="../../../../com/microblink/detectors/Specification.html#setDecodingInfos-com.microblink.detectors.DecodingInfo:A-">setDecodingInfos</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -432,22 +436,6 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="finalize--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>finalize</h4>
-<pre>protected&nbsp;void&nbsp;finalize()
-                 throws java.lang.Throwable</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>finalize</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Throwable</code></dd>
-</dl>
-</li>
-</ul>
 <a name="getAspectRatio--">
 <!--   -->
 </a>
@@ -674,30 +662,6 @@ implements android.os.Parcelable</pre>
 </dl>
 </li>
 </ul>
-<a name="setDecodingInfos-com.microblink.detectors.DecodingInfo:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setDecodingInfos</h4>
-<pre>public&nbsp;void&nbsp;setDecodingInfos(@NonNull
-                             <a href="../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos)</pre>
-<div class="block">Sets the array of decoding infos that control how detection will be dewarped.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>decodingInfos</code> - Array of decoding infos containing information about detection dewarps. Must contain at least one element.</dd>
-</dl>
-</li>
-</ul>
-<a name="getPhysicalSizeInInches--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getPhysicalSizeInInches</h4>
-<pre>public&nbsp;float&nbsp;getPhysicalSizeInInches()</pre>
-</li>
-</ul>
 <a name="createFromPreset-com.microblink.detectors.document.DocumentSpecificationPreset-">
 <!--   -->
 </a>
@@ -725,6 +689,8 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>describeContents</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/microblink/detectors/Specification.html#describeContents--">describeContents</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">Specification</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -739,6 +705,8 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../com/microblink/detectors/Specification.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/detectors/Specification.html" title="class in com.microblink.detectors">Specification</a></code></dd>
 </dl>
 </li>
 </ul>
