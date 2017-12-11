@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.MRTDDetectionCode.html" title="enum in com.microblink.detectors.quad.mrtd"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDSpecification.html" title="class in com.microblink.detectors.quad.mrtd"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html" target="_top">Frames</a></li>
@@ -227,12 +227,18 @@ extends <a href="../../../../../com/microblink/detectors/DetectorSettings.html" 
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html#setMRTDSpecifications-com.microblink.detectors.quad.mrtd.MRTDSpecification:A-">setMRTDSpecifications</a></span>(<a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDSpecification.html" title="class in com.microblink.detectors.quad.mrtd">MRTDSpecification</a>[]&nbsp;mrtdSpecifications)</code>
+<div class="block">Sets array of specifications for MRTD documents that can be detected.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html#shouldDetectFullDocument--">shouldDetectFullDocument</a></span>()</code>
 <div class="block">Returns true if full document will be detected (detection is based on MRZ location).</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -358,6 +364,22 @@ extends <a href="../../../../../com/microblink/detectors/DetectorSettings.html" 
 </dl>
 </li>
 </ul>
+<a name="setMRTDSpecifications-com.microblink.detectors.quad.mrtd.MRTDSpecification:A-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMRTDSpecifications</h4>
+<pre>public&nbsp;void&nbsp;setMRTDSpecifications(@NonNull
+                                  <a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDSpecification.html" title="class in com.microblink.detectors.quad.mrtd">MRTDSpecification</a>[]&nbsp;mrtdSpecifications)</pre>
+<div class="block">Sets array of specifications for MRTD documents that can be detected.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>mrtdSpecifications</code> - array of MRTD specifications that can be detected.
+                           Array must contain at least one element and at most three elements.</dd>
+</dl>
+</li>
+</ul>
 <a name="describeContents--">
 <!--   -->
 </a>
@@ -417,7 +439,7 @@ extends <a href="../../../../../com/microblink/detectors/DetectorSettings.html" 
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDDetectorResult.MRTDDetectionCode.html" title="enum in com.microblink.detectors.quad.mrtd"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDSpecification.html" title="class in com.microblink.detectors.quad.mrtd"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/detectors/quad/mrtd/MRTDDetectorSettings.html" target="_top">Frames</a></li>

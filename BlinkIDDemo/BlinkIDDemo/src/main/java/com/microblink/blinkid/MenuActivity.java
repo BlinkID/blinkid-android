@@ -30,6 +30,7 @@ import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSett
 import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
 import com.microblink.recognizers.blinkbarcode.vin.VinRecognizerSettings;
 import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.australia.driversLicense.back.AustralianDLBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.australia.driversLicense.front.AustralianDLFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
@@ -48,6 +49,7 @@ import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecog
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
+import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
@@ -289,7 +291,7 @@ public class MenuActivity extends Activity {
     private void buildElements() {
         ArrayList<ListElement> elements = new ArrayList<ListElement>();
 
-        // ID document list entry
+// ID document list entry
         elements.add(buildMrtdElement());
         elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
@@ -301,6 +303,7 @@ public class MenuActivity extends Activity {
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
         elements.add(buildGermanIDCombinedElement());
+        elements.add(buildIndonesianIdElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
         elements.add(buildPolishIdElement());
@@ -394,6 +397,12 @@ public class MenuActivity extends Activity {
         return new ListElement("German Passport", buildIntent(new RecognizerSettings[]{dePassport}, ScanCard.class, null));
     }
 
+    private ListElement buildIndonesianIdElement(){
+        IndonesianIDFrontRecognizerSettings idnFrontSettings= new IndonesianIDFrontRecognizerSettings();
+
+        return new ListElement("Indonesian ID", buildIntent(new RecognizerSettings[]{idnFrontSettings}, ScanCard.class, null));
+    }
+
     private ListElement buildSingaporeIDElement() {
         SingaporeIDFrontRecognizerSettings singaporeFront = new SingaporeIDFrontRecognizerSettings();
         SingaporeIDBackRecognizerSettings singaporeBack = new SingaporeIDBackRecognizerSettings();
@@ -457,8 +466,9 @@ public class MenuActivity extends Activity {
 
     private ListElement buildAustralianDLElement() {
         AustralianDLFrontSideRecognizerSettings ausDLFrontSettings = new AustralianDLFrontSideRecognizerSettings();
+        AustralianDLBackSideRecognizerSettings ausDLBackSettings = new AustralianDLBackSideRecognizerSettings();
 
-        return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings}, ScanCard.class, null));
+        return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings, ausDLBackSettings}, ScanCard.class, null));
     }
 
     private ListElement buildUsdlElement() {
@@ -536,7 +546,7 @@ public class MenuActivity extends Activity {
         return new ListElement("Singapore ID combined", buildCombinedIntent(singaporeIDCombined));
     }
 
-    private ListElement buildChechIDCombinedElement() {
+    private ListElement buildCzechIDCombinedElement() {
         CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
 
         return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
@@ -548,12 +558,6 @@ public class MenuActivity extends Activity {
         return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
     }
 
-    private ListElement buildCzechIDCombinedElement() {
-        CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
-
-        return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
-    }
-
     private ListElement buildUsdlCombinedElement() {
         USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
 
@@ -563,7 +567,7 @@ public class MenuActivity extends Activity {
     private ListElement buildGermanIDCombinedElement() {
         GermanIDCombinedRecognizerSettings deCombined = new GermanIDCombinedRecognizerSettings();
 
-        return new ListElement("German ID combined", buildCombinedIntent(deCombined));
+        return new ListElement("German ID Combined", buildCombinedIntent(deCombined));
     }
 
     private ListElement buildPolishIdCombinedElement() {

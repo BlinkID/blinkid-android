@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,12 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable</dd>
+<dd>android.os.Parcelable, <a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageDpiOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">AustralianDLFrontSideRecognizerSettings</span>
-extends <a href="../../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a></pre>
+extends <a href="../../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>
+implements <a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageDpiOptions</a></pre>
 <div class="block">Represents settings for setting up recognizer which can scan front side of austrian national
  ID cards.</div>
 </li>
@@ -225,90 +226,102 @@ extends <a href="../../../../../../../com/microblink/recognizers/settings/Recogn
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#getFullDocumentImageDPI--">getFullDocumentImageDPI</a></span>()</code>
+<div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setDisplayFaceImage-boolean-">setDisplayFaceImage</a></span>(boolean&nbsp;displayFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setDisplayFullDocumentImage-boolean-">setDisplayFullDocumentImage</a></span>(boolean&nbsp;displayFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setDisplaySignatureImage-boolean-">setDisplaySignatureImage</a></span>(boolean&nbsp;displaySignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setExtractAddress-boolean-">setExtractAddress</a></span>(boolean&nbsp;extractAddress)</code>
 <div class="block">Defines if address of Australian DL owner should be extracted</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setExtractDateOfBirth-boolean-">setExtractDateOfBirth</a></span>(boolean&nbsp;extractDateOfBirth)</code>
 <div class="block">Defines if date of birth of Australian DL owner should be extracted</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setExtractDateOfExpiry-boolean-">setExtractDateOfExpiry</a></span>(boolean&nbsp;extractDateOfExpiry)</code>
 <div class="block">Defines if date of expiry of Australian DL should be extracted</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setExtractLicenceNumber-boolean-">setExtractLicenceNumber</a></span>(boolean&nbsp;extractLicenceNumber)</code>
 <div class="block">Defines if licence number of Australian DL should be extracted</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#setFullDocumentImageDPI-int-">setFullDocumentImageDPI</a></span>(int&nbsp;desiredDPI)</code>
+<div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldDisplayFaceImage--">shouldDisplayFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldDisplayFullDocumentImage--">shouldDisplayFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldDisplaySignatureImage--">shouldDisplaySignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldExtractAddress--">shouldExtractAddress</a></span>()</code>
 <div class="block">Returns true if address of Australian DL owner is being extracted</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldExtractDateOfBirth--">shouldExtractDateOfBirth</a></span>()</code>
 <div class="block">Returns true if date of birth of Australian DL owner is being extracted</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldExtractDateOfExpiry--">shouldExtractDateOfExpiry</a></span>()</code>
 <div class="block">Returns true if date of expiry of Australian DL is being extracted</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#shouldExtractLicenceNumber--">shouldExtractLicenceNumber</a></span>()</code>
 <div class="block">Returns true if licence number of Australian DL is being extracted</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/australia/driversLicense/front/AustralianDLFrontSideRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -612,6 +625,40 @@ extends <a href="../../../../../../../com/microblink/recognizers/settings/Recogn
 </dl>
 </li>
 </ul>
+<a name="getFullDocumentImageDPI--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImageDPI</h4>
+<pre>public&nbsp;int&nbsp;getFullDocumentImageDPI()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#getFullDocumentImageDPI--">FullDocumentImageDpiOptions</a></code></span></div>
+<div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#getFullDocumentImageDPI--">getFullDocumentImageDPI</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageDpiOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>DPI for full document image that should be returned.</dd>
+</dl>
+</li>
+</ul>
+<a name="setFullDocumentImageDPI-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFullDocumentImageDPI</h4>
+<pre>public&nbsp;void&nbsp;setFullDocumentImageDPI(int&nbsp;desiredDPI)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#setFullDocumentImageDPI-int-">FullDocumentImageDpiOptions</a></code></span></div>
+<div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html#setFullDocumentImageDPI-int-">setFullDocumentImageDPI</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageDpiOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageDpiOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>desiredDPI</code> - desired DPI in range [100, 400]</dd>
+</dl>
+</li>
+</ul>
 <a name="shouldDisplayFullDocumentImage--">
 <!--   -->
 </a>
@@ -634,6 +681,10 @@ extends <a href="../../../../../../../com/microblink/recognizers/settings/Recogn
 <h4>writeToParcel</h4>
 <pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+</dl>
 </li>
 </ul>
 </li>

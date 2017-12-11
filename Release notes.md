@@ -1,5 +1,23 @@
 # Release notes
 
+## 3.13.0
+
+### New features:
+
+- added support for reading back side of new Australian Driver's licence for state Victoria - use `AustralianDLBackSideRecognizerSettings`
+- added support for reading front side of Indonesian ID - use `IndonesianIDFrontRecognizerSettings`
+- added support for Malaysian visa with document code TS - use `MRTDRecognizerSettings`
+- introduced `MRTDSpecification` and method `setMRTDSpecifications` on `MRTDRecognizerSettings` and `MRTDDetectorSettings`:
+    - detection is limited only to document type specified with `MRTDSpecification`
+    - when `MRTDSpecifications` are set, results will be returned only for specified MRTD documents
+    - `MRTDSpecification` can be created by using `MRTDSpecification.createFromPreset`, available presets are: `MRTD_SPECIFICATION_TD1`, `MRTD_SPECIFICATION_TD2` and `MRTD_SPECIFICATION_TD3`
+- added support for setting DPI for full document images returned by `MRTDRecognizer`, `AustralianDLFrontSideRecognizer`, `AustralianDLBackSideRecognizer` and `EUDLRecognizer`:
+    - use `setFullDocumentImageDPI` on the corresponding recognizer settings
+  
+### Improvements for existing features:
+
+- improved reading of Malaysian MyKad address
+
 ## 3.12.0
 
 ### New features:

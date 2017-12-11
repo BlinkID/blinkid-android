@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.microblink.libresult.extract.BaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
+import com.microblink.libresult.extract.australia.AustralianDLBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.australia.AustralianDLFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.austria.AustrianIDCombinedRecognitionResultExtractor;
@@ -36,6 +37,7 @@ import com.microblink.libresult.extract.germany.GermanIDCombinedRecognitionResul
 import com.microblink.libresult.extract.germany.GermanIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanOldIDRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultExtractor;
+import com.microblink.libresult.extract.indonesia.IndonesianIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyKadRecognitionResultExtractor;
 import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
@@ -64,6 +66,7 @@ import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
 import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417ScanResult;
 import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberScanResult;
+import com.microblink.recognizers.blinkid.australia.driversLicense.back.AustralianDLBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.australia.driversLicense.front.AustralianDLFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognitionResult;
@@ -81,6 +84,7 @@ import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecog
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognitionResult;
+import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
@@ -158,6 +162,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SingaporeIDCombinedRecognitionResultExtractor(getActivity());
         } else if (mData instanceof AustralianDLFrontSideRecognitionResult) {
             mResultExtractor = new AustralianDLFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof AustralianDLBackSideRecognitionResult) {
+            mResultExtractor = new AustralianDLBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof AustrianIDBackSideRecognitionResult) {
             mResultExtractor = new AustrianIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof AustrianIDFrontSideRecognitionResult) {
@@ -188,6 +194,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new GermanPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanIDCombinedRecognitionResult) {
             mResultExtractor = new GermanIDCombinedRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof IndonesianIDFrontRecognitionResult) {
+            mResultExtractor = new IndonesianIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof PolishIDBackSideRecognitionResult) {
             mResultExtractor = new PolishIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof PolishIDFrontSideRecognitionResult) {
