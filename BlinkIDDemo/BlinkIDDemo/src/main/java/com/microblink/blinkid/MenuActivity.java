@@ -50,8 +50,10 @@ import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecogni
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.IKadRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.MyKadRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.tentera.MyTenteraRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
@@ -193,7 +195,7 @@ public class MenuActivity extends Activity {
         // Timeout is good for preventing infinitely long scanning experience when user attempts
         // to scan damaged or unsupported slip. After timeout, scan activity will return only
         // data that was read successfully. This might be incomplete data.
-        settings.setNumMsBeforeTimeout(2000);
+//        settings.setNumMsBeforeTimeout(10000);
 
         // If you add more recognizers to recognizer settings array, you can choose whether you
         // want to have the ability to obtain multiple scan results from same video frame. For example,
@@ -291,7 +293,7 @@ public class MenuActivity extends Activity {
     private void buildElements() {
         ArrayList<ListElement> elements = new ArrayList<ListElement>();
 
-// ID document list entry
+/// ID document list entry
         elements.add(buildMrtdElement());
         elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
@@ -306,6 +308,7 @@ public class MenuActivity extends Activity {
         elements.add(buildIndonesianIdElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
+        elements.add(buildMyTenteraElement());
         elements.add(buildPolishIdElement());
         elements.add(buildPolishIdCombinedElement());
         elements.add(bildRomanianElement());
@@ -480,11 +483,13 @@ public class MenuActivity extends Activity {
     }
 
     private ListElement buildMyKadElement() {
-        MyKadRecognizerSettings mykad = new MyKadRecognizerSettings();
+        MyKadFrontSideRecognizerSettings mykadfront = new MyKadFrontSideRecognizerSettings();
+
+        MyKadBackSideRecognizerSettings mykadback = new MyKadBackSideRecognizerSettings();
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Malaysian ID card", buildIntent(new RecognizerSettings[]{mykad}, ScanCard.class, null));
+        return new ListElement("Malaysian ID card", buildIntent(new RecognizerSettings[]{mykadfront, mykadback}, ScanCard.class, null));
     }
 
     private ListElement buildIKadElement() {
@@ -494,6 +499,11 @@ public class MenuActivity extends Activity {
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning iKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
+    }
+
+    private ListElement buildMyTenteraElement() {
+        MyTenteraRecognizerSettings myTentera = new MyTenteraRecognizerSettings();
+        return new ListElement("Malaysian MyTentera", buildIntent(new RecognizerSettings[]{myTentera}, ScanCard.class, null));
     }
 
     private ListElement buildPolishIdElement() {

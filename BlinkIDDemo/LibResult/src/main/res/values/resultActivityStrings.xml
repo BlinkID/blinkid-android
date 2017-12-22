@@ -45,10 +45,12 @@
     <string name="PPDocumentForNonResidents">Document for non residents</string>
     <string name="PPDocumentBilingual">Document bilingual</string>
 
-    <!-- MyKad specific -->
+    <!-- MyKad, MyTentera specific -->
     <string name="PPFullName">Full name</string>
     <string name="PPReligion">Religion</string>
     <string name="PPNRICNumber">National Registration Identity Card Number</string>
+    <string name="PPExtendedNRIC">Extended NRIC</string>
+    <string name="PPArmyNumber">Army number</string>
 
     <!-- Singapore ID specific -->
     <string name="PPDocumentClassification">Document classification</string>

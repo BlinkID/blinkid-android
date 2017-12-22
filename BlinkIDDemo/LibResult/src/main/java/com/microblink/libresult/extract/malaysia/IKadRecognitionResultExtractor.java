@@ -6,7 +6,7 @@ import com.microblink.libresult.R;
 import com.microblink.libresult.extract.IBaseRecognitionResultExtractor;
 import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognitionResult;
 
 import java.util.ArrayList;
 import java.util.List;
