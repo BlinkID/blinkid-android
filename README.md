@@ -90,7 +90,9 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning EU driver's licences](#eudl)
   * [Scanning front side of Australian driver's licences](#australianDL_front)
   * [Scanning back side of Australian driver's licences](#australianDL_back)
-  * [Scanning Malaysian MyKad ID documents](#myKad)
+  * [Scanning front side of Malaysian MyKad ID documents](#myKad_front)
+  * [Scanning back side of Malaysian MyKad ID documents](#myKad_back)
+  * [Scanning front side of Malaysian MyTentera documents](#myTentera)
   * [Scanning Malaysian iKad documents](#iKad)
   * [Scanning front side of Singapore ID documents](#singaporeID_front)
   * [Scanning back side of Singapore ID documents](#singaporeID_back)
@@ -178,7 +180,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:3.13.0@aar') {
+    implementation('com.microblink:blinkid:3.14.0@aar') {
     	transitive = true
     }
 }
@@ -190,7 +192,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.13.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.14.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -215,7 +217,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.13.0</version>
+		  <version>3.14.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -231,7 +233,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
 		implementation project(':LibBlinkID')
-		implementation "com.android.support:appcompat-v7:27.0.0"
+		implementation "com.android.support:appcompat-v7:27.0.2"
 	}
 	```
 	
@@ -3761,17 +3763,17 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/australia/driversLicense/back/AustralianDLBackSideRecognitionResult.html).**
 
-## <a name="myKad"></a> Scanning Malaysian MyKad ID documents
+## <a name="myKad_front"></a> Scanning front side of Malaysian MyKad ID documents
 
-This section will discuss the setting up of Malaysian ID documents (MyKad) recognizer and obtaining results from it.
+This section will discuss the setting up of Malaysian ID (MyKad) front side recognizer and obtaining results from it. MyKad front side recognizer can also be used for scanning front side of Malaysian MyTentera documents.
 
-### Setting up MyKad recognizer
+### Setting up MyKad front side recognizer
 
-To activate MyKad recognizer, you need to create [MyKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate MyKad front side recognizer, you need to create [MyKadFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/front/MyKadFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
-	MyKadRecognizerSettings sett = new MyKadRecognizerSettings();
+	MyKadFrontSideRecognizerSettings sett = new MyKadFrontSideRecognizerSettings();
 	
 	// now add sett to recognizer settings array that is used to configure
 	// recognition
@@ -3779,27 +3781,21 @@ private RecognizerSettings[] setupSettingsArray() {
 }
 ```
 
-You can also tweak MyKad recognition parameters with methods of [MyKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html).
+**You can also tweak MyKad recognition parameters with methods of [MyKadFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/front/MyKadFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/front/MyKadFrontSideRecognizerSettings.html) for more information**.
 
-##### `setShowFullDocument(boolean)`
-Set this to `true` if you use [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) and you want to obtain image containing scanned document. The document image's orientation will be corrected. The reported ImageType will be [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) and image name will be equal to [`MyKadRecognizerSettings.FULL_DOCUMENT_IMAGE`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html#FULL_DOCUMENT_IMAGE).  You will also need to enable [obtaining of dewarped images](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html). By default, this is turned off.
+### Obtaining results from MyKad front side recognizer
 
-##### `setShowFaceImage(boolean)`
-Sets whether face image from ID card should be sent to [MetadataListener](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html). If enabled, image will be of type [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED), and the name of the image will be equal to [`MyKadRecognizerSettings.FACE_IMAGE_NAME`](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognizerSettings.html#FACE_IMAGE_NAME), so make sure you are subscribed to receiving of [`DEWARPED`](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageType.html#DEWARPED) images with [setDewarpedImageEnabled(true)](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html#setDewarpedImageEnabled-boolean-). By default, this is turned off.
-
-### Obtaining results from MyKad recognizer
-
-MyKad recognizer produces [MyKadRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/MyKadRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MyKadRecognitionResult ` class. See the following snippet for an example:
+MyKad front side recognizer produces [MyKadFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/front/MyKadFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MyKadFrontSideRecognitionResult` class. See the following snippet for an example:
 
 ```java
 @Override
 public void onScanningDone(RecognitionResults results) {
 	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
 	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof MyKadRecognitionResult) {
-			MyKadRecognitionResult result = (MyKadRecognitionResult) baseResult;
+		if(baseResult instanceof MyKadFrontSideRecognitionResult) {
+			MyKadFrontSideRecognitionResult result = (MyKadFrontSideRecognitionResult) baseResult;
 			
-	        // you can use getters of MyKadRecognitionResult class to 
+	        // you can use getters of MyKadFrontSideRecognitionResult class to 
 	        // obtain scanned information
 	        if(result.isValid() && !result.isEmpty()) {
 				String ownerFullName = result.getOwnerFullName();
@@ -3813,49 +3809,103 @@ public void onScanningDone(RecognitionResults results) {
 }
 ```
 
-Available getters are:
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/front/MyKadFrontSideRecognitionResult.html)**.
 
-##### `boolean isValid()`
-Returns `true` if scan result is valid, i.e. if all required elements were scanned with good confidence and can be used. If `false` is returned that indicates that some crucial data fields are missing. You should ask user to try scanning again. If you keep getting `false` (i.e. invalid data) for certain document, please report that as a bug to [help.microblink.com](http://help.microblink.com). Please include high resolution photographs of problematic documents.
+## <a name="myKad_back"></a> Scanning back side of Malaysian MyKad ID documents
 
-##### `boolean isEmpty()`
-Returns `true` if scan result is empty, i.e. nothing was scanned. All getters should return `null` for empty result.
+This section will discuss the setting up of Malaysian ID (MyKad) back side recognizer and obtaining results from it.
 
-##### `String getNRICNumber()`
-Returns the National Registration Identity Card Number.
+### Setting up MyKad back side recognizer
 
-##### `String getOwnerSex()`
-Returns the sex of the card holder. Possible values are:
+To activate MyKad back side recognizer, you need to create [MyKadBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/back/MyKadBackSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
-- `M` for male holder
-- `F` for female holder
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	MyKadBackSideRecognizerSettings sett = new MyKadBackSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
 
-##### `Date getOwnerBirthDate()`
-Returns the date of birth of card holder as [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html) if it is successfully converted from date format: `YYMMDD`. Raw date string can be obtained by using **getRawBirthDate()** method. Returns `null` if date is unknown or can not be converted to [Date](https://blinkid.github.io/blinkid-android/com/microblink/results/date/Date.html).
+**You can also tweak MyKad recognition parameters with methods of [MyKadBackSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/back/MyKadBackSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/back/MyKadBackSideRecognizerSettings.html) for more information**.
 
-##### `String getRawBirthDate()`
-Returns owner's date of birth as raw string in format `YYMMDD`, or `null` if date is unknown.
+### Obtaining results from MyKad back side recognizer
 
-##### `String getOwnerFullName()`
-Returns the full name of the card holder.
+MyKad back side recognizer produces [MyKadBackSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/back/MyKadBackSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MyKadBackSideRecognitionResult` class. See the following snippet for an example:
 
-##### `String getOwnerAddress()`
-Returns the full address of the card holder.
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof MyKadBackSideRecognitionResult) {
+			MyKadBackSideRecognitionResult result = (MyKadBackSideRecognitionResult) baseResult;
+			
+	        // you can use getters of MyKadBackSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String ownerSex = result.getSex();
+				String nricNumber = result.getNRIC();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
 
-##### `String getOwnerAddressZipCode()`
-Returns extracted ZIP code from the address of the card holder.
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/mykad/back/MyKadBackSideRecognitionResult.html)**.
 
-##### `String getOwnerAddressStreet()`
-Returns extracted street name from the address of the card holder.
+## <a name="myTentera"></a> Scanning front side of Malaysian MyTentera documents
 
-##### `String getOwnerAddressCity()`
-Returns extracted city name from the address of the card holder.
+This section will discuss the setting up of Malaysian MyTentera recognizer and obtaining results from it. MyTentera documents can also be scanned by using [MyKad front side recognizer](#myKad_front). When using MyKad front side recognizer, enable returning of army number in its recognition settings, which disabled by default.
 
-##### `String getOwnerAddressState()`
-Returns extracted state from the address of the card holder.
+### Setting up MyTentera recognizer
 
-##### `String getOwnerReligion()`
-Returns the religion of the card holder. Possible values are `ISLAM` and `null`.
+To activate MyTentera recognizer, you need to create [MyTenteraRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/tentera/MyTenteraRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	MyTenteraRecognizerSettings sett = new MyTenteraRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak MyTentera recognition parameters with methods of [MyTenteraRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/tentera/MyTenteraRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/tentera/MyTenteraRecognizerSettings.html) for more information**.
+
+### Obtaining results from MyTentera recognizer
+
+MyTentera recognizer produces [MyTenteraRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/tentera/MyTenteraRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MyTenteraRecognitionResult` class. See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof MyTenteraRecognitionResult) {
+			MyTenteraRecognitionResult result = (MyTenteraRecognitionResult) baseResult;
+			
+	        // you can use getters of MyTenteraRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String ownerFullName = result.getOwnerFullName();
+				String nricNumber = result.getNRICNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/tentera/MyTenteraRecognitionResult.html)**.
 
 ## <a name="iKad"></a> Scanning Malaysian iKad documents
 
@@ -3863,7 +3913,7 @@ This section will discuss the setting up of Malaysian iKad documents recognizer 
 
 ### Setting up iKad recognizer
 
-To activate iKad recognizer, you need to create [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+To activate iKad recognizer, you need to create [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
 
 ```java
 private RecognizerSettings[] setupSettingsArray() {
@@ -3875,11 +3925,11 @@ private RecognizerSettings[] setupSettingsArray() {
 }
 ```
 
-**You can also tweak recognition parameters with methods of [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognizerSettings.html) for more information.**
+**You can also tweak recognition parameters with methods of [IKadRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognizerSettings.html) for more information.**
 
 ### Obtaining results from iKad recognizer
 
-iKad recognizer produces [IKadRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `IKadRecognitionResult` class. See the following snippet for an example:
+iKad recognizer produces [IKadRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `IKadRecognitionResult` class. See the following snippet for an example:
 
 ```java
 @Override
@@ -3903,7 +3953,7 @@ public void onScanningDone(RecognitionResults results) {
 }
 ```
 
-**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/IKadRecognitionResult.html).**
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html).**
 
 ## <a name="singaporeID_front"></a> Scanning front side of Singapore ID documents
 

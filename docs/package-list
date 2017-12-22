@@ -50,7 +50,10 @@ com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.old.front
 com.microblink.recognizers.blinkid.germany.passport
 com.microblink.recognizers.blinkid.indonesia.front
-com.microblink.recognizers.blinkid.malaysia
+com.microblink.recognizers.blinkid.malaysia.ikad
+com.microblink.recognizers.blinkid.malaysia.mykad.back
+com.microblink.recognizers.blinkid.malaysia.mykad.front
+com.microblink.recognizers.blinkid.malaysia.tentera
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.mrtd.combined
 com.microblink.recognizers.blinkid.poland.back
