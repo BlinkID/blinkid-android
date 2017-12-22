@@ -1,5 +1,34 @@
 # Release notes
 
+## 3.14.0
+
+### New features:
+
+- added support for reading back side of Malaysian MyKad - use `MyKadBackSideRecognizerSettings` 
+- added support for reading Malaysian MyTentera documents - use `MyTenteraRecognizerSettings`
+- added support for reading Malaysian MyTentera documents with MyKad recognizer - use `MyKadFrontSideRecognizerSettings` and enable reading of army number 
+- added support for setting DPI for full document images returned by `MyKadFrontSideRecognizer`, `MyKadBackSideRecognizer`, `MyTenteraRecognizer` and `IKadRecognizer`:
+    - use `setFullDocumentImageDPI` on the corresponding recognizer settings
+  
+### Minor API changes:
+
+- renamed `MyKadRecognizerSettings` and `MyKadRecognitionResult` to `MyKadFrontSideRecognizerSettings` and `MyKadFrontSideRecognitionResult` and moved them to `com.microblink.recognizers.blinkid.malaysia.mykad.front` package
+- moved `IKadRecognizerSettings` and `IKadRecognitionResult` to `com.microblink.recognizers.blinkid.malaysia.ikad` package
+
+### Improvements for existing features:
+
+- improved `AustralianDLFrontSideRecognizer`:
+    - improved reading of names and addresses
+    - added support for reading first names with more words
+- improved `SingaporeIDFrontRecognizer`:
+    - tuned ID card data extraction positions
+- improved Malaysian `IKadRecognizer`:
+    - better reading of date of expiry and employer fields
+
+### Bug fixes:
+
+- fixed crash in `DocumentFaceRecognizer`
+
 ## 3.13.0
 
 ### New features:

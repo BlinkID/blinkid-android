@@ -39,7 +39,9 @@ import com.microblink.libresult.extract.germany.GermanOldIDRecognitionResultExtr
 import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultExtractor;
 import com.microblink.libresult.extract.indonesia.IndonesianIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
-import com.microblink.libresult.extract.malaysia.MyKadRecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.MyKadBackRecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.MyKadFrontRecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.MyTenteraRecognitionResultExtractor;
 import com.microblink.libresult.extract.mrtd.MRTDRecognitionResultExtractor;
 import com.microblink.libresult.extract.poland.PolishIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.poland.PolishIDCombinedRecognitionResultExtractor;
@@ -85,8 +87,10 @@ import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecogni
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognitionResult;
 import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognitionResult;
-import com.microblink.recognizers.blinkid.malaysia.IKadRecognitionResult;
-import com.microblink.recognizers.blinkid.malaysia.MyKadRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.tentera.MyTenteraRecognitionResult;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
 import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognitionResult;
@@ -230,6 +234,12 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SwissPassportRecognitionResultExtractor(getActivity());
         } else if (mData instanceof IKadRecognitionResult) {
             mResultExtractor = new IKadRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof MyKadFrontSideRecognitionResult) {
+            mResultExtractor = new MyKadFrontRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof MyKadBackSideRecognitionResult) {
+            mResultExtractor = new MyKadBackRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof MyTenteraRecognitionResult) {
+            mResultExtractor = new MyTenteraRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof EUDLRecognitionResult) {
@@ -242,8 +252,6 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SimNumberRecognitionResultExtractor(getActivity());
         } else if (mData instanceof BlinkOCRRecognitionResult) {
             mResultExtractor = new BlinkOcrRecognitionResultExtractor(getActivity());
-        } else if (mData instanceof MyKadRecognitionResult) {
-            mResultExtractor = new MyKadRecognitionResultExtractor(getActivity());
         } else {
             mResultExtractor = new BaseRecognitionResultExtractor(getActivity());
         }
