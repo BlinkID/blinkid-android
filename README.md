@@ -24,7 +24,7 @@ As of version `1.8.0` you can also scan barcodes and perform OCR of structurized
 
 Using _BlinkID_ in your app requires a valid license key. You can obtain a trial license key by registering to [Microblink dashboard](https://microblink.com/login). After registering, you will be able to generate a license key for your app. License key is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked.
 
-See below for more information about how to integrate _BlinkID_ SDK into your app and also check latest [Release notes](Release notes.md).
+See below for more information about how to integrate _BlinkID_ SDK into your app and also check latest [Release notes](https://github.com/BlinkID/blinkid-android/blob/master/Release%20notes.md).
 
 # Table of contents
 
