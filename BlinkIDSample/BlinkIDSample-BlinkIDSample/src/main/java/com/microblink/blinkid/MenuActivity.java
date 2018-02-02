@@ -36,6 +36,8 @@ import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecogni
 import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.austria.passport.AustrianPassportRecognizerSettings;
+import com.microblink.recognizers.blinkid.colombia.back.ColombiaIDBackRecognizerSettings;
+import com.microblink.recognizers.blinkid.colombia.front.ColombiaIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognizerSettings;
@@ -49,12 +51,14 @@ import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecog
 import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
+import com.microblink.recognizers.blinkid.hongkong.front.HongKongIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.tentera.MyTenteraRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
+import com.microblink.recognizers.blinkid.newzealand.driversLicense.front.NewZealandDLFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.front.PolishIDFrontSideRecognizerSettings;
@@ -74,6 +78,8 @@ import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRec
 import com.microblink.recognizers.blinkid.switzerland.back.SwissIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.front.SwissIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognizerSettings;
+import com.microblink.recognizers.blinkid.unitedArabEmirates.back.UnitedArabEmiratesIDBackRecognizerSettings;
+import com.microblink.recognizers.blinkid.unitedArabEmirates.front.UnitedArabEmiratesIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
 import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
@@ -293,11 +299,12 @@ public class MenuActivity extends Activity {
     private void buildElements() {
         ArrayList<ListElement> elements = new ArrayList<ListElement>();
 
-/// ID document list entry
+        // ID document list entry
         elements.add(buildMrtdElement());
         elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
         elements.add(buildAustrianPassportElement());
+        elements.add(buildColombiaIDElement());
         elements.add(buildCroatianIDElement());
         elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzechIDElement());
@@ -305,6 +312,7 @@ public class MenuActivity extends Activity {
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
         elements.add(buildGermanIDCombinedElement());
+        elements.add(buildHongKongIDFrontElement());
         elements.add(buildIndonesianIdElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
@@ -322,10 +330,12 @@ public class MenuActivity extends Activity {
         elements.add(buildSlovenianIDCombinedElement());
         elements.add(buildSwissIDElement());
         elements.add(buildSwissPassportElement());
+        elements.add(buildUnitedArabEmiratesIdElement());
 
         // DL list entries
         elements.add(buildAustrianDLElement());
         elements.add(buildAustralianDLElement());
+        elements.add(buildNewZealandDLElement());
         elements.add(buildGermanDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
@@ -372,6 +382,13 @@ public class MenuActivity extends Activity {
         return new ListElement("Austrian Passport", buildIntent(new RecognizerSettings[]{ausPass}, ScanCard.class, null));
     }
 
+    private ListElement buildColombiaIDElement() {
+        ColombiaIDFrontRecognizerSettings colombiaIDFront = new ColombiaIDFrontRecognizerSettings();
+        ColombiaIDBackRecognizerSettings colombiaIDBack = new ColombiaIDBackRecognizerSettings();
+
+        return new ListElement("Colombia ID", buildIntent(new RecognizerSettings[]{colombiaIDFront, colombiaIDBack}, ScanCard.class, null));
+    }
+
     private ListElement buildCroatianIDElement() {
         CroatianIDFrontSideRecognizerSettings croFront = new CroatianIDFrontSideRecognizerSettings();
         CroatianIDBackSideRecognizerSettings croBack = new CroatianIDBackSideRecognizerSettings();
@@ -398,6 +415,12 @@ public class MenuActivity extends Activity {
         GermanPassportRecognizerSettings dePassport = new GermanPassportRecognizerSettings();
 
         return new ListElement("German Passport", buildIntent(new RecognizerSettings[]{dePassport}, ScanCard.class, null));
+    }
+
+    private ListElement buildHongKongIDFrontElement() {
+        HongKongIDFrontRecognizerSettings hongKongIDFrontRecognizerSettings = new HongKongIDFrontRecognizerSettings();
+
+        return new ListElement("Hong Kong ID", buildIntent(new RecognizerSettings[]{hongKongIDFrontRecognizerSettings}, ScanCard.class, null));
     }
 
     private ListElement buildIndonesianIdElement(){
@@ -440,6 +463,13 @@ public class MenuActivity extends Activity {
         return new ListElement("Swiss Passport", buildIntent(new RecognizerSettings[]{swissPass}, ScanCard.class, null));
     }
 
+    private ListElement buildUnitedArabEmiratesIdElement() {
+        UnitedArabEmiratesIDFrontRecognizerSettings unitedArabEmiratesIdFront = new UnitedArabEmiratesIDFrontRecognizerSettings();
+        UnitedArabEmiratesIDBackRecognizerSettings unitedArabEmiratesIdBack = new UnitedArabEmiratesIDBackRecognizerSettings();
+
+        return new ListElement("United Arab Emirates ID", buildIntent(new RecognizerSettings[]{unitedArabEmiratesIdFront, unitedArabEmiratesIdBack}, ScanCard.class, null));
+    }
+
     private ListElement buildUKDLElement() {
         // prepare settings for United Kingdom Driver's Licence recognizer
         EUDLRecognizerSettings ukdl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK);
@@ -472,6 +502,12 @@ public class MenuActivity extends Activity {
         AustralianDLBackSideRecognizerSettings ausDLBackSettings = new AustralianDLBackSideRecognizerSettings();
 
         return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings, ausDLBackSettings}, ScanCard.class, null));
+    }
+
+    private ListElement buildNewZealandDLElement(){
+        NewZealandDLFrontRecognizerSettings nzDlFrontSettings = new NewZealandDLFrontRecognizerSettings();
+
+        return new ListElement("New Zealand Driver's Licence", buildIntent(new RecognizerSettings[]{nzDlFrontSettings}, ScanCard.class, null));
     }
 
     private ListElement buildUsdlElement() {
