@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Label">Label</string>
+    <string name="Value">Value</string>
+    <string name="IsDataCorrect">Is all data correct?</string>
+    <string name="YesPay">Confirm data</string>
+    <string name="NoBack">Cancel</string>
+
+    <!-- MRTD -->
+    <string name="PPPrimaryId">Primary ID</string>
+    <string name="PPSecondaryId">Secondary ID</string>
+    <string name="PPIssuer">Issuer</string>
+    <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPDocumentNumber">Document number</string>
+    <string name="PPNationality">Nationality</string>
+    <string name="PPSex">Sex</string>
+    <string name="PPCitizenship">Citizenship</string>
+    <string name="PPDocumentCode">Document code</string>
+    <string name="PPDateOfExpiry">Date of expiry</string>
+    <string name="PPOpt1">OPT1</string>
+    <string name="PPOpt2">OPT2</string>
+    <string name="PPMRZText">MRZ text</string>
+    <string name="PPMRZVerified">MRZ verified</string>
+
+    <!-- UKDL -->
+    <string name="PPFirstName">First name</string>
+    <string name="PPLastName">Last name</string>
+    <string name="PPAddress">Address</string>
+    <string name="PPPlaceOfBirth">Place of birth</string>
+    <string name="PPDriverNumber">Driver number</string>
+    <string name="PPIssueDate">Issue date</string>
+    <string name="PPExpiryDate">Expiry date</string>
+    <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
+    <string name="PPIssuingAuthority">Issuing Authority</string>
+
+    <!-- Barcode -->
+    <string name="PPUncertain">Uncertain data</string>
+    <string name="PPBarcodeData">Barcode data</string>
+    <string name="PPBarcodeRawData">Barcode raw data</string>
+    <string name="PPBarcodeType">Barcode type</string>
+    <string name="PPExtendedBarcodeData">Extended barcode data</string>
+    <string name="PPSimNumber">Sim number</string>
+
+    <!-- Croatian ID specific -->
+    <string name="PPDocumentForNonResidents">Document for non residents</string>
+    <string name="PPDocumentBilingual">Document bilingual</string>
+
+    <!-- MyKad, MyTentera specific -->
+    <string name="PPFullName">Full name</string>
+    <string name="PPReligion">Religion</string>
+    <string name="PPNRICNumber">National Registration Identity Card Number</string>
+    <string name="PPExtendedNRIC">Extended NRIC</string>
+    <string name="PPArmyNumber">Army number</string>
+
+    <!-- Singapore ID specific -->
+    <string name="PPDocumentClassification">Document classification</string>
+    <string name="PPRace">Race</string>
+    <string name="PPCountryOfBirth">Country of birth</string>
+    <string name="PPBloodGroup">Blood group</string>
+
+    <!-- Austrian ID specific -->
+    <string name="PPEyeColour">Eye colour</string>
+    <string name="PPHeight">Height</string>
+    <string name="PPPrincipalResidenceAtIssuance">Principal residence at issuance</string>
+
+    <!-- Czech ID specific -->
+    <string name="PPPersonalNumber">Personal number</string>
+    <string name="PPAuthority">Authority</string>
+
+    <!-- Slovak ID specific -->
+    <string name="PPSurnameAtBirth">Surname at birth</string>
+    <string name="PPSpecialRemarks">Special remarks</string>
+    <string name="PPIssuedBy">Issued by</string>
+
+    <!-- iKad specific -->
+    <string name="PPEmployer">Employer</string>
+    <string name="PPPassportNumber">Passport number</string>
+    <string name="PPSector">Sector</string>
+
+    <!-- Romanian specific -->
+    <string name="PPIdentityCardNumber">Identity card number</string>
+    <string name="PPSeries">Series</string>
+    <string name="PPCNP">CNP</string>
+    <string name="PPParentNames">Parent names</string>
+    <string name="PPValidFrom">Valid from</string>
+    <string name="PPValidUntil">Valid until</string>
+
+    <!-- German ID specific -->
+    <string name="PPAddressZipCode">Address ZIP code</string>
+    <string name="PPAddressStreet">Address street</string>
+    <string name="PPAddressCity">Address city</string>
+    <string name="PPAddressState">Address state</string>
+    <string name="PPAddressHouseNumber">Address house number</string>
+
+    <!-- Combined extractors -->
+    <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
+
+    <!-- Swiss passport specific -->
+    <string name="PPPlaceOfOrigin">Place of origin</string>
+
+    <!-- Australian DL specific -->
+    <string name="PPLicenceNumber">Licence Number</string>
+    <string name="PPLicenceType">Licence Type</string>
+
+    <!-- Polish ID specific -->
+    <string name="PPFamilyName">Family Name</string>
+
+    <!-- Indonesia ID specific -->
+    <string name="PPProvince">Province</string>
+    <string name="PPCity">City</string>
+    <string name="PPName">Name</string>
+    <string name="PPRT">RT</string>
+    <string name="PPRW">RW</string>
+    <string name="PPKelDesa">Kel/Desa</string>
+    <string name="PPDistrict">District</string>
+    <string name="PPMaritalStatus">Marital status</string>
+    <string name="PPOccupation">Occupation</string>
+
+    <!-- Colombia ID specific -->
+    <string name="PPFingerprint">Fingerprint</string>
+
+    <!-- Hong Kong ID specific -->
+    <string name="PPCommercialCode">Commercial Code</string>
+
+    <!-- New Zealand DL specific -->
+    <string name="PPSurname">Surname</string>
+    <string name="PPFirstNames">First names</string>
+    <string name="PPCardVersion">Card version</string>
+    <string name="PPDonorIndicator">Donor indicator</string>
+
+
+</resources>

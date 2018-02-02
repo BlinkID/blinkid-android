@@ -10,12 +10,12 @@ android:
         - android-26
         - extra-android-m2repository
 script:
-    - cd BlinkIDDemo
-    - ./gradlew clean :BlinkIDDemo:assembleRelease
-    - ./gradlew clean :BlinkIDDemoCustomSegmentScan:assembleRelease
-    - ./gradlew clean :BlinkIDDemoCustomUI:assembleRelease
-    - ./gradlew clean :BlinkIDDetectorDemo:assembleRelease
-    - ./gradlew clean :BlinkIDDirectApiDemo:assembleRelease
-    - ./gradlew clean :BlinkIDRandomScanDemo:assembleRelease
-    - ./gradlew clean :BlinkIDImageListenerDemo:assembleRelease
-    - ./gradlew clean :BlinkIDCustomCombinedDemo:assembleRelease
+    - cd BlinkIDSample
+    - ./gradlew clean :BlinkIDSample-BlinkIDSample:assembleRelease
+    - ./gradlew clean :BlinkIDSampleCustomSegmentScan:assembleRelease
+    - ./gradlew clean :BlinkIDSampleCustomUI:assembleRelease
+    - ./gradlew clean :BlinkIDDetectorSample:assembleRelease
+    - ./gradlew clean :BlinkIDDirectApiSample:assembleRelease
+    - ./gradlew clean :BlinkIDRandomScanSample:assembleRelease
+    - ./gradlew clean :BlinkIDImageListenerSample:assembleRelease
+    - ./gradlew clean :BlinkIDCustomCombinedSample:assembleRelease
