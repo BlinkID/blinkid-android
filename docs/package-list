@@ -36,6 +36,8 @@ com.microblink.recognizers.blinkid.austria.back
 com.microblink.recognizers.blinkid.austria.combined
 com.microblink.recognizers.blinkid.austria.front
 com.microblink.recognizers.blinkid.austria.passport
+com.microblink.recognizers.blinkid.colombia.back
+com.microblink.recognizers.blinkid.colombia.front
 com.microblink.recognizers.blinkid.croatia.back
 com.microblink.recognizers.blinkid.croatia.combined
 com.microblink.recognizers.blinkid.croatia.front
@@ -49,6 +51,7 @@ com.microblink.recognizers.blinkid.germany.combined
 com.microblink.recognizers.blinkid.germany.front
 com.microblink.recognizers.blinkid.germany.old.front
 com.microblink.recognizers.blinkid.germany.passport
+com.microblink.recognizers.blinkid.hongkong.front
 com.microblink.recognizers.blinkid.indonesia.front
 com.microblink.recognizers.blinkid.malaysia.ikad
 com.microblink.recognizers.blinkid.malaysia.mykad.back
@@ -56,6 +59,7 @@ com.microblink.recognizers.blinkid.malaysia.mykad.front
 com.microblink.recognizers.blinkid.malaysia.tentera
 com.microblink.recognizers.blinkid.mrtd
 com.microblink.recognizers.blinkid.mrtd.combined
+com.microblink.recognizers.blinkid.newzealand.driversLicense.front
 com.microblink.recognizers.blinkid.poland.back
 com.microblink.recognizers.blinkid.poland.combined
 com.microblink.recognizers.blinkid.poland.front
@@ -75,6 +79,8 @@ com.microblink.recognizers.blinkid.slovenia.front
 com.microblink.recognizers.blinkid.switzerland.back
 com.microblink.recognizers.blinkid.switzerland.front
 com.microblink.recognizers.blinkid.switzerland.passport
+com.microblink.recognizers.blinkid.unitedArabEmirates.back
+com.microblink.recognizers.blinkid.unitedArabEmirates.front
 com.microblink.recognizers.blinkid.usdl.combined
 com.microblink.recognizers.blinkinput
 com.microblink.recognizers.blinkocr
