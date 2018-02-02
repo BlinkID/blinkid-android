@@ -1,5 +1,30 @@
 # Release notes
 
+## 3.15.0
+
+### New features:
+
+- added support for reading front side of Hong Kong ID - use `HongKongIDFrontRecognizerSettings` 
+- added support for reading front and back side of Colombian ID - use `ColombiaIDFrontRecognizerSettings` and `ColombiaIDBackRecognizerSettings`
+- added support for reading front and back side of United Arab Emirates ID - use `UnitedArabEmiratesIDFrontRecognizerSettings` and `UnitedArabEmiratesIDBackRecognizerSettings` 
+- added support for reading front side of New Zealand drivers license - use `NewZealandDLFrontRecognizerSettings`
+
+### Improvements for existing features:
+
+- improved `MRTDRecognizer`:
+    - improved reading of Belgium ID MRZ OPT2 field
+    - added support for reading Belgium MRZ with partial date of birth - `MRTDRecognizerSettings.setAllowUnverifiedResults()` must be set to `true` 
+    - added support for reading Kenya MRZ - `MRTDRecognizerSettings.setAllowUnverifiedResults()` must be set to `true` 
+- improved `MyKadFrontSideRecognizer` and `MyTenteraRecognizer`:
+    - better reading of name field
+    - better reading of address field
+- when setting DPI for full document image in concrete recognizer settings that has method `setFullDocumentImageDPI`, exception is thrown if DPI value is not in the expected range `[100, 400]`
+
+### Bug fixes:
+
+- fixed `NullPointerException` in `RecognizerView` caused by race condition that happens when quickly restarting camera manager
+-  fixed a crash in Templating API caused by using a `MultiDetector` with `DetectorRecognizer`
+
 ## 3.14.0
 
 ### New features:
