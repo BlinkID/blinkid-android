@@ -1,5 +1,12 @@
 # Release notes
 
+## 3.15.1
+
+### Bug fixes:
+
+- fixed returning of face image when using `UnitedArabEmiratesIDFrontRecognizer`: 
+    - fixed face image position
+
 ## 3.15.0
 
 ### New features:
