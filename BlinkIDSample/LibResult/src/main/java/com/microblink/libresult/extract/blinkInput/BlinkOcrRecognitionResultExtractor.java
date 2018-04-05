@@ -7,6 +7,8 @@ import com.microblink.libresult.extract.RecognitionResultEntry;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.IResultHolder;
 import com.microblink.recognizers.blinkocr.BlinkOCRRecognitionResult;
+import com.microblink.results.date.Date;
+import com.microblink.results.date.DateResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,13 +51,16 @@ public class BlinkOcrRecognitionResultExtractor implements IBaseRecognitionResul
             // here we will extract all elements from result
             IResultHolder data = blinkOcrResult.getResultHolder();
             for(String key : data.keySet()) {
-                String s = data.getString(key);
-                // it is possible to have non-string data in bundle
-                if (s != null) {
-                    mExtractedData.add(new RecognitionResultEntry(key, s));
+                Object field = data.getObject(key);
+                if (field instanceof String) {
+                    mExtractedData.add(new RecognitionResultEntry(key, (String) field));
+                } else if (field instanceof DateResult) {
+                    Date date = ((DateResult) field).getDate();
+                    mExtractedData.add(new RecognitionResultEntry(key,
+                            String.format("%d-%02d-%02d", date.getYear(), date.getMonth(),
+                                    date.getDay())));
                 }
             }
-
         }
 
         return mExtractedData;

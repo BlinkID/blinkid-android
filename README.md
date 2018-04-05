@@ -67,11 +67,15 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning back side of Czech ID documents](#czID_back)
   * [Scanning and combining results from front and back side of Czech ID documents](#czechIDCombined)
   * [Scanning front side of German ID documents](#germanID_front)
+  * [Scanning front side of Egypt ID documents](#egyptID_front)
   * [Scanning back side of German ID documents](#germanID_back)
   * [Scanning front side of the older German ID documents](#germanID_oldFront)
   * [Scanning German passports](#germanPassport)
   * [Scanning front side of Hong Kong ID documents](#hongKongID_front)
   * [Scanning front side of Indonesian ID documents](#indonesianID_front)
+  * [Scanning front side of Jordan ID documents](#jordanID_front)
+  * [Scanning back side of Jordan ID documents](#jordanID_back)
+  * [Scanning and combining results from front and back side of Jordan ID documents](#jordanIDCombined)
   * [Scanning front side of Polish ID documents](#polishID_front)
   * [Scanning back side of Polish ID documents](#polishID_back)
   * [Scanning and combining results from front and back side of Polish ID documents](#polishIDCombined)
@@ -94,6 +98,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Australian driver's licences](#australianDL_front)
   * [Scanning back side of Australian driver's licences](#australianDL_back)
   * [Scanning front side of New Zealand driver's licences](#newZealandDL_front)
+  * [Scanning front side of Malaysian driver's licences](#malaysiaDL_front)
   * [Scanning front side of Malaysian MyKad ID documents](#myKad_front)
   * [Scanning back side of Malaysian MyKad ID documents](#myKad_back)
   * [Scanning front side of Malaysian MyTentera documents](#myTentera)
@@ -186,7 +191,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:3.15.1@aar') {
+    implementation('com.microblink:blinkid:3.16.0@aar') {
     	transitive = true
     }
 }
@@ -198,7 +203,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.15.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.16.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -223,7 +228,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.15.1</version>
+		  <version>3.16.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -239,7 +244,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
 		implementation project(':LibBlinkID')
-		implementation "com.android.support:appcompat-v7:27.0.2"
+		implementation "com.android.support:appcompat-v7:27.1.0"
 	}
 	```
 	
@@ -267,7 +272,7 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 6. Replace the `res` folder on library project with the `res` folder of the `LibBlinkID.aar` file.
 
-You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
+You?ve already created the project that contains almost everything you need. Now let?s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
@@ -2417,6 +2422,58 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html).**
 
+## <a name="egyptID_front"></a> Scanning front side of Egypt ID documents
+
+This section will discuss the setting up of Egypt ID Front Side recognizer and obtaining results from it.
+
+### Setting up Egypt ID card front side recognizer
+
+To activate Egypt ID front side recognizer, you need to create [EgyptIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	EgyptIDFrontRecognizerSettings sett = new EgyptIDFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [EgyptIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Egypt ID card front side recognizer
+
+Egypt ID front side recognizer produces [EgyptIDFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `EgyptIDFrontRecognitionResult` class. 
+
+**Note:** `EgyptIDFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof EgyptIDFrontRecognitionResult) {
+			EgyptIDFrontRecognitionResult result = (EgyptIDFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of EgyptIDFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String documentNumber = result.getDocumentNumber();
+				String nationalNumber = result.getNatianalNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognitionResult.html).**
+
 ## <a name="germanID_back"></a> Scanning back side of German ID documents
 
 This section will discuss the setting up of German ID Back Side recognizer and obtaining results from it.
@@ -2674,6 +2731,177 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/indonesia/front/IndonesianIDFrontRecognitionResult.html).**
+
+## <a name="jordanID_front"></a> Scanning front side of Jordan ID documents
+
+This section will discuss the setting up of Jordan ID Front Side recognizer and obtaining results from it.
+
+### Setting up Jordan ID card front side recognizer
+
+To activate Jordan ID front side recognizer, you need to create [JordanIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/front/JordanIDFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	JordanIDFrontRecognizerSettings sett = new JordanIDFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [JordanIDFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/front/JordanIDFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/front/JordanIDFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Jordan ID card front side recognizer
+
+Jordan ID front side recognizer produces [JordanIDFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/front/JordanIDFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `JordanIDFrontRecognitionResult` class. 
+
+**Note:** `JordanIDFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof JordanIDFrontRecognitionResult) {
+			JordanIDFrontRecognitionResult result = (JordanIDFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of JordanIDFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String name = result.getName();
+				String nationalNumber = result.getNatianalNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/front/JordanIDFrontRecognitionResult.html).**
+
+## <a name="jordanID_back"></a> Scanning back side of Jordan ID documents
+
+This section will discuss the setting up of Jordan ID Back Side recognizer and obtaining results from it.
+
+### Setting up Jordan ID card back side recognizer
+
+To activate Jordan ID back side recognizer, you need to create [JordanIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/back/JordanIDBackRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	JordanIDBackRecognizerSettings sett = new JordanIDBackRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [JordanIDBackRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/back/JordanIDBackRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/back/JordanIDBackRecognizerSettings.html) for more information.**
+
+### Obtaining results from Jordan ID card back side recognizer
+
+Jordan ID back side recognizer produces [JordanIDBackRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/back/JordanIDBackRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `JordanIDBackRecognitionResult` class. 
+
+**Note:** `JordanIDBackRecognitionResult` extends [MRTDRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/mrtd/MRTDRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof JordanIDBackRecognitionResult) {
+			JordanIDBackRecognitionResult result = (JordanIDBackRecognitionResult) baseResult;
+			
+	        // you can use getters of JordanIDBackRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String documentNumber = result.getDocumentNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/back/JordanIDBackRecognitionResult.html).**
+
+## <a name="jordanIDCombined"></a> Scanning and combining results from front and back side of Jordan ID documents
+
+This section will discuss the setting up of Jordan ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the Jordan ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up Jordan ID card combined recognizer
+
+To activate Jordan ID combined recognizer, you need to create [JordanIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/combined/JordanIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    JordanIDCombinedRecognizerSettings sett = new JordanIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [JordanIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/combined/JordanIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/combined/JordanIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        if (result != null && result instanceof JordanIDCombinedRecognizerSettings) {
+            // notify user to scan the back side  
+        }
+    }
+}
+```
+
+### Obtaining results from Jordan ID card combined recognizer
+
+Jordan ID combined recognizer produces [JordanIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/combined/JordanIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `JordanIDCombinedRecognitionResult` class. 
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof JordanIDCombinedRecognitionResult) {
+            JordanIDCombinedRecognitionResult result = (JordanIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of JordanIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.isDocumentDataMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String nationalNumber = result.getNatianalNumber();
+                    String name = result.getName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/jordan/combined/JordanIDCombinedRecognitionResult.html).**
 
 ## <a name="polishID_front"></a> Scanning front side of Polish ID documents
 
@@ -3973,6 +4201,58 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/newzealand/driversLicense/front/NewZealandDLFrontRecognitionResult.html).**
+
+## <a name="malaysiaDL_front"></a> Scanning front side of Malaysian driver's licences
+
+This section will discuss the setting up of Malaysian Driver's Licence front side recognizer and obtaining results from it.
+
+### Setting up Malaysian Driver's Licence front side recognizer
+
+To activate Malaysian Driver's Licence front side recognizer, you need to create [MalaysianDLFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/dl/front/MalaysianDLFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	MalaysianDLFrontRecognizerSettings sett = new MalaysianDLFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [MalaysianDLFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/dl/front/MalaysianDLFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/dl/front/MalaysianDLFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Malaysian Driver's Licence front side recognizer
+
+Malaysian Driver's Licence front side recognizer produces [MalaysianDLFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/dl/front/MalaysianDLFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `MalaysianDLFrontRecognitionResult` class. 
+
+**Note:** `MalaysianDLFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof MalaysianDLFrontRecognitionResult) {
+			MalaysianDLFrontRecognitionResult result = (MalaysianDLFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of MalaysianDLFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String name = result.getName();
+				String nationality = result.getNationality();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/malaysia/dl/front/MalaysianDLFrontRecognitionResult.html).**
 
 ## <a name="myKad_front"></a> Scanning front side of Malaysian MyKad ID documents
 
@@ -5389,7 +5669,7 @@ To modify an existing string, the best approach would be to:
 2. find strings.xml in `LibBlinkID.aar` archive folder `res/values-hr`
 3. choose a string key which you want to change. For example, ```<string name="PhotoPayHelp">Help</string>```
 4. in your project create a file `strings.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomoć</string>```
+5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomo?</string>```
 6. repeat for all the string you wish to change
 
 # <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
@@ -5435,7 +5715,7 @@ At the time of writing this documentation, [Android does not have support for co
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its classes.jar to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its classes.jar to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR?s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk.
 
 # <a name="archConsider"></a> Processor architecture considerations
@@ -5718,7 +5998,7 @@ This error happens when JVM fails to load some native method from native library
 
 ### <a name="requiredParserDidntProduceResult"></a> While scanning, I get `Required parser 'X' from parser group 'Y' did not produce result!` in my app logs
 
-This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn’t succeed while processing the current camera frame. This can happen due to:
+This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn?t succeed while processing the current camera frame. This can happen due to:
 
 * poor camera frame (out of focus, poor light, glare)
     * message appears occasionally while moving the camera frame

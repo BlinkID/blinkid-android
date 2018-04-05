@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -244,79 +244,93 @@ implements <a href="../../../../../com/microblink/recognizers/settings/image/Ful
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#getAllowSpecialCharacters--">getAllowSpecialCharacters</a></span>()</code>
+<div class="block">Check if support for any special (non-alphanumerical) characters in MRZ other than '<'
+ (only special character allowed in the standard) is enabled.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#getAllowUnparsedResults--">getAllowUnparsedResults</a></span>()</code>
 <div class="block">Returns true if returning of results that have failed to parse data is allowed.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#getAllowUnverifiedResults--">getAllowUnverifiedResults</a></span>()</code>
 <div class="block">Returns true if returning of results with incorrect check digits is allowed, false otherwise.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#getFullDocumentImageDPI--">getFullDocumentImageDPI</a></span>()</code>
 <div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#isShowingFullDocument--">isShowingFullDocument</a></span>()</code>
 <div class="block">Returns true if image of full document containing MRZ will be given to MetadataListener.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#isShowingMRZ--">isShowingMRZ</a></span>()</code>
 <div class="block">Returns true if image of Machine Readable Zone will be given to ImageListener.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setAllowSpecialCharacters-boolean-">setAllowSpecialCharacters</a></span>(boolean&nbsp;allowSpecialCharacters)</code>
+<div class="block">Setting this to true enables OCR of currently supported special (non-alphanumerical) characters
+ in MRZ other than '<' (only special character allowed in the standard).</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setAllowUnparsedResults-boolean-">setAllowUnparsedResults</a></span>(boolean&nbsp;allowUnparsed)</code>
 <div class="block">Set this to true to allow obtaining results that have not been parsed by SDK.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setAllowUnverifiedResults-boolean-">setAllowUnverifiedResults</a></span>(boolean&nbsp;allowUnverifiedResults)</code>
 <div class="block">Set this to true to allow obtaining of results with incorrect check digits.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setDocumentClassifier-com.microblink.recognizers.blinkid.mrtd.MRTDDocumentClassifier-">setDocumentClassifier</a></span>(<a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDDocumentClassifier.html" title="interface in com.microblink.recognizers.blinkid.mrtd">MRTDDocumentClassifier</a>&nbsp;documentClassifier)</code>
 <div class="block">Sets the <a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDDocumentClassifier.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><code>MRTDDocumentClassifier</code></a> that can be used for classification of the documents based
  on the MRZ zone result.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setFullDocumentImageDPI-int-">setFullDocumentImageDPI</a></span>(int&nbsp;desiredDPI)</code>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRTDSpecifications-com.microblink.detectors.quad.mrtd.MRTDSpecification:A-">setMRTDSpecifications</a></span>(<a href="../../../../../com/microblink/detectors/quad/mrtd/MRTDSpecification.html" title="class in com.microblink.detectors.quad.mrtd">MRTDSpecification</a>[]&nbsp;mrtdSpecifications)</code>
 <div class="block">Sets array of specifications for MRTD documents that can be detected.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setMRZFilter-com.microblink.recognizers.blinkid.mrtd.MRZFilter-">setMRZFilter</a></span>(<a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd">MRZFilter</a>&nbsp;mrzFilter)</code>
 <div class="block">Sets the <a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRZFilter.html" title="interface in com.microblink.recognizers.blinkid.mrtd"><code>MRZFilter</code></a> that will be used for filtering MRTD documents based on the MRZ zone result.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-">setParserDecodingInfos</a></span>(<a href="../../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos)</code>
 <div class="block">Sets the decoding infos for desired additional document elements that should be recognized
  together with MRZ zone.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setParserDecodingInfos-com.microblink.detectors.DecodingInfo:A-java.lang.String-">setParserDecodingInfos</a></span>(<a href="../../../../../com/microblink/detectors/DecodingInfo.html" title="class in com.microblink.detectors">DecodingInfo</a>[]&nbsp;decodingInfos,
                       java.lang.String&nbsp;decodingInfoSet)</code>
@@ -325,21 +339,21 @@ implements <a href="../../../../../com/microblink/recognizers/settings/image/Ful
  the MRZ zone.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowFullDocument-boolean-">setShowFullDocument</a></span>(boolean&nbsp;showFullDocument)</code>
 <div class="block">Set this to true if you use MetadataListener and you want to obtain image containing
  full document containing Machine Readable Zone.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#setShowMRZ-boolean-">setShowMRZ</a></span>(boolean&nbsp;showMRZ)</code>
 <div class="block">Set this to true if you use <a href="../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> and you want to obtain image containing
  only Machine Readable Zone.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/recognizers/blinkid/mrtd/MRTDRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -530,6 +544,36 @@ implements <a href="../../../../../com/microblink/recognizers/settings/image/Ful
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if returning of results with incorrect check digits is allowed, false otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="setAllowSpecialCharacters-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAllowSpecialCharacters</h4>
+<pre>public&nbsp;void&nbsp;setAllowSpecialCharacters(boolean&nbsp;allowSpecialCharacters)</pre>
+<div class="block">Setting this to true enables OCR of currently supported special (non-alphanumerical) characters
+ in MRZ other than '<' (only special character allowed in the standard).</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>allowSpecialCharacters</code> - allow non-alphanumerical characters other than '<'</dd>
+</dl>
+</li>
+</ul>
+<a name="getAllowSpecialCharacters--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAllowSpecialCharacters</h4>
+<pre>public&nbsp;boolean&nbsp;getAllowSpecialCharacters()</pre>
+<div class="block">Check if support for any special (non-alphanumerical) characters in MRZ other than '<'
+ (only special character allowed in the standard) is enabled.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if support for non-alphanumerical characters other than '<' is enabled</dd>
 </dl>
 </li>
 </ul>

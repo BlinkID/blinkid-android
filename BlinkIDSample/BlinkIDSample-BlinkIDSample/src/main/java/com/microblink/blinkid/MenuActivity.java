@@ -44,6 +44,7 @@ import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecog
 import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.egypt.front.EgyptIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognizerSettings;
@@ -53,6 +54,10 @@ import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognize
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
 import com.microblink.recognizers.blinkid.hongkong.front.HongKongIDFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognizerSettings;
+import com.microblink.recognizers.blinkid.jordan.back.JordanIDBackRecognizerSettings;
+import com.microblink.recognizers.blinkid.jordan.combined.JordanIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.jordan.front.JordanIDFrontRecognizerSettings;
+import com.microblink.recognizers.blinkid.malaysia.dl.front.MalaysianDLFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognizerSettings;
@@ -121,8 +126,8 @@ public class MenuActivity extends Activity {
 
         // build list elements
         buildElements();
-        ListView lv = (ListView) findViewById(R.id.recognizerList);
-        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<ListElement>(this, android.R.layout.simple_list_item_1, mElements);
+        ListView lv = findViewById(R.id.recognizerList);
+        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mElements);
         lv.setAdapter(listAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -297,7 +302,7 @@ public class MenuActivity extends Activity {
      * for BlinkID.
      */
     private void buildElements() {
-        ArrayList<ListElement> elements = new ArrayList<ListElement>();
+        ArrayList<ListElement> elements = new ArrayList<>();
 
         // ID document list entry
         elements.add(buildMrtdElement());
@@ -309,11 +314,14 @@ public class MenuActivity extends Activity {
         elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzechIDElement());
         elements.add(buildCzechIDCombinedElement());
+        elements.add(buildEgyptIDFrontElement());
         elements.add(buildGermanIDElement());
         elements.add(buildGermanPassportElement());
         elements.add(buildGermanIDCombinedElement());
         elements.add(buildHongKongIDFrontElement());
         elements.add(buildIndonesianIdElement());
+        elements.add(buildJordanIdElement());
+        elements.add(buildJordanIdCombinedElement());
         elements.add(buildMyKadElement());
         elements.add(buildIKadElement());
         elements.add(buildMyTenteraElement());
@@ -335,6 +343,7 @@ public class MenuActivity extends Activity {
         // DL list entries
         elements.add(buildAustrianDLElement());
         elements.add(buildAustralianDLElement());
+        elements.add(buildMalaysianDLElement());
         elements.add(buildNewZealandDLElement());
         elements.add(buildGermanDLElement());
         elements.add(buildUKDLElement());
@@ -403,6 +412,12 @@ public class MenuActivity extends Activity {
         return new ListElement("Czech ID", buildIntent(new RecognizerSettings[]{czFront, czBack}, ScanCard.class, null));
     }
 
+    private ListElement buildEgyptIDFrontElement() {
+        EgyptIDFrontRecognizerSettings egyptIDFront = new EgyptIDFrontRecognizerSettings();
+
+        return new ListElement("Egypt ID Front", buildIntent(new RecognizerSettings[]{egyptIDFront}, ScanCard.class, null));
+    }
+
     private ListElement buildGermanIDElement() {
         GermanIDFrontSideRecognizerSettings deFront = new GermanIDFrontSideRecognizerSettings();
         GermanIDBackSideRecognizerSettings deBack = new GermanIDBackSideRecognizerSettings();
@@ -427,6 +442,14 @@ public class MenuActivity extends Activity {
         IndonesianIDFrontRecognizerSettings idnFrontSettings= new IndonesianIDFrontRecognizerSettings();
 
         return new ListElement("Indonesian ID", buildIntent(new RecognizerSettings[]{idnFrontSettings}, ScanCard.class, null));
+    }
+
+    private ListElement buildJordanIdElement(){
+        JordanIDFrontRecognizerSettings jorFrontSettings= new JordanIDFrontRecognizerSettings();
+
+        JordanIDBackRecognizerSettings jorBackSettings = new JordanIDBackRecognizerSettings();
+
+        return new ListElement("Jordan ID", buildIntent(new RecognizerSettings[]{jorFrontSettings, jorBackSettings}, ScanCard.class, null) );
     }
 
     private ListElement buildSingaporeIDElement() {
@@ -502,6 +525,12 @@ public class MenuActivity extends Activity {
         AustralianDLBackSideRecognizerSettings ausDLBackSettings = new AustralianDLBackSideRecognizerSettings();
 
         return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings, ausDLBackSettings}, ScanCard.class, null));
+    }
+
+    private ListElement buildMalaysianDLElement() {
+        MalaysianDLFrontRecognizerSettings malaysianDL = new MalaysianDLFrontRecognizerSettings();
+
+        return new ListElement("Malaysian DL", buildIntent(new RecognizerSettings[]{malaysianDL}, ScanCard.class, null) );
     }
 
     private ListElement buildNewZealandDLElement(){
@@ -596,6 +625,12 @@ public class MenuActivity extends Activity {
         CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
 
         return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
+    }
+
+    private ListElement buildJordanIdCombinedElement() {
+        JordanIDCombinedRecognizerSettings jordanIDCombined = new JordanIDCombinedRecognizerSettings();
+
+        return new ListElement("Jordan ID Combined", buildCombinedIntent(jordanIDCombined));
     }
 
     private ListElement buildAustrianIDCombinedElement() {
@@ -694,15 +729,15 @@ public class MenuActivity extends Activity {
         private String mTitle;
         private Intent mScanIntent;
 
-        public String getTitle() {
+        String getTitle() {
             return mTitle;
         }
 
-        public Intent getScanIntent() {
+        Intent getScanIntent() {
             return mScanIntent;
         }
 
-        public ListElement(String title, Intent scanIntent) {
+        ListElement(String title, Intent scanIntent) {
             mTitle = title;
             mScanIntent = scanIntent;
         }

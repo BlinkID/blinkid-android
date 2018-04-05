@@ -3,13 +3,15 @@ package com.microblink.blinkid.demo.imagescan;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +33,7 @@ import com.microblink.view.recognition.ScanResultListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class ScanImageActivity extends Activity {
 
@@ -38,14 +41,13 @@ public class ScanImageActivity extends Activity {
 
     private static final String ASSETS_BITMAP_NAME = "croID.jpg";
     /** Request code for built-in camera activity. */
-    public static final int CAMERA_REQUEST_CODE = 0x101;
+    public static final int TAKE_PHOTO_REQUEST_CODE = 0x101;
     /** File that will hold the image taken from camera. */
-    private String mCameraFile = Environment.getExternalStorageDirectory().getPath() + "/my-photo.jpg";
+    private String mCameraFile = "";
     /** Tag for logcat. */
     public static final String TAG = "BlinkIDDemo";
 
     private Button mScanButton;
-    private Button mTakePhotoButton;
 
     /** Image view which shows current image that will be scanned. */
     private ImageView mImgView;
@@ -64,9 +66,8 @@ public class ScanImageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_image);
 
-        mScanButton = (Button) findViewById(R.id.btnScan);
-        mTakePhotoButton = (Button) findViewById(R.id.btnTakePhoto);
-        mImgView = (ImageView) findViewById(R.id.imgImage);
+        mScanButton = findViewById(R.id.btnScan);
+        mImgView = findViewById(R.id.imgImage);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -146,9 +147,22 @@ public class ScanImageActivity extends Activity {
      * Starts built-in camera intent for taking scan images.
      */
     private void startCamera() {
+        // Starts built-in camera intent for taking scan images
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mCameraFile)));
-        startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
+        File photoFile = new File(getFilesDir(), "photo.jpg");
+        mCameraFile = photoFile.getAbsolutePath();
+        Uri photoURI = FileProvider.getUriForFile(this,
+                "com.microblink.blinkid.provider",
+                photoFile);
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+
+        List<ResolveInfo> resolveInfoList = getPackageManager().queryIntentActivities(takePictureIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo : resolveInfoList) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            grantUriPermission(packageName, photoURI, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        }
+
+        startActivityForResult(takePictureIntent, TAKE_PHOTO_REQUEST_CODE);
     }
 
     /**
@@ -221,13 +235,15 @@ public class ScanImageActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_REQUEST_CODE) {
+        if (requestCode == TAKE_PHOTO_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 // obtain image that was saved to external storage by camera activity
                 try {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = BITMAP_CONFIG;
-                    mBitmap = BitmapFactory.decodeFile(mCameraFile, options);
+                    Uri imageUri = Uri.fromFile(new File(mCameraFile));
+                    InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    mBitmap = BitmapFactory.decodeStream(imageStream);
+                    //noinspection ResultOfMethodCallIgnored
+                    imageStream.close();
                     new File(mCameraFile).delete();
                     // show camera image
                     mImgView.setImageBitmap(mBitmap);

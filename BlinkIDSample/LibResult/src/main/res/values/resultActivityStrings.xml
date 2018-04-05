@@ -6,6 +6,9 @@
     <string name="YesPay">Confirm data</string>
     <string name="NoBack">Cancel</string>
 
+    <string name="PPNationalNumber">National number</string>
+    <string name="PPIdentityNumber">Identity number</string>
+
     <!-- MRTD -->
     <string name="PPPrimaryId">Primary ID</string>
     <string name="PPSecondaryId">Secondary ID</string>
@@ -128,5 +131,7 @@
     <string name="PPCardVersion">Card version</string>
     <string name="PPDonorIndicator">Donor indicator</string>
 
+    <!-- Malaysian DL specific -->
+    <string name="PPClass">Class</string>
 
 </resources>

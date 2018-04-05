@@ -1,5 +1,28 @@
 # Release notes
 
+## 3.16.0
+
+### New features:
+
+- added support for reading front side of Egypt ID - use `EgyptIDFrontRecognizerSettings` 
+- added support for reading front and back side of Jordan ID - use `JordanIDFrontRecognizerSettings`,  `JordanIDBackRecognizerSettings` and `JordanIDCombinedRecognizerSettings`
+- added support for reading front side of Malaysian drivers license - use `MalaysianDLFrontRecognizerSettings`
+
+### Improvements for existing features:
+
+- improved `USDLRecognizer`:
+    - better parsing of the USDL barcode content
+    - fixed extraction of expiry date from magnetic stripe USDL subtype
+- improved `VinParser`:
+    - better extraction of specific VIN numbers
+- improved `MRTDRecognizer`:
+    - added support for parsing Malaysian Passport IMM13P MRZ type, reading of special characters must be enabled by using `MRTDRecognizerSettings.setAllowSpecialCharacters`
+    - enabled reading of MRZ with '-' characters (non-default setting), to enable this use method `MRTDRecognizerSettings.setAllowSpecialCharacters`
+
+### Bug fixes:
+
+- fixed rare crash in `MRTDRecognizer`
+
 ## 3.15.1
 
 ### Bug fixes:

@@ -33,6 +33,7 @@ import com.microblink.libresult.extract.croatia.CroatianIDFrontSideRecognitionRe
 import com.microblink.libresult.extract.czechia.CzechIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.czechia.CzechIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.czechia.CzechIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.egypt.EgyptIDFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.eudl.EUDLRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.germany.GermanIDCombinedRecognitionResultExtractor;
@@ -41,7 +42,11 @@ import com.microblink.libresult.extract.germany.GermanOldIDRecognitionResultExtr
 import com.microblink.libresult.extract.germany.GermanPassportRecognitionResultExtractor;
 import com.microblink.libresult.extract.hongkong.HongKongIDFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.indonesia.IndonesianIDFrontSideRecognitionResultExtractor;
+import com.microblink.libresult.extract.jordan.JordanIDBackRecognitionResultExtractor;
+import com.microblink.libresult.extract.jordan.JordanIDCombinedRecognitionResultExtractor;
+import com.microblink.libresult.extract.jordan.JordanIDFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.IKadRecognitionResultExtractor;
+import com.microblink.libresult.extract.malaysia.MalaysianDLFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyKadBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyKadFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.malaysia.MyTenteraRecognitionResultExtractor;
@@ -88,6 +93,7 @@ import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecog
 import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.egypt.front.EgyptIDFrontRecognitionResult;
 import com.microblink.recognizers.blinkid.eudl.EUDLRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognitionResult;
@@ -96,6 +102,10 @@ import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecogniti
 import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognitionResult;
 import com.microblink.recognizers.blinkid.hongkong.front.HongKongIDFrontRecognitionResult;
 import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognitionResult;
+import com.microblink.recognizers.blinkid.jordan.back.JordanIDBackRecognitionResult;
+import com.microblink.recognizers.blinkid.jordan.combined.JordanIDCombinedRecognitionResult;
+import com.microblink.recognizers.blinkid.jordan.front.JordanIDFrontRecognitionResult;
+import com.microblink.recognizers.blinkid.malaysia.dl.front.MalaysianDLFrontRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognitionResult;
@@ -204,6 +214,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new CzechIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof CzechIDCombinedRecognitionResult) {
             mResultExtractor = new CzechIDCombinedRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof EgyptIDFrontRecognitionResult) {
+            mResultExtractor = new EgyptIDFrontRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanIDBackSideRecognitionResult) {
             mResultExtractor = new GermanIDBackSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof GermanIDFrontSideRecognitionResult) {
@@ -218,6 +230,12 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new HongKongIDFrontRecognitionResultExtractor(getActivity());
         } else if (mData instanceof IndonesianIDFrontRecognitionResult) {
             mResultExtractor = new IndonesianIDFrontSideRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof JordanIDFrontRecognitionResult) {
+            mResultExtractor = new JordanIDFrontRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof JordanIDBackRecognitionResult) {
+            mResultExtractor = new JordanIDBackRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof JordanIDCombinedRecognitionResult) {
+            mResultExtractor = new JordanIDCombinedRecognitionResultExtractor(getActivity());
         } else if (mData instanceof NewZealandDLFrontRecognitionResult) {
             mResultExtractor = new NewZealandDLFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof PolishIDBackSideRecognitionResult) {
@@ -264,6 +282,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new MyKadBackRecognitionResultExtractor(getActivity());
         } else if (mData instanceof MyTenteraRecognitionResult) {
             mResultExtractor = new MyTenteraRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof MalaysianDLFrontRecognitionResult) {
+            mResultExtractor = new MalaysianDLFrontRecognitionResultExtractor(getActivity());
         } else if(mData instanceof MRTDRecognitionResult) {
             mResultExtractor = new MRTDRecognitionResultExtractor(getActivity());
         } else if(mData instanceof EUDLRecognitionResult) {
