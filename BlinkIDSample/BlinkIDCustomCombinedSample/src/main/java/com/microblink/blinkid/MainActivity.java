@@ -22,6 +22,7 @@ import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRec
 import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings;
+import com.microblink.recognizers.blinkid.jordan.combined.JordanIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.mrtd.combined.MRTDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognizerSettings;
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         elements.add(buildCroatianIDCombinedElement());
         elements.add(buildCzhechIDCombinedElement());
         elements.add(buildGermanIDCombinedElement());
+        elements.add(buildJordanIDCombinedElement());
         elements.add(buildPolishIDCombinedElement());
         elements.add(buildSerbianIDCombinedElement());
         elements.add(buildSingaporeIDCombinedElement());
@@ -131,6 +133,12 @@ public class MainActivity extends AppCompatActivity {
         GermanIDCombinedRecognizerSettings germanIDCombined = new GermanIDCombinedRecognizerSettings();
 
         return new ListElement("German ID combined", germanIDCombined);
+    }
+
+    private ListElement buildJordanIDCombinedElement() {
+        JordanIDCombinedRecognizerSettings jordanIDCombined = new JordanIDCombinedRecognizerSettings();
+
+        return new ListElement("Jordan ID combined", jordanIDCombined);
     }
 
     private ListElement buildPolishIDCombinedElement() {
