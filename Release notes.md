@@ -10,6 +10,7 @@
 
 ### Improvements for existing features:
 
+- improved reading of Malaysian MyKad and MyTentera
 - improved `USDLRecognizer`:
     - better parsing of the USDL barcode content
     - fixed extraction of expiry date from magnetic stripe USDL subtype
