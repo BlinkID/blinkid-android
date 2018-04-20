@@ -66,11 +66,12 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Czech ID documents](#czID_front)
   * [Scanning back side of Czech ID documents](#czID_back)
   * [Scanning and combining results from front and back side of Czech ID documents](#czechIDCombined)
-  * [Scanning front side of German ID documents](#germanID_front)
   * [Scanning front side of Egypt ID documents](#egyptID_front)
+  * [Scanning front side of German ID documents](#germanID_front)
   * [Scanning back side of German ID documents](#germanID_back)
   * [Scanning front side of the older German ID documents](#germanID_oldFront)
   * [Scanning German passports](#germanPassport)
+  * [Scanning and combining results from front and back side of German ID documents](#germanIDCombined)
   * [Scanning front side of Hong Kong ID documents](#hongKongID_front)
   * [Scanning front side of Indonesian ID documents](#indonesianID_front)
   * [Scanning front side of Jordan ID documents](#jordanID_front)
@@ -272,7 +273,7 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 6. Replace the `res` folder on library project with the `res` folder of the `LibBlinkID.aar` file.
 
-You?ve already created the project that contains almost everything you need. Now let?s see how to configure your project to reference this library project.
+You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
@@ -2370,58 +2371,6 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/czechia/combined/CzechIDCombinedRecognitionResult.html).**
 
-## <a name="germanID_front"></a> Scanning front side of German ID documents
-
-This section will discuss the setting up of German ID Front Side recognizer and obtaining results from it.
-
-### Setting up German ID card front side recognizer
-
-To activate German ID front side recognizer, you need to create [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
-
-```java
-private RecognizerSettings[] setupSettingsArray() {
-	GermanIDFrontSideRecognizerSettings sett = new GermanIDFrontSideRecognizerSettings();
-	
-	// now add sett to recognizer settings array that is used to configure
-	// recognition
-	return new RecognizerSettings[] { sett };
-}
-```
-
-**You can also tweak recognition parameters with methods of [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) for more information.**
-
-### Obtaining results from German ID card front side recognizer
-
-German ID front side recognizer produces [GermanIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDFrontSideRecognitionResult` class. 
-
-**Note:** `GermanIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
-
-See the following snippet for an example:
-
-```java
-@Override
-public void onScanningDone(RecognitionResults results) {
-	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
-	for(BaseRecognitionResult baseResult : dataArray) {
-		if(baseResult instanceof GermanIDFrontSideRecognitionResult) {
-			GermanIDFrontSideRecognitionResult result = (GermanIDFrontSideRecognitionResult) baseResult;
-			
-	        // you can use getters of GermanIDFrontSideRecognitionResult class to 
-	        // obtain scanned information
-	        if(result.isValid() && !result.isEmpty()) {
-				String firstName = result.getFirstName();
-				String lastName = result.getLastName();
-	        } else {
-	        	// not all relevant data was scanned, ask user
-	        	// to try again
-	        }
-		}
-	}
-}
-```
-
-**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html).**
-
 ## <a name="egyptID_front"></a> Scanning front side of Egypt ID documents
 
 This section will discuss the setting up of Egypt ID Front Side recognizer and obtaining results from it.
@@ -2473,6 +2422,58 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/egypt/front/EgyptIDFrontRecognitionResult.html).**
+
+## <a name="germanID_front"></a> Scanning front side of German ID documents
+
+This section will discuss the setting up of German ID Front Side recognizer and obtaining results from it.
+
+### Setting up German ID card front side recognizer
+
+To activate German ID front side recognizer, you need to create [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	GermanIDFrontSideRecognizerSettings sett = new GermanIDFrontSideRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [GermanIDFrontSideRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognizerSettings.html) for more information.**
+
+### Obtaining results from German ID card front side recognizer
+
+German ID front side recognizer produces [GermanIDFrontSideRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDFrontSideRecognitionResult` class. 
+
+**Note:** `GermanIDFrontSideRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof GermanIDFrontSideRecognitionResult) {
+			GermanIDFrontSideRecognitionResult result = (GermanIDFrontSideRecognitionResult) baseResult;
+			
+	        // you can use getters of GermanIDFrontSideRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String firstName = result.getFirstName();
+				String lastName = result.getLastName();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/front/GermanIDFrontSideRecognitionResult.html).**
 
 ## <a name="germanID_back"></a> Scanning back side of German ID documents
 
@@ -2627,6 +2628,73 @@ public void onScanningDone(RecognitionResults results) {
 ```
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/passport/GermanPassportRecognitionResult.html).**
+
+## <a name="germanIDCombined"></a> Scanning and combining results from front and back side of German ID documents
+
+This section will discuss the setting up of German ID Combined recognizer and obtaining results from it. This recognizer combines results from front and back side of the German ID card to boost result accuracy. Also it checks whether front and back sides are from the same ID card.
+
+### Setting up German ID card combined recognizer
+
+To activate German ID combined recognizer, you need to create [GermanIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+    GermanIDCombinedRecognizerSettings sett = new GermanIDCombinedRecognizerSettings();
+    
+    // now add sett to recognizer settings array that is used to configure
+    // recognition
+    return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [GermanIDCombinedRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html) for more information.**
+
+**Note:** In your [custom UI integration](#recognizerView), you have to enable [obtaining of partial result metadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html#setPartialResultMetadataAllowed-boolean-) in [MetadataSettings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.html) if you want to be informed when recognition of the front side is done and receive [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) in [onMetadataAvailable](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataListener.html) callback. When callback with [RecognitionResultMetadata](https://blinkid.github.io/blinkid-android/com/microblink/metadata/RecognitionResultMetadata.html) is called you can make appropriate changes in the UI to notify the user to flip document and scan back side. See the following snippet for an example:
+
+```java
+@Override
+public void onMetadataAvailable(Metadata metadata) {
+    if (metadata instanceof RecognitionResultMetadata) {
+        BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
+        // do something with the result
+        // notify user to scan the back side 
+    }
+}
+```
+
+### Obtaining results from German ID card combined recognizer
+
+German ID combined recognizer produces [GermanIDCombinedRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `GermanIDCombinedRecognitionResult` class. 
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+    BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+    for(BaseRecognitionResult baseResult : dataArray) {
+        if(baseResult instanceof GermanIDCombinedRecognitionResult) {
+            GermanIDCombinedRecognitionResult result = (GermanIDCombinedRecognitionResult) baseResult;
+            
+            // you can use getters of GermanIDCombinedRecognitionResult class to 
+            // obtain scanned information
+            if(result.isValid() && !result.isEmpty()) {
+                if (!result.isDocumentDataMatch()) {
+                   // front and back sides are not from the same ID card
+                } else {
+                    String firstName = result.getFirstName();
+                    String lastName = result.getLastName();
+                }
+            } else {
+                // not all relevant data was scanned, ask user
+                // to try again
+            }
+        }
+    }
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognitionResult.html).**
 
 ## <a name="hongKongID_front"></a> Scanning front side of Hong Kong ID documents
 
@@ -5669,7 +5737,7 @@ To modify an existing string, the best approach would be to:
 2. find strings.xml in `LibBlinkID.aar` archive folder `res/values-hr`
 3. choose a string key which you want to change. For example, ```<string name="PhotoPayHelp">Help</string>```
 4. in your project create a file `strings.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomo?</string>```
+5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomoć</string>```
 6. repeat for all the string you wish to change
 
 # <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
@@ -5715,7 +5783,7 @@ At the time of writing this documentation, [Android does not have support for co
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its classes.jar to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR?s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its classes.jar to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk.
 
 # <a name="archConsider"></a> Processor architecture considerations
@@ -5998,7 +6066,7 @@ This error happens when JVM fails to load some native method from native library
 
 ### <a name="requiredParserDidntProduceResult"></a> While scanning, I get `Required parser 'X' from parser group 'Y' did not produce result!` in my app logs
 
-This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn?t succeed while processing the current camera frame. This can happen due to:
+This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn’t succeed while processing the current camera frame. This can happen due to:
 
 * poor camera frame (out of focus, poor light, glare)
     * message appears occasionally while moving the camera frame
