@@ -5,20 +5,36 @@
 _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID cards in your app. You can simply integrate the SDK into your app by following the instructions below and your app will be able to benefit the scanning feature for following ID card standards:
 
 * [Passports and IDs that contain Machine Readable Zone](https://en.wikipedia.org/wiki/Machine-readable_passport)
-* [United States' Driver's License barcodes](https://en.wikipedia.org/wiki/Driver%27s_license_in_the_United_States)
-* [Austrian Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Austria)
-* [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
-* [German Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Germany)
-* [Malaysian identity card's front side](https://en.wikipedia.org/wiki/Malaysian_identity_card)
-* Malaysian iKad card
+* [Australian Driver's Licence's front and rear side](https://en.wikipedia.org/wiki/Driving_licence_in_Australia)
 * [Front and rear side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card)
+* [Austrian passport](https://en.wikipedia.org/wiki/Austrian_passport)
+* [Austrian Driver’s Licence’s front side](https://en.wikipedia.org/wiki/Driving_licence_in_Austria)
+* Front and rear side of Colombian identity card
 * [Front and rear side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card)
 * [Front and rear side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card)
+* [Front side of Egyptian identity card](http://www.identity-cards.net/record/egypt)
 * [Front and rear side of German identity card](https://en.wikipedia.org/wiki/German_identity_card)
+* [German Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_Germany)
+* [German passport](https://en.wikipedia.org/wiki/German_passport)
+* [Front side of Hong Kong identity card](https://en.wikipedia.org/wiki/Hong_Kong_Identity_Card)
+* [Front side of Indonesian identity card](https://en.wikipedia.org/wiki/Indonesian_identity_card)
+* Front and rear side of Jordan identity card
+* [Front and rear side of Malaysian identity card](https://en.wikipedia.org/wiki/Malaysian_identity_card)
+* [Malaysian Driver's Licence](https://en.wikipedia.org/wiki/Driving_licence_in_Malaysia)
+* Malaysian iKad card
+* Malaysian MyTentera card
+* New Zealand Driver's Licence's
+* [Front and rear side of Polish identity card](https://en.wikipedia.org/wiki/Polish_identity_card)
+* [Romanian identity card](https://en.wikipedia.org/wiki/Romanian_identity_card)
 * [Front and rear side of Serbian ID card](https://en.wikipedia.org/wiki/Serbian_identity_card)
 * [Front and rear side of Singapore ID card](https://en.wikipedia.org/wiki/National_Registration_Identity_Card)
 * [Front and rear side of Slovak identity card](https://en.wikipedia.org/wiki/Slovak_identity_card)
 * [Front and rear side of Slovenian identity card](https://en.wikipedia.org/wiki/Slovenian_identity_card)
+* [Front and rear side of Swiss identity card](https://en.wikipedia.org/wiki/Swiss_identity_card)
+* [Swiss passport](https://en.wikipedia.org/wiki/Swiss_passport)
+* Front and rear side of United Arab Emirates identity card
+* [United Kingdom's Driver's Licence's front side](https://en.wikipedia.org/wiki/Driving_licence_in_the_United_Kingdom)
+* United States / Canada Driver's License barcodes
 
 As of version `1.8.0` you can also scan barcodes and perform OCR of structurized or free-form text. Supported barcodes are the same as in sister product [PDF417.mobi](https://github.com/PDF417/pdf417-android).
 
