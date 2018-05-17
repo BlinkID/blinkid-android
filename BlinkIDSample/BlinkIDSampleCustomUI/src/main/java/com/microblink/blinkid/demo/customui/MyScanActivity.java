@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,21 +17,17 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.microblink.activity.ScanActivity;
 import com.microblink.blinkid.demo.R;
-import com.microblink.blinkid.demo.config.Config;
-import com.microblink.detectors.DetectorResult;
-import com.microblink.detectors.quad.QuadDetectorResult;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkbarcode.usdl.USDLRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
-import com.microblink.metadata.DetectionMetadata;
-import com.microblink.metadata.Metadata;
-import com.microblink.metadata.MetadataListener;
-import com.microblink.metadata.MetadataSettings;
-import com.microblink.recognition.InvalidLicenceKeyException;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.metadata.MetadataCallbacks;
+import com.microblink.metadata.detection.quad.DisplayableQuadDetection;
+import com.microblink.metadata.detection.quad.QuadDetectionCallback;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.CameraAspectMode;
@@ -38,73 +35,64 @@ import com.microblink.view.CameraEventsListener;
 import com.microblink.view.OnSizeChangedListener;
 import com.microblink.view.OrientationAllowedListener;
 import com.microblink.view.recognition.DetectionStatus;
-import com.microblink.view.recognition.RecognizerView;
+import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
 import com.microblink.view.viewfinder.quadview.QuadViewManager;
 import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
 import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 
-public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener, MetadataListener{
+public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener {
 
     public static final String TAG = "MyScanActivity";
+    public static final String EXTRA_RECOGNIZER_BUNDLE = "RECOGNIZER_BUNDLE";
 
     private int mScansDone = 0;
     private Handler mHandler = new Handler();
 
-    /** This is a RecognizerView - it contains camera view and can contain camera overlays */
-    RecognizerView mRecognizerView;
-    /** CameraPermissionManager is provided helper class that can be used to obtain the permission to use camera.
+    private RecognizerBundle recognizerBundle;
+
+    /**
+     * This is a RecognizerView - it contains camera view and can contain camera overlays
+     */
+    RecognizerRunnerView mRecognizerView;
+    /**
+     * CameraPermissionManager is provided helper class that can be used to obtain the permission to use camera.
      * It is used on Android 6.0 (API level 23) or newer.
      */
     private CameraPermissionManager mCameraPermissionManager;
-    /** This is a back button */
+    /**
+     * This is a back button
+     */
     private Button mBackButton = null;
-    /** This is a torch control button */
+    /**
+     * This is a torch control button
+     */
     private Button mTorchButton = null;
-    /** Is torch enabled? */
+    /**
+     * Is torch enabled?
+     */
     private boolean mTorchEnabled = false;
-    /** This is a text field that contains status messages */
+    /**
+     * This is a text field that contains status messages
+     */
     private TextView mStatusTextView = null;
-    /** This is BlinkID's built-in helper for built-in view that draws detection location */
+    /**
+     * This is BlinkID's built-in helper for built-in view that draws detection location
+     */
     QuadViewManager mQvManager = null;
-    /** MediaPlayer will be used for beep sound */
+    /**
+     * MediaPlayer will be used for beep sound
+     */
     private MediaPlayer mMediaPlayer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_scan);
+        mRecognizerView = findViewById(R.id.recognizerView);
 
-        // obtain reference to RecognizerView
-        mRecognizerView = (RecognizerView) findViewById(R.id.recognizerView);
-
-        /*
-         * Prepare settings for recognition.
-         */
-        RecognitionSettings recognitionSettings = new RecognitionSettings();
-        RecognizerSettings[] settArray = Config.getRecognizerSettings();
-        // set recognizer settings array that is used to configure recognition
-        recognitionSettings.setRecognizerSettingsArray(settArray);
-        mRecognizerView.setRecognitionSettings(recognitionSettings);
-
-
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        try {
-            mRecognizerView.setLicenseKey(com.microblink.Config.LICENSE_KEY);
-        } catch (InvalidLicenceKeyException e) {
-            e.printStackTrace();
-            Log.e(TAG, "Invalid licence key!");
-            Toast.makeText(this, "Invalid licence key!", Toast.LENGTH_SHORT).show();
-            finish();
-        }
+        recognizerBundle = new RecognizerBundle(createRecognizers());
+        mRecognizerView.setRecognizerBundle(recognizerBundle);
 
         // scan result listener will be notified when scan result gets available
         mRecognizerView.setScanResultListener(this);
@@ -124,14 +112,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // when transforming the view from portrait to landscape or vice versa)
         mRecognizerView.setOnSizeChangedListener(this);
 
-        // define which metadata will be available in MetadataListener (onMetadataAvailable method)
-        MetadataSettings metadataSettings = new MetadataSettings();
-        // detection metadata should be available in MetadataListener
-        // detection metadata are all metadata objects from com.microblink.metadata.detection package
-        metadataSettings.setDetectionMetadataAllowed(true);
-        // set metadata listener and defined metadata settings
-        // metadata listener will obtain selected metadata
-        mRecognizerView.setMetadataListener(this, metadataSettings);
+        setupMetadataCallbacks();
 
         // set initial orientation
         mRecognizerView.setInitialOrientation(Orientation.ORIENTATION_PORTRAIT);
@@ -146,7 +127,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         View v = mCameraPermissionManager.getAskPermissionOverlay();
         if (v != null) {
             // add it to the current layout that contains the recognizer view
-            ViewGroup vg = (ViewGroup) findViewById(R.id.my_scan_root);
+            ViewGroup vg = findViewById(R.id.my_scan_root);
             vg.addView(v);
         }
 
@@ -155,23 +136,19 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
 
         // after scanner is created, you can add your views to it
 
-        // initialize QuadViewManager
         // Use provided factory method from QuadViewManagerFactory that can instantiate the
         // QuadViewManager based on several presets defined in QuadViewPreset enum. Details about
         // each of them can be found in javadoc. This method automatically adds the QuadView as a
         // child of RecognizerView.
-        // Here we use preset which sets up quad view in the same style as used in built-in BlinkID ScanCard activity.
-        mQvManager= QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_FROM_SCAN_CARD_ACTIVITY);
+        // Here we use preset which sets up quad view in the same style as used in built-in BlinkID DocumentScan activity.
+        mQvManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_FROM_DOCUMENT_SCAN_ACTIVITY);
 
         // initialize buttons and status view
         View view = getLayoutInflater().inflate(R.layout.default_photopay_viewfinder, null);
 
-        /** setup back button */
-        mBackButton = (Button) view.findViewById(R.id.defaultBackButton);
+        mBackButton = view.findViewById(R.id.defaultBackButton);
         mBackButton.setText(getString(R.string.mbHome));
-
         mBackButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 setResult(Activity.RESULT_CANCELED);
@@ -179,16 +156,46 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
             }
         });
 
-        mTorchButton = (Button) view.findViewById(R.id.defaultTorchButton);
+        mTorchButton = view.findViewById(R.id.defaultTorchButton);
         mTorchButton.setVisibility(View.GONE);
 
-        mStatusTextView = (TextView) view.findViewById(R.id.defaultStatusTextView);
-        // hide status text
+        mStatusTextView = view.findViewById(R.id.defaultStatusTextView);
         mStatusTextView.setVisibility(View.INVISIBLE);
 
         // add buttons and status view as rotatable view to BlinkIdView (it will be rotated even if activity remains in portrait/landscape)
         // allowed orientations are controlled via OrientationAllowedListener
         mRecognizerView.addChildView(view, true);
+    }
+
+    private void setupMetadataCallbacks() {
+        MetadataCallbacks metadataCallbacks = new MetadataCallbacks();
+        // add callback for each metadata type you're interested in
+        metadataCallbacks.setQuadDetectionCallback(new QuadDetectionCallback() {
+            @Override
+            public void onQuadDetection(@NonNull DisplayableQuadDetection displayableQuadDetection) {
+                // begin quadrilateral animation to detected quadrilateral
+                mQvManager.animateQuadToDetectionPosition(displayableQuadDetection);
+                DetectionStatus detectionStatus = displayableQuadDetection.getDetectionStatus();
+
+                // displays message about detection status to the user
+                if (detectionStatus == DetectionStatus.SUCCESS) {
+                    displayText(R.string.Processing);
+                } else if (detectionStatus == DetectionStatus.FAIL) {
+                    displayText(R.string.Align);
+                } else if (detectionStatus == DetectionStatus.CAMERA_TOO_HIGH) {
+                    displayText(R.string.CameraTooHigh);
+                } else if (detectionStatus == DetectionStatus.PARTIAL_OBJECT) {
+                    displayText(R.string.PartialDetected);
+                }
+            }
+        });
+        mRecognizerView.setMetadataCallbacks(metadataCallbacks);
+    }
+
+    private Recognizer[] createRecognizers() {
+        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
+        USDLRecognizer usdlRecognizer = new USDLRecognizer();
+        return new Recognizer[]{mrtdRecognizer, usdlRecognizer};
     }
 
     @Override
@@ -205,7 +212,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     protected void onStart() {
         super.onStart();
         // all activity lifecycle events must be passed on to RecognizerView
-        if(mRecognizerView != null) {
+        if (mRecognizerView != null) {
             mRecognizerView.start();
         }
     }
@@ -214,7 +221,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     protected void onPause() {
         super.onPause();
         // all activity lifecycle events must be passed on to RecognizerView
-        if(mRecognizerView != null) {
+        if (mRecognizerView != null) {
             mRecognizerView.pause();
         }
         if (mMediaPlayer != null) {
@@ -226,7 +233,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     protected void onStop() {
         super.onStop();
         // all activity lifecycle events must be passed on to RecognizerView
-        if(mRecognizerView != null) {
+        if (mRecognizerView != null) {
             mRecognizerView.stop();
         }
     }
@@ -235,7 +242,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     protected void onDestroy() {
         super.onDestroy();
         // all activity lifecycle events must be passed on to RecognizerView
-        if(mRecognizerView != null) {
+        if (mRecognizerView != null) {
             mRecognizerView.destroy();
         }
     }
@@ -260,14 +267,21 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     }
 
     @Override
-    public void onScanningDone(RecognitionResults results) {
-        soundNotification();
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                soundNotification();
+            }
+        });
+
         mScansDone++;
         mRecognizerView.pauseScanning();
-        if(mScansDone>=3) {
-            // after 3 successful scans, return the last result
+        if (mScansDone >= 3) {
+            // after 3 successful scans, show results
             Intent resultIntent = new Intent();
-            resultIntent.putExtra(ScanActivity.EXTRAS_RECOGNITION_RESULTS, results);
+            recognizerBundle.saveToIntent(resultIntent);
+            resultIntent.putExtra(EXTRA_RECOGNIZER_BUNDLE, recognizerBundle);
             setResult(RESULT_OK, resultIntent);
             finish();
         } else {
@@ -282,7 +296,6 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         }
     }
 
-
     @Override
     public void onCameraPreviewStarted() {
         // this method is called just after camera preview has started
@@ -295,37 +308,43 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     }
 
     private void enableTorchButtonIfPossible() {
-        if (mRecognizerView.isCameraTorchSupported() && mTorchButton != null) {
-            mTorchButton.setVisibility(View.VISIBLE);
-            mTorchButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    mRecognizerView.setTorchState(!mTorchEnabled, new SuccessCallback() {
-                        @Override
-                        public void onOperationDone(final boolean success) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (success) {
-                                        mTorchEnabled = !mTorchEnabled;
-                                        if (mTorchEnabled) {
-                                            mTorchButton.setText(R.string.mbLightOn);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lighton, 0, 0, 0);
-                                        } else {
-                                            mTorchButton.setText(R.string.mbLightOff);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightoff, 0, 0, 0);
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+        if (!mRecognizerView.isCameraTorchSupported() || mTorchButton == null) {
+            return;
         }
+
+        mTorchButton.setVisibility(View.VISIBLE);
+        mTorchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onTorchBtnClick();
+            }
+        });
     }
 
+    private void onTorchBtnClick() {
+        mRecognizerView.setTorchState(!mTorchEnabled, new SuccessCallback() {
+            @Override
+            public void onOperationDone(final boolean success) {
+                if (!success) {
+                    return;
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTorchEnabled = !mTorchEnabled;
+                        if (mTorchEnabled) {
+                            mTorchButton.setText(R.string.mbLightOn);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lighton, 0, 0, 0);
+                        } else {
+                            mTorchButton.setText(R.string.mbLightOff);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightoff, 0, 0, 0);
+                        }
+                    }
+                });
+            }
+        });
+    }
 
     @Override
     public void onError(Throwable ex) {
@@ -376,24 +395,24 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
 
     @Override
     public void onAutofocusStarted(Rect[] rects) {
-        if(rects == null) {
+        if (rects == null) {
             Log.i(TAG, "Autofocus started with focusing areas being null");
         } else {
             Log.i(TAG, "Autofocus started");
-            for(int i = 0; i < rects.length; ++i) {
-                Log.d(TAG, "Focus area: " + rects[i].toString());
+            for (Rect rect : rects) {
+                Log.d(TAG, "Focus area: " + rect.toString());
             }
         }
     }
 
     @Override
     public void onAutofocusStopped(Rect[] rects) {
-        if(rects == null) {
+        if (rects == null) {
             Log.i(TAG, "Autofocus stopped with focusing areas being null");
         } else {
             Log.i(TAG, "Autofocus stopped");
-            for(int i = 0; i < rects.length; ++i) {
-                Log.d(TAG, "Focus area: " + rects[i].toString());
+            for (Rect rect : rects) {
+                Log.d(TAG, "Focus area: " + rect.toString());
             }
         }
     }
@@ -419,53 +438,8 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // set margins for text view
         FrameLayout.LayoutParams statusViewParams = (FrameLayout.LayoutParams) mStatusTextView.getLayoutParams();
         if (statusViewParams.bottomMargin != verticalMargin) {
-            if (android.os.Build.VERSION.SDK_INT <= 7) {
-                statusViewParams.setMargins(0, verticalMargin, 0, verticalMargin);
-            } else {
-                statusViewParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
-            }
+            statusViewParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
             mStatusTextView.setLayoutParams(statusViewParams);
-        }
-    }
-
-    /**
-     * Displays message about detection status to the user.
-     * @param detectionStatus The detection status.
-     */
-    private void displayDetectionStatus(DetectionStatus detectionStatus) {
-        if (detectionStatus == DetectionStatus.SUCCESS) {
-            displayText(R.string.Processing);
-        } else if (detectionStatus == DetectionStatus.FAIL) {
-            displayText(R.string.Align);
-        } else if (detectionStatus == DetectionStatus.CAMERA_TOO_HIGH) {
-            displayText(R.string.CameraTooHigh);
-        } else if (detectionStatus == DetectionStatus.PARTIAL_OBJECT) {
-            displayText(R.string.PartialDetected);
-        }
-    }
-
-    @Override
-    public void onMetadataAvailable(Metadata metadata) {
-        // This method will be called when metadata becomes available during recognition process.
-        // Here, for every metadata type that is allowed through metadata settings,
-        // desired actions can be performed.
-
-        // detection metadata contains detection locations
-        if (metadata instanceof DetectionMetadata) {
-            // detection location is written inside DetectorResult
-            DetectorResult detectorResult = ((DetectionMetadata) metadata).getDetectionResult();
-            // DetectorResult can be null - this means that detection has failed
-            if (detectorResult == null) {
-                if (mQvManager != null) {
-                    // begin quadrilateral animation to its default position
-                    // (internally displays FAIL status)
-                    mQvManager.animateQuadToDefaultPosition();
-                }
-                // when points of interested have been detected (e.g. QR code), this will be returned as PointsDetectorResult
-            } else if (detectorResult instanceof QuadDetectorResult) {
-                // begin quadrilateral animation to detected quadrilateral
-                mQvManager.animateQuadToDetectionPosition((QuadDetectorResult) detectorResult);
-            }
         }
     }
 
@@ -479,8 +453,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     @Override
     @TargetApi(23)
     public void onCameraPermissionDenied() {
-        // this method is called on Android 6.0 and newer if camera permission was not given
-        // by user
+        // this method is called on Android 6.0 and newer if camera permission was not given by user
 
         // ask user to give a camera permission. Provided manager asks for
         // permission only if it has not been already granted.
