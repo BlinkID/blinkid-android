@@ -1,30 +1,41 @@
 package com.microblink.blinkid;
 
 import android.Manifest;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.microblink.Config;
-import com.microblink.activity.ScanActivity;
-import com.microblink.activity.ScanCard;
-import com.microblink.libresult.ResultActivity;
-import com.microblink.metadata.MetadataSettings;
-import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.activity.DocumentScanActivity;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
+import com.microblink.image.Image;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+// in this example MRTD documents will be scanned and during scan multiple document images will be stored on external storage
 public class MainActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = "MainActivity";
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 123;
     private static final int SCAN_ACTIVITY_REQ_CODE = 234;
+    private RecognizerBundle recognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,80 +44,46 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onScanClick(View view) {
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // request write permission
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    REQUEST_WRITE_EXTERNAL_STORAGE);
-
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
         } else {
             startScanning();
         }
-
     }
 
     private void startScanning() {
-        // in this example MRTD documents will be scanned and during scan multiple document
-        // images will be stored in external storage
+        // create MRTD (Machine Readable Travel Document) recognizer
+        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
+        // set to true to obtain images containing full document
+        mrtdRecognizer.setReturnFullDocumentImage(true);
+        // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
+        //mrtdRecognizer.setReturnMRZImage(true);
+
+        // other recognizers might also support returning face and signature images
+
+        // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
+        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mrtdRecognizer);
 
         // use provided ScanCard activity to scan machine readable travel documents
-        Intent intent = new Intent(this, ScanCard.class);
-
-        // prepare recognition settings
-        RecognitionSettings settings = new RecognitionSettings();
-
-        // create settings for MRTD (Machine Readable Travel Document) recognizer
-        MRTDRecognizerSettings mrtdSett = new MRTDRecognizerSettings();
-        // set to true to obtain images containing full document
-        mrtdSett.setShowFullDocument(true);
-        // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
-//        mrtdSett.setShowMRZ(true);
-
-        // set array of recognizers that will be used
-        settings.setRecognizerSettingsArray(new RecognizerSettings[]{mrtdSett});
-
-        MetadataSettings.ImageMetadataSettings ims = new MetadataSettings.ImageMetadataSettings();
-        // enable obtaining of dewarped(cropped) images
-        ims.setDewarpedImageEnabled(true);
-        // obtain successful frames (full last frame on which scan has succeeded)
-        // if you want to obtain only dewarped(cropped) images do not enable successful scan frames
-        ims.setSuccessfulScanFrameEnabled(true);
-
-
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
-        intent.putExtra(ScanCard.EXTRAS_RECOGNITION_SETTINGS, settings);
-        // pass implementation of image listener that will obtain document images
-        intent.putExtra(ScanCard.EXTRAS_IMAGE_LISTENER, new MyImageListener());
-        // pass image metadata settings that specifies which images will be obtained
-        intent.putExtra(ScanCard.EXTRAS_IMAGE_METADATA_SETTINGS, ims);
-
+        Intent intent = new Intent(this, DocumentScanActivity.class);
+        recognizerBundle = new RecognizerBundle(successFrameGrabberRecognizer);
+        recognizerBundle.saveToIntent(intent);
         startActivityForResult(intent, SCAN_ACTIVITY_REQ_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_WRITE_EXTERNAL_STORAGE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    startScanning();
-                } else {
-                    // permission denied
-                    Toast.makeText(this, "Write external storage permission is required!", Toast.LENGTH_SHORT).show();
-                }
+        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
+            // If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // permission was granted
+                startScanning();
+            } else {
+                // permission denied
+                Toast.makeText(this, "Write external storage permission is required!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -117,21 +94,94 @@ public class MainActivity extends AppCompatActivity {
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
         // that we have really returned from BlinkID activity.
-        if (requestCode == SCAN_ACTIVITY_REQ_CODE) {
+        if (requestCode != SCAN_ACTIVITY_REQ_CODE) {
+            return;
+        }
 
-            // make sure BlinkID activity returned result
-            if (resultCode == ScanActivity.RESULT_OK && data != null) {
-                // set intent's component to ResultActivity and pass its contents
-                // to ResultActivity. ResultActivity will show how to extract
-                // data from result.
-                data.setComponent(new ComponentName(this, ResultActivity.class));
-                startActivity(data);
-            } else {
-                // if BlinkID activity did not return result, user has probably
-                // pressed Back button and cancelled scanning
-                Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
+        // make sure BlinkID activity returned result
+        if (resultCode == DocumentScanActivity.RESULT_OK && data != null) {
+            // get images from recognizers and store them
+            Recognizer firstRecognizer = recognizerBundle.getRecognizers()[0];
+            SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = (SuccessFrameGrabberRecognizer) firstRecognizer;
+            storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
+
+            //get wrapped recognizer
+            MRTDRecognizer mrtdRecognizer = (MRTDRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
+            storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
+
+            // set intent's component to ResultActivity and pass its contents
+            // to ResultActivity. ResultActivity will show how to extract
+            // data from result.
+
+            //TODO show result
+            //data.setComponent(new ComponentName(this, ResultActivity.class));
+            //startActivity(data);
+        } else {
+            // if BlinkID activity did not return result, user has probably
+            // pressed Back button and cancelled scanning
+            Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void storeImage(String imageName, Image image) {
+        // we will save images to 'myImages' folder on external storage
+        // image filenames will be 'imageType - currentTimestamp.jpg'
+        String output = Environment.getExternalStorageDirectory().getAbsolutePath() + "/myImages";
+        File f = new File(output);
+        if(!f.exists()) {
+            f.mkdirs();
+        }
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        String dateString = dateFormat.format(new Date());
+        String filename = null;
+        switch(image.getImageFormat()) {
+            case ALPHA_8: {
+                filename = output + "/alpha_8 - " + imageName + " - " + dateString + ".jpg";
+                break;
+            }
+            case BGRA_8888: {
+                filename = output + "/bgra - " + imageName + " - " + dateString + ".jpg";
+                break;
+            }
+            case YUV_NV21: {
+                filename = output + "/yuv - " + imageName + " - " + dateString + ".jpg";
+                break;
             }
         }
+        Bitmap bitmap = image.convertToBitmap();
+        if (bitmap == null) {
+            Log.e(LOG_TAG, "Bitmap is null");
+            return;
+        }
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(filename);
+            boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            if(!success) {
+                Log.e(LOG_TAG, "Failed to compress bitmap!");
+                if(fos != null) {
+                    try {
+                        fos.close();
+                    } catch (IOException ignored) {
+                    } finally {
+                        fos = null;
+                    }
+                    new File(filename).delete();
+                }
+            }
+        } catch (FileNotFoundException e) {
+            Log.e(LOG_TAG, "Failed to save image " + e.toString());
+        } finally {
+            if(fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException ignored) {
+                }
+            }
+        }
+        // after this line, image gets disposed. If you want to save it
+        // for later, you need to clone it with image.clone()
     }
 
 }
