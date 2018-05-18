@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
@@ -12,15 +13,13 @@ import android.widget.Toast;
 import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
-import com.microblink.directApi.Recognizer;
+import com.microblink.directApi.RecognizerRunner;
+import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
 import com.microblink.image.ImageBuilder;
 import com.microblink.recognition.FeatureNotSupportedException;
-import com.microblink.recognition.InvalidLicenceKeyException;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.settings.RecognitionSettings;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.Log;
 import com.microblink.view.recognition.ScanResultListener;
 
@@ -37,11 +36,9 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
     private int mFrameWidth;
     private int mFrameHeight;
 
-    /** Recognizer instance */
-    private Recognizer mRecognizer;
+    private RecognizerRunner mRecognizerRunner;
     /** Recognition settings instance. */
-    private RecognitionSettings mSettings;
-    private String mLicenseKey;
+    private RecognizerBundle mRecognizerBundle = new RecognizerBundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +46,10 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
         setContentView(R.layout.activity_camera1);
 
         Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        if (extras != null) {
-            mSettings = extras.getParcelable(BaseScanActivity.EXTRAS_RECOGNITION_SETTINGS);
-            mLicenseKey = extras.getString(BaseScanActivity.EXTRAS_LICENSE_KEY);
-        }
+        mRecognizerBundle.loadFromIntent(intent);
 
         // setup camera view
-        mSurfaceView = (SurfaceView) findViewById(R.id.camera1SurfaceView);
+        mSurfaceView = findViewById(R.id.camera1SurfaceView);
     }
 
     @Override
@@ -64,32 +57,15 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
         super.onStart();
         // get the recognizer instance
         try {
-            mRecognizer = Recognizer.getSingletonInstance();
+            mRecognizerRunner = RecognizerRunner.getSingletonInstance();
         } catch (FeatureNotSupportedException e) {
             Toast.makeText(this, "Feature not supported! Reason: " + e.getReason().getDescription(), Toast.LENGTH_LONG).show();
             finish();
             return;
         }
 
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        try {
-            mRecognizer.setLicenseKey(this, mLicenseKey);
-        } catch (InvalidLicenceKeyException exc) {
-            Toast.makeText(this, "License key check failed! Reason: " + exc.getMessage(), Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
-
         // initialize recognizer singleton
-        mRecognizer.initialize(this, mSettings, new DirectApiErrorListener() {
+        mRecognizerRunner.initialize(this, mRecognizerBundle, new DirectApiErrorListener() {
             @Override
             public void onRecognizerError(Throwable t) {
                 Toast.makeText(Camera1Activity.this, "There was an error in Recognizer: " + t.getMessage(), Toast.LENGTH_SHORT).show();
@@ -167,30 +143,18 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
     @Override
     protected void onStop() {
         super.onStop();
-        if (mRecognizer != null) {
-            mRecognizer.terminate();
+        if (mRecognizerRunner != null) {
+            mRecognizerRunner.terminate();
         }
         mSurfaceView.getHolder().removeCallback(this);
     }
 
     @Override
-    public void onScanningDone(RecognitionResults results) {
-        // check if results contain valid data
-        BaseRecognitionResult[] brrs = results.getRecognitionResults();
-        boolean haveSomething = false;
-        if (brrs != null) {
-            for (BaseRecognitionResult brr : brrs) {
-                if (!brr.isEmpty() && brr.isValid()) {
-                    haveSomething = true;
-                    break;
-                }
-            }
-        }
-
-        if (haveSomething) {
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+        if (recognitionSuccessType != RecognitionSuccessType.UNSUCCESSFUL) {
             // return results
             Intent intent = new Intent();
-            intent.putExtra(BaseScanActivity.EXTRAS_RECOGNITION_RESULTS, results);
+            mRecognizerBundle.saveToIntent(intent);
             setResult(BaseScanActivity.RESULT_OK, intent);
             finish();
         } else {
@@ -218,10 +182,10 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
 
     @Override
     public void onPreviewFrame(byte[] data, Camera camera) {
-        if (mRecognizer.getCurrentState() == Recognizer.State.READY) {
+        if (mRecognizerRunner.getCurrentState() == RecognizerRunner.State.READY) {
             // create image
             Image img = ImageBuilder.buildImageFromCamera1NV21Frame(data, mFrameWidth, mFrameHeight, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
-            mRecognizer.recognizeImage(img, this);
+            mRecognizerRunner.recognizeImage(img, this);
         } else {
             // just ask for another frame
             camera.addCallbackBuffer(data);

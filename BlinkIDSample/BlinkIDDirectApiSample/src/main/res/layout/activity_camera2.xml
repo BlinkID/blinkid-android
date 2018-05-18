@@ -5,4 +5,4 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:background="#000"
-             tools:context="com.microblink.customcamera.camera2.Camera2Activity" />
+             tools:context=".customcamera.camera2.Camera2Activity" />

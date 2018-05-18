@@ -13,11 +13,14 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Toast;
 
-import com.microblink.Config;
 import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.demo.customcamera.Camera1Activity;
 import com.microblink.blinkid.demo.customcamera.camera2.Camera2Activity;
 import com.microblink.blinkid.demo.imagescan.ScanImageActivity;
+import com.microblink.entities.Entity;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
 import com.microblink.recognizers.BaseRecognitionResult;
 import com.microblink.recognizers.RecognitionResults;
 import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
@@ -32,20 +35,18 @@ import java.util.List;
 public class MenuActivity extends Activity {
 
     private static final int MY_REQUEST_CODE = 1337;
-    private static final String TAG = "DirectApiDemo";
-
     private static final int PERMISSION_REQUEST_CODE = 0x123;
 
     /**
-     * Recognition settings instance, same recognition settings are used for all examples.
+     * Recognition bundle instance, same recognition settings are used for all examples.
      */
-    private RecognitionSettings mRecognitionSettings;
+    private RecognizerBundle mRecognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        buildRecognitionSettings();
+        buildRecognizerBundle();
 
         // Request permissions if not granted, we need CAMERA permission and
         // WRITE_EXTERNAL_STORAGE permission because images that are taken by camera
@@ -64,12 +65,9 @@ public class MenuActivity extends Activity {
         }
     }
 
-    private void buildRecognitionSettings() {
-        // prepare recognition settings
-        mRecognitionSettings = new RecognitionSettings();
-        // set recognizer settings array that is used to configure recognition
-        // MRTDRecognizer will be used in the recognition process
-        mRecognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{new MRTDRecognizerSettings()});
+    private void buildRecognizerBundle() {
+        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
+        mRecognizerBundle = new RecognizerBundle(mrtdRecognizer);
     }
 
     /**
@@ -77,10 +75,8 @@ public class MenuActivity extends Activity {
      */
     public void onScanImageClick(View v) {
         Intent intent = new Intent(this, ScanImageActivity.class);
-        // send license key over intent to scan activity
-        intent.putExtra(BaseScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
         // send settings over intent to scan activity
-        intent.putExtra(BaseScanActivity.EXTRAS_RECOGNITION_SETTINGS, mRecognitionSettings);
+        mRecognizerBundle.saveToIntent(intent);
         startActivityForResult(intent, MY_REQUEST_CODE);
     }
 
@@ -88,7 +84,7 @@ public class MenuActivity extends Activity {
      * Handler for "Camera 1 Activity" and "Camera 2 Activity" buttons
      */
     public void onCameraScanClick(View view) {
-        Class<?> targetActivity = null;
+        Class<?> targetActivity;
         switch (view.getId()) {
             case R.id.btn_camera1:
                 targetActivity = Camera1Activity.class;
@@ -106,47 +102,33 @@ public class MenuActivity extends Activity {
         }
 
         Intent intent = new Intent(this, targetActivity);
-        // send license key over intent to scan activity
-        intent.putExtra(BaseScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
         // send settings over intent to scan activity
-        intent.putExtra(BaseScanActivity.EXTRAS_RECOGNITION_SETTINGS, mRecognitionSettings);
+        mRecognizerBundle.saveToIntent(intent);
         startActivityForResult(intent, MY_REQUEST_CODE);
-    }
-
-    public void showResults(RecognitionResults results) {
-        // Get scan results array. If scan was successful, array will contain at least one element.
-        // Multiple element may be in array if multiple scan results from single image were allowed in settings.
-        BaseRecognitionResult[] resultArray = results.getRecognitionResults();
-        if (resultArray != null && resultArray.length > 0) {
-            if (resultArray[0] instanceof MRTDRecognitionResult) {
-                MRTDRecognitionResult result = (MRTDRecognitionResult) resultArray[0];
-                StringBuilder sb = new StringBuilder();
-                sb.append('\n');
-                sb.append("First name: ");
-                sb.append(result.getSecondaryId());
-                sb.append('\n');
-                sb.append("Last name: ");
-                sb.append(result.getPrimaryId());
-
-                AlertDialog dialog = new AlertDialog.Builder(this)
-                        .setTitle("Scan result")
-                        .setMessage(sb.toString())
-                        .setCancelable(false)
-                        .setPositiveButton("OK", null)
-                        .create();
-                dialog.show();
-            }
-        } else {
-            Toast.makeText(MenuActivity.this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MY_REQUEST_CODE && resultCode == BaseScanActivity.RESULT_OK) {
-            // First, obtain recognition result
-            RecognitionResults results = data.getParcelableExtra(BaseScanActivity.EXTRAS_RECOGNITION_RESULTS);
-            showResults(results);
+            Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
+            Entity.Result result = recognizer.getResult();
+            if (result.isEmpty() || !(result instanceof MRTDRecognizer.Result)) {
+                Toast.makeText(this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            MRTDRecognizer.Result mrtdResult = (MRTDRecognizer.Result) result;
+            String scanResults =
+                    "First name: " + mrtdResult.getMRZResult().getSecondaryId() +
+                    "\nLast name: " + mrtdResult.getMRZResult().getPrimaryId();
+
+            AlertDialog dialog = new AlertDialog.Builder(this)
+                    .setTitle("Scan result")
+                    .setMessage(scanResults)
+                    .setCancelable(false)
+                    .setPositiveButton("OK", null)
+                    .create();
+            dialog.show();
         }
     }
 
