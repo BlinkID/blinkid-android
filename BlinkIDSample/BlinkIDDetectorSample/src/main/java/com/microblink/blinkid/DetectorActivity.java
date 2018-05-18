@@ -12,8 +12,8 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,55 +21,48 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.microblink.detectors.DetectorResult;
-import com.microblink.detectors.DetectorSettings;
-import com.microblink.detectors.multi.MultiDetectorSettings;
-import com.microblink.detectors.quad.QuadDetectorResult;
+import com.microblink.entities.detectors.quad.QuadWithSizeDetector;
+import com.microblink.entities.processors.imageReturn.ImageReturnProcessor;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.detector.DetectorRecognizer;
+import com.microblink.entities.recognizers.templating.ProcessorGroup;
+import com.microblink.entities.recognizers.templating.TemplatingClass;
+import com.microblink.entities.recognizers.templating.dewarpPolicies.DPIBasedDewarpPolicy;
+import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
-import com.microblink.metadata.DetectionMetadata;
-import com.microblink.metadata.ImageMetadata;
-import com.microblink.metadata.Metadata;
-import com.microblink.metadata.MetadataListener;
-import com.microblink.metadata.MetadataSettings;
-import com.microblink.recognition.InvalidLicenceKeyException;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.detector.DetectorRecognizerSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.metadata.MetadataCallbacks;
+import com.microblink.metadata.detection.FailedDetectionCallback;
+import com.microblink.metadata.detection.quad.DisplayableQuadDetection;
+import com.microblink.metadata.detection.quad.QuadDetectionCallback;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.BaseCameraView;
 import com.microblink.view.CameraEventsListener;
 import com.microblink.view.OnSizeChangedListener;
 import com.microblink.view.OrientationAllowedListener;
-import com.microblink.view.recognition.RecognizerView;
+import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
 import com.microblink.view.viewfinder.quadview.QuadViewAnimationListener;
 import com.microblink.view.viewfinder.quadview.QuadViewManager;
 import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
 import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 
-public class DetectorActivity extends Activity implements CameraEventsListener, ScanResultListener, MetadataListener, OnSizeChangedListener {
+public class DetectorActivity extends Activity implements CameraEventsListener, ScanResultListener, OnSizeChangedListener {
 
-    /** Key for setting the array of {@link DetectorSettings} */
-    public static final String EXTRAS_DETECTOR_SETTINGS = "EXTRAS_DETECTOR_SETTINGS";
-    /** Key for setting the license key */
-    public static final String EXTRAS_LICENSE_KEY = "EXTRAS_LICENSE_KEY";
-
+    public static final String EXTRAS_DETECTOR = "EXTRAS_DETECTOR";
     private final int MY_STORAGE_REQUEST_CODE = 6969;
 
     /** RecognizerView is the builtin view that controls camera and recognition */
-    private RecognizerView mRecognizerView;
+    private RecognizerRunnerView mRecognizerView;
     /** View which holds scan result. */
     private View mResultView;
     /** Shows result image. */
     private ImageView mImageView;
     /** This is BlinkID's built-in helper for built-in view that draws detection location */
     private QuadViewManager mQuadViewManager;
-    /** Last dewarped image. */
-    private Image mLastDewarpedImg;
     /** Currently shown bitmap created from dewarped image. */
     private Bitmap mShownBitmap;
     /** This is a torch control button */
@@ -89,6 +82,11 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
      */
     private CameraPermissionManager mCameraPermissionManager;
 
+    /**
+     * Processor that is used to obtain images of the detected document.
+     */
+    private ImageReturnProcessor mImageReturnProcessor;
+
     private enum ActivityState {
         DESTROYED,
         CREATED,
@@ -105,63 +103,49 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         mActivityState = ActivityState.CREATED;
 
         // obtain reference to RecognizerView
-        mRecognizerView = (RecognizerView) findViewById(R.id.rec_view);
+        mRecognizerView = findViewById(R.id.rec_view);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        try {
-            mRecognizerView.setLicenseKey(extras.getString(EXTRAS_LICENSE_KEY));
-        } catch (InvalidLicenceKeyException e) {
-            e.printStackTrace();
-            showErrorDialog(getString(R.string.err_license));
-            mRecognizerView.create();
-            mRecognizerView = null;
+        QuadWithSizeDetector detector = null;
+
+        if (extras != null) {
+            detector = extras.getParcelable(EXTRAS_DETECTOR);
+        }
+
+        if (detector == null) {
+            Toast.makeText(this, "EXTRAS_DETECTOR intent extra not set! Please set " +
+                    "detector that you want to to use.", Toast.LENGTH_SHORT).show();
+            finish();
             return;
         }
 
-        // obtain detector settings from intent
-        Parcelable[] settParc = extras.getParcelableArray(EXTRAS_DETECTOR_SETTINGS);
-        if (settParc == null || settParc.length == 0) {
-            throw new NullPointerException("EXTRAS_DETECTOR_SETTINGS not set."
-                    + " Please set detector settings intent extra!");
-        }
-        DetectorSettings[] detSett = new DetectorSettings[settParc.length];
-        for (int i = 0; i < settParc.length; i++) {
-            detSett[i] = (DetectorSettings)settParc[i];
-        }
+        // setup detector recognizer
+        DetectorRecognizer detectorRecognizer = new DetectorRecognizer(detector);
+        // processor that will simply save obtained image
+        mImageReturnProcessor = new ImageReturnProcessor();
+        // processor group that will be executed on the detected document location
+        ProcessorGroup processorGroup = new ProcessorGroup(
+                // process entire detected location
+                new Rectangle(0.f, 0.f, 1.f, 1.f),
+                // dewarp height will be calculated based on actual physical size of detected
+                // location and requested DPI
+                new DPIBasedDewarpPolicy(200),
+                // only image is needed
+                mImageReturnProcessor
+        );
 
-        // Prepare detector recognizer settings, this recognizer is used to detect the
-        // desired objects.
-        DetectorRecognizerSettings drs = null;
+        // Templating class is used to define how specific document type should be processed.
+        // Only image should be returned, which means that classification of the document
+        // based on the processed data is not needed, so only one document class is defined.
+        TemplatingClass documentClass = new TemplatingClass();
+        // prepared processor group is added to classification processor groups because
+        // they are executed before classification
+        documentClass.setClassificationProcessorGroups(processorGroup);
+        detectorRecognizer.setTemplatingClasses(documentClass);
 
-        if (detSett.length == 1) {
-            // if only one detector settings was sent via intent, use it directly
-            drs = new DetectorRecognizerSettings(detSett[0]);
-        } else {
-            // Otherwise, prepare settings for multi detector that returns the first successful result from one of the
-            // given detectors, here we use detector settings passed by intent.
-            MultiDetectorSettings mds = new MultiDetectorSettings(detSett);
-
-            drs = new DetectorRecognizerSettings(mds);
-        }
-
-        // Finally, prepare settings for recognition.
-        RecognitionSettings settings = new RecognitionSettings();
-        // Set recognizer settings array that is used to configure recognition,
-        // detector recognizer will be used.
-        settings.setRecognizerSettingsArray(new RecognizerSettings[]{drs});
-
-        mRecognizerView.setRecognitionSettings(settings);
+        mRecognizerView.setRecognizerBundle(new RecognizerBundle(detectorRecognizer));
 
         // camera events listener receives events such as when camera preview has started
         // or there was an error while starting the camera
@@ -181,21 +165,10 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
             }
         });
 
-        // define which metadata will be available in MetadataListener (onMetadataAvailable method)
-        MetadataSettings ms = new MetadataSettings();
-        // detection metadata should be available in MetadataListener
-        // detection metadata are all metadata objects from com.microblink.metadata.detection package
-        ms.setDetectionMetadataAllowed(true);
-        // define which images should be available in MetadataListener
-        MetadataSettings.ImageMetadataSettings ims = new MetadataSettings.ImageMetadataSettings();
-        // enable dewarped images
-        ims.setDewarpedImageEnabled(true);
-
-        ms.setImageMetadataSettings(ims);
-
-        // set metadata listener and defined metadata settings
-        // metadata listener will obtain selected metadata
-        mRecognizerView.setMetadataListener(this, ms);
+        MetadataCallbacks metadataCallbacks = new MetadataCallbacks();
+        metadataCallbacks.setFailedDetectionCallback(mFailedDetectionCallback);
+        metadataCallbacks.setQuadDetectionCallback(mQuadDetectionCallback);
+        mRecognizerView.setMetadataCallbacks(metadataCallbacks);
 
         // instantiate the camera permission manager
         mCameraPermissionManager = new CameraPermissionManager(this);
@@ -203,21 +176,20 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         View v = mCameraPermissionManager.getAskPermissionOverlay();
         if (v != null) {
             // add it to the current layout that contains the recognizer view
-            ViewGroup vg = (ViewGroup) findViewById(R.id.main_root);
+            ViewGroup vg = findViewById(R.id.main_root);
             vg.addView(v);
         }
 
         // create scanner (make sure scan settings and listeners were set prior calling create)
         mRecognizerView.create();
 
-
         // initialize the view that is used to show scan results
         mResultView = getLayoutInflater().inflate(R.layout.detector_detection_result, null);
         mResultView.setVisibility(View.INVISIBLE);
-        mImageView = (ImageView) mResultView.findViewById(R.id.imgDewarped);
+        mImageView = mResultView.findViewById(R.id.imgDewarped);
 
         // setup button listeners
-        Button btnCancel = (Button) mResultView.findViewById(R.id.btnCancel);
+        Button btnCancel = mResultView.findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,7 +207,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
             }
         });
 
-        mBtnSave = (Button) mResultView.findViewById(R.id.btnSave);
+        mBtnSave = mResultView.findViewById(R.id.btnSave);
         mBtnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -260,8 +232,8 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // camera overlay
         View overlay = getLayoutInflater().inflate(R.layout.default_barcode_camera_overlay, null);
 
-        mTorchButton = (Button) overlay.findViewById(R.id.defaultTorchButton);
-        mBackButton = (Button) overlay.findViewById(R.id.defaultBackButton);
+        mTorchButton = overlay.findViewById(R.id.defaultTorchButton);
+        mBackButton = overlay.findViewById(R.id.defaultBackButton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,8 +248,8 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // QuadViewManager based on several presets defined in QuadViewPreset enum. Details about
         // each of them can be found in javadoc. This method automatically adds the QuadView as a
         // child of RecognizerView.
-        // Here we use preset which sets up quad view in the same style as used in built-in BlinkID ScanActivity.
-        mQuadViewManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_CORNERS_FROM_SCAN_ACTIVITY);
+        // Here we use preset which sets up quad view in the same style as used in built-in document scan activity.
+        mQuadViewManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_FROM_DOCUMENT_SCAN_ACTIVITY);
 
         // set animation listener to quad view manager that will show result when animation ends
         mQuadViewManager.setAnimationListener(new QuadViewAnimationListener() {
@@ -414,7 +386,12 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // nothing to do
     }
 
-    private void showErrorDialog(String message) {
+
+    @Override
+    public void onError(Throwable exc) {
+        // This method will be called when opening of camera resulted in exception or
+        // recognition process encountered an error.
+        // The error details will be given in ex parameter.
         if (mActivityBooting) {
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
             ab.setNeutralButton("OK", new DialogInterface.OnClickListener() {
@@ -423,18 +400,10 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
                     dialog.dismiss();
                     finish();
                 }
-            }).setTitle("Problem").setMessage(message).setCancelable(false).create().show();
+            }).setTitle("Problem").setMessage(exc.getMessage()).setCancelable(false).create().show();
         } else {
             Log.w(this, "Cannot show dialog because activity is exiting!");
         }
-    }
-
-    @Override
-    public void onError(Throwable exc) {
-        // This method will be called when opening of camera resulted in exception or
-        // recognition process encountered an error.
-        // The error details will be given in ex parameter.
-        showErrorDialog(exc.getMessage());
     }
 
     @Override
@@ -470,64 +439,44 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
      * Shows the view with result image.
      */
     private void showResult() {
-        if(mLastDewarpedImg != null) {
-            // create bitmap out of last dewarped image
-            mShownBitmap = mLastDewarpedImg.convertToBitmap();
-            // dispose image
-            mLastDewarpedImg = null;
-            // display bitmap
-            mImageView.setImageBitmap(mShownBitmap);
-            // display overlay
-            mResultView.setVisibility(View.VISIBLE);
-            // reset result state which is used in animation listener
-            mHaveResult = false;
+        Image detectedImage = mImageReturnProcessor.getResult().getRawImage();
+        if (detectedImage == null) {
+            return;
+        }
 
-            if (Build.VERSION.SDK_INT >= 23) {
-                if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    // if write permission is not granted don't show save button
-                    mBtnSave.setVisibility(View.INVISIBLE);
-                    // request write permission
-                    requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_STORAGE_REQUEST_CODE);
-                }
+        // create bitmap out of last dewarped image
+        mShownBitmap = detectedImage.convertToBitmap();
+        // display bitmap
+        mImageView.setImageBitmap(mShownBitmap);
+        // display overlay
+        mResultView.setVisibility(View.VISIBLE);
+        // reset result state which is used in animation listener
+        mHaveResult = false;
+
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                // if write permission is not granted don't show save button
+                mBtnSave.setVisibility(View.INVISIBLE);
+                // request write permission
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_STORAGE_REQUEST_CODE);
             }
         }
     }
 
     @Override
-    public void onScanningDone(RecognitionResults results) {
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
         mRecognizerView.pauseScanning();
         if(!mQuadViewManager.isAnimationInProgress()) {
             // if animation has ended, show result
-            showResult();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    showResult();
+                }
+            });
         } else {
             // else result will be shown when animation ends (animation listener)
             mHaveResult = true;
-        }
-    }
-
-    @Override
-    public void onMetadataAvailable(Metadata metadata) {
-        // This method will be called when metadata becomes available during recognition process.
-        // Here, for every metadata type that is allowed through metadata settings,
-        // desired actions can be performed.
-        if (metadata instanceof DetectionMetadata) {
-            // detection location is written inside DetectorResult
-            DetectorResult detectorResult = ((DetectionMetadata) metadata).getDetectionResult();
-            // DetectorResult can be null - this means that detection has failed
-            if (detectorResult == null) {
-                if (mQuadViewManager != null) {
-                    // begin quadrilateral animation to its default position
-                    // (internally displays FAIL status)
-                    mQuadViewManager.animateQuadToDefaultPosition();
-                }
-                // when points of interested have been detected (e.g. QR code), this will be returned as PointsDetectorResult
-            } else if (detectorResult instanceof QuadDetectorResult) {
-                // begin quadrilateral animation to detected quadrilateral
-                mQuadViewManager.animateQuadToDetectionPosition((QuadDetectorResult) detectorResult);
-            }
-        } else if (metadata instanceof ImageMetadata) {
-            // here we will get dewarped image
-            mLastDewarpedImg = ((ImageMetadata) metadata).getImage().clone();
         }
     }
 
@@ -573,4 +522,18 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
             mCameraPermissionManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+
+    private final QuadDetectionCallback mQuadDetectionCallback = new QuadDetectionCallback() {
+        @Override
+        public void onQuadDetection(@NonNull DisplayableQuadDetection quadDetection) {
+            mQuadViewManager.animateQuadToDetectionPosition(quadDetection);
+        }
+    };
+
+    private final FailedDetectionCallback mFailedDetectionCallback = new FailedDetectionCallback() {
+        @Override
+        public void onDetectionFailed() {
+            mQuadViewManager.animateQuadToDefaultPosition();
+        }
+    };
 }

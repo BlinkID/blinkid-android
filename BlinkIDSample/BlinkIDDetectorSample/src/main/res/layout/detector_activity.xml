@@ -8,7 +8,7 @@
     android:id="@+id/main_root"
     tools:context=".DetectorActivity">
 
-    <com.microblink.view.recognition.RecognizerView
+    <com.microblink.view.recognition.RecognizerRunnerView
         android:id="@+id/rec_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,6 +17,6 @@
         custom:mb_initialOrientation="portrait">
 
 
-    </com.microblink.view.recognition.RecognizerView>
+    </com.microblink.view.recognition.RecognizerRunnerView>
 
 </FrameLayout>
