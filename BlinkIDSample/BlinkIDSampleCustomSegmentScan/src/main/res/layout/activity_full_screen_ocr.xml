@@ -4,14 +4,14 @@
                 xmlns:custom="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.microblink.blinkid.FullScreenOCR">
+                tools:context="com.microblink.blinkid.FullScreenOcrActivity">
 
-    <com.microblink.view.recognition.RecognizerView
+    <com.microblink.view.recognition.RecognizerRunnerView
         android:id="@+id/recognizerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         custom:mb_initialOrientation="portrait">
 
-    </com.microblink.view.recognition.RecognizerView>
+    </com.microblink.view.recognition.RecognizerRunnerView>
 
 </FrameLayout>

@@ -5,45 +5,40 @@ import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.microblink.Config;
-import com.microblink.detectors.DetectorResult;
-import com.microblink.detectors.points.PointsDetectorResult;
+import com.microblink.entities.parsers.raw.RawParser;
+import com.microblink.entities.processors.parserGroup.ParserGroupProcessor;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
+import com.microblink.entities.recognizers.blinkinput.BlinkInputRecognizer;
 import com.microblink.hardware.camera.VideoResolutionPreset;
 import com.microblink.hardware.orientation.Orientation;
-import com.microblink.metadata.DetectionMetadata;
-import com.microblink.metadata.Metadata;
-import com.microblink.metadata.MetadataListener;
-import com.microblink.metadata.MetadataSettings;
-import com.microblink.metadata.OcrMetadata;
-import com.microblink.recognition.InvalidLicenceKeyException;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkbarcode.barcode.BarcodeRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.barcode.BarcodeScanResult;
-import com.microblink.recognizers.blinkinput.BlinkInputRecognitionResult;
-import com.microblink.recognizers.blinkinput.BlinkInputRecognizerSettings;
-import com.microblink.recognizers.blinkocr.parser.generic.RawParserSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
-import com.microblink.results.ocr.OcrResult;
+import com.microblink.metadata.MetadataCallbacks;
+import com.microblink.metadata.detection.FailedDetectionCallback;
+import com.microblink.metadata.detection.points.DisplayablePointsDetection;
+import com.microblink.metadata.detection.points.PointsDetectionCallback;
+import com.microblink.metadata.ocr.DisplayableOcrResult;
+import com.microblink.metadata.ocr.OcrCallback;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.CameraAspectMode;
 import com.microblink.view.CameraEventsListener;
 import com.microblink.view.OrientationAllowedListener;
 import com.microblink.view.ocrResult.OcrResultCharsView;
-import com.microblink.view.recognition.RecognizerView;
+import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
-import com.microblink.view.viewfinder.PointSetView;
+import com.microblink.view.viewfinder.points.PointSetView;
 
-public class FullScreenOCR extends Activity implements MetadataListener, CameraEventsListener, ScanResultListener {
+public class FullScreenOcrActivity extends Activity implements CameraEventsListener, ScanResultListener {
 
     /** RecognizerView is the built-in view that controls camera and recognition */
-    private RecognizerView mRecognizerView;
+    private RecognizerRunnerView mRecognizerView;
     /**  OcrResultCharsView is built-in view that can display OCR result on top of camera */
     private OcrResultCharsView mOcrResultView;
     /**  PoinSetView is built-in view that can display points of interest on top of camera */
@@ -53,34 +48,31 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
      */
     private CameraPermissionManager mCameraPermissionManager;
 
+    private RecognizerBundle mRecognizerBundle;
+    private RawParser mRawParser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_ocr);
         // obtain reference to RecognizerView
-        mRecognizerView = (RecognizerView) findViewById(R.id.recognizerView);
+        mRecognizerView = findViewById(R.id.recognizerView);
 
         // set log level to information because ocr results will be passed to Log (information level)
         Log.setLogLevel(Log.LogLevel.LOG_INFORMATION);
 
         // initialize BlinkInput recognizer with only raw parser
-        BlinkInputRecognizerSettings ocrSett = new BlinkInputRecognizerSettings();
-        RawParserSettings rawSett = new RawParserSettings();
-        // add raw parser with name "Raw" to default parser group
-        // parser name is important for obtaining results later
-        ocrSett.addParser("Raw", rawSett);
+        mRawParser = new RawParser();
+        BlinkInputRecognizer blinkInputRecognizer = new BlinkInputRecognizer(new ParserGroupProcessor(mRawParser));
 
         // initialize barcode recognizer and set it to scan Code39 and Code128 barcodes
-        BarcodeRecognizerSettings barSett = new BarcodeRecognizerSettings();
-        barSett.setScanCode128(true);
-        barSett.setScanCode39(true);
+        BarcodeRecognizer barcodeRecognizer = new BarcodeRecognizer();
+        barcodeRecognizer.setScanCode128(true);
+        barcodeRecognizer.setScanCode39(true);
 
-        // prepare the recognition settings
-        RecognitionSettings recognitionSettings = new RecognitionSettings();
         // BlinkInput and BarcodeRecognizer will be used in the recognition process
-        recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{ocrSett, barSett});
-
-        mRecognizerView.setRecognitionSettings(recognitionSettings);
+        mRecognizerBundle = new RecognizerBundle(blinkInputRecognizer, barcodeRecognizer);
+        mRecognizerView.setRecognizerBundle(mRecognizerBundle);
 
         // we want each frame to be scanned for both OCR and barcodes so we must
         // allow multiple scan results on single image.
@@ -88,26 +80,7 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         // of interest stops the recognition chain (for example in that case if barcode is found
         // OCR will not be performed - we do not want this, so we allow multiple scan results
         // on single image).
-        recognitionSettings.setAllowMultipleScanResultsOnSingleImage(true);
-
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        try {
-            mRecognizerView.setLicenseKey(Config.LICENSE_KEY);
-        } catch (InvalidLicenceKeyException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Invalid licence key", Toast.LENGTH_SHORT).show();
-            finish();
-            mRecognizerView = null;
-            return;
-        }
+        mRecognizerBundle.setAllowMultipleScanResultsOnSingleImage(true);
 
         // use all available view area for displaying camera, possibly cropping the camera frame
         mRecognizerView.setAspectMode(CameraAspectMode.ASPECT_FILL);
@@ -115,15 +88,8 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         // set 720p resolution (if available) - this will work much faster than default 1080p resolution
         mRecognizerView.setVideoResolutionPreset(VideoResolutionPreset.VIDEO_RESOLUTION_720p);
 
-        // configure metadata settings and chose detection metadata
-        // that will be passed to metadata listener
-        MetadataSettings mdSett = new MetadataSettings();
-        // set OCR metadata to be available in metadata listener
-        mdSett.setOcrMetadataAllowed(true);
-        // enable detection metadata for obtaining points of interest
-        mdSett.setDetectionMetadataAllowed(true);
-        // metadata listener receives detection metadata during recognition process
-        mRecognizerView.setMetadataListener(this, mdSett);
+        setupMetadataCallbacks();
+
         // camera events listener receives camera events, like when camera preview has started, stopped
         // or if camera error happened
         mRecognizerView.setCameraEventsListener(this);
@@ -146,7 +112,7 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         View v = mCameraPermissionManager.getAskPermissionOverlay();
         if (v != null) {
             // add it to the current layout that contains the recognizer view
-            ViewGroup vg = (ViewGroup) findViewById(R.id.full_screen_root);
+            ViewGroup vg = findViewById(R.id.full_screen_root);
             vg.addView(v);
         }
 
@@ -168,6 +134,30 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
         mPointSetView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation());
         mRecognizerView.addChildView(mPointSetView, false);
 
+    }
+
+    private void setupMetadataCallbacks() {
+        MetadataCallbacks metadataCallbacks = new MetadataCallbacks();
+        metadataCallbacks.setFailedDetectionCallback(new FailedDetectionCallback() {
+            @Override
+            public void onDetectionFailed() {
+                mPointSetView.clearDisplayedContent();
+            }
+        });
+        metadataCallbacks.setPointsDetectionCallback(new PointsDetectionCallback() {
+            @Override
+            public void onPointsDetection(@NonNull DisplayablePointsDetection displayablePointsDetection) {
+                mPointSetView.setDisplayablePointsDetection(displayablePointsDetection);
+
+            }
+        });
+        metadataCallbacks.setOcrCallback(new OcrCallback() {
+            @Override
+            public void onOcrResult(@NonNull DisplayableOcrResult displayableOcrResult) {
+                mOcrResultView.setOcrResult(displayableOcrResult);
+            }
+        });
+        mRecognizerView.setMetadataCallbacks(metadataCallbacks);
     }
 
     @Override
@@ -249,31 +239,6 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
     }
 
     @Override
-    public void onMetadataAvailable(Metadata metadata) {
-        // This method will be called when metadata becomes available during recognition process.
-        // Here, for every metadata type that is allowed through metadata settings,
-        // desired actions can be performed.
-        if (metadata instanceof OcrMetadata) {
-            // get the ocr result and show it inside ocr result view
-            mOcrResultView.setOcrResult(((OcrMetadata) metadata).getOcrResult());
-        } else if (metadata instanceof DetectionMetadata) {
-            // detection location is written inside DetectorResult
-            DetectorResult detectorResult = ((DetectionMetadata) metadata).getDetectionResult();
-            // DetectorResult can be null - this means that detection has failed
-            if (detectorResult == null) {
-                if (mPointSetView != null) {
-                    // clear points
-                    mPointSetView.setPointsDetectionResult(null);
-                }
-                // when points of interested have been detected (e.g. QR code), this will be returned as PointsDetectorResult
-            } else if (detectorResult instanceof PointsDetectorResult) {
-                // show the points of interest inside points view
-                mPointSetView.setPointsDetectionResult((PointsDetectorResult) detectorResult);
-            }
-        }
-    }
-
-    @Override
     public void onAutofocusFailed() {
         // called when camera cannot obtain a sharp focus on text, even after several retries.
         // You should inform the user to attempt scanning under better light conditions.
@@ -313,39 +278,22 @@ public class FullScreenOCR extends Activity implements MetadataListener, CameraE
     }
 
     @Override
-    public void onScanningDone(RecognitionResults results) {
-        // called when scanning completes. In this example, we first check if dataArray contains
-        // barcode result and display a barcode contents in the Toast.
-        // We also check if dataArray contains raw parser result and log it to ADB.
-        BaseRecognitionResult[] dataArray = results.getRecognitionResults();
-        for (BaseRecognitionResult r : dataArray) {
-            if (r instanceof BarcodeScanResult) { // r is barcode scan result
-                BarcodeScanResult bdsr = (BarcodeScanResult) r;
-
-                // create toast with contents: Barcode type: barcode contents
-
-                StringBuilder sb = new StringBuilder();
-                sb.append(bdsr.getBarcodeType().name());
-                sb.append(": ");
-                sb.append(bdsr.getStringData());
-
-                Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
-            } else if (r instanceof BlinkInputRecognitionResult) {
-                BlinkInputRecognitionResult bocrRes = (BlinkInputRecognitionResult) r;
-
-                // obtain parse result of parser named "Raw"
-                String rawParsed = bocrRes.getParsedResult("Raw");
-                Log.i("Parsed", rawParsed);
-
-                // obtain OCR result that was used for parsing
-                OcrResult ocrResult = bocrRes.getOcrResult();
-                Log.i("OcrResult", ocrResult.toString());
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+        for (Recognizer recognizer : mRecognizerBundle.getRecognizers()) {
+            if (recognizer instanceof BarcodeRecognizer) {
+                BarcodeRecognizer barcodeRecognizer = (BarcodeRecognizer) recognizer;
+                BarcodeRecognizer.Result barcodeResult = barcodeRecognizer.getResult();
+                String resultString = barcodeResult.getBarcodeFormat().name() +
+                        ": " +
+                        barcodeResult.getStringData();
+                Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();
             }
         }
 
-        // Finally reset internal state. We do not want OCR to reuse
-        // results from previous scan.
-        mRecognizerView.resetRecognitionState();
+        // obtain parse result from raw parser
+        String rawParsed = mRawParser.getResult().getRawText();
+        Log.i("Parsed", rawParsed);
     }
+
 
 }

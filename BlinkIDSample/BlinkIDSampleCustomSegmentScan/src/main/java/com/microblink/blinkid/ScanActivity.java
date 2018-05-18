@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -16,33 +17,32 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.microblink.Config;
+import com.microblink.entities.parsers.Parser;
+import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldElement;
+import com.microblink.entities.parsers.date.DateParser;
+import com.microblink.entities.parsers.email.EMailParser;
+import com.microblink.entities.parsers.raw.RawParser;
+import com.microblink.entities.processors.parserGroup.ParserGroupProcessor;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkinput.BlinkInputRecognizer;
 import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.help.HelpActivity;
-import com.microblink.ocr.ScanConfiguration;
 import com.microblink.ocr.SlidingTabLayout;
-import com.microblink.recognition.InvalidLicenceKeyException;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkinput.BlinkInputRecognitionResult;
-import com.microblink.recognizers.blinkinput.BlinkInputRecognizerSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.CameraAspectMode;
 import com.microblink.view.CameraEventsListener;
-import com.microblink.view.recognition.RecognizerView;
+import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
 
 
 public class ScanActivity extends Activity implements CameraEventsListener, ScanResultListener {
 
-    /** RecognizerView is the builtin view that controls camera and recognition */
-    private RecognizerView mRecognizerView;
+    /** builtin view that controls camera and recognition */
+    private RecognizerRunnerView mRecognizerView;
     /** CameraPermissionManager is provided helper class that can be used to obtain the permission to use camera.
      * It is used on Android 6.0 (API level 23) or newer.
      */
@@ -60,28 +60,32 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
     /** Shows the title of current scan configuration to user. */
     private SlidingTabLayout mTitleIndicator;
     /** Array of scan configurations. */
-    private ScanConfiguration[] mConfiguration = Configurator.createScanConfigurations();
+    private FieldByFieldElement[] mFieldByFieldElements = createFieldByFieldElements();
     /** Index of selected configuration. */
-    private int mSelectedConfiguration = 0;
+    private int mSelectedElement = 0;
+
+    /** Processor which is used on the input image, performs the OCR and lets parsers from the
+     * group to extract data. In this sample, at any moment only one parser is in the group. */
+    private ParserGroupProcessor mParserGroupProcessor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_scan);
+        setContentView(R.layout.activity_custom_scan);
 
         // obtain references to needed member variables
-        mRecognizerView = (RecognizerView) findViewById(R.id.rec_view);
-        mFlashButton = (ImageButton) findViewById(R.id.btnFlash);
+        mRecognizerView = findViewById(R.id.rec_view);
+        mFlashButton = findViewById(R.id.btnFlash);
         mResultView = findViewById(R.id.layResult);
-        mMessage = (TextView) findViewById(R.id.txtMessage);
-        mResult = (EditText) findViewById(R.id.txtResult);
-        mTitleIndicator = (SlidingTabLayout) findViewById(R.id.indicator);
+        mMessage = findViewById(R.id.txtMessage);
+        mResult = findViewById(R.id.txtResult);
+        mTitleIndicator = findViewById(R.id.indicator);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
         viewPager.setAdapter(new SamplePagerAdapter());
 
-        mTitleIndicator = (SlidingTabLayout) findViewById(R.id.indicator);
+        mTitleIndicator = findViewById(R.id.indicator);
         mTitleIndicator.setViewPager(viewPager);
 
         // set ViewPager.OnPageChangeListener to enable the layout
@@ -96,7 +100,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
             @Override
             public void onPageSelected(int position) {
                 // update currently selected configuration
-                mSelectedConfiguration = position;
+                mSelectedElement = position;
                 // hide previous result
                 mResultView.setVisibility(View.INVISIBLE);
                 // update message and title based on selected configuration
@@ -119,40 +123,18 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         // instead of letterboxing it
         mRecognizerView.setAspectMode(CameraAspectMode.ASPECT_FILL);
 
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        try {
-            mRecognizerView.setLicenseKey(Config.LICENSE_KEY);
-        } catch (InvalidLicenceKeyException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Invalid license key!", Toast.LENGTH_SHORT).show();
-            finish();
-        }
         mRecognizerView.setOptimizeCameraForNearScan(true);
 
-        // initialize BlinkInput recognizer with currently selected parser
-        // create BlinkInput recognizer settings object and add parser to it
-        BlinkInputRecognizerSettings inputSett = new BlinkInputRecognizerSettings();
-        inputSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
-                mConfiguration[mSelectedConfiguration].getParserSettings());
+        // initialize BlinkInput recognizer with initial field by field element
+        // create BlinkInput recognizer object and add parser to it
+        FieldByFieldElement initialScanElement = mFieldByFieldElements[mSelectedElement];
 
-        // prepare the recognition settings
-        RecognitionSettings recognitionSettings = new RecognitionSettings();
-        // add BlinkInput recognizer settings object to recognizer settings array
-        // BlinkInput recognizer will be used in the recognition process
-        recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{inputSett});
-
-        mRecognizerView.setRecognitionSettings(recognitionSettings);
+        Parser currentParser = initialScanElement.getParser();
+        mParserGroupProcessor = new ParserGroupProcessor(currentParser);
+        mRecognizerView.setRecognizerBundle(createRecognizerBundle(mParserGroupProcessor));
 
         // define the scanning region of the image that will be scanned.
-        // You must ensure that scanning region define here is the same as in the layout
+        // You must ensure that scanning region define here is the se as in the layout
         // The coordinates for scanning region are relative to recognizer view:
         // the following means: rectangle starts at 10% of recognizer view's width and
         // 34% of its height. Rectangle width is 80% of recognizer view's width and
@@ -167,7 +149,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         View v = mCameraPermissionManager.getAskPermissionOverlay();
         if (v != null) {
             // add it to the current layout that contains the recognizer view
-            ViewGroup vg = (ViewGroup) findViewById(R.id.custom_segment_scan_root);
+            ViewGroup vg = findViewById(R.id.custom_segment_scan_root);
             vg.addView(v);
         }
 
@@ -179,7 +161,26 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         updateUI(false);
     }
 
+    private FieldByFieldElement[] createFieldByFieldElements() {
+        RawParser rawParser = new RawParser();
+        // enable Sieve algorithm which will reuse OCR results from multiple video frames to improve quality
+        rawParser.setUseSieve(false);
 
+        return new FieldByFieldElement[] {
+                // each scan configuration contains two string resource IDs:
+                // string shown in title bar and string shown in text field above scan box
+                new FieldByFieldElement(R.string.date_title, R.string.date_msg, new DateParser()),
+                new FieldByFieldElement(R.string.email_title, R.string.email_msg, new EMailParser()),
+                new FieldByFieldElement(R.string.raw_title, R.string.raw_msg, rawParser)
+        };
+    }
+
+    private RecognizerBundle createRecognizerBundle(ParserGroupProcessor parserGroupProcessor) {
+        // Recognizer which is used for scanning, uses prepared parser group for performing OCR and
+        // and active parser from the group for parsing the OCR result
+        BlinkInputRecognizer blinkInputRecognizer = new BlinkInputRecognizer(parserGroupProcessor);
+        return new RecognizerBundle(blinkInputRecognizer);
+    }
 
     /**
      * Updates user interface based on currently selected configuration. Also updates the
@@ -188,22 +189,16 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
      *                                 will be performed, based on current settings.
      */
     private void updateUI(boolean updateRecognizerSettings) {
-        mMessage.setText(mConfiguration[mSelectedConfiguration].getTextResource());
+        mMessage.setText(mFieldByFieldElements[mSelectedElement].getTextResource());
+        mTitleIndicator.getViewPager().setCurrentItem(mSelectedElement);
 
-        mTitleIndicator.getViewPager().setCurrentItem(mSelectedConfiguration);
-
-        if(updateRecognizerSettings) {
-            RecognitionSettings recognitionSettings = new RecognitionSettings();
-
-            BlinkInputRecognizerSettings inputSett = new BlinkInputRecognizerSettings();
-            inputSett.addParser(mConfiguration[mSelectedConfiguration].getParserName(),
-                    mConfiguration[mSelectedConfiguration].getParserSettings());
-
-            recognitionSettings.setRecognizerSettingsArray(new RecognizerSettings[]{inputSett});
-
-            // unlike setRecognitionSettings that needs to be set before calling create,
-            // reconfigureRecognizers is designed to be called while recognizer is active.
-            mRecognizerView.reconfigureRecognizers(recognitionSettings);
+        if (updateRecognizerSettings) {
+            FieldByFieldElement scanElement = mFieldByFieldElements[mSelectedElement];
+            Parser currentParser = scanElement.getParser();
+            mParserGroupProcessor = new ParserGroupProcessor(currentParser);
+            // unlike setRecognitionSettings that needs to be set before calling create, reconfigureRecognizers is designed
+            // to be called while recognizer is active.
+            mRecognizerView.reconfigureRecognizers(createRecognizerBundle(mParserGroupProcessor));
         }
     }
 
@@ -344,25 +339,36 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
     }
 
     @Override
-    public void onScanningDone(RecognitionResults results) {
-        BaseRecognitionResult[] dataArray = results.getRecognitionResults();
-        // we've enabled only one recognizer, so we expect only one element in dataArray
-        if (dataArray != null && dataArray.length == 1) {
-            if (dataArray[0] instanceof BlinkInputRecognitionResult) {
-                BlinkInputRecognitionResult result = (BlinkInputRecognitionResult) dataArray[0];
-                String scanned = result.getParsedResult(mConfiguration[mSelectedConfiguration].getParserName());
-                if(scanned != null && !scanned.isEmpty()) {
-                    mResult.setText(scanned);
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+        if (recognitionSuccessType == RecognitionSuccessType.UNSUCCESSFUL) {
+            // ignore event if nothing has been scanned
+            return;
+        }
+        FieldByFieldElement scanElement = mFieldByFieldElements[mSelectedElement];
+
+        // obtain result of the currently active parser
+        Parser.Result<?> parserResult = scanElement.getParser().getResult();
+
+        if (parserResult.getResultState() == Parser.Result.State.Valid) {
+            final String resultString = parserResult.toString().trim();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mResult.setText(resultString);
                     mResultView.setVisibility(View.VISIBLE);
                 }
-                // additionally if you want to process raw OCR result of default parser group
-                // instead of parsed strings you can obtain it like this
-                // OcrResult ocrResult = result.getOcrResult();
-
-                // to obtain raw OCR result for certain parser group, give a name of the parser
-                // group to getOcrResult method
-            }
+            });
+            // additionally if you want to process raw OCR result instead of parsed strings, and
+            // your license key allows obtaining of the OCR result, you can obtain it like this:
+            //  OcrResult ocrResult = mParserGroupProcessor.getResult().getOcrResult();
         }
+
+        // Finally, scanning will be resumed automatically and will reuse
+        // results from previous scan to make current scan of better quality.
+        // Note that preserving state preserves state of all
+        // recognizers, including barcode recognizers (if enabled).
+        // If you want to reset internal state call:
+        // mRecognizerRunnerView.resetRecognitionState();
     }
 
     public void onBtnExitClicked(View v) {
@@ -398,7 +404,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
 
     public void onBtnAcceptClicked(View v) {
         // do something with data from mResult
-        mSelectedConfiguration = (mSelectedConfiguration + 1) % mConfiguration.length;
+        mSelectedElement = (mSelectedElement + 1) % mFieldByFieldElements.length;
 
         mResultView.setVisibility(View.INVISIBLE);
         updateUI(true);
@@ -411,7 +417,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
          */
         @Override
         public int getCount() {
-            return mConfiguration.length;
+            return mFieldByFieldElements.length;
         }
 
         /**
@@ -432,7 +438,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
          */
         @Override
         public CharSequence getPageTitle(int position) {
-            return getResources().getString(mConfiguration[position].getTitleResource());
+            return getResources().getString(mFieldByFieldElements[position].getTitleResource());
         }
         /**
          * Instantiate the {@link View} which should be displayed at {@code position}. Here we

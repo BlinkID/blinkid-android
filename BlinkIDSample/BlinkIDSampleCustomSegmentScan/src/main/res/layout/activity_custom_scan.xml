@@ -6,7 +6,7 @@
                 android:layout_height="match_parent"
                 tools:context="com.microblink.blinkid.ScanActivity">
 
-    <com.microblink.view.recognition.RecognizerView
+    <com.microblink.view.recognition.RecognizerRunnerView
         android:id="@+id/rec_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
