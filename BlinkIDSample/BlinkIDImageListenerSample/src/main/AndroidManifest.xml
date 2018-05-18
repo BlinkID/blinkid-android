@@ -28,7 +28,6 @@
         <activity
             android:name="com.microblink.libresult.ResultActivity">
         </activity>
-        <activity android:name="com.microblink.activity.DocumentScanActivity"/>
     </application>
 
 </manifest>
