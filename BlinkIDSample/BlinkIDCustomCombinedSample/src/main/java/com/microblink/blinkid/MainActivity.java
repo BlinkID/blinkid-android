@@ -1,5 +1,6 @@
 package com.microblink.blinkid;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -25,6 +26,7 @@ import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRe
 import com.microblink.entities.recognizers.blinkid.slovakia.SlovakCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SlovenianCombinedRecognizer;
 import com.microblink.hardware.camera.CameraType;
+import com.microblink.result.ResultActivity;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -144,11 +146,10 @@ public class MainActivity extends AppCompatActivity {
         // make sure BlinkID activity returned result
         if (resultCode == CustomVerificationFlowActivity.RESULT_OK && data != null) {
             // set intent's component to ResultActivity and pass its contents
-            // to ResultActivity. ResultActivity will show how to extract
-            // data from result.
-            //TODO show result
-            //data.setComponent(new ComponentName(this, ResultActivity.class));
-            //startActivity(data);
+            // to ResultActivity. ResultActivity will show how to extract data from result.
+            data.setComponent(new ComponentName(this, ResultActivity.class));
+            data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
+            startActivity(data);
         } else {
             // if BlinkID activity did not return result, user has probably
             // pressed Back button and cancelled scanning

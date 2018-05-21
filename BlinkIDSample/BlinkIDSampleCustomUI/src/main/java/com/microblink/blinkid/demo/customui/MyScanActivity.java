@@ -44,7 +44,6 @@ import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener {
 
     public static final String TAG = "MyScanActivity";
-    public static final String EXTRA_RECOGNIZER_BUNDLE = "RECOGNIZER_BUNDLE";
 
     private int mScansDone = 0;
     private Handler mHandler = new Handler();
@@ -281,7 +280,6 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
             // after 3 successful scans, show results
             Intent resultIntent = new Intent();
             recognizerBundle.saveToIntent(resultIntent);
-            resultIntent.putExtra(EXTRA_RECOGNIZER_BUNDLE, recognizerBundle);
             setResult(RESULT_OK, resultIntent);
             finish();
         } else {

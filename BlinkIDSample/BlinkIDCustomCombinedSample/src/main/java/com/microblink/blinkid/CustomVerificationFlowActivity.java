@@ -706,6 +706,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     private void finishWithResults() {
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
+        mRecognizerBundle.saveToIntent(intent);
         finish();
     }
 

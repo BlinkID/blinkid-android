@@ -1,6 +1,7 @@
 package com.microblink.blinkid.demo.customui;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.microblink.blinkid.demo.R;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.result.ResultActivity;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -55,11 +57,9 @@ public class MenuActivity extends Activity {
         // that we have really returned from BlinkID activity.
         if (requestCode == MY_BLINK_ID_REQUEST_CODE) {
             if (resultCode == MyScanActivity.RESULT_OK && data != null) {
-                RecognizerBundle recognizerBundle = data.getParcelableExtra(MyScanActivity.EXTRA_RECOGNIZER_BUNDLE);
-                Recognizer[] recognizers = recognizerBundle.getRecognizers();
-                //TODO start results activity
-                //data.setComponent(new ComponentName(this, ResultActivity.class));
-                //startActivity(data);
+                data.setComponent(new ComponentName(this, ResultActivity.class));
+                data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
+                startActivity(data);
             }
         }
     }

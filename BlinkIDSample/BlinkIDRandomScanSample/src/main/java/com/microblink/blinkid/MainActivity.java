@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.microblink.Config;
 import com.microblink.activity.RandomScanActivity;
 import com.microblink.ocr.RandomScanElement;
 import com.microblink.recognizers.blinkocr.parser.generic.AmountParserSettings;

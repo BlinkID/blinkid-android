@@ -1,6 +1,7 @@
 package com.microblink.blinkid;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
+import com.microblink.result.ResultActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -110,12 +112,10 @@ public class MainActivity extends AppCompatActivity {
             storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
 
             // set intent's component to ResultActivity and pass its contents
-            // to ResultActivity. ResultActivity will show how to extract
-            // data from result.
-
-            //TODO show result
-            //data.setComponent(new ComponentName(this, ResultActivity.class));
-            //startActivity(data);
+            // to ResultActivity. ResultActivity will show how to extract data from result.
+            data.setComponent(new ComponentName(this, ResultActivity.class));
+            data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
+            startActivity(data);
         } else {
             // if BlinkID activity did not return result, user has probably
             // pressed Back button and cancelled scanning

@@ -1,100 +1,20 @@
 package com.microblink.blinkid;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.microblink.Config;
-import com.microblink.activity.Pdf417ScanActivity;
-import com.microblink.activity.ScanActivity;
-import com.microblink.activity.ScanCard;
-import com.microblink.activity.SegmentScanActivity;
-import com.microblink.activity.ShowOcrResultMode;
-import com.microblink.activity.VerificationFlowActivity;
-import com.microblink.help.HelpActivity;
-import com.microblink.libresult.ResultActivity;
-import com.microblink.ocr.ScanConfiguration;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkbarcode.barcode.BarcodeRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.pdf417.Pdf417RecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.simnumber.SimNumberRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.usdl.USDLRecognizerSettings;
-import com.microblink.recognizers.blinkbarcode.vin.VinRecognizerSettings;
-import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.australia.driversLicense.back.AustralianDLBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.australia.driversLicense.front.AustralianDLFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.austria.back.AustrianIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.austria.combined.AustrianIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.austria.front.AustrianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.austria.passport.AustrianPassportRecognizerSettings;
-import com.microblink.recognizers.blinkid.colombia.back.ColombiaIDBackRecognizerSettings;
-import com.microblink.recognizers.blinkid.colombia.front.ColombiaIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.croatia.back.CroatianIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.croatia.combined.CroatianIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.croatia.front.CroatianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.czechia.back.CzechIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.czechia.combined.CzechIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.czechia.front.CzechIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.egypt.front.EgyptIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
-import com.microblink.recognizers.blinkid.eudl.EUDLRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.back.GermanIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.combined.GermanIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.front.GermanIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.old.front.GermanOldIDRecognizerSettings;
-import com.microblink.recognizers.blinkid.germany.passport.GermanPassportRecognizerSettings;
-import com.microblink.recognizers.blinkid.hongkong.front.HongKongIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.indonesia.front.IndonesianIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.jordan.back.JordanIDBackRecognizerSettings;
-import com.microblink.recognizers.blinkid.jordan.combined.JordanIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.jordan.front.JordanIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.dl.front.MalaysianDLFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.ikad.IKadRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.mykad.back.MyKadBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.mykad.front.MyKadFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.malaysia.tentera.MyTenteraRecognizerSettings;
-import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.blinkid.newzealand.driversLicense.front.NewZealandDLFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.poland.back.PolishIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.poland.combined.PolishIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.poland.front.PolishIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.romania.front.RomanianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.serbia.back.SerbianIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.serbia.combined.SerbianIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.serbia.front.SerbianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.singapore.back.SingaporeIDBackRecognizerSettings;
-import com.microblink.recognizers.blinkid.singapore.combined.SingaporeIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.singapore.front.SingaporeIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovakia.back.SlovakIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovakia.combined.SlovakIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.switzerland.back.SwissIDBackSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.switzerland.front.SwissIDFrontSideRecognizerSettings;
-import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognizerSettings;
-import com.microblink.recognizers.blinkid.unitedArabEmirates.back.UnitedArabEmiratesIDBackRecognizerSettings;
-import com.microblink.recognizers.blinkid.unitedArabEmirates.front.UnitedArabEmiratesIDFrontRecognizerSettings;
-import com.microblink.recognizers.blinkid.usdl.combined.USDLCombinedRecognizerSettings;
-import com.microblink.recognizers.blinkocr.parser.licenseplates.LicensePlatesParserSettings;
-import com.microblink.recognizers.blinkocr.parser.vin.VinParserSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
+import com.microblink.activity.DocumentScanActivity;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
-import com.microblink.util.templating.CroatianIDBackSide;
-import com.microblink.util.templating.CroatianIDFrontSide;
-import com.microblink.view.recognition.RecognitionType;
 
 import java.util.ArrayList;
 
@@ -144,7 +64,7 @@ public class MenuActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+/*
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
         // that we have really returned from BlinkID activity.
@@ -174,16 +94,15 @@ public class MenuActivity extends Activity {
                 // pressed Back button and cancelled scanning
                 Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
             }
-        }
+        }*/
     }
-
 
     /**
      * This method will build scan intent for BlinkID. Method needs array of recognizer settings
      * to know which recognizers to enable, activity to which intent will be sent and optionally
      * an intent for HelpActivity that will be used if user taps the Help button on scan activity.
      */
-    private Intent buildIntent(RecognizerSettings[] settArray, Class<?> target, Intent helpIntent) {
+    /*private Intent buildIntent(RecognizerSettings[] settArray, Class<?> target, Intent helpIntent) {
         // first create intent for given activity
         final Intent intent = new Intent(this, target);
 
@@ -254,7 +173,7 @@ public class MenuActivity extends Activity {
         intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
         return intent;
-    }
+    }*/
 
     /**
      * This method will build scan intent for {@link com.microblink.activity.VerificationFlowActivity}
@@ -262,13 +181,13 @@ public class MenuActivity extends Activity {
      *
      * @param combinedRecognizerSettings settings for the combined recognizer that will be used.
      */
-    private Intent buildCombinedIntent(CombinedRecognizerSettings combinedRecognizerSettings) {
+    /*private Intent buildCombinedIntent(CombinedRecognizerSettings combinedRecognizerSettings) {
         Intent intent = new Intent(this, VerificationFlowActivity.class);
         intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
         intent.putExtra(VerificationFlowActivity.EXTRAS_COMBINED_RECOGNIZER_SETTINGS, combinedRecognizerSettings);
         intent.putExtra(VerificationFlowActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
         return intent;
-    }
+    }*/
 
     /**
      * Builds intent for segment scan.
@@ -281,7 +200,7 @@ public class MenuActivity extends Activity {
      *                    how the data will be extracted.
      * @return Built intent for segment scan.
      */
-    private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
+    /*private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
         final Intent intent = new Intent(this, SegmentScanActivity.class);
 
         // configure help activity to display help for segment scan
@@ -294,7 +213,7 @@ public class MenuActivity extends Activity {
         intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
 
         return intent;
-    }
+    }*/
 
     /**
      * This method is used to build the array of ListElement objects. Each ListElement
@@ -306,7 +225,7 @@ public class MenuActivity extends Activity {
 
         // ID document list entry
         elements.add(buildMrtdElement());
-        elements.add(buildAustrianIDElement());
+        /*elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
         elements.add(buildAustrianPassportElement());
         elements.add(buildColombiaIDElement());
@@ -362,23 +281,30 @@ public class MenuActivity extends Activity {
 
         // templating API entries
         elements.add(buildTemplatingAPICroIDFrontElement());
-        elements.add(buildTemplatingAPICroIDBackElement());
+        elements.add(buildTemplatingAPICroIDBackElement());*/
 
         mElements = new ListElement[elements.size()];
         elements.toArray(mElements);
     }
 
     private ListElement buildMrtdElement() {
-        // prepare settings for Machine Readable Travel Document (MRTD) recognizer
-        MRTDRecognizerSettings mrtd = new MRTDRecognizerSettings();
+        //Machine Readable Travel Document (MRTD) recognizer
+        MRTDRecognizer recognizer = new MRTDRecognizer();
         // allow results with incorrect check digits, only for demo
-        mrtd.setAllowUnverifiedResults(true);
+        recognizer.setAllowUnverifiedResults(true);
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("ID document", buildIntent(new RecognizerSettings[]{mrtd}, ScanCard.class, null));
+        return new ListElement("ID document", buildIntent(null, recognizer));
     }
 
+    private Intent buildIntent(Intent helpIntent, Recognizer...recognizers) {
+        final Intent intent = new Intent(this, DocumentScanActivity.class);
+
+        return intent;
+    }
+
+/*
     private ListElement buildAustrianIDElement() {
         AustrianIDFrontSideRecognizerSettings ausFront = new AustrianIDFrontSideRecognizerSettings();
         AustrianIDBackSideRecognizerSettings ausBack = new AustrianIDBackSideRecognizerSettings();
@@ -719,7 +645,7 @@ public class MenuActivity extends Activity {
 
     private ListElement buildTemplatingAPICroIDBackElement() {
         return new ListElement("TemplatingAPI Cro ID Back", buildIntent(new RecognizerSettings[]{CroatianIDBackSide.buildCroatianIDBackSideRecognizerSettings()}, ScanCard.class, null));
-    }
+    }*/
 
     /**
      * Element of {@link ArrayAdapter} for {@link ListView} that holds information about title
