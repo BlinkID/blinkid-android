@@ -17,8 +17,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -35,32 +33,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.microblink.blinkid.managers.DocumentViewfinderManager;
-import com.microblink.detectors.DetectorResult;
-import com.microblink.detectors.mrz.MrzDetectorResult;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.CombinedRecognizer;
 import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.camera.AutoFocusRequiredButNotSupportedException;
 import com.microblink.hardware.camera.CameraResolutionTooSmallException;
 import com.microblink.hardware.camera.CameraType;
 import com.microblink.hardware.orientation.Orientation;
-import com.microblink.image.ImageListener;
-import com.microblink.metadata.DetectionMetadata;
-import com.microblink.metadata.GlareMetadata;
-import com.microblink.metadata.ImageMetadata;
-import com.microblink.metadata.Metadata;
-import com.microblink.metadata.MetadataListener;
-import com.microblink.metadata.MetadataSettings;
-import com.microblink.metadata.OcrMetadata;
-import com.microblink.metadata.RecognitionResultMetadata;
+import com.microblink.metadata.MetadataCallbacks;
+import com.microblink.metadata.detection.FailedDetectionCallback;
+import com.microblink.metadata.glare.GlareCallback;
+import com.microblink.metadata.ocr.DisplayableOcrResult;
+import com.microblink.metadata.ocr.OcrCallback;
+import com.microblink.metadata.recognition.FirstSideRecognitionCallback;
 import com.microblink.recognition.FeatureNotSupportedException;
-import com.microblink.recognition.InvalidLicenceKeyException;
+import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.recognition.RecognizerError;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkid.CombinedRecognitionResult;
-import com.microblink.recognizers.blinkid.CombinedRecognizerSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
 import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.CameraAspectMode;
@@ -71,34 +61,17 @@ import com.microblink.view.OnActivityFlipListener;
 import com.microblink.view.OrientationAllowedListener;
 import com.microblink.view.ocrResult.IOcrResultView;
 import com.microblink.view.ocrResult.OcrResultDotsView;
-import com.microblink.view.recognition.ParcelableScanResultListener;
-import com.microblink.view.recognition.RecognitionType;
-import com.microblink.view.recognition.RecognizerView;
+import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
-import com.microblink.view.viewfinder.PointSetView;
 import com.microblink.view.viewfinder.ViewfinderShapeView;
+import com.microblink.view.viewfinder.points.PointSetView;
 
 /**
  * Scan activity designed for scanning documents by using combined recognizers
  * ({@link com.microblink.recognizers.blinkid.CombinedRecognizerSettings}). Scanning is performed
  * in multiple steps, in each step single side/part of the document is being scanned.
  */
-public class CustomVerificationFlowActivity extends AppCompatActivity implements CameraEventsListener, ScanResultListener, MetadataListener, OnActivityFlipListener {
-
-    /**
-     * Key for setting the license key
-     */
-    public static final String EXTRAS_LICENSE_KEY = "EXTRAS_LICENSE_KEY";
-
-    /**
-     * Key for setting the license owner
-     */
-    public static final String EXTRAS_LICENSEE = "EXTRAS_LICENSEE";
-
-    /**
-     * Combined recognizer settings. Must be instance of the {@link CombinedRecognizerSettings}.
-     */
-    public static final String EXTRAS_COMBINED_RECOGNIZER_SETTINGS = "EXTRAS_COMBINED_RECOGNIZER_SETTINGS";
+public class CustomVerificationFlowActivity extends AppCompatActivity implements CameraEventsListener, ScanResultListener, OnActivityFlipListener {
 
     /**
      * Expected value type is {@link CameraType} - type of camera to be used for document scan
@@ -107,61 +80,16 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     public static final String EXTRAS_COMBINED_CAMERA_TYPE = "EXTRAS_CAMERA_TYPE";
 
     /**
-     * Key for obtaining result of the combined recognizer after scanning is done and activity has finished.
-     */
-    public static final String EXTRAS_COMBINED_RECOGNITION_RESULT = "EXTRAS_COMBINED_RECOGNIZER_RESULT";
-
-    /**
      * Resource ID of sound which is to be played after finishing the scan
      * procedure.
      */
     public static final String EXTRAS_BEEP_RESOURCE = "EXTRAS_BEEP_RESOURCE";
 
     /**
-     * Define an {@link ImageListener} that will obtain images that are being processed.
-     * Make sure that your ImageListener implementation correctly implements Parcelable
-     * interface with static CREATOR field. Without this, you might encounter a runtime error.
-     */
-    public static final String EXTRAS_IMAGE_LISTENER = "EXTRAS_IMAGE_LISTENER";
-
-    /**
-     * Define a {@link com.microblink.metadata.MetadataSettings.ImageMetadataSettings} that will define
-     * which images will be sent to {@link ImageListener} set via {@link #EXTRAS_IMAGE_LISTENER} extra.
-     * If not set, {@link ImageListener} set via {@link #EXTRAS_IMAGE_LISTENER} will receive all possible
-     * images.
-     */
-    public static final String EXTRAS_IMAGE_METADATA_SETTINGS = "EXTRAS_IMAGE_METADATA_SETTINGS";
-
-    /**
-     * Key for passing a {@link ParcelableScanResultListener} with callback that will be called when
-     * valid recognition result is available (for each result that is produced by activated recognizers).
-     * When scan result listener is passed to the activity, <b>recognition results will not be returned
-     * to the caller activity through result intent</b>. Scan result listener must be used in cases when
-     * size of the recognition results exceeds the allowed Android intent size limit.
-     */
-    public static final String EXTRAS_SCAN_RESULT_LISTENER = "EXTRAS_SCAN_RESULT_LISTENER";
-
-    /**
      * Force using legacy Camera API even on Lollipop devices that support new Camera2 API.
      * Use this only if you have problems with camera management on Lollipop devices.
      */
     public static final String EXTRAS_USE_LEGACY_CAMERA_API = "EXTRAS_USE_LEGACY_CAMERA_API";
-
-    /**
-     * String resource ID for the title of the warning dialog that is shown when combined recognizer
-     * data does not pass validation (e.g. document sides don't match).
-     */
-    public static final String EXTRAS_WARNING_DIALOG_NOT_MATCH_TITLE_RES = "EXTRAS_WARNING_DIALOG_NOT_MATCH_TITLE";
-    /**
-     * String resource ID for the message of the warning dialog that is shown when combined recognizer
-     * data does not pass validation (e.g. document sides don't match).
-     */
-    public static final String EXTRAS_WARNING_DIALOG_NOT_MATCH_MESSAGE_RES = "EXTRAS_WARNING_DIALOG_NOT_MATCH_MESSAGE";
-    /**
-     * String resource ID for the button text of the warning dialog that is shown when combined recognizer
-     * data does not pass validation (e.g. document sides don't match).
-     */
-    public static final String EXTRAS_WARNING_DIALOG_NOT_MATCH_BUTTON_TEXT_RES = "EXTRAS_WARNING_DIALOG_NOT_MATCH_BUTTON_TEXT";
 
     /**
      * Resource ID of the string that will be shown above document scan viewfinder when scanning of the first side of the document
@@ -197,21 +125,33 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
      */
     public static final String EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE = "EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE";
 
-    /** Duration of the glare message in milliseconds*/
+    /**
+     * Duration of the glare message in milliseconds
+     */
     private static final long GLARE_MESSAGE_DURATION = 1500;
-    /** Duration of the splash screen when camera is starting (after the camera preview has started) */
+    /**
+     * Duration of the splash screen when camera is starting (after the camera preview has started)
+     */
     private static final long SPLASH_DURATION_CAMERA_STARTING = 500;
-    /** Duration of the splash screen when next side of the document should be scanned */
+    /**
+     * Duration of the splash screen when next side of the document should be scanned
+     */
     private static final long SPLASH_DURATION_NEXT_SIDE = 1000;
-    /** Duration of the alpha animation on splash screen in milliseconds */
+    /**
+     * Duration of the alpha animation on splash screen in milliseconds
+     */
     private static final long SPLASH_FADE_ANIMATION_DURATION = 500;
 
     private static final int TORCH_ID = 0x25;
 
-    /** Handler associated withe the main thread. */
+    /**
+     * Handler associated withe the main thread.
+     */
     protected Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /** Flag which indicates whether torch(flashlight) is on or off. */
+    /**
+     * Flag which indicates whether torch(flashlight) is on or off.
+     */
     private boolean mTorchOn = false;
 
     /**
@@ -232,14 +172,22 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
      */
     private TextView mGlareMsg;
 
-    /** Torch menu item from the action bar, if the action bar is hidden, it will be {@code null} */
+    /**
+     * Torch menu item from the action bar, if the action bar is hidden, it will be {@code null}
+     */
     private MenuItem mTorchItem = null;
-    /** Torch image button from the camera overlay, if the action bar is shown, it will be {@code null}
-     * because torch button from the action bar will be used. */
+    /**
+     * Torch image button from the camera overlay, if the action bar is shown, it will be {@code null}
+     * because torch button from the action bar will be used.
+     */
     private ImageButton mIbTorch = null;
 
-    /** Document viewfinder manager that is used for showing the splash screens over the viewfinder */
+    /**
+     * Document viewfinder manager that is used for showing the splash screens over the viewfinder
+     */
     private DocumentViewfinderManager mDocumentViewfinderManager;
+
+    private RecognizerBundle mRecognizerBundle;
 
     @StringRes
     private int mSplashMsgDocFirstSide;
@@ -262,44 +210,33 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     private static final int MRZ_DETECTION_POINT_RADIUS = 7;
     private static final int NUM_MS_BEFORE_TIMEOUT_DEFAULT = 30_000;
 
-    protected RecognizerView mRecognizerView;
+    protected RecognizerRunnerView mRecognizerView;
 
     private SoundPool mSoundPool;
-    private @RawRes int mSoundResourceId = -1;
     private int mSoundId;
 
-    /** CameraPermissionManager is provided helper class that can be used to obtain the permission to use camera.
+    /**
+     * CameraPermissionManager is provided helper class that can be used to obtain the permission to use camera.
      * It is used on Android 6.0 (API level 23) or newer.
      */
     private CameraPermissionManager mCameraPermissionManager;
-    private MetadataSettings.ImageMetadataSettings mImageMetadataSettings;
 
-    /** View which shows OCR result over the camera preview. */
+    /**
+     * View which shows OCR result over the camera preview.
+     */
     private IOcrResultView mOcrView;
-    /** View which shows MRZ detection points. */
+    /**
+     * View which shows MRZ detection points.
+     */
     private PointSetView mMrzPointsView = null;
-
-    private CombinedRecognizerSettings mCombinedRecognizerSettings;
-
-    private BaseRecognitionResult mCombinedRecognitionResult;
-    private BaseRecognitionResult mCombinedFirstSideResult;
-
-    private ImageListener mImageListener;
-    private ParcelableScanResultListener mScanResultListener;
 
     private CombinedSide mCurrentCombinedSide = CombinedSide.FIRST_SIDE;
     private CameraType mCombinedCameraType = CameraType.CAMERA_BACKFACE;
 
-    /** Camera overlay container. */
+    /**
+     * Camera overlay container.
+     */
     private FrameLayout mCameraOverlayRoot;
-
-    @StringRes
-    int mDialogNotMatchTitleRes;
-    @StringRes
-    int mDialogNotMatchMessageRes;
-    @StringRes
-    int mDialogNotMatchButtonTextRes;
-
 
     protected enum ActivityState {
         DESTROYED,
@@ -335,9 +272,6 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             if (cause instanceof NonLandscapeOrientationNotSupportedException) {
                 Log.e(this, "NonLandscapeOrientationNotSupported");
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                if (Build.VERSION.SDK_INT >= 11) {
-                    recreate();
-                }
                 return;
             } else {
                 throw ie;
@@ -345,53 +279,27 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         }
 
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-
-            mSoundResourceId = extras.getInt(EXTRAS_BEEP_RESOURCE, 0);
-
-            mDialogNotMatchTitleRes = extras.getInt(EXTRAS_WARNING_DIALOG_NOT_MATCH_TITLE_RES);
-            mDialogNotMatchMessageRes = extras.getInt(EXTRAS_WARNING_DIALOG_NOT_MATCH_MESSAGE_RES);
-            mDialogNotMatchButtonTextRes = extras.getInt(EXTRAS_WARNING_DIALOG_NOT_MATCH_BUTTON_TEXT_RES);
-
-            CameraType cameraType = extras.getParcelable(EXTRAS_COMBINED_CAMERA_TYPE);
-            if (cameraType != null) {
-                mCombinedCameraType = cameraType;
-            }
-
-            mImageListener = extras.getParcelable(EXTRAS_IMAGE_LISTENER);
-            if (mImageListener != null) {
-                // check if user has set image metadata settings
-                mImageMetadataSettings = extras.getParcelable(EXTRAS_IMAGE_METADATA_SETTINGS);
-            }
-
-            mScanResultListener = extras.getParcelable(EXTRAS_SCAN_RESULT_LISTENER);
-
-            mCombinedRecognizerSettings = extras.getParcelable(EXTRAS_COMBINED_RECOGNIZER_SETTINGS);
-
-            boolean useLegacyCamera = extras.getBoolean(EXTRAS_USE_LEGACY_CAMERA_API, false);
-
-            String licenseKey, licensee;
-            licenseKey = extras.getString(EXTRAS_LICENSE_KEY);
-            licensee = extras.getString(EXTRAS_LICENSEE);
-
-            mCombinedRecognizerSettings = extras.getParcelable(EXTRAS_COMBINED_RECOGNIZER_SETTINGS);
-            if (mCombinedRecognizerSettings == null) {
-                throw new NullPointerException("Combined recognizer settings are required.");
-            }
-
-            mInstructionsDocFirstSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_FIRST_SIDE, R.string.tooltip_front_id);
-            mInstructionsDocSecondSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE, R.string.tooltip_back_id);
-            mSplashMsgDocFirstSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_FIRST_SIDE, R.string.splash_msg_id_front);
-            mSplashMsgDocSecondSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_SECOND_SIDE, R.string.splash_msg_id_back);
-            mSplashIconDocFirstSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_FIRST_SIDE, R.drawable.frontid_white);
-            mSplashIconDocSecondSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_SECOND_SIDE, R.drawable.backid_white);
-
-            initRecognizerView(licenseKey, licensee, useLegacyCamera);
-        } else {
-            throw new NullPointerException("CustomVerificationFlowActivity requires intent extras: license key and recognizer settings");
+        if (extras == null) {
+            throw new NullPointerException("CustomVerificationFlowActivity requires recognizer bundle");
         }
 
-        ViewGroup vgRoot = (ViewGroup) findViewById(R.id.rootRecognizerView);
+        CameraType cameraType = extras.getParcelable(EXTRAS_COMBINED_CAMERA_TYPE);
+        if (cameraType != null) {
+            mCombinedCameraType = cameraType;
+        }
+
+        boolean useLegacyCamera = extras.getBoolean(EXTRAS_USE_LEGACY_CAMERA_API, false);
+
+        mInstructionsDocFirstSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_FIRST_SIDE, R.string.tooltip_front_id);
+        mInstructionsDocSecondSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE, R.string.tooltip_back_id);
+        mSplashMsgDocFirstSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_FIRST_SIDE, R.string.splash_msg_id_front);
+        mSplashMsgDocSecondSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_SECOND_SIDE, R.string.splash_msg_id_back);
+        mSplashIconDocFirstSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_FIRST_SIDE, R.drawable.frontid_white);
+        mSplashIconDocSecondSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_SECOND_SIDE, R.drawable.backid_white);
+
+        initRecognizerView(useLegacyCamera);
+
+        ViewGroup vgRoot = findViewById(R.id.rootRecognizerView);
 
         mCameraPermissionManager = new CameraPermissionManager(this);
         View permissionOverlay = mCameraPermissionManager.getAskPermissionOverlay();
@@ -409,28 +317,22 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             mSoundPool = createOldSoundPool();
         }
 
-        if (mSoundResourceId > 0) {
-            mSoundId = mSoundPool.load(this, mSoundResourceId, 1);
+        int soundResourceId = extras.getInt(EXTRAS_BEEP_RESOURCE, 0);
+        if (soundResourceId > 0) {
+            mSoundId = mSoundPool.load(this, soundResourceId, 1);
             setVolumeControlStream(AudioManager.STREAM_MUSIC);
         }
 
     }
 
-    private void initRecognizerView(String licenseKey, String licensee, boolean forceUseLegacyCamera) {
-        mRecognizerView = (RecognizerView) findViewById(R.id.recognizerView);
-
-        try {
-            if (licensee == null) {
-                mRecognizerView.setLicenseKey(licenseKey);
-            } else {
-                mRecognizerView.setLicenseKey(licenseKey, licensee);
-            }
-        } catch (InvalidLicenceKeyException exc) {
-            Log.e(this, exc, "INVALID LICENCE KEY");
-        }
+    private void initRecognizerView(boolean forceUseLegacyCamera) {
+        mRecognizerView = findViewById(R.id.recognizerView);
 
         mRecognizerView.setForceUseLegacyCamera(forceUseLegacyCamera);
-        mRecognizerView.setRecognitionSettings(buildRecognitionSettings());
+
+        mRecognizerBundle = new RecognizerBundle();
+        mRecognizerBundle.loadFromIntent(getIntent());
+        mRecognizerView.setRecognizerBundle(mRecognizerBundle);
 
         mRecognizerView.setCameraType(mCombinedCameraType);
         // set camera aspect mode to FILL - this will use the entire surface
@@ -458,7 +360,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             }
         });
 
-        mRecognizerView.setMetadataListener(this, createMetadataSettings(mImageMetadataSettings));
+        mRecognizerBundle.setNumMsBeforeTimeout(NUM_MS_BEFORE_TIMEOUT_DEFAULT);
 
         // all activity lifecycle events must be passed on to RecognizerView, this method is called
         // from activity onCreate
@@ -466,7 +368,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
         mMrzPointsView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation(), MRZ_DETECTION_POINT_RADIUS, ContextCompat.getColor(this, R.color.mrz_point_color));
         mRecognizerView.addChildView(mMrzPointsView, false);
-        mOcrView = new OcrResultDotsView(this, null, mRecognizerView.getHostScreenOrientation());
+        mOcrView = new OcrResultDotsView(this, mRecognizerView.getHostScreenOrientation(), mRecognizerView.getInitialOrientation());
         mRecognizerView.addChildView(mOcrView.getView(), false);
 
         mCameraOverlayRoot = new FrameLayout(this);
@@ -475,42 +377,46 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         mCameraOverlayRoot.addView(createCombinedStepCameraOverlay());
         // camera overlay is rotatable = true
         mRecognizerView.addChildView(mCameraOverlayRoot, true);
+
+        setupMetadataCallbacks();
     }
 
-    private MetadataSettings createMetadataSettings(MetadataSettings.ImageMetadataSettings imageMetadataSettings) {
-        MetadataSettings metadataSettings = new MetadataSettings();
-        if (mImageListener != null) {
-            // if not set, then enable all images
-            if (imageMetadataSettings == null) {
-                // enable all images
-                imageMetadataSettings = new MetadataSettings.ImageMetadataSettings();
-                imageMetadataSettings.setCurrentVideoFrameEnabled(true);
-                imageMetadataSettings.setDewarpedImageEnabled(true);
-                imageMetadataSettings.setSuccessfulScanFrameEnabled(true);
-
-                MetadataSettings.ImageMetadataSettings.DebugImageMetadataSettings dims = new MetadataSettings.ImageMetadataSettings.DebugImageMetadataSettings();
-                dims.setAll(true);
-
-                imageMetadataSettings.setDebugImageMetadataSettings(dims);
+    private void setupMetadataCallbacks() {
+        MetadataCallbacks metadataCallbacks = new MetadataCallbacks();
+        metadataCallbacks.setFailedDetectionCallback(new FailedDetectionCallback() {
+            @Override
+            public void onDetectionFailed() {
+                clearScanIndicatorViews();
             }
-            metadataSettings.setImageMetadataSettings(imageMetadataSettings);
-        }
-        metadataSettings.setOcrMetadataAllowed(true);
-        metadataSettings.setDetectionMetadataAllowed(true);
-        // obtaining of partial result metadata must be enabled to get notification and result
-        // from the first part/side of the document when it is successfully scanned
-        metadataSettings.setPartialResultMetadataAllowed(true);
-        // enable obtaining of glare metadata (glare detection status)
-        metadataSettings.setGlareMetadataAllowed(true);
-        return metadataSettings;
-    }
-
-    /** Builds recognition settings with chosen combined recognizer settings. */
-    private RecognitionSettings buildRecognitionSettings() {
-        RecognitionSettings settings = new RecognitionSettings();
-        settings.setNumMsBeforeTimeout(NUM_MS_BEFORE_TIMEOUT_DEFAULT);
-        settings.setRecognizerSettingsArray(new RecognizerSettings[]{mCombinedRecognizerSettings});
-        return settings;
+        });
+        metadataCallbacks.setGlareCallback(new GlareCallback() {
+            @Override
+            public void onGlare(boolean isGlareDetected) {
+                onGlareStatus(isGlareDetected);
+            }
+        });
+        metadataCallbacks.setOcrCallback(new OcrCallback() {
+            @Override
+            public void onOcrResult(@NonNull DisplayableOcrResult displayableOcrResult) {
+                // show points over the OCR result
+                mOcrView.addOcrResult(displayableOcrResult);
+                if (mMrzPointsView != null) {
+                    // clear MRZ detection points
+                    mMrzPointsView.clearDisplayedContent();
+                }
+            }
+        });
+        metadataCallbacks.setFirstSideRecognitionCallback(new FirstSideRecognitionCallback() {
+            @Override
+            public void onFirstSideRecognitionFinished() {
+                // prepare UI and activity for the second part/side of the document
+                soundNotification();
+                mCurrentCombinedSide = CombinedSide.SECOND_SIDE;
+                clearScanIndicatorViews();
+                reportStepStart(true);
+            }
+        });
+        mRecognizerView.setMetadataCallbacks(metadataCallbacks);
     }
 
     @Override
@@ -575,7 +481,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         if (mSoundPool != null) {
             try {
                 mSoundPool.release();
-            } catch (IllegalStateException ignorable) {}
+            } catch (IllegalStateException ignorable) {
+
+            }
             mSoundPool = null;
             mSoundId = -1;
         }
@@ -619,7 +527,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         }
 
         if (mActivityState == ActivityState.RESUMED) {
-            mRecognizerView.setMeteringAreas(new RectF[]{new Rectangle(0.33f, 0.33f, 0.33f, 0.33f).toRectF() }, true);
+            mRecognizerView.setMeteringAreas(new RectF[]{new Rectangle(0.33f, 0.33f, 0.33f, 0.33f).toRectF()}, true);
         }
 
         mHandler.postDelayed(new Runnable() {
@@ -682,8 +590,6 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         switch (reason) {
             case CUSTOM_UI_FORBIDDEN:
                 return getString(R.string.CustomUIForbidden);
-            case INVALID_LICENSE_KEY:
-                return getString(R.string.InvalidLicense);
             case UNSUPPORTED_ANDROID_VERSION:
                 return getString(R.string.FeatureUnsuportedAndroidVersion);
             case NO_AUTOFOCUS_CAMERA:
@@ -725,60 +631,15 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         // do nothing
     }
 
-    @Override
-    public void onMetadataAvailable(Metadata metadata) {
-        // This method will be called when metadata becomes available during recognition process.
-        // Here, for every metadata type that is allowed through metadata settings,
-        // desired actions can be performed.
-
-        // detection metadata contains detection locations
-        if (metadata instanceof DetectionMetadata) {
-            final DetectorResult detectionResult = ((DetectionMetadata) metadata).getDetectionResult();
-            // DetectorResult can be null - this means that detection has failed
-            if (detectionResult == null) {
-                // clear MRZ detection points
-                clearScanIndicatorViews();
-            } else if (detectionResult instanceof MrzDetectorResult) {
-                if (mMrzPointsView != null) {
-                    MrzDetectorResult res = (MrzDetectorResult) detectionResult;
-                    // show MRZ detection points
-                    mMrzPointsView.setPointsDetectionResult(res.getPointsDetectorResult());
-                }
-            }
-        } else if (metadata instanceof OcrMetadata) {
-            // show points over the OCR result
-            mOcrView.addOcrResult(((OcrMetadata) metadata).getOcrResult());
-            if (mMrzPointsView != null) {
-                // clear MRZ detection points
-                mMrzPointsView.setPointsDetectionResult(null);
-            }
-        } else if (metadata instanceof GlareMetadata) {
-            // report glare status
-            onGlareStatus(((GlareMetadata) metadata).isGlareDetected());
-        } else if (metadata instanceof ImageMetadata) {
-            // report image metadata to image listener
-            mImageListener.onImageAvailable(((ImageMetadata) metadata).getImage());
-        } else if (metadata instanceof RecognitionResultMetadata) {
-            // when first side is scanned, RecognitionResultMetadata will be returned
-            BaseRecognitionResult result = ((RecognitionResultMetadata) metadata).getScannedResult();
-            if (mCurrentCombinedSide == CombinedSide.FIRST_SIDE) {
-                // prepare UI and activity for the second part/side of the document
-                soundNotification();
-                mCurrentCombinedSide = CombinedSide.SECOND_SIDE;
-                mCombinedFirstSideResult = result;
-                clearScanIndicatorViews();
-                reportStepStart(true);
-            }
-        }
-    }
-
-    /** Clears OCR scan indicator view and MRZ detection points view. */
+    /**
+     * Clears OCR scan indicator view and MRZ detection points view.
+     */
     private void clearScanIndicatorViews() {
         if (mOcrView != null) {
-            mOcrView.clearOcrResults();
+            mOcrView.clearDisplayedContent();
         }
         if (mMrzPointsView != null) {
-            mMrzPointsView.setPointsDetectionResult(null);
+            mMrzPointsView.clearDisplayedContent();
         }
     }
 
@@ -795,63 +656,62 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onScanningDone(@Nullable RecognitionResults results) {
-        if (results == null) {
+    public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+        if (recognitionSuccessType == RecognitionSuccessType.UNSUCCESSFUL) {
             return;
         }
-        final BaseRecognitionResult[] resultArray = results.getRecognitionResults();
-        // pause scanning, be careful to resume scanning later
-        pauseScanning();
-        // we expect one recognition result int he array
-        if (resultArray != null && resultArray.length == 1) {
-            BaseRecognitionResult result = resultArray[0];
-            if (results.getRecognitionType() == RecognitionType.SUCCESSFUL && result instanceof CombinedRecognitionResult) {
-                // play beep sound
-                soundNotification();
-                if (mScanResultListener != null) {
-                    mScanResultListener.onScanningDone(results);
-                }
-                mCombinedRecognitionResult = result;
-                if (!((CombinedRecognitionResult) result).isDocumentDataMatch()) {
-                    // document data does not match on all parts/sides of the document
-                    // scan again and show scan again dialog to the user
-                    @StringRes int titleRes = mDialogNotMatchTitleRes == 0 ? R.string.mbAlertTitle : mDialogNotMatchTitleRes;
-                    @StringRes int messageRes = mDialogNotMatchMessageRes == 0 ? R.string.mbDataNotMatchMsg : mDialogNotMatchMessageRes;
-                    @StringRes int buttonTextRes = mDialogNotMatchButtonTextRes == 0 ? R.string .mbScanAgain : mDialogNotMatchButtonTextRes;
-                    new AlertDialog.Builder(this)
-                            .setTitle(titleRes)
-                            .setMessage(messageRes)
-                            .setCancelable(false)
-                            .setPositiveButton(buttonTextRes, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    restartVerification();
-                                    resumeScanning();
-                                }
-                            })
-                            .create()
-                            .show();
-                    return;
-                }
-                finishWithResults();
-                return;
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                onScanDoneWithSuccess();
             }
-        }
-        resumeScanning();
+        });
     }
 
-    /** Finishes the activity (with scan results if scan result listener is not set). */
+    private void onScanDoneWithSuccess() {
+        Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
+        if (recognizer instanceof CombinedRecognizer) {
+            CombinedRecognizer combinedRecognizer = (CombinedRecognizer) recognizer;
+            if (combinedRecognizer.getCombinedResult().isDocumentDataMatch()) {
+                finishWithResults();
+            } else {
+                // handle case when scanned sides were from different documents
+                onDocumentSidesNotMatching();
+            }
+        }
+    }
+
+    private void onDocumentSidesNotMatching() {
+        // scan again and show scan again dialog to the user
+        pauseScanning();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.mbAlertTitle)
+                .setMessage(R.string.mbDataNotMatchMsg)
+                .setCancelable(false)
+                .setPositiveButton(R.string.mbScanAgain, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        restartVerification();
+                        resumeScanning();
+                    }
+                })
+                .create()
+                .show();
+    }
+
+    /**
+     * Finishes the activity (with scan results if scan result listener is not set).
+     */
     private void finishWithResults() {
         Intent intent = new Intent();
-        if (mScanResultListener == null) {
-            // if scan result listener is set, do not return results through intent extras
-            intent.putExtra(EXTRAS_COMBINED_RECOGNITION_RESULT, mCombinedRecognitionResult);
-        }
         setResult(RESULT_OK, intent);
         finish();
     }
 
-    /** Restarts verification flow and clears all previously stored data */
+    /**
+     * Restarts verification flow and clears all previously stored data
+     */
     private void restartVerification() {
         if (mCurrentCombinedSide != null) {
             mCurrentCombinedSide = CombinedSide.FIRST_SIDE;
@@ -859,18 +719,12 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         initStep(true);
     }
 
-    /** Initializes the current step - updates recognition settings.
-     * @param isCameraPreviewStarted whether the camera preview is started. */
     private void initStep(boolean isCameraPreviewStarted) {
         clearScanIndicatorViews();
         mCameraOverlayRoot.removeAllViews();
         mCameraOverlayRoot.addView(createCombinedStepCameraOverlay());
 
-        // clear previous results
-        mCombinedFirstSideResult = null;
-
-        RecognitionSettings settings = buildRecognitionSettings();
-        mRecognizerView.reconfigureRecognizers(settings);
+        //RecognitionSettings settings = buildRecognizerBundle();
         reportStepStart(isCameraPreviewStarted);
     }
 
@@ -880,7 +734,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                 onStartCombinedFirstSide(isCameraPreviewStarted);
                 break;
             case SECOND_SIDE:
-                onStartCombinedSecondSide(isCameraPreviewStarted, mCombinedFirstSideResult);
+                onStartCombinedSecondSide(isCameraPreviewStarted);
                 break;
         }
     }
@@ -892,11 +746,10 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     }
 
     @SuppressWarnings("deprecation")
-    private SoundPool createOldSoundPool(){
+    private SoundPool createOldSoundPool() {
         return new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
     }
 
-    /** */
     private void resumeScanning() {
         if (mRecognizerView == null) {
             return;
@@ -919,6 +772,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     /**
      * Creates and returns camera overlay view for the combined verification step.
+     *
      * @return created camera overlay view.
      */
     @NonNull
@@ -926,9 +780,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         View documentOverlay = getLayoutInflater().inflate(R.layout.id_card_camera_overlay, mRecognizerView, false);
 
         mStatusOverlay = documentOverlay.findViewById(R.id.statusOverlay);
-        mGlareMsg = (TextView) documentOverlay.findViewById(R.id.tvGlareMessage);
-        mStatusImage = (ImageView) mStatusOverlay.findViewById(R.id.ivStatusImg);
-        mStatusMsg = (TextView) mStatusOverlay.findViewById(R.id.tvStatusMsg);
+        mGlareMsg = documentOverlay.findViewById(R.id.tvGlareMessage);
+        mStatusImage = mStatusOverlay.findViewById(R.id.ivStatusImg);
+        mStatusMsg = mStatusOverlay.findViewById(R.id.tvStatusMsg);
 
         View torchContainer = documentOverlay.findViewById(R.id.torchContainer);
         if (getSupportActionBar() != null) {
@@ -941,7 +795,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             if (viewfinderMargin != null) {
                 viewfinderMargin.setVisibility(View.GONE);
             }
-            mIbTorch = (ImageButton) torchContainer.findViewById(R.id.torchButton);
+            mIbTorch = torchContainer.findViewById(R.id.torchButton);
             setTorchButtonIcon(mTorchOn);
             mIbTorch.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -951,7 +805,12 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                         public void onOperationDone(boolean success) {
                             if (success) {
                                 mTorchOn = !mTorchOn;
-                                setTorchButtonIcon(mTorchOn);
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        setTorchButtonIcon(mTorchOn);
+                                    }
+                                });
                             }
                         }
                     });
@@ -987,6 +846,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     /**
      * Method that is called when combined recognizer is set to scan first side and recognition
      * is started.
+     *
      * @param isCameraPreviewStarted whether camera preview has been already started or not. If the
      *                               camera preview has not been started yet (value is {@code false}),
      *                               method {@link #onCameraPreviewStarted()} will be called when/if
@@ -1022,14 +882,13 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     /**
      * Method that is called when combined recognizer is set to scan second part/side
      * (only if it exists) and recognition is started.
+     *
      * @param isCameraPreviewStarted whether camera preview has been already started or not. If the
      *                               camera preview has not been started yet (value is {@code false}),
      *                               method {@link #onCameraPreviewStarted()} will be called when/if
      *                               the camera is successfully started.
-     * @param combinedFirstSideResult recognition result for the first side of the combined document
-     *                                that has been scanned
      */
-    private void onStartCombinedSecondSide(boolean isCameraPreviewStarted, BaseRecognitionResult combinedFirstSideResult) {
+    private void onStartCombinedSecondSide(boolean isCameraPreviewStarted) {
         // do not pause scanning if the camera preview has not been started yet because this
         // method can be called multiple times when camera permission is not granted which
         // will cause that scanning will not be properly resumed later (pause is counted)
@@ -1058,6 +917,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     /**
      * Sets the activity title in the action bar.
+     *
      * @param title activity title.
      */
     protected void setActivityTitle(String title) {
@@ -1070,6 +930,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     /**
      * Method that is called during recognition process when/if the glare is detected on the
      * scanned document.
+     *
      * @param glareDetected whether glare is detected or not.
      */
     private void onGlareStatus(boolean glareDetected) {
@@ -1092,9 +953,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     public boolean onCreateOptionsMenu(Menu menu) {
         mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.action_torch);
         mTorchItem.setIcon(R.drawable.ic_flash_off_24dp);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            mTorchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        }
+        mTorchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
 
@@ -1148,6 +1007,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     /**
      * Clears currently shown splash screen and resumes scanning if requested.
+     *
      * @param resumeScanning whether resume scanning will be called or not.
      */
     protected void clearSplashScreen(final boolean resumeScanning) {

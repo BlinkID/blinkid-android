@@ -12,10 +12,6 @@ import com.microblink.view.viewfinder.ViewfinderShapeView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by igrce on 01/12/2016.
- */
-
 public class ViewfinderAnimationUtil {
 
     public static final float MAX_VIEWFINDER_ALPHA = 0.67f;

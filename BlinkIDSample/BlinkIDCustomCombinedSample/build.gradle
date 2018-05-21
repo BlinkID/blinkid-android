@@ -30,7 +30,7 @@ dependencies {
     implementation("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
-    implementation project(':LibResult')
+    implementation project(':LibUtils')
     implementation "com.android.support:percent:${rootProject.ext.appCompatVersion}"
 
 }

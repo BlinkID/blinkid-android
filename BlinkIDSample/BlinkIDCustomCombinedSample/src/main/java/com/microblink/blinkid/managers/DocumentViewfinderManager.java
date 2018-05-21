@@ -59,15 +59,6 @@ public class DocumentViewfinderManager {
     }
 
     /**
-     * Clears splash screen with alpha animation after the given delay.
-     * @param delay delay in milliseconds before clear animation will be started.
-     * @param animationDuration duration of the clear alpha animation in milliseconds.
-     */
-    public void clearSplashScreen(long delay, long animationDuration) {
-        clearSplashScreen(delay, animationDuration);
-    }
-
-    /**
      * Clears splash screen with alpha animation after the given delay and executes the given
      * {@link Runnable} when animation finishes.
      * @param delay delay in milliseconds before clear animation will be started.
