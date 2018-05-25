@@ -34,7 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name="com.microblink.activity.DocumentVerificationActivity"
+            android:theme="@style/VerificationFlowTheme" />
     </application>
 
 </manifest>

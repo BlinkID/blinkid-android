@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.microblink.activity.BarcodeScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
@@ -77,8 +76,9 @@ import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BarcodeUISettings;
-import com.microblink.uisettings.BaseScanUISettings;
 import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.DocumentVerificationUISettings;
+import com.microblink.uisettings.UISettings;
 import com.microblink.uisettings.options.ShowOcrResultMode;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
@@ -270,13 +270,13 @@ public class MenuActivity extends Activity {
     }
 
     private ListElement buildHongKongIDFrontElement() {
-        HongKongIDFrontRecognizer hongKongIDFrontRecognizerSettings = new HongKongIDFrontRecognizer();
-        return new ListElement("Hong Kong ID", buildDocumentScanIntent(hongKongIDFrontRecognizerSettings));
+        HongKongIDFrontRecognizer hongKongIDFrontRecognizer = new HongKongIDFrontRecognizer();
+        return new ListElement("Hong Kong ID", buildDocumentScanIntent(hongKongIDFrontRecognizer));
     }
 
     private ListElement buildIndonesianIdElement(){
-        IndonesiaIDFrontRecognizer idnFrontSettings= new IndonesiaIDFrontRecognizer();
-        return new ListElement("Indonesian ID", buildDocumentScanIntent(idnFrontSettings));
+        IndonesiaIDFrontRecognizer idnFront= new IndonesiaIDFrontRecognizer();
+        return new ListElement("Indonesian ID", buildDocumentScanIntent(idnFront));
     }
 
     private ListElement buildJordanIdElement(){
@@ -470,9 +470,9 @@ public class MenuActivity extends Activity {
         return new ListElement("VIN", buildBarcodeScanIntent(vinRecognizer));
     }
 
-    private DocumentUISettings buildCombinedIntent(Recognizer combinedRecognizer) {
-        //TODO different activity for combined?
-        return buildDocumentScanIntent(combinedRecognizer);
+    private DocumentVerificationUISettings buildCombinedIntent(Recognizer combinedRecognizer) {
+        mRecognizerBundle = new RecognizerBundle(combinedRecognizer);
+        return new DocumentVerificationUISettings(mRecognizerBundle);
     }
 
     private DocumentUISettings buildDocumentScanIntent(Recognizer...recognizers) {
@@ -528,9 +528,9 @@ public class MenuActivity extends Activity {
 
     private class ListElement {
         private String mTitle;
-        private BaseScanUISettings mScanUISettings;
+        private UISettings mScanUISettings;
 
-        ListElement(String title, BaseScanUISettings scanUISettings) {
+        ListElement(String title, UISettings scanUISettings) {
             mTitle = title;
             mScanUISettings = scanUISettings;
         }
