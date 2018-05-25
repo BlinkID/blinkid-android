@@ -21,12 +21,6 @@ import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.blinkid.mrtd.MRTDRecognitionResult;
-import com.microblink.recognizers.blinkid.mrtd.MRTDRecognizerSettings;
-import com.microblink.recognizers.settings.RecognitionSettings;
-import com.microblink.recognizers.settings.RecognizerSettings;
 
 import java.util.ArrayList;
 import java.util.List;

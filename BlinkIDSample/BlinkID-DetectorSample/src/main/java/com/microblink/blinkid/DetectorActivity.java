@@ -230,7 +230,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         });
 
         // camera overlay
-        View overlay = getLayoutInflater().inflate(R.layout.default_barcode_camera_overlay, null);
+        View overlay = getLayoutInflater().inflate(R.layout.mb_default_barcode_camera_overlay, null);
 
         mTorchButton = overlay.findViewById(R.id.defaultTorchButton);
         mBackButton = overlay.findViewById(R.id.defaultBackButton);
@@ -341,8 +341,8 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
     private void enableTorchButtonIfPossible() {
         if (mRecognizerView.isCameraTorchSupported() && mTorchButton != null) {
             mTorchButton.setVisibility(View.VISIBLE);
-            mTorchButton.setText(com.microblink.library.R.string.mbLightOff);
-            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.lightoff, 0, 0, 0);
+            mTorchButton.setText(com.microblink.library.R.string.mb_light_off);
+            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lightoff, 0, 0, 0);
             mTorchEnabled = false;
             mTorchButton.setOnClickListener(new View.OnClickListener() {
 
@@ -358,11 +358,11 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
                                     if (success) {
                                         mTorchEnabled = !mTorchEnabled;
                                         if (mTorchEnabled) {
-                                            mTorchButton.setText(com.microblink.library.R.string.mbLightOn);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.lighton, 0, 0, 0);
+                                            mTorchButton.setText(com.microblink.library.R.string.mb_light_on);
+                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lighton, 0, 0, 0);
                                         } else {
-                                            mTorchButton.setText(com.microblink.library.R.string.mbLightOff);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.lightoff, 0, 0, 0);
+                                            mTorchButton.setText(com.microblink.library.R.string.mb_light_off);
+                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lightoff, 0, 0, 0);
                                         }
                                     }
                                 }

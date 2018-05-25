@@ -1,6 +1,7 @@
 package com.microblink.blinkid;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -10,29 +11,93 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.microblink.activity.DocumentScanActivity;
+import com.microblink.activity.BarcodeScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
+import com.microblink.entities.recognizers.blinkbarcode.pdf417.Pdf417Recognizer;
+import com.microblink.entities.recognizers.blinkbarcode.simnumber.SimNumberRecognizer;
+import com.microblink.entities.recognizers.blinkbarcode.usdl.USDLRecognizer;
+import com.microblink.entities.recognizers.blinkbarcode.vin.VinRecognizer;
+import com.microblink.entities.recognizers.blinkid.australia.AustraliaDLBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.australia.AustraliaDLFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.egypt.EgyptIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.eudl.EUDLRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIDRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.jordan.JordanIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.jordan.JordanIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.IKadRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDLFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MyTenteraRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDLFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.poland.PolandIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.poland.PolandIDFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.romania.RomaniaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIDFrontRecognizer;
+import com.microblink.recognizers.blinkid.eudl.EUDLCountry;
+import com.microblink.result.ResultActivity;
+import com.microblink.uisettings.ActivityRunner;
+import com.microblink.uisettings.BarcodeUISettings;
+import com.microblink.uisettings.BaseScanUISettings;
+import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.options.ShowOcrResultMode;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuActivity extends Activity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 0x101;
 
-    private ListElement[] mElements;
+    private RecognizerBundle mRecognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // use this to change BlinkID language. Device default is used by default.
-//        LanguageUtils.setLanguage(Language.English, this);
-
         // in case of problems with the SDK (crashes or ANRs, uncomment following line to enable
         // verbose logging that can help developers track down the problem)
-//        Log.setLogLevel(Log.LogLevel.LOG_VERBOSE);
+        //Log.setLogLevel(Log.LogLevel.LOG_VERBOSE);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
@@ -44,188 +109,54 @@ public class MenuActivity extends Activity {
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
 
-        // build list elements
-        buildElements();
+        setupMenuList();
+    }
+
+    private void setupMenuList() {
+        final List<ListElement> elements = buildMenuListElements();
         ListView lv = findViewById(R.id.recognizerList);
-        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mElements);
+        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, elements);
         lv.setAdapter(listAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivityForResult(mElements[position].getScanIntent(), MY_BLINKID_REQUEST_CODE);
+                ActivityRunner.startActivityForResult(MenuActivity.this, MY_BLINKID_REQUEST_CODE, elements.get(position).mScanUISettings);
             }
         });
     }
 
     /**
-     * This method is invoked after returning from scan activity. You can obtain
-     * scan results here
+     * This method is invoked after returning from scan activity. You can obtain scan results here
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-/*
+
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
         // that we have really returned from BlinkID activity.
         if (requestCode == MY_BLINKID_REQUEST_CODE) {
 
             // make sure BlinkID activity returned result
-            if (resultCode == Activity.RESULT_OK && data != null) {
-
-                Bundle extras = data.getExtras();
-                if (extras != null && extras.getParcelable(ScanActivity.EXTRAS_RECOGNITION_RESULTS) == null) {
-                    // VerificationFlowActivity does not return results as RecognitionResults object, prepare RecognitionResults
-                    // from combined recognizer result
-                    BaseRecognitionResult combinedResult = extras.getParcelable(VerificationFlowActivity.EXTRAS_COMBINED_RECOGNITION_RESULT);
-                    if (combinedResult != null) {
-                        data.putExtra(ScanActivity.EXTRAS_RECOGNITION_RESULTS, new RecognitionResults(new BaseRecognitionResult[]{combinedResult}, RecognitionType.SUCCESSFUL));
-                    }
-                }
-
+            if (resultCode == Activity.RESULT_OK) {
                 // set intent's component to ResultActivity and pass its contents
-                // to ResultActivity. ResultActivity will show how to extract
-                // data from result.
-
+                // to ResultActivity. ResultActivity will show how to extract data from result.
                 data.setComponent(new ComponentName(this, ResultActivity.class));
+                data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
                 startActivity(data);
             } else {
                 // if BlinkID activity did not return result, user has probably
                 // pressed Back button and cancelled scanning
                 Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
             }
-        }*/
+        }
     }
 
-    /**
-     * This method will build scan intent for BlinkID. Method needs array of recognizer settings
-     * to know which recognizers to enable, activity to which intent will be sent and optionally
-     * an intent for HelpActivity that will be used if user taps the Help button on scan activity.
-     */
-    /*private Intent buildIntent(RecognizerSettings[] settArray, Class<?> target, Intent helpIntent) {
-        // first create intent for given activity
-        final Intent intent = new Intent(this, target);
-
-        // optionally, if you want the beep sound to be played after a scan
-        // add a sound resource id as EXTRAS_BEEP_RESOURCE extra
-        intent.putExtra(ScanActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
-
-        // if we have help intent, we can pass it to scan activity so it can invoke
-        // it if user taps the help button. If we do not set the help intent,
-        // scan activity will hide the help button.
-        if (helpIntent != null) {
-            intent.putExtra(ScanActivity.EXTRAS_HELP_INTENT, helpIntent);
-        }
-
-        // prepare the recognition settings
-        RecognitionSettings settings = new RecognitionSettings();
-
-        // with setNumMsBeforeTimeout you can define number of miliseconds that must pass
-        // after first partial scan result has arrived before scan activity triggers a timeout.
-        // Timeout is good for preventing infinitely long scanning experience when user attempts
-        // to scan damaged or unsupported slip. After timeout, scan activity will return only
-        // data that was read successfully. This might be incomplete data.
-//        settings.setNumMsBeforeTimeout(10000);
-
-        // If you add more recognizers to recognizer settings array, you can choose whether you
-        // want to have the ability to obtain multiple scan results from same video frame. For example,
-        // if both payment slip and payment barcode are visible on a single frame, by setting
-        // setAllowMultipleScanResultsOnSingleImage to true you can obtain both scan results
-        // from barcode and slip. If this is false (default), you will get the first valid result
-        // (i.e. first result that contains all required data). Having this option turned off
-        // creates better and faster user experience.
-//        settings.setAllowMultipleScanResultsOnSingleImage(true);
-
-        // now add array with recognizer settings so that scan activity will know
-        // what do you want to scan. Setting recognizer settings array is mandatory.
-        settings.setRecognizerSettingsArray(settArray);
-        intent.putExtra(ScanActivity.EXTRAS_RECOGNITION_SETTINGS, settings);
-
-        // In order for scanning to work, you must enter a valid licence key. Without licence key,
-        // scanning will not work. Licence key is bound the the package name of your app, so when
-        // obtaining your licence key from Microblink make sure you give us the correct package name
-        // of your app. You can obtain your licence key at http://microblink.com/login or contact us
-        // at http://help.microblink.com.
-        // Licence key also defines which recognizers are enabled and which are not. Since the licence
-        // key validation is performed on image processing thread in native code, all enabled recognizers
-        // that are disallowed by licence key will be turned off without any error and information
-        // about turning them off will be logged to ADB logcat.
-        intent.putExtra(ScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
-
-        // If you want, you can disable drawing of OCR results on scan activity. Drawing OCR results can be visually
-        // appealing and might entertain the user while waiting for scan to complete, but might introduce a small
-        // performance penalty.
-        // intent.putExtra(ScanActivity.EXTRAS_SHOW_OCR_RESULT, false);
-
-        /// If you want you can have scan activity display the focus rectangle whenever camera
-        // attempts to focus, similarly to various camera app's touch to focus effect.
-        // By default this is off, and you can turn this on by setting EXTRAS_SHOW_FOCUS_RECTANGLE
-        // extra to true.
-        intent.putExtra(ScanActivity.EXTRAS_SHOW_FOCUS_RECTANGLE, true);
-
-        // If you want, you can enable the pinch to zoom feature of scan activity.
-        // By enabling this you allow the user to use the pinch gesture to zoom the camera.
-        // By default this is off and can be enabled by setting EXTRAS_ALLOW_PINCH_TO_ZOOM extra to true.
-        intent.putExtra(ScanActivity.EXTRAS_ALLOW_PINCH_TO_ZOOM, true);
-
-        // Enable showing of OCR results as animated dots. This does not have effect if non-OCR recognizer like
-        // barcode recognizer is active.
-        intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
-
-        return intent;
-    }*/
-
-    /**
-     * This method will build scan intent for {@link com.microblink.activity.VerificationFlowActivity}
-     * with given combined recognizer settings.
-     *
-     * @param combinedRecognizerSettings settings for the combined recognizer that will be used.
-     */
-    /*private Intent buildCombinedIntent(CombinedRecognizerSettings combinedRecognizerSettings) {
-        Intent intent = new Intent(this, VerificationFlowActivity.class);
-        intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
-        intent.putExtra(VerificationFlowActivity.EXTRAS_COMBINED_RECOGNIZER_SETTINGS, combinedRecognizerSettings);
-        intent.putExtra(VerificationFlowActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
-        return intent;
-    }*/
-
-    /**
-     * Builds intent for segment scan.
-     *
-     * @param configArray Array of scan configurations. Each scan configuration
-     *                    contains 4 elements: resource ID for title displayed
-     *                    in BlinkOCRActivity activity, resource ID for text
-     *                    displayed in activity, name of the scan element (used
-     *                    for obtaining results) and parser setting defining
-     *                    how the data will be extracted.
-     * @return Built intent for segment scan.
-     */
-    /*private Intent buildSegmentScanIntent(ScanConfiguration[] configArray) {
-        final Intent intent = new Intent(this, SegmentScanActivity.class);
-
-        // configure help activity to display help for segment scan
-        Intent helpIntent = new Intent(this, HelpActivity.class);
-        intent.putExtra(SegmentScanActivity.EXTRAS_HELP_INTENT, helpIntent);
-
-        intent.putExtra(SegmentScanActivity.EXTRAS_SCAN_CONFIGURATION, configArray);
-        intent.putExtra(SegmentScanActivity.EXTRAS_LICENSE_KEY, Config.LICENSE_KEY);
-
-        intent.putExtra(SegmentScanActivity.EXTRAS_SHOW_OCR_RESULT_MODE, (Parcelable) ShowOcrResultMode.ANIMATED_DOTS);
-
-        return intent;
-    }*/
-
-    /**
-     * This method is used to build the array of ListElement objects. Each ListElement
-     * object will have its title that will be shown in ListView and prepared intent
-     * for BlinkID.
-     */
-    private void buildElements() {
+    private List<ListElement> buildMenuListElements() {
         ArrayList<ListElement> elements = new ArrayList<>();
 
-        // ID document list entry
         elements.add(buildMrtdElement());
-        /*elements.add(buildAustrianIDElement());
+        elements.add(buildAustrianIDElement());
         elements.add(buildAustrianIDCombinedElement());
         elements.add(buildAustrianPassportElement());
         elements.add(buildColombiaIDElement());
@@ -246,7 +177,7 @@ public class MenuActivity extends Activity {
         elements.add(buildMyTenteraElement());
         elements.add(buildPolishIdElement());
         elements.add(buildPolishIdCombinedElement());
-        elements.add(bildRomanianElement());
+        elements.add(buildRomanianElement());
         elements.add(buildSingaporeIDElement());
         elements.add(buildSingaporeIDCombinedElement());
         elements.add(buildSerbianIDElement());
@@ -260,31 +191,28 @@ public class MenuActivity extends Activity {
         elements.add(buildUnitedArabEmiratesIdElement());
 
         // DL list entries
-        elements.add(buildAustrianDLElement());
+        // TODO eudl
+        //elements.add(buildAustrianDLElement());
         elements.add(buildAustralianDLElement());
         elements.add(buildMalaysianDLElement());
         elements.add(buildNewZealandDLElement());
-        elements.add(buildGermanDLElement());
-        elements.add(buildUKDLElement());
+        //elements.add(buildGermanDLElement());
+        //elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
-        elements.add(buildUsdlCombinedElement());
+        //TODO elements.add(buildUsdlCombinedElement());
 
         // barcode list entries
-
         elements.add(buildPDF417Element());
         elements.add(buildBarcodeElement());
         elements.add(buildSimNumberElement());
         elements.add(buildVin());
 
-        // Blink OCR entries
-        elements.add(buildVehicleSegmentScanElement());
-
         // templating API entries
+        /* TODO templating
         elements.add(buildTemplatingAPICroIDFrontElement());
         elements.add(buildTemplatingAPICroIDBackElement());*/
 
-        mElements = new ListElement[elements.size()];
-        elements.toArray(mElements);
+        return elements;
     }
 
     private ListElement buildMrtdElement() {
@@ -292,380 +220,319 @@ public class MenuActivity extends Activity {
         MRTDRecognizer recognizer = new MRTDRecognizer();
         // allow results with incorrect check digits, only for demo
         recognizer.setAllowUnverifiedResults(true);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID documents
-        return new ListElement("ID document", buildIntent(null, recognizer));
+        return new ListElement("ID document", buildDocumentScanIntent(recognizer));
     }
 
-    private Intent buildIntent(Intent helpIntent, Recognizer...recognizers) {
-        final Intent intent = new Intent(this, DocumentScanActivity.class);
-
-        return intent;
-    }
-
-/*
     private ListElement buildAustrianIDElement() {
-        AustrianIDFrontSideRecognizerSettings ausFront = new AustrianIDFrontSideRecognizerSettings();
-        AustrianIDBackSideRecognizerSettings ausBack = new AustrianIDBackSideRecognizerSettings();
-
-        return new ListElement("Austrian ID", buildIntent(new RecognizerSettings[]{ausFront, ausBack}, ScanCard.class, null));
+        AustriaIDFrontSideRecognizer ausFront = new AustriaIDFrontSideRecognizer();
+        AustriaIDBackSideRecognizer ausBack = new AustriaIDBackSideRecognizer();
+        return new ListElement("Austrian ID", buildDocumentScanIntent(ausFront, ausBack));
     }
 
     private ListElement buildAustrianPassportElement() {
-        AustrianPassportRecognizerSettings ausPass = new AustrianPassportRecognizerSettings();
-        return new ListElement("Austrian Passport", buildIntent(new RecognizerSettings[]{ausPass}, ScanCard.class, null));
+        AustriaPassportRecognizer ausPass = new AustriaPassportRecognizer();
+        return new ListElement("Austrian Passport", buildDocumentScanIntent(ausPass));
     }
 
     private ListElement buildColombiaIDElement() {
-        ColombiaIDFrontRecognizerSettings colombiaIDFront = new ColombiaIDFrontRecognizerSettings();
-        ColombiaIDBackRecognizerSettings colombiaIDBack = new ColombiaIDBackRecognizerSettings();
-
-        return new ListElement("Colombia ID", buildIntent(new RecognizerSettings[]{colombiaIDFront, colombiaIDBack}, ScanCard.class, null));
+        ColombiaIDFrontSideRecognizer colombiaIDFront = new ColombiaIDFrontSideRecognizer();
+        ColombiaIDBackSideRecognizer colombiaIDBack = new ColombiaIDBackSideRecognizer();
+        return new ListElement("Colombia ID", buildDocumentScanIntent(colombiaIDFront, colombiaIDBack));
     }
 
     private ListElement buildCroatianIDElement() {
-        CroatianIDFrontSideRecognizerSettings croFront = new CroatianIDFrontSideRecognizerSettings();
-        CroatianIDBackSideRecognizerSettings croBack = new CroatianIDBackSideRecognizerSettings();
-
-        return new ListElement("Croatian ID", buildIntent(new RecognizerSettings[]{croFront, croBack}, ScanCard.class, null));
+        CroatiaIDFrontSideRecognizer croFront = new CroatiaIDFrontSideRecognizer();
+        CroatiaIDBackSideRecognizer croBack = new CroatiaIDBackSideRecognizer();
+        return new ListElement("Croatian ID", buildDocumentScanIntent(croFront, croBack));
     }
 
     private ListElement buildCzechIDElement() {
-        CzechIDFrontSideRecognizerSettings czFront = new CzechIDFrontSideRecognizerSettings();
-        CzechIDBackSideRecognizerSettings czBack = new CzechIDBackSideRecognizerSettings();
-
-        return new ListElement("Czech ID", buildIntent(new RecognizerSettings[]{czFront, czBack}, ScanCard.class, null));
+        CzechiaIDFrontSideRecognizer czFront = new CzechiaIDFrontSideRecognizer();
+        CzechiaIDBackSideRecognizer czBack = new CzechiaIDBackSideRecognizer();
+        return new ListElement("Czech ID", buildDocumentScanIntent(czFront, czBack));
     }
 
     private ListElement buildEgyptIDFrontElement() {
-        EgyptIDFrontRecognizerSettings egyptIDFront = new EgyptIDFrontRecognizerSettings();
-
-        return new ListElement("Egypt ID Front", buildIntent(new RecognizerSettings[]{egyptIDFront}, ScanCard.class, null));
+        EgyptIDFrontRecognizer egyptIDFront = new EgyptIDFrontRecognizer();
+        return new ListElement("Egypt ID Front", buildDocumentScanIntent(egyptIDFront));
     }
 
     private ListElement buildGermanIDElement() {
-        GermanIDFrontSideRecognizerSettings deFront = new GermanIDFrontSideRecognizerSettings();
-        GermanIDBackSideRecognizerSettings deBack = new GermanIDBackSideRecognizerSettings();
-        GermanOldIDRecognizerSettings deOld = new GermanOldIDRecognizerSettings();
-
-        return new ListElement("German ID", buildIntent(new RecognizerSettings[]{deFront, deBack, deOld}, ScanCard.class, null));
+        GermanyIDFrontSideRecognizer deFront = new GermanyIDFrontSideRecognizer();
+        GermanyIDBackSideRecognizer deBack = new GermanyIDBackSideRecognizer();
+        GermanyOldIDRecognizer deOld = new GermanyOldIDRecognizer();
+        return new ListElement("German ID", buildDocumentScanIntent(deFront, deBack, deOld));
     }
 
     private ListElement buildGermanPassportElement() {
-        GermanPassportRecognizerSettings dePassport = new GermanPassportRecognizerSettings();
-
-        return new ListElement("German Passport", buildIntent(new RecognizerSettings[]{dePassport}, ScanCard.class, null));
+        GermanyPassportRecognizer dePassport = new GermanyPassportRecognizer();
+        return new ListElement("German Passport", buildDocumentScanIntent(dePassport));
     }
 
     private ListElement buildHongKongIDFrontElement() {
-        HongKongIDFrontRecognizerSettings hongKongIDFrontRecognizerSettings = new HongKongIDFrontRecognizerSettings();
-
-        return new ListElement("Hong Kong ID", buildIntent(new RecognizerSettings[]{hongKongIDFrontRecognizerSettings}, ScanCard.class, null));
+        HongKongIDFrontRecognizer hongKongIDFrontRecognizerSettings = new HongKongIDFrontRecognizer();
+        return new ListElement("Hong Kong ID", buildDocumentScanIntent(hongKongIDFrontRecognizerSettings));
     }
 
     private ListElement buildIndonesianIdElement(){
-        IndonesianIDFrontRecognizerSettings idnFrontSettings= new IndonesianIDFrontRecognizerSettings();
-
-        return new ListElement("Indonesian ID", buildIntent(new RecognizerSettings[]{idnFrontSettings}, ScanCard.class, null));
+        IndonesiaIDFrontRecognizer idnFrontSettings= new IndonesiaIDFrontRecognizer();
+        return new ListElement("Indonesian ID", buildDocumentScanIntent(idnFrontSettings));
     }
 
     private ListElement buildJordanIdElement(){
-        JordanIDFrontRecognizerSettings jorFrontSettings= new JordanIDFrontRecognizerSettings();
-
-        JordanIDBackRecognizerSettings jorBackSettings = new JordanIDBackRecognizerSettings();
-
-        return new ListElement("Jordan ID", buildIntent(new RecognizerSettings[]{jorFrontSettings, jorBackSettings}, ScanCard.class, null) );
+        JordanIDFrontRecognizer jorFront = new JordanIDFrontRecognizer();
+        JordanIDBackRecognizer jorBack = new JordanIDBackRecognizer();
+        return new ListElement("Jordan ID", buildDocumentScanIntent(jorFront, jorBack));
     }
 
     private ListElement buildSingaporeIDElement() {
-        SingaporeIDFrontRecognizerSettings singaporeFront = new SingaporeIDFrontRecognizerSettings();
-        SingaporeIDBackRecognizerSettings singaporeBack = new SingaporeIDBackRecognizerSettings();
-
-        return new ListElement("Singapore ID", buildIntent(new RecognizerSettings[]{singaporeFront, singaporeBack}, ScanCard.class, null));
+        SingaporeIDFrontRecognizer singaporeFront = new SingaporeIDFrontRecognizer();
+        SingaporeIDBackRecognizer singaporeBack = new SingaporeIDBackRecognizer();
+        return new ListElement("Singapore ID", buildDocumentScanIntent(singaporeFront, singaporeBack));
     }
 
     private ListElement buildSerbianIDElement() {
-        SerbianIDFrontSideRecognizerSettings serbFront = new SerbianIDFrontSideRecognizerSettings();
-        SerbianIDBackSideRecognizerSettings serbBack = new SerbianIDBackSideRecognizerSettings();
-
-        return new ListElement("Serbian ID", buildIntent(new RecognizerSettings[]{serbFront, serbBack}, ScanCard.class, null));
+        SerbiaIDFrontRecognizer serbFront = new SerbiaIDFrontRecognizer();
+        SerbiaIDBackRecognizer serbBack = new SerbiaIDBackRecognizer();
+        return new ListElement("Serbian ID", buildDocumentScanIntent(serbFront, serbBack));
     }
 
     private ListElement buildSlovakIDElement() {
-        SlovakIDFrontSideRecognizerSettings svkFront = new SlovakIDFrontSideRecognizerSettings();
-        SlovakIDBackSideRecognizerSettings svkBack = new SlovakIDBackSideRecognizerSettings();
-
-        return new ListElement("Slovak ID", buildIntent(new RecognizerSettings[]{svkFront, svkBack}, ScanCard.class, null));
+        SlovakiaIDFrontRecognizer svkFront = new SlovakiaIDFrontRecognizer();
+        SlovakiaIDBackRecognizer svkBack = new SlovakiaIDBackRecognizer();
+        return new ListElement("Slovak ID", buildDocumentScanIntent(svkFront, svkBack));
     }
 
     private ListElement buildSlovenianIDElement() {
-        SlovenianIDFrontSideRecognizerSettings sloFront = new SlovenianIDFrontSideRecognizerSettings();
-        SlovenianIDBackSideRecognizerSettings sloBack = new SlovenianIDBackSideRecognizerSettings();
-
-        return new ListElement("Slovenian ID", buildIntent(new RecognizerSettings[]{sloFront, sloBack}, ScanCard.class, null));
+        SloveniaIDFrontRecognizer sloFront = new SloveniaIDFrontRecognizer();
+        SloveniaIDBackRecognizer sloBack = new SloveniaIDBackRecognizer();
+        return new ListElement("Slovenian ID", buildDocumentScanIntent(sloFront, sloBack));
     }
 
     private ListElement buildSwissPassportElement() {
-        SwissPassportRecognizerSettings swissPass = new SwissPassportRecognizerSettings();
-
-        return new ListElement("Swiss Passport", buildIntent(new RecognizerSettings[]{swissPass}, ScanCard.class, null));
+        SwitzerlandPassportRecognizer swissPass = new SwitzerlandPassportRecognizer();
+        return new ListElement("Swiss Passport", buildDocumentScanIntent(swissPass));
     }
 
     private ListElement buildUnitedArabEmiratesIdElement() {
-        UnitedArabEmiratesIDFrontRecognizerSettings unitedArabEmiratesIdFront = new UnitedArabEmiratesIDFrontRecognizerSettings();
-        UnitedArabEmiratesIDBackRecognizerSettings unitedArabEmiratesIdBack = new UnitedArabEmiratesIDBackRecognizerSettings();
-
-        return new ListElement("United Arab Emirates ID", buildIntent(new RecognizerSettings[]{unitedArabEmiratesIdFront, unitedArabEmiratesIdBack}, ScanCard.class, null));
+        UnitedArabEmiratesIDFrontRecognizer unitedArabEmiratesIdFront = new UnitedArabEmiratesIDFrontRecognizer();
+        UnitedArabEmiratesIDBackRecognizer unitedArabEmiratesIdBack = new UnitedArabEmiratesIDBackRecognizer();
+        return new ListElement("United Arab Emirates ID", buildDocumentScanIntent(unitedArabEmiratesIdFront, unitedArabEmiratesIdBack));
     }
 
     private ListElement buildUKDLElement() {
-        // prepare settings for United Kingdom Driver's Licence recognizer
-        EUDLRecognizerSettings ukdl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_UK);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("UK Driver's Licence", buildIntent(new RecognizerSettings[]{ukdl}, ScanCard.class, null));
+        EUDLRecognizer ukdl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_UK);
+        return new ListElement("UK Driver's Licence", buildDocumentScanIntent(ukdl));
     }
 
     private ListElement buildGermanDLElement() {
-        // prepare settings for United Kingdom Driver's Licence recognizer
-        EUDLRecognizerSettings germanDl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_GERMANY);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("German Driver's Licence", buildIntent(new RecognizerSettings[]{germanDl}, ScanCard.class, null));
+        EUDLRecognizer germanDl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_GERMANY);
+        return new ListElement("German Driver's Licence", buildDocumentScanIntent(germanDl));
     }
 
     private ListElement buildAustrianDLElement() {
-        // prepare settings for United Kingdom Driver's Licence recognizer
-        EUDLRecognizerSettings ausDl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_AUSTRIA);
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Austrian Driver's Licence", buildIntent(new RecognizerSettings[]{ausDl}, ScanCard.class, null));
+        EUDLRecognizer ausDl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_AUSTRIA);
+        return new ListElement("Austrian Driver's Licence", buildDocumentScanIntent(ausDl));
     }
 
     private ListElement buildAustralianDLElement() {
-        AustralianDLFrontSideRecognizerSettings ausDLFrontSettings = new AustralianDLFrontSideRecognizerSettings();
-        AustralianDLBackSideRecognizerSettings ausDLBackSettings = new AustralianDLBackSideRecognizerSettings();
-
-        return new ListElement("Australian Driver's License", buildIntent(new RecognizerSettings[]{ausDLFrontSettings, ausDLBackSettings}, ScanCard.class, null));
+        AustraliaDLFrontSideRecognizer ausDLFront = new AustraliaDLFrontSideRecognizer();
+        AustraliaDLBackSideRecognizer ausDLBack = new AustraliaDLBackSideRecognizer();
+        return new ListElement("Australian Driver's License", buildDocumentScanIntent(ausDLFront, ausDLBack));
     }
 
     private ListElement buildMalaysianDLElement() {
-        MalaysianDLFrontRecognizerSettings malaysianDL = new MalaysianDLFrontRecognizerSettings();
-
-        return new ListElement("Malaysian DL", buildIntent(new RecognizerSettings[]{malaysianDL}, ScanCard.class, null) );
+        MalaysiaDLFrontRecognizer malaysianDL = new MalaysiaDLFrontRecognizer();
+        return new ListElement("Malaysian DL", buildDocumentScanIntent(malaysianDL));
     }
 
     private ListElement buildNewZealandDLElement(){
-        NewZealandDLFrontRecognizerSettings nzDlFrontSettings = new NewZealandDLFrontRecognizerSettings();
-
-        return new ListElement("New Zealand Driver's Licence", buildIntent(new RecognizerSettings[]{nzDlFrontSettings}, ScanCard.class, null));
+        NewZealandDLFrontRecognizer nzDlFront = new NewZealandDLFrontRecognizer();
+        return new ListElement("New Zealand Driver's Licence", buildDocumentScanIntent(nzDlFront));
     }
 
     private ListElement buildUsdlElement() {
-        USDLRecognizerSettings usdl = new USDLRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("US Driver's License", buildIntent(new RecognizerSettings[]{usdl}, ScanCard.class, null));
+        USDLRecognizer usdl = new USDLRecognizer();
+        return new ListElement("US Driver's License", buildDocumentScanIntent(usdl));
     }
 
     private ListElement buildMyKadElement() {
-        MyKadFrontSideRecognizerSettings mykadfront = new MyKadFrontSideRecognizerSettings();
-
-        MyKadBackSideRecognizerSettings mykadback = new MyKadBackSideRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Malaysian ID card", buildIntent(new RecognizerSettings[]{mykadfront, mykadback}, ScanCard.class, null));
+        MyKadFrontRecognizer mykadfront = new MyKadFrontRecognizer();
+        MyKadBackRecognizer mykadback = new MyKadBackRecognizer();
+        return new ListElement("Malaysian ID card", buildDocumentScanIntent(mykadfront, mykadback));
     }
 
     private ListElement buildIKadElement() {
-        // prepare settings for Malaysian iKad ID document recognizer
-        IKadRecognizerSettings iKad = new IKadRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning iKad documents, we will use ScanCard activity which has more suitable UI for scanning ID document
-        return new ListElement("Malaysian iKad document", buildIntent(new RecognizerSettings[]{iKad}, ScanCard.class, null));
+        IKadRecognizer iKad = new IKadRecognizer();
+        return new ListElement("Malaysian iKad document", buildDocumentScanIntent(iKad));
     }
 
     private ListElement buildMyTenteraElement() {
-        MyTenteraRecognizerSettings myTentera = new MyTenteraRecognizerSettings();
-        return new ListElement("Malaysian MyTentera", buildIntent(new RecognizerSettings[]{myTentera}, ScanCard.class, null));
+        MyTenteraRecognizer myTentera = new MyTenteraRecognizer();
+        return new ListElement("Malaysian MyTentera", buildDocumentScanIntent(myTentera));
     }
 
     private ListElement buildPolishIdElement() {
-        PolishIDFrontSideRecognizerSettings polIdFrontSettings = new PolishIDFrontSideRecognizerSettings();
-        PolishIDBackSideRecognizerSettings polIdBackSettings = new PolishIDBackSideRecognizerSettings();
-
-        return new ListElement("Polish ID", buildIntent(new RecognizerSettings[]{polIdFrontSettings, polIdBackSettings}, ScanCard.class, null));
+        PolandIDFrontSideRecognizer polIdFront = new PolandIDFrontSideRecognizer();
+        PolandIDBackSideRecognizer polIdBack = new PolandIDBackSideRecognizer();
+        return new ListElement("Polish ID", buildDocumentScanIntent(polIdFront, polIdBack));
     }
 
-    private ListElement bildRomanianElement() {
-        RomanianIDFrontSideRecognizerSettings romanianSettings = new RomanianIDFrontSideRecognizerSettings();
-
-        return new ListElement("Romanian ID", buildIntent(new RecognizerSettings[]{romanianSettings}, ScanCard.class, null));
+    private ListElement buildRomanianElement() {
+        RomaniaIDFrontRecognizer romanian = new RomaniaIDFrontRecognizer();
+        return new ListElement("Romanian ID", buildDocumentScanIntent(romanian));
     }
 
     private ListElement buildSwissIDElement() {
-        SwissIDBackSideRecognizerSettings swissIDBackSettings = new SwissIDBackSideRecognizerSettings();
-        SwissIDFrontSideRecognizerSettings swissIDFrontSettings = new SwissIDFrontSideRecognizerSettings();
-
-        return new ListElement("Swiss ID", buildIntent(new RecognizerSettings[]{swissIDBackSettings, swissIDFrontSettings}, ScanCard.class, null));
+        SwitzerlandIDFrontRecognizer swissIDBack = new SwitzerlandIDFrontRecognizer();
+        SwitzerlandIDBackRecognizer swissIDFront = new SwitzerlandIDBackRecognizer();
+        return new ListElement("Swiss ID", buildDocumentScanIntent(swissIDBack, swissIDFront));
     }
 
     private ListElement buildCroatianIDCombinedElement() {
-        CroatianIDCombinedRecognizerSettings croIDCombined = new CroatianIDCombinedRecognizerSettings();
-
+        CroatiaCombinedRecognizer croIDCombined = new CroatiaCombinedRecognizer();
         return new ListElement("Croatian ID combined", buildCombinedIntent(croIDCombined));
     }
 
     private ListElement buildSerbianIDCombinedElement() {
-        SerbianIDCombinedRecognizerSettings serbianIDCombined = new SerbianIDCombinedRecognizerSettings();
-
+        SerbiaCombinedRecognizer serbianIDCombined = new SerbiaCombinedRecognizer();
         return new ListElement("Serbian ID combined", buildCombinedIntent(serbianIDCombined));
     }
 
     private ListElement buildSlovenianIDCombinedElement() {
-        SlovenianIDCombinedRecognizerSettings svnIDCombined = new SlovenianIDCombinedRecognizerSettings();
-
+        SloveniaCombinedRecognizer svnIDCombined = new SloveniaCombinedRecognizer();
         return new ListElement("Slovenian ID combined", buildCombinedIntent(svnIDCombined));
     }
 
     private ListElement buildSlovakIDCombinedElement() {
-        SlovakIDCombinedRecognizerSettings svkIDCombined = new SlovakIDCombinedRecognizerSettings();
-
+        SlovakiaCombinedRecognizer svkIDCombined = new SlovakiaCombinedRecognizer();
         return new ListElement("Slovak ID combined", buildCombinedIntent(svkIDCombined));
     }
 
     private ListElement buildSingaporeIDCombinedElement() {
-        SingaporeIDCombinedRecognizerSettings singaporeIDCombined = new SingaporeIDCombinedRecognizerSettings();
-
+        SingaporeCombinedRecognizer singaporeIDCombined = new SingaporeCombinedRecognizer();
         return new ListElement("Singapore ID combined", buildCombinedIntent(singaporeIDCombined));
     }
 
     private ListElement buildCzechIDCombinedElement() {
-        CzechIDCombinedRecognizerSettings czechIDCombined = new CzechIDCombinedRecognizerSettings();
-
+        CzechiaCombinedRecognizer czechIDCombined = new CzechiaCombinedRecognizer();
         return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
     }
 
     private ListElement buildJordanIdCombinedElement() {
-        JordanIDCombinedRecognizerSettings jordanIDCombined = new JordanIDCombinedRecognizerSettings();
-
+        JordanCombinedRecognizer jordanIDCombined = new JordanCombinedRecognizer();
         return new ListElement("Jordan ID Combined", buildCombinedIntent(jordanIDCombined));
     }
 
     private ListElement buildAustrianIDCombinedElement() {
-        AustrianIDCombinedRecognizerSettings ausIDCombined = new AustrianIDCombinedRecognizerSettings();
-
+        AustriaCombinedRecognizer ausIDCombined = new AustriaCombinedRecognizer();
         return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
     }
 
-    private ListElement buildUsdlCombinedElement() {
-        USDLCombinedRecognizerSettings usdlCombined = new USDLCombinedRecognizerSettings();
-
-        return new ListElement("US Driver's License combined", buildCombinedIntent(usdlCombined));
-    }
-
     private ListElement buildGermanIDCombinedElement() {
-        GermanIDCombinedRecognizerSettings deCombined = new GermanIDCombinedRecognizerSettings();
-
+        GermanyCombinedRecognizer deCombined = new GermanyCombinedRecognizer();
         return new ListElement("German ID Combined", buildCombinedIntent(deCombined));
     }
 
     private ListElement buildPolishIdCombinedElement() {
-        PolishIDCombinedRecognizerSettings polIDCombined = new PolishIDCombinedRecognizerSettings();
-
+        PolandCombinedRecognizer polIDCombined = new PolandCombinedRecognizer();
         return new ListElement("Polish ID Combined",  buildCombinedIntent(polIDCombined));
     }
 
     private ListElement buildPDF417Element() {
-        // prepare settings for PDF417 barcode recognizer
-        Pdf417RecognizerSettings pdf417 = new Pdf417RecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
-        return new ListElement("PDF417 barcode", buildIntent(new RecognizerSettings[]{pdf417}, Pdf417ScanActivity.class, null));
+        Pdf417Recognizer pdf417 = new Pdf417Recognizer();
+        return new ListElement("PDF417 barcode", buildBarcodeScanIntent( pdf417));
     }
 
     private ListElement buildBarcodeElement() {
-        BarcodeRecognizerSettings barcode = new BarcodeRecognizerSettings();
-        barcode.setScanCode39(true);
-        barcode.setScanCode128(true);
-        barcode.setInverseScanning(true);
-        barcode.setScanAztecCode(true);
-        barcode.setScanDataMatrixCode(true);
-        barcode.setScanEAN13Code(true);
-        barcode.setScanEAN8Code(true);
-        barcode.setScanITFCode(true);
-        barcode.setScanQRCode(true);
-        barcode.setScanUPCACode(true);
-        barcode.setScanUPCECode(true);
-        // please contact us to obtain valid license key for the aztec recognizer
-        // https://microblink.com/en/contact-us
-        // this license key has expired, because of that you will get '*' characters in aztec result
-        barcode.setLicenseKey("jp7X3DD+IG1iNzljvwkwVL7L364g9NCzTUq4lGC/vdc=");
-        Intent intent = buildIntent(new RecognizerSettings[]{barcode}, Pdf417ScanActivity.class, null);
-        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
-        return new ListElement("Blink barcode", intent);
+        BarcodeRecognizer barcodeRecognizer = new BarcodeRecognizer();
+        barcodeRecognizer.setScanCode39(true);
+        barcodeRecognizer.setScanCode128(true);
+        barcodeRecognizer.setInverseScanning(true);
+        barcodeRecognizer.setScanAztecCode(true);
+        barcodeRecognizer.setScanDataMatrixCode(true);
+        barcodeRecognizer.setScanEAN13Code(true);
+        barcodeRecognizer.setScanEAN8Code(true);
+        barcodeRecognizer.setScanITFCode(true);
+        barcodeRecognizer.setScanQRCode(true);
+        barcodeRecognizer.setScanUPCACode(true);
+        barcodeRecognizer.setScanUPCECode(true);
+        return new ListElement("Blink barcode", buildBarcodeScanIntent(barcodeRecognizer));
     }
 
     private ListElement buildSimNumberElement() {
-        SimNumberRecognizerSettings simNumber = new SimNumberRecognizerSettings();
-
-        // build a scan intent by adding intent extras common to all other recognizers
-        // when scanning barcodes, we will use Pdf417ScanActivity which has more suitable UI for scanning barcodes
-        Intent intent = buildIntent(new RecognizerSettings[]{simNumber}, Pdf417ScanActivity.class, null);
-        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
-        return new ListElement("Sim number barcode", intent);
+        SimNumberRecognizer simNumberRecognizer = new SimNumberRecognizer();
+        return new ListElement("Sim number barcode", buildBarcodeScanIntent(simNumberRecognizer));
     }
 
     private ListElement buildVin() {
-        VinRecognizerSettings vinSettings = new VinRecognizerSettings();
-        Intent intent = buildIntent(new RecognizerSettings[]{vinSettings}, Pdf417ScanActivity.class, null);
-        intent.putExtra(Pdf417ScanActivity.EXTRAS_SHOW_DIALOG_AFTER_SCAN, false);
-        return new ListElement("VIN", intent);
+        VinRecognizer vinRecognizer = new VinRecognizer();
+        return new ListElement("VIN", buildBarcodeScanIntent(vinRecognizer));
     }
 
-    private ListElement buildVehicleSegmentScanElement() {
-        ScanConfiguration[] conf = new ScanConfiguration[]{
-                new ScanConfiguration("VIN", "Position VIN in this frame", "VIN", new VinParserSettings()),
-                new ScanConfiguration("License Plate", "Position license plate in this frame", "LicensePlate", new LicensePlatesParserSettings())
-        };
-        return new ListElement("Vehicle segment scan", buildSegmentScanIntent(conf));
+    private DocumentUISettings buildCombinedIntent(Recognizer combinedRecognizer) {
+        //TODO different activity for combined?
+        return buildDocumentScanIntent(combinedRecognizer);
     }
 
-    private ListElement buildTemplatingAPICroIDFrontElement() {
-        return new ListElement("TemplatingAPI Cro ID Front", buildIntent(new RecognizerSettings[]{CroatianIDFrontSide.buildCroatianIDFrontSideRecognizerSettings()}, ScanCard.class, null));
+    private DocumentUISettings buildDocumentScanIntent(Recognizer...recognizers) {
+        mRecognizerBundle = new RecognizerBundle(recognizers);
+        DocumentUISettings documentUISettings = new DocumentUISettings(mRecognizerBundle);
+
+        // with setNumMsBeforeTimeout you can define number of milliseconds that must pass
+        // after first partial scan result has arrived before scan activity triggers a timeout.
+        // Timeout is good for preventing infinitely long scanning experience when user attempts
+        // to scan damaged or unsupported document. After timeout, scan activity will return only
+        // data that was read successfully. This might be incomplete data.
+        //mRecognizerBundle.setNumMsBeforeTimeout(10000);
+
+        // If you add more recognizers, you can choose whether you
+        // want to have the ability to obtain multiple scan results from same video frame. For example,
+        // if both payment slip and payment barcode are visible on a single frame, by setting
+        // setAllowMultipleScanResultsOnSingleImage to true you can obtain both scan results
+        // from barcode and slip. If this is false (default), you will get the first valid result
+        // (i.e. first result that contains all required data). Having this option turned off
+        // creates better and faster user experience.
+        //mRecognizerBundle.setAllowMultipleScanResultsOnSingleImage(true);
+
+        // You can disable drawing of OCR results on scan activity. Drawing OCR results can be visually
+        // appealing and might entertain the user while waiting for scan to complete, but might introduce a small
+        // performance penalty.
+        documentUISettings.setShowOcrResult(false);
+
+        // You can have scan activity display the focus rectangle whenever camera
+        // attempts to focus, similarly to various camera app's touch to focus effect.
+        // By default this is off
+        documentUISettings.setShowingFocusRectangle(true);
+
+        // You can enable the pinch to zoom feature of scan activity.
+        // By enabling this you allow the user to use the pinch gesture to zoom the camera.
+        // By default this is off
+        documentUISettings.setPinchToZoomAllowed(true);
+
+        // Enable showing of OCR results as animated dots. This does not have effect if non-OCR recognizer like
+        // barcode recognizer is active.
+        documentUISettings.setShowOcrResultMode(ShowOcrResultMode.ANIMATED_DOTS);
+
+        // set custom beep sound to be played after a scan
+        documentUISettings.setBeepSoundResourceID(R.raw.beep);
+
+        return documentUISettings;
     }
 
-    private ListElement buildTemplatingAPICroIDBackElement() {
-        return new ListElement("TemplatingAPI Cro ID Back", buildIntent(new RecognizerSettings[]{CroatianIDBackSide.buildCroatianIDBackSideRecognizerSettings()}, ScanCard.class, null));
-    }*/
+    private BarcodeUISettings buildBarcodeScanIntent(Recognizer...recognizers) {
+        mRecognizerBundle = new RecognizerBundle(recognizers);
+        //use default settings for barcode scanning
+        return new BarcodeUISettings(mRecognizerBundle);
+    }
 
-    /**
-     * Element of {@link ArrayAdapter} for {@link ListView} that holds information about title
-     * which should be displayed in list and {@link Intent} that should be started on click.
-     */
     private class ListElement {
         private String mTitle;
-        private Intent mScanIntent;
+        private BaseScanUISettings mScanUISettings;
 
-        String getTitle() {
-            return mTitle;
-        }
-
-        Intent getScanIntent() {
-            return mScanIntent;
-        }
-
-        ListElement(String title, Intent scanIntent) {
+        ListElement(String title, BaseScanUISettings scanUISettings) {
             mTitle = title;
-            mScanIntent = scanIntent;
+            mScanUISettings = scanUISettings;
         }
 
         /**
@@ -673,7 +540,7 @@ public class MenuActivity extends Activity {
          */
         @Override
         public String toString() {
-            return getTitle();
+            return mTitle;
         }
     }
 }

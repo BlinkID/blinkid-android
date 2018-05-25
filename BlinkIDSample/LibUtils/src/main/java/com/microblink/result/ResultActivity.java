@@ -8,27 +8,21 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldBundle;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.help.pageindicator.TabPageIndicator;
 import com.microblink.libresult.R;
-import com.microblink.util.ResultFormater;
 
 import java.util.ArrayList;
 
-/**
-* Created by igor on 12/2/14.
-*/
 public class ResultActivity extends FragmentActivity implements
         ResultFragment.IResultFragmentActivity,
         FieldByFieldResultFragment.IFieldByFieldResultFragmentActivity {
 
-
     public static final String EXTRAS_RESULT_TYPE = "EXTRAS_RESULT_TYPE";
-    public static final String EXTRAS_SCAN_DURATION = "EXTRAS_SCAN_DURATION";
-
 
     public enum ResultType {
         RECOGNIZER_BUNDLE,
@@ -42,7 +36,7 @@ public class ResultActivity extends FragmentActivity implements
 
     protected ResultType mResultType;
 
-    private ArrayList< Recognizer > mRecognizersWithResult;
+    private ArrayList<Recognizer> mRecognizersWithResult;
 
     @SuppressLint("InlinedApi")
     @Override
@@ -89,7 +83,7 @@ public class ResultActivity extends FragmentActivity implements
 
         TabPageIndicator indicator = findViewById(R.id.resultIndicator);
         indicator.setViewPager(mPager);
-        //indicator.setClipChildren(false);
+        indicator.setClipChildren(false);
     }
 
     @Override
@@ -115,6 +109,10 @@ public class ResultActivity extends FragmentActivity implements
         setContentView(R.layout.result_menu);
     }
 
+    public void footerButtonClickHandler(View view) {
+        finish();
+    }
+
     @Override
     public Recognizer< Recognizer, Recognizer.Result > getRecognizerAtPosition(int resultPosition) {
         if (resultPosition < 0 || resultPosition >= mRecognizersWithResult.size()) {
@@ -133,15 +131,13 @@ public class ResultActivity extends FragmentActivity implements
 
     private class RecognizerListFragmentAdapter extends FragmentPagerAdapter {
 
-        long mScanDuration = getIntent().getExtras().getLong(ResultActivity.EXTRAS_SCAN_DURATION, 0L);
-
         RecognizerListFragmentAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return ResultFragment.newInstance(position, mScanDuration);
+            return ResultFragment.newInstance(position);
         }
 
         @Override
@@ -151,7 +147,7 @@ public class ResultActivity extends FragmentActivity implements
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return ResultFormater.getRecognizerSimpleName(mRecognizersWithResult.get(position));
+            return ResultUtils.getRecognizerSimpleName(mRecognizersWithResult.get(position));
         }
     }
 

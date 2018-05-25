@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.result.ResultActivity;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;

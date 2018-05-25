@@ -80,7 +80,6 @@ public class RecognitionResultEntry {
             }
         }
 
-
         public RecognitionResultEntry build(@StringRes int key, Date value) {
             String strVal = "";
             if (value != null) {

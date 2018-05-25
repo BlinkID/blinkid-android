@@ -2,9 +2,6 @@ package com.microblink.result.extract;
 
 import java.util.Locale;
 
-/**
- * Created by dodo on 27/05/15.
- */
 public abstract class RecognitionResultExtractorUtils {
 
     public static String formatIBAN(String value) {

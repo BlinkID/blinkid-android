@@ -3,12 +3,11 @@ package com.microblink.result;
 import android.app.Activity;
 import android.content.Context;
 
-import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldElement;
 import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldBundle;
+import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldElement;
 import com.microblink.result.extract.RecognitionResultEntry;
-import com.microblink.util.LibResultConstants;
+import com.microblink.result.extract.RecognitionResultExtractorUtils;
 import com.microblink.util.Log;
-import com.microblink.util.ResultFormater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +42,8 @@ public class FieldByFieldResultFragment extends BaseResultFragment {
         for (FieldByFieldElement elem : fieldByFieldBundle.getElements()) {
             String key = elem.getTitle(context);
             String stringlValue = elem.getParser().getResult().toString();
-            if (key.contains(LibResultConstants.IBAN)) {
-                stringlValue = ResultFormater.formatIBAN(stringlValue);
+            if (key.contains("IBAN")) {
+                stringlValue = RecognitionResultExtractorUtils.formatIBAN(stringlValue);
             }
             extractedData.add(new RecognitionResultEntry(key, stringlValue));
         }

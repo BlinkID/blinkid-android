@@ -6,38 +6,27 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.recognizers.BaseLegacyRecognizerWrapper;
-import com.microblink.result.extract.IBaseRecognitionResultExtractor;
+import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.RecognitionResultEntry;
-import com.microblink.result.extract.RecognitionResultExtractorFactory;
+import com.microblink.result.extract.ResultExtractorFactoryProvider;
 import com.microblink.util.Log;
 
 import java.util.List;
 
-/**
- * Created by igor on 12/2/14.
- */
 public class ResultFragment extends BaseResultFragment {
 
-    public static final boolean TEST_STANDALONE_RESULT = false;
-
-    public static final String SCAN_DURATION = "SCAN_DURATION";
     public static final String RECOGNIZER_POSITION = "RECOGNIZER_POSITION";
-
-    private long mScanDuration = 0;
 
     private int mRecognizerPosition;
 
     /**
      * Fragment factory.
      */
-    public static ResultFragment newInstance(int resultPosition, long scanDuration) {
+    public static ResultFragment newInstance(int resultPosition) {
         ResultFragment fragment = new ResultFragment();
         Bundle args = new Bundle();
         args.putInt(RECOGNIZER_POSITION, resultPosition);
-        args.putLong(SCAN_DURATION, scanDuration);
         fragment.setArguments(args);
 
         Log.d("ResultFragment", "Creating new fragment");
@@ -61,26 +50,10 @@ public class ResultFragment extends BaseResultFragment {
                         mRecognizerPosition);
 
         // Extract data from BaseRecognitionResult
-        IBaseRecognitionResultExtractor resultExtractor = RecognitionResultExtractorFactory.createExtractor(getActivity(), recognizer);
+        BaseResultExtractor resultExtractor = ResultExtractorFactoryProvider.get().createExtractor(recognizer);
+        List<RecognitionResultEntry> extractedData = resultExtractor.extractData(getActivity(), recognizer);
 
-        List<RecognitionResultEntry> extractedData;
-        if (recognizer instanceof BaseLegacyRecognizerWrapper) {
-            extractedData = resultExtractor.extractData((recognizer.getResult()));
-        } else {
-            extractedData = resultExtractor.extractData(recognizer);
-        }
-
-        // test for transfer of standalone
-        if ( TEST_STANDALONE_RESULT ) {
-            Entity.Result<?> firstResult = getActivity().getIntent().getParcelableExtra("proba");
-            resultExtractor = RecognitionResultExtractorFactory.createExtractor(getActivity(), firstResult);
-            extractedData = resultExtractor.extractData(firstResult);
-        }
-
-        // Add scan duration
-        if (extractedData.size() > 0) {
-            // extractedData.add(new RecognitionResultEntry("Scan duration", String.valueOf(mScanDuration) + " ms"));
-        } else {
+        if (extractedData.size() <= 0) {
             Toast.makeText(getActivity(), "Result list is empty", Toast.LENGTH_SHORT).show();
             getActivity().finish();
         }
@@ -97,7 +70,6 @@ public class ResultFragment extends BaseResultFragment {
         mRecognizerPosition = -1;
         if (extras != null) {
             mRecognizerPosition = extras.getInt(RECOGNIZER_POSITION, mRecognizerPosition);
-            mScanDuration = extras.getLong(SCAN_DURATION, 0L);
         }
 
         if (mRecognizerPosition == -1) {

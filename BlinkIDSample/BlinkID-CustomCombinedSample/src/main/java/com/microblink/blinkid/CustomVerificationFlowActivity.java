@@ -202,10 +202,10 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     private int mInstructionsDocSecondSide;
 
     @DrawableRes
-    private int mSplashIconDocFirstSide = R.drawable.frontid_white;
+    private int mSplashIconDocFirstSide = R.drawable.mb_frontid_white;
 
     @DrawableRes
-    private int mSplashIconDocSecondSide = R.drawable.backid_white;
+    private int mSplashIconDocSecondSide = R.drawable.mb_backid_white;
 
     private static final int MRZ_DETECTION_POINT_RADIUS = 7;
     private static final int NUM_MS_BEFORE_TIMEOUT_DEFAULT = 30_000;
@@ -290,12 +290,12 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
         boolean useLegacyCamera = extras.getBoolean(EXTRAS_USE_LEGACY_CAMERA_API, false);
 
-        mInstructionsDocFirstSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_FIRST_SIDE, R.string.tooltip_front_id);
-        mInstructionsDocSecondSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE, R.string.tooltip_back_id);
-        mSplashMsgDocFirstSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_FIRST_SIDE, R.string.splash_msg_id_front);
-        mSplashMsgDocSecondSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_SECOND_SIDE, R.string.splash_msg_id_back);
-        mSplashIconDocFirstSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_FIRST_SIDE, R.drawable.frontid_white);
-        mSplashIconDocSecondSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_SECOND_SIDE, R.drawable.backid_white);
+        mInstructionsDocFirstSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_FIRST_SIDE, R.string.mb_tooltip_front_id);
+        mInstructionsDocSecondSide = extras.getInt(EXTRAS_INSTRUCTIONS_DOCUMENT_SECOND_SIDE, R.string.mb_tooltip_back_id);
+        mSplashMsgDocFirstSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_FIRST_SIDE, R.string.mb_splash_msg_id_front);
+        mSplashMsgDocSecondSide = extras.getInt(EXTRAS_SPLASH_MSG_RES_DOCUMENT_SECOND_SIDE, R.string.mb_splash_msg_id_back);
+        mSplashIconDocFirstSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_FIRST_SIDE, R.drawable.mb_frontid_white);
+        mSplashIconDocSecondSide = extras.getInt(EXTRAS_SPLASH_ICON_RES_DOCUMENT_SECOND_SIDE, R.drawable.mb_backid_white);
 
         initRecognizerView(useLegacyCamera);
 
@@ -366,7 +366,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         // from activity onCreate
         mRecognizerView.create();
 
-        mMrzPointsView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation(), MRZ_DETECTION_POINT_RADIUS, ContextCompat.getColor(this, R.color.mrz_point_color));
+        mMrzPointsView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation(), MRZ_DETECTION_POINT_RADIUS, ContextCompat.getColor(this, R.color.mb_mrz_point_color));
         mRecognizerView.addChildView(mMrzPointsView, false);
         mOcrView = new OcrResultDotsView(this, mRecognizerView.getHostScreenOrientation(), mRecognizerView.getInitialOrientation());
         mRecognizerView.addChildView(mOcrView.getView(), false);
@@ -546,16 +546,16 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     @Override
     public void onError(Throwable ex) {
-        String defaultDialogTitle = getString(R.string.mbWarningTitle);
+        String defaultDialogTitle = getString(R.string.mb_warning_title);
         if (ex instanceof CameraResolutionTooSmallException) {
             Log.e(this, ex, "Camera resolution too low!");
-            handleError(defaultDialogTitle, getString(R.string.FeatureUnsuportedDevice));
+            handleError(defaultDialogTitle, getString(R.string.mb_feature_unsupported_device));
         } else if (ex instanceof RecognizerError) {
             Log.e(this, ex, "There was an error starting a native recognizer. Reason: {}", ex.getMessage());
-            handleError(defaultDialogTitle, getString(R.string.mbErrorInitializing));
+            handleError(defaultDialogTitle, getString(R.string.mb_error_initializing));
         } else if (ex instanceof UnsatisfiedLinkError) {
             Log.e(this, ex, "Native library not loaded!");
-            handleError(defaultDialogTitle, getString(R.string.mbErrorInitializing));
+            handleError(defaultDialogTitle, getString(R.string.mb_error_initializing));
         } else if (ex instanceof AutoFocusRequiredButNotSupportedException) {
             Log.e(this, ex, "Autofocus required, but not supported!");
             handleError(defaultDialogTitle, getNotSupportedReasonDescription(NotSupportedReason.NO_AUTOFOCUS_CAMERA));
@@ -563,9 +563,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             handleError(defaultDialogTitle, getNotSupportedReasonDescription(((FeatureNotSupportedException) ex).getReason()));
         } else if (ex instanceof SecurityException) {
             Log.e(this, ex, "Camera permission not given!");
-            handleError(defaultDialogTitle, getString(R.string.mbCameraNotAllowed));
+            handleError(defaultDialogTitle, getString(R.string.mb_camera_not_allowed));
         } else {
-            handleError(defaultDialogTitle, getString(R.string.mbCameraNotReady));
+            handleError(defaultDialogTitle, getString(R.string.mb_camera_not_ready));
         }
     }
 
@@ -573,7 +573,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title)
                 .setMessage(message)
-                .setNeutralButton(getString(R.string.mbOK), new DialogInterface.OnClickListener() {
+                .setNeutralButton(getString(R.string.mb_ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         setResult(RESULT_CANCELED);
@@ -589,15 +589,15 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     private String getNotSupportedReasonDescription(NotSupportedReason reason) {
         switch (reason) {
             case CUSTOM_UI_FORBIDDEN:
-                return getString(R.string.CustomUIForbidden);
+                return getString(R.string.mb_custom_ui_forbidden);
             case UNSUPPORTED_ANDROID_VERSION:
-                return getString(R.string.FeatureUnsuportedAndroidVersion);
+                return getString(R.string.mb_feature_unsupported_android_version);
             case NO_AUTOFOCUS_CAMERA:
-                return getString(R.string.FeatureUnsuportedAutofocus);
+                return getString(R.string.mb_feature_unsupported_autofocus);
             case BLACKLISTED_DEVICE:
             case NO_CAMERA:
             case UNSUPPORTED_PROCESSOR_ARCHITECTURE:
-                return getString(R.string.FeatureUnsuportedDevice);
+                return getString(R.string.mb_feature_unsupported_device);
         }
         return null;
     }
@@ -686,10 +686,10 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         // scan again and show scan again dialog to the user
         pauseScanning();
         new AlertDialog.Builder(this)
-                .setTitle(R.string.mbAlertTitle)
-                .setMessage(R.string.mbDataNotMatchMsg)
+                .setTitle(R.string.mb_alert_title)
+                .setMessage(R.string.mb_data_not_match_msg)
                 .setCancelable(false)
-                .setPositiveButton(R.string.mbScanAgain, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.mb_scan_again, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         restartVerification();
@@ -836,9 +836,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                     return;
                 }
                 if (torchOn) {
-                    mIbTorch.setImageResource(R.drawable.ic_flash_on_24dp);
+                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_on_24dp);
                 } else {
-                    mIbTorch.setImageResource(R.drawable.ic_flash_off_24dp);
+                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_off_24dp);
                 }
             }
         });
@@ -865,8 +865,8 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             @Override
             public void run() {
                 mStatusMsg.setText(getText(mInstructionsDocFirstSide));
-                mStatusImage.setImageResource(R.drawable.frontid_white);
-                String title = getString(R.string.activity_title_step_front_side);
+                mStatusImage.setImageResource(R.drawable.mb_frontid_white);
+                String title = getString(R.string.mb_activity_title_step_front_side);
                 setActivityTitle(title);
             }
         });
@@ -901,8 +901,8 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             @Override
             public void run() {
                 mStatusMsg.setText(getText(mInstructionsDocSecondSide));
-                mStatusImage.setImageResource(R.drawable.backid_white);
-                String title = getString(R.string.activity_title_step_back_side);
+                mStatusImage.setImageResource(R.drawable.mb_backid_white);
+                String title = getString(R.string.mb_activity_title_step_back_side);
                 setActivityTitle(title);
             }
         });
@@ -952,8 +952,8 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.action_torch);
-        mTorchItem.setIcon(R.drawable.ic_flash_off_24dp);
+        mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.mb_action_torch);
+        mTorchItem.setIcon(R.drawable.mb_ic_flash_off_24dp);
         mTorchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
@@ -971,9 +971,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                             @Override
                             public void run() {
                                 if (mTorchOn) {
-                                    item.setIcon(R.drawable.ic_flash_on_24dp);
+                                    item.setIcon(R.drawable.mb_ic_flash_on_24dp);
                                 } else {
-                                    item.setIcon(R.drawable.ic_flash_off_24dp);
+                                    item.setIcon(R.drawable.mb_ic_flash_off_24dp);
                                 }
                             }
                         });
@@ -1001,7 +1001,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             mDocumentViewfinderManager.showSplashScreen(
                     getString(splashMessage),
                     splashImageResID,
-                    R.color.viewfinder_inner_splash
+                    R.color.mb_viewfinder_inner_splash
             );
         }
     }

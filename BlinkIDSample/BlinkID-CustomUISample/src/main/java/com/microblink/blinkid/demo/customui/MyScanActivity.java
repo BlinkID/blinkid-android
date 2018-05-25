@@ -146,7 +146,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         View view = getLayoutInflater().inflate(R.layout.default_photopay_viewfinder, null);
 
         mBackButton = view.findViewById(R.id.defaultBackButton);
-        mBackButton.setText(getString(R.string.mbHome));
+        mBackButton.setText(getString(R.string.mb_home));
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,13 +178,13 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
 
                 // displays message about detection status to the user
                 if (detectionStatus == DetectionStatus.SUCCESS) {
-                    displayText(R.string.Processing);
+                    displayText(R.string.mb_processing);
                 } else if (detectionStatus == DetectionStatus.FAIL) {
-                    displayText(R.string.Align);
+                    displayText(R.string.mb_align);
                 } else if (detectionStatus == DetectionStatus.CAMERA_TOO_HIGH) {
-                    displayText(R.string.CameraTooHigh);
+                    displayText(R.string.mb_camera_too_high);
                 } else if (detectionStatus == DetectionStatus.PARTIAL_OBJECT) {
-                    displayText(R.string.PartialDetected);
+                    displayText(R.string.mb_partial_detected);
                 }
             }
         });
@@ -332,11 +332,11 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                     public void run() {
                         mTorchEnabled = !mTorchEnabled;
                         if (mTorchEnabled) {
-                            mTorchButton.setText(R.string.mbLightOn);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lighton, 0, 0, 0);
+                            mTorchButton.setText(R.string.mb_light_on);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_lighton, 0, 0, 0);
                         } else {
-                            mTorchButton.setText(R.string.mbLightOff);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightoff, 0, 0, 0);
+                            mTorchButton.setText(R.string.mb_light_off);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_lightoff, 0, 0, 0);
                         }
                     }
                 });
@@ -388,7 +388,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // this method is called if camera cannot perform autofocus
         // this method is called from background (focusing) thread
         // so make sure you post UI actions on UI thread
-        displayText(R.string.AutofocusFail);
+        displayText(R.string.mb_autofocus_fail);
     }
 
     @Override

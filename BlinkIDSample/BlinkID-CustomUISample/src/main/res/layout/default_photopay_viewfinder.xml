@@ -10,14 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:background="@drawable/rounded_border"
+        android:background="@drawable/mb_rounded_border"
         android:drawablePadding="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:padding="6dp"
-        android:text="@string/Align"
+        android:text="@string/mb_align"
         android:minHeight="1dp"
         android:minWidth="1dp"
-        android:textColor="@color/statusForeground"
+        android:textColor="@color/mb_status_foreground"
         android:textSize="17sp"
         android:typeface="normal" />
 
@@ -28,8 +28,8 @@
          android:layout_height="40dp"
          android:layout_gravity="right|top"
          android:layout_margin="8dp"
-         android:background="@drawable/microblink_button"
-         android:drawableLeft="@drawable/lightoff"
+         android:background="@drawable/mb_button"
+         android:drawableLeft="@drawable/mb_lightoff"
          android:drawablePadding="5dp"
          android:minHeight="1dp"
          android:minWidth="1dp"
@@ -38,8 +38,8 @@
          android:paddingRight="6dp"
          android:paddingTop="4dp"
          android:alpha="0.9"
-         android:text="@string/mbLightOff"
-         android:textColor="@color/mbButtonForeground"
+         android:text="@string/mb_light_off"
+         android:textColor="@color/mb_button_foreground"
          android:textSize="14sp" />
 
     <Button
@@ -48,7 +48,7 @@
         android:layout_height="40dp"
         android:layout_gravity="left|top"
         android:layout_margin="8dp"
-        android:background="@drawable/microblink_button"
+        android:background="@drawable/mb_button"
         android:minHeight="1dp"
         android:minWidth="50dp"
         android:paddingBottom="4dp"
@@ -56,8 +56,8 @@
         android:paddingRight="6dp"
         android:paddingTop="4dp"
         android:alpha="0.9"
-        android:text="@string/mbHome"
-        android:textColor="@color/mbButtonForeground"
+        android:text="@string/mb_home"
+        android:textColor="@color/mb_button_foreground"
         android:textSize="14sp" />
 
 </FrameLayout>

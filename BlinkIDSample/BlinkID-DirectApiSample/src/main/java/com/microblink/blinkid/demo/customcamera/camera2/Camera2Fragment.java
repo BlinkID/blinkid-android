@@ -49,16 +49,11 @@ import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
-import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.ImageBuilder;
 import com.microblink.recognition.FeatureNotSupportedException;
-import com.microblink.recognition.InvalidLicenceKeyException;
 import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.recognizers.BaseRecognitionResult;
-import com.microblink.recognizers.RecognitionResults;
-import com.microblink.recognizers.settings.RecognitionSettings;
 import com.microblink.view.recognition.ScanResultListener;
 
 import java.util.ArrayList;

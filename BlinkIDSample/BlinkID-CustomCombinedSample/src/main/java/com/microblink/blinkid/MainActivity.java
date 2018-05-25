@@ -13,18 +13,17 @@ import android.widget.Toast;
 
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.USDLRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustrianCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.croatia.CroatianCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.czechia.CzechCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.poland.PolishCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbianCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovakia.SlovakCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovenia.SlovenianCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
 import com.microblink.hardware.camera.CameraType;
 import com.microblink.result.ResultActivity;
 import com.microblink.util.RecognizerCompatibility;
@@ -93,19 +92,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ListElement buildAustrianIDCombinedElement() {
-        return new ListElement("Austrian ID combined", new AustrianCombinedRecognizer());
+        return new ListElement("Austrian ID combined", new AustriaCombinedRecognizer());
     }
 
     private ListElement buildCroatianIDCombinedElement() {
-        return new ListElement("Croatian ID combined", new CroatianCombinedRecognizer());
+        return new ListElement("Croatian ID combined", new CroatiaCombinedRecognizer());
     }
 
     private ListElement buildCzhechIDCombinedElement() {
-        return new ListElement("Czech ID combined", new CzechCombinedRecognizer());
+        return new ListElement("Czech ID combined", new CzechiaCombinedRecognizer());
     }
 
     private ListElement buildGermanIDCombinedElement() {
-        return new ListElement("German ID combined", new GermanCombinedRecognizer());
+        return new ListElement("German ID combined", new GermanyCombinedRecognizer());
     }
 
     private ListElement buildJordanIDCombinedElement() {
@@ -113,11 +112,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ListElement buildPolishIDCombinedElement() {
-        return new ListElement("Polish ID combined", new PolishCombinedRecognizer());
+        return new ListElement("Polish ID combined", new PolandCombinedRecognizer());
     }
 
     private ListElement buildSerbianIDCombinedElement() {
-        return new ListElement("Serbian ID combined", new SerbianCombinedRecognizer());
+        return new ListElement("Serbian ID combined", new SerbiaCombinedRecognizer());
     }
 
     private ListElement buildSingaporeIDCombinedElement() {
@@ -125,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ListElement buildSlovakIDCombinedElement() {
-        return new ListElement("Slovak ID combined", new SlovakCombinedRecognizer());
+        return new ListElement("Slovak ID combined", new SlovakiaCombinedRecognizer());
     }
 
     private ListElement buildSlovenianIDCombinedElement() {
-        return new ListElement("Slovenian ID combined", new SlovenianCombinedRecognizer());
+        return new ListElement("Slovenian ID combined", new SloveniaCombinedRecognizer());
     }
 
     /**
