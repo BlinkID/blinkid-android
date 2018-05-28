@@ -5,12 +5,11 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
+import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
@@ -101,7 +100,7 @@ public class MainActivity extends BaseMenuActivity {
         mRecognizerBundle = new RecognizerBundle(mSuccessFrameGrabberRecognizer);
         mRecognizerBundle.setNumMsBeforeTimeout(10_000);
 
-        Intent intent = new Intent(MainActivity.this, IDScanActivity.class);
+        Intent intent = new Intent(MainActivity.this, DocumentScanActivity.class);
         mRecognizerBundle.saveToIntent(intent);
         startActivityForResult(intent, requestCode);
     }
@@ -109,7 +108,7 @@ public class MainActivity extends BaseMenuActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != IDScanActivity.RESULT_OK || data == null) {
+        if (resultCode != DocumentScanActivity.RESULT_OK || data == null) {
             return;
         }
 

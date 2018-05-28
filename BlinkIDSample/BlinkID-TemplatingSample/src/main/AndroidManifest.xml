@@ -20,11 +20,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IDScanActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppTheme.FullScreen" />
-        <activity
             android:name=".ResultsActivity"
             android:screenOrientation="portrait"/>
     </application>
