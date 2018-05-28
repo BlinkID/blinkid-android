@@ -12,4 +12,11 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Theme.AppTheme" parent="Theme.AppCompat.NoActionBar" />
+
+    <style name="Theme.AppTheme.FullScreen" parent="Theme.AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
 </resources>

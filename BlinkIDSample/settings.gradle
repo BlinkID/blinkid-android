@@ -1,3 +1,3 @@
-include ':BlinkID-SimpleSample', ':BlinkID-CustomUISample', ':BlinkID-DirectApiSample', ':BlinkID-CustomFieldByFieldScanSample', ':LibUtils', ':BlinkID-DetectorSample', ':BlinkID-ImagesSample', ':BlinkID-CustomCombinedSample'
+include ':BlinkID-SimpleSample', ':BlinkID-CustomUISample', ':BlinkID-DirectApiSample', ':BlinkID-CustomFieldByFieldScanSample', ':LibUtils', ':BlinkID-DetectorSample', ':BlinkID-ImagesSample', ':BlinkID-CustomCombinedSample', ':BlinkID-TemplatingSample'
 // uncomment this line if you have customised build of LibBLinkID
 //include ':LibBlinkID-release'
