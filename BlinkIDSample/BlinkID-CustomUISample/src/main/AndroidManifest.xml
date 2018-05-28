@@ -4,10 +4,6 @@
     android:versionCode="1"
     android:versionName="0.6.0" >
 
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="21" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />
@@ -18,10 +14,10 @@
         android:name="com.microblink.BlinkIdSampleApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:theme="@style/Theme.AppTheme.FullScreen"
         android:extractNativeLibs="false">
         <activity
-            android:name="com.microblink.blinkid.demo.customui.MenuActivity"
+            android:name="com.microblink.blinkid.MenuActivity"
             android:label="@string/app_name"
             android:screenOrientation="sensor" >
             <intent-filter>
@@ -30,13 +26,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.microblink.blinkid.demo.customui.MyScanActivity"
+            android:name="com.microblink.blinkid.MyScanActivity"
             android:screenOrientation="portrait"
-            android:label="@string/title_activity_my_scan" >
-        </activity>
-        <activity
-            android:name="com.microblink.libresult.ResultActivity"
-            android:screenOrientation="sensor"
             android:label="@string/title_activity_my_scan" >
         </activity>
     </application>

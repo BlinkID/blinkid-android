@@ -22,7 +22,7 @@
         android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        android:theme="@style/Theme.AppTheme.FullScreen">
         <activity
             android:name=".MenuActivity"
             android:label="@string/app_name"

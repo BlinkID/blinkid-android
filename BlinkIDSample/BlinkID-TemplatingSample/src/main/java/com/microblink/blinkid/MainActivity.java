@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
@@ -26,9 +28,11 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseMenuActivity {
 
     private static final int SCAN_FRONT_REQ_CODE = 234;
     private static final int SCAN_BACK_REQ_CODE = 432;
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         mFrontSideTemplatingUtil = new CroatianIDFrontSideTemplatingUtil();
         mBackSideTemplatingUtil = new CroatianIDBackSideTemplatingUtil();
@@ -63,17 +66,35 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onScanFrontClick(View view) {
-        mFrontSideTemplatingRecognizer = mFrontSideTemplatingUtil.getDetectorRecognizer();
-        //wrapping into SuccessFrameGrabberRecognizer because we want to show successful scan image
-        mSuccessFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mFrontSideTemplatingRecognizer);
-        startScanActivity(SCAN_FRONT_REQ_CODE);
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+
+        items.add(new MenuListItem(getString(R.string.scan_croatian_id_front), new Runnable() {
+            @Override
+            public void run() {
+                mFrontSideTemplatingRecognizer = mFrontSideTemplatingUtil.getDetectorRecognizer();
+                //wrapping into SuccessFrameGrabberRecognizer because we want to show successful scan image
+                mSuccessFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mFrontSideTemplatingRecognizer);
+                startScanActivity(SCAN_FRONT_REQ_CODE);
+            }
+        }));
+
+        items.add(new MenuListItem(getString(R.string.scan_croatian_id_back), new Runnable() {
+            @Override
+            public void run() {
+                mBackSideTemplatingRecognizer = mBackSideTemplatingUtil.getMRTDRecognizer();
+                mSuccessFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mBackSideTemplatingRecognizer);
+                startScanActivity(SCAN_BACK_REQ_CODE);
+            }
+        }));
+
+        return items;
     }
 
-    public void onScanBackClick(View view) {
-        mBackSideTemplatingRecognizer = mBackSideTemplatingUtil.getMRTDRecognizer();
-        mSuccessFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mBackSideTemplatingRecognizer);
-        startScanActivity(SCAN_BACK_REQ_CODE);
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
     }
 
     private void startScanActivity(int requestCode) {

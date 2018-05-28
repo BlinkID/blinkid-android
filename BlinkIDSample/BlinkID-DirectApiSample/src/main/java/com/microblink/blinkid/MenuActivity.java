@@ -1,7 +1,6 @@
-package com.microblink.blinkid.demo;
+package com.microblink.blinkid;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,13 +9,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.activity.BaseScanActivity;
-import com.microblink.blinkid.demo.customcamera.Camera1Activity;
-import com.microblink.blinkid.demo.customcamera.camera2.Camera2Activity;
-import com.microblink.blinkid.demo.imagescan.ScanImageActivity;
+import com.microblink.blinkid.customcamera.Camera1Activity;
+import com.microblink.blinkid.customcamera.camera2.Camera2Activity;
+import com.microblink.blinkid.demo.R;
+import com.microblink.blinkid.imagescan.ScanImageActivity;
 import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
@@ -26,10 +27,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends BaseMenuActivity {
 
     private static final int MY_REQUEST_CODE = 1337;
-    private static final int PERMISSION_REQUEST_CODE = 0x123;
+    private static final int PERMISSION_REQUEST_CODE = 235;
 
     /**
      * Recognition bundle instance, same recognition settings are used for all examples.
@@ -39,7 +40,6 @@ public class MenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
         buildRecognizerBundle();
 
         // Request permissions if not granted, we need CAMERA permission and
@@ -59,43 +59,51 @@ public class MenuActivity extends Activity {
         }
     }
 
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+
+        items.add(new MenuListItem("Scan image", new Runnable() {
+            @Override
+            public void run() {
+                startScanActivityForResult(ScanImageActivity.class);
+            }
+        }));
+
+        items.add(new MenuListItem("Camera 1 activity", new Runnable() {
+            @Override
+            public void run() {
+                startScanActivityForResult(Camera1Activity.class);
+            }
+        }));
+
+        items.add(new MenuListItem("Camera 2 activity", new Runnable() {
+            @Override
+            public void run() {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    startScanActivityForResult(Camera2Activity.class);
+                } else {
+                    Toast.makeText(MenuActivity.this, "Camera2 API requires Android 5.0 or newer. Camera1 direct API will be used", Toast.LENGTH_SHORT).show();
+                    startScanActivityForResult(Camera1Activity.class);
+                }
+            }
+        }));
+
+        return items;
+    }
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
+    }
+
     private void buildRecognizerBundle() {
         MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
         mRecognizerBundle = new RecognizerBundle(mrtdRecognizer);
     }
 
-    /**
-     * Handler for "Scan Image" button
-     */
-    public void onScanImageClick(View v) {
-        Intent intent = new Intent(this, ScanImageActivity.class);
-        // send settings over intent to scan activity
-        mRecognizerBundle.saveToIntent(intent);
-        startActivityForResult(intent, MY_REQUEST_CODE);
-    }
-
-    /**
-     * Handler for "Camera 1 Activity" and "Camera 2 Activity" buttons
-     */
-    public void onCameraScanClick(View view) {
-        Class<?> targetActivity;
-        switch (view.getId()) {
-            case R.id.btn_camera1:
-                targetActivity = Camera1Activity.class;
-                break;
-            case R.id.btn_camera2:
-                if (Build.VERSION.SDK_INT >= 21) {
-                    targetActivity = Camera2Activity.class;
-                } else {
-                    Toast.makeText(this, "Camera2 API requires Android 5.0 or newer. Camera1 direct API will be used", Toast.LENGTH_SHORT).show();
-                    targetActivity = Camera1Activity.class;
-                }
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown button clicked!");
-        }
-
-        Intent intent = new Intent(this, targetActivity);
+    private void startScanActivityForResult(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
         // send settings over intent to scan activity
         mRecognizerBundle.saveToIntent(intent);
         startActivityForResult(intent, MY_REQUEST_CODE);
@@ -106,7 +114,7 @@ public class MenuActivity extends Activity {
         if (requestCode == MY_REQUEST_CODE && resultCode == BaseScanActivity.RESULT_OK) {
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
-            if (result.isEmpty() || !(result instanceof MRTDRecognizer.Result)) {
+            if (!(result instanceof MRTDRecognizer.Result)) {
                 Toast.makeText(this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
                 return;
             }

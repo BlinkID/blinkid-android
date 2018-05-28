@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.customcamera;
+package com.microblink.blinkid.customcamera;
 
 import android.app.Activity;
 import android.content.Intent;

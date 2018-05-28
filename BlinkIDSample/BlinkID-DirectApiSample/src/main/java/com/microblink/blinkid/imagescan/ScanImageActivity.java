@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.imagescan;
+package com.microblink.blinkid.imagescan;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

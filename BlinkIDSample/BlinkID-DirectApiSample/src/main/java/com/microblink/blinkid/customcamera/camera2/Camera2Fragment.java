@@ -3,7 +3,7 @@
  */
 
 
-package com.microblink.blinkid.demo.customcamera.camera2;
+package com.microblink.blinkid.customcamera.camera2;
 
 import android.Manifest;
 import android.annotation.TargetApi;

@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <com.microblink.blinkid.demo.customcamera.camera2.AutoFitTextureView
+        <com.microblink.blinkid.customcamera.camera2.AutoFitTextureView
             android:id="@+id/texture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>

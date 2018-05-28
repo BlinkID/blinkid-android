@@ -1,28 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="blinkid">BlinkID</string>
-    <string name="photopayOK">OK</string>
-    <string name="scanId">Scan ID</string>
-    <string name="app_name">BlinkID Sample</string>
-    <string name="loading">Loading…</string>
-    <string name="title_activity_your">YourActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_main">Blink ID</string>
-
-    <string name="nothingEnabledTitle">Invalid settings</string>
-    <string name="nothingEnabledMsg">Not even one recognizer has been enabled in current settings. BlinkID cannot continue.</string>
-
-    <string name="help_msg_01">Place mobile phone above element that should be scanned and center it inside scanning frame.</string>
-    <string name="help_msg_02">When scanning is done you can edit data by tapping it.</string>
-    <string name="help_msg_03">Swipe or tap title of element that should be scanned.</string>
-
-    <string name="raw_title">Payment description</string>
-    <string name="raw_msg">Position text in this frame</string>
-
-    <string name="amount_title">Total Amount</string>
-    <string name="amount_msg">Position Total Amount in this frame</string>
-
-    <string name="iban_title">IBAN</string>
-    <string name="iban_msg">Position IBAN in this frame</string>
+    <string name="app_name">BlinkID Simple sample</string>
 </resources>

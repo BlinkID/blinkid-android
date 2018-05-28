@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.customcamera.camera2;
+package com.microblink.blinkid.customcamera.camera2;
 
 /*
  * Copyright 2014 The Android Open Source Project

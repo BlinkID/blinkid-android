@@ -1,4 +1,4 @@
-package com.microblink.blinkid.demo.customui;
+package com.microblink.blinkid;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

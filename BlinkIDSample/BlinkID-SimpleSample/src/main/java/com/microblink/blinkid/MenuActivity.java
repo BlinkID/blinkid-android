@@ -5,12 +5,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
@@ -86,9 +84,9 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends BaseMenuActivity {
 
-    public static final int MY_BLINKID_REQUEST_CODE = 0x101;
+    public static final int MY_BLINKID_REQUEST_CODE = 123;
 
     private RecognizerBundle mRecognizerBundle;
 
@@ -100,7 +98,6 @@ public class MenuActivity extends Activity {
         //Log.setLogLevel(Log.LogLevel.LOG_VERBOSE);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // check if BlinkID is supported on the device
@@ -108,21 +105,70 @@ public class MenuActivity extends Activity {
         if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
-
-        setupMenuList();
     }
 
-    private void setupMenuList() {
-        final List<ListElement> elements = buildMenuListElements();
-        ListView lv = findViewById(R.id.recognizerList);
-        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, elements);
-        lv.setAdapter(listAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ActivityRunner.startActivityForResult(MenuActivity.this, MY_BLINKID_REQUEST_CODE, elements.get(position).mScanUISettings);
-            }
-        });
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+
+        items.add(buildMrtdElement());
+        items.add(buildAustrianIDElement());
+        items.add(buildAustrianIDCombinedElement());
+        items.add(buildAustrianPassportElement());
+        items.add(buildColombiaIDElement());
+        items.add(buildCroatianIDElement());
+        items.add(buildCroatianIDCombinedElement());
+        items.add(buildCzechIDElement());
+        items.add(buildCzechIDCombinedElement());
+        items.add(buildEgyptIDFrontElement());
+        items.add(buildGermanIDElement());
+        items.add(buildGermanPassportElement());
+        items.add(buildGermanIDCombinedElement());
+        items.add(buildHongKongIDFrontElement());
+        items.add(buildIndonesianIdElement());
+        items.add(buildJordanIdElement());
+        items.add(buildJordanIdCombinedElement());
+        items.add(buildMyKadElement());
+        items.add(buildIKadElement());
+        items.add(buildMyTenteraElement());
+        items.add(buildPolishIdElement());
+        items.add(buildPolishIdCombinedElement());
+        items.add(buildRomanianElement());
+        items.add(buildSingaporeIDElement());
+        items.add(buildSingaporeIDCombinedElement());
+        items.add(buildSerbianIDElement());
+        items.add(buildSerbianIDCombinedElement());
+        items.add(buildSlovakIDElement());
+        items.add(buildSlovakIDCombinedElement());
+        items.add(buildSlovenianIDElement());
+        items.add(buildSlovenianIDCombinedElement());
+        items.add(buildSwissIDElement());
+        items.add(buildSwissPassportElement());
+        items.add(buildUnitedArabEmiratesIdElement());
+
+        // DL list entries
+        // TODO eudl
+        //elements.add(buildAustrianDLElement());
+        items.add(buildAustralianDLElement());
+        items.add(buildMalaysianDLElement());
+        items.add(buildNewZealandDLElement());
+        //elements.add(buildGermanDLElement());
+        //elements.add(buildUKDLElement());
+        items.add(buildUsdlElement());
+        //TODO elements.add(buildUsdlCombinedElement());
+
+        // barcode list entries
+        items.add(buildPDF417Element());
+        items.add(buildBarcodeElement());
+        items.add(buildSimNumberElement());
+        items.add(buildVin());
+
+        return items;
+    }
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
     }
 
     /**
@@ -152,299 +198,236 @@ public class MenuActivity extends Activity {
         }
     }
 
-    private List<ListElement> buildMenuListElements() {
-        ArrayList<ListElement> elements = new ArrayList<>();
-
-        elements.add(buildMrtdElement());
-        elements.add(buildAustrianIDElement());
-        elements.add(buildAustrianIDCombinedElement());
-        elements.add(buildAustrianPassportElement());
-        elements.add(buildColombiaIDElement());
-        elements.add(buildCroatianIDElement());
-        elements.add(buildCroatianIDCombinedElement());
-        elements.add(buildCzechIDElement());
-        elements.add(buildCzechIDCombinedElement());
-        elements.add(buildEgyptIDFrontElement());
-        elements.add(buildGermanIDElement());
-        elements.add(buildGermanPassportElement());
-        elements.add(buildGermanIDCombinedElement());
-        elements.add(buildHongKongIDFrontElement());
-        elements.add(buildIndonesianIdElement());
-        elements.add(buildJordanIdElement());
-        elements.add(buildJordanIdCombinedElement());
-        elements.add(buildMyKadElement());
-        elements.add(buildIKadElement());
-        elements.add(buildMyTenteraElement());
-        elements.add(buildPolishIdElement());
-        elements.add(buildPolishIdCombinedElement());
-        elements.add(buildRomanianElement());
-        elements.add(buildSingaporeIDElement());
-        elements.add(buildSingaporeIDCombinedElement());
-        elements.add(buildSerbianIDElement());
-        elements.add(buildSerbianIDCombinedElement());
-        elements.add(buildSlovakIDElement());
-        elements.add(buildSlovakIDCombinedElement());
-        elements.add(buildSlovenianIDElement());
-        elements.add(buildSlovenianIDCombinedElement());
-        elements.add(buildSwissIDElement());
-        elements.add(buildSwissPassportElement());
-        elements.add(buildUnitedArabEmiratesIdElement());
-
-        // DL list entries
-        // TODO eudl
-        //elements.add(buildAustrianDLElement());
-        elements.add(buildAustralianDLElement());
-        elements.add(buildMalaysianDLElement());
-        elements.add(buildNewZealandDLElement());
-        //elements.add(buildGermanDLElement());
-        //elements.add(buildUKDLElement());
-        elements.add(buildUsdlElement());
-        //TODO elements.add(buildUsdlCombinedElement());
-
-        // barcode list entries
-        elements.add(buildPDF417Element());
-        elements.add(buildBarcodeElement());
-        elements.add(buildSimNumberElement());
-        elements.add(buildVin());
-
-        // templating API entries
-        /* TODO templating
-        elements.add(buildTemplatingAPICroIDFrontElement());
-        elements.add(buildTemplatingAPICroIDBackElement());*/
-
-        return elements;
-    }
-
-    private ListElement buildMrtdElement() {
+    private MenuListItem buildMrtdElement() {
         //Machine Readable Travel Document (MRTD) recognizer
         MRTDRecognizer recognizer = new MRTDRecognizer();
         // allow results with incorrect check digits, only for demo
         recognizer.setAllowUnverifiedResults(true);
-        return new ListElement("ID document", buildDocumentScanIntent(recognizer));
+        return buildMenuItem("ID document", buildDocumentScanUiSettings(recognizer));
     }
 
-    private ListElement buildAustrianIDElement() {
+    private MenuListItem buildAustrianIDElement() {
         AustriaIDFrontSideRecognizer ausFront = new AustriaIDFrontSideRecognizer();
         AustriaIDBackSideRecognizer ausBack = new AustriaIDBackSideRecognizer();
-        return new ListElement("Austrian ID", buildDocumentScanIntent(ausFront, ausBack));
+        return buildMenuItem("Austrian ID", buildDocumentScanUiSettings(ausFront, ausBack));
     }
 
-    private ListElement buildAustrianPassportElement() {
+    private MenuListItem buildAustrianPassportElement() {
         AustriaPassportRecognizer ausPass = new AustriaPassportRecognizer();
-        return new ListElement("Austrian Passport", buildDocumentScanIntent(ausPass));
+        return buildMenuItem("Austrian Passport", buildDocumentScanUiSettings(ausPass));
     }
 
-    private ListElement buildColombiaIDElement() {
+    private MenuListItem buildColombiaIDElement() {
         ColombiaIDFrontSideRecognizer colombiaIDFront = new ColombiaIDFrontSideRecognizer();
         ColombiaIDBackSideRecognizer colombiaIDBack = new ColombiaIDBackSideRecognizer();
-        return new ListElement("Colombia ID", buildDocumentScanIntent(colombiaIDFront, colombiaIDBack));
+        return buildMenuItem("Colombia ID", buildDocumentScanUiSettings(colombiaIDFront, colombiaIDBack));
     }
 
-    private ListElement buildCroatianIDElement() {
+    private MenuListItem buildCroatianIDElement() {
         CroatiaIDFrontSideRecognizer croFront = new CroatiaIDFrontSideRecognizer();
         CroatiaIDBackSideRecognizer croBack = new CroatiaIDBackSideRecognizer();
-        return new ListElement("Croatian ID", buildDocumentScanIntent(croFront, croBack));
+        return buildMenuItem("Croatian ID", buildDocumentScanUiSettings(croFront, croBack));
     }
 
-    private ListElement buildCzechIDElement() {
+    private MenuListItem buildCzechIDElement() {
         CzechiaIDFrontSideRecognizer czFront = new CzechiaIDFrontSideRecognizer();
         CzechiaIDBackSideRecognizer czBack = new CzechiaIDBackSideRecognizer();
-        return new ListElement("Czech ID", buildDocumentScanIntent(czFront, czBack));
+        return buildMenuItem("Czech ID", buildDocumentScanUiSettings(czFront, czBack));
     }
 
-    private ListElement buildEgyptIDFrontElement() {
+    private MenuListItem buildEgyptIDFrontElement() {
         EgyptIDFrontRecognizer egyptIDFront = new EgyptIDFrontRecognizer();
-        return new ListElement("Egypt ID Front", buildDocumentScanIntent(egyptIDFront));
+        return buildMenuItem("Egypt ID Front", buildDocumentScanUiSettings(egyptIDFront));
     }
 
-    private ListElement buildGermanIDElement() {
+    private MenuListItem buildGermanIDElement() {
         GermanyIDFrontSideRecognizer deFront = new GermanyIDFrontSideRecognizer();
         GermanyIDBackSideRecognizer deBack = new GermanyIDBackSideRecognizer();
         GermanyOldIDRecognizer deOld = new GermanyOldIDRecognizer();
-        return new ListElement("German ID", buildDocumentScanIntent(deFront, deBack, deOld));
+        return buildMenuItem("German ID", buildDocumentScanUiSettings(deFront, deBack, deOld));
     }
 
-    private ListElement buildGermanPassportElement() {
+    private MenuListItem buildGermanPassportElement() {
         GermanyPassportRecognizer dePassport = new GermanyPassportRecognizer();
-        return new ListElement("German Passport", buildDocumentScanIntent(dePassport));
+        return buildMenuItem("German Passport", buildDocumentScanUiSettings(dePassport));
     }
 
-    private ListElement buildHongKongIDFrontElement() {
+    private MenuListItem buildHongKongIDFrontElement() {
         HongKongIDFrontRecognizer hongKongIDFrontRecognizer = new HongKongIDFrontRecognizer();
-        return new ListElement("Hong Kong ID", buildDocumentScanIntent(hongKongIDFrontRecognizer));
+        return buildMenuItem("Hong Kong ID", buildDocumentScanUiSettings(hongKongIDFrontRecognizer));
     }
 
-    private ListElement buildIndonesianIdElement(){
+    private MenuListItem buildIndonesianIdElement(){
         IndonesiaIDFrontRecognizer idnFront= new IndonesiaIDFrontRecognizer();
-        return new ListElement("Indonesian ID", buildDocumentScanIntent(idnFront));
+        return buildMenuItem("Indonesian ID", buildDocumentScanUiSettings(idnFront));
     }
 
-    private ListElement buildJordanIdElement(){
+    private MenuListItem buildJordanIdElement(){
         JordanIDFrontRecognizer jorFront = new JordanIDFrontRecognizer();
         JordanIDBackRecognizer jorBack = new JordanIDBackRecognizer();
-        return new ListElement("Jordan ID", buildDocumentScanIntent(jorFront, jorBack));
+        return buildMenuItem("Jordan ID", buildDocumentScanUiSettings(jorFront, jorBack));
     }
 
-    private ListElement buildSingaporeIDElement() {
+    private MenuListItem buildSingaporeIDElement() {
         SingaporeIDFrontRecognizer singaporeFront = new SingaporeIDFrontRecognizer();
         SingaporeIDBackRecognizer singaporeBack = new SingaporeIDBackRecognizer();
-        return new ListElement("Singapore ID", buildDocumentScanIntent(singaporeFront, singaporeBack));
+        return buildMenuItem("Singapore ID", buildDocumentScanUiSettings(singaporeFront, singaporeBack));
     }
 
-    private ListElement buildSerbianIDElement() {
+    private MenuListItem buildSerbianIDElement() {
         SerbiaIDFrontRecognizer serbFront = new SerbiaIDFrontRecognizer();
         SerbiaIDBackRecognizer serbBack = new SerbiaIDBackRecognizer();
-        return new ListElement("Serbian ID", buildDocumentScanIntent(serbFront, serbBack));
+        return buildMenuItem("Serbian ID", buildDocumentScanUiSettings(serbFront, serbBack));
     }
 
-    private ListElement buildSlovakIDElement() {
+    private MenuListItem buildSlovakIDElement() {
         SlovakiaIDFrontRecognizer svkFront = new SlovakiaIDFrontRecognizer();
         SlovakiaIDBackRecognizer svkBack = new SlovakiaIDBackRecognizer();
-        return new ListElement("Slovak ID", buildDocumentScanIntent(svkFront, svkBack));
+        return buildMenuItem("Slovak ID", buildDocumentScanUiSettings(svkFront, svkBack));
     }
 
-    private ListElement buildSlovenianIDElement() {
+    private MenuListItem buildSlovenianIDElement() {
         SloveniaIDFrontRecognizer sloFront = new SloveniaIDFrontRecognizer();
         SloveniaIDBackRecognizer sloBack = new SloveniaIDBackRecognizer();
-        return new ListElement("Slovenian ID", buildDocumentScanIntent(sloFront, sloBack));
+        return buildMenuItem("Slovenian ID", buildDocumentScanUiSettings(sloFront, sloBack));
     }
 
-    private ListElement buildSwissPassportElement() {
+    private MenuListItem buildSwissPassportElement() {
         SwitzerlandPassportRecognizer swissPass = new SwitzerlandPassportRecognizer();
-        return new ListElement("Swiss Passport", buildDocumentScanIntent(swissPass));
+        return buildMenuItem("Swiss Passport", buildDocumentScanUiSettings(swissPass));
     }
 
-    private ListElement buildUnitedArabEmiratesIdElement() {
+    private MenuListItem buildUnitedArabEmiratesIdElement() {
         UnitedArabEmiratesIDFrontRecognizer unitedArabEmiratesIdFront = new UnitedArabEmiratesIDFrontRecognizer();
         UnitedArabEmiratesIDBackRecognizer unitedArabEmiratesIdBack = new UnitedArabEmiratesIDBackRecognizer();
-        return new ListElement("United Arab Emirates ID", buildDocumentScanIntent(unitedArabEmiratesIdFront, unitedArabEmiratesIdBack));
+        return buildMenuItem("United Arab Emirates ID", buildDocumentScanUiSettings(unitedArabEmiratesIdFront, unitedArabEmiratesIdBack));
     }
 
-    private ListElement buildUKDLElement() {
+    private MenuListItem buildUKDLElement() {
         EUDLRecognizer ukdl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_UK);
-        return new ListElement("UK Driver's Licence", buildDocumentScanIntent(ukdl));
+        return buildMenuItem("UK Driver's Licence", buildDocumentScanUiSettings(ukdl));
     }
 
-    private ListElement buildGermanDLElement() {
+    private MenuListItem buildGermanDLElement() {
         EUDLRecognizer germanDl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_GERMANY);
-        return new ListElement("German Driver's Licence", buildDocumentScanIntent(germanDl));
+        return buildMenuItem("German Driver's Licence", buildDocumentScanUiSettings(germanDl));
     }
 
-    private ListElement buildAustrianDLElement() {
+    private MenuListItem buildAustrianDLElement() {
         EUDLRecognizer ausDl = new EUDLRecognizer(EUDLCountry.EUDL_COUNTRY_AUSTRIA);
-        return new ListElement("Austrian Driver's Licence", buildDocumentScanIntent(ausDl));
+        return buildMenuItem("Austrian Driver's Licence", buildDocumentScanUiSettings(ausDl));
     }
 
-    private ListElement buildAustralianDLElement() {
+    private MenuListItem buildAustralianDLElement() {
         AustraliaDLFrontSideRecognizer ausDLFront = new AustraliaDLFrontSideRecognizer();
         AustraliaDLBackSideRecognizer ausDLBack = new AustraliaDLBackSideRecognizer();
-        return new ListElement("Australian Driver's License", buildDocumentScanIntent(ausDLFront, ausDLBack));
+        return buildMenuItem("Australian Driver's License", buildDocumentScanUiSettings(ausDLFront, ausDLBack));
     }
 
-    private ListElement buildMalaysianDLElement() {
+    private MenuListItem buildMalaysianDLElement() {
         MalaysiaDLFrontRecognizer malaysianDL = new MalaysiaDLFrontRecognizer();
-        return new ListElement("Malaysian DL", buildDocumentScanIntent(malaysianDL));
+        return buildMenuItem("Malaysian DL", buildDocumentScanUiSettings(malaysianDL));
     }
 
-    private ListElement buildNewZealandDLElement(){
+    private MenuListItem buildNewZealandDLElement(){
         NewZealandDLFrontRecognizer nzDlFront = new NewZealandDLFrontRecognizer();
-        return new ListElement("New Zealand Driver's Licence", buildDocumentScanIntent(nzDlFront));
+        return buildMenuItem("New Zealand Driver's Licence", buildDocumentScanUiSettings(nzDlFront));
     }
 
-    private ListElement buildUsdlElement() {
+    private MenuListItem buildUsdlElement() {
         USDLRecognizer usdl = new USDLRecognizer();
-        return new ListElement("US Driver's License", buildDocumentScanIntent(usdl));
+        return buildMenuItem("US Driver's License", buildDocumentScanUiSettings(usdl));
     }
 
-    private ListElement buildMyKadElement() {
+    private MenuListItem buildMyKadElement() {
         MyKadFrontRecognizer mykadfront = new MyKadFrontRecognizer();
         MyKadBackRecognizer mykadback = new MyKadBackRecognizer();
-        return new ListElement("Malaysian ID card", buildDocumentScanIntent(mykadfront, mykadback));
+        return buildMenuItem("Malaysian ID card", buildDocumentScanUiSettings(mykadfront, mykadback));
     }
 
-    private ListElement buildIKadElement() {
+    private MenuListItem buildIKadElement() {
         IKadRecognizer iKad = new IKadRecognizer();
-        return new ListElement("Malaysian iKad document", buildDocumentScanIntent(iKad));
+        return buildMenuItem("Malaysian iKad document", buildDocumentScanUiSettings(iKad));
     }
 
-    private ListElement buildMyTenteraElement() {
+    private MenuListItem buildMyTenteraElement() {
         MyTenteraRecognizer myTentera = new MyTenteraRecognizer();
-        return new ListElement("Malaysian MyTentera", buildDocumentScanIntent(myTentera));
+        return buildMenuItem("Malaysian MyTentera", buildDocumentScanUiSettings(myTentera));
     }
 
-    private ListElement buildPolishIdElement() {
+    private MenuListItem buildPolishIdElement() {
         PolandIDFrontSideRecognizer polIdFront = new PolandIDFrontSideRecognizer();
         PolandIDBackSideRecognizer polIdBack = new PolandIDBackSideRecognizer();
-        return new ListElement("Polish ID", buildDocumentScanIntent(polIdFront, polIdBack));
+        return buildMenuItem("Polish ID", buildDocumentScanUiSettings(polIdFront, polIdBack));
     }
 
-    private ListElement buildRomanianElement() {
+    private MenuListItem buildRomanianElement() {
         RomaniaIDFrontRecognizer romanian = new RomaniaIDFrontRecognizer();
-        return new ListElement("Romanian ID", buildDocumentScanIntent(romanian));
+        return buildMenuItem("Romanian ID", buildDocumentScanUiSettings(romanian));
     }
 
-    private ListElement buildSwissIDElement() {
+    private MenuListItem buildSwissIDElement() {
         SwitzerlandIDFrontRecognizer swissIDBack = new SwitzerlandIDFrontRecognizer();
         SwitzerlandIDBackRecognizer swissIDFront = new SwitzerlandIDBackRecognizer();
-        return new ListElement("Swiss ID", buildDocumentScanIntent(swissIDBack, swissIDFront));
+        return buildMenuItem("Swiss ID", buildDocumentScanUiSettings(swissIDBack, swissIDFront));
     }
 
-    private ListElement buildCroatianIDCombinedElement() {
+    private MenuListItem buildCroatianIDCombinedElement() {
         CroatiaCombinedRecognizer croIDCombined = new CroatiaCombinedRecognizer();
-        return new ListElement("Croatian ID combined", buildCombinedIntent(croIDCombined));
+        return buildMenuItem("Croatian ID combined", buildCombinedScanUiSettings(croIDCombined));
     }
 
-    private ListElement buildSerbianIDCombinedElement() {
+    private MenuListItem buildSerbianIDCombinedElement() {
         SerbiaCombinedRecognizer serbianIDCombined = new SerbiaCombinedRecognizer();
-        return new ListElement("Serbian ID combined", buildCombinedIntent(serbianIDCombined));
+        return buildMenuItem("Serbian ID combined", buildCombinedScanUiSettings(serbianIDCombined));
     }
 
-    private ListElement buildSlovenianIDCombinedElement() {
+    private MenuListItem buildSlovenianIDCombinedElement() {
         SloveniaCombinedRecognizer svnIDCombined = new SloveniaCombinedRecognizer();
-        return new ListElement("Slovenian ID combined", buildCombinedIntent(svnIDCombined));
+        return buildMenuItem("Slovenian ID combined", buildCombinedScanUiSettings(svnIDCombined));
     }
 
-    private ListElement buildSlovakIDCombinedElement() {
+    private MenuListItem buildSlovakIDCombinedElement() {
         SlovakiaCombinedRecognizer svkIDCombined = new SlovakiaCombinedRecognizer();
-        return new ListElement("Slovak ID combined", buildCombinedIntent(svkIDCombined));
+        return buildMenuItem("Slovak ID combined", buildCombinedScanUiSettings(svkIDCombined));
     }
 
-    private ListElement buildSingaporeIDCombinedElement() {
+    private MenuListItem buildSingaporeIDCombinedElement() {
         SingaporeCombinedRecognizer singaporeIDCombined = new SingaporeCombinedRecognizer();
-        return new ListElement("Singapore ID combined", buildCombinedIntent(singaporeIDCombined));
+        return buildMenuItem("Singapore ID combined", buildCombinedScanUiSettings(singaporeIDCombined));
     }
 
-    private ListElement buildCzechIDCombinedElement() {
+    private MenuListItem buildCzechIDCombinedElement() {
         CzechiaCombinedRecognizer czechIDCombined = new CzechiaCombinedRecognizer();
-        return new ListElement("Czech ID combined", buildCombinedIntent(czechIDCombined));
+        return buildMenuItem("Czech ID combined", buildCombinedScanUiSettings(czechIDCombined));
     }
 
-    private ListElement buildJordanIdCombinedElement() {
+    private MenuListItem buildJordanIdCombinedElement() {
         JordanCombinedRecognizer jordanIDCombined = new JordanCombinedRecognizer();
-        return new ListElement("Jordan ID Combined", buildCombinedIntent(jordanIDCombined));
+        return buildMenuItem("Jordan ID Combined", buildCombinedScanUiSettings(jordanIDCombined));
     }
 
-    private ListElement buildAustrianIDCombinedElement() {
+    private MenuListItem buildAustrianIDCombinedElement() {
         AustriaCombinedRecognizer ausIDCombined = new AustriaCombinedRecognizer();
-        return new ListElement("Austrian ID combined", buildCombinedIntent(ausIDCombined));
+        return buildMenuItem("Austrian ID combined", buildCombinedScanUiSettings(ausIDCombined));
     }
 
-    private ListElement buildGermanIDCombinedElement() {
+    private MenuListItem buildGermanIDCombinedElement() {
         GermanyCombinedRecognizer deCombined = new GermanyCombinedRecognizer();
-        return new ListElement("German ID Combined", buildCombinedIntent(deCombined));
+        return buildMenuItem("German ID Combined", buildCombinedScanUiSettings(deCombined));
     }
 
-    private ListElement buildPolishIdCombinedElement() {
+    private MenuListItem buildPolishIdCombinedElement() {
         PolandCombinedRecognizer polIDCombined = new PolandCombinedRecognizer();
-        return new ListElement("Polish ID Combined",  buildCombinedIntent(polIDCombined));
+        return buildMenuItem("Polish ID Combined",  buildCombinedScanUiSettings(polIDCombined));
     }
 
-    private ListElement buildPDF417Element() {
+    private MenuListItem buildPDF417Element() {
         Pdf417Recognizer pdf417 = new Pdf417Recognizer();
-        return new ListElement("PDF417 barcode", buildBarcodeScanIntent( pdf417));
+        return buildMenuItem("PDF417 barcode", buildBarcodeScanUiSettings( pdf417));
     }
 
-    private ListElement buildBarcodeElement() {
+    private MenuListItem buildBarcodeElement() {
         BarcodeRecognizer barcodeRecognizer = new BarcodeRecognizer();
         barcodeRecognizer.setScanCode39(true);
         barcodeRecognizer.setScanCode128(true);
@@ -457,25 +440,34 @@ public class MenuActivity extends Activity {
         barcodeRecognizer.setScanQRCode(true);
         barcodeRecognizer.setScanUPCACode(true);
         barcodeRecognizer.setScanUPCECode(true);
-        return new ListElement("Blink barcode", buildBarcodeScanIntent(barcodeRecognizer));
+        return buildMenuItem("Blink barcode", buildBarcodeScanUiSettings(barcodeRecognizer));
     }
 
-    private ListElement buildSimNumberElement() {
+    private MenuListItem buildSimNumberElement() {
         SimNumberRecognizer simNumberRecognizer = new SimNumberRecognizer();
-        return new ListElement("Sim number barcode", buildBarcodeScanIntent(simNumberRecognizer));
+        return buildMenuItem("Sim number barcode", buildBarcodeScanUiSettings(simNumberRecognizer));
     }
 
-    private ListElement buildVin() {
+    private MenuListItem buildVin() {
         VinRecognizer vinRecognizer = new VinRecognizer();
-        return new ListElement("VIN", buildBarcodeScanIntent(vinRecognizer));
+        return buildMenuItem("VIN", buildBarcodeScanUiSettings(vinRecognizer));
     }
 
-    private DocumentVerificationUISettings buildCombinedIntent(Recognizer combinedRecognizer) {
+    private MenuListItem buildMenuItem(String title, final UISettings documentUISettings) {
+        return new MenuListItem(title, new Runnable() {
+            @Override
+            public void run() {
+                ActivityRunner.startActivityForResult(MenuActivity.this, MY_BLINKID_REQUEST_CODE, documentUISettings);
+            }
+        });
+    }
+
+    private DocumentVerificationUISettings buildCombinedScanUiSettings(Recognizer combinedRecognizer) {
         mRecognizerBundle = new RecognizerBundle(combinedRecognizer);
         return new DocumentVerificationUISettings(mRecognizerBundle);
     }
 
-    private DocumentUISettings buildDocumentScanIntent(Recognizer...recognizers) {
+    private DocumentUISettings buildDocumentScanUiSettings(Recognizer...recognizers) {
         mRecognizerBundle = new RecognizerBundle(recognizers);
         DocumentUISettings documentUISettings = new DocumentUISettings(mRecognizerBundle);
 
@@ -520,27 +512,10 @@ public class MenuActivity extends Activity {
         return documentUISettings;
     }
 
-    private BarcodeUISettings buildBarcodeScanIntent(Recognizer...recognizers) {
+    private BarcodeUISettings buildBarcodeScanUiSettings(Recognizer...recognizers) {
         mRecognizerBundle = new RecognizerBundle(recognizers);
         //use default settings for barcode scanning
         return new BarcodeUISettings(mRecognizerBundle);
     }
 
-    private class ListElement {
-        private String mTitle;
-        private UISettings mScanUISettings;
-
-        ListElement(String title, UISettings scanUISettings) {
-            mTitle = title;
-            mScanUISettings = scanUISettings;
-        }
-
-        /**
-         * Used by array adapter to determine list element text
-         */
-        @Override
-        public String toString() {
-            return mTitle;
-        }
-    }
 }

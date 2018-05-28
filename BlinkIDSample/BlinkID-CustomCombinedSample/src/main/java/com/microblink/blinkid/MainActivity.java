@@ -4,13 +4,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
@@ -32,7 +29,7 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseMenuActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 0x101;
     private RecognizerBundle mRecognizerBundle;
@@ -40,95 +37,50 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         // check if BlinkID is supported on the device
         RecognizerCompatibilityStatus supportStatus = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
         if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
+    }
 
-        final List<ListElement> elements = buildElements();
-        ListView lv = findViewById(R.id.documentList);
-        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<ListElement>(this, android.R.layout.simple_list_item_1, elements);
-        lv.setAdapter(listAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+
+        items.add(createMenuListItem("MRTD combined", new MRTDCombinedRecognizer()));
+        items.add(createMenuListItem("Austrian ID combined", new AustriaCombinedRecognizer()));
+        items.add(createMenuListItem("Croatian ID combined", new CroatiaCombinedRecognizer()));
+        items.add(createMenuListItem("Czech ID combined", new CzechiaCombinedRecognizer()));
+        items.add(createMenuListItem("German ID combined", new GermanyCombinedRecognizer()));
+        items.add(createMenuListItem("Jordan ID combined", new JordanCombinedRecognizer()));
+        items.add(createMenuListItem("Polish ID combined", new PolandCombinedRecognizer()));
+        items.add(createMenuListItem("Serbian ID combined", new SerbiaCombinedRecognizer()));
+        items.add(createMenuListItem("Singapore ID combined", new SingaporeCombinedRecognizer()));
+        items.add(createMenuListItem("Slovak ID combined", new SlovakiaCombinedRecognizer()));
+        items.add(createMenuListItem("Slovenian ID combined", new SloveniaCombinedRecognizer()));
+
+        return items;
+    }
+
+    private MenuListItem createMenuListItem(String title, final Recognizer recognizer) {
+        return new MenuListItem(title, new Runnable() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivityForResult(buildScanIntent(elements.get(position).mRecognizer), MY_BLINKID_REQUEST_CODE);
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, CustomVerificationFlowActivity.class);
+                mRecognizerBundle = new RecognizerBundle(recognizer);
+                mRecognizerBundle.saveToIntent(intent);
+                intent.putExtra(CustomVerificationFlowActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
+                intent.putExtra(CustomVerificationFlowActivity.EXTRAS_COMBINED_CAMERA_TYPE, (Parcelable) CameraType.CAMERA_BACKFACE);
+                startActivityForResult(intent, MY_BLINKID_REQUEST_CODE);
             }
         });
     }
 
-    private Intent buildScanIntent(Recognizer recognizer) {
-        Intent intent = new Intent(this, CustomVerificationFlowActivity.class);
-        mRecognizerBundle = new RecognizerBundle(recognizer);
-        mRecognizerBundle.saveToIntent(intent);
-        intent.putExtra(CustomVerificationFlowActivity.EXTRAS_BEEP_RESOURCE, R.raw.beep);
-        intent.putExtra(CustomVerificationFlowActivity.EXTRAS_COMBINED_CAMERA_TYPE, (Parcelable) CameraType.CAMERA_BACKFACE);
-        return intent;
-    }
-
-    private List<ListElement> buildElements() {
-        ArrayList<ListElement> elements = new ArrayList<ListElement>();
-
-        elements.add(buildMRTDCombinedElement());
-        elements.add(buildAustrianIDCombinedElement());
-        elements.add(buildCroatianIDCombinedElement());
-        elements.add(buildCzhechIDCombinedElement());
-        elements.add(buildGermanIDCombinedElement());
-        elements.add(buildJordanIDCombinedElement());
-        elements.add(buildPolishIDCombinedElement());
-        elements.add(buildSerbianIDCombinedElement());
-        elements.add(buildSingaporeIDCombinedElement());
-        elements.add(buildSlovakIDCombinedElement());
-        elements.add(buildSlovenianIDCombinedElement());
-
-        return elements;
-    }
-
-    private ListElement buildMRTDCombinedElement() {
-        return new ListElement("MRTD combined", new MRTDCombinedRecognizer());
-    }
-
-    private ListElement buildAustrianIDCombinedElement() {
-        return new ListElement("Austrian ID combined", new AustriaCombinedRecognizer());
-    }
-
-    private ListElement buildCroatianIDCombinedElement() {
-        return new ListElement("Croatian ID combined", new CroatiaCombinedRecognizer());
-    }
-
-    private ListElement buildCzhechIDCombinedElement() {
-        return new ListElement("Czech ID combined", new CzechiaCombinedRecognizer());
-    }
-
-    private ListElement buildGermanIDCombinedElement() {
-        return new ListElement("German ID combined", new GermanyCombinedRecognizer());
-    }
-
-    private ListElement buildJordanIDCombinedElement() {
-        return new ListElement("Jordan ID combined", new JordanCombinedRecognizer());
-    }
-
-    private ListElement buildPolishIDCombinedElement() {
-        return new ListElement("Polish ID combined", new PolandCombinedRecognizer());
-    }
-
-    private ListElement buildSerbianIDCombinedElement() {
-        return new ListElement("Serbian ID combined", new SerbiaCombinedRecognizer());
-    }
-
-    private ListElement buildSingaporeIDCombinedElement() {
-        return new ListElement("Singapore ID combined", new SingaporeCombinedRecognizer());
-    }
-
-    private ListElement buildSlovakIDCombinedElement() {
-        return new ListElement("Slovak ID combined", new SlovakiaCombinedRecognizer());
-    }
-
-    private ListElement buildSlovenianIDCombinedElement() {
-        return new ListElement("Slovenian ID combined", new SloveniaCombinedRecognizer());
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
     }
 
     /**
@@ -156,22 +108,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class ListElement {
-        private String mTitle;
-        private Recognizer mRecognizer;
-
-        public String getTitle() {
-            return mTitle;
-        }
-
-        ListElement(String title, Recognizer recognizer) {
-            mTitle = title;
-            mRecognizer = recognizer;
-        }
-
-        @Override
-        public String toString() {
-            return getTitle();
-        }
-    }
 }

@@ -1,49 +1,58 @@
-package com.microblink.blinkid.demo.customui;
+package com.microblink.blinkid;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.blinkid.demo.R;
 import com.microblink.result.ResultActivity;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
-public class MenuActivity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
 
-    public static final int MY_BLINK_ID_REQUEST_CODE = 0x101;
+public class MenuActivity extends BaseMenuActivity {
 
-    public static final String TAG = "BlinkIDDemo";
+    public static final int MY_BLINK_ID_REQUEST_CODE = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        Button btnScan = findViewById(R.id.btnScan);
 
         RecognizerCompatibilityStatus supportStatus = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
-        if (supportStatus == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
-            btnScan.setEnabled(true);
-        } else {
-            btnScan.setEnabled(false);
+        if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
+            finish();
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+        items.add(new MenuListItem(getString(R.string.scanId), new Runnable() {
+            @Override
+            public void run() {
+                final Intent intent = new Intent(MenuActivity.this, MyScanActivity.class);
+                startActivityForResult(intent, MY_BLINK_ID_REQUEST_CODE);
+            }
+        }));
+        return items;
     }
 
-    public void myClickHandler(View view) {
-        final Intent intent = new Intent(this, MyScanActivity.class);
-        startActivityForResult(intent, MY_BLINK_ID_REQUEST_CODE);
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
