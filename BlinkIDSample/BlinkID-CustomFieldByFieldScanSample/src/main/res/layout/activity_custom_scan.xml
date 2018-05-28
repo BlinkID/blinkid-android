@@ -1,0 +1,21 @@
+<FrameLayout    android:id="@+id/custom_segment_scan_root"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:custom="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.microblink.blinkid.ScanActivity">
+
+    <com.microblink.view.recognition.RecognizerRunnerView
+        android:id="@+id/rec_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:mb_animateRotation="true"
+        custom:mb_animationDuration="250"
+        custom:mb_initialOrientation="portrait" />
+
+    <include layout="@layout/overlay" />
+
+
+
+</FrameLayout>
