@@ -188,7 +188,6 @@ public class MenuActivity extends BaseMenuActivity {
                 // set intent's component to ResultActivity and pass its contents
                 // to ResultActivity. ResultActivity will show how to extract data from result.
                 data.setComponent(new ComponentName(this, ResultActivity.class));
-                data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
                 startActivity(data);
             } else {
                 // if BlinkID activity did not return result, user has probably

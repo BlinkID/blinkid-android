@@ -65,7 +65,6 @@ public class MenuActivity extends BaseMenuActivity {
         if (requestCode == MY_BLINK_ID_REQUEST_CODE) {
             if (resultCode == MyScanActivity.RESULT_OK && data != null) {
                 data.setComponent(new ComponentName(this, ResultActivity.class));
-                data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
                 startActivity(data);
             }
         }
