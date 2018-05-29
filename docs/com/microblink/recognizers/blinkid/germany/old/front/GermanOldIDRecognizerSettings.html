@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -112,13 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a>, <a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GermanOldIDRecognizerSettings</span>
 extends <a href="../../../../../../../com/microblink/recognizers/settings/RecognizerSettings.html" title="class in com.microblink.recognizers.settings">RecognizerSettings</a>
-implements <a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></pre>
+implements <a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a>, <a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></pre>
 <div class="block">Represents settings for setting up the recognizer which can scan old German ID cards.</div>
 </li>
 </ul>
@@ -225,54 +225,66 @@ implements <a href="../../../../../../../com/microblink/recognizers/settings/Gla
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></span>()</code>
+<div class="block">Returns the extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
 <div class="block">Defines whether glare detector will be used during recognition process.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#setDisplayFaceImage-boolean-">setDisplayFaceImage</a></span>(boolean&nbsp;displayFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#setDisplayFullDocumentImage-boolean-">setDisplayFullDocumentImage</a></span>(boolean&nbsp;displayFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#setDisplaySignatureImage-boolean-">setDisplaySignatureImage</a></span>(boolean&nbsp;displaySignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be sent to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></span>(<a href="../../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code>
+<div class="block">Sets extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
 <div class="block">Returns whether glare detector is enabled.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#shouldDisplayFaceImage--">shouldDisplayFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#shouldDisplayFullDocumentImage--">shouldDisplayFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#shouldDisplaySignatureImage--">shouldDisplaySignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/recognizers/blinkid/germany/old/front/GermanOldIDRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -522,6 +534,40 @@ implements <a href="../../../../../../../com/microblink/recognizers/settings/Gla
 <dd><code><a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html#shouldDetectGlare--">shouldDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>it the glare detector is enabled returns <code>true</code>, otherwise returns <code>false</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFullDocumentImageExtensionFactors</h4>
+<pre>public&nbsp;void&nbsp;setFullDocumentImageExtensionFactors(<a href="../../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">FullDocumentImageExtensionOptions</a></code></span></div>
+<div class="block">Sets extension factors for full document image.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fullDocumentImageExtensionFactors</code> - extension factors for full document image.</dd>
+</dl>
+</li>
+</ul>
+<a name="getFullDocumentImageExtensionFactors--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImageExtensionFactors</h4>
+<pre>public&nbsp;<a href="../../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;getFullDocumentImageExtensionFactors()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#getFullDocumentImageExtensionFactors--">FullDocumentImageExtensionOptions</a></code></span></div>
+<div class="block">Returns the extension factors for full document image.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extension factors for full document image.</dd>
 </dl>
 </li>
 </ul>
