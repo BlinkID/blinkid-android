@@ -80,6 +80,7 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognizerSettings;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognizerSettings;
+import com.microblink.recognizers.blinkid.sweden.dl.SwedenDLFrontRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.back.SwissIDBackSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.front.SwissIDFrontSideRecognizerSettings;
 import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognizerSettings;
@@ -346,6 +347,7 @@ public class MenuActivity extends Activity {
         elements.add(buildMalaysianDLElement());
         elements.add(buildNewZealandDLElement());
         elements.add(buildGermanDLElement());
+        elements.add(buildSwedenDLElement());
         elements.add(buildUKDLElement());
         elements.add(buildUsdlElement());
         elements.add(buildUsdlCombinedElement());
@@ -503,12 +505,21 @@ public class MenuActivity extends Activity {
     }
 
     private ListElement buildGermanDLElement() {
-        // prepare settings for United Kingdom Driver's Licence recognizer
+        // prepare settings for German Driver's Licence recognizer
         EUDLRecognizerSettings germanDl = new EUDLRecognizerSettings(EUDLCountry.EUDL_COUNTRY_GERMANY);
 
         // build a scan intent by adding intent extras common to all other recognizers
         // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
         return new ListElement("German Driver's Licence", buildIntent(new RecognizerSettings[]{germanDl}, ScanCard.class, null));
+    }
+
+    private ListElement buildSwedenDLElement() {
+        // prepare settings for Sweden Driver's Licence recognizer
+        SwedenDLFrontRecognizerSettings swedenDl = new SwedenDLFrontRecognizerSettings();
+
+        // build a scan intent by adding intent extras common to all other recognizers
+        // when scanning ID documents, we will use ScanCard activity which has more suitable UI for scanning ID document
+        return new ListElement("Sweden Driver's Licence", buildIntent(new RecognizerSettings[]{swedenDl}, ScanCard.class, null));
     }
 
     private ListElement buildAustrianDLElement() {

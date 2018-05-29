@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -229,7 +229,7 @@ extends <a href="../../../../../../com/microblink/recognizers/detector/DetectorR
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getAddress--">getAddress</a></span>()</code>
-<div class="block">Returns address of the Malaysian iKad owner.</div>
+<div class="block">Returns personal address of the Malaysian iKad owner.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -252,39 +252,45 @@ extends <a href="../../../../../../com/microblink/recognizers/detector/DetectorR
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getFacultyAddress--">getFacultyAddress</a></span>()</code>
+<div class="block">Returns faculty address of the Malaysian iKad owner.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getFullName--">getFullName</a></span>()</code>
 <div class="block">Returns the full name of the Malaysian iKad owner.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getNationality--">getNationality</a></span>()</code>
 <div class="block">Returns the nationality of the Malaysian iKad owner.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getPassportNumber--">getPassportNumber</a></span>()</code>
 <div class="block">Returns the passport number of Malaysian iKad.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getSector--">getSector</a></span>()</code>
 <div class="block">Returns the sector of Malaysian iKad.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getSex--">getSex</a></span>()</code>
 <div class="block">Returns sex of the Malaysian iKad owner.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#getTitle--">getTitle</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/malaysia/ikad/IKadRecognitionResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>
@@ -497,10 +503,25 @@ public&nbsp;java.lang.String&nbsp;getEmployer()</pre>
 <h4>getAddress</h4>
 <pre>@Nullable
 public&nbsp;java.lang.String&nbsp;getAddress()</pre>
-<div class="block">Returns address of the Malaysian iKad owner.</div>
+<div class="block">Returns personal address of the Malaysian iKad owner.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>address of the Malaysian iKad owner</dd>
+<dd>personal address of the Malaysian iKad owner</dd>
+</dl>
+</li>
+</ul>
+<a name="getFacultyAddress--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFacultyAddress</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getFacultyAddress()</pre>
+<div class="block">Returns faculty address of the Malaysian iKad owner.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>faculty address of the Malaysian iKad owner</dd>
 </dl>
 </li>
 </ul>

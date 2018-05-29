@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,13 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">GermanIDCombinedRecognizerSettings</span>
 extends <a href="../../../../../../com/microblink/recognizers/blinkid/CombinedRecognizerSettings.html" title="class in com.microblink.recognizers.blinkid">CombinedRecognizerSettings</a>
-implements <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a></pre>
+implements <a href="../../../../../../com/microblink/recognizers/settings/GlareDetectorOptions.html" title="interface in com.microblink.recognizers.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></pre>
 <div class="block">Recognition Settings for combined reading of both front and back side of German ID</div>
 </li>
 </ul>
@@ -279,106 +279,118 @@ implements <a href="../../../../../../com/microblink/recognizers/settings/GlareD
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></span>()</code>
+<div class="block">Returns the extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
 <div class="block">Defines whether glare detector will be used during recognition process.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeFaceImage-boolean-">setEncodeFaceImage</a></span>(boolean&nbsp;encodeFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeFullDocumentImag-boolean-">setEncodeFullDocumentImag</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
 <div class="block">Sets whether full document images from front and back side of the ID should be encoded in JPEG format
  and written into the corresponding recognition result.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setEncodeSignatureImage-boolean-">setEncodeSignatureImage</a></span>(boolean&nbsp;encodeSignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></span>(<a href="../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code>
+<div class="block">Sets extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFaceImage-boolean-">setReturnFaceImage</a></span>(boolean&nbsp;returnFaceImage)</code>
 <div class="block">Sets whether face image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setReturnSignatureImage-boolean-">setReturnSignatureImage</a></span>(boolean&nbsp;returnSignatureImage)</code>
 <div class="block">Sets whether signature image from ID card should be sent to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a>.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#setSignData-boolean-">setSignData</a></span>(boolean&nbsp;signData)</code>
 <div class="block">Whether or not recognition data should be signed.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
 <div class="block">Returns whether glare detector is enabled.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
 <div class="block">Returns whether encoding of face image from ID and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether encoding of full document images from front and back side of the ID card and writing them
  into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldEncodeSignatureImage--">shouldEncodeSignatureImage</a></span>()</code>
 <div class="block">Returns whether encoding of signature image from ID and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
 <div class="block">Returns whether sending of face image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether sending of full document image to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldReturnSignatureImage--">shouldReturnSignatureImage</a></span>()</code>
 <div class="block">Returns whether sending of signature image from ID card to <a href="../../../../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata"><code>MetadataListener</code></a> is enabled.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#shouldSignData--">shouldSignData</a></span>()</code>
 <div class="block">Returns whether or not recognition data should be signed.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/recognizers/blinkid/germany/combined/GermanIDCombinedRecognizerSettings.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -871,6 +883,40 @@ implements <a href="../../../../../../com/microblink/recognizers/settings/GlareD
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if recognition data should be signed, false otherwise</dd>
+</dl>
+</li>
+</ul>
+<a name="setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFullDocumentImageExtensionFactors</h4>
+<pre>public&nbsp;void&nbsp;setFullDocumentImageExtensionFactors(<a href="../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">FullDocumentImageExtensionOptions</a></code></span></div>
+<div class="block">Sets extension factors for full document image.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#setFullDocumentImageExtensionFactors-com.microblink.recognizers.settings.image.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fullDocumentImageExtensionFactors</code> - extension factors for full document image.</dd>
+</dl>
+</li>
+</ul>
+<a name="getFullDocumentImageExtensionFactors--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImageExtensionFactors</h4>
+<pre>public&nbsp;<a href="../../../../../../com/microblink/recognizers/settings/image/ImageExtensionFactors.html" title="class in com.microblink.recognizers.settings.image">ImageExtensionFactors</a>&nbsp;getFullDocumentImageExtensionFactors()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#getFullDocumentImageExtensionFactors--">FullDocumentImageExtensionOptions</a></code></span></div>
+<div class="block">Returns the extension factors for full document image.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/recognizers/settings/image/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.recognizers.settings.image">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extension factors for full document image.</dd>
 </dl>
 </li>
 </ul>

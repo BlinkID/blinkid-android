@@ -34,6 +34,7 @@ public class IKadRecognitionResultExtractor implements IBaseRecognitionResultExt
 
             mExtractedData.add(mBuilder.build(R.string.PPFullName, iKadResult.getFullName()));
             mExtractedData.add(mBuilder.build(R.string.PPAddress, iKadResult.getAddress()));
+            mExtractedData.add(mBuilder.build(R.string.PPFacultyAddress, iKadResult.getFacultyAddress()));
             mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, iKadResult.getDateOfBirth()));
             mExtractedData.add(mBuilder.build(R.string.PPEmployer, iKadResult.getEmployer()));
             mExtractedData.add(mBuilder.build(R.string.PPDateOfExpiry, iKadResult.getExpiryDate()));

@@ -63,6 +63,12 @@ public class GermanIDFrontSideRecognitionResultExtractor extends BlinkOcrRecogni
                     R.string.PPDateOfExpiry,
                     deIdFrontResult.getDateOfExpiry()
             ));
+
+            mExtractedData.add(mBuilder.build(
+                    R.string.PPCANNumber,
+                    deIdFrontResult.getCanNumber()
+            ));
+
         }
 
         return mExtractedData;
