@@ -69,6 +69,7 @@ import com.microblink.libresult.extract.slovakia.SlovakIDFrontSideRecognitionRes
 import com.microblink.libresult.extract.slovenia.SlovenianIDBackRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovenia.SlovenianIDCombinedRecognitionResultExtractor;
 import com.microblink.libresult.extract.slovenia.SlovenianIDFrontRecognitionResultExtractor;
+import com.microblink.libresult.extract.sweden.SwedenDLFrontRecognitionResultExtractor;
 import com.microblink.libresult.extract.switzerland.SwissIDBackSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.switzerland.SwissIDFrontSideRecognitionResultExtractor;
 import com.microblink.libresult.extract.switzerland.SwissPassportRecognitionResultExtractor;
@@ -128,6 +129,7 @@ import com.microblink.recognizers.blinkid.slovakia.front.SlovakIDFrontSideRecogn
 import com.microblink.recognizers.blinkid.slovenia.back.SlovenianIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.combined.SlovenianIDCombinedRecognitionResult;
 import com.microblink.recognizers.blinkid.slovenia.front.SlovenianIDFrontSideRecognitionResult;
+import com.microblink.recognizers.blinkid.sweden.dl.SwedenDLFrontRecognitionResult;
 import com.microblink.recognizers.blinkid.switzerland.back.SwissIDBackSideRecognitionResult;
 import com.microblink.recognizers.blinkid.switzerland.front.SwissIDFrontSideRecognitionResult;
 import com.microblink.recognizers.blinkid.switzerland.passport.SwissPassportRecognitionResult;
@@ -270,6 +272,8 @@ public class ResultFragment extends Fragment {
             mResultExtractor = new SwissIDFrontSideRecognitionResultExtractor(getActivity());
         } else if (mData instanceof SwissPassportRecognitionResult) {
             mResultExtractor = new SwissPassportRecognitionResultExtractor(getActivity());
+        } else if (mData instanceof SwedenDLFrontRecognitionResult) {
+            mResultExtractor = new SwedenDLFrontRecognitionResultExtractor(getActivity());
         } else if (mData instanceof UnitedArabEmiratesIDBackRecognitionResult) {
             mResultExtractor = new UnitedArabEmiratesIDBackRecognitionResultExtractor(getActivity());
         } else if (mData instanceof UnitedArabEmiratesIDFrontRecognitionResult) {

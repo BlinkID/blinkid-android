@@ -79,6 +79,7 @@
     <string name="PPEmployer">Employer</string>
     <string name="PPPassportNumber">Passport number</string>
     <string name="PPSector">Sector</string>
+    <string name="PPFacultyAddress">Faculty Address</string>
 
     <!-- Romanian specific -->
     <string name="PPIdentityCardNumber">Identity card number</string>
@@ -94,6 +95,7 @@
     <string name="PPAddressCity">Address city</string>
     <string name="PPAddressState">Address state</string>
     <string name="PPAddressHouseNumber">Address house number</string>
+    <string name="PPCANNumber">CAN number</string>
 
     <!-- Combined extractors -->
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
@@ -133,5 +135,10 @@
 
     <!-- Malaysian DL specific -->
     <string name="PPClass">Class</string>
+
+    <!-- Sweden DL -->
+    <string name="PPIssuingAgency">Issuing agency</string>
+    <string name="PPReferenceNumber">Reference Number</string>
+    <string name="PPLicenceCategories">Licence Categories</string>
 
 </resources>
