@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BlinkID templating sample</string>
+    <string name="scan_croatian_id_front">Scan croatian ID front side</string>
+    <string name="scan_croatian_id_back">Scan croatian ID back side</string>
+
+    <string name="result_key_first_name">First name</string>
+    <string name="result_key_last_name">Last name</string>
+    <string name="result_key_sex">Sex</string>
+    <string name="result_key_citizenship">Citizenship</string>
+    <string name="result_key_date_of_birth">Date of birth</string>
+    <string name="result_key_old_document_number">Old ID document number</string>
+    <string name="result_key_new_document_number">New ID document number</string>
+</resources>

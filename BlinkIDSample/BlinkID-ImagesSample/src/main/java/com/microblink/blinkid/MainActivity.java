@@ -15,6 +15,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
@@ -29,10 +31,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 // in this example MRTD documents will be scanned and during scan multiple document images will be stored on external storage
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseMenuActivity {
 
     private static final String LOG_TAG = "MainActivity";
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 123;
@@ -42,18 +46,31 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
 
-    public void onScanClick(View view) {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            // request write permission
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
-        } else {
-            startScanning();
-        }
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+
+        items.add(new MenuListItem(getString(R.string.scanMRTD), new Runnable() {
+            @Override
+            public void run() {
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    // request write permission
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
+                } else {
+                    startScanning();
+                }
+            }
+        }));
+        return items;
+    }
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
     }
 
     private void startScanning() {
@@ -114,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
             // set intent's component to ResultActivity and pass its contents
             // to ResultActivity. ResultActivity will show how to extract data from result.
             data.setComponent(new ComponentName(this, ResultActivity.class));
-            data.putExtra(ResultActivity.EXTRAS_RESULT_TYPE, ResultActivity.ResultType.RECOGNIZER_BUNDLE);
             startActivity(data);
         } else {
             // if BlinkID activity did not return result, user has probably
@@ -128,13 +144,13 @@ public class MainActivity extends AppCompatActivity {
         // image filenames will be 'imageType - currentTimestamp.jpg'
         String output = Environment.getExternalStorageDirectory().getAbsolutePath() + "/myImages";
         File f = new File(output);
-        if(!f.exists()) {
+        if (!f.exists()) {
             f.mkdirs();
         }
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         String dateString = dateFormat.format(new Date());
         String filename = null;
-        switch(image.getImageFormat()) {
+        switch (image.getImageFormat()) {
             case ALPHA_8: {
                 filename = output + "/alpha_8 - " + imageName + " - " + dateString + ".jpg";
                 break;
@@ -158,9 +174,9 @@ public class MainActivity extends AppCompatActivity {
         try {
             fos = new FileOutputStream(filename);
             boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            if(!success) {
+            if (!success) {
                 Log.e(LOG_TAG, "Failed to compress bitmap!");
-                if(fos != null) {
+                if (fos != null) {
                     try {
                         fos.close();
                     } catch (IOException ignored) {
@@ -173,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             Log.e(LOG_TAG, "Failed to save image " + e.toString());
         } finally {
-            if(fos != null) {
+            if (fos != null) {
                 try {
                     fos.close();
                 } catch (IOException ignored) {

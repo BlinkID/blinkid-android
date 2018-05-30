@@ -85,7 +85,7 @@ The two collections of processor groups within `TemplatingClass` are the classif
 
 ## <a name="detectorTemplatingSample"></a> Templating API sample for generic documents
 
-This section will explain how to use templating API on the implementation example for the front side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code snippets will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java).
+This section will explain how to use templating API on the implementation example for the front side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card). Code snippets will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java).
 
 Let's start by examining how front side of Croatian identity card looks like. Here are the pictures of front sides of both old and new versions of Croatian identity card:
 
@@ -94,7 +94,7 @@ Let's start by examining how front side of Croatian identity card looks like. He
 
 We will have two different `TemplatingClasses`, one for the old and one for the new version of the document. First, we will define locations of document number on both old and new versions of ID and then `TemplatingClassifier` will tell us whether the scanned document belongs to the associated `TemplatingClass`. After classifications, the recognizer will be able to use correct locations for each document version to extract information.
 
-In templating API utility class [CroatianIDFrontSideTemplatingUtil.java](https://github.com/blinkid/blinkid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java) there are methods which configure all needed components for the final implementation of the recognizer. They are called in the following order:
+In templating API utility class [CroatianIDFrontSideTemplatingUtil.java](https://github.com/blinkid/blinkid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java) there are methods which configure all needed components for the final implementation of the recognizer. They are called in the following order:
 
 ```java
 // first, configure parsers that will extract OCR results
@@ -282,7 +282,7 @@ mFullDocument = new ProcessorGroup(
 );
 ```
 
-The definition of all used processors can be found in the [complete code sample](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java), here we will only show how `ParserGroupProcessor` for the last name is created and an example of `ImageReturnProcessor` for obtaining the face image of the ID card owner.
+The definition of all used processors can be found in the [complete code sample](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDFrontSideTemplatingUtil.java), here we will only show how `ParserGroupProcessor` for the last name is created and an example of `ImageReturnProcessor` for obtaining the face image of the ID card owner.
 
 Here is the code snippet for defining the `ParserGroupProcessor` for the last name:
 
@@ -422,7 +422,7 @@ private RegexParser obtainReferenceToDocumentNumberParser(@NonNull TemplatingCla
 
 ## <a name="mrtdTemplatingSample"></a> Templating API sample for MRTD
 
-This section will explain how to use templating API on the implementation example for the back side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card) which contains machine readable zone. Code snippets will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java).
+This section will explain how to use templating API on the implementation example for the back side of [Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card) which contains machine readable zone. Code snippets will be written in Java, using Android BlinkID SDK. The entire code sample which will be explained here can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java).
 
 Let's start by examining how back side of Croatian identity card looks like. Here are the pictures of back sides of both old and new versions of Croatian identity card:
 
@@ -431,7 +431,7 @@ Let's start by examining how back side of Croatian identity card looks like. Her
 
 We will have two different `TemplatingClasses`, one for the old and one for the new version of the document. The idea is to let MRTD recognizer find and parse the MRZ (*Machine Readable Zone*) and determine the entire location of the document. Then, based on the data extracted from the MRZ, `TemplatingClassifier` will tell us whether the scanned document belongs to the associated `TemplatingClass`. After classifications, the recognizer will be able to use correct locations for each document version to extract information outside of the MRZ.
 
-In templating API utility class [CroatianIDBackSideTemplatingUtil.java](https://github.com/blinkid/blinkid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java) there are methods which configure all needed components for the final implementation of the recognizer. They are called in the following order:
+In templating API utility class [CroatianIDBackSideTemplatingUtil.java](https://github.com/blinkid/blinkid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java) there are methods which configure all needed components for the final implementation of the recognizer. They are called in the following order:
 
 ```java
 // first, configure parsers that will extract OCR results outside Machine Readable Zone
@@ -462,7 +462,7 @@ First, we need to instatiate `MRTDRecognizer`:
 mMRTDRecognizer = new MRTDRecognizer();
 ```
 
-We will define MRZ filter that will ensure that documents with MRZ that are not Croatian ID will not be processed (implementation of the filter can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java)):
+We will define MRZ filter that will ensure that documents with MRZ that are not Croatian ID will not be processed (implementation of the filter can be found [here](https://github.com/blinkid/blinid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java)):
 
 ```java
 mMRTDRecognizer.setMRZFilter(new CroIDMRZFilter());
@@ -584,7 +584,7 @@ mAddressNewID = new ProcessorGroup(
 );
 ```
 
-The definition of all used processors can be found in the [complete code sample](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDSample/BlinkIDTemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java), here we will only show how `ParserGroupProcessor` for the address is created:
+The definition of all used processors can be found in the [complete code sample](https://github.com/BlinkID/blinkid-android/blob/master/BlinkIDSample/BlinkID-TemplatingSample/src/main/java/com/microblink/util/templating/CroatianIDBackSideTemplatingUtil.java), here we will only show how `ParserGroupProcessor` for the address is created:
 
 ```java
 // For parsing address, we will use regex parser which expects one or more words

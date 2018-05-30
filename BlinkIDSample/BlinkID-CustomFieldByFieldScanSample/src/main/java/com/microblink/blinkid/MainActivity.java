@@ -1,14 +1,11 @@
 package com.microblink.blinkid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.activity.FieldByFieldScanActivity;
 import com.microblink.entities.ocrengine.legacy.BlinkOCREngineOptions;
 import com.microblink.entities.parsers.amount.AmountParser;
@@ -24,7 +21,7 @@ import com.microblink.uisettings.FieldByFieldUISettings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseMenuActivity {
 
     private static final int SIMPLE_INTEGRATION_REQUEST_CODE = 100;
     private static final int BLINK_OCR_VIN_REQUEST_CODE = 101;
@@ -42,33 +39,27 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // build list elements
-        final List<ListElement> mElements = buildListElements();
-        ListView lv = findViewById(R.id.detectorList);
-        ArrayAdapter<ListElement> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mElements);
-        lv.setAdapter(listAdapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mElements.get(position).mOnClickListener.onClick(view);
-            }
-        });
     }
 
-    private List<ListElement> buildListElements() {
-        ArrayList<ListElement> elements = new ArrayList<>();
-        elements.add(buildSimpleIntegrationElement());
-        elements.add(buildRegexExampleElement());
-        elements.add(buildAdvancedIntegrationElement());
-        elements.add(buildFullScreenOCRElement());
-        return elements;
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
+        items.add(buildSimpleIntegrationItem());
+        items.add(buildRegexExampleElement());
+        items.add(buildAdvancedIntegrationElement());
+        items.add(buildFullScreenOCRElement());
+        return items;
     }
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
+    }
+
 
     // In this simple example we will use BlinkOCR SDK to create a simple example
     // that scans an amount from invoice, tax amount from invoice and IBAN to which amount has to be paid.
-    private ListElement buildSimpleIntegrationElement() {
+    private MenuListItem buildSimpleIntegrationItem() {
         mTotalAmountParser = new AmountParser();
         mTaxParser = new AmountParser();
         mIbanParser = new IbanParser();
@@ -84,9 +75,9 @@ public class MainActivity extends Activity {
 
         final FieldByFieldUISettings uiSettings = new FieldByFieldUISettings(mSimpleFieldByFieldBundle);
         uiSettings.setHelpIntent(new Intent(this, HelpActivity.class));
-        return new ListElement(getString(R.string.simple_integration), new View.OnClickListener() {
+        return new MenuListItem(getString(R.string.simple_integration), new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 ActivityRunner.startActivityForResult(MainActivity.this,
                         SIMPLE_INTEGRATION_REQUEST_CODE,
                         uiSettings);
@@ -103,7 +94,7 @@ public class MainActivity extends Activity {
      * (VINs) also known as Chassis numbers of a car. The VIN is 17-character string consisting
      * of digits and uppercase letters.
      */
-    private ListElement buildRegexExampleElement() {
+    private MenuListItem buildRegexExampleElement() {
         // now let's setup OCR engine parameters for scanning VIN:
         BlinkOCREngineOptions engineOptions = new BlinkOCREngineOptions();
         // only uppercase chars and digits are allowed. Don't waste time on classifying other characters as we
@@ -124,9 +115,9 @@ public class MainActivity extends Activity {
         );
 
         final FieldByFieldUISettings uiSettings = new FieldByFieldUISettings(mVinFieldByFieldBundle);
-        return new ListElement(getString(R.string.regex_example), new View.OnClickListener() {
+        return new MenuListItem(getString(R.string.regex_example), new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 ActivityRunner.startActivityForResult(MainActivity.this,
                         BLINK_OCR_VIN_REQUEST_CODE,
                         uiSettings);
@@ -135,20 +126,20 @@ public class MainActivity extends Activity {
     }
 
     // advanced integration example is given in ScanActivity source code
-    private ListElement buildAdvancedIntegrationElement() {
-        return new ListElement(getString(R.string.customUI), new View.OnClickListener() {
+    private MenuListItem buildAdvancedIntegrationElement() {
+        return new MenuListItem(getString(R.string.customUI), new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 startActivity(new Intent(MainActivity.this, ScanActivity.class));
             }
         });
     }
 
     // example of how to use full screen OCR is demonstrated in FullScreenOcrActivity activity
-    private ListElement buildFullScreenOCRElement() {
-        return new ListElement(getString(R.string.ocr_fullScreen), new View.OnClickListener() {
+    private MenuListItem buildFullScreenOCRElement() {
+        return new MenuListItem(getString(R.string.ocr_fullScreen), new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 startActivity(new Intent(MainActivity.this, FullScreenOcrActivity.class));
             }
         });
@@ -190,23 +181,4 @@ public class MainActivity extends Activity {
         }
     }
 
-    private class ListElement {
-        private String mTitle;
-        private View.OnClickListener mOnClickListener;
-
-        String getTitle() {
-            return mTitle;
-        }
-
-        ListElement(String title, View.OnClickListener onClickListener) {
-            mTitle = title;
-            mOnClickListener = onClickListener;
-        }
-
-        @Override
-        public String toString() {
-            return getTitle();
-        }
-
-    }
 }

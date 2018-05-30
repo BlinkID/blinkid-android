@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.microblink.blinkid.demo" >
+    package="com.microblink.blinkid.demo">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <!-- Required for capturing photos. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:name="com.microblink.BlinkIdSampleApp"
         android:allowBackup="true"
+        android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:extractNativeLibs="false">
+        android:theme="@style/Theme.AppTheme.FullScreen">
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -23,34 +26,32 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
 
         <activity
-            android:name=".MenuActivity"
-            android:label="@string/app_name"
+            android:name="com.microblink.blinkid.MenuActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".customcamera.Camera1Activity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppTheme.FullScreen"/>
+            android:name="com.microblink.blinkid.customcamera.Camera1Activity"
+            android:screenOrientation="landscape" />
 
         <activity
-            android:name=".customcamera.camera2.Camera2Activity"
-            android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppTheme.FullScreen"/>
+            android:name="com.microblink.blinkid.customcamera.camera2.Camera2Activity"
+            android:screenOrientation="landscape" />
 
-        <activity android:name=".imagescan.ScanImageActivity"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/Theme.AppTheme.FullScreen">
-        </activity>
+        <activity
+            android:name="com.microblink.blinkid.imagescan.ScanImageActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

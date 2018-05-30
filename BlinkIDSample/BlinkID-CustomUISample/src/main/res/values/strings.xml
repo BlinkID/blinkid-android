@@ -5,13 +5,12 @@
     <string name="scanOcr">Scan slip</string>
     <string name="scanId">Scan ID</string>
     <string name="scanBarcode">Scan barcode</string>
-    
+
     <string name="app_name">BlinkID Sample CustomUI</string>
 
     <string name="loading">Loading…</string>
     <string name="title_activity_your">YourActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_my_scan">MyScanActivity</string>
 
     <string name="AlignOcrLine">Put OCR line inside the box below.</string>

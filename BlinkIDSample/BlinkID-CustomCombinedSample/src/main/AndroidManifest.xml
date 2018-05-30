@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.microblink.blinkid">
+    package="com.microblink.blinkid">
 
     <application
         android:name="com.microblink.BlinkIdSampleApp"
@@ -8,21 +8,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Theme.AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomVerificationFlowActivity"
-                  android:screenOrientation="portrait"
-                  android:configChanges="orientation|screenSize"/>
         <activity
-            android:name="com.microblink.libresult.ResultActivity"
-            android:screenOrientation="sensor" >
-        </activity>
+            android:name=".CustomVerificationFlowActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/Theme.AppTheme.FullScreen"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

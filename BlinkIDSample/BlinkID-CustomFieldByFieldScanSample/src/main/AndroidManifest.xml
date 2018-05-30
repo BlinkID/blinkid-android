@@ -26,9 +26,9 @@
     <application
         android:name="com.microblink.BlinkIdSampleApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        android:theme="@style/Theme.AppTheme.FullScreen"
         android:largeHeap="true"
         android:extractNativeLibs="false">
         <activity

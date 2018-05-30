@@ -1,14 +1,11 @@
 package com.microblink.blinkid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.microblink.BaseMenuActivity;
+import com.microblink.MenuListItem;
 import com.microblink.entities.detectors.quad.QuadWithSizeDetector;
 import com.microblink.entities.detectors.quad.document.DocumentDetector;
 import com.microblink.entities.detectors.quad.document.DocumentSpecification;
@@ -22,36 +19,23 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends Activity {
+public class MenuActivity extends BaseMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
 
         // check if BlinkID is supported on the device
         RecognizerCompatibilityStatus supportStatus = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
         if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
-
-        setupMenuListView();
     }
 
-    private void setupMenuListView() {
-        final List<MenuItem> menuItems = buildMenuListElements();
-        ArrayAdapter<MenuItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, menuItems);
-        ListView listView = findViewById(R.id.detectorList);
-        listView.setAdapter(listAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(menuItems.get(position).mScanIntent);
-            }
-        });
-    }
+    @Override
+    protected List<MenuListItem> createMenuListItems() {
+        List<MenuListItem> items = new ArrayList<>();
 
-    private List<MenuItem> buildMenuListElements() {
         // build id card detector from preset
         DocumentDetector idCardDetector =
                 buildDocumentDetectorFromPreset(DocumentSpecificationPreset.DOCUMENT_SPECIFICATION_PRESET_ID1_CARD);
@@ -73,13 +57,18 @@ public class MenuActivity extends Activity {
         mrtdDetector.setSpecifications(MRTDSpecification.createFromPreset(MRTDSpecificationPreset.MRTD_SPECIFICATION_TD1));
 
         //create menu item for each detector
-        ArrayList<MenuItem> items = new ArrayList<>();
         items.add(buildMenuItem(R.string.id_detector, idCardDetector));
         items.add(buildMenuItem(R.string.cheque_detector, chequeDetector));
         items.add(buildMenuItem(R.string.a4_portrait_detector, a4PortraitDetector));
         items.add(buildMenuItem(R.string.a4_landscape_detector, a4LandscapeDetector));
         items.add(buildMenuItem(R.string.mrtd_detector, mrtdDetector));
+
         return items;
+    }
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
     }
 
     private DocumentDetector buildDocumentDetectorFromPreset(DocumentSpecificationPreset documentSpecPreset) {
@@ -92,25 +81,15 @@ public class MenuActivity extends Activity {
         return documentDetector;
     }
 
-    private MenuItem buildMenuItem(int title, QuadWithSizeDetector detector) {
-        Intent intent = new Intent(this, DetectorActivity.class);
+    private MenuListItem buildMenuItem(int title, QuadWithSizeDetector detector) {
+        final Intent intent = new Intent(this, DetectorActivity.class);
         intent.putExtra(DetectorActivity.EXTRAS_DETECTOR, detector);
-        return new MenuItem(getString(title), intent);
-    }
-
-    private static class MenuItem {
-        private final String mTitle;
-        final Intent mScanIntent;
-
-        MenuItem(String title, Intent scanIntent) {
-            mTitle = title;
-            mScanIntent = scanIntent;
-        }
-
-        @Override
-        public String toString() {
-            return mTitle;
-        }
+        return new MenuListItem(getString(title), new Runnable() {
+            @Override
+            public void run() {
+                startActivity(intent);
+            }
+        });
     }
 
 }
