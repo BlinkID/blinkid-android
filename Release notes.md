@@ -1,5 +1,18 @@
 # Release notes
 
+## 3.18.0
+
+### Improvements for existing features:
+
+- `com.microblink.image.Image` class now has getter `getImageQuality()`:
+    - can be used to choose the best image from the same scan
+    - it only makes sense to relatively compare image qualities from consecutive camera frames from the same scan on a certain device
+
+### Bug fixes:
+
+- fixed `UnitedArabEmiratesIDBackRecognizer`:
+    - enabled reading of UAE back side where MRZ starts with `IR`
+
 ## 3.17.0
 
 ### New features:

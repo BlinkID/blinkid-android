@@ -8,7 +8,7 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [Australian Driver's Licence's front and rear side](https://en.wikipedia.org/wiki/Driving_licence_in_Australia)
 * [Front and rear side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card)
 * [Austrian passport](https://en.wikipedia.org/wiki/Austrian_passport)
-* [Austrian Driver?s Licence?s front side](https://en.wikipedia.org/wiki/Driving_licence_in_Austria)
+* [Austrian Driver’s Licence’s front side](https://en.wikipedia.org/wiki/Driving_licence_in_Austria)
 * Front and rear side of Colombian identity card
 * [Front and rear side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card)
 * [Front and rear side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card)
@@ -210,7 +210,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:3.17.0@aar') {
+    implementation('com.microblink:blinkid:3.18.0@aar') {
     	transitive = true
     }
 }
@@ -222,7 +222,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.17.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.18.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -247,7 +247,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.17.0</version>
+		  <version>3.18.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -291,7 +291,7 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 6. Replace the `res` folder on library project with the `res` folder of the `LibBlinkID.aar` file.
 
-You?ve already created the project that contains almost everything you need. Now let?s see how to configure your project to reference this library project.
+You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
@@ -5784,7 +5784,7 @@ To modify an existing string, the best approach would be to:
 2. find strings.xml in `LibBlinkID.aar` archive folder `res/values-hr`
 3. choose a string key which you want to change. For example, ```<string name="PhotoPayHelp">Help</string>```
 4. in your project create a file `strings.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomo?</string>```
+5. create an entry in the file with the value for the string which you want. For example ```<string name="PhotoPayHelp">Pomoć</string>```
 6. repeat for all the string you wish to change
 
 # <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
@@ -5807,7 +5807,7 @@ At the time of writing this documentation, [Android does not have support for co
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its classes.jar to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR?s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. _ScanCard_). You can perform [custom UI integration](#recognizerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its classes.jar to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk.
 
 # <a name="archConsider"></a> Processor architecture considerations
@@ -6090,7 +6090,7 @@ This error happens when JVM fails to load some native method from native library
 
 ### <a name="requiredParserDidntProduceResult"></a> While scanning, I get `Required parser 'X' from parser group 'Y' did not produce result!` in my app logs
 
-This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn?t succeed while processing the current camera frame. This can happen due to:
+This is not an error - this is merely a debug message informing you, as the developer, that parser `X` didn’t succeed while processing the current camera frame. This can happen due to:
 
 * poor camera frame (out of focus, poor light, glare)
     * message appears occasionally while moving the camera frame
