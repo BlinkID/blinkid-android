@@ -1,17 +1,17 @@
 package com.microblink.result.extract.blinkid;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.blinkid.digitalsignature.DigitalSignatureResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.CombinedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.MrzImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.libresult.R;
-import com.microblink.recognizers.blinkid.digitalsignature.DigitalSignatureResult;
-import com.microblink.recognizers.blinkid.imageresult.CombinedFullDocumentImageResult;
-import com.microblink.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
-import com.microblink.recognizers.blinkid.imageresult.EncodedFaceImageResult;
-import com.microblink.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
-import com.microblink.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
-import com.microblink.recognizers.blinkid.imageresult.FaceImageResult;
-import com.microblink.recognizers.blinkid.imageresult.FullDocumentImageResult;
-import com.microblink.recognizers.blinkid.imageresult.MrzImageResult;
-import com.microblink.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.result.extract.RecognitionResultEntry;
 
 import java.util.List;

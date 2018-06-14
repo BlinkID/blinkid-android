@@ -3,7 +3,7 @@ package com.microblink.result.extract.pdf417mobi;
 import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
 import com.microblink.entities.recognizers.blinkbarcode.pdf417.Pdf417Recognizer;
 import com.microblink.entities.recognizers.blinkbarcode.simnumber.SimNumberRecognizer;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.USDLRecognizer;
+import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.result.extract.BaseResultExtractorFactory;
 import com.microblink.result.extract.usdl.USDLResultExtractor;
@@ -20,7 +20,7 @@ public class Pdf417MobiResultExtractorFactory extends BaseResultExtractorFactory
                 new Pdf417RecognitionResultExtractor());
         add(SimNumberRecognizer.class,
                 new SimNumberRecognitionResultExtractor());
-        add(USDLRecognizer.class,
+        add(UsdlRecognizer.class,
                 new USDLResultExtractor());
     }
 

@@ -8,54 +8,15 @@ public class SingaporeIDCombinedRecognitionResultExtractor extends BaseResultExt
 
     @Override
     protected void extractData(SingaporeCombinedRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFullName,
-                result.getName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBloodGroup,
-                result.getBloodGroup()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNRICNumber,
-                result.getCardNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPRace,
-                result.getRace()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPCountryOfBirth,
-                result.getCountryOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentDateOfIssue()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPFullName, result.getName());
+        add(R.string.PPBloodGroup, result.getBloodGroup());
+        add(R.string.PPNRICNumber, result.getCardNumber());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPRace, result.getRace());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPCountryOfBirth, result.getCountryOfBirth());
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 }

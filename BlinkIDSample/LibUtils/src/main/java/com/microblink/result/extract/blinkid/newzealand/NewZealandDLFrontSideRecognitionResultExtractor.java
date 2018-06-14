@@ -1,58 +1,22 @@
 package com.microblink.result.extract.blinkid.newzealand;
 
-import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDLFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class NewZealandDLFrontSideRecognitionResultExtractor extends BaseResultExtractor<NewZealandDLFrontRecognizer.Result, NewZealandDLFrontRecognizer> {
+public class NewZealandDLFrontSideRecognitionResultExtractor extends BaseResultExtractor<NewZealandDlFrontRecognizer.Result, NewZealandDlFrontRecognizer> {
 
     @Override
-    protected void extractData(NewZealandDLFrontRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSurname,
-                result.getSurname()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstNames,
-                result.getFirstNames()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getIssueDate()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getExpiryDate()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLicenceNumber,
-                result.getLicenseNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPCardVersion,
-                result.getCardVersion()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDonorIndicator,
-                result.getDonorIndicator()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
+    protected void extractData(NewZealandDlFrontRecognizer.Result result) {
+        add(R.string.PPSurname, result.getSurname());
+        add(R.string.PPFirstNames, result.getFirstNames());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPIssueDate, result.getIssueDate());
+        add(R.string.PPDateOfExpiry, result.getExpiryDate());
+        add(R.string.PPLicenceNumber, result.getLicenseNumber());
+        add(R.string.PPCardVersion, result.getCardVersion());
+        add(R.string.PPDonorIndicator, result.getDonorIndicator());
+        add(R.string.PPAddress, result.getAddress());
     }
 
 }

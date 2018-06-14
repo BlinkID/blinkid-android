@@ -1,15 +1,15 @@
-package com.microblink.result.extract.usdl;
+package com.microblink.result.extract.blinkid.usdl;
 
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
+import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.RecognitionResultEntry;
 
-public class USDLResultExtractor extends BaseResultExtractor<UsdlRecognizer.Result, UsdlRecognizer> {
+public class USDLCombinedResultExtractor extends BaseResultExtractor<UsdlCombinedRecognizer.Result, UsdlCombinedRecognizer> {
 
     @Override
-    protected void extractData(UsdlRecognizer.Result result) {
+    protected void extractData(UsdlCombinedRecognizer.Result result) {
         for (UsdlKeys key : UsdlKeys.values()) {
             mExtractedData.add(new RecognitionResultEntry(key.name(), result.getField(key)));
         }

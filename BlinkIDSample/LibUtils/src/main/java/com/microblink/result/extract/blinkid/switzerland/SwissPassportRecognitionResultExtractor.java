@@ -11,84 +11,54 @@ public class SwissPassportRecognitionResultExtractor extends MrtdResultExtractor
     protected void extractData(SwitzerlandPassportRecognizer.Result result) {
         super.extractData(result);
 
-        String name = result.getName();
+        String name = result.getGivenName();
         if (name != null && !name.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPFirstName,
-                    name
-            ));
+            add(R.string.PPFirstName, name);
         }
 
         String surname = result.getSurname();
         if (surname != null && !surname.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPLastName,
-                    surname
-            ));
+            add(R.string.PPLastName, surname);
         }
 
-        String placeOfOrigin = result.getPlaceOfOrigin();
+        String placeOfOrigin = result.getPlaceOfBirth();
         if (placeOfOrigin != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPPlaceOfOrigin,
-                    placeOfOrigin
-            ));
+            add(R.string.PPPlaceOfOrigin, placeOfOrigin);
         }
 
         String authority = result.getAuthority();
         if (authority != null && !authority.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPAuthority,
-                    authority
-            ));
+            add(R.string.PPAuthority, authority);
         }
 
-        Date dateOfBirth = result.getNonMRZDateOfBirth();
+        Date dateOfBirth = result.getNonMrzDateOfBirth();
         if (dateOfBirth != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPDateOfBirth,
-                    dateOfBirth
-            ));
+            add(R.string.PPDateOfBirth, dateOfBirth);
         }
 
         Date dateOfIssue = result.getDateOfIssue();
         if (dateOfIssue != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPIssueDate,
-                    dateOfIssue
-            ));
+            add(R.string.PPIssueDate, dateOfIssue);
         }
 
-        Date dateOfExpiry = result.getNonMRZDateOfExpiry();
+        Date dateOfExpiry = result.getNonMrzDateOfExpiry();
         if (dateOfExpiry != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPDateOfExpiry,
-                    dateOfExpiry
-            ));
+            add(R.string.PPDateOfExpiry, dateOfExpiry);
         }
 
         String passportNumber = result.getPassportNumber();
         if (passportNumber != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPPassportNumber,
-                    passportNumber
-            ));
+            add(R.string.PPPassportNumber, passportNumber);
         }
 
-        String sex = result.getNonMRZSex();
+        String sex = result.getNonMrzSex();
         if (sex != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPSex,
-                    sex
-            ));
+            add(R.string.PPSex, sex);
         }
 
         String height = result.getHeight();
         if (height != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPHeight,
-                    height
-            ));
+            add(R.string.PPHeight, height);
         }
     }
 

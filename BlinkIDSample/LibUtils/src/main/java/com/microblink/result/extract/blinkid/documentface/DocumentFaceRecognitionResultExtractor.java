@@ -8,14 +8,7 @@ public class DocumentFaceRecognitionResultExtractor extends BaseResultExtractor<
 
     @Override
     protected void extractData(DocumentFaceRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.MBDocumentLocation,
-                result.getDocumentLocation().toString()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.MBFaceLocation,
-                result.getFaceLocation().toString()
-        ));
+        add(R.string.MBDocumentLocation, result.getDocumentLocation().toString());
+        add(R.string.MBFaceLocation, result.getFaceLocation().toString());
     }
 }

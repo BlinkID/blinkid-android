@@ -1,24 +1,24 @@
 package com.microblink.result.extract.blinkid.malaysia;
 
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDLFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class MalaysianDLFrontRecognitionResultExtractor extends BaseResultExtractor<MalaysiaDLFrontRecognizer.Result, MalaysiaDLFrontRecognizer> {
+public class MalaysianDLFrontRecognitionResultExtractor extends BaseResultExtractor<MalaysiaDlFrontRecognizer.Result, MalaysiaDlFrontRecognizer> {
 
     @Override
-    protected void extractData(MalaysiaDLFrontRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(R.string.PPIdentityNumber, result.getIdentityNumber()));
-        mExtractedData.add(mBuilder.build(R.string.PPFullName, result.getName()));
-        mExtractedData.add(mBuilder.build(R.string.PPNationality, result.getNationality()));
-        mExtractedData.add(mBuilder.build(R.string.PPClass, result.getDLClass()));
-        mExtractedData.add(mBuilder.build(R.string.PPValidFrom, result.getValidFrom()));
-        mExtractedData.add(mBuilder.build(R.string.PPValidUntil, result.getValidUntil()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressStreet, result.getStreet()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressZipCode, result.getZipCode()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressCity, result.getCity()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressState, result.getState()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddress, result.getFullAddress()));
+    protected void extractData(MalaysiaDlFrontRecognizer.Result result) {
+        add(R.string.PPIdentityNumber, result.getIdentityNumber());
+        add(R.string.PPFullName, result.getName());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPClass, result.getDlClass());
+        add(R.string.PPValidFrom, result.getValidFrom());
+        add(R.string.PPValidUntil, result.getValidUntil());
+        add(R.string.PPAddressStreet, result.getStreet());
+        add(R.string.PPAddressZipCode, result.getZipCode());
+        add(R.string.PPAddressCity, result.getCity());
+        add(R.string.PPAddressState, result.getState());
+        add(R.string.PPAddress, result.getFullAddress());
     }
 
 }

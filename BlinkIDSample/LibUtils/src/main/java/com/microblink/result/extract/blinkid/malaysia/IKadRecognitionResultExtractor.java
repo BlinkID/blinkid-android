@@ -1,22 +1,22 @@
 package com.microblink.result.extract.blinkid.malaysia;
 
-import com.microblink.entities.recognizers.blinkid.malaysia.IKadRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.IkadRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class IKadRecognitionResultExtractor extends BaseResultExtractor<IKadRecognizer.Result, IKadRecognizer> {
+public class IKadRecognitionResultExtractor extends BaseResultExtractor<IkadRecognizer.Result, IkadRecognizer> {
 
     @Override
-    protected void extractData(IKadRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(R.string.PPFullName, result.getFullName()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddress, result.getAddress()));
-        mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, result.getDateOfBirth()));
-        mExtractedData.add(mBuilder.build(R.string.PPEmployer, result.getEmployer()));
-        mExtractedData.add(mBuilder.build(R.string.PPDateOfExpiry, result.getExpiryDate()));
-        mExtractedData.add(mBuilder.build(R.string.PPNationality, result.getNationality()));
-        mExtractedData.add(mBuilder.build(R.string.PPPassportNumber, result.getPassportNumber()));
-        mExtractedData.add(mBuilder.build(R.string.PPSector, result.getSector()));
-        mExtractedData.add(mBuilder.build(R.string.PPSex, result.getSex()));
+    protected void extractData(IkadRecognizer.Result result) {
+        add(R.string.PPFullName, result.getName());
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPEmployer, result.getEmployer());
+        add(R.string.PPDateOfExpiry, result.getExpiryDate());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPPassportNumber, result.getPassportNumber());
+        add(R.string.PPSector, result.getSector());
+        add(R.string.PPSex, result.getSex());
     }
 
 }

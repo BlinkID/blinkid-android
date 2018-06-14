@@ -13,50 +13,32 @@ public class GermanPassportRecognitionResultExtractor extends MrtdResultExtracto
 
         String name = result.getName();
         if (name != null && !name.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPFirstName,
-                    name
-            ));
+            add(R.string.PPFirstName, name);
         }
 
         String surname = result.getSurname();
         if (surname != null && !surname.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPLastName,
-                    surname
-            ));
+            add(R.string.PPLastName, surname);
         }
 
         String authority = result.getAuthority();
         if (authority != null && !authority.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPAuthority,
-                    authority
-            ));
+            add(R.string.PPAuthority, authority);
         }
 
         Date dateOfIssue = result.getDateOfIssue();
         if (dateOfIssue != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPIssueDate,
-                    dateOfIssue
-            ));
+            add(R.string.PPIssueDate, dateOfIssue);
         }
 
         String nat = result.getNationality();
         if (nat != null && !nat.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPNationality,
-                    nat
-            ));
+            add(R.string.PPNationality, nat);
         }
 
         String placeOfBirth = result.getPlaceOfBirth();
         if (placeOfBirth != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPPlaceOfBirth,
-                    placeOfBirth
-            ));
+            add(R.string.PPPlaceOfBirth, placeOfBirth);
         }
     }
 

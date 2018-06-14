@@ -14,14 +14,14 @@ public class CroatianIDCombinedRecognitionResultExtractor extends BaseResultExtr
         add(R.string.PPSex, result.getSex());
         add(R.string.PPCitizenship, result.getCitizenship());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPDateOfExpiry, result.getDocumentDateOfExpiry());
-        add(R.string.PPDateOfExpiryPermanent, result.getDocumentDateOfExpiryPermanent());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPDocumentForNonResidents, result.documentForNonResident());
+        add(R.string.PPDocumentForNonResidents, result.isNonResident());
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
-        add(R.string.PPIssueDate, result.getDocumentDateOfIssue());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPPersonalNumber, result.getPersonalIdentificationNumber());
-        add(R.string.PPMRZVerified, result.isMRZVerified());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
         add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
         add(R.string.PPDocumentBilingual, result.isDocumentBilingual());
     }
