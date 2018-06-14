@@ -155,7 +155,7 @@ public final class CroatianIDFrontSideTemplatingUtil {
 
 
                 OcrFont.OCR_FONT_ANY);
-        mOldDocumentNumberParser.getOcrEngineOptions().setMinimumCharHeight(35);
+        ((BlinkOCREngineOptions)mOldDocumentNumberParser.getOcrEngineOptions()).setMinimumCharHeight(35);
 
         // We need two document number parsers - one for old document version and another for new
         // version. We will put them in different parser group processors in different processing

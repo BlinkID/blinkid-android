@@ -249,7 +249,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         // each of them can be found in javadoc. This method automatically adds the QuadView as a
         // child of RecognizerView.
         // Here we use preset which sets up quad view in the same style as used in built-in document scan activity.
-        mQuadViewManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_FROM_DOCUMENT_SCAN_ACTIVITY);
+        mQuadViewManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_CORNERS_FROM_PHOTOPAY_ACTIVITY);
 
         // set animation listener to quad view manager that will show result when animation ends
         mQuadViewManager.setAnimationListener(new QuadViewAnimationListener() {

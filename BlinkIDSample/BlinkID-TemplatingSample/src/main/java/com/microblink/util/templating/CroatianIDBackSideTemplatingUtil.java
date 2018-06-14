@@ -7,9 +7,9 @@ import com.microblink.entities.ocrengine.legacy.BlinkOCREngineOptions;
 import com.microblink.entities.parsers.date.DateParser;
 import com.microblink.entities.parsers.regex.RegexParser;
 import com.microblink.entities.processors.parserGroup.ParserGroupProcessor;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRZFilter;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRZResult;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzFilter;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.entities.recognizers.templating.ProcessorGroup;
 import com.microblink.entities.recognizers.templating.TemplatingClass;
 import com.microblink.entities.recognizers.templating.TemplatingClassifier;
@@ -49,9 +49,9 @@ public final class CroatianIDBackSideTemplatingUtil {
     }
 
     /**
-     * @return the {@link MRTDRecognizer} configured for scanning back side of Croatian National ID card
+     * @return the {@link MrtdRecognizer} configured for scanning back side of Croatian National ID card
      */
-    public MRTDRecognizer getMRTDRecognizer() {
+    public MrtdRecognizer getMRTDRecognizer() {
         return mMRTDRecognizer;
     }
 
@@ -89,7 +89,7 @@ public final class CroatianIDBackSideTemplatingUtil {
         CroatianIDRecognizerUtils.addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions) mAddressParser.getOcrEngineOptions());
         ((BlinkOCREngineOptions)mAddressParser.getOcrEngineOptions()).addAllDigitsToWhitelist(OcrFont.OCR_FONT_ANY);
         mAddressParser.getOcrEngineOptions().setColorDropoutEnabled(false);
-        mAddressParser.getOcrEngineOptions().setMinimumCharHeight(35);
+        ((BlinkOCREngineOptions)mAddressParser.getOcrEngineOptions()).setMinimumCharHeight(35);
 
         //------------------------------------------------------------------------------------------
         // Issued by
@@ -101,7 +101,7 @@ public final class CroatianIDBackSideTemplatingUtil {
         mIssuedByParser = new RegexParser("P[PU] ([A-ZŠĐŽČĆ]+ ?)+");
         CroatianIDRecognizerUtils.addAllCroatianUppercaseCharsToWhitelist((BlinkOCREngineOptions)mIssuedByParser.getOcrEngineOptions());
         mIssuedByParser.getOcrEngineOptions().setColorDropoutEnabled(false);
-        mIssuedByParser.getOcrEngineOptions().setMinimumCharHeight(20);
+        ((BlinkOCREngineOptions)mIssuedByParser.getOcrEngineOptions()).setMinimumCharHeight(20);
 
         //------------------------------------------------------------------------------------------
         // Date of issue
@@ -257,7 +257,7 @@ public final class CroatianIDBackSideTemplatingUtil {
      * data from back side of the Croatian National ID card.
      */
     private void configureMRTDRecognizer() {
-        mMRTDRecognizer = new MRTDRecognizer();
+        mMRTDRecognizer = new MrtdRecognizer();
 
         // define MRZ filter that will ensure that documents with MRZ that are not Croatian ID
         // will not be processed
@@ -268,7 +268,7 @@ public final class CroatianIDBackSideTemplatingUtil {
         // allow saving full document image
         mMRTDRecognizer.setReturnFullDocumentImage(true);
         // allow saving image of the Machine Readable Zone
-        mMRTDRecognizer.setReturnMRZImage(true);
+        mMRTDRecognizer.setReturnMrzImage(true);
         // save those images in 200 DPI
         mMRTDRecognizer.setSaveImageDPI(200);
     }
@@ -282,8 +282,8 @@ public final class CroatianIDBackSideTemplatingUtil {
 
         @Override
         public boolean classify(@NonNull TemplatingClass currentTemplatingClass) {
-            MRTDRecognizer mrtdRecognizer = currentTemplatingClass.getOwningRecognizer();
-            return "<<<<<<<<<<<<<<<".equals(mrtdRecognizer.getResult().getMRZResult().getOpt1());
+            MrtdRecognizer mrtdRecognizer = currentTemplatingClass.getOwningRecognizer();
+            return "<<<<<<<<<<<<<<<".equals(mrtdRecognizer.getResult().getMrzResult().getOpt1());
         }
 
         @Override
@@ -324,8 +324,8 @@ public final class CroatianIDBackSideTemplatingUtil {
 
         @Override
         public boolean classify(@NonNull TemplatingClass currentTemplatingClass) {
-            MRTDRecognizer mrtdRecognizer = currentTemplatingClass.getOwningRecognizer();
-            return !"<<<<<<<<<<<<<<<".equals(mrtdRecognizer.getResult().getMRZResult().getOpt1());
+            MrtdRecognizer mrtdRecognizer = currentTemplatingClass.getOwningRecognizer();
+            return !"<<<<<<<<<<<<<<<".equals(mrtdRecognizer.getResult().getMrzResult().getOpt1());
         }
 
         @Override
@@ -358,13 +358,13 @@ public final class CroatianIDBackSideTemplatingUtil {
     }
 
     /**
-     * This class represents a {@link MRZFilter} for determining whether document should be processed.
+     * This class represents a {@link MrzFilter} for determining whether document should be processed.
      */
-    private static final class CroIDMRZFilter implements MRZFilter {
+    private static final class CroIDMRZFilter implements MrzFilter {
 
         @Override
-        public boolean mrzFilter(@NonNull MRTDRecognizer mrtdRecognizer) {
-            MRZResult mrzResult = mrtdRecognizer.getResult().getMRZResult();
+        public boolean mrzFilter(@NonNull MrtdRecognizer mrtdRecognizer) {
+            MrzResult mrzResult = mrtdRecognizer.getResult().getMrzResult();
             // continue processing only if issuer is HRV and document code is IO, i.e.
             // if we are dealing with back side of the Croatian National ID card
             return "HRV".equals(mrzResult.getIssuer()) &&
@@ -398,7 +398,7 @@ public final class CroatianIDBackSideTemplatingUtil {
     // MRTD recognizer
     //----------------------------------------------------------------------------------------------
 
-    MRTDRecognizer mMRTDRecognizer;
+    MrtdRecognizer mMRTDRecognizer;
 
     //----------------------------------------------------------------------------------------------
     // Templating classes

@@ -10,9 +10,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
@@ -20,7 +18,7 @@ import com.microblink.MenuListItem;
 import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
 import com.microblink.result.ResultActivity;
@@ -75,11 +73,11 @@ public class MainActivity extends BaseMenuActivity {
 
     private void startScanning() {
         // create MRTD (Machine Readable Travel Document) recognizer
-        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
+        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
         // set to true to obtain images containing full document
         mrtdRecognizer.setReturnFullDocumentImage(true);
         // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
-        //mrtdRecognizer.setReturnMRZImage(true);
+        mrtdRecognizer.setReturnMrzImage(true);
 
         // other recognizers might also support returning face and signature images
 
@@ -125,7 +123,7 @@ public class MainActivity extends BaseMenuActivity {
             storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
 
             //get wrapped recognizer
-            MRTDRecognizer mrtdRecognizer = (MRTDRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
+            MrtdRecognizer mrtdRecognizer = (MrtdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
             storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
 
             // set intent's component to ResultActivity and pass its contents

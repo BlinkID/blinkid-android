@@ -21,7 +21,7 @@ import com.microblink.blinkid.imagescan.ScanImageActivity;
 import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +98,7 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private void buildRecognizerBundle() {
-        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
+        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
         mRecognizerBundle = new RecognizerBundle(mrtdRecognizer);
     }
 
@@ -114,15 +114,15 @@ public class MenuActivity extends BaseMenuActivity {
         if (requestCode == MY_REQUEST_CODE && resultCode == BaseScanActivity.RESULT_OK) {
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
-            if (!(result instanceof MRTDRecognizer.Result)) {
+            if (!(result instanceof MrtdRecognizer.Result)) {
                 Toast.makeText(this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            MRTDRecognizer.Result mrtdResult = (MRTDRecognizer.Result) result;
+            MrtdRecognizer.Result mrtdResult = (MrtdRecognizer.Result) result;
             String scanResults =
-                    "First name: " + mrtdResult.getMRZResult().getSecondaryId() +
-                    "\nLast name: " + mrtdResult.getMRZResult().getPrimaryId();
+                    "First name: " + mrtdResult.getMrzResult().getSecondaryId() +
+                    "\nLast name: " + mrtdResult.getMrzResult().getPrimaryId();
 
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle("Scan result")

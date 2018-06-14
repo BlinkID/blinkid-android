@@ -12,8 +12,8 @@ import com.microblink.MenuListItem;
 import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRZResult;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.entities.recognizers.detector.DetectorRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
@@ -45,7 +45,7 @@ public class MainActivity extends BaseMenuActivity {
     private CroatianIDBackSideTemplatingUtil mBackSideTemplatingUtil;
 
     private DetectorRecognizer mFrontSideTemplatingRecognizer;
-    private MRTDRecognizer mBackSideTemplatingRecognizer;
+    private MrtdRecognizer mBackSideTemplatingRecognizer;
 
     private SuccessFrameGrabberRecognizer mSuccessFrameGrabberRecognizer;
 
@@ -212,7 +212,7 @@ public class MainActivity extends BaseMenuActivity {
         addEntry(sb, R.string.PPIssuedBy, mBackSideTemplatingUtil.getIssuedByParser().getResult().toString());
 
         //extract everything else from mrz result
-        MRZResult mrzResult = mBackSideTemplatingRecognizer.getResult().getMRZResult();
+        MrzResult mrzResult = mBackSideTemplatingRecognizer.getResult().getMrzResult();
         addEntry(sb, R.string.PPPrimaryId, mrzResult.getPrimaryId());
         addEntry(sb, R.string.PPSecondaryId, mrzResult.getSecondaryId());
         addEntry(sb, R.string.PPSex, mrzResult.getGender());

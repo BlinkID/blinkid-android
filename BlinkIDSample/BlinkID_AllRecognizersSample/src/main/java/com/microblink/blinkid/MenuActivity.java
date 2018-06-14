@@ -48,10 +48,6 @@ import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.imageoptions.FaceImageOptions;
-import com.microblink.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
-import com.microblink.entities.recognizers.blinkid.imageoptions.MrzImageOptions;
-import com.microblink.entities.recognizers.blinkid.imageoptions.SignatureImageOptions;
 import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer;
@@ -98,6 +94,7 @@ import com.microblink.uisettings.options.BeepSoundUIOptions;
 import com.microblink.uisettings.options.HelpIntentUIOptions;
 import com.microblink.uisettings.options.ShowOcrResultMode;
 import com.microblink.uisettings.options.ShowOcrResultUIOptions;
+import com.microblink.util.ImageSettings;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -296,7 +293,7 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 MrtdRecognizer mrtdRecogniezr = new MrtdRecognizer();
                 mrtdRecogniezr.setAllowUnverifiedResults(true);
-                enableAllImages(mrtdRecogniezr);
+                ImageSettings.enableAllImages(mrtdRecogniezr);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecogniezr)));
             }
@@ -308,10 +305,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 AustriaIdFrontRecognizer austriaFront = new AustriaIdFrontRecognizer();
-                enableAllImages(austriaFront);
+                ImageSettings.enableAllImages(austriaFront);
 
                 AustriaIdBackRecognizer austriaBack = new AustriaIdBackRecognizer();
-                enableAllImages(austriaBack);
+                ImageSettings.enableAllImages(austriaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaFront, austriaBack)));
             }
@@ -323,7 +320,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 AustriaPassportRecognizer austriaPassport = new AustriaPassportRecognizer();
-                enableAllImages(austriaPassport);
+                ImageSettings.enableAllImages(austriaPassport);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaPassport)));
             }
@@ -335,7 +332,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 ColombiaIdFrontRecognizer colombiaFront = new ColombiaIdFrontRecognizer();
-                enableAllImages(colombiaFront);
+                ImageSettings.enableAllImages(colombiaFront);
 
                 ColombiaIdBackRecognizer colombiaBack = new ColombiaIdBackRecognizer();
 
@@ -349,9 +346,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 CroatiaIdFrontRecognizer croatiaFront = new CroatiaIdFrontRecognizer();
-                enableAllImages(croatiaFront);
+                ImageSettings.enableAllImages(croatiaFront);
 
                 CroatiaIdBackRecognizer croatiaBack = new CroatiaIdBackRecognizer();
+                ImageSettings.enableAllImages(croatiaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(croatiaFront, croatiaBack)));
             }
@@ -363,10 +361,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 CzechiaIdFrontRecognizer czechiaFront = new CzechiaIdFrontRecognizer();
-                enableAllImages(czechiaFront);
+                ImageSettings.enableAllImages(czechiaFront);
 
                 CzechiaIdBackRecognizer czechiaBack = new CzechiaIdBackRecognizer();
-                enableAllImages(czechiaBack);
+                ImageSettings.enableAllImages(czechiaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(czechiaFront, czechiaBack)));
             }
@@ -378,7 +376,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 EgyptIdFrontRecognizer egyptFront = new EgyptIdFrontRecognizer();
-                enableAllImages(egyptFront);
+                ImageSettings.enableAllImages(egyptFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(egyptFront)));
             }
@@ -390,13 +388,13 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 GermanyIdFrontRecognizer germanyIdFront = new GermanyIdFrontRecognizer();
-                enableAllImages(germanyIdFront);
+                ImageSettings.enableAllImages(germanyIdFront);
 
                 GermanyIdBackRecognizer germanyIdBack = new GermanyIdBackRecognizer();
-                enableAllImages(germanyIdBack);
+                ImageSettings.enableAllImages(germanyIdBack);
 
                 GermanyOldIdRecognizer germanyIdOld = new GermanyOldIdRecognizer();
-                enableAllImages(germanyIdOld);
+                ImageSettings.enableAllImages(germanyIdOld);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(germanyIdFront, germanyIdBack, germanyIdOld)));
             }
@@ -408,7 +406,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 GermanyPassportRecognizer germanyPassport = new GermanyPassportRecognizer();
-                enableAllImages(germanyPassport);
+                ImageSettings.enableAllImages(germanyPassport);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(germanyPassport)));
             }
@@ -420,7 +418,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 HongKongIdFrontRecognizer hongKongFront = new HongKongIdFrontRecognizer();
-                enableAllImages(hongKongFront);
+                ImageSettings.enableAllImages(hongKongFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(hongKongFront)));
             }
@@ -432,7 +430,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 IndonesiaIdFrontRecognizer indonesiaFront = new IndonesiaIdFrontRecognizer();
-                enableAllImages(indonesiaFront);
+                ImageSettings.enableAllImages(indonesiaFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(indonesiaFront)));
             }
@@ -444,10 +442,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 JordanIdFrontRecognizer jordanFront = new JordanIdFrontRecognizer();
-                enableAllImages(jordanFront);
+                ImageSettings.enableAllImages(jordanFront);
 
                 JordanIdBackRecognizer jordanBack = new JordanIdBackRecognizer();
-                enableAllImages(jordanBack);
+                ImageSettings.enableAllImages(jordanBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(jordanFront, jordanBack)));
             }
@@ -459,10 +457,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 MyKadFrontRecognizer mykadFront = new MyKadFrontRecognizer();
-                enableAllImages(mykadFront);
+                ImageSettings.enableAllImages(mykadFront);
 
                 MyKadBackRecognizer mykadBack = new MyKadBackRecognizer();
-                enableAllImages(mykadBack);
+                ImageSettings.enableAllImages(mykadBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(mykadFront, mykadBack)));
             }
@@ -474,7 +472,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 IkadRecognizer ikad = new IkadRecognizer();
-                enableAllImages(ikad);
+                ImageSettings.enableAllImages(ikad);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(ikad)));
             }
@@ -486,7 +484,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 MyTenteraRecognizer myTenteraRec = new MyTenteraRecognizer();
-                enableAllImages(myTenteraRec);
+                ImageSettings.enableAllImages(myTenteraRec);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(myTenteraRec)));
             }
@@ -498,10 +496,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 PolandIdFrontRecognizer polandFront = new PolandIdFrontRecognizer();
-                enableAllImages(polandFront);
+                ImageSettings.enableAllImages(polandFront);
 
                 PolandIdBackRecognizer polandBack = new PolandIdBackRecognizer();
-                enableAllImages(polandBack);
+                ImageSettings.enableAllImages(polandBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(polandFront, polandBack)));
             }
@@ -513,7 +511,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 RomaniaIdFrontRecognizer romaniaFront = new RomaniaIdFrontRecognizer();
-                enableAllImages(romaniaFront);
+                ImageSettings.enableAllImages(romaniaFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(romaniaFront)));
             }
@@ -525,10 +523,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SingaporeIdFrontRecognizer singaporeFront = new SingaporeIdFrontRecognizer();
-                enableAllImages(singaporeFront);
+                ImageSettings.enableAllImages(singaporeFront);
 
                 SingaporeIdBackRecognizer singaporeBack = new SingaporeIdBackRecognizer();
-                enableAllImages(singaporeBack);
+                ImageSettings.enableAllImages(singaporeBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeFront, singaporeBack)));
             }
@@ -540,10 +538,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SerbiaIdFrontRecognizer serbiaFront = new SerbiaIdFrontRecognizer();
-                enableAllImages(serbiaFront);
+                ImageSettings.enableAllImages(serbiaFront);
 
                 SerbiaIdBackRecognizer serbiaBack = new SerbiaIdBackRecognizer();
-                enableAllImages(serbiaBack);
+                ImageSettings.enableAllImages(serbiaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(serbiaFront, serbiaBack)));
             }
@@ -555,10 +553,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SlovakiaIdFrontRecognizer slovakFront = new SlovakiaIdFrontRecognizer();
-                enableAllImages(slovakFront);
+                ImageSettings.enableAllImages(slovakFront);
 
                 SlovakiaIdBackRecognizer slovakBack = new SlovakiaIdBackRecognizer();
-                enableAllImages(slovakBack);
+                ImageSettings.enableAllImages(slovakBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(slovakFront, slovakBack)));
             }
@@ -570,10 +568,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SloveniaIdFrontRecognizer sloveniaFront = new SloveniaIdFrontRecognizer();
-                enableAllImages(sloveniaFront);
+                ImageSettings.enableAllImages(sloveniaFront);
 
                 SloveniaIdBackRecognizer sloveniaBack = new SloveniaIdBackRecognizer();
-                enableAllImages(sloveniaBack);
+                ImageSettings.enableAllImages(sloveniaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(sloveniaFront, sloveniaBack)));
             }
@@ -585,10 +583,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SwitzerlandIdFrontRecognizer switzerlandFront = new SwitzerlandIdFrontRecognizer();
-                enableAllImages(switzerlandFront);
+                ImageSettings.enableAllImages(switzerlandFront);
 
                 SwitzerlandIdBackRecognizer switzerlandBack = new SwitzerlandIdBackRecognizer();
-                enableAllImages(switzerlandBack);
+                ImageSettings.enableAllImages(switzerlandBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandFront, switzerlandBack)));
             }
@@ -600,7 +598,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SwitzerlandPassportRecognizer switzerlandPassport = new SwitzerlandPassportRecognizer();
-                enableAllImages(switzerlandPassport);
+                ImageSettings.enableAllImages(switzerlandPassport);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandPassport)));
             }
@@ -612,10 +610,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 UnitedArabEmiratesIdFrontRecognizer uaeFront = new UnitedArabEmiratesIdFrontRecognizer();
-                enableAllImages(uaeFront);
+                ImageSettings.enableAllImages(uaeFront);
 
                 UnitedArabEmiratesIdBackRecognizer uaeBack = new UnitedArabEmiratesIdBackRecognizer();
-                enableAllImages(uaeBack);
+                ImageSettings.enableAllImages(uaeBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(uaeFront, uaeBack)));
             }
@@ -627,7 +625,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 EudlRecognizer eudl = new EudlRecognizer(country);
-                enableAllImages(eudl);
+                ImageSettings.enableAllImages(eudl);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(eudl)));
             }
@@ -651,10 +649,10 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 AustraliaDlFrontRecognizer australiaDlFront = new AustraliaDlFrontRecognizer();
-                enableAllImages(australiaDlFront);
+                ImageSettings.enableAllImages(australiaDlFront);
 
                 AustraliaDlBackRecognizer australiaDlBack = new AustraliaDlBackRecognizer();
-                enableAllImages(australiaDlBack);
+                ImageSettings.enableAllImages(australiaDlBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(australiaDlFront, australiaDlBack)));
             }
@@ -666,7 +664,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 MalaysiaDlFrontRecognizer malaysiaDlFront = new MalaysiaDlFrontRecognizer();
-                enableAllImages(malaysiaDlFront);
+                ImageSettings.enableAllImages(malaysiaDlFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(malaysiaDlFront)));
             }
@@ -678,7 +676,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 NewZealandDlFrontRecognizer newZealandDlFront = new NewZealandDlFrontRecognizer();
-                enableAllImages(newZealandDlFront);
+                ImageSettings.enableAllImages(newZealandDlFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(newZealandDlFront)));
             }
@@ -701,7 +699,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 AustriaCombinedRecognizer austriaCombined = new AustriaCombinedRecognizer();
-                enableAllImages(austriaCombined);
+                ImageSettings.enableAllImages(austriaCombined);
                 combinedRecognitionAction(austriaCombined);
             }
         });
@@ -712,7 +710,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 CroatiaCombinedRecognizer croatiaCombined = new CroatiaCombinedRecognizer();
-                enableAllImages(croatiaCombined);
+                ImageSettings.enableAllImages(croatiaCombined);
 
                 combinedRecognitionAction(croatiaCombined);
             }
@@ -724,7 +722,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 CzechiaCombinedRecognizer czechiaCombined = new CzechiaCombinedRecognizer();
-                enableAllImages(czechiaCombined);
+                ImageSettings.enableAllImages(czechiaCombined);
 
                 combinedRecognitionAction(czechiaCombined);
             }
@@ -736,7 +734,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 GermanyCombinedRecognizer germanyCombined = new GermanyCombinedRecognizer();
-                enableAllImages(germanyCombined);
+                ImageSettings.enableAllImages(germanyCombined);
 
                 combinedRecognitionAction(germanyCombined);
             }
@@ -748,7 +746,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 JordanCombinedRecognizer jordanCombined = new JordanCombinedRecognizer();
-                enableAllImages(jordanCombined);
+                ImageSettings.enableAllImages(jordanCombined);
 
                 combinedRecognitionAction(jordanCombined);
             }
@@ -760,7 +758,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 PolandCombinedRecognizer polandCombined = new PolandCombinedRecognizer();
-                enableAllImages(polandCombined);
+                ImageSettings.enableAllImages(polandCombined);
 
                 combinedRecognitionAction(polandCombined);
             }
@@ -772,7 +770,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SerbiaCombinedRecognizer serbiaCombined = new SerbiaCombinedRecognizer();
-                enableAllImages(serbiaCombined);
+                ImageSettings.enableAllImages(serbiaCombined);
 
                 combinedRecognitionAction(serbiaCombined);
             }
@@ -784,7 +782,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SloveniaCombinedRecognizer sloveniaCombined = new SloveniaCombinedRecognizer();
-                enableAllImages(sloveniaCombined);
+                ImageSettings.enableAllImages(sloveniaCombined);
 
                 combinedRecognitionAction(sloveniaCombined);
             }
@@ -796,7 +794,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SlovakiaCombinedRecognizer slovakiaCombined = new SlovakiaCombinedRecognizer();
-                enableAllImages(slovakiaCombined);
+                ImageSettings.enableAllImages(slovakiaCombined);
 
                 combinedRecognitionAction(slovakiaCombined);
             }
@@ -808,7 +806,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 SingaporeCombinedRecognizer singaporeCombined = new SingaporeCombinedRecognizer();
-                enableAllImages(singaporeCombined);
+                ImageSettings.enableAllImages(singaporeCombined);
             }
         });
     }
@@ -818,7 +816,7 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 UsdlCombinedRecognizer usdlCombined = new UsdlCombinedRecognizer();
-                enableAllImages(usdlCombined);
+                ImageSettings.enableAllImages(usdlCombined);
             }
         });
     }
@@ -934,25 +932,6 @@ public class MenuActivity extends BaseMenuActivity {
 
     private RecognizerBundle prepareRecognizerBundle(@NonNull Recognizer<?,?>... recognizers ) {
         return new RecognizerBundle(recognizers);
-    }
-
-    static void enableAllImages(Recognizer recognizer) {
-        if(recognizer instanceof FullDocumentImageOptions) {
-            FullDocumentImageOptions options = (FullDocumentImageOptions) recognizer;
-            options.setReturnFullDocumentImage(true);
-        }
-        if(recognizer instanceof FaceImageOptions) {
-            FaceImageOptions options = (FaceImageOptions) recognizer;
-            options.setReturnFaceImage(true);
-        }
-        if(recognizer instanceof SignatureImageOptions) {
-            SignatureImageOptions options = (SignatureImageOptions) recognizer;
-            options.setReturnSignatureImage(true);
-        }
-        if(recognizer instanceof MrzImageOptions) {
-            MrzImageOptions options = (MrzImageOptions) recognizer;
-            options.setReturnMrzImage(true);
-        }
     }
 
 }

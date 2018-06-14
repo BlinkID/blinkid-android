@@ -11,8 +11,6 @@ import com.microblink.entities.detectors.quad.document.DocumentDetector;
 import com.microblink.entities.detectors.quad.document.DocumentSpecification;
 import com.microblink.entities.detectors.quad.document.DocumentSpecificationPreset;
 import com.microblink.entities.detectors.quad.mrtd.MRTDDetector;
-import com.microblink.entities.detectors.quad.mrtd.MRTDSpecification;
-import com.microblink.entities.detectors.quad.mrtd.MRTDSpecificationPreset;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -54,7 +52,8 @@ public class MenuActivity extends BaseMenuActivity {
 
         // build T1 machine readable travel document detector from preset
         MRTDDetector mrtdDetector = new MRTDDetector();
-        mrtdDetector.setSpecifications(MRTDSpecification.createFromPreset(MRTDSpecificationPreset.MRTD_SPECIFICATION_TD1));
+        // it is possible to set specification(s) for the expected document(s)
+        // mrtdDetector.setSpecifications(MrtdSpecification.createFromPreset(MrtdSpecificationPreset.MRTD_SPECIFICATION_TD1));
 
         //create menu item for each detector
         items.add(buildMenuItem(R.string.id_detector, idCardDetector));
