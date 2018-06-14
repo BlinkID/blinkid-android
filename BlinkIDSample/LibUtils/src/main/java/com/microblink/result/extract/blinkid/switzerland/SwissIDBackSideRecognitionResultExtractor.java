@@ -1,62 +1,44 @@
 package com.microblink.result.extract.blinkid.switzerland;
 
-import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
 import com.microblink.results.date.Date;
 
-public class SwissIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<SwitzerlandIDBackRecognizer.Result, SwitzerlandIDBackRecognizer> {
+public class SwissIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<SwitzerlandIdBackRecognizer.Result, SwitzerlandIdBackRecognizer> {
 
     @Override
-    protected void extractData(SwitzerlandIDBackRecognizer.Result result) {
+    protected void extractData(SwitzerlandIdBackRecognizer.Result result) {
         super.extractData(result);
 
         String placeOfOrigin = result.getPlaceOfOrigin();
         if (placeOfOrigin != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPPlaceOfOrigin,
-                    placeOfOrigin
-            ));
+            add(R.string.PPPlaceOfOrigin, placeOfOrigin);
         }
 
         String authority = result.getAuthority();
         if (authority != null && !authority.isEmpty()) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPAuthority,
-                    authority
-            ));
+            add(R.string.PPAuthority, authority);
         }
 
         Date dateOfIssue = result.getDateOfIssue();
         if (dateOfIssue != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPIssueDate,
-                    dateOfIssue
-            ));
+            add(R.string.PPIssueDate, dateOfIssue);
         }
 
-        Date dateOfExpiry = result.getNonMRZDateOfExpiry();
+        Date dateOfExpiry = result.getNonMrzDateOfExpiry();
         if (dateOfExpiry != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPDateOfExpiry,
-                    dateOfExpiry
-            ));
+            add(R.string.PPDateOfExpiry, dateOfExpiry);
         }
 
-        String sex = result.getNonMRZSex();
+        String sex = result.getNonMrzSex();
         if (sex != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPSex,
-                    sex
-            ));
+            add(R.string.PPSex, sex);
         }
 
         String height = result.getHeight();
         if (height != null) {
-            mExtractedData.add(mBuilder.build(
-                    R.string.PPHeight,
-                    height
-            ));
+            add(R.string.PPHeight, height);
         }
     }
 

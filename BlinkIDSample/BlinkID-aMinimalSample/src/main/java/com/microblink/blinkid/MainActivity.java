@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRZResult;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentUISettings;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 123;
 
-    private MRTDRecognizer mMRTDRecognizer;
+    private MrtdRecognizer mMRTDRecognizer;
     private RecognizerBundle mRecognizerBundle;
 
     @Override
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onScanButtonClick(View view) {
         // we'll use Machine Readable Travel Document recognizer
-        mMRTDRecognizer = new MRTDRecognizer();
+        mMRTDRecognizer = new MrtdRecognizer();
 
         // put our recognizer in bundle so that it can be sent via intent
         mRecognizerBundle = new RecognizerBundle(mMRTDRecognizer);
@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mRecognizerBundle.loadFromIntent(data);
 
         // you can now extract any scanned data from result, we'll just get primary id
-        MRTDRecognizer.Result mrtdResult = mMRTDRecognizer.getResult();
-        MRZResult mrzResult = mrtdResult.getMRZResult();
+        MrtdRecognizer.Result mrtdResult = mMRTDRecognizer.getResult();
+        MrzResult mrzResult = mrtdResult.getMrzResult();
         String scannedPrimaryId = mrzResult.getPrimaryId();
         Toast.makeText(this, "Scanned primary id: " + scannedPrimaryId, Toast.LENGTH_LONG).show();
     }

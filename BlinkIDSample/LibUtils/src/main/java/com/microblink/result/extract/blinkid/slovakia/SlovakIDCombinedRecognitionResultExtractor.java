@@ -8,86 +8,22 @@ public class SlovakIDCombinedRecognitionResultExtractor extends BaseResultExtrac
 
     @Override
     protected void extractData(SlovakiaCombinedRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                result.getLastName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                result.getFirstName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getDocumentNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                result.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDocumentDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuedBy,
-                result.getIssuingAuthority()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentDateOfIssue()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPersonalNumber,
-                result.getPersonalNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSurnameAtBirth,
-                result.getSurnameAtBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSpecialRemarks,
-                result.getSpecialRemarks()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPlaceOfBirth,
-                result.getCombinedPlaceOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPMRZVerified,
-                result.isMRZVerified()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPLastName, result.getLastName());
+        add(R.string.PPFirstName, result.getFirstName());
+        add(R.string.PPDocumentNumber, result.getDocumentNumber());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPIssuedBy, result.getIssuingAuthority());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPPersonalNumber, result.getPersonalIdentificationNumber());
+        add(R.string.PPSurnameAtBirth, result.getSurnameAtBirth());
+        add(R.string.PPSpecialRemarks, result.getSpecialRemarks());
+        add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 
 }

@@ -22,6 +22,7 @@
         android:paddingTop="2dp"
 
         android:text="@string/Label"
+        android:textColor="@color/microblink_blue"
         style="@android:style/TextAppearance.Small">
     </TextView>
 
@@ -36,6 +37,7 @@
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
 
+        android:textColor="@color/textColor"
         android:gravity="top|start"
 
         android:scaleType="fitCenter"

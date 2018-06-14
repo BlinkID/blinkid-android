@@ -3,8 +3,8 @@ package com.microblink.result.extract;
 import android.content.Context;
 
 import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDDocumentType;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRZResult;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdDocumentType;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.BlinkIDExtractionUtils;
 import com.microblink.results.date.Date;
@@ -37,6 +37,10 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         mExtractedData.add(mBuilder.build(key, value));
     }
 
+    protected void add(int key, int value, String valueSuffix) {
+        mExtractedData.add(mBuilder.build(key, value, valueSuffix));
+    }
+
     protected void add(int key, DateResult date) {
         mExtractedData.add(mBuilder.build(key, date.getDate()));
     }
@@ -49,12 +53,16 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         mExtractedData.add(mBuilder.build(key, value));
     }
 
-    protected void extractMRZResult(MRZResult mrzResult) {
-        MRTDDocumentType docType = mrzResult.getDocumentType();
+    protected void add(int key, int value) {
+        mExtractedData.add(mBuilder.build(key, value));
+    }
+
+    protected void extractMRZResult(MrzResult mrzResult) {
+        MrtdDocumentType docType = mrzResult.getDocumentType();
 
         add(R.string.PPMRTDDocumentType, docType.toString());
-        add(R.string.PPMRZParsed, mrzResult.isMRZParsed());
-        add(R.string.PPMRZVerified, mrzResult.isMRZVerified());
+        add(R.string.PPMRZParsed, mrzResult.isMrzParsed());
+        add(R.string.PPMRZVerified, mrzResult.isMrzVerified());
         add(R.string.PPPrimaryId, mrzResult.getPrimaryId());
         add(R.string.PPSecondaryId, mrzResult.getSecondaryId());
         add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
@@ -64,9 +72,9 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         add(R.string.PPIssuer, mrzResult.getIssuer());
         add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate());
         add(R.string.PPOpt2, mrzResult.getOpt2());
-        add(R.string.PPMRZText, mrzResult.getMRZText());
+        add(R.string.PPMRZText, mrzResult.getMrzText());
 
-        if (docType == MRTDDocumentType.MRTD_TYPE_GREEN_CARD) {
+        if (docType == MrtdDocumentType.MRTD_TYPE_GREEN_CARD) {
             add(R.string.PPAlienNumber, mrzResult.getAlienNumber());
             add(R.string.PPApplicationReceiptNumber, mrzResult.getApplicationReceiptNumber());
             add(R.string.PPImmigrantCaseNumber, mrzResult.getImmigrantCaseNumber());

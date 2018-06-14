@@ -1,38 +1,19 @@
 package com.microblink.result.extract.blinkid.singapore;
 
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class SingaporeIDFrontRecognitionResultExtractor extends BaseResultExtractor<SingaporeIDFrontRecognizer.Result, SingaporeIDFrontRecognizer> {
+public class SingaporeIDFrontRecognitionResultExtractor extends BaseResultExtractor<SingaporeIdFrontRecognizer.Result, SingaporeIdFrontRecognizer> {
 
     @Override
-    protected void extractData(SingaporeIDFrontRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getCardNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFullName,
-                result.getName()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPRace,
-                result.getRace()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPCountryOfBirth,
-                result.getCountryOfBirth()
-        ));
+    protected void extractData(SingaporeIdFrontRecognizer.Result result) {
+        add(R.string.PPDocumentNumber, result.getCardNumber());
+        add(R.string.PPFullName, result.getName());
+        add(R.string.PPRace, result.getRace());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPCountryOfBirth, result.getCountryOfBirth());
     }
 
 }

@@ -9,26 +9,25 @@ public class MyKadFrontRecognitionResultExtractor extends BaseResultExtractor<My
 
     @Override
     protected void extractData(MyKadFrontRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(R.string.PPFullName, result.getOwnerFullName()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddress, result.getOwnerAddress()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressStreet, result.getOwnerAddressStreet()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressZipCode, result.getOwnerAddressZipCode()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressCity, result.getOwnerAddressCity()));
-        mExtractedData.add(mBuilder.build(R.string.PPAddressState, result.getOwnerAddressState()));
+        add(R.string.PPFullName, result.getOwnerFullName());
+        add(R.string.PPAddress, result.getOwnerAddress());
+        add(R.string.PPAddressStreet, result.getOwnerAddressStreet());
+        add(R.string.PPAddressZipCode, result.getOwnerAddressZipCode());
+        add(R.string.PPAddressCity, result.getOwnerAddressCity());
+        add(R.string.PPAddressState, result.getOwnerAddressState());
 
         Date birthDate = result.getOwnerBirthDate();
         if (birthDate != null) {
-            mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, birthDate));
+            add(R.string.PPDateOfBirth, birthDate);
         } else {
-            mExtractedData.add(mBuilder.build(R.string.PPDateOfBirth, result.getRawBirthDate()));
+            add(R.string.PPDateOfBirth, result.getRawBirthDate());
         }
-        mExtractedData.add(mBuilder.build(R.string.PPSex, result.getOwnerSex()));
-        mExtractedData.add(mBuilder.build(R.string.PPReligion, result.getOwnerReligion()));
+        add(R.string.PPSex, result.getOwnerSex());
+        add(R.string.PPReligion, result.getOwnerReligion());
         String armyNumber = result.getArmyNumber();
         if (armyNumber != null && !armyNumber.isEmpty()) {
-            mExtractedData.add(mBuilder.build(R.string.PPArmyNumber, armyNumber));
+            add(R.string.PPArmyNumber, armyNumber);
         }
-        mExtractedData.add(mBuilder.build(R.string.PPNRICNumber, result.getNRICNumber()));
+        add(R.string.PPNRICNumber, result.getNricNumber());
     }
 }

@@ -8,81 +8,21 @@ public class GermanIDCombinedRecognitionResultExtractor extends BaseResultExtrac
 
     @Override
     protected void extractData(GermanyCombinedRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                result.getLastName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                result.getFirstName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getIdentityCardNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                result.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDocumentDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuingAuthority,
-                result.getIssuingAuthority()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentDateOfIssue()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPlaceOfBirth,
-                result.getPlaceOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPEyeColour,
-                result.getEyeColor()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPHeight,
-                result.getHeight()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPMRZVerified,
-                result.isMRZVerified()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPLastName, result.getLastName());
+        add(R.string.PPFirstName, result.getFirstName());
+        add(R.string.PPDocumentNumber, result.getIdentityCardNumber());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
+        add(R.string.PPEyeColour, result.getEyeColor());
+        add(R.string.PPHeight, result.getHeight());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 
 }

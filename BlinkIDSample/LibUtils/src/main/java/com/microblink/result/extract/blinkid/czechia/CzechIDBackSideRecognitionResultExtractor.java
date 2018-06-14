@@ -1,29 +1,17 @@
 package com.microblink.result.extract.blinkid.czechia;
 
-import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIDBackSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
 
-public class CzechIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<CzechiaIDBackSideRecognizer.Result, CzechiaIDBackSideRecognizer> {
+public class CzechIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<CzechiaIdBackRecognizer.Result, CzechiaIdBackRecognizer> {
 
     @Override
-    protected void extractData(CzechiaIDBackSideRecognizer.Result result) {
+    protected void extractData(CzechiaIdBackRecognizer.Result result) {
         super.extractData(result);
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPersonalNumber,
-                result.getPersonalNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAuthority,
-                result.getAuthority()
-        ));
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPPersonalNumber, result.getPersonalNumber());
+        add(R.string.PPAuthority, result.getAuthority());
     }
 
 }

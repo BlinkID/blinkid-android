@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.microblink.blinkid.demo.R;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.USDLRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.metadata.MetadataCallbacks;
@@ -173,7 +173,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
             @Override
             public void onQuadDetection(@NonNull DisplayableQuadDetection displayableQuadDetection) {
                 // begin quadrilateral animation to detected quadrilateral
-                mQvManager.animateQuadToDetectionPosition(displayableQuadDetection);
+                // mQvManager.animateQuadToDetectionPosition(displayableQuadDetection);
                 DetectionStatus detectionStatus = displayableQuadDetection.getDetectionStatus();
 
                 // displays message about detection status to the user
@@ -192,8 +192,12 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     }
 
     private Recognizer[] createRecognizers() {
-        MRTDRecognizer mrtdRecognizer = new MRTDRecognizer();
-        USDLRecognizer usdlRecognizer = new USDLRecognizer();
+        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+        mrtdRecognizer.setReturnFullDocumentImage(true);
+        mrtdRecognizer.setReturnMrzImage(true);
+
+        UsdlRecognizer usdlRecognizer = new UsdlRecognizer();
+
         return new Recognizer[]{mrtdRecognizer, usdlRecognizer};
     }
 

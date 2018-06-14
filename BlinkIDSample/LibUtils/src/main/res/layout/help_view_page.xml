@@ -17,7 +17,7 @@
         android:layout_marginBottom="24dp"
         android:gravity="center_horizontal"
         android:text="@string/help_msg_01"
-        android:textColor="@color/text_white"
+        android:textColor="@color/textColor"
         android:textSize="16sp" >
     </TextView>
 

@@ -8,69 +8,18 @@ public class PolishIDCombinedRecognitionResultExtractor extends BaseResultExtrac
 
     @Override
     protected void extractData(PolandCombinedRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                result.getSurname()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                result.getGivenNames()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFamilyName,
-                result.getFamilyName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPParentNames,
-                result.getParentsGivenNames()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                result.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuer,
-                result.getIssuer()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getDocumentNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPersonalNumber,
-                result.getPersonalNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPMRZVerified,
-                result.isMRZVerified()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPLastName, result.getSurname());
+        add(R.string.PPFirstName, result.getGivenNames());
+        add(R.string.PPFamilyName, result.getFamilyName());
+        add(R.string.PPParentNames, result.getParentsGivenNames());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPIssuer, result.getIssuer());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDocumentNumber, result.getDocumentNumber());
+        add(R.string.PPPersonalNumber, result.getPersonalNumber());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 }

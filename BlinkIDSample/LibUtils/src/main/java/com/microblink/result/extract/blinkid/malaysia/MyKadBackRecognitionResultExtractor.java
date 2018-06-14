@@ -8,25 +8,10 @@ public class MyKadBackRecognitionResultExtractor extends BaseResultExtractor<MyK
 
     @Override
     protected void extractData(MyKadBackRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPExtendedNRIC,
-                result.getExtendedNRIC()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNRICNumber,
-                result.getNRIC()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
+        add(R.string.PPNRICNumber, result.getNric());
+        add(R.string.PPExtendedNRIC, result.getExtendedNric());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPSex, result.getSex());
     }
 
 }

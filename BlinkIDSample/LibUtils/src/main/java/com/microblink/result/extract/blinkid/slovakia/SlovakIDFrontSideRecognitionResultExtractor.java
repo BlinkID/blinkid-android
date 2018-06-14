@@ -1,62 +1,23 @@
 package com.microblink.result.extract.blinkid.slovakia;
 
-import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIDFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIdFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class SlovakIDFrontSideRecognitionResultExtractor  extends BaseResultExtractor<SlovakiaIDFrontRecognizer.Result, SlovakiaIDFrontRecognizer> {
+public class SlovakIDFrontSideRecognitionResultExtractor  extends BaseResultExtractor<SlovakiaIdFrontRecognizer.Result, SlovakiaIdFrontRecognizer> {
 
     @Override
-    protected void extractData(SlovakiaIDFrontRecognizer.Result svkIdFrontResult) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                svkIdFrontResult.getLastName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                svkIdFrontResult.getFirstName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                svkIdFrontResult.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                svkIdFrontResult.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                svkIdFrontResult.getDocumentNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuedBy,
-                svkIdFrontResult.getIssuedBy()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                svkIdFrontResult.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPersonalNumber,
-                svkIdFrontResult.getPersonalNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                svkIdFrontResult.getDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                svkIdFrontResult.getDateOfIssue()
-        ));
+    protected void extractData(SlovakiaIdFrontRecognizer.Result svkIdFrontResult) {
+        add(R.string.PPLastName, svkIdFrontResult.getLastName());
+        add(R.string.PPFirstName, svkIdFrontResult.getFirstName());
+        add(R.string.PPNationality, svkIdFrontResult.getNationality());
+        add(R.string.PPSex, svkIdFrontResult.getSex());
+        add(R.string.PPDocumentNumber, svkIdFrontResult.getDocumentNumber());
+        add(R.string.PPIssuedBy, svkIdFrontResult.getIssuedBy());
+        add(R.string.PPDateOfBirth, svkIdFrontResult.getDateOfBirth());
+        add(R.string.PPPersonalNumber, svkIdFrontResult.getPersonalNumber());
+        add(R.string.PPDateOfExpiry, svkIdFrontResult.getDateOfExpiry());
+        add(R.string.PPIssueDate, svkIdFrontResult.getDateOfIssue());
     }
 
 }

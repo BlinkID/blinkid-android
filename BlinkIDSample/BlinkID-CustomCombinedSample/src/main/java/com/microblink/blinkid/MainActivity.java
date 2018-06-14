@@ -15,14 +15,16 @@ import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecogn
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.hardware.camera.CameraType;
 import com.microblink.result.ResultActivity;
+import com.microblink.util.ImageSettings;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
 
@@ -49,17 +51,18 @@ public class MainActivity extends BaseMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(createMenuListItem("MRTD combined", new MRTDCombinedRecognizer()));
-        items.add(createMenuListItem("Austrian ID combined", new AustriaCombinedRecognizer()));
-        items.add(createMenuListItem("Croatian ID combined", new CroatiaCombinedRecognizer()));
-        items.add(createMenuListItem("Czech ID combined", new CzechiaCombinedRecognizer()));
-        items.add(createMenuListItem("German ID combined", new GermanyCombinedRecognizer()));
-        items.add(createMenuListItem("Jordan ID combined", new JordanCombinedRecognizer()));
-        items.add(createMenuListItem("Polish ID combined", new PolandCombinedRecognizer()));
-        items.add(createMenuListItem("Serbian ID combined", new SerbiaCombinedRecognizer()));
-        items.add(createMenuListItem("Singapore ID combined", new SingaporeCombinedRecognizer()));
-        items.add(createMenuListItem("Slovak ID combined", new SlovakiaCombinedRecognizer()));
-        items.add(createMenuListItem("Slovenian ID combined", new SloveniaCombinedRecognizer()));
+        items.add(createMenuListItem("MRTD combined", ImageSettings.enableAllImages(new MrtdCombinedRecognizer())));
+        items.add(createMenuListItem("Austrian ID combined", ImageSettings.enableAllImages(new AustriaCombinedRecognizer())));
+        items.add(createMenuListItem("Croatian ID combined", ImageSettings.enableAllImages(new CroatiaCombinedRecognizer())));
+        items.add(createMenuListItem("Czech ID combined", ImageSettings.enableAllImages(new CzechiaCombinedRecognizer())));
+        items.add(createMenuListItem("German ID combined", ImageSettings.enableAllImages(new GermanyCombinedRecognizer())));
+        items.add(createMenuListItem("Jordan ID combined", ImageSettings.enableAllImages(new JordanCombinedRecognizer())));
+        items.add(createMenuListItem("Polish ID combined", ImageSettings.enableAllImages(new PolandCombinedRecognizer())));
+        items.add(createMenuListItem("Serbian ID combined", ImageSettings.enableAllImages(new SerbiaCombinedRecognizer())));
+        items.add(createMenuListItem("Singapore ID combined", ImageSettings.enableAllImages(new SingaporeCombinedRecognizer())));
+        items.add(createMenuListItem("Slovak ID combined", ImageSettings.enableAllImages(new SlovakiaCombinedRecognizer())));
+        items.add(createMenuListItem("Slovenian ID combined", ImageSettings.enableAllImages(new SloveniaCombinedRecognizer())));
+        items.add(createMenuListItem("US / Canada DL combined", ImageSettings.enableAllImages(new UsdlCombinedRecognizer())));
 
         return items;
     }

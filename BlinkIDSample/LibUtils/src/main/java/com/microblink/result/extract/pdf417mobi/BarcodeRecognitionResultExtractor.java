@@ -10,26 +10,11 @@ public class BarcodeRecognitionResultExtractor extends BaseResultExtractor<Barco
 
     @Override
     protected void extractData(BarcodeRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBarcodeType,
-                result.getBarcodeFormat().name()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPUncertain,
-                result.isUncertain()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBarcodeData,
-                result.getStringData()
-        ));
-
+        add(R.string.PPBarcodeType, result.getBarcodeType().name());
+        add(R.string.PPUncertain, result.isUncertain());
+        add(R.string.PPBarcodeData, result.getStringData());
         byte[] rawDataBytes = result.getRawData();
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBarcodeRawData,
-                Arrays.toString(rawDataBytes)
-        ));
+        add(R.string.PPBarcodeRawData, Arrays.toString(rawDataBytes));
     }
 
 }

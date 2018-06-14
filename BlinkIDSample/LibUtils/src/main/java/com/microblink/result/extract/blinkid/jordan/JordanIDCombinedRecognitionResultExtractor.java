@@ -8,55 +8,15 @@ public class JordanIDCombinedRecognitionResultExtractor extends BaseResultExtrac
 
     @Override
     protected void extractData(JordanCombinedRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPName,
-                result.getName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationalNumber,
-                result.getNatianalNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                result.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getDocumentNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuer,
-                result.getIssuer()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPMRZVerified,
-                result.isMRZVerified()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPName, result.getName());
+        add(R.string.PPNationalNumber, result.getNationalNumber());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPDocumentNumber, result.getDocumentNumber());
+        add(R.string.PPIssuer, result.getIssuer());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 }

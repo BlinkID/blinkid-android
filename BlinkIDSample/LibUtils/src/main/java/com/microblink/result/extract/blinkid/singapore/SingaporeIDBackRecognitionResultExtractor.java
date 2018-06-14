@@ -1,30 +1,17 @@
 package com.microblink.result.extract.blinkid.singapore;
 
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIDBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdBackRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class SingaporeIDBackRecognitionResultExtractor extends BaseResultExtractor<SingaporeIDBackRecognizer.Result, SingaporeIDBackRecognizer> {
+public class SingaporeIDBackRecognitionResultExtractor extends BaseResultExtractor<SingaporeIdBackRecognizer.Result, SingaporeIdBackRecognizer> {
 
     @Override
-    protected void extractData(SingaporeIDBackRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getCardNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBloodGroup,
-                result.getBloodGroup()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentDateOfIssue()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
+    protected void extractData(SingaporeIdBackRecognizer.Result result) {
+        add(R.string.PPDocumentNumber, result.getCardNumber());
+        add(R.string.PPBloodGroup, result.getBloodGroup());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPAddress, result.getAddress());
     }
 
 }

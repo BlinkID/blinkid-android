@@ -1,14 +1,14 @@
 package com.microblink.result.extract.blinkid.mrtd;
 
-import com.microblink.entities.recognizers.blinkid.mrtd.MRTDRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.blinkinput.TemplateDataExtractor;
 
-public class MrtdRecognitionResultExtractor extends BaseResultExtractor<MRTDRecognizer.Result, MRTDRecognizer> {
+public class MrtdRecognitionResultExtractor extends BaseResultExtractor<MrtdRecognizer.Result, MrtdRecognizer> {
 
     @Override
-    protected void extractData(MRTDRecognizer.Result result) {
-        extractMRZResult(result.getMRZResult());
+    protected void extractData(MrtdRecognizer.Result result) {
+        extractMRZResult(result.getMrzResult());
 
         TemplateDataExtractor templateDataExtractor = new TemplateDataExtractor();
         mExtractedData.addAll(templateDataExtractor.extract(mContext, mRecognizer));

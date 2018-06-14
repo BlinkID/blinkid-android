@@ -8,64 +8,17 @@ public class SerbianIDCombinedRecognitionResultExtractor extends BaseResultExtra
 
     @Override
     protected void extractData(SerbiaCombinedRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentNumber,
-                result.getIdentityCardNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDocumentDateOfExpiry()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentDateOfIssue()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPersonalNumber,
-                result.getJMBG()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                result.getFirstName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                result.getLastName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPNationality,
-                result.getNationality()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDocumentDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuer,
-                result.getIssuer()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPSex,
-                result.getSex()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPMRZVerified,
-                result.isMRZVerified()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDocumentBothSidesMatch,
-                result.isDocumentDataMatch()
-        ));
+        add(R.string.PPDocumentNumber, result.getIdentityCardNumber());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPPersonalNumber, result.getJmbg());
+        add(R.string.PPFirstName, result.getFirstName());
+        add(R.string.PPLastName, result.getLastName());
+        add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPIssuer, result.getIssuer());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPMRZVerified, result.isMrzVerified());
+        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }
 }

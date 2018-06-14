@@ -10,21 +10,10 @@ public class Pdf417RecognitionResultExtractor extends BaseResultExtractor<Pdf417
 
     @Override
     protected void extractData(Pdf417Recognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPUncertain,
-                result.isUncertain()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBarcodeData,
-                result.getStringData()
-        ));
-
+        add(R.string.PPUncertain, result.isUncertain());
+        add(R.string.PPBarcodeData, result.getStringData());
         byte[] rawDataBytes = result.getRawData();
-        mExtractedData.add(mBuilder.build(
-                R.string.PPBarcodeRawData,
-                Arrays.toString(rawDataBytes)
-        ));
+        add(R.string.PPBarcodeRawData, Arrays.toString(rawDataBytes));
     }
 
 }

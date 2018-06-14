@@ -214,4 +214,6 @@
 
     <string name="MBSlovakPaymentInfoKeySuffix">(%d)</string>
 
+    <string name="MBBirthData">Birth data</string>
+
 </resources>

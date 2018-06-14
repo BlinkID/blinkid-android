@@ -260,7 +260,7 @@ public class FullScreenOcrActivity extends Activity implements CameraEventsListe
 
     @Override
     @TargetApi(23)
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // on API level 23, request permission result should be passed to camera permission manager
         mCameraPermissionManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -283,7 +283,7 @@ public class FullScreenOcrActivity extends Activity implements CameraEventsListe
             if (recognizer instanceof BarcodeRecognizer) {
                 BarcodeRecognizer barcodeRecognizer = (BarcodeRecognizer) recognizer;
                 BarcodeRecognizer.Result barcodeResult = barcodeRecognizer.getResult();
-                String resultString = barcodeResult.getBarcodeFormat().name() +
+                String resultString = barcodeResult.getBarcodeType().name() +
                         ": " +
                         barcodeResult.getStringData();
                 Toast.makeText(this, resultString, Toast.LENGTH_SHORT).show();

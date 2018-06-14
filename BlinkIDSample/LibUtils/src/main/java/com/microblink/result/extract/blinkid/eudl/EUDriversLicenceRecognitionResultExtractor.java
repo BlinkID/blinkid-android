@@ -1,62 +1,23 @@
 package com.microblink.result.extract.blinkid.eudl;
 
-import com.microblink.entities.recognizers.blinkid.eudl.EUDLRecognizer;
+import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class EUDriversLicenceRecognitionResultExtractor extends BaseResultExtractor<EUDLRecognizer.Result, EUDLRecognizer> {
+public class EUDriversLicenceRecognitionResultExtractor extends BaseResultExtractor<EudlRecognizer.Result, EudlRecognizer> {
 
     @Override
-    protected void extractData(EUDLRecognizer.Result result) {
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFirstName,
-                result.getFirstName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLastName,
-                result.getLastName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPPlaceOfBirth,
-                result.getPlaceOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssueDate,
-                result.getDocumentIssueDate()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDocumentExpiryDate()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDriverNumber,
-                result.getDriverNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPIssuingAuthority,
-                result.getDocumentIssuingAuthority()
-        ));
-        mExtractedData.add(mBuilder.build(
-                R.string.PPCountryId,
-                result.getCountry().name()
-        ));
+    protected void extractData(EudlRecognizer.Result result) {
+       add(R.string.PPFirstName, result.getFirstName());
+       add(R.string.PPLastName, result.getLastName());
+       add(R.string.PPPersonalNumber, result.getPersonalNumber());
+       add(R.string.PPAddress, result.getAddress());
+       add(R.string.MBBirthData, result.getBirthData());
+       add(R.string.PPIssueDate, result.getIssueDate());
+       add(R.string.PPDateOfExpiry, result.getExpiryDate());
+       add(R.string.PPDriverNumber, result.getDriverNumber());
+       add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+       add(R.string.PPCountryId, result.getCountry().name());
     }
 
 }

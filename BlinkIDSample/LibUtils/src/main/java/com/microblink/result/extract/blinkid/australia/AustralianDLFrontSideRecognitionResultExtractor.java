@@ -1,42 +1,19 @@
 package com.microblink.result.extract.blinkid.australia;
 
-import com.microblink.entities.recognizers.blinkid.australia.AustraliaDLFrontSideRecognizer;
+import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public class AustralianDLFrontSideRecognitionResultExtractor extends BaseResultExtractor<AustraliaDLFrontSideRecognizer.Result, AustraliaDLFrontSideRecognizer> {
+public class AustralianDLFrontSideRecognitionResultExtractor extends BaseResultExtractor<AustraliaDlFrontRecognizer.Result, AustraliaDlFrontRecognizer> {
 
     @Override
-    protected void extractData(AustraliaDLFrontSideRecognizer.Result result) {
-        mExtractedData.add(mBuilder.build(
-                R.string.PPFullName,
-                result.getName()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPAddress,
-                result.getAddress()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLicenceNumber,
-                result.getLicenceNumber()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPLicenceType,
-                result.getLicenceType()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfBirth,
-                result.getDateOfBirth()
-        ));
-
-        mExtractedData.add(mBuilder.build(
-                R.string.PPDateOfExpiry,
-                result.getDateOfExpiry()
-        ));
+    protected void extractData(AustraliaDlFrontRecognizer.Result result) {
+        add(R.string.PPFullName, result.getName());
+        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPLicenceNumber, result.getLicenceNumber());
+        add(R.string.PPLicenceType, result.getLicenceType());
+        add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
     }
 
 }
