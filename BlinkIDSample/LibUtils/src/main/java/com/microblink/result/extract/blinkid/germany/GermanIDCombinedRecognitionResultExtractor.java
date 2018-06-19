@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.germany;
 
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class GermanIDCombinedRecognitionResultExtractor extends BaseResultExtractor<GermanyCombinedRecognizer.Result, GermanyCombinedRecognizer> {
+public class GermanIDCombinedRecognitionResultExtractor extends BlinkIdExtractor<GermanyCombinedRecognizer.Result, GermanyCombinedRecognizer> {
 
     @Override
     protected void extractData(GermanyCombinedRecognizer.Result result) {
@@ -23,6 +23,7 @@ public class GermanIDCombinedRecognitionResultExtractor extends BaseResultExtrac
         add(R.string.PPHeight, result.getHeight());
         add(R.string.PPMRZVerified, result.isMrzVerified());
         add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
+        add(R.string.PPCANNumber, result.getCanNumber());
     }
 
 }

@@ -188,6 +188,11 @@
     <string name="PPFingerprint">Fingerprint</string>
     <string name="PPClass">Class</string>
     <string name="PPIdentityNumber">Identity number</string>
+    <string name="PPIssuingAgency">Issuing agency</string>
+    <string name="PPLicenceCategories">Licence Categories</string>
+    <string name="PPReferenceNumber">Reference Number</string>
+    <string name="PPFacultyAddress">Faculty Address</string>
+    <string name="PPCANNumber">CAN number</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>

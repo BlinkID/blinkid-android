@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.singapore;
 
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class SingaporeIDCombinedRecognitionResultExtractor extends BaseResultExtractor<SingaporeCombinedRecognizer.Result, SingaporeCombinedRecognizer> {
+public class SingaporeIDCombinedRecognitionResultExtractor extends BlinkIdExtractor<SingaporeCombinedRecognizer.Result, SingaporeCombinedRecognizer> {
 
     @Override
     protected void extractData(SingaporeCombinedRecognizer.Result result) {

@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.malaysia;
 
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class MyKadBackRecognitionResultExtractor extends BaseResultExtractor<MyKadBackRecognizer.Result, MyKadBackRecognizer> {
+public class MyKadBackRecognitionResultExtractor extends BlinkIdExtractor<MyKadBackRecognizer.Result, MyKadBackRecognizer> {
 
     @Override
     protected void extractData(MyKadBackRecognizer.Result result) {

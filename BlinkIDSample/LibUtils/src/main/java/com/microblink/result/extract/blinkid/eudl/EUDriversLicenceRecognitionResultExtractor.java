@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.eudl;
 
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class EUDriversLicenceRecognitionResultExtractor extends BaseResultExtractor<EudlRecognizer.Result, EudlRecognizer> {
+public class EUDriversLicenceRecognitionResultExtractor extends BlinkIdExtractor<EudlRecognizer.Result, EudlRecognizer> {
 
     @Override
     protected void extractData(EudlRecognizer.Result result) {

@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.poland;
 
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class PolishIDFrontSideRecognitionResultExtractor extends BaseResultExtractor<PolandIdFrontRecognizer.Result, PolandIdFrontRecognizer> {
+public class PolishIDFrontSideRecognitionResultExtractor extends BlinkIdExtractor<PolandIdFrontRecognizer.Result, PolandIdFrontRecognizer> {
 
     @Override
     protected void extractData(PolandIdFrontRecognizer.Result result) {

@@ -2,10 +2,10 @@ package com.microblink.result.extract.blinkid.hongkong;
 
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 import com.microblink.results.date.Date;
 
-public class HongKongIDFrontRecognitionResultExtractor extends BaseResultExtractor<HongKongIdFrontRecognizer.Result, HongKongIdFrontRecognizer> {
+public class HongKongIDFrontRecognitionResultExtractor extends BlinkIdExtractor<HongKongIdFrontRecognizer.Result, HongKongIdFrontRecognizer> {
 
     @Override
     protected void extractData(HongKongIdFrontRecognizer.Result result) {

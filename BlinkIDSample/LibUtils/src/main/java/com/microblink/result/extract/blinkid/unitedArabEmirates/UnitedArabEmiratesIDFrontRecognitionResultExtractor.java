@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.unitedArabEmirates;
 
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class UnitedArabEmiratesIDFrontRecognitionResultExtractor extends BaseResultExtractor<UnitedArabEmiratesIdFrontRecognizer.Result, UnitedArabEmiratesIdFrontRecognizer> {
+public class UnitedArabEmiratesIDFrontRecognitionResultExtractor extends BlinkIdExtractor<UnitedArabEmiratesIdFrontRecognizer.Result, UnitedArabEmiratesIdFrontRecognizer> {
 
     @Override
     protected void extractData(UnitedArabEmiratesIdFrontRecognizer.Result result) {

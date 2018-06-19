@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.germany;
 
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class GermanIDFrontSideRecognitionResultExtractor extends BaseResultExtractor<GermanyIdFrontRecognizer.Result, GermanyIdFrontRecognizer> {
+public class GermanIDFrontSideRecognitionResultExtractor extends BlinkIdExtractor<GermanyIdFrontRecognizer.Result, GermanyIdFrontRecognizer> {
 
     @Override
     protected void extractData(GermanyIdFrontRecognizer.Result result) {
@@ -15,6 +15,7 @@ public class GermanIDFrontSideRecognitionResultExtractor extends BaseResultExtra
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPCANNumber, result.getCanNumber());
     }
 
 }

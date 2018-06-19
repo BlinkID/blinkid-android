@@ -5,10 +5,10 @@ import android.support.annotation.CallSuper;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.libresult.R;
 import com.microblink.recognizers.blinkid.mrtd.MRTDResult;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
 public abstract class MrtdResultExtractor<ResultType extends Recognizer.Result & MRTDResult, RecognizerType extends Recognizer<?, ResultType>>
-        extends BaseResultExtractor<ResultType, RecognizerType> {
+        extends BlinkIdExtractor<ResultType, RecognizerType> {
 
     @Override
     @CallSuper

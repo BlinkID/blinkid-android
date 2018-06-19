@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.documentface;
 
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class DocumentFaceRecognitionResultExtractor extends BaseResultExtractor<DocumentFaceRecognizer.Result, DocumentFaceRecognizer> {
+public class DocumentFaceRecognitionResultExtractor extends BlinkIdExtractor<DocumentFaceRecognizer.Result, DocumentFaceRecognizer> {
 
     @Override
     protected void extractData(DocumentFaceRecognizer.Result result) {

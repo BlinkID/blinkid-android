@@ -75,6 +75,7 @@ import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIdFrontRecog
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandPassportRecognizer;
@@ -159,7 +160,7 @@ public class MenuActivity extends BaseMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        // ID document list entry
+        // ID document list entries
         items.add(buildMrtdElement());
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
@@ -201,6 +202,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildMalaysianDLElement());
         items.add(buildNewZealandDLElement());
         items.add(buildGermanDLElement());
+        items.add(buildSwedenDlElement());
         items.add(buildUKDLElement());
         items.add(buildUsdlElement());
         items.add(buildUsdlCombinedElement());
@@ -683,6 +685,20 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildSwedenDlElement() {
+        return new MenuListItem("Sweden Driver's Licence", new Runnable() {
+            @Override
+            public void run() {
+                SwedenDlFrontRecognizer sweDL = new SwedenDlFrontRecognizer();
+                ImageSettings.enableAllImages(sweDL);
+
+                sweDL.setExtractLicenceCategories(true);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(sweDL)));
+            }
+        });
+    }
+
     private MenuListItem buildUsdlElement() {
         return new MenuListItem("US Driver's License", new Runnable() {
             @Override
@@ -807,6 +823,8 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 SingaporeCombinedRecognizer singaporeCombined = new SingaporeCombinedRecognizer();
                 ImageSettings.enableAllImages(singaporeCombined);
+
+                combinedRecognitionAction(singaporeCombined);
             }
         });
     }
@@ -817,6 +835,8 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 UsdlCombinedRecognizer usdlCombined = new UsdlCombinedRecognizer();
                 ImageSettings.enableAllImages(usdlCombined);
+
+                combinedRecognitionAction(usdlCombined);
             }
         });
     }

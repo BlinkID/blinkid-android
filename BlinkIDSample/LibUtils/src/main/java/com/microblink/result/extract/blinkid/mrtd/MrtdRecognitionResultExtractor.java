@@ -1,10 +1,10 @@
 package com.microblink.result.extract.blinkid.mrtd;
 
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 import com.microblink.result.extract.blinkinput.TemplateDataExtractor;
 
-public class MrtdRecognitionResultExtractor extends BaseResultExtractor<MrtdRecognizer.Result, MrtdRecognizer> {
+public class MrtdRecognitionResultExtractor extends BlinkIdExtractor<MrtdRecognizer.Result, MrtdRecognizer> {
 
     @Override
     protected void extractData(MrtdRecognizer.Result result) {

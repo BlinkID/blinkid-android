@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.slovakia;
 
 import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class SlovakIDCombinedRecognitionResultExtractor extends BaseResultExtractor<SlovakiaCombinedRecognizer.Result, SlovakiaCombinedRecognizer> {
+public class SlovakIDCombinedRecognitionResultExtractor extends BlinkIdExtractor<SlovakiaCombinedRecognizer.Result, SlovakiaCombinedRecognizer> {
 
     @Override
     protected void extractData(SlovakiaCombinedRecognizer.Result result) {

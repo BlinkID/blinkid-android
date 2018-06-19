@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.indonesia;
 
 import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class IndonesianIDFrontSideRecognitionResultExtractor extends BaseResultExtractor<IndonesiaIdFrontRecognizer.Result, IndonesiaIdFrontRecognizer> {
+public class IndonesianIDFrontSideRecognitionResultExtractor extends BlinkIdExtractor<IndonesiaIdFrontRecognizer.Result, IndonesiaIdFrontRecognizer> {
 
     @Override
     protected void extractData(IndonesiaIdFrontRecognizer.Result result) {

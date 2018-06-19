@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.czechia;
 
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class CzechIDCombinedRecognitionResultExtractor extends BaseResultExtractor<CzechiaCombinedRecognizer.Result, CzechiaCombinedRecognizer> {
+public class CzechIDCombinedRecognitionResultExtractor extends BlinkIdExtractor<CzechiaCombinedRecognizer.Result, CzechiaCombinedRecognizer> {
 
     @Override
     protected void extractData(CzechiaCombinedRecognizer.Result result) {

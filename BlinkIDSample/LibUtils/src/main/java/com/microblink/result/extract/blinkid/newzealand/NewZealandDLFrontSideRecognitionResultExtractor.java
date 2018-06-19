@@ -2,9 +2,9 @@ package com.microblink.result.extract.blinkid.newzealand;
 
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class NewZealandDLFrontSideRecognitionResultExtractor extends BaseResultExtractor<NewZealandDlFrontRecognizer.Result, NewZealandDlFrontRecognizer> {
+public class NewZealandDLFrontSideRecognitionResultExtractor extends BlinkIdExtractor<NewZealandDlFrontRecognizer.Result, NewZealandDlFrontRecognizer> {
 
     @Override
     protected void extractData(NewZealandDlFrontRecognizer.Result result) {

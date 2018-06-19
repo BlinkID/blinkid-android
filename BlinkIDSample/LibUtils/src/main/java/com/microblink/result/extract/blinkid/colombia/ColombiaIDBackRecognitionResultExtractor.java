@@ -2,12 +2,12 @@ package com.microblink.result.extract.blinkid.colombia;
 
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
 import java.util.Arrays;
 
 
-public class ColombiaIDBackRecognitionResultExtractor extends BaseResultExtractor<ColombiaIdBackRecognizer.Result, ColombiaIdBackRecognizer> {
+public class ColombiaIDBackRecognitionResultExtractor extends BlinkIdExtractor<ColombiaIdBackRecognizer.Result, ColombiaIdBackRecognizer> {
 
     @Override
     protected void extractData(ColombiaIdBackRecognizer.Result result) {

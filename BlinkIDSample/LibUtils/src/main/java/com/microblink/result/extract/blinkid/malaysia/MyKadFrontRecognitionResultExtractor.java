@@ -2,10 +2,10 @@ package com.microblink.result.extract.blinkid.malaysia;
 
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 import com.microblink.results.date.Date;
 
-public class MyKadFrontRecognitionResultExtractor extends BaseResultExtractor<MyKadFrontRecognizer.Result, MyKadFrontRecognizer> {
+public class MyKadFrontRecognitionResultExtractor extends BlinkIdExtractor<MyKadFrontRecognizer.Result, MyKadFrontRecognizer> {
 
     @Override
     protected void extractData(MyKadFrontRecognizer.Result result) {

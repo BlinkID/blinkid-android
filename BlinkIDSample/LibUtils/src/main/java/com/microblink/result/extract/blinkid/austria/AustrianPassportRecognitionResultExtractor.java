@@ -2,10 +2,11 @@ package com.microblink.result.extract.blinkid.austria;
 
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 import com.microblink.results.date.DateResult;
 
-public class AustrianPassportRecognitionResultExtractor extends BaseResultExtractor<AustriaPassportRecognizer.Result, AustriaPassportRecognizer> {
+
+public class AustrianPassportRecognitionResultExtractor extends BlinkIdExtractor<AustriaPassportRecognizer.Result, AustriaPassportRecognizer> {
 
     @Override
     protected void extractData(AustriaPassportRecognizer.Result result) {

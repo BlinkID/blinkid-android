@@ -2,10 +2,10 @@ package com.microblink.result.extract.blinkid.malaysia;
 
 import com.microblink.entities.recognizers.blinkid.malaysia.MyTenteraRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 import com.microblink.results.date.Date;
 
-public class MyTenteraRecognitionResultExtractor extends BaseResultExtractor<MyTenteraRecognizer.Result, MyTenteraRecognizer> {
+public class MyTenteraRecognitionResultExtractor extends BlinkIdExtractor<MyTenteraRecognizer.Result, MyTenteraRecognizer> {
 
     @Override
     protected void extractData(MyTenteraRecognizer.Result result) {
