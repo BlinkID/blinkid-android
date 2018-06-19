@@ -125,6 +125,7 @@ public class MainActivity extends BaseMenuActivity {
             //get wrapped recognizer
             MrtdRecognizer mrtdRecognizer = (MrtdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
             storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
+            storeImage("mrzImage", mrtdRecognizer.getResult().getMrzImage());
 
             // set intent's component to ResultActivity and pass its contents
             // to ResultActivity. ResultActivity will show how to extract data from result.
