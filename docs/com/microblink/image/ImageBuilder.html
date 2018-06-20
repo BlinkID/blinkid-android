@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/image/ImageBuilder.html" target="_top">Frames</a></li>
@@ -109,7 +109,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">ImageBuilder</span>
 extends java.lang.Object</pre>
-<div class="block">Created by dodo on 10/02/16.</div>
+<div class="block">Utility class that can build <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object from various sources.</div>
 </li>
 </ul>
 </div>
@@ -150,20 +150,22 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromCamera1NV21Frame-byte:A-int-int-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-">buildImageFromCamera1NV21Frame</a></span>(byte[]&nbsp;imageBuffer,
                               int&nbsp;imageWidth,
                               int&nbsp;imageHeight,
-                              <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                              <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                               <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromCamera2Image-android.media.Image-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-">buildImageFromCamera2Image</a></span>(android.media.Image&nbsp;image,
-                          <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                          <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                           <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</code>
 <div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromNativeContext-long-">buildImageFromNativeContext</a></span>(long&nbsp;nativeContext)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromNativeContext-long-boolean-java.lang.Object-">buildImageFromNativeContext</a></span>(long&nbsp;nativeContext,
+                           boolean&nbsp;ownsNativeObject,
+                           java.lang.Object&nbsp;keep)</code>
 <div class="block">Builds image object from native context.</div>
 </td>
 </tr>
@@ -206,20 +208,25 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="buildImageFromNativeContext-long-">
+<a name="buildImageFromNativeContext-long-boolean-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildImageFromNativeContext</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromNativeContext(long&nbsp;nativeContext)</pre>
+<pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromNativeContext(long&nbsp;nativeContext,
+                                                boolean&nbsp;ownsNativeObject,
+                                                @Nullable
+                                                java.lang.Object&nbsp;keep)</pre>
 <div class="block">Builds image object from native context. This method is called from native code. Calling it
  directly from Java with invalid native context will crash the app.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>nativeContext</code> - Native pointer containing native image object.</dd>
+<dd><code>ownsNativeObject</code> - Is native image owned by java object (i.e. should it be deleted on finalization)</dd>
+<dd><code>keep</code> - Object that must be kept alive while Image object is alive.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object for usage via DirectAPI's <a href="../../../com/microblink/directApi/Recognizer.html" title="class in com.microblink.directApi"><code>Recognizer</code></a> object.</dd>
+<dd><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object for usage via RecognizerRunner's <a href="../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi"><code>RecognizerRunner</code></a> object.</dd>
 </dl>
 </li>
 </ul>
@@ -232,7 +239,7 @@ extends java.lang.Object</pre>
 <pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromCamera2Image(@NonNull
                                                android.media.Image&nbsp;image,
                                                @NonNull
-                                               <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                                               <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                                                @Nullable
                                                <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
 <div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
@@ -243,7 +250,7 @@ extends java.lang.Object</pre>
 <dd><code>imageOrientation</code> - Orientation of the device at the time <code>Image</code> was created. Cannot be null nor <a href="../../../com/microblink/hardware/orientation/Orientation.html#ORIENTATION_UNKNOWN"><code>Orientation.ORIENTATION_UNKNOWN</code></a>.</dd>
 <dd><code>scanningRegion</code> - Region of image that will be used for recognition. If null, entire image will be used.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object for usage via DirectAPI's <a href="../../../com/microblink/directApi/Recognizer.html" title="class in com.microblink.directApi"><code>Recognizer</code></a> object.</dd>
+<dd><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object for usage via RecognizerRunner's <a href="../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi"><code>RecognizerRunner</code></a> object.</dd>
 </dl>
 </li>
 </ul>
@@ -258,7 +265,7 @@ extends java.lang.Object</pre>
                                                    int&nbsp;imageWidth,
                                                    int&nbsp;imageHeight,
                                                    @NonNull
-                                                   <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                                                   <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                                                    @Nullable
                                                    <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
 </li>
@@ -291,7 +298,7 @@ extends java.lang.Object</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/image/ImageBuilder.html" target="_top">Frames</a></li>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="blinkid">BlinkID</string>
+    <string name="photopayOK">OK</string>
+    <string name="scanOcr">Scan slip</string>
+    <string name="scanId">Scan ID</string>
+    <string name="scanBarcode">Scan barcode</string>
+
+    <string name="app_name">BlinkID Sample CustomUI</string>
+
+    <string name="loading">Loading…</string>
+    <string name="title_activity_your">YourActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_my_scan">MyScanActivity</string>
+
+    <string name="AlignOcrLine">Put OCR line inside the box below.</string>
+    <string name="CameraAtAngle">Please align the OCR line in the box below. OCR line angle is too steep.</string>
+
+    <string name="nothingEnabledTitle">Invalid settings</string>
+    <string name="nothingEnabledMsg">Not even one recognizer has been enabled in current settings. PhotoPay cannot continue.</string>
+
+    <string name="error">Error</string>
+    <string name="errorDesc">There has been an error starting the scanner.</string>
+
+</resources>

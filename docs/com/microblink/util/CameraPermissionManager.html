@@ -129,8 +129,18 @@ extends java.lang.Object</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/util/CameraPermissionManager.html#CameraPermissionManager-android.app.Activity-">CameraPermissionManager</a></span>(android.app.Activity&nbsp;cameraActivity)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/util/CameraPermissionManager.html#CameraPermissionManager-android.app.Activity-">CameraPermissionManager</a></span>(android.app.Activity&nbsp;activity)</code>
 <div class="block">Creates new camera permission manager and attaches it to activity.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/util/CameraPermissionManager.html#CameraPermissionManager-android.app.Fragment-">CameraPermissionManager</a></span>(android.app.Fragment&nbsp;fragment)</code>
+<div class="block">Creates new camera permission manager and attaches it to fragment.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/util/CameraPermissionManager.html#CameraPermissionManager-android.support.v4.app.Fragment-">CameraPermissionManager</a></span>(android.support.v4.app.Fragment&nbsp;supportFragment)</code>
+<div class="block">Creates new camera permission manager and attaches it to fragment.</div>
 </td>
 </tr>
 </table>
@@ -200,16 +210,48 @@ extends java.lang.Object</pre>
 <a name="CameraPermissionManager-android.app.Activity-">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CameraPermissionManager</h4>
+<pre>@UiThread
+public&nbsp;CameraPermissionManager(@NonNull
+                                         android.app.Activity&nbsp;activity)</pre>
+<div class="block">Creates new camera permission manager and attaches it to activity.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>activity</code> - The activity that contains camera view.</dd>
+</dl>
+</li>
+</ul>
+<a name="CameraPermissionManager-android.app.Fragment-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>CameraPermissionManager</h4>
+<pre>@UiThread
+public&nbsp;CameraPermissionManager(@NonNull
+                                         android.app.Fragment&nbsp;fragment)</pre>
+<div class="block">Creates new camera permission manager and attaches it to fragment.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fragment</code> - The fragment that contains camera view.</dd>
+</dl>
+</li>
+</ul>
+<a name="CameraPermissionManager-android.support.v4.app.Fragment-">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CameraPermissionManager</h4>
 <pre>@UiThread
 public&nbsp;CameraPermissionManager(@NonNull
-                                         android.app.Activity&nbsp;cameraActivity)</pre>
-<div class="block">Creates new camera permission manager and attaches it to activity.</div>
+                                         android.support.v4.app.Fragment&nbsp;supportFragment)</pre>
+<div class="block">Creates new camera permission manager and attaches it to fragment.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>cameraActivity</code> - The activity that contains camera view.</dd>
+<dd><code>supportFragment</code> - The fragment that contains camera view.</dd>
 </dl>
 </li>
 </ul>
@@ -233,7 +275,7 @@ public&nbsp;android.view.View&nbsp;getAskPermissionOverlay()</pre>
 <div class="block">Returns the layout that should be displayed when camera permission is not given. You
  should put this view somewhere in your view hierarchy. The view is initially invisible
  and will become visible only after calling askForCameraPermission and permission was not
- given. You can override this layout by providing custom res/layout/camera_permission_overlay.xml.</div>
+ given. You can override this layout by providing custom res/layout/mb_camera_permission_overlay.xmlxml.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>View layout that is under control of CameraPermissionManager.</dd>
@@ -246,7 +288,7 @@ public&nbsp;android.view.View&nbsp;getAskPermissionOverlay()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>hasCameraPermission</h4>
-<pre>@UiThread
+<pre>@AnyThread
 public&nbsp;boolean&nbsp;hasCameraPermission()</pre>
 <div class="block">Returns true if camera permission is available. You should call resume() on RecognizerView only
  if this method returns true.</div>
@@ -262,7 +304,7 @@ public&nbsp;boolean&nbsp;hasCameraPermission()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>askForCameraPermission</h4>
-<pre>@UiThread
+<pre>@MainThread
 public&nbsp;void&nbsp;askForCameraPermission()</pre>
 <div class="block">Asks the user to give camera permission and displays the layout returned by
  getAskPermissionOverlay if user denies the permission.</div>
@@ -274,10 +316,10 @@ public&nbsp;void&nbsp;askForCameraPermission()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>onRequestPermissionsResult</h4>
-<pre>@UiThread
+<pre>@MainThread
 public&nbsp;void&nbsp;onRequestPermissionsResult(int&nbsp;requestCode,
-                                                 java.lang.String[]&nbsp;permissions,
-                                                 int[]&nbsp;grantResults)</pre>
+                                                   java.lang.String[]&nbsp;permissions,
+                                                   int[]&nbsp;grantResults)</pre>
 <div class="block">This method handles request permission results as given to onRequestPermissionResult callback of Activity.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

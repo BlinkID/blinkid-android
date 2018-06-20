@@ -155,13 +155,13 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html#animateQuadToDetectionPosition-com.microblink.detectors.quad.QuadDetectorResult-">animateQuadToDetectionPosition</a></span>(<a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">QuadDetectorResult</a>&nbsp;quadDetectionResult)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html#animateQuadToDetectionPosition-com.microblink.metadata.detection.quad.DisplayableQuadDetection-">animateQuadToDetectionPosition</a></span>(<a href="../../../../../com/microblink/metadata/detection/quad/DisplayableQuadDetection.html" title="class in com.microblink.metadata.detection.quad">DisplayableQuadDetection</a>&nbsp;quadDetection)</code>
 <div class="block">Call this method to begin quadrilateral animation to detected quadrilateral.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html#configurationChanged-com.microblink.view.recognition.RecognizerView-android.content.res.Configuration-">configurationChanged</a></span>(<a href="../../../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html#configurationChanged-com.microblink.view.recognition.RecognizerRunnerView-android.content.res.Configuration-">configurationChanged</a></span>(<a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView,
                     android.content.res.Configuration&nbsp;newConfig)</code>
 <div class="block">Inform quadview of configuration change event.</div>
 </td>
@@ -229,23 +229,25 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>animateQuadToDefaultPosition</h4>
-<pre>public&nbsp;void&nbsp;animateQuadToDefaultPosition()</pre>
+<pre>@AnyThread
+public&nbsp;void&nbsp;animateQuadToDefaultPosition()</pre>
 <div class="block">Call this method to begin quadrilateral animation to its default position.
  It is safe to call this method from non-UI thread.</div>
 </li>
 </ul>
-<a name="animateQuadToDetectionPosition-com.microblink.detectors.quad.QuadDetectorResult-">
+<a name="animateQuadToDetectionPosition-com.microblink.metadata.detection.quad.DisplayableQuadDetection-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>animateQuadToDetectionPosition</h4>
-<pre>public&nbsp;void&nbsp;animateQuadToDetectionPosition(@NonNull
-                                           <a href="../../../../../com/microblink/detectors/quad/QuadDetectorResult.html" title="class in com.microblink.detectors.quad">QuadDetectorResult</a>&nbsp;quadDetectionResult)</pre>
+<pre>@AnyThread
+public&nbsp;void&nbsp;animateQuadToDetectionPosition(@NonNull
+                                                      <a href="../../../../../com/microblink/metadata/detection/quad/DisplayableQuadDetection.html" title="class in com.microblink.metadata.detection.quad">DisplayableQuadDetection</a>&nbsp;quadDetection)</pre>
 <div class="block">Call this method to begin quadrilateral animation to detected quadrilateral.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>quadDetectionResult</code> - detection result to which quad will be animated</dd>
+<dd><code>quadDetection</code> - detection to which quad will be animated</dd>
 </dl>
 </li>
 </ul>
@@ -263,20 +265,21 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a name="configurationChanged-com.microblink.view.recognition.RecognizerView-android.content.res.Configuration-">
+<a name="configurationChanged-com.microblink.view.recognition.RecognizerRunnerView-android.content.res.Configuration-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>configurationChanged</h4>
-<pre>public&nbsp;void&nbsp;configurationChanged(@NonNull
-                                 <a href="../../../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
-                                 @NonNull
-                                 android.content.res.Configuration&nbsp;newConfig)</pre>
+<pre>@MainThread
+public&nbsp;void&nbsp;configurationChanged(@NonNull
+                                             <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView,
+                                             @NonNull
+                                             android.content.res.Configuration&nbsp;newConfig)</pre>
 <div class="block">Inform quadview of configuration change event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>recognizerView</code> - RecognizerView used to create the QuadView. Make sure you've called changeConfiguration on it before calling this method.</dd>
+<dd><code>recognizerRunnerView</code> - RecognizerRunnerView used to create the QuadView. Make sure you've called changeConfiguration on it before calling this method.</dd>
 <dd><code>newConfig</code> - New configuration as given by onConfigurationChanged activity callback.</dd>
 </dl>
 </li>
@@ -303,10 +306,6 @@ extends java.lang.Object</pre>
 <h4>setAnimationListener</h4>
 <pre>public&nbsp;void&nbsp;setAnimationListener(<a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewAnimationListener.html" title="interface in com.microblink.view.viewfinder.quadview">QuadViewAnimationListener</a>&nbsp;listener)</pre>
 <div class="block">Sets a listener that will be notified when quad animation has started and finished.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>listener</code> - </dd>
-</dl>
 </li>
 </ul>
 </li>

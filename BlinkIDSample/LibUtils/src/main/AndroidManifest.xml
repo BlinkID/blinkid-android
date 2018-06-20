@@ -1,0 +1,12 @@
+<manifest package="com.microblink.libresult"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        >
+        <activity android:name="com.microblink.help.HelpActivity"/>
+        <activity android:name="com.microblink.result.ResultActivity"/>
+    </application>
+
+</manifest>

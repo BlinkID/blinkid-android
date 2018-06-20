@@ -100,7 +100,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">SuccessCallback</span></pre>
-<div class="block">Created by dodo on 12/11/14.</div>
+<div class="block">Callback that will be invoked when some asynchronous operation has finished.</div>
 </li>
 </ul>
 </div>
@@ -121,7 +121,9 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/hardware/SuccessCallback.html#onOperationDone-boolean-">onOperationDone</a></span>(boolean&nbsp;success)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/hardware/SuccessCallback.html#onOperationDone-boolean-">onOperationDone</a></span>(boolean&nbsp;success)</code>
+<div class="block">Invoked when asynchronous operation has finished.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -144,7 +146,14 @@ var activeTableTab = "activeTableTab";
 <ul class="blockListLast">
 <li class="blockList">
 <h4>onOperationDone</h4>
-<pre>void&nbsp;onOperationDone(boolean&nbsp;success)</pre>
+<pre>@AnyThread
+void&nbsp;onOperationDone(boolean&nbsp;success)</pre>
+<div class="block">Invoked when asynchronous operation has finished. Note that invocation can happen
+ on either background or UI thread.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>success</code> - Whether or not operation has succeeded.</dd>
+</dl>
 </li>
 </ul>
 </li>

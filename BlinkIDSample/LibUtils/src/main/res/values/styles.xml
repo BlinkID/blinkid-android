@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="FancyGreenButtonBar" parent="android:style/ButtonBar">
+        <item name="android:background">@color/green_button_background</item>
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="FancyRedButtonBar" parent="android:style/ButtonBar">
+        <item name="android:background">@color/red_button_background</item>
+        <item name="android:textColor">@android:color/primary_text_dark</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Theme.AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/microblink_blue</item>
+        <item name="colorPrimaryDark">@color/backgroundDark</item>
+        <item name="colorAccent">@color/microblink_blue</item>
+
+        <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <item name="alertDialogTheme">@style/Theme.AppTheme.AlertDialogStyle</item>
+    </style>
+
+    <style name="Theme.AppTheme.FullScreen" parent="Theme.AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.AppTheme.AlertDialogStyle" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="android:background">#555</item>
+    </style>
+
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="help_msg_01">Place mobile phone above element that should be scanned and center it inside scanning frame.</string>
+    <string name="help_msg_02">When scanning is done you can edit data by tapping it.</string>
+    <string name="help_msg_03">Swipe or tap title of element that should be scanned.</string>
+
+</resources>

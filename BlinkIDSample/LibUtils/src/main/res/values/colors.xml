@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#333333</color>
+    <color name="backgroundDark">#222222</color>
+    <color name="microblink_blue">#48B2E8</color>
+
+    <color name="textColor">#FFF</color>
+
+    <color name="green_button_unpressed_background">#FF355B00</color>
+    <color name="green_button_pressed_background">#FF589700</color>
+    <color name="red_button_unpressed_background">#FF6F0000</color>
+    <color name="red_button_pressed_background">#FFB70000</color>
+
+    <color name="help_background">#ff434343</color>
+</resources>
