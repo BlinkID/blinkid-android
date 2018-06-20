@@ -869,7 +869,7 @@ public class MenuActivity extends BaseMenuActivity {
                 barcode.setScanEan8(true);
                 barcode.setScanItf(true);
                 barcode.setScanPdf417(true);
-                barcode.setScanQRCode(true);
+                barcode.setScanQrCode(true);
                 barcode.setScanUpca(true);
                 barcode.setScanUpce(true);
 
@@ -915,7 +915,7 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildGenericFieldByFieldElement() {
-        return new MenuListItem("Generic segment scan", new Runnable() {
+        return new MenuListItem("Generic field by field scan", new Runnable() {
             @Override
             public void run() {
                 FieldByFieldBundle bundle = new FieldByFieldBundle(
@@ -931,7 +931,7 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildVehicleFieldByFieldElement() {
-        return new MenuListItem("Vehicle segment scan", new Runnable() {
+        return new MenuListItem("Vehicle field by field scan", new Runnable() {
             @Override
             public void run() {
                 FieldByFieldBundle bundle = new FieldByFieldBundle(

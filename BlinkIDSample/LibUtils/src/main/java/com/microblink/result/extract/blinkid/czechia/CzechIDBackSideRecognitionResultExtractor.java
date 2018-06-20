@@ -9,7 +9,7 @@ public class CzechIDBackSideRecognitionResultExtractor extends MrtdResultExtract
     @Override
     protected void extractData(CzechiaIdBackRecognizer.Result result) {
         super.extractData(result);
-        add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPAddress, result.getPermanentStay());
         add(R.string.PPPersonalNumber, result.getPersonalNumber());
         add(R.string.PPAuthority, result.getAuthority());
     }

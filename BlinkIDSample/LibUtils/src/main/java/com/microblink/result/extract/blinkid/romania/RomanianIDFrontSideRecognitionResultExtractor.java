@@ -11,7 +11,7 @@ public class RomanianIDFrontSideRecognitionResultExtractor extends MrtdResultExt
         super.extractData(result);
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPFirstName, result.getFirstName());
-        add(R.string.PPIdentityCardNumber, result.getIdentityCardNumber());
+        add(R.string.PPIdentityCardNumber, result.getCardNumber());
         add(R.string.PPSeries, result.getIdSeries());
         add(R.string.PPCNP, result.getCnp());
         add(R.string.PPParentNames, result.getParentNames());

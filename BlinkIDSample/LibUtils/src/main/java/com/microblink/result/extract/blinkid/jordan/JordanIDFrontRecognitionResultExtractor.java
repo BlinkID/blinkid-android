@@ -8,7 +8,7 @@ public class JordanIDFrontRecognitionResultExtractor extends BlinkIdExtractor<Jo
 
     @Override
     protected void extractData(JordanIdFrontRecognizer.Result result) {
-        add(R.string.PPNationalNumber, result.getNatianalNumber());
+        add(R.string.PPNationalNumber, result.getNationalNumber());
         add(R.string.PPName, result.getName());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
