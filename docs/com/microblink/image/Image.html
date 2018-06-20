@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":42,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/microblink/image/ImageBuilder.html" title="class in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -73,14 +73,14 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -105,19 +105,82 @@ var activeTableTab = "activeTableTab";
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd>android.os.Parcelable</dd>
+</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">Image</span>
-extends java.lang.Object</pre>
-<div class="block">Created by dodo on 16/12/14.
-
- Represents a image that is being processed.</div>
+extends java.lang.Object
+implements android.os.Parcelable</pre>
+<div class="block">Represents a image that is being processed.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.android.os.Parcelable">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;android.os.Parcelable</h3>
+<code>android.os.Parcelable.ClassLoaderCreator, android.os.Parcelable.Creator</code></li>
+</ul>
+</li>
+</ul>
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static android.os.Parcelable.Creator</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;android.os.Parcelable</h3>
+<code>CONTENTS_FILE_DESCRIPTOR, PARCELABLE_WRITE_RETURN_VALUE</code></li>
+</ul>
+</li>
+</ul>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#Image-android.os.Parcel-">Image</a></span>(android.os.Parcel&nbsp;in)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -125,7 +188,7 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -143,53 +206,53 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#dispose--">dispose</a></span>()</code>
 <div class="block">Disposes native object containing image pixels.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.nio.ByteBuffer</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getBuffer--">getBuffer</a></span>()</code>
 <div class="block">Returns the native buffer that contains image pixels.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getHeight--">getHeight</a></span>()</code>
-<div class="block">Returns the height of the image.</div>
+<div class="block">Returns the height of the image (corrected for the current orientation).</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a></code></td>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getImageFormat--">getImageFormat</a></span>()</code>
 <div class="block">Returns the format of the image.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getImageName--">getImageName</a></span>()</code>
-<div class="block">Returns the name of the image.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;
+<div class="block"><span class="deprecationComment">Do not rely on this information anymore. New API images will be nameless.</span></div>
+</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getImageOrientation--">getImageOrientation</a></span>()</code>
 <div class="block">Returns the orientation of the image.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>double</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getImageQuality--">getImageQuality</a></span>()</code>
-<div class="block">Returns the quality of the image.</div>
-</td>
-</tr>
 <tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../../../com/microblink/image/ImageType.html" title="enum in com.microblink.image">ImageType</a></code></td>
+<td class="colFirst"><code><a href="../../../com/microblink/image/ImageType.html" title="class in com.microblink.image">ImageType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getImageType--">getImageType</a></span>()</code>
 <div class="block">Returns the type of the image.</div>
 </td>
@@ -201,40 +264,63 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>android.graphics.Rect</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getROI--">getROI</a></span>()</code>
-<div class="block">Returns the region of interest in image.</div>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getRawHeight--">getRawHeight</a></span>()</code>
+<div class="block">Returns the raw height of the image (uncorrected for the orientation)</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>android.graphics.Rect</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getRawROI--">getRawROI</a></span>()</code>
+<div class="block">Returns the region of interest in image in raw form (not corrected for orientation).</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getRawWidth--">getRawWidth</a></span>()</code>
+<div class="block">Returns the raw width of the image (uncorrected for the orientation)</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>android.graphics.Rect</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getROI--">getROI</a></span>()</code>
+<div class="block">Returns the region of interest in image corrected for current orientation of image.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getRowStride--">getRowStride</a></span>()</code>
 <div class="block">Returns the row stride for image buffer.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#getWidth--">getWidth</a></span>()</code>
-<div class="block">Returns the width of the image.</div>
+<div class="block">Returns the width of the image (corrected for the current orientation).</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#isDisposed--">isDisposed</a></span>()</code>
 <div class="block">Returns true if image's internal buffers are disposed and cannot be used anymore.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#setImageOrientation-com.microblink.hardware.orientation.Orientation-">setImageOrientation</a></span>(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#setImageOrientation-com.microblink.hardware.orientation.Orientation-">setImageOrientation</a></span>(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</code>
 <div class="block">Use this method to change Image's orientation.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#setROI-android.graphics.Rect-">setROI</a></span>(android.graphics.Rect&nbsp;roi)</code>
 <div class="block">Sets the region of interest in image.</div>
 </td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/Image.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
+             int&nbsp;flags)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -252,6 +338,40 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="CREATOR">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>CREATOR</h4>
+<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Image-android.os.Parcel-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Image</h4>
+<pre>protected&nbsp;Image(android.os.Parcel&nbsp;in)</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -309,11 +429,21 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getWidth</h4>
 <pre>public&nbsp;int&nbsp;getWidth()</pre>
-<div class="block">Returns the width of the image.</div>
+<div class="block">Returns the width of the image (corrected for the current orientation).</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the width of the image.</dd>
+<dd>the width of the image (corrected for the current orientation).</dd>
 </dl>
+</li>
+</ul>
+<a name="getRawWidth--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRawWidth</h4>
+<pre>public&nbsp;int&nbsp;getRawWidth()</pre>
+<div class="block">Returns the raw width of the image (uncorrected for the orientation)</div>
 </li>
 </ul>
 <a name="getHeight--">
@@ -323,11 +453,21 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getHeight</h4>
 <pre>public&nbsp;int&nbsp;getHeight()</pre>
-<div class="block">Returns the height of the image.</div>
+<div class="block">Returns the height of the image (corrected for the current orientation).</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the height of the image.</dd>
+<dd>the height of the image (corrected for the current orientation).</dd>
 </dl>
+</li>
+</ul>
+<a name="getRawHeight--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRawHeight</h4>
+<pre>public&nbsp;int&nbsp;getRawHeight()</pre>
+<div class="block">Returns the raw height of the image (uncorrected for the orientation)</div>
 </li>
 </ul>
 <a name="getImageType--">
@@ -336,7 +476,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageType</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/image/ImageType.html" title="enum in com.microblink.image">ImageType</a>&nbsp;getImageType()</pre>
+<pre>public&nbsp;<a href="../../../com/microblink/image/ImageType.html" title="class in com.microblink.image">ImageType</a>&nbsp;getImageType()</pre>
 <div class="block">Returns the type of the image.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -350,7 +490,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageFormat</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>&nbsp;getImageFormat()</pre>
+<pre>public&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>&nbsp;getImageFormat()</pre>
 <div class="block">Returns the format of the image.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -364,29 +504,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageName</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getImageName()</pre>
+<pre>@Deprecated
+public&nbsp;java.lang.String&nbsp;getImageName()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Do not rely on this information anymore. New API images will be nameless.</span></div>
 <div class="block">Returns the name of the image.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the name of the image.</dd>
-</dl>
-</li>
-</ul>
-<a name="getImageQuality--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getImageQuality</h4>
-<pre>public&nbsp;double&nbsp;getImageQuality()</pre>
-<div class="block">Returns the quality of the image. Larger number means better quality.
- Image quality depends on the device camera and image scene.
- It only makes sense to relatively compare image qualities from consecutive camera
- frames from the same scan on a certain device. Image quality should not be compared with
- predefined absolute values. It can be used to choose the best image from the same scan.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the image quality, or a negative value if image quality is not calculated.</dd>
 </dl>
 </li>
 </ul>
@@ -441,9 +565,19 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getROI</h4>
 <pre>public&nbsp;android.graphics.Rect&nbsp;getROI()</pre>
-<div class="block">Returns the region of interest in image. This is useful only for
- YUV_NV21 images that will contain the entire image in buffer and to obtain
- ROI-ed image, you should use YuvImage helper class (see: https://developer.android.com/reference/android/graphics/YuvImage.html)</div>
+<div class="block">Returns the region of interest in image corrected for current orientation of image.</div>
+</li>
+</ul>
+<a name="getRawROI--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRawROI</h4>
+<pre>public&nbsp;android.graphics.Rect&nbsp;getRawROI()</pre>
+<div class="block">Returns the region of interest in image in raw form (not corrected for orientation).
+ This is useful only for YUV_NV21 images that will contain the entire image in buffer and to obtain
+ ROI-ed image, you should use YuvImage helper class (see: <code>YuvImage</code> )</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the region of interest in image.</dd>
@@ -456,9 +590,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setROI</h4>
-<pre>public&nbsp;void&nbsp;setROI(android.graphics.Rect&nbsp;roi)</pre>
+<pre>public&nbsp;void&nbsp;setROI(@NonNull
+                   android.graphics.Rect&nbsp;roi)</pre>
 <div class="block">Sets the region of interest in image. You can use this method to set the ROI of
- images that will be processed via DirectAPI.</div>
+ images that will be processed via RecognizerRunner. Coordinates of the ROI are
+ applied in the current image's orientation - see <a href="../../../com/microblink/image/Image.html#getImageOrientation--"><code>Image.getImageOrientation()</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>roi</code> - region of interest in image</dd>
@@ -471,7 +607,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageOrientation</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;getImageOrientation()</pre>
+<pre>public&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;getImageOrientation()</pre>
 <div class="block">Returns the orientation of the image. Orientation is defined as orientation of the device when the image was taken.
  To explain the orientation further, let's assume that image contains a line of text.
  If orientation is Orientation.ORIENTATION_LANDSCAPE_RIGHT, the line of text would be horizontal from left to right (normal reading orientation).
@@ -494,7 +630,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setImageOrientation</h4>
 <pre>public&nbsp;void&nbsp;setImageOrientation(@NonNull
-                                <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
+                                <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
 <div class="block">Use this method to change Image's orientation. This can be useful for different interpretations of same image in
  different recognition contexts.</div>
 <dl>
@@ -520,7 +656,7 @@ extends java.lang.Object</pre>
 <a name="convertToBitmap--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>convertToBitmap</h4>
 <pre>@Nullable
@@ -532,6 +668,33 @@ public&nbsp;android.graphics.Bitmap&nbsp;convertToBitmap()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Image converted to Android Bitmap or null if conversion failed.</dd>
+</dl>
+</li>
+</ul>
+<a name="describeContents--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>describeContents</h4>
+<pre>public&nbsp;int&nbsp;describeContents()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>describeContents</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
+</dl>
+</li>
+</ul>
+<a name="writeToParcel-android.os.Parcel-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>writeToParcel</h4>
+<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+                          int&nbsp;flags)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>writeToParcel</code>&nbsp;in interface&nbsp;<code>android.os.Parcelable</code></dd>
 </dl>
 </li>
 </ul>
@@ -562,7 +725,7 @@ public&nbsp;android.graphics.Bitmap&nbsp;convertToBitmap()</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/microblink/image/ImageBuilder.html" title="class in com.microblink.image"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -588,14 +751,14 @@ public&nbsp;android.graphics.Bitmap&nbsp;convertToBitmap()</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

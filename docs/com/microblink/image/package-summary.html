@@ -42,7 +42,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/microblink/hardware/orientation/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../com/microblink/locale/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../com/microblink/intent/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/image/package-summary.html" target="_top">Frames</a></li>
@@ -81,9 +81,22 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image">ImageListener</a></td>
+<td class="colFirst"><a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a></td>
 <td class="colLast">
-<div class="block">Created by dodo on 16/12/14.</div>
+<div class="block">Callback that will be invoked when recognition process receives new frame for processing.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a></td>
+<td class="colLast">
+<div class="block">Callback that will be invoked when recognition process wishes to display an image.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../com/microblink/image/SuccessfulImageListener.html" title="interface in com.microblink.image">SuccessfulImageListener</a></td>
+<td class="colLast">
+<div class="block">Callback that will be invoked when recognition process has successfully scanned an item and has
+ a successful scan image to return.</div>
 </td>
 </tr>
 </tbody>
@@ -100,42 +113,29 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></td>
 <td class="colLast">
-<div class="block">Created by dodo on 16/12/14.</div>
+<div class="block">Represents a image that is being processed.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../com/microblink/image/ImageBuilder.html" title="class in com.microblink.image">ImageBuilder</a></td>
 <td class="colLast">
-<div class="block">Created by dodo on 10/02/16.</div>
+<div class="block">Utility class that can build <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image"><code>Image</code></a> object from various sources.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../com/microblink/image/ImageFrame.html" title="class in com.microblink.image">ImageFrame</a></td>
+<td class="colFirst"><a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></td>
 <td class="colLast">
-<div class="block">Created by dodo on 24/08/15.</div>
-</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="blockList">
-<table class="typeSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Summary table, listing enums, and an explanation">
-<caption><span>Enum Summary</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Enum</th>
-<th class="colLast" scope="col">Description</th>
-</tr>
-<tbody>
-<tr class="altColor">
-<td class="colFirst"><a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a></td>
-<td class="colLast">
-<div class="block">Created by dodo on 16/12/14.</div>
+<div class="block">Represents a format of image that is being returned.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../com/microblink/image/ImageType.html" title="enum in com.microblink.image">ImageType</a></td>
+<td class="colFirst"><a href="../../../com/microblink/image/ImageFrame.html" title="class in com.microblink.image">ImageFrame</a></td>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../com/microblink/image/ImageType.html" title="class in com.microblink.image">ImageType</a></td>
 <td class="colLast">
-<div class="block">Created by dodo on 16/12/14.</div>
+<div class="block">Defines the type of image that is being returned.</div>
 </td>
 </tr>
 </tbody>
@@ -164,7 +164,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../com/microblink/hardware/orientation/package-summary.html">Prev&nbsp;Package</a></li>
-<li><a href="../../../com/microblink/locale/package-summary.html">Next&nbsp;Package</a></li>
+<li><a href="../../../com/microblink/intent/package-summary.html">Next&nbsp;Package</a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/image/package-summary.html" target="_top">Frames</a></li>

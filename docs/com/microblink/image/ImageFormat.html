@@ -73,14 +73,14 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#enum.constant.summary">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#enum.constant.detail">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -91,14 +91,14 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">com.microblink.image</div>
-<h2 title="Enum ImageFormat" class="title">Enum ImageFormat</h2>
+<h2 title="Class ImageFormat" class="title">Class ImageFormat</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>java.lang.Enum&lt;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>&gt;</li>
+<li>java.lang.Enum</li>
 <li>
 <ul class="inheritance">
 <li>com.microblink.image.ImageFormat</li>
@@ -112,44 +112,50 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>java.io.Serializable, java.lang.Comparable&lt;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>&gt;</dd>
+<dd>java.io.Serializable, java.lang.Comparable</dd>
 </dl>
 <hr>
 <br>
-<pre>public enum <span class="typeNameLabel">ImageFormat</span>
-extends java.lang.Enum&lt;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>&gt;</pre>
-<div class="block">Created by dodo on 16/12/14.
-
- Represents a format of image that is being returned.</div>
+<pre>public final class <span class="typeNameLabel">ImageFormat</span>
+extends java.lang.Enum</pre>
+<div class="block">Represents a format of image that is being returned.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../serialized-form.html#com.microblink.image.ImageFormat">Serialized Form</a></dd>
+</dl>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<!-- =========== FIELD SUMMARY =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="enum.constant.summary">
+<li class="blockList"><a name="field.summary">
 <!--   -->
 </a>
-<h3>Enum Constant Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Enum Constant Summary table, listing enum constants, and an explanation">
-<caption><span>Enum Constants</span><span class="tabEnd">&nbsp;</span></caption>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colOne" scope="col">Enum Constant and Description</th>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#ALPHA_8">ALPHA_8</a></span></code>
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#ALPHA_8">ALPHA_8</a></span></code>
 <div class="block">A single plane, grayscale image.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#BGRA_8888">BGRA_8888</a></span></code>
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#BGRA_8888">BGRA_8888</a></span></code>
 <div class="block">A single plane, color image.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#YUV_NV21">YUV_NV21</a></span></code>
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#YUV_NV21">YUV_NV21</a></span></code>
 <div class="block">A single plane, color image.</div>
 </td>
 </tr>
@@ -169,17 +175,12 @@ extends java.lang.Enum&lt;<a href="../../../com/microblink/image/ImageFormat.htm
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>
-<div class="block">Returns the enum constant of this type with the specified name.</div>
-</td>
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#valueOf-java.lang.String-">valueOf</a></span>(java.lang.String&nbsp;name)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#values--">values</a></span>()</code>
-<div class="block">Returns an array containing the constants of this enum type, in
-the order they are declared.</div>
-</td>
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageFormat.html#values--">values</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -204,19 +205,19 @@ the order they are declared.</div>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ ENUM CONSTANT DETAIL =========== -->
+<!-- ============ FIELD DETAIL =========== -->
 <ul class="blockList">
-<li class="blockList"><a name="enum.constant.detail">
+<li class="blockList"><a name="field.detail">
 <!--   -->
 </a>
-<h3>Enum Constant Detail</h3>
+<h3>Field Detail</h3>
 <a name="ALPHA_8">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ALPHA_8</h4>
-<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a> ALPHA_8</pre>
+<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a> ALPHA_8</pre>
 <div class="block">A single plane, grayscale image. Each pixel is represented with single byte.
  Pixel stride of image plane in this format is 1, while row stride can vary (it does not
  have to be equal to image width).</div>
@@ -228,7 +229,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>BGRA_8888</h4>
-<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a> BGRA_8888</pre>
+<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a> BGRA_8888</pre>
 <div class="block">A single plane, color image. Each pixel is represented with 4 bytes in BGRA order.
  Pixel stride of image plane in this format is 1, while row stride can vary (it does not
  have to be equal to image width).</div>
@@ -240,7 +241,7 @@ the order they are declared.</div>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>YUV_NV21</h4>
-<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a> YUV_NV21</pre>
+<pre>public static final&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a> YUV_NV21</pre>
 <div class="block">A single plane, color image. First width*height elements of buffer are Y bytes and
  next width * height / 2 elements of buffer are U and V bytes. This format does
  not support strides (neither pixel nor row strides). This means that image plane
@@ -261,18 +262,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <h4>values</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>[]&nbsp;values()</pre>
-<div class="block">Returns an array containing the constants of this enum type, in
-the order they are declared.  This method may be used to iterate
-over the constants as follows:
-<pre>
-for (ImageFormat c : ImageFormat.values())
-&nbsp;   System.out.println(c);
-</pre></div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>an array containing the constants of this enum type, in the order they are declared</dd>
-</dl>
+<pre>public static&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>[]&nbsp;values()</pre>
 </li>
 </ul>
 <a name="valueOf-java.lang.String-">
@@ -281,20 +271,7 @@ for (ImageFormat c : ImageFormat.values())
 <ul class="blockListLast">
 <li class="blockList">
 <h4>valueOf</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="enum in com.microblink.image">ImageFormat</a>&nbsp;valueOf(java.lang.String&nbsp;name)</pre>
-<div class="block">Returns the enum constant of this type with the specified name.
-The string must match <i>exactly</i> an identifier used to declare an
-enum constant in this type.  (Extraneous whitespace characters are 
-not permitted.)</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>name</code> - the name of the enum constant to be returned.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the enum constant with the specified name</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.IllegalArgumentException</code> - if this enum type has no constant with the specified name</dd>
-<dd><code>java.lang.NullPointerException</code> - if the argument is null</dd>
-</dl>
+<pre>public static&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>&nbsp;valueOf(java.lang.String&nbsp;name)</pre>
 </li>
 </ul>
 </li>
@@ -350,14 +327,14 @@ not permitted.)</div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#enum.constant.summary">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#enum.constant.detail">Enum Constants</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>

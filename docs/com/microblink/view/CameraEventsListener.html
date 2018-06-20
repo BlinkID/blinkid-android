@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
+var methods = {"i0":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/microblink/view/CameraAspectMode.html" title="enum in com.microblink.view"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/view/CameraAspectMode.html" title="class in com.microblink.view"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -99,17 +99,17 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Superinterfaces:</dt>
-<dd><a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a></dd>
+<dd><a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a>, <a href="../../../com/microblink/view/BaseCameraEventsListener.html" title="interface in com.microblink.view">BaseCameraEventsListener</a></dd>
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../com/microblink/activity/BaseScanActivity.html" title="class in com.microblink.activity">BaseScanActivity</a>, <a href="../../../com/microblink/activity/BaseVerificationFlowActivity.html" title="class in com.microblink.activity">BaseVerificationFlowActivity</a>, <a href="../../../com/microblink/activity/Pdf417ScanActivity.html" title="class in com.microblink.activity">Pdf417ScanActivity</a>, <a href="../../../com/microblink/activity/RandomScanActivity.html" title="class in com.microblink.activity">RandomScanActivity</a>, <a href="../../../com/microblink/activity/ScanActivity.html" title="class in com.microblink.activity">ScanActivity</a>, <a href="../../../com/microblink/activity/ScanCard.html" title="class in com.microblink.activity">ScanCard</a>, <a href="../../../com/microblink/activity/SegmentScanActivity.html" title="class in com.microblink.activity">SegmentScanActivity</a>, <a href="../../../com/microblink/activity/VerificationFlowActivity.html" title="class in com.microblink.activity">VerificationFlowActivity</a></dd>
+<dd><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">CameraEventsListener</span>
-extends <a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a></pre>
-<div class="block">Created by dodo on 06/10/14.</div>
+<pre>@MainThread
+public interface <span class="typeNameLabel">CameraEventsListener</span>
+extends <a href="../../../com/microblink/view/BaseCameraEventsListener.html" title="interface in com.microblink.view">BaseCameraEventsListener</a></pre>
 </li>
 </ul>
 </div>
@@ -134,26 +134,14 @@ extends <a href="../../../com/microblink/hardware/camera/AutofocusListener.html"
 <div class="block">Called on Android 6.0 and newer when runtime camera permission was not given to the app.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStarted--">onCameraPreviewStarted</a></span>()</code>
-<div class="block">Called just after camera preview has successfully
- started and no exceptions occurred.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStopped--">onCameraPreviewStopped</a></span>()</code>
-<div class="block">Called inside pause method of CameraView just haver camera preview has been stopped.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/CameraEventsListener.html#onError-java.lang.Throwable-">onError</a></span>(java.lang.Throwable&nbsp;exc)</code>
-<div class="block">Called when recognition results with exception.</div>
-</td>
-</tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.view.BaseCameraEventsListener">
+<!--   -->
+</a>
+<h3>Methods inherited from interface&nbsp;com.microblink.view.<a href="../../../com/microblink/view/BaseCameraEventsListener.html" title="interface in com.microblink.view">BaseCameraEventsListener</a></h3>
+<code><a href="../../../com/microblink/view/BaseCameraEventsListener.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../com/microblink/view/BaseCameraEventsListener.html#onCameraPreviewStopped--">onCameraPreviewStopped</a>, <a href="../../../com/microblink/view/BaseCameraEventsListener.html#onError-java.lang.Throwable-">onError</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.hardware.camera.AutofocusListener">
 <!--   -->
@@ -175,52 +163,6 @@ extends <a href="../../../com/microblink/hardware/camera/AutofocusListener.html"
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="onCameraPreviewStarted--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCameraPreviewStarted</h4>
-<pre>void&nbsp;onCameraPreviewStarted()</pre>
-<div class="block">Called just after camera preview has successfully
- started and no exceptions occurred. When this method is called, it means
- that from now on, frames will arrive and preview will be shown.</div>
-</li>
-</ul>
-<a name="onCameraPreviewStopped--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCameraPreviewStopped</h4>
-<pre>void&nbsp;onCameraPreviewStopped()</pre>
-<div class="block">Called inside pause method of CameraView just haver camera preview has been stopped.
- After this method is called, frames will no longer arrive nor will be shown.</div>
-</li>
-</ul>
-<a name="onError-java.lang.Throwable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onError</h4>
-<pre>void&nbsp;onError(java.lang.Throwable&nbsp;exc)</pre>
-<div class="block">Called when recognition results with exception. Known exceptions
- that can occur are following:
-      * com.microblink.hardware.camera.CameraResolutionTooSmallException is thrown when largest possible camera preview
-        resolution is not enough for making a successful scan
-      * java.lang.UnsatisfiedLinkError is thrown when native library was not successfully loaded thus making scans impossible
-      * com.microblink.recognition.RecognizerError is thrown when initialization or reinitialization of native recognizer fails
-      * com.microblink.recognition.FeatureNotSupportedException is thrown when scanning cannot be performed. The reason why
-        scanning cannot be perfomed can be obtained by calling getReason() method of thrown exception.
-      * java.lang.Throwable is thrown in all other cases (for example when camera is not ready because it is used by other
-        apps or some unknown error has occurred)</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>exc</code> - Exception that occurred during recognition.</dd>
-</dl>
-</li>
-</ul>
 <a name="onCameraPermissionDenied--">
 <!--   -->
 </a>
@@ -259,7 +201,7 @@ extends <a href="../../../com/microblink/hardware/camera/AutofocusListener.html"
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/microblink/view/CameraAspectMode.html" title="enum in com.microblink.view"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/view/CameraAspectMode.html" title="class in com.microblink.view"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

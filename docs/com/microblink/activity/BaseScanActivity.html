@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":6,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
-<li><a href="../../../com/microblink/activity/BaseVerificationFlowActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BarcodeScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/DocumentScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/activity/BaseScanActivity.html" target="_top">Frames</a></li>
@@ -127,18 +127,17 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.content.ComponentCallbacks, android.content.ComponentCallbacks2, android.view.KeyEvent.Callback, android.view.LayoutInflater.Factory, android.view.LayoutInflater.Factory2, android.view.View.OnCreateContextMenuListener, android.view.Window.Callback, <a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a>, <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a>, <a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a>, <a href="../../../com/microblink/view/OnActivityFlipListener.html" title="interface in com.microblink.view">OnActivityFlipListener</a>, <a href="../../../com/microblink/view/OnSizeChangedListener.html" title="interface in com.microblink.view">OnSizeChangedListener</a>, <a href="../../../com/microblink/view/OrientationAllowedListener.html" title="interface in com.microblink.view">OrientationAllowedListener</a>, <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></dd>
+<dd>android.content.ComponentCallbacks, android.content.ComponentCallbacks2, android.view.KeyEvent.Callback, android.view.LayoutInflater.Factory, android.view.LayoutInflater.Factory2, android.view.View.OnCreateContextMenuListener, android.view.Window.Callback, <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a>, <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../com/microblink/activity/Pdf417ScanActivity.html" title="class in com.microblink.activity">Pdf417ScanActivity</a>, <a href="../../../com/microblink/activity/ScanActivity.html" title="class in com.microblink.activity">ScanActivity</a></dd>
+<dd><a href="../../../com/microblink/activity/BarcodeScanActivity.html" title="class in com.microblink.activity">BarcodeScanActivity</a>, <a href="../../../com/microblink/activity/DocumentScanActivity.html" title="class in com.microblink.activity">DocumentScanActivity</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public abstract class <span class="typeNameLabel">BaseScanActivity</span>
 extends android.app.Activity
-implements <a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a>, <a href="../../../com/microblink/view/OrientationAllowedListener.html" title="interface in com.microblink.view">OrientationAllowedListener</a>, <a href="../../../com/microblink/view/OnSizeChangedListener.html" title="interface in com.microblink.view">OnSizeChangedListener</a>, <a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a>, <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>, <a href="../../../com/microblink/view/OnActivityFlipListener.html" title="interface in com.microblink.view">OnActivityFlipListener</a></pre>
-<div class="block">Created by dodo on 15/10/14.</div>
+implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a>, <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></pre>
 </li>
 </ul>
 </div>
@@ -158,209 +157,8 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_ALLOW_PINCH_TO_ZOOM">EXTRAS_ALLOW_PINCH_TO_ZOOM</a></span></code>
-<div class="block">Whether pinch to zoom will be allowed (default is false)</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_BEEP_RESOURCE">EXTRAS_BEEP_RESOURCE</a></span></code>
-<div class="block">Resource ID of sound which is to be played after finishing the scan
- procedure</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_CAMERA_ASPECT_MODE">EXTRAS_CAMERA_ASPECT_MODE</a></span></code>
-<div class="block">Aspect mode of camera to be used (fill screen by cropping frame or fit by letterboxing</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_CAMERA_TYPE">EXTRAS_CAMERA_TYPE</a></span></code>
-<div class="block">Type of camera to be used (back facing, front facing, default)</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_CAMERA_VIDEO_PRESET">EXTRAS_CAMERA_VIDEO_PRESET</a></span></code>
-<div class="block">Request video resolution preset to be used when choosing camera resolution for performing
- a scan.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_HELP_INTENT">EXTRAS_HELP_INTENT</a></span></code>
-<div class="block">Help activity called when help should be shown</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_IMAGE_LISTENER">EXTRAS_IMAGE_LISTENER</a></span></code>
-<div class="block">Define an <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image"><code>ImageListener</code></a> that will obtain images that are being processed.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_IMAGE_METADATA_SETTINGS">EXTRAS_IMAGE_METADATA_SETTINGS</a></span></code>
-<div class="block">Define a <a href="../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html" title="class in com.microblink.metadata"><code>MetadataSettings.ImageMetadataSettings</code></a> that will define
- which images will be sent to <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image"><code>ImageListener</code></a> set via <a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_IMAGE_LISTENER"><code>EXTRAS_IMAGE_LISTENER</code></a> extra.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_LICENSE_KEY">EXTRAS_LICENSE_KEY</a></span></code>
-<div class="block">Key for setting the license key</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_LICENSEE">EXTRAS_LICENSEE</a></span></code>
-<div class="block">Key for setting the license owner</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING">EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING</a></span></code>
-<div class="block">Flag which indicates mb should optimize camera parameters for near object scanning.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_RECOGNITION_RESULTS">EXTRAS_RECOGNITION_RESULTS</a></span></code>
-<div class="block">Recognition results after recognition</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_RECOGNITION_SETTINGS">EXTRAS_RECOGNITION_SETTINGS</a></span></code>
-<div class="block">Key for setting the settings object used to initialize recognizer</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_ROI">EXTRAS_ROI</a></span></code>
-<div class="block">Key for setting region of interest that will be scanned</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_ROTATE_ROI">EXTRAS_ROTATE_ROI</a></span></code>
-<div class="block">Key for defining whether region of interest will be rotated with user interface</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_SET_FLAG_SECURE">EXTRAS_SET_FLAG_SECURE</a></span></code>
-<div class="block">Request setting of FLAG_SECURE on activity window which indicates that the display has
- a secure video output and supports compositing secure surfaces.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_SET_REQUESTED_CAMERA_SURFACE">EXTRAS_SET_REQUESTED_CAMERA_SURFACE</a></span></code>
-<div class="block">Request which view will be used for displaying camera preview.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_SHOW_FOCUS_RECTANGLE">EXTRAS_SHOW_FOCUS_RECTANGLE</a></span></code>
-<div class="block">Whether focus area rectangle will be shown</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING">EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING</a></span></code>
-<div class="block">Boolean flag which defines whether warning for time limited license key will be displayed.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE">EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE</a></span></code>
-<div class="block">Defines the ID of the layout resource that will be used as camera splash screen displayed
- while camera is being initialized.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_USE_LEGACY_CAMERA_API">EXTRAS_USE_LEGACY_CAMERA_API</a></span></code>
-<div class="block">Force using legacy Camera API even on Lollipop devices that support new Camera2 API.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected android.widget.Button</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mBackButton">mBackButton</a></span></code>
-<div class="block">This is a back button</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected android.widget.TextView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mDebugStatus">mDebugStatus</a></span></code>
-<div class="block">This text field contains debug status messages</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected android.os.Handler</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mHandler">mHandler</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected android.widget.Button</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mHelpButton">mHelpButton</a></span></code>
-<div class="block">This is a help button</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected android.content.Intent</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mHelpIntent">mHelpIntent</a></span></code>
-<div class="block">Intent which shows the help activity</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image">ImageListener</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mImageListener">mImageListener</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected android.view.ViewGroup</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mLayout">mLayout</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mMetadataSettings">mMetadataSettings</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected PointSetView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mPointSetView">mPointSetView</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mQuadViewManager">mQuadViewManager</a></span></code>
-<div class="block">Actual viewfinder that draws animations</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/recognizers/settings/RecognitionSettings.html" title="class in com.microblink.recognizers.settings">RecognitionSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mRecognitionSettings">mRecognitionSettings</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected SimpleRectangleView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mRectView">mRectView</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mShowFocusRectangle">mShowFocusRectangle</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected android.widget.TextView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mStatusTextView">mStatusTextView</a></span></code>
-<div class="block">This is a text field that contains status messages</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected android.widget.Button</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mTorchButton">mTorchButton</a></span></code>
-<div class="block">This is a torch control button</div>
-</td>
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#mRecognizerRunnerFragment">mRecognizerRunnerFragment</a></span></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -416,186 +214,35 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#addChildViews-com.microblink.view.recognition.RecognizerView-">addChildViews</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</code>&nbsp;</td>
+<td class="colFirst"><code>protected abstract <a href="../../../com/microblink/fragment/overlay/BaseScanOverlayController.html" title="class in com.microblink.fragment.overlay">BaseScanOverlayController</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#createScanningOverlayFromIntent-android.content.Intent-">createScanningOverlayFromIntent</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#addChildViews-com.microblink.view.recognition.RecognizerView-int-">addChildViews</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
-             int&nbsp;viewfinderId)</code>
-<div class="block">adds fixed and rotatable views to given mbView</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected PointSetView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#createPointSetView-com.microblink.view.recognition.RecognizerView-">createPointSetView</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#createQuadView-com.microblink.view.recognition.RecognizerView-">createQuadView</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#createRecognizerView-android.os.Bundle-">createRecognizerView</a></span>(android.os.Bundle&nbsp;intentExtras)</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#displayDetectionStatus-com.microblink.view.recognition.DetectionStatus-">displayDetectionStatus</a></span>(<a href="../../../com/microblink/view/recognition/DetectionStatus.html" title="enum in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#displayMessageImmediately-java.lang.CharSequence-">displayMessageImmediately</a></span>(java.lang.CharSequence&nbsp;text)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#finishAndWaitForAnimation--">finishAndWaitForAnimation</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#getDefaultOrientation--">getDefaultOrientation</a></span>()</code>
-<div class="block">Method returns the default status messages orientation for given
- settings.</div>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#getScanningOverlay--">getScanningOverlay</a></span>()</code>
+<div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#getRecognizerView--">getRecognizerView</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#initDebugStatus--">initDebugStatus</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#isFinishing--">isFinishing</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a></span>(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</code>
-<div class="block">Called in onOrientationChange.</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onActivityFlip--">onActivityFlip</a></span>()</code>
-<div class="block">Called when activity is flipped.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onAutofocusFailed--">onAutofocusFailed</a></span>()</code>
-<div class="block">This method will be called when camera focusing has failed.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onAutofocusStarted-android.graphics.Rect:A-">onAutofocusStarted</a></span>(android.graphics.Rect[]&nbsp;areas)</code>
-<div class="block">This method will be called when camera focusing has started.</div>
-</td>
-</tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onAutofocusStopped-android.graphics.Rect:A-">onAutofocusStopped</a></span>(android.graphics.Rect[]&nbsp;areas)</code>
-<div class="block">This method will be called when camera focusing has stopped.</div>
-</td>
-</tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onCameraPermissionDenied--">onCameraPermissionDenied</a></span>()</code>
-<div class="block">Called on Android 6.0 and newer when runtime camera permission was not given to the app.</div>
-</td>
-</tr>
-<tr id="i18" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onCameraPreviewStarted--">onCameraPreviewStarted</a></span>()</code>
-<div class="block">Called just after camera preview has successfully
- started and no exceptions occurred.</div>
-</td>
-</tr>
-<tr id="i19" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onCameraPreviewStopped--">onCameraPreviewStopped</a></span>()</code>
-<div class="block">Called inside pause method of CameraView just haver camera preview has been stopped.</div>
-</td>
-</tr>
-<tr id="i20" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onConfigurationChanged-android.content.res.Configuration-">onConfigurationChanged</a></span>(android.content.res.Configuration&nbsp;newConfig)</code>&nbsp;</td>
-</tr>
-<tr id="i21" class="rowColor">
-<td class="colFirst"><code>protected abstract void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">onConfigureRecognizerView</a></span>(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
-                         android.os.Bundle&nbsp;intentExtras)</code>&nbsp;</td>
-</tr>
-<tr id="i22" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
 </tr>
-<tr id="i23" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onDestroy--">onDestroy</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i24" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onDetectorResultAvailable-com.microblink.detectors.DetectorResult-">onDetectorResultAvailable</a></span>(<a href="../../../com/microblink/detectors/DetectorResult.html" title="class in com.microblink.detectors">DetectorResult</a>&nbsp;detectorResult)</code>&nbsp;</td>
-</tr>
-<tr id="i25" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onError-java.lang.Throwable-">onError</a></span>(java.lang.Throwable&nbsp;exc)</code>
-<div class="block">Called when recognition results with exception.</div>
-</td>
-</tr>
-<tr id="i26" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></span>(<a href="../../../com/microblink/metadata/Metadata.html" title="class in com.microblink.metadata">Metadata</a>&nbsp;metadata)</code>&nbsp;</td>
-</tr>
-<tr id="i27" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onPause--">onPause</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i28" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onRequestPermissionsResult-int-java.lang.String:A-int:A-">onRequestPermissionsResult</a></span>(int&nbsp;requestCode,
-                          java.lang.String[]&nbsp;permissions,
-                          int[]&nbsp;grantResults)</code>&nbsp;</td>
-</tr>
-<tr id="i29" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onResume--">onResume</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i30" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onScanningDone-com.microblink.recognizers.RecognitionResults-">onScanningDone</a></span>(<a href="../../../com/microblink/recognizers/RecognitionResults.html" title="class in com.microblink.recognizers">RecognitionResults</a>&nbsp;results)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></span>(RecognitionSuccessType&nbsp;successType)</code>
 <div class="block">This method is called when recognition is done.</div>
-</td>
-</tr>
-<tr id="i31" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onSizeChanged-int-int-">onSizeChanged</a></span>(int&nbsp;width,
-             int&nbsp;height)</code>
-<div class="block">Called when CameraView changes the size of itself and its children.</div>
-</td>
-</tr>
-<tr id="i32" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onStart--">onStart</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i33" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#onStop--">onStop</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i34" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#postDisplayMessage-java.lang.CharSequence-">postDisplayMessage</a></span>(java.lang.CharSequence&nbsp;text)</code>&nbsp;</td>
-</tr>
-<tr id="i35" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#setHelpButtonEnabled-boolean-">setHelpButtonEnabled</a></span>(boolean&nbsp;enabled)</code>&nbsp;</td>
-</tr>
-<tr id="i36" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BaseScanActivity.html#soundNotification--">soundNotification</a></span>()</code>
-<div class="block">plays beep</div>
 </td>
 </tr>
 </table>
@@ -604,7 +251,7 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;android.app.Activity</h3>
-<code>addContentView, attachBaseContext, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onBackPressed, onChildTitleChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsItemSelected, onOptionsMenuClosed, onPanelClosed, onPictureInPictureModeChanged, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRestart, onRestoreInstanceState, onRestoreInstanceState, onRetainNonConfigurationInstance, onSaveInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onStateNotSaved, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShowWhenLocked, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
+<code>addContentView, attachBaseContext, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onChildTitleChanged, onConfigurationChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDestroy, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsItemSelected, onOptionsMenuClosed, onPanelClosed, onPause, onPictureInPictureModeChanged, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRequestPermissionsResult, onRestart, onRestoreInstanceState, onRestoreInstanceState, onResume, onRetainNonConfigurationInstance, onSaveInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onStart, onStateNotSaved, onStop, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShowWhenLocked, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.android.view.ContextThemeWrapper">
@@ -655,465 +302,13 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="EXTRAS_CAMERA_TYPE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_CAMERA_TYPE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_CAMERA_TYPE</pre>
-<div class="block">Type of camera to be used (back facing, front facing, default)</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_CAMERA_TYPE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_CAMERA_ASPECT_MODE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_CAMERA_ASPECT_MODE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_CAMERA_ASPECT_MODE</pre>
-<div class="block">Aspect mode of camera to be used (fill screen by cropping frame or fit by letterboxing</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_CAMERA_ASPECT_MODE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_HELP_INTENT">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_HELP_INTENT</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_HELP_INTENT</pre>
-<div class="block">Help activity called when help should be shown</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_HELP_INTENT">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_LICENSE_KEY">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_LICENSE_KEY</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_LICENSE_KEY</pre>
-<div class="block">Key for setting the license key</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_LICENSE_KEY">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING</pre>
-<div class="block">Boolean flag which defines whether warning for time limited license key will be displayed.
- The goal is to prevent unintentional publishing of application to production with the license
- key that will expire. By default, warning is enabled.<br>
- <b>Be careful, disable this warning only if necessary.</b></div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_SHOW_TIME_LIMITED_LICENSE_KEY_WARNING">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_LICENSEE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_LICENSEE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_LICENSEE</pre>
-<div class="block">Key for setting the license owner</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_LICENSEE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_RECOGNITION_SETTINGS">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_RECOGNITION_SETTINGS</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_RECOGNITION_SETTINGS</pre>
-<div class="block">Key for setting the settings object used to initialize recognizer</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_RECOGNITION_SETTINGS">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_ROI">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_ROI</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_ROI</pre>
-<div class="block">Key for setting region of interest that will be scanned</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_ROI">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_ROTATE_ROI">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_ROTATE_ROI</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_ROTATE_ROI</pre>
-<div class="block">Key for defining whether region of interest will be rotated with user interface</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_ROTATE_ROI">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_RECOGNITION_RESULTS">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_RECOGNITION_RESULTS</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_RECOGNITION_RESULTS</pre>
-<div class="block">Recognition results after recognition</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_RECOGNITION_RESULTS">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_SHOW_FOCUS_RECTANGLE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_SHOW_FOCUS_RECTANGLE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_SHOW_FOCUS_RECTANGLE</pre>
-<div class="block">Whether focus area rectangle will be shown</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_SHOW_FOCUS_RECTANGLE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_ALLOW_PINCH_TO_ZOOM">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_ALLOW_PINCH_TO_ZOOM</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_ALLOW_PINCH_TO_ZOOM</pre>
-<div class="block">Whether pinch to zoom will be allowed (default is false)</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_ALLOW_PINCH_TO_ZOOM">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_BEEP_RESOURCE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_BEEP_RESOURCE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_BEEP_RESOURCE</pre>
-<div class="block">Resource ID of sound which is to be played after finishing the scan
- procedure</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_BEEP_RESOURCE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE</pre>
-<div class="block">Defines the ID of the layout resource that will be used as camera splash screen displayed
- while camera is being initialized. If not set, default splash screen will be used.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_SPLASH_SCREEN_LAYOUT_RESOURCE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING</pre>
-<div class="block">Flag which indicates mb should optimize camera parameters for near object scanning.
- When camera parameters are optimized for near object scanning, macro focus mode will be
- preferred over autofocus mode. Thus, camera will have easier time focusing on to near objects,
- but might have harder time focusing on far objects. If you expect that most of your scans
- will be performed by holding the device very near the object, turn on that parameter. By default,
- this parameter is set to false, except in cases when from other settings it can be safely concluded
- that it is better to turn it on.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_OPTIMIZE_CAMERA_FOR_NEAR_SCANNING">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_IMAGE_LISTENER">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_IMAGE_LISTENER</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_IMAGE_LISTENER</pre>
-<div class="block">Define an <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image"><code>ImageListener</code></a> that will obtain images that are being processed.
- Make sure that your ImageListener implementation correctly implements Parcelable
- interface with static CREATOR field. Without this, you might encounter a runtime error.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_IMAGE_LISTENER">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_IMAGE_METADATA_SETTINGS">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_IMAGE_METADATA_SETTINGS</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_IMAGE_METADATA_SETTINGS</pre>
-<div class="block">Define a <a href="../../../com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html" title="class in com.microblink.metadata"><code>MetadataSettings.ImageMetadataSettings</code></a> that will define
- which images will be sent to <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image"><code>ImageListener</code></a> set via <a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_IMAGE_LISTENER"><code>EXTRAS_IMAGE_LISTENER</code></a> extra.
- If not set, <a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image"><code>ImageListener</code></a> set via <a href="../../../com/microblink/activity/BaseScanActivity.html#EXTRAS_IMAGE_LISTENER"><code>EXTRAS_IMAGE_LISTENER</code></a> will receive all possible
- images.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_IMAGE_METADATA_SETTINGS">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_CAMERA_VIDEO_PRESET">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_CAMERA_VIDEO_PRESET</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_CAMERA_VIDEO_PRESET</pre>
-<div class="block">Request video resolution preset to be used when choosing camera resolution for performing
- a scan.
- Note that using maximum possible resolution might result in poor performance and
- using lowest possible resolution (480p) will result in low scan quality.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_CAMERA_VIDEO_PRESET">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_USE_LEGACY_CAMERA_API">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_USE_LEGACY_CAMERA_API</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_USE_LEGACY_CAMERA_API</pre>
-<div class="block">Force using legacy Camera API even on Lollipop devices that support new Camera2 API.
- Use this only if you have problems with camera management on Lollipop devices.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_USE_LEGACY_CAMERA_API">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_SET_FLAG_SECURE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_SET_FLAG_SECURE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_SET_FLAG_SECURE</pre>
-<div class="block">Request setting of FLAG_SECURE on activity window which indicates that the display has
- a secure video output and supports compositing secure surfaces.
- Use this to prevent taking screenshots of activity window content and to prevent content from
- being viewed on non-secure displays.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_SET_FLAG_SECURE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="EXTRAS_SET_REQUESTED_CAMERA_SURFACE">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>EXTRAS_SET_REQUESTED_CAMERA_SURFACE</h4>
-<pre>public static final&nbsp;java.lang.String EXTRAS_SET_REQUESTED_CAMERA_SURFACE</pre>
-<div class="block">Request which view will be used for displaying camera preview.
- See <a href="../../../com/microblink/view/BaseCameraView.html#setRequestedSurfaceViewForCameraDisplay-CameraSurface-"><code>BaseCameraView.setRequestedSurfaceViewForCameraDisplay(CameraSurface)</code></a> for
- more information.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../constant-values.html#com.microblink.activity.BaseScanActivity.EXTRAS_SET_REQUESTED_CAMERA_SURFACE">Constant Field Values</a></dd>
-</dl>
-</li>
-</ul>
-<a name="mHelpIntent">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mHelpIntent</h4>
-<pre>protected&nbsp;android.content.Intent mHelpIntent</pre>
-<div class="block">Intent which shows the help activity</div>
-</li>
-</ul>
-<a name="mLayout">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mLayout</h4>
-<pre>protected&nbsp;android.view.ViewGroup mLayout</pre>
-</li>
-</ul>
-<a name="mHelpButton">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mHelpButton</h4>
-<pre>protected&nbsp;android.widget.Button mHelpButton</pre>
-<div class="block">This is a help button</div>
-</li>
-</ul>
-<a name="mBackButton">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mBackButton</h4>
-<pre>protected&nbsp;android.widget.Button mBackButton</pre>
-<div class="block">This is a back button</div>
-</li>
-</ul>
-<a name="mTorchButton">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mTorchButton</h4>
-<pre>protected&nbsp;android.widget.Button mTorchButton</pre>
-<div class="block">This is a torch control button</div>
-</li>
-</ul>
-<a name="mStatusTextView">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mStatusTextView</h4>
-<pre>protected&nbsp;android.widget.TextView mStatusTextView</pre>
-<div class="block">This is a text field that contains status messages</div>
-</li>
-</ul>
-<a name="mDebugStatus">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mDebugStatus</h4>
-<pre>protected&nbsp;android.widget.TextView mDebugStatus</pre>
-<div class="block">This text field contains debug status messages</div>
-</li>
-</ul>
-<a name="mQuadViewManager">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mQuadViewManager</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a> mQuadViewManager</pre>
-<div class="block">Actual viewfinder that draws animations</div>
-</li>
-</ul>
-<a name="mPointSetView">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mPointSetView</h4>
-<pre>protected&nbsp;PointSetView mPointSetView</pre>
-</li>
-</ul>
-<a name="mHandler">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mHandler</h4>
-<pre>protected&nbsp;android.os.Handler mHandler</pre>
-</li>
-</ul>
-<a name="mRectView">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mRectView</h4>
-<pre>protected&nbsp;SimpleRectangleView mRectView</pre>
-</li>
-</ul>
-<a name="mShowFocusRectangle">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mShowFocusRectangle</h4>
-<pre>protected&nbsp;boolean mShowFocusRectangle</pre>
-</li>
-</ul>
-<a name="mRecognitionSettings">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mRecognitionSettings</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/recognizers/settings/RecognitionSettings.html" title="class in com.microblink.recognizers.settings">RecognitionSettings</a> mRecognitionSettings</pre>
-</li>
-</ul>
-<a name="mImageListener">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mImageListener</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/image/ImageListener.html" title="interface in com.microblink.image">ImageListener</a> mImageListener</pre>
-</li>
-</ul>
-<a name="mMetadataSettings">
+<a name="mRecognizerRunnerFragment">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>mMetadataSettings</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/metadata/MetadataSettings.html" title="class in com.microblink.metadata">MetadataSettings</a> mMetadataSettings</pre>
+<h4>mRecognizerRunnerFragment</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> mRecognizerRunnerFragment</pre>
 </li>
 </ul>
 </li>
@@ -1154,197 +349,44 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 </dl>
 </li>
 </ul>
-<a name="initDebugStatus--">
+<a name="onBackPressed--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>initDebugStatus</h4>
-<pre>protected&nbsp;void&nbsp;initDebugStatus()</pre>
-</li>
-</ul>
-<a name="soundNotification--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>soundNotification</h4>
-<pre>protected&nbsp;void&nbsp;soundNotification()</pre>
-<div class="block">plays beep</div>
-</li>
-</ul>
-<a name="onStart--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onStart</h4>
-<pre>protected final&nbsp;void&nbsp;onStart()</pre>
+<h4>onBackPressed</h4>
+<pre>public&nbsp;void&nbsp;onBackPressed()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onStart</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
+<dd><code>onBackPressed</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
 </dl>
 </li>
 </ul>
-<a name="onRequestPermissionsResult-int-java.lang.String:A-int:A-">
+<a name="getScanningOverlay--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onRequestPermissionsResult</h4>
-<pre>public&nbsp;void&nbsp;onRequestPermissionsResult(int&nbsp;requestCode,
-                                       java.lang.String[]&nbsp;permissions,
-                                       int[]&nbsp;grantResults)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onRequestPermissionsResult</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onResume--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onResume</h4>
-<pre>protected final&nbsp;void&nbsp;onResume()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onResume</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onPause--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onPause</h4>
-<pre>protected final&nbsp;void&nbsp;onPause()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onPause</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onStop--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onStop</h4>
-<pre>protected final&nbsp;void&nbsp;onStop()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onStop</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onConfigurationChanged-android.content.res.Configuration-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onConfigurationChanged</h4>
-<pre>public&nbsp;void&nbsp;onConfigurationChanged(android.content.res.Configuration&nbsp;newConfig)</pre>
+<h4>getScanningOverlay</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a>&nbsp;getScanningOverlay()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></span></div>
+<div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>onConfigurationChanged</code>&nbsp;in interface&nbsp;<code>android.content.ComponentCallbacks</code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onConfigurationChanged</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
+<dd><code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">getScanningOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
 </dl>
 </li>
 </ul>
-<a name="onActivityFlip--">
+<a name="createScanningOverlayFromIntent-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onActivityFlip</h4>
-<pre>public&nbsp;void&nbsp;onActivityFlip()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/OnActivityFlipListener.html#onActivityFlip--">OnActivityFlipListener</a></code></span></div>
-<div class="block">Called when activity is flipped. This can happen if your activity is in sensor or user orientation
- mode and landscape to reverse landscape or portrait to reverse portrait or vice versa orientation
- change has occurred. Normally, Android will not give you any notification when this orientation
- change occurs, so SDK automatically detects that and with this listener informs you of such
- event.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/OnActivityFlipListener.html#onActivityFlip--">onActivityFlip</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/OnActivityFlipListener.html" title="interface in com.microblink.view">OnActivityFlipListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onDestroy--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onDestroy</h4>
-<pre>protected final&nbsp;void&nbsp;onDestroy()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onDestroy</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="createQuadView-com.microblink.view.recognition.RecognizerView-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createQuadView</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</pre>
-</li>
-</ul>
-<a name="createPointSetView-com.microblink.view.recognition.RecognizerView-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createPointSetView</h4>
-<pre>protected&nbsp;PointSetView&nbsp;createPointSetView(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</pre>
-</li>
-</ul>
-<a name="addChildViews-com.microblink.view.recognition.RecognizerView-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addChildViews</h4>
-<pre>protected&nbsp;void&nbsp;addChildViews(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
-                             int&nbsp;viewfinderId)</pre>
-<div class="block">adds fixed and rotatable views to given mbView</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>recognizerView</code> - </dd>
-</dl>
-</li>
-</ul>
-<a name="addChildViews-com.microblink.view.recognition.RecognizerView-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>addChildViews</h4>
-<pre>protected abstract&nbsp;void&nbsp;addChildViews(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView)</pre>
-</li>
-</ul>
-<a name="postDisplayMessage-java.lang.CharSequence-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>postDisplayMessage</h4>
-<pre>protected&nbsp;void&nbsp;postDisplayMessage(java.lang.CharSequence&nbsp;text)</pre>
-</li>
-</ul>
-<a name="displayMessageImmediately-java.lang.CharSequence-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>displayMessageImmediately</h4>
-<pre>protected&nbsp;void&nbsp;displayMessageImmediately(java.lang.CharSequence&nbsp;text)</pre>
+<h4>createScanningOverlayFromIntent</h4>
+<pre>protected abstract&nbsp;<a href="../../../com/microblink/fragment/overlay/BaseScanOverlayController.html" title="class in com.microblink.fragment.overlay">BaseScanOverlayController</a>&nbsp;createScanningOverlayFromIntent(android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
 <a name="finishAndWaitForAnimation--">
@@ -1353,7 +395,8 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 <ul class="blockList">
 <li class="blockList">
 <h4>finishAndWaitForAnimation</h4>
-<pre>protected&nbsp;void&nbsp;finishAndWaitForAnimation()</pre>
+<pre>@WorkerThread
+protected final&nbsp;void&nbsp;finishAndWaitForAnimation()</pre>
 </li>
 </ul>
 <a name="isFinishing--">
@@ -1369,273 +412,22 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 </dl>
 </li>
 </ul>
-<a name="isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isOrientationAllowed</h4>
-<pre>public&nbsp;boolean&nbsp;isOrientationAllowed(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/OrientationAllowedListener.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">OrientationAllowedListener</a></code></span></div>
-<div class="block">Called in onOrientationChange. Use it to determine if given orientation
- is allowed.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/OrientationAllowedListener.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/OrientationAllowedListener.html" title="interface in com.microblink.view">OrientationAllowedListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>orientation</code> - Orientation of the device.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if orientation is allowed, otherwise false</dd>
-</dl>
-</li>
-</ul>
-<a name="setHelpButtonEnabled-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setHelpButtonEnabled</h4>
-<pre>protected&nbsp;void&nbsp;setHelpButtonEnabled(boolean&nbsp;enabled)</pre>
-</li>
-</ul>
-<a name="displayDetectionStatus-com.microblink.view.recognition.DetectionStatus-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>displayDetectionStatus</h4>
-<pre>protected&nbsp;void&nbsp;displayDetectionStatus(<a href="../../../com/microblink/view/recognition/DetectionStatus.html" title="enum in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</pre>
-</li>
-</ul>
-<a name="onMetadataAvailable-com.microblink.metadata.Metadata-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onMetadataAvailable</h4>
-<pre>public&nbsp;void&nbsp;onMetadataAvailable(<a href="../../../com/microblink/metadata/Metadata.html" title="class in com.microblink.metadata">Metadata</a>&nbsp;metadata)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/metadata/MetadataListener.html#onMetadataAvailable-com.microblink.metadata.Metadata-">onMetadataAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/metadata/MetadataListener.html" title="interface in com.microblink.metadata">MetadataListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onDetectorResultAvailable-com.microblink.detectors.DetectorResult-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onDetectorResultAvailable</h4>
-<pre>protected&nbsp;void&nbsp;onDetectorResultAvailable(<a href="../../../com/microblink/detectors/DetectorResult.html" title="class in com.microblink.detectors">DetectorResult</a>&nbsp;detectorResult)</pre>
-</li>
-</ul>
-<a name="onAutofocusFailed--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onAutofocusFailed</h4>
-<pre>public&nbsp;void&nbsp;onAutofocusFailed()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusFailed--">AutofocusListener</a></code></span></div>
-<div class="block">This method will be called when camera focusing has failed.
- Camera manager usually tries different focusing strategies
- and this method is called when all those strategies fail to
- indicate that either object on which camera is being focused
- is too close or ambient light conditions are poor.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusFailed--">onAutofocusFailed</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onAutofocusStopped-android.graphics.Rect:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onAutofocusStopped</h4>
-<pre>public&nbsp;void&nbsp;onAutofocusStopped(android.graphics.Rect[]&nbsp;areas)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStopped-android.graphics.Rect:A-">AutofocusListener</a></code></span></div>
-<div class="block">This method will be called when camera focusing has stopped.
- You can utilize this method to remove focusing animation from UI.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStopped-android.graphics.Rect:A-">onAutofocusStopped</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>areas</code> - Areas where focus is being measured. Null on devices that do not support fine-grained camera control</dd>
-</dl>
-</li>
-</ul>
-<a name="onAutofocusStarted-android.graphics.Rect:A-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onAutofocusStarted</h4>
-<pre>public&nbsp;void&nbsp;onAutofocusStarted(android.graphics.Rect[]&nbsp;areas)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStarted-android.graphics.Rect:A-">AutofocusListener</a></code></span></div>
-<div class="block">This method will be called when camera focusing has started.
- You can utilize this method to draw focusing animation on UI.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStarted-android.graphics.Rect:A-">onAutofocusStarted</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html" title="interface in com.microblink.hardware.camera">AutofocusListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>areas</code> - Areas where focus is being measured. Null on devices that do not support fine-grained camera control</dd>
-</dl>
-</li>
-</ul>
-<a name="onCameraPermissionDenied--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCameraPermissionDenied</h4>
-<pre>public&nbsp;void&nbsp;onCameraPermissionDenied()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPermissionDenied--">CameraEventsListener</a></code></span></div>
-<div class="block">Called on Android 6.0 and newer when runtime camera permission was not given to the app. You should implement this
- callback by requesting camera permission from user.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPermissionDenied--">onCameraPermissionDenied</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onSizeChanged-int-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onSizeChanged</h4>
-<pre>public&nbsp;void&nbsp;onSizeChanged(int&nbsp;width,
-                          int&nbsp;height)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/OnSizeChangedListener.html#onSizeChanged-int-int-">OnSizeChangedListener</a></code></span></div>
-<div class="block">Called when CameraView changes the size of itself and its children.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/OnSizeChangedListener.html#onSizeChanged-int-int-">onSizeChanged</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/OnSizeChangedListener.html" title="interface in com.microblink.view">OnSizeChangedListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>width</code> - New width of the view.</dd>
-<dd><code>height</code> - New height of the view.</dd>
-</dl>
-</li>
-</ul>
-<a name="onCameraPreviewStarted--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCameraPreviewStarted</h4>
-<pre>public&nbsp;void&nbsp;onCameraPreviewStarted()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStarted--">CameraEventsListener</a></code></span></div>
-<div class="block">Called just after camera preview has successfully
- started and no exceptions occurred. When this method is called, it means
- that from now on, frames will arrive and preview will be shown.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStarted--">onCameraPreviewStarted</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onCameraPreviewStopped--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onCameraPreviewStopped</h4>
-<pre>public&nbsp;void&nbsp;onCameraPreviewStopped()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStopped--">CameraEventsListener</a></code></span></div>
-<div class="block">Called inside pause method of CameraView just haver camera preview has been stopped.
- After this method is called, frames will no longer arrive nor will be shown.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/CameraEventsListener.html#onCameraPreviewStopped--">onCameraPreviewStopped</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="onError-java.lang.Throwable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onError</h4>
-<pre>public&nbsp;void&nbsp;onError(java.lang.Throwable&nbsp;exc)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html#onError-java.lang.Throwable-">CameraEventsListener</a></code></span></div>
-<div class="block">Called when recognition results with exception. Known exceptions
- that can occur are following:
-      * com.microblink.hardware.camera.CameraResolutionTooSmallException is thrown when largest possible camera preview
-        resolution is not enough for making a successful scan
-      * java.lang.UnsatisfiedLinkError is thrown when native library was not successfully loaded thus making scans impossible
-      * com.microblink.recognition.RecognizerError is thrown when initialization or reinitialization of native recognizer fails
-      * com.microblink.recognition.FeatureNotSupportedException is thrown when scanning cannot be performed. The reason why
-        scanning cannot be perfomed can be obtained by calling getReason() method of thrown exception.
-      * java.lang.Throwable is thrown in all other cases (for example when camera is not ready because it is used by other
-        apps or some unknown error has occurred)</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/CameraEventsListener.html#onError-java.lang.Throwable-">onError</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/CameraEventsListener.html" title="interface in com.microblink.view">CameraEventsListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>exc</code> - Exception that occurred during recognition.</dd>
-</dl>
-</li>
-</ul>
-<a name="getRecognizerView--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRecognizerView</h4>
-<pre>protected final&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;getRecognizerView()</pre>
-</li>
-</ul>
-<a name="getDefaultOrientation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDefaultOrientation</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;getDefaultOrientation()</pre>
-<div class="block">Method returns the default status messages orientation for given
- settings. Default orientation is determined from enabled recognizers.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>default orientation of the status messages</dd>
-</dl>
-</li>
-</ul>
-<a name="createRecognizerView-android.os.Bundle-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createRecognizerView</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;createRecognizerView(android.os.Bundle&nbsp;intentExtras)</pre>
-</li>
-</ul>
-<a name="onScanningDone-com.microblink.recognizers.RecognitionResults-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onScanningDone</h4>
-<pre>public&nbsp;void&nbsp;onScanningDone(<a href="../../../com/microblink/recognizers/RecognitionResults.html" title="class in com.microblink.recognizers">RecognitionResults</a>&nbsp;results)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognizers.RecognitionResults-">ScanResultListener</a></code></span></div>
-<div class="block">This method is called when recognition is done.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognizers.RecognitionResults-">onScanningDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>results</code> - Recognition results.</dd>
-</dl>
-</li>
-</ul>
-<a name="onConfigureRecognizerView-com.microblink.view.recognition.RecognizerView-android.os.Bundle-">
+<a name="onScanningDone-RecognitionSuccessType-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>onConfigureRecognizerView</h4>
-<pre>protected abstract&nbsp;void&nbsp;onConfigureRecognizerView(<a href="../../../com/microblink/view/recognition/RecognizerView.html" title="class in com.microblink.view.recognition">RecognizerView</a>&nbsp;recognizerView,
-                                                  android.os.Bundle&nbsp;intentExtras)</pre>
+<h4>onScanningDone</h4>
+<pre>public&nbsp;void&nbsp;onScanningDone(@NonNull
+                           RecognitionSuccessType&nbsp;successType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when recognition is done.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>successType</code> - indicates the success type of recognition</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -1665,8 +457,8 @@ implements <a href="../../../com/microblink/metadata/MetadataListener.html" titl
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
-<li><a href="../../../com/microblink/activity/BaseVerificationFlowActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BarcodeScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/DocumentScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/activity/BaseScanActivity.html" target="_top">Frames</a></li>

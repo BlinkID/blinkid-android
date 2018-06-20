@@ -114,6 +114,9 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">OcrResult</span>
 extends java.lang.Object
 implements android.os.Parcelable</pre>
+<div class="block">Represents a raw OCR result. OCR result contains one or more OCR blocks. Each OCR block contains
+ one or more OCR lines. Each line contains one or more OCR chars. Each OCR char is represented
+ with its value, position and possible alternatives.</div>
 </li>
 </ul>
 </div>
@@ -131,7 +134,7 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;android.os.Parcelable</h3>
-<code>android.os.Parcelable.ClassLoaderCreator&lt;T&gt;, android.os.Parcelable.Creator&lt;T&gt;</code></li>
+<code>android.os.Parcelable.ClassLoaderCreator, android.os.Parcelable.Creator</code></li>
 </ul>
 </li>
 </ul>
@@ -148,8 +151,10 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>static android.os.Parcelable.Creator</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#CREATOR">CREATOR</a></span></code>
+<div class="block">Parcelable creator.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -173,7 +178,8 @@ implements android.os.Parcelable</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#OcrResult-long-">OcrResult</a></span>(long&nbsp;nativePtr)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#OcrResult-long-java.lang.Object-">OcrResult</a></span>(long&nbsp;nativePtr,
+         java.lang.Object&nbsp;keep)</code>
 <div class="block">Constructor from native code</div>
 </td>
 </tr>
@@ -193,24 +199,28 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#clone--">clone</a></span>()</code>
+<div class="block">Creates a clone of the object.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#dispose--">dispose</a></span>()</code>
+<div class="block">Disposes the object.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#finalize--">finalize</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrBlock.html" title="class in com.microblink.results.ocr">OcrBlock</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#getBlocks--">getBlocks</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#getResultName--">getResultName</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>android.graphics.Matrix</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/OcrResult.html#getTransformation--">getTransformation</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -227,7 +237,7 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
+<code>equals, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +259,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&gt; CREATOR</pre>
+<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<div class="block">Parcelable creator.</div>
 </li>
 </ul>
 </li>
@@ -260,13 +271,14 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="OcrResult-long-">
+<a name="OcrResult-long-java.lang.Object-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>OcrResult</h4>
-<pre>public&nbsp;OcrResult(long&nbsp;nativePtr)</pre>
+<pre>public&nbsp;OcrResult(long&nbsp;nativePtr,
+                 java.lang.Object&nbsp;keep)</pre>
 <div class="block">Constructor from native code</div>
 </li>
 </ul>
@@ -294,6 +306,32 @@ implements android.os.Parcelable</pre>
 </dl>
 </li>
 </ul>
+<a name="dispose--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dispose</h4>
+<pre>public&nbsp;void&nbsp;dispose()</pre>
+<div class="block">Disposes the object. After the object has been disposed, all operations on it are illegal.</div>
+</li>
+</ul>
+<a name="clone--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clone</h4>
+<pre>public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&nbsp;clone()</pre>
+<div class="block">Creates a clone of the object.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>clone</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a clone of the object.</dd>
+</dl>
+</li>
+</ul>
 <a name="getBlocks--">
 <!--   -->
 </a>
@@ -304,32 +342,6 @@ implements android.os.Parcelable</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the blocks</dd>
-</dl>
-</li>
-</ul>
-<a name="getResultName--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getResultName</h4>
-<pre>public&nbsp;java.lang.String&nbsp;getResultName()</pre>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the resultName</dd>
-</dl>
-</li>
-</ul>
-<a name="getTransformation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTransformation</h4>
-<pre>public&nbsp;android.graphics.Matrix&nbsp;getTransformation()</pre>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the transformation</dd>
 </dl>
 </li>
 </ul>

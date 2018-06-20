@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,7 +131,7 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;android.os.Parcelable</h3>
-<code>android.os.Parcelable.ClassLoaderCreator&lt;T&gt;, android.os.Parcelable.Creator&lt;T&gt;</code></li>
+<code>android.os.Parcelable.ClassLoaderCreator, android.os.Parcelable.Creator</code></li>
 </ul>
 </li>
 </ul>
@@ -148,7 +148,7 @@ implements android.os.Parcelable</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/ocr/CharWithVariants.html" title="class in com.microblink.results.ocr">CharWithVariants</a>&gt;</code></td>
+<td class="colFirst"><code>static android.os.Parcelable.Creator</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
 </tr>
 </table>
@@ -196,18 +196,22 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#dispose--">dispose</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#getChar--">getChar</a></span>()</code>
 <div class="block">Returns the <a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr"><code>OcrChar</code></a> which contains information about the char.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#getRecognitionVariants--">getRecognitionVariants</a></span>()</code>
 <div class="block">Returns the recognition variants of this char or null if there are no variants.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/ocr/CharWithVariants.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -240,7 +244,7 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/ocr/CharWithVariants.html" title="class in com.microblink.results.ocr">CharWithVariants</a>&gt; CREATOR</pre>
+<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -269,6 +273,15 @@ implements android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="dispose--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dispose</h4>
+<pre>public&nbsp;void&nbsp;dispose()</pre>
+</li>
+</ul>
 <a name="getChar--">
 <!--   -->
 </a>

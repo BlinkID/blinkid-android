@@ -132,7 +132,7 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from interface&nbsp;android.os.Parcelable</h3>
-<code>android.os.Parcelable.ClassLoaderCreator&lt;T&gt;, android.os.Parcelable.Creator&lt;T&gt;</code></li>
+<code>android.os.Parcelable.ClassLoaderCreator, android.os.Parcelable.Creator</code></li>
 </ul>
 </li>
 </ul>
@@ -149,7 +149,7 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&gt;</code></td>
+<td class="colFirst"><code>static android.os.Parcelable.Creator</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateResult.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
 </tr>
 </table>
@@ -252,7 +252,7 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&gt; CREATOR</pre>
+<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -272,7 +272,7 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getOriginalDateString()</pre>
 <div class="block">Returns original string representation of the date which has been extracted from the OCR result.
- If it is successfully parsed to <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object, it can be obtained by using <a href="../../../../com/microblink/results/date/DateResult.html#getDate--"><code>getDate()</code></a> method.</div>
+ If it is successfully parsed to <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> object, it can be obtained by using <a href="../../../../com/microblink/results/date/DateResult.html#getDate--"><code>DateResult.getDate()</code></a> method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>original string representation of the date which has been extracted from the OCR result</dd>
@@ -288,7 +288,7 @@ public&nbsp;java.lang.String&nbsp;getOriginalDateString()</pre>
 <pre>@Nullable
 public&nbsp;<a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;getDate()</pre>
 <div class="block">Date getter, if <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date"><code>Date</code></a> representation of date result exists returns it,
- otherwise returns null. To obtain original date string use <a href="../../../../com/microblink/results/date/DateResult.html#getOriginalDateString--"><code>getOriginalDateString()</code></a>
+ otherwise returns null. To obtain original date string use <a href="../../../../com/microblink/results/date/DateResult.html#getOriginalDateString--"><code>DateResult.getOriginalDateString()</code></a>
  method.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -395,7 +395,7 @@ public&nbsp;java.lang.Object&nbsp;getNativeResult()</pre>
 public&nbsp;java.lang.String&nbsp;getStringResult()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/results/Result.html#getStringResult--">Result</a></code></span></div>
 <div class="block">Returns the string version of the result. For example, for <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a>, this method
- will return original string from which date was parsed (same as <a href="../../../../com/microblink/results/date/DateResult.html#getOriginalDateString--"><code>getOriginalDateString()</code></a>.</div>
+ will return original string from which date was parsed (same as <a href="../../../../com/microblink/results/date/DateResult.html#getOriginalDateString--"><code>DateResult.getOriginalDateString()</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../com/microblink/results/Result.html#getStringResult--">getStringResult</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/results/Result.html" title="interface in com.microblink.results">Result</a></code></dd>
