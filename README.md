@@ -130,7 +130,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
 The package contains Android Archive (AAR) that contains everything you need to use _BlinkID_ library. Besides AAR, package also contains a sample project that contains following modules:
 
 - _BlinkID-aMinimalSample_ demonstrates quick and simple integration of _BlinkID_ library
-- _BlinkID_AllRecognizersSample_ demonstrates integration of almost all available features. This sample application is best for performing a quick test of supported features.
+- _BlinkID-AllRecognizersSample_ demonstrates integration of almost all available features. This sample application is best for performing a quick test of supported features.
 - _BlinkID-CustomCombinedSample_ demonstrates advanced custom UI integration and usage of the combined recognizers within a custom scan activity.
 - _BlinkID-CustomFieldByFieldScanSample_ demonstrates advanced integration of Field by Field feature within custom scan activity. It shows how to create a custom scan activity for scanning little text fields.
 - _BlinkID-CustomUISample_ demonstrates advanced integration within custom scan activity.
