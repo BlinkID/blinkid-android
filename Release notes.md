@@ -1,5 +1,45 @@
 # Release notes
 
+## 3.18.0
+
+### Improvements for existing features:
+
+- `com.microblink.image.Image` class now has getter `getImageQuality()`:
+    - can be used to choose the best image from the same scan
+    - it only makes sense to relatively compare image qualities from consecutive camera frames from the same scan on a certain device
+
+### Bug fixes:
+
+- fixed `UnitedArabEmiratesIDBackRecognizer`:
+    - enabled reading of UAE back side where MRZ starts with `IR`
+
+## 3.17.0
+
+### New features:
+
+- added support for reading front side of Sweden Driver's License - use `SwedenDLFrontRecognizerSettings` 
+
+### Improvements for existing features:
+
+- improved `CroatianIDBackSideRecognizer`:
+    - better reading of address field
+- improved `GermanIDFrontSideRecognizer`:
+    - added support for reading CAN number
+- improved `USDLRecognizer`:
+    - better parsing of the USDL data fields
+- improved `HongKongIDFrontRecognizer`:
+    - better reading of document number (check digit validation)
+- improved `IKadRecognizer`:
+    - added support for iKad IMM_55 document type (foreign students card)
+- added option to extend full document image for German recognizers:
+`GermanIDFrontSideRecognizer`, `GermanOldIDRecognizer`, `GermanIDBackSideRecognizer`, `GermanIDCombinedRecognizer` and `GermanPassportRecognizer` - use method `setFullDocumentImageExtensionFactors(ImageExtensionFactors)` from the corresponding recognizer settings
+- when `DocumentFaceRecognizer` is activated at the same time with another more specific recognizer(s) (e.g. EUDLRecognizer), preference is given to the more specific recognizer which means that it will get a chance to extract additional data from the concrete document type
+
+### Bug fixes:
+
+- fixed reading of non-standard PDF417 barcodes
+
+
 ## 3.16.0
 
 ### New features:
@@ -10,7 +50,6 @@
 
 ### Improvements for existing features:
 
-- improved reading of Malaysian MyKad and MyTentera
 - improved `USDLRecognizer`:
     - better parsing of the USDL barcode content
     - fixed extraction of expiry date from magnetic stripe USDL subtype

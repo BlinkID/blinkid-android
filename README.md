@@ -30,6 +30,7 @@ _BlinkID_ SDK for Android is SDK that enables you to perform scans of various ID
 * [Front and rear side of Singapore ID card](https://en.wikipedia.org/wiki/National_Registration_Identity_Card)
 * [Front and rear side of Slovak identity card](https://en.wikipedia.org/wiki/Slovak_identity_card)
 * [Front and rear side of Slovenian identity card](https://en.wikipedia.org/wiki/Slovenian_identity_card)
+* [Front side of Sweden Driver's Licence](https://en.wikipedia.org/wiki/Driving_licence_in_Sweden)
 * [Front and rear side of Swiss identity card](https://en.wikipedia.org/wiki/Swiss_identity_card)
 * [Swiss passport](https://en.wikipedia.org/wiki/Swiss_passport)
 * Front and rear side of United Arab Emirates identity card
@@ -115,6 +116,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
   * [Scanning front side of Australian driver's licences](#australianDL_front)
   * [Scanning back side of Australian driver's licences](#australianDL_back)
   * [Scanning front side of New Zealand driver's licences](#newZealandDL_front)
+  * [Scanning front side of Sweden driver's licences](#swedenDL_front)
   * [Scanning front side of Malaysian driver's licences](#malaysiaDL_front)
   * [Scanning front side of Malaysian MyKad ID documents](#myKad_front)
   * [Scanning back side of Malaysian MyKad ID documents](#myKad_back)
@@ -208,7 +210,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:3.16.0@aar') {
+    implementation('com.microblink:blinkid:3.18.0@aar') {
     	transitive = true
     }
 }
@@ -220,7 +222,7 @@ Current version of Android Studio will not automatically import javadoc from mav
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-3.16.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-3.18.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for definining documentation URL will appear
@@ -245,7 +247,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>3.16.0</version>
+		  <version>3.18.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -261,7 +263,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	```
 	dependencies {
 		implementation project(':LibBlinkID')
-		implementation "com.android.support:appcompat-v7:27.1.0"
+		implementation "com.android.support:appcompat-v7:27.1.1"
 	}
 	```
 	
@@ -589,14 +591,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
-
-	```java
-	// set the license key
-	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
-	intent.putExtra(ScanCard.EXTRAS_LICENSEE, "Enter_Licensee_Here");
-	```
-
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications.
 * <a name="intent_EXTRAS_SHOW_OCR_RESULT" href="#intent_EXTRAS_SHOW_OCR_RESULT">#</a> **`ScanCard.EXTRAS_SHOW_OCR_RESULT`** - with this extra you can define whether OCR result should be drawn on camera preview as it arrives. This is enabled by default, to disable it, use the following snippet:
 
 	```java
@@ -681,14 +676,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
-
-	```java
-	// set the license key
-	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
-	intent.putExtra(ScanCard.EXTRAS_LICENSEE, "Enter_Licensee_Here");
-	```
-
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications.
 * <a name="intent_EXTRAS_SHOW_OCR_RESULT" href="#intent_EXTRAS_SHOW_OCR_RESULT">#</a> **`ScanCard.EXTRAS_SHOW_OCR_RESULT`** - with this extra you can define whether OCR result should be drawn on camera preview as it arrives. This is enabled by default, to disable it, use the following snippet:
 
 	```java
@@ -825,13 +813,7 @@ This section will discuss possible parameters that can be sent over `Intent` for
 	intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
 	```
 	
-	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications. However, if you purchase Premium licence, you will get licence key that can be used in multiple applications. This licence key will then not be bound to package name of the app. Instead, it will be bound to the licencee string that needs to be provided to the library together with the licence key. To provide licencee string, use the `EXTRAS_LICENSEE` intent extra like this:
-
-	```java
-	// set the license key
-	intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
-	intent.putExtra(VerificationFlowActivity.EXTRAS_LICENSEE, "Enter_Licensee_Here");
-	```
+	Licence key is bound to package name of your application. For example, if you have licence key that is bound to `com.microblink.blinkid` app package, you cannot use the same key in other applications.
 
 * <a name="intent_EXTRAS_IMAGE_LISTENER_combined" href="#intent_EXTRAS_IMAGE_LISTENER_combined">#</a> **`VerificationFlowActivity.EXTRAS_IMAGE_LISTENER`** - with this extra you can set your implementation of [ImageListener interface](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) that will obtain images that are being processed. Make sure that your [ImageListener](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageListener.html) implementation correctly implements [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html) interface with static [CREATOR](https://developer.android.com/reference/android/os/Parcelable.Creator.html) field. Without this, you might encounter a runtime error. For more information and example, see [Using ImageListener to obtain images that are being processed](#imageListener). By default, _ImageListener_ will receive all possible images that become available during recognition process. This will introduce performance penalty because most of those images will probably not be used so sending them will just waste time. To control which images should become available to _ImageListener_, you can also set [ImageMetadata settings](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataSettings.ImageMetadataSettings.html) with `VerificationFlowActivity.EXTRAS_IMAGE_METADATA_SETTINGS`
 
@@ -1138,9 +1120,6 @@ from the current recognition process. Which metadata will be available depends o
 Defines whether warning toast for time limited license key will be displayed. The goal is to prevent unintentional publishing of application to production with the license key that will expire. To take effect, this method should be called before setting the license key. By default, warning is enabled. **Be careful, disable this warning only if necessary**.
 ##### <a name="recognizerView_setLicenseKey1"></a> [`setLicenseKey(String licenseKey)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKey-java.lang.String-)
 This method sets the license key that will unlock all features of the native library. You can obtain your license key from [Microblink website](http://microblink.com/login).
-
-##### <a name="recognizerView_setLicenseKey2"></a> [`setLicenseKey(String licenseKey, String licensee)`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerView.html#setLicenseKey-java.lang.String-java.lang.String-)
-Use this method to set a license key that is bound to a licensee, not the application package name. You will use this method when you obtain a license key that allows you to use _BlinkID_ SDK in multiple applications. You can obtain your license key from [Microblink website](http://microblink.com/login).
 
 # <a name="directAPI"></a> Using direct API for recognition of Android Bitmaps
 
@@ -4286,6 +4265,58 @@ public void onScanningDone(RecognitionResults results) {
 
 **Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/newzealand/driversLicense/front/NewZealandDLFrontRecognitionResult.html).**
 
+## <a name="swedenDL_front"></a> Scanning front side of Sweden driver's licences
+
+This section will discuss the setting up of Sweden Driver's Licence front side recognizer and obtaining results from it.
+
+### Setting up Sweden Driver's Licence front side recognizer
+
+To activate Sweden Driver's Licence front side recognizer, you need to create [SwedenDLFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/sweden/dl/SwedenDLFrontRecognizerSettings.html) and add it to `RecognizerSettings` array. You can use the following code snippet to perform that:
+
+```java
+private RecognizerSettings[] setupSettingsArray() {
+	SwedenDLFrontRecognizerSettings sett = new SwedenDLFrontRecognizerSettings();
+	
+	// now add sett to recognizer settings array that is used to configure
+	// recognition
+	return new RecognizerSettings[] { sett };
+}
+```
+
+**You can also tweak recognition parameters with methods of [SwedenDLFrontRecognizerSettings](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/sweden/dl/SwedenDLFrontRecognizerSettings.html). Check [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/sweden/dl/SwedenDLFrontRecognizerSettings.html) for more information.**
+
+### Obtaining results from Sweden Driver's Licence front side recognizer
+
+Sweden Driver's Licence front side recognizer produces [SwedenDLFrontRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/sweden/dl/SwedenDLFrontRecognitionResult.html). You can use `instanceof` operator to check if element in results array is instance of `SwedenDLFrontRecognitionResult` class. 
+
+**Note:** `SwedenDLFrontRecognitionResult` extends [DetectorRecognitionResult](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/detector/DetectorRecognitionResult.html) so make sure you take that into account when using `instanceof` operator.
+
+See the following snippet for an example:
+
+```java
+@Override
+public void onScanningDone(RecognitionResults results) {
+	BaseRecognitionResult[] dataArray = results.getRecognitionResults();
+	for(BaseRecognitionResult baseResult : dataArray) {
+		if(baseResult instanceof SwedenDLFrontRecognitionResult) {
+			SwedenDLFrontRecognitionResult result = (SwedenDLFrontRecognitionResult) baseResult;
+			
+	        // you can use getters of SwedenDLFrontRecognitionResult class to 
+	        // obtain scanned information
+	        if(result.isValid() && !result.isEmpty()) {
+				String surname = result.getSurname();
+				String licenceNumber = result.getLicenceNumber();
+	        } else {
+	        	// not all relevant data was scanned, ask user
+	        	// to try again
+	        }
+		}
+	}
+}
+```
+
+**Available getters are documented in [Javadoc](https://blinkid.github.io/blinkid-android/com/microblink/recognizers/blinkid/sweden/dl/SwedenDLFrontRecognitionResult.html).**
+
 ## <a name="malaysiaDL_front"></a> Scanning front side of Malaysian driver's licences
 
 This section will discuss the setting up of Malaysian Driver's Licence front side recognizer and obtaining results from it.
@@ -5765,33 +5796,10 @@ When creating your own SDK which depends on _BlinkID_, you should consider follo
 
 ## <a name="licensingModel"></a> _BlinkID_ licensing model
 
-_BlinkID_ supports two types of licenses: 
-
-- application licenses
-- library licenses.
-
 ### <a name="appLicence"></a> Application licenses
 
-Application license keys are bound to application's [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename). This means that each app must have its own license key in order to be able to use _BlinkID_. This model is appropriate when integrating _BlinkID_ directly into app, however if you are creating SDK that depends on _BlinkID_, you would need separate _BlinkID_ license key for each of your clients using your SDK. This is not practical, so you should contact us at [help.microblink.com](http://help.microblink.com) and we can provide you a library license key.
+Application license keys are bound to application's [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename). This means that each app must have its own license key in order to be able to use _BlinkID_. This model is appropriate when integrating _BlinkID_ directly into app, however if you are creating SDK that depends on _BlinkID_, you would need separate _BlinkID_ license key for each of your clients using your SDK.
 
-### <a name="libLicence"></a> Library licenses
-
-Library license keys are bound to licensee name. You will provide your licensee name with your inquiry for library license key. Unlike application license keys, library license keys must be set together with licensee name:
-
-- when using _ScanCard_, you should provide licensee name with extra `ScanCard.EXTRAS_LICENSEE`, for example:
-
-	```java
-	// set the license key
-	intent.putExtra(ScanCard.EXTRAS_LICENSE_KEY, "Enter_License_Key_Here");
-	intent.putExtra(ScanCard.EXTRAS_LICENSEE, "Enter_Licensee_Here");
-	```
-	
-- when using [RecognizerView](#recognizerView), you should use [method that accepts both license key and licensee](#recognizerView_setLicenseKey2), for example:
-
-	```java
-	mRecognizerView.setLicenseKey("Enter_License_Key_Here", "Enter_Licensee_Here");
-	```
-	
 ## <a name="sdkIntegrationIntoApp"></a> Ensuring the final app gets all resources required by _BlinkID_
 
 At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
