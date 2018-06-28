@@ -29,7 +29,6 @@
     <string name="help_msg_02">When scanning is done you can edit data by tapping it.</string>
     <string name="help_msg_03">Swipe or tap title of element that should be scanned.</string>
 
-    <string name="ocr_fullScreen">Full Screen OCR</string>
     <string name="customUI">Custom Scan UI Integration</string>
     <string name="simple_integration">Simple Integration</string>
     <string name="regex_example">Regex Example</string>
