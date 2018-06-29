@@ -47,7 +47,6 @@ public class MainActivity extends BaseMenuActivity {
         items.add(buildSimpleIntegrationItem());
         items.add(buildRegexExampleElement());
         items.add(buildAdvancedIntegrationElement());
-        items.add(buildFullScreenOCRElement());
         return items;
     }
 
@@ -135,16 +134,6 @@ public class MainActivity extends BaseMenuActivity {
         });
     }
 
-    // example of how to use full screen OCR is demonstrated in FullScreenOcrActivity activity
-    private MenuListItem buildFullScreenOCRElement() {
-        return new MenuListItem(getString(R.string.ocr_fullScreen), new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(MainActivity.this, FullScreenOcrActivity.class));
-            }
-        });
-    }
-
     /*
      * This method is called whenever control is returned from activity started with
      * startActivityForResult.
@@ -152,7 +141,6 @@ public class MainActivity extends BaseMenuActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // first we need to check that we have indeed returned from BlinkOCRActivity with success
         if (resultCode == FieldByFieldScanActivity.RESULT_OK) {
             switch (requestCode) {
                 case SIMPLE_INTEGRATION_REQUEST_CODE:

@@ -37,11 +37,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.microblink.blinkid.FullScreenOcrActivity"
-            android:label="@string/title_activity_scan"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.microblink.help.HelpActivity"
             android:screenOrientation="portrait" >
         </activity>
