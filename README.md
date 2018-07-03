@@ -1215,7 +1215,7 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="blinkid_recognizers_indonesia"></a> Indonesia
 
-#### <a name="hongkong_id"></a> Hong Kong ID front side recognizer
+#### <a name="hongkong_id"></a> Indonesia ID front side recognizer
 The [`IndonesiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/indonesia/IndonesiaIdFrontRecognizer.html) is used for scanning [front side of Indonesian identity card](https://en.wikipedia.org/wiki/Indonesian_identity_card).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
