@@ -77,6 +77,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [Slovenia](#blinkid_recognizers_slovenia)
         * [Sweden](#blinkid_recognizers_sweden)
         * [Switzerland](#blinkid_recognizers_switzerland)
+        * [United Arab Emirates](#blinkid_recognizers_uae)
         * [United Kingdom](#blinkid_recognizers_uk)
         * [US / Canada](#blinkid_recognizers_us_canada)
 * [`Field by field` scanning feature](#fieldByFieldFeature)
@@ -112,7 +113,6 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
 * [Embedding _BlinkID_ inside another SDK](#embedAAR)
     * [_BlinkID_ licensing model](#licensingModel)
         * [Application licenses](#appLicence)
-        * [Library licenses](#libLicence)
     * [Ensuring the final app gets all resources required by _BlinkID_](#sdkIntegrationIntoApp)
 * [Processor architecture considerations](#archConsider)
     * [Reducing the final size of your app](#reduceSize)
@@ -229,7 +229,7 @@ However, if you still want to use Eclipse, you will need to convert AAR archive 
 5. Copy the contents of `jni` folder to `libs` folder of your Eclipse library project.
 6. Replace the `res` folder on library project with the `res` folder of the `LibBlinkID.aar` file.
 
-You?ve already created the project that contains almost everything you need. Now let?s see how to configure your project to reference this library project.
+You’ve already created the project that contains almost everything you need. Now let’s see how to configure your project to reference this library project.
 
 1. In the project you want to use the library (henceforth, "target project") add the library project as a dependency
 2. Open the `AndroidManifest.xml` file inside `LibBlinkID.aar` file and make sure to copy all permissions, features and activities to the `AndroidManifest.xml` file of the target project.
@@ -1121,7 +1121,7 @@ You can find information about usage context at the beginning of [this section](
 ### <a name="blinkid_recognizers_australia"></a> Australia
 
 #### <a name="australia_dl"></a> Ausralia driver's license front and back side recognizers
-The [`AustraliaDlFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlFrontSideRecognizer.html) and [`AustraliaDlBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlBackSideRecognizer.html) are used for scanning [Australian driver's license front and back side](https://en.wikipedia.org/wiki/Driving_licence_in_Australia).
+The [`AustraliaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlFrontRecognizer.html) and [`AustraliaDlBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlBackRecognizer.html) are used for scanning [Australian driver's license front and back side](https://en.wikipedia.org/wiki/Driving_licence_in_Australia).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -1131,7 +1131,7 @@ You can find information about usage context at the beginning of [this section](
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="austria_id"></a> Austria ID front and back side recognizers
-The [`AustriaIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaIdFrontSideRecognizer.html) and [`AustriaIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaIdBackSideRecognizer.html) are used for scanning the [front and back side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card).
+The [`AustriaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaIdFrontRecognizer.html) and [`AustriaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaIdBackRecognizer.html) are used for scanning the [front and back side of Austrian identity card](https://en.wikipedia.org/wiki/Austrian_identity_card).
 
 #### <a name="austria_passport"></a> Austria passport recognizer
 The [`AustriaPassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaPassportRecognizer.html) is used for scanning the data page of [Austrian passport](https://en.wikipedia.org/wiki/Austrian_passport).
@@ -1148,7 +1148,7 @@ For scanning [the front side of Austrian driver's license](https://en.wikipedia.
 ### <a name="blinkid_recognizers_colombia"></a> Colombia
 
 #### <a name="colombia_id"></a> Colombia ID front and back side recognizers
-The [`ColombiaIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdFrontSideRecognizer.html) and [`ColombiaIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdBackSideRecognizer.html) are used for scanning the front and back side of Colombian identity card.
+The [`ColombiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdFrontRecognizer.html) and [`ColombiaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdBackRecognizer.html) are used for scanning the front and back side of Colombian identity card.
 
 
 ### <a name="blinkid_recognizers_croatia"></a> Croatia
@@ -1156,7 +1156,7 @@ The [`ColombiaIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="croatia_id"></a> Croatia ID front and back side recognizers
-The [`CroatiaIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaIdFrontSideRecognizer.html) and [`CroatiaIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaIdBackSideRecognizer.html) are used for scanning the [front and back side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card).
+The [`CroatiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaIdFrontRecognizer.html) and [`CroatiaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaIdBackRecognizer.html) are used for scanning the [front and back side of Croatian identity card](https://en.wikipedia.org/wiki/Croatian_identity_card).
 
 #### <a name="croatia_combined"></a> Croatia combined recognizer
 The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaCombinedRecognizer.html) scans back side of Croatian ID after scanning the front side and combines data from both sides.
@@ -1167,7 +1167,7 @@ The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="czechia_id"></a> Czechia ID front and back side recognizers
-The [`CzechiaIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdFrontSideRecognizer.html) and [`CzechiaIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdBackSideRecognizer.html) are used for scanning the [front and back side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card).
+The [`CzechiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdFrontRecognizer.html) and [`CzechiaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdBackRecognizer.html) are used for scanning the [front and back side of Czech identity card](https://en.wikipedia.org/wiki/Czech_national_identity_card).
 
 #### <a name="czechia_combined"></a> Czechia combined recognizer
 The [`CzechiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/czechia/CzechiaCombinedRecognizer.html) scans back side of Czech ID after scanning the front side and combines data from both sides.
@@ -1186,7 +1186,7 @@ You can find information about usage context at the beginning of [this section](
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="germany_id"></a> Germany ID front and back side recognizers
-The [`GermanyIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyIdFrontSideRecognizer.html) and [`GermanyIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyIdBackSideRecognizer.html) are used for scanning the [front and back side of German identity card](https://en.wikipedia.org/wiki/German_identity_card) issued after 1 November 2010.
+The [`GermanyIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyIdFrontRecognizer.html) and [`GermanyIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyIdBackRecognizer.html) are used for scanning the [front and back side of German identity card](https://en.wikipedia.org/wiki/German_identity_card) issued after 1 November 2010.
 
 #### <a name="germany_idOld"></a> Old Germany ID front side recognizer
 The [`GermanyOldIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyOldIdRecognizer.html) is used for scanning [front side of German identity card](https://en.wikipedia.org/wiki/German_identity_card) issued between 1 April 1987 and 31 October 2010.
@@ -1215,7 +1215,7 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="blinkid_recognizers_indonesia"></a> Indonesia
 
-#### <a name="hongkong_id"></a> Indonesia ID front side recognizer
+#### <a name="indonesia_id"></a> Indonesia ID front side recognizer
 The [`IndonesiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/indonesia/IndonesiaIdFrontRecognizer.html) is used for scanning [front side of Indonesian identity card](https://en.wikipedia.org/wiki/Indonesian_identity_card).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
@@ -1261,7 +1261,7 @@ You can find information about usage context at the beginning of [this section](
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="poland_id"></a> Poland ID front and back side recognizers
-The [`PolandIdFrontSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/poland/PolandIdFrontSideRecognizer.html) and [`PolandIdBackSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/poland/PolandIdBackSideRecognizer.html) are used for scanning the [front and back side of Polish identity card](https://en.wikipedia.org/wiki/Polish_identity_card).
+The [`PolandIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/poland/PolandIdFrontRecognizer.html) and [`PolandIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/poland/PolandIdBackRecognizer.html) are used for scanning the [front and back side of Polish identity card](https://en.wikipedia.org/wiki/Polish_identity_card).
 
 #### <a name="poland_combined"></a> Poland combined recognizer
 The [`PolandCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/poland/PolandCombinedRecognizer.html) scans back side of Polish ID after scanning the front side and combines data from both sides.
@@ -1322,7 +1322,7 @@ The [`SloveniaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com
 ### <a name="blinkid_recognizers_sweden"></a> Sweden
 
 #### <a name="sweden_dl"></a> Sweden driver's license front side recognizer
-The [`SwedenDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/sweden/SwedenDlFrontRecognizer.html) is used for scanning front side of Swedish driver's license.
+The [`SwedenDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/sweden/dl/SwedenDlFrontRecognizer.html) is used for scanning front side of Swedish driver's license.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -1336,6 +1336,14 @@ The [`SwitzerlandIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/c
 
 #### <a name="switzerland_passport"></a> Switzerland passport recognizer
 The [`SwitzerlandPassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/switzerland/SwitzerlandPassportRecognizer.html) is used for scanning the data page of [Swiss passport](https://en.wikipedia.org/wiki/Swiss_passport).
+
+
+### <a name="blinkid_recognizers_uae"></a> United Arab Emirates
+
+#### <a name="uae_id"></a> United Arab Emirates ID front and back side recognizers
+The [`UnitedArabEmiratesIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/unitedArabEmirates/UnitedArabEmiratesIdFrontRecognizer.html) and [`UnitedArabEmiratesIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/unitedArabEmirates/UnitedArabEmiratesIdBackRecognizer.html) are used for scanning the front and back side of United Arab Emirates identity card.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 
 ### <a name="blinkid_recognizers_uk"></a> United Kingdom
@@ -1627,27 +1635,9 @@ When creating your own SDK which depends on _BlinkID_, you should consider follo
 
 ## <a name="licensingModel"></a> _BlinkID_ licensing model
 
-_BlinkID_ supports two types of licenses: 
-
-- application licenses
-- library licenses.
-
 ### <a name="appLicence"></a> Application licenses
 
 Application licenses are bound to application's [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename). This means that each app must have its own license in order to be able to use _BlinkID_. This model is appropriate when integrating _BlinkID_ directly into app, however if you are creating SDK that depends on _BlinkID_, you would need separate _BlinkID_ license for each of your clients using your SDK. This is not practical, so you should contact us at [help.microblink.com](http://help.microblink.com) and we can provide you a library license.
-
-### <a name="libLicence"></a> Library licenses
-
-Library license keys are bound to licensee name. You will provide your licensee name with your inquiry for library license. Unlike application licenses, library licenses must be set together with licensee name:
-
-```java
-public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        MicroblinkSDK.setLicenseFile("path/to/license/file/within/assets/dir", "licensee", this);
-    }
-}
-```
 	
 ## <a name="sdkIntegrationIntoApp"></a> Ensuring the final app gets all resources required by _BlinkID_
 
@@ -1656,7 +1646,7 @@ At the time of writing this documentation, [Android does not have support for co
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizerRunnerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its `classes.jar` to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR?s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizerRunnerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its `classes.jar` to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk and report issues to [its developers](https://github.com/adwiv/android-fat-aar/issues) - we do not offer support for using that script.
 - There is also a [3rd party unofficial gradle plugin](https://github.com/Vigi0303/fat-aar-plugin) which aims to do the same, but is more up to date with latest updates to Android gradle plugin. Use this plugin at your own risk and report all issues with using to [its developers](https://github.com/Vigi0303/fat-aar-plugin/issues) - we do not offer support for using that plugin.
 
@@ -1944,7 +1934,7 @@ This usually happens when you perform integration into [Eclipse project](#eclips
 
 #### <a name="multipleMicroblinkSDKs"></a> When trying to build app, I get error "Unable to merge dex" and "Multiple dex files define XXX"
 
-This error happens when you try to integrate multiple Microblink SDKs into the same application. Multiple Microblink SDKs cannot be integrated into the same application, and there is no need for that because SDKs are organized in the way that each SDK is feature superset of the smaller SDK, except the `PDF417` SDK which is the smallest SDK. For example `BlinkID` SDK contains all features from the `BlinkInput` SDK. Relations between SDKs are: `PDF417` ? `BlinkInput` ? `BlinkID` ? `PhotoPay`.
+This error happens when you try to integrate multiple Microblink SDKs into the same application. Multiple Microblink SDKs cannot be integrated into the same application, and there is no need for that because SDKs are organized in the way that each SDK is feature superset of the smaller SDK, except the `PDF417` SDK which is the smallest SDK. For example `BlinkID` SDK contains all features from the `BlinkInput` SDK. Relations between SDKs are: `PDF417` ⊆ `BlinkInput` ⊆ `BlinkID` ⊆ `PhotoPay`.
 
 #### <a name="unsatisfiedLinkError"></a> When my app starts, I get `UnsatisfiedLinkError`
 
