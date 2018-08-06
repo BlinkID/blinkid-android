@@ -44,9 +44,9 @@ import com.microblink.hardware.camera.CameraType;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.metadata.MetadataCallbacks;
 import com.microblink.metadata.detection.FailedDetectionCallback;
+import com.microblink.metadata.detection.points.DisplayablePointsDetection;
+import com.microblink.metadata.detection.points.PointsDetectionCallback;
 import com.microblink.metadata.glare.GlareCallback;
-import com.microblink.metadata.ocr.DisplayableOcrResult;
-import com.microblink.metadata.ocr.OcrCallback;
 import com.microblink.metadata.recognition.FirstSideRecognitionCallback;
 import com.microblink.recognition.FeatureNotSupportedException;
 import com.microblink.recognition.RecognitionSuccessType;
@@ -59,7 +59,6 @@ import com.microblink.view.NonLandscapeOrientationNotSupportedException;
 import com.microblink.view.NotSupportedReason;
 import com.microblink.view.OnActivityFlipListener;
 import com.microblink.view.OrientationAllowedListener;
-import com.microblink.view.ocrResult.IOcrResultView;
 import com.microblink.view.ocrResult.OcrResultDotsView;
 import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
@@ -224,7 +223,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     /**
      * View which shows OCR result over the camera preview.
      */
-    private IOcrResultView mOcrView;
+    private OcrResultDotsView mOcrView;
     /**
      * View which shows MRZ detection points.
      */
@@ -389,23 +388,25 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                 clearScanIndicatorViews();
             }
         });
+
         metadataCallbacks.setGlareCallback(new GlareCallback() {
             @Override
             public void onGlare(boolean isGlareDetected) {
                 onGlareStatus(isGlareDetected);
             }
         });
-        metadataCallbacks.setOcrCallback(new OcrCallback() {
+
+        metadataCallbacks.setPointsDetectionCallback(new PointsDetectionCallback() {
             @Override
-            public void onOcrResult(@NonNull DisplayableOcrResult displayableOcrResult) {
-                // show points over the OCR result
-                mOcrView.addOcrResult(displayableOcrResult);
+            public void onPointsDetection(@NonNull DisplayablePointsDetection displayablePointsDetection) {
+                mOcrView.addDisplayablePointsDetection(displayablePointsDetection);
                 if (mMrzPointsView != null) {
                     // clear MRZ detection points
                     mMrzPointsView.clearDisplayedContent();
                 }
             }
         });
+
         metadataCallbacks.setFirstSideRecognitionCallback(new FirstSideRecognitionCallback() {
             @Override
             public void onFirstSideRecognitionFinished() {
