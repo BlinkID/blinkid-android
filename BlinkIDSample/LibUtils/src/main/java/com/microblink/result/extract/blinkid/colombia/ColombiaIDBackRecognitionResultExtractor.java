@@ -15,8 +15,8 @@ public class ColombiaIDBackRecognitionResultExtractor extends BlinkIdExtractor<C
         add(R.string.PPFirstName, result.getFirstName());
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPSex, result.getSex());
-        add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPBloodGroup, result.getBloodGroup());
+        add(R.string.PPDateOfBirth, result.getBirthDate());
+        add(R.string.PPBloodType, result.getBloodGroup());
         add(R.string.PPFingerprint, Arrays.toString(result.getFingerprint()));
     }
 

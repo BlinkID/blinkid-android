@@ -11,11 +11,11 @@ public class NewZealandDLFrontSideRecognitionResultExtractor extends BlinkIdExtr
         add(R.string.PPSurname, result.getSurname());
         add(R.string.PPFirstNames, result.getFirstNames());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPIssueDate, result.getIssueDate());
-        add(R.string.PPDateOfExpiry, result.getExpiryDate());
+        add(R.string.PPIssueDate, result.getDateOfIssue());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPLicenceNumber, result.getLicenseNumber());
         add(R.string.PPCardVersion, result.getCardVersion());
-        add(R.string.PPDonorIndicator, result.getDonorIndicator());
+        add(R.string.PPDonorIndicator, result.isDonorIndicator());
         add(R.string.PPAddress, result.getAddress());
     }
 

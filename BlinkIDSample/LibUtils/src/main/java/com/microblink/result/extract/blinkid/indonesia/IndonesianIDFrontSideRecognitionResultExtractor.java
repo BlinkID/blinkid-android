@@ -15,7 +15,7 @@ public class IndonesianIDFrontSideRecognitionResultExtractor extends BlinkIdExtr
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPSex, result.getSex());
-        add(R.string.PPBloodGroup, result.getBloodType());
+        add(R.string.PPBloodType, result.getBloodType());
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPRT, result.getRt());
         add(R.string.PPRW, result.getRw());

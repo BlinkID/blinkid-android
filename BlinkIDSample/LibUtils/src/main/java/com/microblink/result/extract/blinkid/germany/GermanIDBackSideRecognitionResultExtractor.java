@@ -51,9 +51,9 @@ public class GermanIDBackSideRecognitionResultExtractor extends MrtdResultExtrac
             add(R.string.PPEyeColour, eyeColor);
         }
 
-        int height = result.getHeight();
-        if (height != 0) {
-            add(R.string.PPHeight, height, "cm");
+        String height = result.getHeight();
+        if (height != null && !height.isEmpty()) {
+            add(R.string.PPHeight, height);
         }
     }
 

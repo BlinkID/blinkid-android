@@ -3,9 +3,9 @@ package com.microblink.result.extract.blinkid.hongkong;
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
-import com.microblink.results.date.Date;
+import com.microblink.results.date.DateResult;
 
-public class HongKongIDFrontRecognitionResultExtractor extends BlinkIdExtractor<HongKongIdFrontRecognizer.Result, HongKongIdFrontRecognizer> {
+public class HongKongIdFrontRecognitionResultExtractor extends BlinkIdExtractor<HongKongIdFrontRecognizer.Result, HongKongIdFrontRecognizer> {
 
     @Override
     protected void extractData(HongKongIdFrontRecognizer.Result result) {
@@ -13,13 +13,14 @@ public class HongKongIDFrontRecognitionResultExtractor extends BlinkIdExtractor<
         add(R.string.PPFullName, result.getFullName());
         add(R.string.PPCommercialCode, result.getCommercialCode());
         add(R.string.PPSex, result.getSex());
+        add(R.string.PPResidentialStatus, result.getResidentialStatus());
 
-        Date birthDate = result.getDateOfBirth();
+        DateResult birthDate = result.getDateOfBirth();
         if (birthDate != null) {
             add(R.string.PPDateOfBirth, birthDate);
         }
 
-        Date dateOfIssue = result.getDateOfIssue();
+        DateResult dateOfIssue = result.getDateOfIssue();
         if (dateOfIssue != null) {
             add(R.string.PPIssueDate, dateOfIssue);
         }

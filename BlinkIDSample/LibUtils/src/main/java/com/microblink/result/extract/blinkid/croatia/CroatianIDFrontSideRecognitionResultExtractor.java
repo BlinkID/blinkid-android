@@ -10,7 +10,7 @@ public class CroatianIDFrontSideRecognitionResultExtractor extends BlinkIdExtrac
     protected void extractData(CroatiaIdFrontRecognizer.Result croIdFrontResult) {
         add(R.string.PPLastName, croIdFrontResult.getLastName());
         add(R.string.PPFirstName, croIdFrontResult.getFirstName());
-        add(R.string.PPDocumentNumber, croIdFrontResult.getIdentityCardNumber());
+        add(R.string.PPDocumentNumber, croIdFrontResult.getDocumentNumber());
         add(R.string.PPSex, croIdFrontResult.getSex());
         add(R.string.PPCitizenship, croIdFrontResult.getCitizenship());
         add(R.string.PPDateOfBirth, croIdFrontResult.getDateOfBirth());

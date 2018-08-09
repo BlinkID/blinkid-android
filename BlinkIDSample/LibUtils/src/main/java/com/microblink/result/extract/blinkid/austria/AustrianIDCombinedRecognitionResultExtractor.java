@@ -13,7 +13,7 @@ public class AustrianIDCombinedRecognitionResultExtractor extends BlinkIdExtract
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPHeight, result.getHeight(), "m");
+        add(R.string.PPHeight, result.getHeight());
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         add(R.string.PPIssueDate, result.getDateOfIssuance());
