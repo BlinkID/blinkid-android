@@ -47,6 +47,7 @@ com.microblink.entities.recognizers.blinkid.imageresult
 com.microblink.entities.recognizers.blinkid.indonesia
 com.microblink.entities.recognizers.blinkid.jordan
 com.microblink.entities.recognizers.blinkid.malaysia
+com.microblink.entities.recognizers.blinkid.morocco
 com.microblink.entities.recognizers.blinkid.mrtd
 com.microblink.entities.recognizers.blinkid.newzealand
 com.microblink.entities.recognizers.blinkid.poland
@@ -87,7 +88,6 @@ com.microblink.metadata.detection.points
 com.microblink.metadata.detection.quad
 com.microblink.metadata.glare
 com.microblink.metadata.image
-com.microblink.metadata.liveness
 com.microblink.metadata.ocr
 com.microblink.metadata.recognition
 com.microblink.metadata.text

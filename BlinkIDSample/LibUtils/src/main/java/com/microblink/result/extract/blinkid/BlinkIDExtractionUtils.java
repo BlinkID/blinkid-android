@@ -6,6 +6,7 @@ import com.microblink.entities.recognizers.blinkid.imageresult.CombinedFullDocum
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedMrzImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
@@ -27,7 +28,7 @@ public class BlinkIDExtractionUtils {
 
         if (result instanceof EncodedFaceImageResult) {
             byte[] encodedFaceImage = ((EncodedFaceImageResult) result).getEncodedFaceImage();
-            if (encodedFaceImage != null) {
+            if (shouldShowEncodedImageEntry(encodedFaceImage)) {
                 extractedData.add(builder.build(R.string.MBEncodedFaceImage, encodedFaceImage));
             }
         }
@@ -38,7 +39,7 @@ public class BlinkIDExtractionUtils {
 
         if (result instanceof EncodedSignatureImageResult) {
             byte[] encodedSignatureImage = ((EncodedSignatureImageResult) result).getEncodedSignatureImage();
-            if (encodedSignatureImage != null) {
+            if (shouldShowEncodedImageEntry(encodedSignatureImage)) {
                 extractedData.add(builder.build(R.string.MBEncodedSignatureImage, encodedSignatureImage));
             }
         }
@@ -49,7 +50,7 @@ public class BlinkIDExtractionUtils {
 
         if (result instanceof EncodedFullDocumentImageResult) {
             byte[] encodedFullDocumentImage = ((EncodedFullDocumentImageResult) result).getEncodedFullDocumentImage();
-            if (encodedFullDocumentImage != null) {
+            if (shouldShowEncodedImageEntry(encodedFullDocumentImage)) {
                 extractedData.add(builder.build(R.string.MBEncodedFullDocumentImage, encodedFullDocumentImage));
             }
         }
@@ -63,17 +64,24 @@ public class BlinkIDExtractionUtils {
         if (result instanceof EncodedCombinedFullDocumentImageResult) {
             EncodedCombinedFullDocumentImageResult encodedCombinedFullDocumentImageResult = (EncodedCombinedFullDocumentImageResult) result;
             byte[] encodedFullDocumentImageFront = encodedCombinedFullDocumentImageResult.getEncodedFrontFullDocumentImage();
-            if (encodedFullDocumentImageFront != null) {
+            if (shouldShowEncodedImageEntry(encodedFullDocumentImageFront)) {
                 extractedData.add(builder.build(R.string.MBEncodedFullDocumentImageFront, encodedFullDocumentImageFront));
             }
             byte[] encodedFullDocumentImageBack = encodedCombinedFullDocumentImageResult.getEncodedBackFullDocumentImage();
-            if (encodedFullDocumentImageBack != null) {
+            if (shouldShowEncodedImageEntry(encodedFullDocumentImageBack)) {
                 extractedData.add(builder.build(R.string.MBEncodedFullDocumentImageBack, encodedFullDocumentImageBack));
             }
         }
 
         if(result instanceof MrzImageResult) {
             extractedData.add(builder.build(R.string.MBMRZImage, ((MrzImageResult) result).getMrzImage()));
+        }
+
+        if (result instanceof EncodedMrzImageResult) {
+            byte[] encodedMrzImage = ((EncodedMrzImageResult) result).getEncodedMrzImage();
+            if (shouldShowEncodedImageEntry(encodedMrzImage)) {
+                extractedData.add(builder.build(R.string.MBEncodedMrzImage, encodedMrzImage));
+            }
         }
 
         if (result instanceof DigitalSignatureResult) {
@@ -84,6 +92,10 @@ public class BlinkIDExtractionUtils {
                 extractedData.add(builder.build(R.string.MBDigitalSignature, digitalSignature));
             }
         }
+    }
+
+    private static boolean shouldShowEncodedImageEntry(byte[] encodedImage) {
+        return encodedImage != null && encodedImage.length > 0;
     }
 
 }

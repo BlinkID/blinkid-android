@@ -140,7 +140,7 @@
     <string name="PPOrientationNumber">Orientation number</string>
     <string name="PPRace">Race</string>
     <string name="PPCountryOfBirth">Country of birth</string>
-    <string name="PPBloodGroup">Blood group</string>
+    <string name="PPBloodType">Blood group</string>
     <string name="PPDocumentClassification">Document Classification</string>
     <string name="PPPaymentType">Payment Type</string>
     <string name="PPMaturityDate">Maturity date</string>
@@ -178,6 +178,9 @@
     <string name="PPProvince">Province</string>
     <string name="PPCity">City</string>
     <string name="PPName">Name</string>
+    <string name="PPFatherName">Father\'s name</string>
+    <string name="PPMotherName">Mother\'s name</string>
+    <string name="PPCivilStatusNumber">Civil status number</string>
     <string name="PPRT">RT</string>
     <string name="PPRW">RW</string>
     <string name="PPKelDesa">Kel/Desa</string>
@@ -193,10 +196,13 @@
     <string name="PPReferenceNumber">Reference Number</string>
     <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPCANNumber">CAN number</string>
+    <string name="PPResidentialStatus">Residential status</string>
+    <string name="PPCompanyName">Company name</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
     <string name="MBEncodedFullDocumentImage">Encoded full document image</string>
+    <string name="MBEncodedMrzImage">Encoded mrz image</string>
     <string name="MBFullDocumentImageFront">Full document image front</string>
     <string name="MBEncodedFullDocumentImageFront">Encoded full document image front</string>
     <string name="MBFullDocumentImageBack">Full document image back</string>

@@ -1,5 +1,45 @@
 # Release notes
 
+## 4.1.0
+
+### New features:
+
+- added support for reading partial dates on all MRTD documents:
+    - affects all recognizers which extract data from Machine Readable Zone
+- added support for reading front side of Swiss Driver's License - use `SwitzerlandDlFrontRecognizer`
+- added support for reading front side of Singapore Driver's License - use `SingaporeDlFrontRecognizer`
+- added support for reading front side of Singapore Changi employee ID - use `SingaporeChangiEmployeeIdRecognizer`
+- added support for reading front and back side of Morocco ID - use `MoroccoIdFrontRecognizer` and `MoroccoIdBackRecognizer`
+
+### Improvements for existing features:
+
+- improved `HongKongIdFrontRecognizer`:
+    - added support for reading residential status field
+- improved `UnitedArabEmiratesIdFrontRecognizer`:
+    - better name and nationality extraction
+- improved `SingaporeIdBackRecognizer`:
+    - added support for reading sticker with new address
+- improved `MyKadBackRecognizer`:
+    - added support for reading old NRIC field
+- improved `NewZealandDlFrontRecognizer`:
+    - better reading of all fields
+
+### Minor API changes:
+- in `CroatiaIdFrontRecognizer` `identityCardNumber` is renamed to `documentNumber`
+- `BarcodeRecognizer` does not support Manatee library any more:
+    - removed setter `setManateeLicenseKey`
+- in `GermanyIdBackRecognizer.Result`, `AustriaPassportRecognizer.Result`, `AustriaIdBackRecognizer.Result` and `AustriaCombinedRecognizer.Result` getter `getHeight` returns height as `String` (instead of `int`)
+- `HongKongIdFrontRecognizer.Result.getDateOfBirth()` returns `com.microblink.results.date.DateResult` instead of `com.microblink.results.date.Date`
+- in `ColombiaIdBackRecognizer.Result` getter `getDateOfBirth()` is renamed to `getBirthDate()`
+- in `SingaporeIdBackRecognizer.Result` getter `getBloodGroup()` is renamed to `getBloodType()`
+- renamed getters in `NewZealandDlFrontRecognizer.Result` renamed getters:
+    - `getIssueDate()` to `getDateOfIssue()`
+    - `getExpiryDate()` to `getDateOfExpiry()`
+    - `getDonorIndicator()` to `isDonorIndicator()`
+
+### Bug fixes:
+- various bug fixes and improvements
+
 ## 4.0.0
 - new API, which is not backward compatible. Please check [README](README.md) and updated demo applications for more information, but the gist of it is:
     - `RecognizerView` has been renamed to `RecognizerRunnerView` and `Recognizer` singleton to `RecognizerRunner`

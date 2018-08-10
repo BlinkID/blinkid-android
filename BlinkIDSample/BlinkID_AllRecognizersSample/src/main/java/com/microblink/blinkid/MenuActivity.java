@@ -57,6 +57,8 @@ import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecog
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyTenteraRecognizer;
+import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
@@ -66,7 +68,9 @@ import com.microblink.entities.recognizers.blinkid.romania.RomaniaIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeChangiEmployeeIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.singapore.SingaporeDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
@@ -76,6 +80,7 @@ import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedReco
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandPassportRecognizer;
@@ -181,10 +186,12 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildMyKadElement());
         items.add(buildIKadElement());
         items.add(buildMyTenteraElement());
+        items.add(buildMoroccoIDElement());
         items.add(buildPolishIdElement());
         items.add(buildPolishIdCombinedElement());
         items.add(buildRomanianElement());
         items.add(buildSingaporeIDElement());
+        items.add(buildSingaporeChangiEmployeeIdElement());
         items.add(buildSingaporeIDCombinedElement());
         items.add(buildSerbianIDElement());
         items.add(buildSerbianIDCombinedElement());
@@ -202,7 +209,9 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildMalaysianDLElement());
         items.add(buildNewZealandDLElement());
         items.add(buildGermanDLElement());
+        items.add(buildSingaporeDlElement());
         items.add(buildSwedenDlElement());
+        items.add(buildSwissDlElement());
         items.add(buildUKDLElement());
         items.add(buildUsdlElement());
         items.add(buildUsdlCombinedElement());
@@ -493,6 +502,21 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildMoroccoIDElement() {
+        return new MenuListItem("Morocco ID", new Runnable() {
+            @Override
+            public void run() {
+                MoroccoIdFrontRecognizer moroccoFront = new MoroccoIdFrontRecognizer();
+                ImageSettings.enableAllImages(moroccoFront);
+
+                MoroccoIdBackRecognizer moroccoBack = new MoroccoIdBackRecognizer();
+                ImageSettings.enableAllImages(moroccoBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(moroccoFront, moroccoBack)));
+            }
+        });
+    }
+
     private MenuListItem buildPolishIdElement() {
         return new MenuListItem("Polish ID", new Runnable() {
             @Override
@@ -531,6 +555,17 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(singaporeBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeFront, singaporeBack)));
+            }
+        });
+    }
+
+    private MenuListItem buildSingaporeChangiEmployeeIdElement() {
+        return new MenuListItem("Singapore Changi Employee ID", new Runnable() {
+            @Override
+            public void run() {
+                SingaporeChangiEmployeeIdRecognizer singaporeChangiEmployeeIdRecognizer = new SingaporeChangiEmployeeIdRecognizer();
+                ImageSettings.enableAllImages(singaporeChangiEmployeeIdRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeChangiEmployeeIdRecognizer)));
             }
         });
     }
@@ -635,15 +670,15 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildUKDLElement() {
-        return buildEUDLElement("UK Driver's Licence", EudlCountry.EUDL_COUNTRY_UK);
+        return buildEUDLElement("UK Driver's License", EudlCountry.EUDL_COUNTRY_UK);
     }
 
     private MenuListItem buildGermanDLElement() {
-        return buildEUDLElement("German Driver's Licence", EudlCountry.EUDL_COUNTRY_GERMANY);
+        return buildEUDLElement("German Driver's License", EudlCountry.EUDL_COUNTRY_GERMANY);
     }
 
     private MenuListItem buildAustrianDLElement() {
-        return buildEUDLElement("Austrian Driver's Licence", EudlCountry.EUDL_COUNTRY_AUSTRIA);
+        return buildEUDLElement("Austrian Driver's License", EudlCountry.EUDL_COUNTRY_AUSTRIA);
     }
 
     private MenuListItem buildAustralianDLElement() {
@@ -662,7 +697,7 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildMalaysianDLElement() {
-        return new MenuListItem("Malaysian DL", new Runnable() {
+        return new MenuListItem("Malaysian Driver's License", new Runnable() {
             @Override
             public void run() {
                 MalaysiaDlFrontRecognizer malaysiaDlFront = new MalaysiaDlFrontRecognizer();
@@ -674,7 +709,7 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildNewZealandDLElement() {
-        return new MenuListItem("New Zealand Driver's Licence", new Runnable() {
+        return new MenuListItem("New Zealand Driver's License", new Runnable() {
             @Override
             public void run() {
                 NewZealandDlFrontRecognizer newZealandDlFront = new NewZealandDlFrontRecognizer();
@@ -685,8 +720,19 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildSingaporeDlElement() {
+        return new MenuListItem("Singapore Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                SingaporeDlFrontRecognizer singaporeDlFrontRecognizer = new SingaporeDlFrontRecognizer();
+                ImageSettings.enableAllImages(singaporeDlFrontRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeDlFrontRecognizer)));
+            }
+        });
+    }
+
     private MenuListItem buildSwedenDlElement() {
-        return new MenuListItem("Sweden Driver's Licence", new Runnable() {
+        return new MenuListItem("Sweden Driver's License", new Runnable() {
             @Override
             public void run() {
                 SwedenDlFrontRecognizer sweDL = new SwedenDlFrontRecognizer();
@@ -695,6 +741,18 @@ public class MenuActivity extends BaseMenuActivity {
                 sweDL.setExtractLicenceCategories(true);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(sweDL)));
+            }
+        });
+    }
+
+    private MenuListItem buildSwissDlElement() {
+        return new MenuListItem("Swiss Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                SwitzerlandDlFrontRecognizer switzerlandDl = new SwitzerlandDlFrontRecognizer();
+                ImageSettings.enableAllImages(switzerlandDl);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandDl)));
             }
         });
     }
@@ -872,11 +930,6 @@ public class MenuActivity extends BaseMenuActivity {
                 barcode.setScanQrCode(true);
                 barcode.setScanUpca(true);
                 barcode.setScanUpce(true);
-
-                // please contact us to obtain valid license key for the aztec recognizer
-                // https://microblink.com/en/contact-us
-                // this license key has expired, because of that you will get '*' characters in aztec result
-                barcode.setManateeLicenseKey("jp7X3DD+IG1iNzljvwkwVL7L364g9NCzTUq4lGC/vdc=");
 
                 BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(barcode));
                 activitySettings.setShowDialogAfterScan(false);

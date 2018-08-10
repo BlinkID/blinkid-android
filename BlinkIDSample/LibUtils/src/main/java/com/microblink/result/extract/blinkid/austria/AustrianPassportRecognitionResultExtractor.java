@@ -57,7 +57,7 @@ public class AustrianPassportRecognitionResultExtractor extends BlinkIdExtractor
             add(R.string.PPDateOfExpiry, dateOfExpiry.getDate());
         }
 
-        add(R.string.PPHeight, result.getHeight(), "cm");
+        add(R.string.PPHeight, result.getHeight());
 
         String passportNumber = result.getPassportNumber();
         if (passportNumber != null) {

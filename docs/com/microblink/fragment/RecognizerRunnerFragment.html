@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -322,18 +322,26 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#recreateRecognizerRunnerView--">recreateRecognizerRunnerView</a></span>()</code>
+<div class="block">Recreates contained <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> which causes that
+ <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-"><code>ScanningOverlay.onRecognizerRunnerViewCreated(RecognizerRunnerFragment)</code></a> is called
+ again when new <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> is created.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#registerLifecycleObserver-com.microblink.fragment.LifecycleObserver-">registerLifecycleObserver</a></span>(<a href="../../../com/microblink/fragment/LifecycleObserver.html" title="interface in com.microblink.fragment">LifecycleObserver</a>&nbsp;lifecycleObserver)</code>
 <div class="block">Registers the <a href="../../../com/microblink/fragment/LifecycleObserver.html" title="interface in com.microblink.fragment"><code>LifecycleObserver</code></a> that will be notified about all lifecycle events of
  this <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a></div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#setCameraEventsListener-com.microblink.view.BaseCameraEventsListener-">setCameraEventsListener</a></span>(<a href="../../../com/microblink/view/BaseCameraEventsListener.html" title="interface in com.microblink.view">BaseCameraEventsListener</a>&nbsp;cameraEventsListener)</code>
 <div class="block">Sets the camera events listener that will be additionally notified about camera events.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#setSplashScreenResourceId-int-">setSplashScreenResourceId</a></span>(int&nbsp;resourceId)</code>
 <div class="block">Sets the resource layout identifier for camera splash screen.</div>
@@ -483,6 +491,18 @@ public&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerRunnerVi
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>lifecycleObserver</code> - </dd>
 </dl>
+</li>
+</ul>
+<a name="recreateRecognizerRunnerView--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>recreateRecognizerRunnerView</h4>
+<pre>public&nbsp;void&nbsp;recreateRecognizerRunnerView()</pre>
+<div class="block">Recreates contained <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> which causes that
+ <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-"><code>ScanningOverlay.onRecognizerRunnerViewCreated(RecognizerRunnerFragment)</code></a> is called
+ again when new <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> is created.</div>
 </li>
 </ul>
 <a name="onAttach-android.app.Activity-">
