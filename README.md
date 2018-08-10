@@ -68,6 +68,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [Indonesia](#blinkid_recognizers_indonesia)
         * [Jordan](#blinkid_recognizers_jordan)
         * [Malaysia](#blinkid_recognizers_malaysia)
+        * [Morocco](#blinkid_recognizers_morocco)
         * [New Zealand](#blinkid_recognizers_newzealand)
         * [Poland](#blinkid_recognizers_poland)
         * [Romania](#blinkid_recognizers_romania)
@@ -139,7 +140,7 @@ The package contains Android Archive (AAR) that contains everything you need to 
 - _BlinkID-ImagesSample_ demonstrates how to obtain document images.
 - _BlinkID-TemplatingSample_ shows how to use Templating API to implement support for scanning generic documents.
  
-The source code of all demo apps is given to you to show you how to perform integration of _BlinkID_ SDK into your app. You can use this source code and all resources as you wish. You can use sample apps as a basis for creating your own app, or you can copy/paste the code and/or resources from sample apps into your app and use them as you wish without even asking us for permission.
+The source code of all sample apps is given to you to show you how to perform integration of _BlinkID_ SDK into your app. You can use this source code and all resources as you wish. You can use sample apps as a basis for creating your own app, or you can copy/paste the code and/or resources from sample apps into your app and use them as you wish without even asking us for permission.
  
 _BlinkID_ is supported on Android SDK version 16 (Android 4.1) or later.
 
@@ -158,6 +159,7 @@ You can also create your own scanning UI - you just need to embed `RecognizerRun
 
 ## <a name="androidStudioIntegration"></a> Android Studio integration
 
+
 ### Using Maven repository
 
 In your `build.gradle` you first need to add _BlinkID_ maven repository to repositories list:
@@ -172,7 +174,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.0.0@aar') {
+    implementation('com.microblink:blinkid:4.1.0@aar') {
     	transitive = true
     }
 }
@@ -184,12 +186,13 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.0.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.1.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
 7. Enter following address: `https://blinkid.github.io/blinkid-android/`
 8. Click `OK`
+
 
 ### Using AAR
 
@@ -255,7 +258,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>4.0.0</version>
+		  <version>4.1.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -1248,6 +1251,14 @@ The [`MyTenteraRecognizer`](https://blinkid.github.io/blinkid-android/com/microb
 The [`MalaysiaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaDlFrontRecognizer.html) is used for scanning [front side of Malaysian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Malaysia).
 
 
+### <a name="blinkid_recognizers_morocco"></a> Morocco
+
+#### <a name="morocco_id"></a> Morocco ID front and back side recognizers
+The [`MoroccoIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/morocco/MoroccoIdFrontRecognizer.html) and [`MoroccoIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/morocco/MoroccoIdBackRecognizer.html) are used for scanning front and back side of the Morocco identity card.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+
 ### <a name="blinkid_recognizers_newzealand"></a> New Zealand
 
 #### <a name="newzealand_dl"></a> New Zealand driver's license front side recognizer
@@ -1296,6 +1307,12 @@ The [`SingaporeIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com
 #### <a name="singapore_combined"></a> Singapore combined recognizer
 The [`SingaporeCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/singapore/SingaporeCombinedRecognizer.html) scans back side of Singapore ID after scanning the front side and combines data from both sides.
 
+#### <a name="singapore_dl"></a> Singapore driver's license front side recognizer
+The [`SingaporeDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/singapore/SingaporeDlFrontRecognizer.html) is used for scanning the front side of [driving license in Singapore](https://en.wikipedia.org/wiki/Driving_licence_in_Singapore).
+
+#### <a name="singapore_changi_emplyee"></a> Singapore Changi employee ID recognizer
+The [`SingaporeChangiEmployeeIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/singapore/SingaporeChangiEmployeeIdRecognizer.html) is used for scanning the ID card of the Singapore Changi airport employee.
+
 
 ### <a name="blinkid_recognizers_slovakia"></a> Slovakia
 
@@ -1336,6 +1353,9 @@ The [`SwitzerlandIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/c
 
 #### <a name="switzerland_passport"></a> Switzerland passport recognizer
 The [`SwitzerlandPassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/switzerland/SwitzerlandPassportRecognizer.html) is used for scanning the data page of [Swiss passport](https://en.wikipedia.org/wiki/Swiss_passport).
+
+#### <a name="switzerland_dl"></a> Switzerland driver's license front side recognizer
+The [`SwitzerlandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/switzerland/SwitzerlandDlFrontRecognizer.html) is used for scanning the front side of the [Swiss driver's license](https://en.wikipedia.org/wiki/Driver%27s_license#Switzerland).
 
 
 ### <a name="blinkid_recognizers_uae"></a> United Arab Emirates
@@ -1565,7 +1585,7 @@ When `classify` method is called, processing units that are needed for classific
 
 - [`ParserParcelization`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/templating/parcelization/ParserParcelization.html) is utility class which helps to obtain the reference to the captured `Parser` from the `TemplatingClass` instance, after the parcelization. For more information see [javadoc](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/templating/parcelization/ParserParcelization.html).
 
-For the complete source code sample, please check [Templating API whitepaper](https://github.com/BlinkID/blinkid-android/blob/master/templatingAPI/templatingAPI.md) and [BlinkID-TemplatingSample](https://github.com/BlinkID/blinkid-android/tree/master/BlinkIDSample/BlinkID-TemplatingSample).
+For the complete source code sample, please check [Templating API whitepaper](https://github.com/BlinkID/blinkid-android/blob/master/templatingAPI/templatingAPI.md) and `BlinkID-TemplatingSample`.
 
 ## <a name="detectorTemplating_results"></a> Obtaining recognition results
 
@@ -1796,7 +1816,6 @@ In order to create customised build of _BlinkID_, you will need following tools:
 #### Important notes:
 
 - you must use the exact same version of NDK that we used to build the static libraries. Using different NDK version will either result with linker errors or will create non-working binary. Our script will check your NDK version and will fail if there is a version mismatch.
-- due to a known [NDK bug](https://github.com/android-ndk/ndk/issues/313), the script for creating customised build will fail on Windows. Until this is fixed (according to [developers](https://github.com/android-ndk/ndk/issues/313#issuecomment-349783580), NDK r17 should contain the fix), you need to run the script on Mac or Linux machine.
 
 ### Steps for creating customised build (command line)
 
@@ -1848,30 +1867,6 @@ This means that a required resource was not packaged into final app. This usuall
 
 You probably have a typo in `enabled-features.cmake`. CMake is very sensitive language and will throw an non-understandable error if you have a typo or invoke any of its commands with wrong number of parameters.
 
-#### Keeping only `FEATURE_MRTD` creates rather large AAR
-
-`FEATURE_MRTD` marks the [_MRTD recognizer_](#mrtdRecognizer). However, _MRTD recognizer_ can also be used in [_Templating API_](#templatingAPI) mode where non-MRZ data can be scanned. To perform OCR of non-MRZ data, a rather large OCR model must be used, which supports all fonts. If you only plan to scan MRZ part of the document, you can edit the `features.cmake` in following way:
-
-- find the following line:
-
-```
-feature_resources( FEATURE_MRTD model_mrtd model_general_blink_ocr model_micr model_arabic )
-```
-
-- keep only `model_mrtd` in the list, i.e. modify the line so that it will be like this:
-
-```
-feature_resources( FEATURE_MRTD model_mrtd )
-```
-
-This will keep only support for reading MRZ zone in OCR - you will not be able to scan non-MRZ data with such configuration using _MRTD recognizer_, however you will reduce final app size by almost 5MB.
-
-##### More information about OCR models in `FEATURE_MRTD`
-
-- `model_mrtd` is OCR model for performing OCR of MRZ zone
-- `model_arabic` is OCR model for performing OCR of digits used in arabic languages - text scanning is not supported
-- `model_micr` is OCR model for performing OCR of [Magnetic Ink Characters](https://en.wikipedia.org/wiki/Magnetic_ink_character_recognition)
-- `model_general_blink_ocr` is OCR model for performing general-purpose OCR. This model is usually required for performing OCR of non-MRZ text on documents.
 ## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries
 
 If you are combining _BlinkID_ library with some other libraries that contain native code into your application, make sure you match the architectures of all native libraries. For example, if third party library has got only ARMv7 and x86 versions, you must use exactly ARMv7 and x86 versions of _BlinkID_ with that library, but not ARM64. Using these architectures will crash your app in initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
