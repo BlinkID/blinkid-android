@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -25,6 +26,10 @@ import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.metadata.MetadataCallbacks;
+import com.microblink.metadata.detection.FailedDetectionCallback;
+import com.microblink.metadata.detection.points.DisplayablePointsDetection;
+import com.microblink.metadata.detection.points.PointsDetectionCallback;
+import com.microblink.metadata.detection.points.PointsType;
 import com.microblink.metadata.detection.quad.DisplayableQuadDetection;
 import com.microblink.metadata.detection.quad.QuadDetectionCallback;
 import com.microblink.recognition.RecognitionSuccessType;
@@ -32,16 +37,19 @@ import com.microblink.util.CameraPermissionManager;
 import com.microblink.util.Log;
 import com.microblink.view.CameraAspectMode;
 import com.microblink.view.CameraEventsListener;
+import com.microblink.view.OnActivityFlipListener;
 import com.microblink.view.OnSizeChangedListener;
 import com.microblink.view.OrientationAllowedListener;
+import com.microblink.view.ocrResult.OcrResultDotsView;
 import com.microblink.view.recognition.DetectionStatus;
 import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.view.viewfinder.points.PointSetView;
 import com.microblink.view.viewfinder.quadview.QuadViewManager;
 import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
 import com.microblink.view.viewfinder.quadview.QuadViewPreset;
 
-public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener {
+public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener, OnActivityFlipListener {
 
     public static final String TAG = "MyScanActivity";
 
@@ -83,6 +91,14 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
      * MediaPlayer will be used for beep sound
      */
     private MediaPlayer mMediaPlayer = null;
+    /**
+     * MRZPointSetView is used for displaying dots when MRZ is detected
+     */
+    private PointSetView mMrzPointSetView;
+    /**
+     * mOcrView is used for displaying dots for OCR
+     */
+    private OcrResultDotsView mOcrView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,6 +180,16 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // add buttons and status view as rotatable view to BlinkIdView (it will be rotated even if activity remains in portrait/landscape)
         // allowed orientations are controlled via OrientationAllowedListener
         mRecognizerView.addChildView(view, true);
+
+        // add dots that appear when MRZ characters are detected
+        mMrzPointSetView = new PointSetView(this, null, mRecognizerView.getHostScreenOrientation(),
+                7, getResources().getColor(R.color.mb_mrz_point_color));
+        mRecognizerView.addChildView(mMrzPointSetView, false);
+
+        // add dots that appear when OCR characters are detected
+        mOcrView = new OcrResultDotsView(this, mRecognizerView.getHostScreenOrientation(), mRecognizerView.getInitialOrientation());
+        mRecognizerView.addOrientationChangeListener(mOcrView);
+        mRecognizerView.addChildView(mOcrView.getView(), false);
     }
 
     private void setupMetadataCallbacks() {
@@ -188,6 +214,9 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                 }
             }
         });
+
+        metadataCallbacks.setPointsDetectionCallback(new PointsAndFailedDetectionCallback());
+
         mRecognizerView.setMetadataCallbacks(metadataCallbacks);
     }
 
@@ -388,11 +417,25 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // important for drawing dots in the right direction
+        if (mOcrView != null) {
+            mOcrView.setHostActivityOrientation(mRecognizerView.getHostScreenOrientation());
+        }
+    }
+
+    @Override
     public void onAutofocusFailed() {
         // this method is called if camera cannot perform autofocus
         // this method is called from background (focusing) thread
         // so make sure you post UI actions on UI thread
         displayText(R.string.mb_autofocus_fail);
+
+        if (mOcrView != null) {
+            mOcrView.clearDisplayedContent();
+        }
     }
 
     @Override
@@ -461,5 +504,41 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // permission only if it has not been already granted.
         // on API level < 23, this method does nothing
         mCameraPermissionManager.askForCameraPermission();
+    }
+
+    @Override
+    public void onActivityFlip() {
+        // important for drawing dots in the right direction
+        if (mOcrView != null) {
+            mOcrView.setHostActivityOrientation(mRecognizerView.getHostScreenOrientation());
+        }
+    }
+
+    private class PointsAndFailedDetectionCallback implements PointsDetectionCallback, FailedDetectionCallback {
+
+        @Override
+        public void onPointsDetection(@NonNull DisplayablePointsDetection displayablePointsDetection) {
+            if (mMrzPointSetView != null) {
+                if (displayablePointsDetection.getPointsType() == PointsType.MRTD_DETECTION) {
+                    mMrzPointSetView.setDisplayablePointsDetection(displayablePointsDetection);
+                } else {
+                    mMrzPointSetView.clearDisplayedContent();
+                }
+            }
+
+            if (mOcrView != null) {
+                if (displayablePointsDetection.getPointsType() == PointsType.OCR_RESULT) {
+                    mOcrView.addDisplayablePointsDetection(displayablePointsDetection);
+                } else {
+                    mOcrView.clearDisplayedContent();
+                }
+            }
+        }
+
+        @Override
+        public void onDetectionFailed() {
+            mMrzPointSetView.clearDisplayedContent();
+            mOcrView.clearDisplayedContent();
+        }
     }
 }
