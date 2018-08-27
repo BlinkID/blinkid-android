@@ -1101,7 +1101,7 @@ The [`UsdlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 ### <a name="us_dl_combined_recognizer"></a> US / Canada driver's license combined recognizer
-The [`UsdlCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlCombinedRecognizer.html) scans PDF417 barcode from the back side of US / Canada driver's license after scanning the full document image and face image from the front side. Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [UsdlRecognizer](#us_dl_recognizer) for scanning the PDF417 barcode.
+The [`UsdlCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.html) scans PDF417 barcode from the back side of US / Canada driver's license after scanning the full document image and face image from the front side. Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [UsdlRecognizer](#us_dl_recognizer) for scanning the PDF417 barcode.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -1242,7 +1242,7 @@ For all recognizers, you can find information about usage context at the beginni
 The [`MyKadFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyKadFrontRecognizer.html) and [`MyKadBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyKadBackRecognizer.html) are used for scanning the [front and back side of Malaysian MyKad card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
 
 #### <a name="malaysia_ikad"></a> Malaysian iKad front side recognizer
-The [`IKadRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/IKadRecognizer.html) is used for scanning front side of Malaysian iKad (immigrator) card.
+The [`IkadRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/IkadRecognizer.html) is used for scanning front side of Malaysian iKad (immigrator) card.
 
 #### <a name="malaysia_mytentera"></a> Malaysian MyTentera front side recognizer
 The [`MyTenteraRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyTenteraRecognizer.html) is used for scanning [front side of Malaysian MyTentera card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
@@ -1262,7 +1262,7 @@ You can find information about usage context at the beginning of [this section](
 ### <a name="blinkid_recognizers_newzealand"></a> New Zealand
 
 #### <a name="newzealand_dl"></a> New Zealand driver's license front side recognizer
-The [`NewZealandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/newZealand/NewZealandDlFrontRecognizer.html) is used for scanning front side of New Zealand driver's license.
+The [`NewZealandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/newzealand/NewZealandDlFrontRecognizer.html) is used for scanning front side of New Zealand driver's license.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
