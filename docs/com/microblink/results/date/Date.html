@@ -152,13 +152,13 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/Date.html#getDay--">getDay</a></span>()</code>
-<div class="block">Returns day of the month.</div>
+<div class="block">Returns day of the month, or <code>0</code> if date is partial and day is not known.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/Date.html#getMonth--">getMonth</a></span>()</code>
-<div class="block">Returns month of the year.</div>
+<div class="block">Returns month of the year, or <code>0</code> if date is partial and month is not known.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -234,10 +234,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getDay</h4>
 <pre>public&nbsp;int&nbsp;getDay()</pre>
-<div class="block">Returns day of the month.</div>
+<div class="block">Returns day of the month, or <code>0</code> if date is partial and day is not known.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>day of the month. The first day of the month has value 1.</dd>
+<dd>day of the month, or <code>0</code> if date is partial and day is not known.
+ The first day of the month has value 1.</dd>
 </dl>
 </li>
 </ul>
@@ -248,10 +249,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getMonth</h4>
 <pre>public&nbsp;int&nbsp;getMonth()</pre>
-<div class="block">Returns month of the year.</div>
+<div class="block">Returns month of the year, or <code>0</code> if date is partial and month is not known.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>month of the year. The first month of the year has value 1.</dd>
+<dd>month of the year, or <code>0</code> if date is partial and month is not known.
+ The first month of the year has value 1.</dd>
 </dl>
 </li>
 </ul>

@@ -55,18 +55,21 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [US / Canada driver's license barcode recognizer](#us_dl_recognizer)
         * [US / Canada driver's license combined recognizer](#us_dl_combined_recognizer)
         * [EU Driver's License recognizer](#eudlRecognizer)
+        * [Payment / Debit card recognizers ](#payment_card_recognizers)
         * [Document face recognizer](#documentFaceRecognizer)
     * [Country-specific BlinkID recognizers](#blinkid_recognizers_countries)
         * [Australia](#blinkid_recognizers_australia)
         * [Austria](#blinkid_recognizers_austria)
         * [Colombia](#blinkid_recognizers_colombia)
         * [Croatia](#blinkid_recognizers_croatia)
+        * [Cyprus](#blinkid_recognizers_cyprus)
         * [Czechia](#blinkid_recognizers_czechia)
         * [Egypt](#blinkid_recognizers_egypt)
         * [Germany](#blinkid_recognizers_germany)
         * [HongKong](#blinkid_recognizers_hongkong)
         * [Indonesia](#blinkid_recognizers_indonesia)
         * [Jordan](#blinkid_recognizers_jordan)
+        * [Kuwait](#blinkid_recognizers_kuwait)
         * [Malaysia](#blinkid_recognizers_malaysia)
         * [Morocco](#blinkid_recognizers_morocco)
         * [New Zealand](#blinkid_recognizers_newzealand)
@@ -76,6 +79,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [Singapore](#blinkid_recognizers_singapore)
         * [Slovakia](#blinkid_recognizers_slovakia)
         * [Slovenia](#blinkid_recognizers_slovenia)
+        * [Spain](#blinkid_recognizers_spain)
         * [Sweden](#blinkid_recognizers_sweden)
         * [Switzerland](#blinkid_recognizers_switzerland)
         * [United Arab Emirates](#blinkid_recognizers_uae)
@@ -174,7 +178,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.1.0@aar') {
+    implementation('com.microblink:blinkid:4.2.0@aar') {
     	transitive = true
     }
 }
@@ -186,7 +190,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.1.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.2.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -258,7 +262,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	<dependency>
 		  <groupId>com.microblink</groupId>
 		  <artifactId>blinkid</artifactId>
-		  <version>4.1.0</version>
+		  <version>4.2.0</version>
 		  <type>aar</type>
   	</dependency>
 </dependencies>
@@ -1114,6 +1118,18 @@ The [`EudlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
+
+### <a name="payment_card_recognizers"></a> Payment / Debit card recognizers 
+
+For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+#### <a name="payment_card_single"></a> Payment / Debit card front and back side recognizers
+The [`PaymentCardFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardFrontRecognizer.html) and [`PaymentCardBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardBackRecognizer.html) are used for scanning the [front and back side of Payment / Debit card](https://en.wikipedia.org/wiki/Payment_card).
+
+#### <a name="payment_card_combined"></a> Payment / Debit card combined recognizer
+The [`PaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardCombinedRecognizer.html) scans back side of Payment / Debit card after scanning the front side and combines data from both sides.
+
+
 ### <a name="documentFaceRecognizer"></a> Document face recognizer
 The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/eudl/EudlRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
 
@@ -1164,6 +1180,11 @@ The [`CroatiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/m
 #### <a name="croatia_combined"></a> Croatia combined recognizer
 The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/croatia/CroatiaCombinedRecognizer.html) scans back side of Croatian ID after scanning the front side and combines data from both sides.
 
+
+### <a name="blinkid_recognizers_cyprus"></a> Cyprus
+
+#### <a name="cyprus_id"></a> Cyprus ID front and back side recognizers
+The [`CyprusIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdFrontRecognizer.html) and [`CyprusIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus identity card](https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 ### <a name="blinkid_recognizers_czechia"></a> Czechia
 
@@ -1232,6 +1253,12 @@ The [`JordanIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/mi
 
 #### <a name="jordan_combined"></a> Jordan combined recognizer
 The [`JordanCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/jordan/JordanCombinedRecognizer.html) scans back side of Jordanian ID after scanning the front side and combines data from both sides.
+
+
+### <a name="blinkid_recognizers_kuwait"></a> Kuwait
+
+#### <a name="kuwait_id"></a> Kuwait ID front and back side recognizers
+The [`KuwaitIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/kuwait/KuwaitIdFrontRecognizer.html) and [`KuwaitIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/kuwait/KuwaitIdBackRecognizer.html) are used for scanning the front and back side of [Kuwaiti identity card](https://en.wikipedia.org/wiki/Kuwaiti_identity_card).
 
 
 ### <a name="blinkid_recognizers_malaysia"></a> Malaysia
@@ -1336,6 +1363,11 @@ The [`SloveniaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/
 The [`SloveniaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/slovenia/SloveniaCombinedRecognizer.html) scans back side of Slovenian ID after scanning the front side and combines data from both sides.
 
 
+### <a name="blinkid_recognizers_spain"></a> Spain
+
+#### <a name="spain_dl"></a> Spain driver's license front side recognizer
+The [`SpainDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/spain/SpainDlFrontRecognizer.html) is used for scanning front side of [Spanish driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Spain).
+
 ### <a name="blinkid_recognizers_sweden"></a> Sweden
 
 #### <a name="sweden_dl"></a> Sweden driver's license front side recognizer
@@ -1363,7 +1395,8 @@ The [`SwitzerlandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/c
 #### <a name="uae_id"></a> United Arab Emirates ID front and back side recognizers
 The [`UnitedArabEmiratesIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/unitedArabEmirates/UnitedArabEmiratesIdFrontRecognizer.html) and [`UnitedArabEmiratesIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/unitedArabEmirates/UnitedArabEmiratesIdBackRecognizer.html) are used for scanning the front and back side of United Arab Emirates identity card.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+#### <a name="uae_dl"></a> United Arab Emirates driver's license front side recognizer
+The [`UnitedArabEmiratesDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/unitedArabEmirates/UnitedArabEmiratesDlFrontRecognizer.html) is used for scanning the front side of the United Arab Emirates driver's license.
 
 
 ### <a name="blinkid_recognizers_uk"></a> United Kingdom

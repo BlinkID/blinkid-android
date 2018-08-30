@@ -1,5 +1,28 @@
 # Release notes
 
+## 4.2.0
+
+### New features:
+
+- added support for reading front side of United Arab Emirates Driver's License - use `UnitedArabEmiratesDlFrontRecognizer`
+- added support for reading front side of Spain Driver's License - use `SpainDlFrontRecognizer`
+- added support for reading front and back side of Cyprus ID - use `CyprusIdFrontRecognizer` and `CyprusIdBackRecognizer`
+- added support for reading front and back side of Kuwait ID - use `KuwaitIdFrontRecognizer` and `KuwaitIdBackRecognizer`
+- added support for reading front and back side of Payment / Debit cards - use `PaymentCardFrontRecognizer`, `PaymentCardBackRecognizer` and `PaymentCardCombinedRecognizer`
+
+### Improvements for existing features:
+
+- improved `SingaporeCombinedRecognizer`:
+    - added support for reading sticker with new address from the back side
+- `BarcodeScanActivity` by default does not show result dialog after scan
+
+### Minor API changes:
+
+### Bug fixes:
+
+- fixed bug which caused that results from the previous scan are cleared when the scan activity is run again and entities which have produced results are not used in the new scan
+- various other bug fixes and improvements- various other bug fixes and improvements
+
 ## 4.1.0
 
 ### New features:
