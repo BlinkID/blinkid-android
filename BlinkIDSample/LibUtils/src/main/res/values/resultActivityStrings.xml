@@ -114,6 +114,7 @@
     <string name="PPIssuingAuthority">Issuing Authority</string>
     <string name="PPIssuedBy">Issued by</string>
     <string name="PPAddress">Address</string>
+    <string name="PPResidence">Residence</string>
     <string name="PPAddressZipCode">Address ZIP code</string>
     <string name="PPAddressStreet">Address street</string>
     <string name="PPAddressCity">Address city</string>
@@ -121,6 +122,7 @@
     <string name="PPAddressHouseNumber">Address house number</string>
     <string name="PPPlaceOfBirth">Place of birth</string>
     <string name="PPPlaceOfOrigin">Place of origin</string>
+    <string name="PPPlaceOfIssue">Place of issue</string>
     <string name="PPIssueDate">Date of issuance</string>
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
@@ -157,6 +159,7 @@
     <string name="PPSpecialRemarks">Special remarks</string>
     <string name="PPValidFrom">Valid from</string>
     <string name="PPValidUntil">Valid until</string>
+    <string name="PPValidThru">Valid thru</string>
     <string name="PPPassportNumber">Passport number</string>
     <string name="PPEmployer">Employer</string>
     <string name="PPSector">Sector</string>
@@ -171,6 +174,7 @@
     <string name="PPDistrictCode">District code</string>
     <string name="PPCustomerID">Customer ID</string>
     <string name="PPLicenceNumber">Licence Number</string>
+    <string name="PPLicencingAuthority">Licencing Authority</string>
     <string name="PPLicenceType">Licence Type</string>
     <string name="PPAlternativeSchemeParameters">Alternative scheme parameters</string>
     <string name="PPAdditionalInformation">Additional information</string>
@@ -181,6 +185,12 @@
     <string name="PPFatherName">Father\'s name</string>
     <string name="PPMotherName">Mother\'s name</string>
     <string name="PPCivilStatusNumber">Civil status number</string>
+    <string name="PPCivilIdNumber">Civil Id Number</string>
+    <string name="PPSerialNo">Serial No</string>
+    <string name="PPPaymentCardNumber">Payment card number</string>
+    <string name="PPCVV">Card verification value</string>
+    <string name="PPInventoryNumber">Inventory number</string>
+    <string name="PPOwner">Owner</string>
     <string name="PPRT">RT</string>
     <string name="PPRW">RW</string>
     <string name="PPKelDesa">Kel/Desa</string>

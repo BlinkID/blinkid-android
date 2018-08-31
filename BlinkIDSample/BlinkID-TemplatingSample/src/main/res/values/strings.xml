@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">BlinkID templating sample</string>
-    <string name="scan_croatian_id_front">Scan croatian ID front side</string>
-    <string name="scan_croatian_id_back">Scan croatian ID back side</string>
+    <string name="scan_croatian_id_front">Scan Croatian ID front side</string>
+    <string name="scan_croatian_id_back">Scan Croatian ID back side</string>
 
     <string name="result_key_first_name">First name</string>
     <string name="result_key_last_name">Last name</string>

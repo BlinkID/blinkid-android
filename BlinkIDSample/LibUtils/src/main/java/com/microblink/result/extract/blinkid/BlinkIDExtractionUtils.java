@@ -88,8 +88,17 @@ public class BlinkIDExtractionUtils {
             DigitalSignatureResult digitalSignatureResult = (DigitalSignatureResult) result;
             byte[] digitalSignature = digitalSignatureResult.getDigitalSignature();
             if (digitalSignature != null) {
-                extractedData.add(builder.build(R.string.MBDigitalSignatureVersion, digitalSignatureResult.getDigitalSignatureVersion()));
-                extractedData.add(builder.build(R.string.MBDigitalSignature, digitalSignature));
+                boolean allZeros = true;
+                for (byte b : digitalSignature) {
+                    if (b != 0) {
+                        allZeros = false;
+                        break;
+                    }
+                }
+                if (!allZeros) {
+                    extractedData.add(builder.build(R.string.MBDigitalSignatureVersion, digitalSignatureResult.getDigitalSignatureVersion()));
+                    extractedData.add(builder.build(R.string.MBDigitalSignature, digitalSignature));
+                }
             }
         }
     }
