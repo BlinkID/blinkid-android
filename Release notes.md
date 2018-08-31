@@ -17,11 +17,22 @@
 - `BarcodeScanActivity` by default does not show result dialog after scan
 
 ### Minor API changes:
+- renamed methods in `CroatiaIdBackRecognizer` and its `Result`:
+    - `address` to `residence`
+    - `documentForNonResident` to `isDocumentForNonResident`
+    - `issuingAuthority` to `issuedBy`
+    - `getDateOfExpiryPermanent` to `isDateOfExpiryPermanent`
+    - MRZ fields are available through `MrzResult` which can be obtained by using getter `CroatiaIdBackRecognizer.Result.getMrzResult()`
+- renamed method in `SingaporeIdFrontRecognizer` and its `Result`:
+    - `cardNumber` to `identityCardNumber`
+- renamed method in `SingaporeCombinedRecognizer` and its `Result`:
+    - `cardNumber` to `identityCardNumber`
+    - `bloodGroup` to `bloodType`
 
 ### Bug fixes:
 
 - fixed bug which caused that results from the previous scan are cleared when the scan activity is run again and entities which have produced results are not used in the new scan
-- various other bug fixes and improvements- various other bug fixes and improvements
+- various other bug fixes and improvements
 
 ## 4.1.0
 
