@@ -4,13 +4,13 @@ import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRe
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class SingaporeIDCombinedRecognitionResultExtractor extends BlinkIdExtractor<SingaporeCombinedRecognizer.Result, SingaporeCombinedRecognizer> {
+public class SingaporeCombinedRecognitionResultExtractor extends BlinkIdExtractor<SingaporeCombinedRecognizer.Result, SingaporeCombinedRecognizer> {
 
     @Override
     protected void extractData(SingaporeCombinedRecognizer.Result result) {
         add(R.string.PPFullName, result.getName());
-        add(R.string.PPBloodType, result.getBloodGroup());
-        add(R.string.PPNRICNumber, result.getCardNumber());
+        add(R.string.PPBloodType, result.getBloodType());
+        add(R.string.PPIdentityCardNumber, result.getIdentityCardNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPRace, result.getRace());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());

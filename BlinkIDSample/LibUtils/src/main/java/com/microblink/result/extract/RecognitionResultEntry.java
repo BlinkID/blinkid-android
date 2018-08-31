@@ -13,9 +13,10 @@ import com.microblink.image.Image;
 import com.microblink.libresult.R;
 import com.microblink.results.date.Date;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class RecognitionResultEntry {
 
@@ -84,8 +85,23 @@ public class RecognitionResultEntry {
             String strVal = "";
             if (value != null) {
                 Calendar cal = GregorianCalendar.getInstance();
-                cal.set(value.getYear(), value.getMonth() - 1, value.getDay());
-                DateFormat df = DateFormat.getDateInstance();
+                cal.clear();
+                // year always exists
+                cal.set(Calendar.YEAR, value.getYear());
+                // if date is partial, day and month can be 0
+                StringBuilder dateFormat = new StringBuilder();
+                int day = value.getDay();
+                if (day != 0) {
+                    cal.set(Calendar.DATE, day);
+                    dateFormat.append("dd/");
+                }
+                int month = value.getMonth();
+                if (month != 0) {
+                    cal.set(Calendar.MONTH, month -1);
+                    dateFormat.append("MM/");
+                }
+                dateFormat.append("YYYY");
+                SimpleDateFormat df = new SimpleDateFormat(dateFormat.toString(), Locale.US);
                 strVal = df.format(cal.getTime());
             }
             return new RecognitionResultEntry(createKey(key), strVal);

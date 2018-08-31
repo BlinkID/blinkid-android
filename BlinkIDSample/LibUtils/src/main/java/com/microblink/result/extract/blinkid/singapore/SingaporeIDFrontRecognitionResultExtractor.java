@@ -8,7 +8,7 @@ public class SingaporeIDFrontRecognitionResultExtractor extends BlinkIdExtractor
 
     @Override
     protected void extractData(SingaporeIdFrontRecognizer.Result result) {
-        add(R.string.PPDocumentNumber, result.getCardNumber());
+        add(R.string.PPIdentityCardNumber, result.getIdentityCardNumber());
         add(R.string.PPFullName, result.getName());
         add(R.string.PPRace, result.getRace());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());

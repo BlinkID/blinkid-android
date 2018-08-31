@@ -36,6 +36,8 @@ import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecog
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
@@ -52,6 +54,8 @@ import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRec
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.IkadRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
@@ -61,6 +65,9 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
@@ -79,11 +86,13 @@ import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIdFrontRecog
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.spain.SpainDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
@@ -173,6 +182,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildColombiaIDElement());
         items.add(buildCroatianIDElement());
         items.add(buildCroatianIDCombinedElement());
+        items.add(buildCyprusIDElement());
         items.add(buildCzechIDElement());
         items.add(buildCzechIDCombinedElement());
         items.add(buildEgyptIDFrontElement());
@@ -183,6 +193,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildIndonesianIdElement());
         items.add(buildJordanIdElement());
         items.add(buildJordanIdCombinedElement());
+        items.add(buildKuwaitIdElement());
         items.add(buildMyKadElement());
         items.add(buildIKadElement());
         items.add(buildMyTenteraElement());
@@ -210,11 +221,17 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildNewZealandDLElement());
         items.add(buildGermanDLElement());
         items.add(buildSingaporeDlElement());
-        items.add(buildSwedenDlElement());
-        items.add(buildSwissDlElement());
+        items.add(buildSpainDLElement());
+        items.add(buildSwedenDLElement());
+        items.add(buildSwissDLElement());
         items.add(buildUKDLElement());
         items.add(buildUsdlElement());
+        items.add(buildUnitedArabEmiratesDLElement());
         items.add(buildUsdlCombinedElement());
+
+        // entries for documents which are not country-specific
+        items.add(buildPaymentCardElement());
+        items.add(buildPaymentCardCombinedElement());
 
         // barcode list entries
         items.add(buildPDF417Element());
@@ -367,6 +384,21 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildCyprusIDElement() {
+        return new MenuListItem("Cyprus ID", new Runnable() {
+            @Override
+            public void run() {
+                CyprusIdFrontRecognizer cyprusFront = new CyprusIdFrontRecognizer();
+                ImageSettings.enableAllImages(cyprusFront);
+
+                CyprusIdBackRecognizer cyprusBack = new CyprusIdBackRecognizer();
+                ImageSettings.enableAllImages(cyprusBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(cyprusFront, cyprusBack)));
+            }
+        });
+    }
+
     private MenuListItem buildCzechIDElement() {
         return new MenuListItem("Czech ID", new Runnable() {
             @Override
@@ -459,6 +491,21 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(jordanBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(jordanFront, jordanBack)));
+            }
+        });
+    }
+
+    private MenuListItem buildKuwaitIdElement() {
+        return new MenuListItem("Kuwait ID", new Runnable() {
+            @Override
+            public void run() {
+                KuwaitIdFrontRecognizer kuwaitFront = new KuwaitIdFrontRecognizer();
+                ImageSettings.enableAllImages(kuwaitFront);
+
+                KuwaitIdBackRecognizer kuwaitBack = new KuwaitIdBackRecognizer();
+                ImageSettings.enableAllImages(kuwaitBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(kuwaitFront, kuwaitBack)));
             }
         });
     }
@@ -657,6 +704,21 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildPaymentCardElement() {
+        return new MenuListItem("Payment Card", new Runnable() {
+            @Override
+            public void run() {
+                PaymentCardFrontRecognizer paymentCardFront = new PaymentCardFrontRecognizer();
+                ImageSettings.enableAllImages(paymentCardFront);
+
+                PaymentCardBackRecognizer paymentCardBack = new PaymentCardBackRecognizer();
+                ImageSettings.enableAllImages(paymentCardBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(paymentCardFront, paymentCardBack)));
+            }
+        });
+    }
+
     private MenuListItem buildEUDLElement(String title, final EudlCountry country) {
         return new MenuListItem(title, new Runnable() {
             @Override
@@ -731,7 +793,18 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildSwedenDlElement() {
+    private MenuListItem buildSpainDLElement() {
+        return new MenuListItem("Spain Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                SpainDlFrontRecognizer spainDlFrontRecognizer = new SpainDlFrontRecognizer();
+                ImageSettings.enableAllImages(spainDlFrontRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(spainDlFrontRecognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildSwedenDLElement() {
         return new MenuListItem("Sweden Driver's License", new Runnable() {
             @Override
             public void run() {
@@ -745,7 +818,7 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildSwissDlElement() {
+    private MenuListItem buildSwissDLElement() {
         return new MenuListItem("Swiss Driver's License", new Runnable() {
             @Override
             public void run() {
@@ -753,6 +826,18 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(switzerlandDl);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandDl)));
+            }
+        });
+    }
+
+    private MenuListItem buildUnitedArabEmiratesDLElement() {
+        return new MenuListItem("United Arab Emirates Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                UnitedArabEmiratesDlFrontRecognizer uaeDlFront = new UnitedArabEmiratesDlFrontRecognizer();
+                ImageSettings.enableAllImages(uaeDlFront);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(uaeDlFront)));
             }
         });
     }
@@ -823,6 +908,18 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(jordanCombined);
 
                 combinedRecognitionAction(jordanCombined);
+            }
+        });
+    }
+
+    private MenuListItem buildPaymentCardCombinedElement() {
+        return new MenuListItem("Payment Card Combined", new Runnable() {
+            @Override
+            public void run() {
+                PaymentCardCombinedRecognizer paymentCardCombined = new PaymentCardCombinedRecognizer();
+                ImageSettings.enableAllImages(paymentCardCombined);
+
+                combinedRecognitionAction(paymentCardCombined);
             }
         });
     }
