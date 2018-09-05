@@ -100,7 +100,7 @@ public class RecognitionResultEntry {
                     cal.set(Calendar.MONTH, month -1);
                     dateFormat.append("MM/");
                 }
-                dateFormat.append("YYYY");
+                dateFormat.append("yyyy");
                 SimpleDateFormat df = new SimpleDateFormat(dateFormat.toString(), Locale.US);
                 strVal = df.format(cal.getTime());
             }
