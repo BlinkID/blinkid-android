@@ -170,7 +170,7 @@ In your `build.gradle` you first need to add _BlinkID_ maven repository to repos
 
 ```
 repositories {
-	maven { url 'http://maven.microblink.com' }
+	maven { url 'https://maven.microblink.com' }
 }
 ```
 
@@ -254,7 +254,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 <repositories>
    	<repository>
        	<id>MicroblinkRepo</id>
-       	<url>http://maven.microblink.com</url>
+       	<url>https://maven.microblink.com</url>
    	</repository>
 </repositories>
 
