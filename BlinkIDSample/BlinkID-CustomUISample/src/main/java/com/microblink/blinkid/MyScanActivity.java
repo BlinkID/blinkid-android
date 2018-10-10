@@ -159,7 +159,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         mQvManager = QuadViewManagerFactory.createQuadViewFromPreset(mRecognizerView, QuadViewPreset.DEFAULT_FROM_DOCUMENT_SCAN_ACTIVITY);
 
         // initialize buttons and status view
-        View view = getLayoutInflater().inflate(R.layout.default_photopay_viewfinder, null);
+        View view = getLayoutInflater().inflate(R.layout.default_blinkid_viewfinder, null);
 
         mBackButton = view.findViewById(R.id.defaultBackButton);
         mBackButton.setText(getString(R.string.mb_home));
@@ -392,7 +392,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         alertDialog.setTitle(getString(R.string.error));
         alertDialog.setMessage(getString(R.string.errorDesc));
 
-        alertDialog.setButton(getString(R.string.photopayOK), new DialogInterface.OnClickListener() {
+        alertDialog.setButton(getString(R.string.blinkidOK), new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {

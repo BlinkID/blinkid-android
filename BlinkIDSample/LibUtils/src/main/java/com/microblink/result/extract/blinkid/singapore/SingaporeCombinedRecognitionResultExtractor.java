@@ -9,7 +9,7 @@ public class SingaporeCombinedRecognitionResultExtractor extends BlinkIdExtracto
     @Override
     protected void extractData(SingaporeCombinedRecognizer.Result result) {
         add(R.string.PPFullName, result.getName());
-        add(R.string.PPBloodType, result.getBloodType());
+        add(R.string.PPBloodType, result.getBloodGroup());
         add(R.string.PPIdentityCardNumber, result.getIdentityCardNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPRace, result.getRace());

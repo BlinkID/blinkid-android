@@ -203,6 +203,7 @@
     <string name="PPIdentityNumber">Identity number</string>
     <string name="PPIssuingAgency">Issuing agency</string>
     <string name="PPLicenceCategories">Licence Categories</string>
+    <string name="PPVehicleCategories">Vehicle Categories</string>
     <string name="PPReferenceNumber">Reference Number</string>
     <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPCANNumber">CAN number</string>

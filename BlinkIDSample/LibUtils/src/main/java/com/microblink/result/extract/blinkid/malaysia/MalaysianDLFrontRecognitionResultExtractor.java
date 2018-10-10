@@ -15,9 +15,9 @@ public class MalaysianDLFrontRecognitionResultExtractor extends BlinkIdExtractor
         add(R.string.PPValidFrom, result.getValidFrom());
         add(R.string.PPValidUntil, result.getValidUntil());
         add(R.string.PPAddressStreet, result.getStreet());
-        add(R.string.PPAddressZipCode, result.getZipCode());
+        add(R.string.PPAddressZipCode, result.getZipcode());
         add(R.string.PPAddressCity, result.getCity());
-        add(R.string.PPAddressState, result.getState());
+        add(R.string.PPAddressState, result.getOwnerState());
         add(R.string.PPAddress, result.getFullAddress());
     }
 

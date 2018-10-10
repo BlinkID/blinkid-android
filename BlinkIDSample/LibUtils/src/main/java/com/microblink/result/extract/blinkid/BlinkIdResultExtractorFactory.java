@@ -4,9 +4,11 @@ import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
@@ -19,6 +21,9 @@ import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
@@ -27,6 +32,8 @@ import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognize
 import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.ireland.IrelandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.italy.ItalyDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdFrontRecognizer;
@@ -75,10 +82,12 @@ import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArab
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.result.extract.blinkid.australia.AustralianDLBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.australia.AustralianDLFrontSideRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.austria.AustriaDlFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianIDFrontSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianPassportRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.colombia.ColombiaDlFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.colombia.ColombiaIDBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.colombia.ColombiaIDFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.croatia.CroatianIDBackSideRecognitionResultExtractor;
@@ -91,6 +100,9 @@ import com.microblink.result.extract.blinkid.czechia.CzechIDCombinedRecognitionR
 import com.microblink.result.extract.blinkid.czechia.CzechIDFrontSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.documentface.DocumentFaceRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.egypt.EgyptIDFrontRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardBackRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardCombinedRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.eudl.EUDriversLicenceRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDCombinedRecognitionResultExtractor;
@@ -99,6 +111,8 @@ import com.microblink.result.extract.blinkid.germany.GermanOldIDRecognitionResul
 import com.microblink.result.extract.blinkid.germany.GermanPassportRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.hongkong.HongKongIdFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.indonesia.IndonesianIDFrontSideRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.ireland.IrelandDlFrontRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.italy.ItalyDlFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.jordan.JordanIDBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.jordan.JordanIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.jordan.JordanIDFrontRecognitionResultExtractor;
@@ -166,6 +180,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new AustralianDLFrontSideRecognitionResultExtractor());
         add(AustraliaDlBackRecognizer.class,
                 new AustralianDLBackSideRecognitionResultExtractor());
+        add(AustriaDlFrontRecognizer.class,
+                new AustriaDlFrontRecognitionResultExtractor());
         add(AustriaIdFrontRecognizer.class,
                 new AustrianIDFrontSideRecognitionResultExtractor());
         add(AustriaIdBackRecognizer.class,
@@ -202,6 +218,10 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new GermanPassportRecognitionResultExtractor());
         add(IndonesiaIdFrontRecognizer.class,
                 new IndonesianIDFrontSideRecognitionResultExtractor());
+        add(IrelandDlFrontRecognizer.class,
+                new IrelandDlFrontRecognitionResultExtractor());
+        add(ItalyDlFrontRecognizer.class,
+                new ItalyDlFrontRecognitionResultExtractor());
         add(JordanIdFrontRecognizer.class,
                 new JordanIDFrontRecognitionResultExtractor());
         add(JordanIdBackRecognizer.class,
@@ -210,6 +230,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new JordanIDCombinedRecognitionResultExtractor());
         add(HongKongIdFrontRecognizer.class,
                 new HongKongIdFrontRecognitionResultExtractor());
+        add(ColombiaDlFrontRecognizer.class,
+                new ColombiaDlFrontRecognitionResultExtractor());
         add(ColombiaIdFrontRecognizer.class,
                 new ColombiaIDFrontRecognitionResultExtractor());
         add(ColombiaIdBackRecognizer.class,
@@ -220,8 +242,6 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new MalaysianDLFrontRecognitionResultExtractor());
         add(NewZealandDlFrontRecognizer.class,
                 new NewZealandDLFrontSideRecognitionResultExtractor());
-        add(SpainDlFrontRecognizer.class,
-                new SpainDlFrontRecognitionResultExtractor());
         add(SwitzerlandIdBackRecognizer.class,
                 new SwissIDBackSideRecognitionResultExtractor());
         add(SwitzerlandPassportRecognizer.class,
@@ -252,6 +272,12 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new PaymentCardBackRecognitionResultExtractor());
         add(PaymentCardCombinedRecognizer.class,
                 new PaymentCardCombinedRecognitionResultExtractor());
+        add(ElitePaymentCardFrontRecognizer.class,
+                new ElitePaymentCardFrontRecognitionResultExtractor());
+        add(ElitePaymentCardBackRecognizer.class,
+                new ElitePaymentCardBackRecognitionResultExtractor());
+        add(ElitePaymentCardCombinedRecognizer.class,
+                new ElitePaymentCardCombinedRecognitionResultExtractor());
         add(PolandIdBackRecognizer.class,
                 new PolishIDBackSideRecognitionResultExtractor());
         add(PolandIdFrontRecognizer.class,
@@ -282,6 +308,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new SingaporeDlFrontRecognitionResultExtractor());
         add(SingaporeChangiEmployeeIdRecognizer.class,
                 new SingaporeChangiEmployeeIdRecognitionResultExtractor());
+        add(SpainDlFrontRecognizer.class,
+                new SpainDlFrontRecognitionResultExtractor());
         add(RomaniaIdFrontRecognizer.class,
                 new RomanianIDFrontSideRecognitionResultExtractor());
         add(UnitedArabEmiratesIdFrontRecognizer.class,

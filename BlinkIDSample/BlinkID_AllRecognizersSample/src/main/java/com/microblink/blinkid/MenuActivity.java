@@ -28,9 +28,11 @@ import com.microblink.entities.recognizers.blinkbarcode.vin.VinRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
@@ -42,6 +44,9 @@ import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecogn
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
@@ -51,6 +56,8 @@ import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognize
 import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.ireland.IrelandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.italy.ItalyDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdFrontRecognizer;
@@ -215,8 +222,11 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildUnitedArabEmiratesIdElement());
 
         // DL list entries
-        items.add(buildAustrianDLElement());
+        items.add(buildAustriaDLFrontElement());
         items.add(buildAustralianDLElement());
+        items.add(buildColombiaDLElement());
+        items.add(buildIrelandDLElement());
+        items.add(buildItalyDlElement());
         items.add(buildMalaysianDLElement());
         items.add(buildNewZealandDLElement());
         items.add(buildGermanDLElement());
@@ -232,6 +242,8 @@ public class MenuActivity extends BaseMenuActivity {
         // entries for documents which are not country-specific
         items.add(buildPaymentCardElement());
         items.add(buildPaymentCardCombinedElement());
+        items.add(buildElitePaymentCardElement());
+        items.add(buildElitePaymentCardCombinedElement());
 
         // barcode list entries
         items.add(buildPDF417Element());
@@ -719,6 +731,21 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildElitePaymentCardElement() {
+        return new MenuListItem("Elite Payment Card", new Runnable() {
+            @Override
+            public void run() {
+                ElitePaymentCardFrontRecognizer frontRec = new ElitePaymentCardFrontRecognizer();
+                ImageSettings.enableAllImages(frontRec);
+
+                ElitePaymentCardBackRecognizer backRec = new ElitePaymentCardBackRecognizer();
+                ImageSettings.enableAllImages(backRec);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(frontRec, backRec)));
+            }
+        });
+    }
+
     private MenuListItem buildEUDLElement(String title, final EudlCountry country) {
         return new MenuListItem(title, new Runnable() {
             @Override
@@ -739,8 +766,15 @@ public class MenuActivity extends BaseMenuActivity {
         return buildEUDLElement("German Driver's License", EudlCountry.EUDL_COUNTRY_GERMANY);
     }
 
-    private MenuListItem buildAustrianDLElement() {
-        return buildEUDLElement("Austrian Driver's License", EudlCountry.EUDL_COUNTRY_AUSTRIA);
+    private MenuListItem buildAustriaDLFrontElement() {
+        return new MenuListItem("Austria Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                AustriaDlFrontRecognizer austriaDlFrontRecognizer = new AustriaDlFrontRecognizer();
+                ImageSettings.enableAllImages(austriaDlFrontRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaDlFrontRecognizer)));
+            }
+        });
     }
 
     private MenuListItem buildAustralianDLElement() {
@@ -754,6 +788,42 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(australiaDlBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(australiaDlFront, australiaDlBack)));
+            }
+        });
+    }
+
+    private MenuListItem buildIrelandDLElement() {
+        return new MenuListItem("Ireland Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                IrelandDlFrontRecognizer irelandDlFront = new IrelandDlFrontRecognizer();
+                ImageSettings.enableAllImages(irelandDlFront);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(irelandDlFront)));
+            }
+        });
+    }
+
+    private MenuListItem buildItalyDlElement(){
+        return new MenuListItem("Italy Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                ItalyDlFrontRecognizer italyDlFrontRecognizer = new ItalyDlFrontRecognizer();
+                ImageSettings.enableAllImages(italyDlFrontRecognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(italyDlFrontRecognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildColombiaDLElement() {
+        return new MenuListItem("Colombia Driver's License", new Runnable() {
+            @Override
+            public void run() {
+                ColombiaDlFrontRecognizer colombiaDlFront = new ColombiaDlFrontRecognizer();
+                ImageSettings.enableAllImages(colombiaDlFront);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(colombiaDlFront)));
             }
         });
     }
@@ -917,6 +987,18 @@ public class MenuActivity extends BaseMenuActivity {
             @Override
             public void run() {
                 PaymentCardCombinedRecognizer paymentCardCombined = new PaymentCardCombinedRecognizer();
+                ImageSettings.enableAllImages(paymentCardCombined);
+
+                combinedRecognitionAction(paymentCardCombined);
+            }
+        });
+    }
+
+    private MenuListItem buildElitePaymentCardCombinedElement() {
+        return new MenuListItem("Elite Payment Card Combined", new Runnable() {
+            @Override
+            public void run() {
+                ElitePaymentCardCombinedRecognizer paymentCardCombined = new ElitePaymentCardCombinedRecognizer();
                 ImageSettings.enableAllImages(paymentCardCombined);
 
                 combinedRecognitionAction(paymentCardCombined);
@@ -1098,7 +1180,6 @@ public class MenuActivity extends BaseMenuActivity {
     private Intent createHelpIntent() {
         return new Intent(this, HelpActivity.class);
     }
-
 
     private RecognizerBundle prepareRecognizerBundle(@NonNull Recognizer<?,?>... recognizers ) {
         return new RecognizerBundle(recognizers);

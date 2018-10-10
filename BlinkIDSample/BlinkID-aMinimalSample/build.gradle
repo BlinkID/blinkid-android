@@ -29,4 +29,8 @@ dependencies {
     implementation("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
         transitive = true
     }
+
+    // uncomment this to use custom LibBlinkID build
+//    implementation project(':LibBlinkID-release')
+//    implementation "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
 }
