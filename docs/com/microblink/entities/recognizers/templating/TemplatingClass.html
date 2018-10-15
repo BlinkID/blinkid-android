@@ -272,7 +272,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -394,7 +395,8 @@ public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/templati
 <ul class="blockList">
 <li class="blockList">
 <h4>getOwningRecognizer</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.html" title="class in com.microblink.entities.recognizers.templating">TemplatingRecognizer</a>&nbsp;getOwningRecognizer()</pre>
+<pre>@Nullable
+public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.html" title="class in com.microblink.entities.recognizers.templating">TemplatingRecognizer</a>&nbsp;getOwningRecognizer()</pre>
 <div class="block">Returns the <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.html" title="class in com.microblink.entities.recognizers.templating"><code>TemplatingRecognizer</code></a> which contains this <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingClass.html" title="class in com.microblink.entities.recognizers.templating"><code>TemplatingClass</code></a> or <code>null</code> if this <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingClass.html" title="class in com.microblink.entities.recognizers.templating"><code>TemplatingClass</code></a> is not contained withing any <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.html" title="class in com.microblink.entities.recognizers.templating"><code>TemplatingRecognizer</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -439,7 +441,8 @@ public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/templati
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

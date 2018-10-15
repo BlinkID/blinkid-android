@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="blinkid">BlinkID</string>
-    <string name="photopayOK">OK</string>
+    <string name="blinkidOK">OK</string>
     <string name="scanOcr">Scan slip</string>
     <string name="scanId">Scan ID</string>
     <string name="scanBarcode">Scan barcode</string>

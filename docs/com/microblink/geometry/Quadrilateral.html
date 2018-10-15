@@ -352,7 +352,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -391,9 +392,13 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>Quadrilateral</h4>
-<pre>public&nbsp;Quadrilateral(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uleft,
+<pre>public&nbsp;Quadrilateral(@NonNull
+                     <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uleft,
+                     @NonNull
                      <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uright,
+                     @NonNull
                      <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;lleft,
+                     @NonNull
                      <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;lright)</pre>
 </li>
 </ul>
@@ -403,7 +408,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>Quadrilateral</h4>
-<pre>public&nbsp;Quadrilateral(float[]&nbsp;points)</pre>
+<pre>public&nbsp;Quadrilateral(@NonNull
+                     float[]&nbsp;points)</pre>
 <div class="block">Constructor from float array. The points are represented as pairs (x,y)
  in clockwise order: upper left, upper right, lower right, lower left</div>
 <dl>
@@ -418,7 +424,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Quadrilateral</h4>
-<pre>protected&nbsp;Quadrilateral(android.os.Parcel&nbsp;in)</pre>
+<pre>protected&nbsp;Quadrilateral(@NonNull
+                        android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
 </li>
@@ -487,9 +494,13 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setPoints</h4>
-<pre>public&nbsp;void&nbsp;setPoints(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uleft,
+<pre>public&nbsp;void&nbsp;setPoints(@NonNull
+                      <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uleft,
+                      @NonNull
                       <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;uright,
+                      @NonNull
                       <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;lleft,
+                      @NonNull
                       <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;lright)</pre>
 </li>
 </ul>
@@ -499,7 +510,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -529,7 +541,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getSortedQuad</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a>&nbsp;getSortedQuad()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a>&nbsp;getSortedQuad()</pre>
 <div class="block">Returns the Quadrilateral which has same corners as original, but it guarantees that upper left
  point is the point nearest to (0,0) coordinate.</div>
 <dl>
@@ -544,7 +557,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUpperLeft</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getUpperLeft()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getUpperLeft()</pre>
 <div class="block">Returns the point nearest to (0, 0) coordinate.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -558,7 +572,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUpperRight</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getUpperRight()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getUpperRight()</pre>
 <div class="block">Returns the point nearest to (width, 0) coordinate</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -572,7 +587,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLowerLeft</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getLowerLeft()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getLowerLeft()</pre>
 <div class="block">Returns the point nearest to (0, height) coordinate</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -586,7 +602,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLowerRight</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getLowerRight()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;getLowerRight()</pre>
 <div class="block">Returns the point nearest to (width, height) coordinate</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -636,7 +653,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a>&nbsp;clone()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>clone</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -662,7 +680,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

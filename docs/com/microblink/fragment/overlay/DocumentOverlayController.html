@@ -274,7 +274,8 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 <ul class="blockList">
 <li class="blockList">
 <h4>addChildViews</h4>
-<pre>protected&nbsp;void&nbsp;addChildViews(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<pre>protected&nbsp;void&nbsp;addChildViews(@NonNull
+                             <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html#addChildViews-com.microblink.view.recognition.RecognizerRunnerView-">addChildViews</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOcrOverlayController</a></code></dd>
@@ -341,7 +342,8 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 <ul class="blockList">
 <li class="blockList">
 <h4>isOrientationAllowed</h4>
-<pre>public&nbsp;boolean&nbsp;isOrientationAllowed(<a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
+<pre>public&nbsp;boolean&nbsp;isOrientationAllowed(@NonNull
+                                    <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/view/OrientationAllowedListener.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">OrientationAllowedListener</a></code></span></div>
 <div class="block">Called in onOrientationChange. Use it to determine if given orientation
  is allowed.</div>
@@ -363,7 +365,9 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 <ul class="blockListLast">
 <li class="blockList">
 <h4>createQuadView</h4>
-<pre>protected&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<pre>@Nullable
+protected&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(@NonNull
+                                                   <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html#createQuadView-com.microblink.view.recognition.RecognizerRunnerView-">createQuadView</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOcrOverlayController</a></code></dd>

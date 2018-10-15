@@ -449,7 +449,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 <div class="block">Parcelable creator.</div>
 </li>
 </ul>
@@ -478,6 +479,7 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <li class="blockList">
 <h4>BlinkOCREngineOptions</h4>
 <pre>public&nbsp;BlinkOCREngineOptions(long&nbsp;nativeContext,
+                             @Nullable
                              java.lang.Object&nbsp;keep)</pre>
 <div class="block">Constructor from native object.</div>
 <dl>
@@ -501,7 +503,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;clone()</pre>
 <div class="block">Creates a copy of <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy"><code>BlinkOCREngineOptions</code></a> object.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
@@ -533,7 +536,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setMinimumLineHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMinimumLineHeight(int&nbsp;minimumLineHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMinimumLineHeight(int&nbsp;minimumLineHeight)</pre>
 <div class="block">Sets the minimum height of the line of text given in pixels. All chars smaller
  than this value will be ignored.</div>
 <dl>
@@ -565,7 +569,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaximumLineHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMaximumLineHeight(int&nbsp;maximumLineHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMaximumLineHeight(int&nbsp;maximumLineHeight)</pre>
 <div class="block">Sets the maximum height of the line of text given in pixels. All chars larger
  than this value will be ignored.</div>
 <dl>
@@ -597,7 +602,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setMinimumCharHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMinimumCharHeight(int&nbsp;minimumCharHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setMinimumCharHeight(int&nbsp;minimumCharHeight)</pre>
 <div class="block">Sets the minimum height of the char that can be classified. All chars smaller than this
  value are ignored. Unlike <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html#setMinimumLineHeight-int-"><code>BlinkOCREngineOptions.setMinimumLineHeight(int)</code></a>, this value refers to individual
  chars, while <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html#setMinimumLineHeight-int-"><code>BlinkOCREngineOptions.setMinimumLineHeight(int)</code></a> refers to line height, which equals to height
@@ -616,7 +622,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setImageProcessingEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setImageProcessingEnabled(boolean&nbsp;imageProcessingEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setImageProcessingEnabled(boolean&nbsp;imageProcessingEnabled)</pre>
 <div class="block">Specifies if the image processing is performed on image
 
  By default it's set to true.
@@ -649,8 +656,9 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setDocumentType</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setDocumentType(@NonNull
-                                             <a href="../../../../../com/microblink/entities/ocrengine/legacy/OcrDocumentType.html" title="class in com.microblink.entities.ocrengine.legacy">OcrDocumentType</a>&nbsp;documentType)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setDocumentType(@NonNull
+                                                      <a href="../../../../../com/microblink/entities/ocrengine/legacy/OcrDocumentType.html" title="class in com.microblink.entities.ocrengine.legacy">OcrDocumentType</a>&nbsp;documentType)</pre>
 <div class="block">Specifies the OCR document type that will be used to adjust the ocr engine settings.
  Every document type has specific set of characters and ocr engine settings. <br>
 
@@ -671,7 +679,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>getDocumentType</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/OcrDocumentType.html" title="class in com.microblink.entities.ocrengine.legacy">OcrDocumentType</a>&nbsp;getDocumentType()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/OcrDocumentType.html" title="class in com.microblink.entities.ocrengine.legacy">OcrDocumentType</a>&nbsp;getDocumentType()</pre>
 <div class="block">Returns the current OCR document type. See <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html#setDocumentType-com.microblink.entities.ocrengine.legacy.OcrDocumentType-"><code>BlinkOCREngineOptions.setDocumentType(OcrDocumentType)</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -685,8 +694,9 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addCharToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharToWhitelist(@NonNull
-                                                <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCRCharKey.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCRCharKey</a>&nbsp;charKey)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharToWhitelist(@NonNull
+                                                         <a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCRCharKey.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCRCharKey</a>&nbsp;charKey)</pre>
 <div class="block">Adds a char+font combination to set of allowed chars.
  For example to define char 'k' in font Arial, use
  addCharToWhitelist(new BlinkOCRCharKey((int) 'k', BlinkOCRFont.ARIAL));
@@ -707,9 +717,10 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addCharToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharToWhitelist(char&nbsp;value,
-                                                @NonNull
-                                                <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharToWhitelist(char&nbsp;value,
+                                                         @NonNull
+                                                         <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
 <div class="block">Adds a char+font combination to set of allowed chars.
  For example to define char 'k' in font Arial, use
  addCharToWhitelist('k', BlinkOCRFont.ARIAL);
@@ -731,10 +742,11 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addCharIntervalToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharIntervalToWhitelist(char&nbsp;firstValue,
-                                                        char&nbsp;lastValue,
-                                                        @NonNull
-                                                        <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addCharIntervalToWhitelist(char&nbsp;firstValue,
+                                                                 char&nbsp;lastValue,
+                                                                 @NonNull
+                                                                 <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
 <div class="block">Adds a interval of chars including first and last to whitelist in given font (use OcrFont.ANY to cover all available fonts).</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -752,8 +764,9 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addAllDigitsToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addAllDigitsToWhitelist(@NonNull
-                                                     <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addAllDigitsToWhitelist(@NonNull
+                                                              <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
 <div class="block">Adds all digits with given font to whitelist.
  This method is same as calling addCharIntervalToWhitelist('0', '9', font);</div>
 <dl>
@@ -770,8 +783,9 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addLowercaseCharsToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addLowercaseCharsToWhitelist(@NonNull
-                                                          <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addLowercaseCharsToWhitelist(@NonNull
+                                                                   <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
 <div class="block">Adds all lowercase ascii chars with given font to whitelist.
  This method is same as calling addCharIntervalToWhitelist('a', 'z', font);</div>
 <dl>
@@ -788,8 +802,9 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>addUppercaseCharsToWhitelist</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addUppercaseCharsToWhitelist(@NonNull
-                                                          <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;addUppercaseCharsToWhitelist(@NonNull
+                                                                   <a href="../../../../../com/microblink/results/ocr/OcrFont.html" title="class in com.microblink.results.ocr">OcrFont</a>&nbsp;font)</pre>
 <div class="block">Adds all uppercase ascii chars with given font to whitelist.
  This method is same as calling addCharIntervalToWhitelist('A', 'Z', font);</div>
 <dl>
@@ -806,7 +821,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>allowAllCharsAndAllFonts</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;allowAllCharsAndAllFonts()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;allowAllCharsAndAllFonts()</pre>
 <div class="block">Allows all supported chars in all supported fonts.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -820,7 +836,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setWordProcessingEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setWordProcessingEnabled(boolean&nbsp;wordProcessingEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setWordProcessingEnabled(boolean&nbsp;wordProcessingEnabled)</pre>
 <div class="block">If the option is enabled, words in the OCR result will be
  processed and possibly classified as numbers, lower case
  words, upper case, ... . If this kind of classification is
@@ -851,7 +868,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setDetectFlippedTextEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setDetectFlippedTextEnabled(boolean&nbsp;detectFlippedTextEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setDetectFlippedTextEnabled(boolean&nbsp;detectFlippedTextEnabled)</pre>
 <div class="block">If enabled, OCR will produce result for the input image and for
  input image rotated by 180 degrees. Better results of the two will
  be returned. Note that enabling this options requires two OCR passes,
@@ -882,7 +900,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setCasePostprocessorEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setCasePostprocessorEnabled(boolean&nbsp;casePostprocessorEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setCasePostprocessorEnabled(boolean&nbsp;casePostprocessorEnabled)</pre>
 <div class="block">If enabled, classification will be aided by character position in line.
  In other words, character height and baseline position will be used to
  possibly improve the result. Use this option only when expecting
@@ -913,7 +932,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setNoisePostprocessingEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setNoisePostprocessingEnabled(boolean&nbsp;noisePostprocessingEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setNoisePostprocessingEnabled(boolean&nbsp;noisePostprocessingEnabled)</pre>
 <div class="block">If enabled noisy lines will be removed from the result. Noisy lines
  are short or with high percentage of punctuniation, ... . Use this
  option only when expecting structured text.</div>
@@ -943,7 +963,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setRatioPostprocessorEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setRatioPostprocessorEnabled(boolean&nbsp;ratioPostprocessorEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setRatioPostprocessorEnabled(boolean&nbsp;ratioPostprocessorEnabled)</pre>
 <div class="block">If enabled, char quality will be influenced by character ratio difference
  from the original character in font specified by classification.</div>
 <dl>
@@ -972,7 +993,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>setCutoffCharFilterEnabled</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setCutoffCharFilterEnabled(boolean&nbsp;cutoffCharFilterEnabled)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/legacy/BlinkOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.legacy">BlinkOCREngineOptions</a>&nbsp;setCutoffCharFilterEnabled(boolean&nbsp;cutoffCharFilterEnabled)</pre>
 <div class="block">If enabled, all chars that are classified as cutoff, in other words chars
  that exceed image bounds, will be removed from the result.</div>
 <dl>

@@ -240,7 +240,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -258,6 +259,7 @@ implements android.os.Parcelable</pre>
 <li class="blockList">
 <h4>OcrBlock</h4>
 <pre>public&nbsp;OcrBlock(long&nbsp;nativePtr,
+                @Nullable
                 <a href="../../../../com/microblink/results/ocr/OcrResult.html" title="class in com.microblink.results.ocr">OcrResult</a>&nbsp;parentResult)</pre>
 </li>
 </ul>
@@ -275,7 +277,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getPosition</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;getPosition()</pre>
+<pre>@Nullable
+public&nbsp;<a href="../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;getPosition()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the position</dd>
@@ -288,7 +291,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLines</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrLine.html" title="class in com.microblink.results.ocr">OcrLine</a>[]&nbsp;getLines()</pre>
+<pre>@Nullable
+public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrLine.html" title="class in com.microblink.results.ocr">OcrLine</a>[]&nbsp;getLines()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the lines</dd>
@@ -301,7 +305,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -327,7 +332,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

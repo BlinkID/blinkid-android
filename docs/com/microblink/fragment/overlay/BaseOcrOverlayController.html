@@ -351,7 +351,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>mShowOcrResultMode</h4>
-<pre>protected&nbsp;<a href="../../../../com/microblink/uisettings/options/ShowOcrResultMode.html" title="class in com.microblink.uisettings.options">ShowOcrResultMode</a> mShowOcrResultMode</pre>
+<pre>@NonNull
+protected&nbsp;<a href="../../../../com/microblink/uisettings/options/ShowOcrResultMode.html" title="class in com.microblink.uisettings.options">ShowOcrResultMode</a> mShowOcrResultMode</pre>
 </li>
 </ul>
 <a name="mOcrView">
@@ -360,7 +361,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>mOcrView</h4>
-<pre>protected&nbsp;<a href="../../../../com/microblink/view/ocrResult/IOcrResultView.html" title="interface in com.microblink.view.ocrResult">IOcrResultView</a> mOcrView</pre>
+<pre>@Nullable
+protected&nbsp;<a href="../../../../com/microblink/view/ocrResult/IOcrResultView.html" title="interface in com.microblink.view.ocrResult">IOcrResultView</a> mOcrView</pre>
 </li>
 </ul>
 <a name="mHelpIntent">
@@ -369,7 +371,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>mHelpIntent</h4>
-<pre>protected&nbsp;android.content.Intent mHelpIntent</pre>
+<pre>@Nullable
+protected&nbsp;android.content.Intent mHelpIntent</pre>
 <div class="block">Intent which shows the help activity</div>
 </li>
 </ul>
@@ -379,7 +382,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>mHelpAction</h4>
-<pre>protected&nbsp;java.lang.Runnable mHelpAction</pre>
+<pre>@Nullable
+protected&nbsp;java.lang.Runnable mHelpAction</pre>
 <div class="block">Action that will be invoked when help button is pressed.</div>
 </li>
 </ul>
@@ -389,7 +393,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockListLast">
 <li class="blockList">
 <h4>mHelpButton</h4>
-<pre>protected&nbsp;android.widget.Button mHelpButton</pre>
+<pre>@Nullable
+protected&nbsp;android.widget.Button mHelpButton</pre>
 <div class="block">This is a help button</div>
 </li>
 </ul>
@@ -436,7 +441,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>addChildViews</h4>
-<pre>protected&nbsp;void&nbsp;addChildViews(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<pre>protected&nbsp;void&nbsp;addChildViews(@NonNull
+                             <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#addChildViews-com.microblink.view.recognition.RecognizerRunnerView-">addChildViews</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html" title="class in com.microblink.fragment.overlay">BaseScanOverlayController</a></code></dd>
@@ -487,7 +493,8 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockList">
 <li class="blockList">
 <h4>onConfigurationChanged</h4>
-<pre>public&nbsp;void&nbsp;onConfigurationChanged(android.content.res.Configuration&nbsp;newConfig)</pre>
+<pre>public&nbsp;void&nbsp;onConfigurationChanged(@Nullable
+                                   android.content.res.Configuration&nbsp;newConfig)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/fragment/LifecycleObserver.html#onConfigurationChanged-android.content.res.Configuration-">LifecycleObserver</a></code></span></div>
 <div class="block">Called after <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html#onConfigurationChanged-android.content.res.Configuration-"><code>RecognizerRunnerFragment.onConfigurationChanged(Configuration)</code></a>.</div>
 <dl>
@@ -607,7 +614,9 @@ implements <a href="../../../../com/microblink/metadata/ocr/OcrCallback.html" ti
 <ul class="blockListLast">
 <li class="blockList">
 <h4>createQuadView</h4>
-<pre>protected abstract&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<pre>@Nullable
+protected abstract&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(@NonNull
+                                                            <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 </li>
 </ul>
 </li>

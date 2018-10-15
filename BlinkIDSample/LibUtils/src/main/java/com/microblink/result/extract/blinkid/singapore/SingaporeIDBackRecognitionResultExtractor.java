@@ -9,7 +9,7 @@ public class SingaporeIDBackRecognitionResultExtractor extends BlinkIdExtractor<
     @Override
     protected void extractData(SingaporeIdBackRecognizer.Result result) {
         add(R.string.PPDocumentNumber, result.getCardNumber());
-        add(R.string.PPBloodType, result.getBloodType());
+        add(R.string.PPBloodType, result.getBloodGroup());
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPAddress, result.getAddress());
     }

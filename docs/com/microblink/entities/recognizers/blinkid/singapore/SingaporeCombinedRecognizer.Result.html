@@ -286,8 +286,8 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeCombinedRecognizer.Result.html#getBloodType--">getBloodType</a></span>()</code>
-<div class="block">The Singapore ID owner's blood type</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeCombinedRecognizer.Result.html#getBloodGroup--">getBloodGroup</a></span>()</code>
+<div class="block">The Singapore ID owner's blood group</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -315,7 +315,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>int</code></td>
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeCombinedRecognizer.Result.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></span>()</code>
 <div class="block">Returns digital signature version.</div>
 </td>
@@ -495,7 +495,7 @@ public&nbsp;byte[]&nbsp;getEncodedFrontFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the front side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -506,7 +506,7 @@ public&nbsp;byte[]&nbsp;getEncodedFrontFullDocumentImage()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDigitalSignatureVersion</h4>
-<pre>public&nbsp;int&nbsp;getDigitalSignatureVersion()</pre>
+<pre>public&nbsp;long&nbsp;getDigitalSignatureVersion()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">DigitalSignatureResult</a></code></span></div>
 <div class="block">Returns digital signature version.</div>
 <dl>
@@ -570,7 +570,7 @@ public&nbsp;byte[]&nbsp;getEncodedBackFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the back side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -610,7 +610,7 @@ public&nbsp;byte[]&nbsp;getEncodedFaceImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html#getEncodedFaceImage--">getEncodedFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded face image in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -624,17 +624,6 @@ public&nbsp;byte[]&nbsp;getEncodedFaceImage()</pre>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getDateOfBirth()</pre>
 <div class="block">The date of birth of the Singaporean ID card owner.</div>
-</li>
-</ul>
-<a name="getBloodType--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBloodType</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getBloodType()</pre>
-<div class="block">The Singapore ID owner's blood type</div>
 </li>
 </ul>
 <a name="getDateOfIssue--">
@@ -661,8 +650,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html#getFaceImage--">getFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>face image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a> (boolean)} )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -679,9 +668,20 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>back side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
+</li>
+</ul>
+<a name="getBloodGroup--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBloodGroup</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getBloodGroup()</pre>
+<div class="block">The Singapore ID owner's blood group</div>
 </li>
 </ul>
 <a name="getFullDocumentFrontImage--">
@@ -697,8 +697,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>front side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>

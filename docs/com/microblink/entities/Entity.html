@@ -301,6 +301,7 @@ implements android.os.Parcelable</pre>
 <pre>protected&nbsp;Entity(long&nbsp;nativeEntity,
                  @NonNull
                  <a href="../../../com/microblink/entities/Entity.Result.html" title="class in com.microblink.entities">Entity.Result</a>&nbsp;result,
+                 @NonNull
                  android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
@@ -394,7 +395,8 @@ protected abstract&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public abstract&nbsp;<a href="../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public abstract&nbsp;<a href="../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;clone()</pre>
 <div class="block">Create a copy of the entity.
  This is required if properties of the entity must be modified while background thread
  performs processing. In order to avoid race conditions, changing properties is not allowed
@@ -435,7 +437,8 @@ protected abstract&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <li class="blockList">
 <h4>writeToParcel</h4>
 <pre>@CallSuper
-public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+public&nbsp;void&nbsp;writeToParcel(@NonNull
+                                     android.os.Parcel&nbsp;dest,
                                      int&nbsp;i)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -450,7 +453,8 @@ public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
 <li class="blockList">
 <h4>readFromParcel</h4>
 <pre>@CallSuper
-protected&nbsp;void&nbsp;readFromParcel(android.os.Parcel&nbsp;in)</pre>
+protected&nbsp;void&nbsp;readFromParcel(@NonNull
+                                         android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
 <a name="getResult--">

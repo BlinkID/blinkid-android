@@ -231,7 +231,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -266,7 +267,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getElements</h4>
-<pre>public&nbsp;<a href="../../../../../../com/microblink/entities/parsers/config/fieldbyfield/FieldByFieldElement.html" title="class in com.microblink.entities.parsers.config.fieldbyfield">FieldByFieldElement</a>[]&nbsp;getElements()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/entities/parsers/config/fieldbyfield/FieldByFieldElement.html" title="class in com.microblink.entities.parsers.config.fieldbyfield">FieldByFieldElement</a>[]&nbsp;getElements()</pre>
 <div class="block">Returns the array of field by field scan elements associated with this bundle.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -280,7 +282,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUniqueIdIntentExtraKey</h4>
-<pre>protected&nbsp;java.lang.String&nbsp;getUniqueIdIntentExtraKey()</pre>
+<pre>@NonNull
+protected&nbsp;java.lang.String&nbsp;getUniqueIdIntentExtraKey()</pre>
 </li>
 </ul>
 <a name="getConcreteCreator--">
@@ -289,7 +292,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getConcreteCreator</h4>
-<pre>protected&nbsp;&lt;any&gt;&nbsp;getConcreteCreator()</pre>
+<pre>@NonNull
+protected&nbsp;&lt;any&gt;&nbsp;getConcreteCreator()</pre>
 </li>
 </ul>
 <a name="consumeContentFromLoadedObject-com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldBundle-">
@@ -318,7 +322,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>readFromParcel</h4>
-<pre>protected&nbsp;void&nbsp;readFromParcel(android.os.Parcel&nbsp;in)</pre>
+<pre>protected&nbsp;void&nbsp;readFromParcel(@NonNull
+                              android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
 <a name="writeToParcel-android.os.Parcel-int-">
@@ -327,7 +332,8 @@ extends &lt;any&gt;</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 </li>
 </ul>

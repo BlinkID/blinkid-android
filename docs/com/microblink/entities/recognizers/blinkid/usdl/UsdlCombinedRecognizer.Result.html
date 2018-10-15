@@ -279,7 +279,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int</code></td>
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.Result.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></span>()</code>
 <div class="block">Returns digital signature version.</div>
 </td>
@@ -457,8 +457,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--">getFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>image of the full document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -468,7 +468,7 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>getDigitalSignatureVersion</h4>
-<pre>public&nbsp;int&nbsp;getDigitalSignatureVersion()</pre>
+<pre>public&nbsp;long&nbsp;getDigitalSignatureVersion()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">DigitalSignatureResult</a></code></span></div>
 <div class="block">Returns digital signature version.</div>
 <dl>
@@ -477,24 +477,6 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>signature version</dd>
 </dl>
-</li>
-</ul>
-<a name="getOptionalElements--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOptionalElements</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String[]&nbsp;getOptionalElements()</pre>
-<div class="block">Array of elements that are not part of AAMVA standard and are specific to each US state.
- If no specific elements existed inside 2D barcode, this is an empty array. Otherwise,
- this array contains list of state-specific elements in the same order as given inside
- barcode.
- NOTE: Size of this array is both state-specific and barcode-specific. Each US state has
- ability to arbitrarily define size and contents of these elements. You can obtain the
- US state with <a href="../../../../../../com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.Result.html#getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-"><code>UsdlCombinedRecognizer.Result.getField(com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys)</code></a> and using <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html#IssuingJurisdictionName"><code>UsdlKeys.IssuingJurisdictionName</code></a>
- as a parameter.</div>
 </li>
 </ul>
 <a name="isScanningFirstSideDone--">
@@ -544,7 +526,7 @@ public&nbsp;byte[]&nbsp;getEncodedFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -562,7 +544,7 @@ public&nbsp;byte[]&nbsp;getEncodedFaceImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html#getEncodedFaceImage--">getEncodedFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded face image in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -602,8 +584,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html#getFaceImage--">getFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>face image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a> (boolean)} )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -618,6 +600,25 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
  (has parts of it missing).</div>
 </li>
 </ul>
+<a name="getOptionalElements--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOptionalElements</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String[]&nbsp;getOptionalElements()</pre>
+<div class="block">Array of elements that are not part of AAMVA standard and are specific to each US state.
+ If no specific elements existed inside 2D barcode, this is an empty array. Otherwise,
+ this array contains list of state-specific elements in the same order as given inside
+ barcode.
+ NOTE: Size of this array is both state-specific and barcode-specific. Each US state has
+ ability to arbitrarily define size and contents of these elements. You can obtain the
+ US state with <a href="../../../../../../com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.Result.html#getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-"><code>UsdlCombinedRecognizer.Result.getField(com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys)</code></a>
+ and using <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html#IssuingJurisdictionName"><code>UsdlKeys.IssuingJurisdictionName</code></a>
+ as a parameter.</div>
+</li>
+</ul>
 <a name="getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-">
 <!--   -->
 </a>
@@ -627,12 +628,13 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getField(@NonNull
                                           <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html" title="class in com.microblink.entities.recognizers.blinkbarcode.usdl">UsdlKeys</a>&nbsp;key)</pre>
-<div class="block">Returns a field inside US Driver's licence. Available Keys are listed in <code>UsdlKeys</code> enum.</div>
+<div class="block">Returns a field inside US Driver's licence. Available Keys are listed in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html" title="class in com.microblink.entities.recognizers.blinkbarcode.usdl"><code>UsdlKeys</code></a> enum.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - Key representing the required information.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>required information (if it exists), or null if it does not</dd>
+<dd>required information (if it exists), or empty string if it does not</dd>
 </dl>
 </li>
 </ul>

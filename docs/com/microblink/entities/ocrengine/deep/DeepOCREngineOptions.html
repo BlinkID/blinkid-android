@@ -319,7 +319,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 <div class="block">Parcelable creator.</div>
 </li>
 </ul>
@@ -348,6 +349,7 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <li class="blockList">
 <h4>DeepOCREngineOptions</h4>
 <pre>public&nbsp;DeepOCREngineOptions(long&nbsp;nativeContext,
+                            @Nullable
                             java.lang.Object&nbsp;keep)</pre>
 <div class="block">Constructor from native object.</div>
 <dl>
@@ -371,7 +373,8 @@ extends <a href="../../../../../com/microblink/entities/ocrengine/AbstractOCREng
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;clone()</pre>
 <div class="block">Returns a copy of <a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep"><code>DeepOCREngineOptions</code></a> object.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
@@ -445,7 +448,8 @@ protected&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMinimumLineHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMinimumLineHeight(float&nbsp;minimumLineHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMinimumLineHeight(float&nbsp;minimumLineHeight)</pre>
 <div class="block">Sets the minimum height of the line of text given in float from range <0, 1>, which
  represents height percentage of the input image that is being processed. All chars smaller
  than this value will be ignored.</div>
@@ -479,7 +483,8 @@ protected&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaximumLineHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMaximumLineHeight(float&nbsp;maximumLineHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMaximumLineHeight(float&nbsp;maximumLineHeight)</pre>
 <div class="block">Sets the maximum height of the line of text given in float from range <0, 1>, which
  represents height percentage of the input image that is being processed. All chars larger
  than this value will be ignored.</div>
@@ -513,7 +518,8 @@ protected&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMinimumCharHeight</h4>
-<pre>public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMinimumCharHeight(float&nbsp;minimumCharHeight)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setMinimumCharHeight(float&nbsp;minimumCharHeight)</pre>
 <div class="block">Sets the minimum height of the char that can be classified given in float from range <0, 1>, which
  represents height percentage of the input image that is being processed. All chars smaller than this
  value are ignored. Unlike <a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html#setMinimumLineHeight-float-"><code>DeepOCREngineOptions.setMinimumLineHeight(float)</code></a>, this value refers to individual
@@ -533,8 +539,9 @@ protected&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setOCRModel</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setOCRModel(@NonNull
-                                        <a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCRModel.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCRModel</a>&nbsp;model)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCREngineOptions</a>&nbsp;setOCRModel(@NonNull
+                                                 <a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCRModel.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCRModel</a>&nbsp;model)</pre>
 <div class="block">Specifies the Deep OCR model that will be used. Deep OCR model defines
  how OCR is performed, which characted can be recognized and which types of images
  are supported.
@@ -554,7 +561,8 @@ protected&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getOCRModel</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCRModel.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCRModel</a>&nbsp;getOCRModel()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCRModel.html" title="class in com.microblink.entities.ocrengine.deep">DeepOCRModel</a>&nbsp;getOCRModel()</pre>
 <div class="block">Returns the current Deep OCR model. See <a href="../../../../../com/microblink/entities/ocrengine/deep/DeepOCREngineOptions.html#setOCRModel-com.microblink.entities.ocrengine.deep.DeepOCRModel-"><code>DeepOCREngineOptions.setOCRModel(DeepOCRModel)</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

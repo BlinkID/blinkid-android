@@ -283,7 +283,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#reportTitleChange-int-">reportTitleChange</a></span>(int&nbsp;titleResourceID)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#reportTitleChange-java.lang.String-">reportTitleChange</a></span>(java.lang.String&nbsp;title)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -320,7 +320,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.verification.<a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -387,7 +387,8 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <ul class="blockList">
 <li class="blockList">
 <h4>mIbTorch</h4>
-<pre>protected&nbsp;android.widget.ImageButton mIbTorch</pre>
+<pre>@Nullable
+protected&nbsp;android.widget.ImageButton mIbTorch</pre>
 </li>
 </ul>
 <a name="mShowTorchButton">
@@ -405,7 +406,8 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <ul class="blockListLast">
 <li class="blockList">
 <h4>mTorchButtonOnClickListener</h4>
-<pre>protected&nbsp;android.view.View.OnClickListener mTorchButtonOnClickListener</pre>
+<pre>@NonNull
+protected&nbsp;android.view.View.OnClickListener mTorchButtonOnClickListener</pre>
 </li>
 </ul>
 </li>
@@ -444,6 +446,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <h4>onRecognizerRunnerFragmentAttached</h4>
 <pre>public&nbsp;void&nbsp;onRecognizerRunnerFragmentAttached(@NonNull
                                                <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
+                                               @NonNull
                                                android.app.Activity&nbsp;activity)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">ScanningOverlay</a></code></span></div>
 <div class="block">Called after <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity. This happens before
@@ -519,7 +522,8 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <ul class="blockList">
 <li class="blockList">
 <h4>setOverlayTitleUpdateListener</h4>
-<pre>public&nbsp;void&nbsp;setOverlayTitleUpdateListener(<a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTitleUpdateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTitleUpdateListener</a>&nbsp;overlayTitleUpdateListener)</pre>
+<pre>public&nbsp;void&nbsp;setOverlayTitleUpdateListener(@Nullable
+                                          <a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTitleUpdateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTitleUpdateListener</a>&nbsp;overlayTitleUpdateListener)</pre>
 <div class="block">Sets listener that will be notified when overlay title is updated. This listener is useful
  when overlay title should shown in the UI.</div>
 <dl>
@@ -638,14 +642,14 @@ protected&nbsp;void&nbsp;setTorchIcon(boolean&nbsp;torchOn)</pre>
 </dl>
 </li>
 </ul>
-<a name="reportTitleChange-int-">
+<a name="reportTitleChange-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>reportTitleChange</h4>
-<pre>protected final&nbsp;void&nbsp;reportTitleChange(@StringRes
-                                       int&nbsp;titleResourceID)</pre>
+<pre>protected final&nbsp;void&nbsp;reportTitleChange(@NonNull
+                                       java.lang.String&nbsp;title)</pre>
 </li>
 </ul>
 <a name="onGlare-boolean-">

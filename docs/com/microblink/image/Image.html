@@ -350,7 +350,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -367,7 +368,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Image</h4>
-<pre>protected&nbsp;Image(android.os.Parcel&nbsp;in)</pre>
+<pre>protected&nbsp;Image(@NonNull
+                android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
 </li>
@@ -411,7 +413,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;clone()</pre>
 <div class="block">Creates and returns a copy of this image object. This method makes a copy of image pixels.
  Use it if you want to use this image for later processing.</div>
 <dl>
@@ -476,7 +479,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageType</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/image/ImageType.html" title="class in com.microblink.image">ImageType</a>&nbsp;getImageType()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/image/ImageType.html" title="class in com.microblink.image">ImageType</a>&nbsp;getImageType()</pre>
 <div class="block">Returns the type of the image.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -490,7 +494,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageFormat</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>&nbsp;getImageFormat()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/image/ImageFormat.html" title="class in com.microblink.image">ImageFormat</a>&nbsp;getImageFormat()</pre>
 <div class="block">Returns the format of the image.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -504,7 +509,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageName</h4>
-<pre>@Deprecated
+<pre>@NonNull
+ @Deprecated
 public&nbsp;java.lang.String&nbsp;getImageName()</pre>
 <div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;<span class="deprecationComment">Do not rely on this information anymore. New API images will be nameless.</span></div>
 <div class="block">Returns the name of the image.</div>
@@ -520,7 +526,8 @@ public&nbsp;java.lang.String&nbsp;getImageName()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getBuffer</h4>
-<pre>public&nbsp;java.nio.ByteBuffer&nbsp;getBuffer()</pre>
+<pre>@NonNull
+public&nbsp;java.nio.ByteBuffer&nbsp;getBuffer()</pre>
 <div class="block">Returns the native buffer that contains image pixels.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -564,7 +571,8 @@ public&nbsp;java.lang.String&nbsp;getImageName()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getROI</h4>
-<pre>public&nbsp;android.graphics.Rect&nbsp;getROI()</pre>
+<pre>@NonNull
+public&nbsp;android.graphics.Rect&nbsp;getROI()</pre>
 <div class="block">Returns the region of interest in image corrected for current orientation of image.</div>
 </li>
 </ul>
@@ -574,7 +582,8 @@ public&nbsp;java.lang.String&nbsp;getImageName()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRawROI</h4>
-<pre>public&nbsp;android.graphics.Rect&nbsp;getRawROI()</pre>
+<pre>@NonNull
+public&nbsp;android.graphics.Rect&nbsp;getRawROI()</pre>
 <div class="block">Returns the region of interest in image in raw form (not corrected for orientation).
  This is useful only for YUV_NV21 images that will contain the entire image in buffer and to obtain
  ROI-ed image, you should use YuvImage helper class (see: <code>YuvImage</code> )</div>
@@ -607,7 +616,8 @@ public&nbsp;java.lang.String&nbsp;getImageName()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImageOrientation</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;getImageOrientation()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;getImageOrientation()</pre>
 <div class="block">Returns the orientation of the image. Orientation is defined as orientation of the device when the image was taken.
  To explain the orientation further, let's assume that image contains a line of text.
  If orientation is Orientation.ORIENTATION_LANDSCAPE_RIGHT, the line of text would be horizontal from left to right (normal reading orientation).
@@ -690,7 +700,8 @@ public&nbsp;android.graphics.Bitmap&nbsp;convertToBitmap()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

@@ -12,6 +12,7 @@ import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
 import com.microblink.libresult.R;
 import com.microblink.results.date.Date;
+import com.microblink.results.date.DateResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -81,6 +82,14 @@ public class RecognitionResultEntry {
             }
         }
 
+        public RecognitionResultEntry build(@StringRes int key, DateResult value) {
+            if (value == null) {
+                return new RecognitionResultEntry(createKey(key), "");
+            } else {
+                return build(key, value.getDate());
+            }
+        }
+
         public RecognitionResultEntry build(@StringRes int key, Date value) {
             String strVal = "";
             if (value != null) {
@@ -112,6 +121,10 @@ public class RecognitionResultEntry {
         }
 
         public RecognitionResultEntry build(@StringRes int key, int value) {
+            return new RecognitionResultEntry(createKey(key), String.valueOf(value));
+        }
+
+        public RecognitionResultEntry build(@StringRes int key, long value) {
             return new RecognitionResultEntry(createKey(key), String.valueOf(value));
         }
 

@@ -327,6 +327,7 @@ implements android.os.Parcelable</pre>
 <li class="blockList">
 <h4>AbstractOCREngineOptions</h4>
 <pre>protected&nbsp;AbstractOCREngineOptions(long&nbsp;nativeContext,
+                                   @NonNull
                                    android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
@@ -369,7 +370,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaximumAllowedCharRecognitionVariants</h4>
-<pre>public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setMaximumAllowedCharRecognitionVariants(int&nbsp;maximumAllowedCharRecognitionVariants)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setMaximumAllowedCharRecognitionVariants(int&nbsp;maximumAllowedCharRecognitionVariants)</pre>
 <div class="block">Sets the maximum allowed number of char recognition variants OCR engine will produce
  for each OcrChar. By default, OCR engine will not produce char recognition variants
  (i.e. maximum allowed char recognition variants is 0). By setting this number to higher
@@ -407,7 +409,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setMaximumCharsExpected</h4>
-<pre>public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setMaximumCharsExpected(int&nbsp;maximumCharsExpected)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setMaximumCharsExpected(int&nbsp;maximumCharsExpected)</pre>
 <div class="block">Sets the maximum number of chars expected in the image.
  Setting this value can speed up the OCR processing because all images with more chars than specified will be ignored
  (becuase in most cases they are noise). Please note that noise characters are also counted. This means that if you
@@ -442,7 +445,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setColorDropoutEnabled</h4>
-<pre>public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setColorDropoutEnabled(boolean&nbsp;colorDropoutEnabled)</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../../com/microblink/entities/ocrengine/AbstractOCREngineOptions.html" title="class in com.microblink.entities.ocrengine">AbstractOCREngineOptions</a>&nbsp;setColorDropoutEnabled(boolean&nbsp;colorDropoutEnabled)</pre>
 <div class="block">Specifies if the additional image processing which drops the background colors should be performed.
  <p/>
  Use this if you have black text on color backgrounds.
@@ -520,7 +524,8 @@ protected abstract&nbsp;byte[]&nbsp;serializeNative()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public final&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public final&nbsp;void&nbsp;writeToParcel(@NonNull
+                                android.os.Parcel&nbsp;dest,
                                 int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

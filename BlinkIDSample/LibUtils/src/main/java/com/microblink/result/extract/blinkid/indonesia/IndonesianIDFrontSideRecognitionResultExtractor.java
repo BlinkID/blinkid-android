@@ -25,8 +25,8 @@ public class IndonesianIDFrontSideRecognitionResultExtractor extends BlinkIdExtr
         add(R.string.PPMaritalStatus, result.getMaritalStatus());
         add(R.string.PPOccupation, result.getOccupation());
         add(R.string.PPCitizenship, result.getCitizenship());
-        add(R.string.PPValidUntil, result.getValidUntil());
-        add(R.string.PPDateOfExpiryPermanent, result.getValidUntilPermanent());
+        add(R.string.PPValidUntil, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
     }
 
 }

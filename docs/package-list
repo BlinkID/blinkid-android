@@ -40,12 +40,18 @@ com.microblink.entities.recognizers.blinkid.czechia
 com.microblink.entities.recognizers.blinkid.digitalsignature
 com.microblink.entities.recognizers.blinkid.documentface
 com.microblink.entities.recognizers.blinkid.egypt
+com.microblink.entities.recognizers.blinkid.elitepaymentcard
 com.microblink.entities.recognizers.blinkid.eudl
 com.microblink.entities.recognizers.blinkid.germany
 com.microblink.entities.recognizers.blinkid.hongkong
 com.microblink.entities.recognizers.blinkid.imageoptions
+com.microblink.entities.recognizers.blinkid.imageoptions.dpi
+com.microblink.entities.recognizers.blinkid.imageoptions.encode
+com.microblink.entities.recognizers.blinkid.imageoptions.extension
 com.microblink.entities.recognizers.blinkid.imageresult
 com.microblink.entities.recognizers.blinkid.indonesia
+com.microblink.entities.recognizers.blinkid.ireland
+com.microblink.entities.recognizers.blinkid.italy
 com.microblink.entities.recognizers.blinkid.jordan
 com.microblink.entities.recognizers.blinkid.kuwait
 com.microblink.entities.recognizers.blinkid.malaysia
@@ -72,7 +78,6 @@ com.microblink.entities.recognizers.templating
 com.microblink.entities.recognizers.templating.dewarpPolicies
 com.microblink.entities.recognizers.templating.parcelization
 com.microblink.entities.settings
-com.microblink.entities.settings.image
 com.microblink.fragment
 com.microblink.fragment.overlay
 com.microblink.fragment.overlay.listener
@@ -97,7 +102,6 @@ com.microblink.metadata.recognition
 com.microblink.metadata.text
 com.microblink.recognition
 com.microblink.results
-com.microblink.results.barcode
 com.microblink.results.date
 com.microblink.results.ocr
 com.microblink.uisettings

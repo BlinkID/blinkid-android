@@ -432,7 +432,8 @@ public&nbsp;int&nbsp;getSplashScreenResourceId()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRecognizerRunnerView</h4>
-<pre>@AnyThread
+<pre>@Nullable
+ @AnyThread
 public&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;getRecognizerRunnerView()</pre>
 <div class="block">Returns the <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> managed by this fragment.
  If <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> is still not created, returns null.</div>
@@ -448,7 +449,8 @@ public&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerRunnerVi
 <ul class="blockList">
 <li class="blockList">
 <h4>getContentLayout</h4>
-<pre>public&nbsp;android.widget.FrameLayout&nbsp;getContentLayout()</pre>
+<pre>@Nullable
+public&nbsp;android.widget.FrameLayout&nbsp;getContentLayout()</pre>
 <div class="block">Returns the <code>FrameLayout</code> that represents the content layout
  of this fragment. If content layout is still not created (i.e. before
  <code>Fragment.onCreateView(LayoutInflater, ViewGroup, Bundle)</code> callback has been invoked,
@@ -511,7 +513,8 @@ public&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerRunnerVi
 <ul class="blockList">
 <li class="blockList">
 <h4>onAttach</h4>
-<pre>public&nbsp;void&nbsp;onAttach(android.app.Activity&nbsp;activity)</pre>
+<pre>public&nbsp;void&nbsp;onAttach(@Nullable
+                     android.app.Activity&nbsp;activity)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>onAttach</code>&nbsp;in class&nbsp;<code>android.app.Fragment</code></dd>
@@ -539,9 +542,11 @@ public&nbsp;<a href="../../../com/microblink/view/recognition/RecognizerRunnerVi
 <li class="blockList">
 <h4>onCreateView</h4>
 <pre>@Nullable
-public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp;inflater,
+public&nbsp;android.view.View&nbsp;onCreateView(@Nullable
+                                                android.view.LayoutInflater&nbsp;inflater,
                                                 @Nullable
                                                 android.view.ViewGroup&nbsp;container,
+                                                @Nullable
                                                 android.os.Bundle&nbsp;savedInstanceState)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
@@ -624,7 +629,8 @@ public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp
 <ul class="blockList">
 <li class="blockList">
 <h4>onSaveInstanceState</h4>
-<pre>public&nbsp;void&nbsp;onSaveInstanceState(android.os.Bundle&nbsp;outState)</pre>
+<pre>public&nbsp;void&nbsp;onSaveInstanceState(@Nullable
+                                android.os.Bundle&nbsp;outState)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>onSaveInstanceState</code>&nbsp;in class&nbsp;<code>android.app.Fragment</code></dd>
@@ -663,7 +669,8 @@ public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp
 <ul class="blockList">
 <li class="blockList">
 <h4>onConfigurationChanged</h4>
-<pre>public&nbsp;void&nbsp;onConfigurationChanged(android.content.res.Configuration&nbsp;newConfig)</pre>
+<pre>public&nbsp;void&nbsp;onConfigurationChanged(@Nullable
+                                   android.content.res.Configuration&nbsp;newConfig)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>onConfigurationChanged</code>&nbsp;in interface&nbsp;<code>android.content.ComponentCallbacks</code></dd>
@@ -697,7 +704,8 @@ public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp
 <ul class="blockList">
 <li class="blockList">
 <h4>onAutofocusStarted</h4>
-<pre>public&nbsp;void&nbsp;onAutofocusStarted(android.graphics.Rect[]&nbsp;focusAreas)</pre>
+<pre>public&nbsp;void&nbsp;onAutofocusStarted(@Nullable
+                               android.graphics.Rect[]&nbsp;focusAreas)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStarted-android.graphics.Rect:A-">AutofocusListener</a></code></span></div>
 <div class="block">This method will be called when camera focusing has started.
  You can utilize this method to draw focusing animation on UI.</div>
@@ -715,7 +723,8 @@ public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp
 <ul class="blockList">
 <li class="blockList">
 <h4>onAutofocusStopped</h4>
-<pre>public&nbsp;void&nbsp;onAutofocusStopped(android.graphics.Rect[]&nbsp;focusAreas)</pre>
+<pre>public&nbsp;void&nbsp;onAutofocusStopped(@Nullable
+                               android.graphics.Rect[]&nbsp;focusAreas)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/hardware/camera/AutofocusListener.html#onAutofocusStopped-android.graphics.Rect:A-">AutofocusListener</a></code></span></div>
 <div class="block">This method will be called when camera focusing has stopped.
  You can utilize this method to remove focusing animation from UI.</div>
@@ -784,7 +793,8 @@ public&nbsp;android.view.View&nbsp;onCreateView(android.view.LayoutInflater&nbsp
 <ul class="blockList">
 <li class="blockList">
 <h4>onError</h4>
-<pre>public&nbsp;void&nbsp;onError(java.lang.Throwable&nbsp;exc)</pre>
+<pre>public&nbsp;void&nbsp;onError(@NonNull
+                    java.lang.Throwable&nbsp;exc)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/BaseCameraEventsListener.html#onError-java.lang.Throwable-">BaseCameraEventsListener</a></code></span></div>
 <div class="block">Called when recognition results with exception. Known exceptions
  that can occur are following:

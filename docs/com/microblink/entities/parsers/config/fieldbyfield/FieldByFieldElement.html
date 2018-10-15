@@ -373,7 +373,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -573,7 +574,8 @@ public&nbsp;java.lang.String&nbsp;getText(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>getParser</h4>
-<pre>public&nbsp;<a href="../../../../../../com/microblink/entities/parsers/Parser.html" title="class in com.microblink.entities.parsers">Parser</a>&nbsp;getParser()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/entities/parsers/Parser.html" title="class in com.microblink.entities.parsers">Parser</a>&nbsp;getParser()</pre>
 <div class="block">Returns parser that is used for this scan element.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -761,7 +763,8 @@ public&nbsp;java.lang.String&nbsp;getText(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -787,7 +790,8 @@ public&nbsp;java.lang.String&nbsp;getText(@NonNull
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

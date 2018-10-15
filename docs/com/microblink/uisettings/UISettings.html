@@ -339,7 +339,9 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>putParcelable</h4>
-<pre>protected final&nbsp;void&nbsp;putParcelable(java.lang.String&nbsp;optionName,
+<pre>protected final&nbsp;void&nbsp;putParcelable(@NonNull
+                                   java.lang.String&nbsp;optionName,
+                                   @NonNull
                                    android.os.Parcelable&nbsp;value)</pre>
 </li>
 </ul>
@@ -349,7 +351,9 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>readParcelable</h4>
-<pre>protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(java.lang.String&nbsp;optionName)</pre>
+<pre>@Nullable
+protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
+                                                               java.lang.String&nbsp;optionName)</pre>
 </li>
 </ul>
 <a name="putString-java.lang.String-java.lang.String-">
@@ -358,7 +362,9 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>putString</h4>
-<pre>protected final&nbsp;void&nbsp;putString(java.lang.String&nbsp;optionName,
+<pre>protected final&nbsp;void&nbsp;putString(@NonNull
+                               java.lang.String&nbsp;optionName,
+                               @NonNull
                                java.lang.String&nbsp;value)</pre>
 </li>
 </ul>
@@ -368,7 +374,9 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>readString</h4>
-<pre>protected final&nbsp;java.lang.String&nbsp;readString(java.lang.String&nbsp;optionName)</pre>
+<pre>@Nullable
+protected final&nbsp;java.lang.String&nbsp;readString(@NonNull
+                                                      java.lang.String&nbsp;optionName)</pre>
 </li>
 </ul>
 <a name="putInteger-java.lang.String-int-">
@@ -377,7 +385,8 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>putInteger</h4>
-<pre>protected final&nbsp;void&nbsp;putInteger(java.lang.String&nbsp;optionName,
+<pre>protected final&nbsp;void&nbsp;putInteger(@NonNull
+                                java.lang.String&nbsp;optionName,
                                 int&nbsp;value)</pre>
 </li>
 </ul>
@@ -387,7 +396,8 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>readInteger</h4>
-<pre>protected final&nbsp;int&nbsp;readInteger(java.lang.String&nbsp;optionName,
+<pre>protected final&nbsp;int&nbsp;readInteger(@NonNull
+                                java.lang.String&nbsp;optionName,
                                 int&nbsp;defaultValue)</pre>
 </li>
 </ul>
@@ -397,7 +407,8 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>putBoolean</h4>
-<pre>protected final&nbsp;void&nbsp;putBoolean(java.lang.String&nbsp;extraName,
+<pre>protected final&nbsp;void&nbsp;putBoolean(@NonNull
+                                java.lang.String&nbsp;extraName,
                                 boolean&nbsp;value)</pre>
 </li>
 </ul>
@@ -407,7 +418,8 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>readBoolean</h4>
-<pre>protected final&nbsp;boolean&nbsp;readBoolean(java.lang.String&nbsp;optionName,
+<pre>protected final&nbsp;boolean&nbsp;readBoolean(@NonNull
+                                    java.lang.String&nbsp;optionName,
                                     boolean&nbsp;defaultValue)</pre>
 </li>
 </ul>
@@ -417,8 +429,11 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>buildOptionKeyConstant</h4>
-<pre>protected static&nbsp;java.lang.String&nbsp;buildOptionKeyConstant(java.lang.String&nbsp;activityName,
-                                                         java.lang.String&nbsp;optionName)</pre>
+<pre>@NonNull
+protected static&nbsp;java.lang.String&nbsp;buildOptionKeyConstant(@NonNull
+                                                                  java.lang.String&nbsp;activityName,
+                                                                  @NonNull
+                                                                  java.lang.String&nbsp;optionName)</pre>
 </li>
 </ul>
 <a name="getTargetActivity--">
@@ -427,7 +442,8 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getTargetActivity</h4>
-<pre>public abstract&nbsp;java.lang.Class&nbsp;getTargetActivity()</pre>
+<pre>@NonNull
+public abstract&nbsp;java.lang.Class&nbsp;getTargetActivity()</pre>
 <div class="block">Returns target activity. Concrete settings can be used only with the corresponding activity.
  This method is public for convenience when you are not able to use <a href="../../../com/microblink/uisettings/ActivityRunner.html" title="class in com.microblink.uisettings"><code>ActivityRunner</code></a>.
  DO NOT USE THIS METHOD UNLESS YOU KNOW WHAT YOU ARE DOING. Improper usage will crash your app.</div>

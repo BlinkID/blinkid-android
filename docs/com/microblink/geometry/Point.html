@@ -411,7 +411,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -454,7 +455,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Point</h4>
-<pre>protected&nbsp;Point(android.os.Parcel&nbsp;in)</pre>
+<pre>protected&nbsp;Point(@NonNull
+                android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
 </li>
@@ -471,7 +473,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -498,7 +501,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorPlus</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorPlus(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorPlus(@NonNull
+                                   <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
 <div class="block">+ operator on the point. Returned point is a new point.
  For example: c = a + b &lt;==&gt; c = a.operatorPlus(b);</div>
 <dl>
@@ -515,7 +520,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorPlusEquals</h4>
-<pre>public&nbsp;void&nbsp;operatorPlusEquals(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
+<pre>public&nbsp;void&nbsp;operatorPlusEquals(@NonNull
+                               <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
 <div class="block">+= operator on the point.
  For example: b+=a &lt;==&gt; b.operatorPlusEquals(a);</div>
 <dl>
@@ -530,7 +536,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorMinus</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMinus(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMinus(@NonNull
+                                    <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
 <div class="block">- operator on the point. Returned point is a new point.
  For example: c = a - b &lt;==&gt; c = a.operatorMinus(b);</div>
 <dl>
@@ -547,7 +555,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorMinusEquals</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMinusEquals(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMinusEquals(@NonNull
+                                          <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
 </li>
 </ul>
 <a name="operatorMultiply-float-">
@@ -556,7 +566,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorMultiply</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMultiply(float&nbsp;factor)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMultiply(float&nbsp;factor)</pre>
 <div class="block">Multiplication of the point with scalar. Returned point is a new point.
  For example: pointC = pointA * scalarB &lt;==&gt; c = a.operatorMultiply(b)</div>
 <dl>
@@ -573,7 +584,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>operatorMultiplyEquals</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMultiplyEquals(float&nbsp;factor)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;operatorMultiplyEquals(float&nbsp;factor)</pre>
 </li>
 </ul>
 <a name="negativeClone--">
@@ -582,7 +594,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>negativeClone</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;negativeClone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;negativeClone()</pre>
 <div class="block">Calculate and return negative of current point. Negative point is point mirrored
  to current point over (0,0) pivot.</div>
 <dl>
@@ -597,7 +610,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>negative</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;negative()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;negative()</pre>
 </li>
 </ul>
 <a name="norm--">
@@ -621,7 +635,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>normalize</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;normalize()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;normalize()</pre>
 <div class="block">Calculate and return point that has same direction as this point, but norm 1.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -635,7 +650,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>normalize</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;normalize(float&nbsp;length)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;normalize(float&nbsp;length)</pre>
 <div class="block">Calculate and return point that has same direction as this point, but norm as given.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -651,7 +667,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clamp</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;clamp(float&nbsp;length)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;clamp(float&nbsp;length)</pre>
 <div class="block">Calculate and return point clamped to given norm (length). If norm of the point is larger
  than desired length, returns the point that has the same direction as this point, but norm "length".
  If norm of the point is smaller or equal to desired length, returns the clone of this point.</div>
@@ -669,8 +686,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clamp</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;clamp(float&nbsp;minLength,
-                   float&nbsp;maxLength)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;clamp(float&nbsp;minLength,
+                            float&nbsp;maxLength)</pre>
 <div class="block">Calculate and return point clamped to given norm (lengths). If norm of the point is larger
  than maxLength, returns the point that has the same direction as this point, but norm "maxLength".
  If norm of the point is smaller than minLength, returns the point that has the same direction
@@ -691,7 +709,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>mirrorX</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorX(float&nbsp;maxXDimension)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorX(float&nbsp;maxXDimension)</pre>
 <div class="block">Return point mirrored around X axis.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -721,7 +740,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>mirrorY</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorY(float&nbsp;maxYDimension)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorY(float&nbsp;maxYDimension)</pre>
 <div class="block">Return point mirrored around Y axis.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -751,8 +771,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>mirrorXY</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorXY(float&nbsp;maxXDimension,
-                      float&nbsp;maxYDimension)</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;mirrorXY(float&nbsp;maxXDimension,
+                               float&nbsp;maxYDimension)</pre>
 <div class="block">Return point mirrored around both X and Y axis</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -785,7 +806,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>makeCopy</h4>
-<pre>public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;makeCopy()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;makeCopy()</pre>
 </li>
 </ul>
 <a name="equals-java.lang.Object-">
@@ -794,7 +816,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>equals</h4>
-<pre>public&nbsp;boolean&nbsp;equals(java.lang.Object&nbsp;o)</pre>
+<pre>public&nbsp;boolean&nbsp;equals(@Nullable
+                      java.lang.Object&nbsp;o)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -807,7 +830,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>distance</h4>
-<pre>public&nbsp;float&nbsp;distance(<a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
+<pre>public&nbsp;float&nbsp;distance(@NonNull
+                      <a href="../../../com/microblink/geometry/Point.html" title="class in com.microblink.geometry">Point</a>&nbsp;other)</pre>
 <div class="block">Calculates and returns the distance to given point.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -833,7 +857,9 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>draw</h4>
-<pre>public&nbsp;void&nbsp;draw(android.graphics.Canvas&nbsp;canvas,
+<pre>public&nbsp;void&nbsp;draw(@NonNull
+                 android.graphics.Canvas&nbsp;canvas,
+                 @NonNull
                  android.graphics.Paint&nbsp;paint,
                  int&nbsp;pointRadius)</pre>
 <div class="block">Draws the point to given canvas with given paint. Point is drawn as circle of given radius.</div>
@@ -918,7 +944,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
