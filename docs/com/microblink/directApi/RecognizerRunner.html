@@ -280,8 +280,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getSingletonInstance</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a>&nbsp;getSingletonInstance()
-                                             throws FeatureNotSupportedException</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a>&nbsp;getSingletonInstance()
+                                                      throws FeatureNotSupportedException</pre>
 <div class="block">Returns the recognizer singleton.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -297,7 +298,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getCurrentState</h4>
-<pre>public final&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.State.html" title="class in com.microblink.directApi">RecognizerRunner.State</a>&nbsp;getCurrentState()</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.State.html" title="class in com.microblink.directApi">RecognizerRunner.State</a>&nbsp;getCurrentState()</pre>
 <div class="block">Returns the current state of the recognizer.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

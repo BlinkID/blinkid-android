@@ -1,5 +1,46 @@
 # Release notes
 
+## 4.3.0
+
+### New features:
+
+- added support for reading front side of Ireland Driver's License  - use `IrelandDlFrontRecognizer`
+- added support for reading front side of Colombia Driver's License - use `ColombiaDlFrontRecognizer`
+- added support for reading front side of Italy Driver's License - use `ItalyDlFrontRecognizer`
+- added standalone recognizer for reading front side of Austria Driver's License - use `AustriaDlFrontRecognizer`
+- added support for reading front and back side of elite Payment / Debit cards - use `ElitePaymentCardFrontRecognizer`, `ElitePaymentCardBackRecognizer` and `ElitePaymentCardCombinedRecognizer`
+
+### Improvements for existing features:
+- improved `MrtdCombinedRecognizer`:
+    - added option to allow unparsed and unverified MRZ results - use `MrtdCombinedRecognizer.setAllowUnparsedResults` and `MrtdCombinedRecognizer.setAllowUnverifiedResults`
+- improved `MalaysiaDlFrontRecognizer`:
+    - added support for reading Malaysia Dl for foreigners 
+- improved `UsdlRecogniezr`:
+    - added support for reading dates on Nigerian Driver's licenses
+- added support for setting full document image extension factors for almost all ID document recognizers, they implement interface `FullDocumentImageExtensionOptions`
+- added support for setting the number of stable detections threshold on `DocumentFaceRecognizer` and recognizers which use it internally: `MrtdCombinedRecognizer` and `UsdlCombinedRecognizer` - use `setNumStableDetectionsThreshold(int)`. This can help to avoid returning of blurry images.
+- improved `EudlRecognizer`:
+    - better reading accuracy for UK Driver's license
+- moved these recognizers to DeepOCR engine (improved reading accuracy): `SingaporeIdFrontRecognizer`, `SingaporeIdBackRecognizer`, `CroatiaIdFrontRecognizer`,  `CroatiaIdBackRecognizer`
+- improved DeepOCR accuracy
+
+### Minor API changes:
+- renamed methods in `MalaysiaDlFrontRecognizer` and its `Result`:
+    - `state` to `ownerState`
+    - `zipCode` to `zipcode`
+- renamed methods in `IndonesiaIdFrontRecognizer` and its `Result`:
+    - `validUntil` to `dateOfExpiry`
+    - `validUntilPermanent` to `dateOfExpiryPermanent`
+- renamed methods in `SingaporeIdFrontRecognizer` and its `Result`:
+    - `bloodType` to `bloodGroup`
+- renamed methods in `SingaporeCombinedRecognizer` and its `Result`:
+    - `bloodType` to `bloodGroup`
+
+### Bug fixes:
+- enabled wrapping of combined recogniezrs with `SuccessFrameGrabberRecognizer`
+- fixed bug in `EudlRecognizer` which caused that sometimes face image is not returned, even if the recognition was successful
+- various other bug fixes and improvements
+
 ## 4.2.0
 
 ### New features:

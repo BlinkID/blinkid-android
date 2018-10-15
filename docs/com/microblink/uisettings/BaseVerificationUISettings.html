@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -196,99 +196,139 @@ implements <a href="../../../com/microblink/uisettings/options/CameraSettingsUIO
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonTextResourceID-int-">getDialogNotMatchButtonTextResourceID</a></span>(int&nbsp;defaultValue)</code>
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonText--">getDialogNotMatchButtonText</a></span>()</code>
 <div class="block">Returns label of the button inside dialog that is shown when document data does not match,
  e.g.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonTextResourceID-int-">getDialogNotMatchButtonTextResourceID</a></span>(int&nbsp;defaultValue)</code>
+<div class="block">Returns label of the button inside dialog that is shown when document data does not match,
+ e.g.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessage--">getDialogNotMatchMessage</a></span>()</code>
+<div class="block">Returns message content of the dialog that is shown when document data does not match,
+ e.g.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessageResourceID-int-">getDialogNotMatchMessageResourceID</a></span>(int&nbsp;defaultValue)</code>
 <div class="block">Returns message content of the dialog that is shown when document data does not match,
  e.g.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitle--">getDialogNotMatchTitle</a></span>()</code>
+<div class="block">Returns title of the dialog that is shown when document data does not match, e.g.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitleResourceID-int-">getDialogNotMatchTitleResourceID</a></span>(int&nbsp;defaultValue)</code>
 <div class="block">Returns title of the dialog that is shown when document data does not match, e.g.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDocumentRecognizerBundle--">getDocumentRecognizerBundle</a></span>()</code>
 <div class="block">Returns the <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers"><code>RecognizerBundle</code></a> containing recognizers that will be used for document scanning.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getUsingLegacyCameraAPI-boolean-">getUsingLegacyCameraAPI</a></span>(boolean&nbsp;defaultValue)</code>
 <div class="block">Returns whether legacy camera API should be used even on Lollipop devices that support
  newer Camera2 API.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a></span>(int&nbsp;beepSoundResourceID)</code>
 <div class="block">Defines the resource ID of the sound to be played when recognition is successful.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraTypeForDocumentScan-com.microblink.hardware.camera.CameraType-">setCameraTypeForDocumentScan</a></span>(<a href="../../../com/microblink/hardware/camera/CameraType.html" title="class in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraTypeForDocumentScan)</code>
 <div class="block">Sets camera type that will be used for document scan.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a></span>(<a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;cameraVideoPreset)</code>
 <div class="block">Sets the video resolution preset that will be used when choosing camera resolution
  for scanning.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a></span>(<a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</code>
 <div class="block">Sets implementation of <a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image"><code>CurrentImageListener</code></a> interface that will obtain images that
  are currently being processed.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a></span>(<a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</code>
 <div class="block">Sets implementation of <a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><code>DebugImageListener</code></a> interface that will obtain images that are
  being processed.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonText-java.lang.String-">setDialogNotMatchButtonText</a></span>(java.lang.String&nbsp;dialogNotMatchButtonText)</code>
+<div class="block">Sets label of the button inside dialog that is shown when document data does not match,
+ e.g.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonTextResourceID-int-">setDialogNotMatchButtonTextResourceID</a></span>(int&nbsp;dialogNotMatchButtonTextResourceID)</code>
 <div class="block">Sets label of the button inside dialog that is shown when document data does not match,
  e.g.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessage-java.lang.String-">setDialogNotMatchMessage</a></span>(java.lang.String&nbsp;dialogNotMatchMessage)</code>
+<div class="block">Sets message content of the dialog that is shown when document data does not match,
+ e.g.</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessageResourceID-int-">setDialogNotMatchMessageResourceID</a></span>(int&nbsp;dialogNotMatchMessageResourceID)</code>
 <div class="block">Sets message content of the dialog that is shown when document data does not match,
  e.g.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitle-java.lang.String-">setDialogNotMatchTitle</a></span>(java.lang.String&nbsp;dialogNotMatchTitle)</code>
+<div class="block">Sets title of the dialog that is shown when document data does not match, e.g.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitleResourceID-int-">setDialogNotMatchTitleResourceID</a></span>(int&nbsp;dialogNotMatchTitleResourceID)</code>
 <div class="block">Sets title of the dialog that is shown when document data does not match, e.g.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></span>(boolean&nbsp;usingLegacyCameraAPI)</code>
 <div class="block">Sets whether legacy camera API should be used even on Lollipop devices that support
@@ -576,6 +616,40 @@ public&nbsp;int&nbsp;getDialogNotMatchTitleResourceID(@StringRes
 </dl>
 </li>
 </ul>
+<a name="getDialogNotMatchTitle--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDialogNotMatchTitle</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getDialogNotMatchTitle()</pre>
+<div class="block">Returns title of the dialog that is shown when document data does not match, e.g. when
+ front and back document side does not belong to the same document.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>title string or null if title does not exist</dd>
+</dl>
+</li>
+</ul>
+<a name="setDialogNotMatchTitle-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDialogNotMatchTitle</h4>
+<pre>public&nbsp;void&nbsp;setDialogNotMatchTitle(@NonNull
+                                   java.lang.String&nbsp;dialogNotMatchTitle)</pre>
+<div class="block">Sets title of the dialog that is shown when document data does not match, e.g. when
+ front and back document side does not belong to the same document.
+ Please prefer to use <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitleResourceID-int-"><code>BaseVerificationUISettings.setDialogNotMatchTitleResourceID(int)</code></a>.
+ If both methods were called, title that was set as string resource will be taken.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dialogNotMatchTitle</code> - title string</dd>
+</dl>
+</li>
+</ul>
 <a name="getDialogNotMatchMessageResourceID-int-">
 <!--   -->
 </a>
@@ -611,6 +685,40 @@ public&nbsp;int&nbsp;getDialogNotMatchMessageResourceID(@StringRes
 </dl>
 </li>
 </ul>
+<a name="getDialogNotMatchMessage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDialogNotMatchMessage</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getDialogNotMatchMessage()</pre>
+<div class="block">Returns message content of the dialog that is shown when document data does not match,
+ e.g. when front and back document side does not belong to the same document.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>message string or null if message does not exist</dd>
+</dl>
+</li>
+</ul>
+<a name="setDialogNotMatchMessage-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDialogNotMatchMessage</h4>
+<pre>public&nbsp;void&nbsp;setDialogNotMatchMessage(@NonNull
+                                     java.lang.String&nbsp;dialogNotMatchMessage)</pre>
+<div class="block">Sets message content of the dialog that is shown when document data does not match,
+ e.g. when front and back document side does not belong to the same document.
+ Please prefer to use <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessageResourceID-int-"><code>BaseVerificationUISettings.setDialogNotMatchMessageResourceID(int)</code></a>.
+ If both methods were called, message that was set as string resource will be taken.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dialogNotMatchMessage</code> - message string</dd>
+</dl>
+</li>
+</ul>
 <a name="getDialogNotMatchButtonTextResourceID-int-">
 <!--   -->
 </a>
@@ -643,6 +751,40 @@ public&nbsp;int&nbsp;getDialogNotMatchButtonTextResourceID(@StringRes
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>dialogNotMatchButtonTextResourceID</code> - button label string resource ID</dd>
+</dl>
+</li>
+</ul>
+<a name="getDialogNotMatchButtonText--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDialogNotMatchButtonText</h4>
+<pre>@Nullable
+public&nbsp;java.lang.String&nbsp;getDialogNotMatchButtonText()</pre>
+<div class="block">Returns label of the button inside dialog that is shown when document data does not match,
+ e.g. when front and back document side does not belong to the same document.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>button label string or null if label does not exist</dd>
+</dl>
+</li>
+</ul>
+<a name="setDialogNotMatchButtonText-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDialogNotMatchButtonText</h4>
+<pre>public&nbsp;void&nbsp;setDialogNotMatchButtonText(@NonNull
+                                        java.lang.String&nbsp;dialogNotMatchButtonText)</pre>
+<div class="block">Sets label of the button inside dialog that is shown when document data does not match,
+ e.g. when front and back document side does not belong to the same document.
+ Please prefer to use <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonTextResourceID-int-"><code>BaseVerificationUISettings.setDialogNotMatchButtonTextResourceID(int)</code></a>.
+ If both methods were called, text that was set as string resource will be taken.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dialogNotMatchButtonText</code> - button label string resource ID</dd>
 </dl>
 </li>
 </ul>

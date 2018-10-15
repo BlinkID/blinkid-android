@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaIdBackRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaDlFrontRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.Result.html" target="_top">Frames</a></li>
@@ -311,7 +311,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>int</code></td>
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.Result.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></span>()</code>
 <div class="block">Returns digital signature version.</div>
 </td>
@@ -571,7 +571,7 @@ public&nbsp;byte[]&nbsp;getEncodedFaceImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html#getEncodedFaceImage--">getEncodedFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded face image in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-"><code>EncodeFaceImageOptions.setEncodeFaceImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -589,8 +589,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html#getFaceImage--">getFaceImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>face image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a> (boolean)} )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-"><code>FaceImageOptions.setReturnFaceImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -618,7 +618,7 @@ public&nbsp;byte[]&nbsp;getEncodedSignatureImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html#getEncodedSignatureImage--">getEncodedSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded signature in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeSignatureImageOptions.html#setEncodeSignatureImage-boolean-"><code>EncodeSignatureImageOptions.setEncodeSignatureImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeSignatureImageOptions.html#setEncodeSignatureImage-boolean-"><code>EncodeSignatureImageOptions.setEncodeSignatureImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -636,8 +636,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>front side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -697,7 +697,7 @@ public&nbsp;byte[]&nbsp;getEncodedFrontFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the front side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -730,7 +730,7 @@ public&nbsp;java.lang.String&nbsp;getPlaceOfBirth()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDigitalSignatureVersion</h4>
-<pre>public&nbsp;int&nbsp;getDigitalSignatureVersion()</pre>
+<pre>public&nbsp;long&nbsp;getDigitalSignatureVersion()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">DigitalSignatureResult</a></code></span></div>
 <div class="block">Returns digital signature version.</div>
 <dl>
@@ -754,7 +754,7 @@ public&nbsp;byte[]&nbsp;getEncodedBackFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the back side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -805,8 +805,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>back side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -861,8 +861,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--">getSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>signature image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-"><code>SignatureImageOptions.setReturnSignatureImage(boolean)</code></a> (boolean)} (boolean)} )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-"><code>SignatureImageOptions.setReturnSignatureImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -980,7 +980,7 @@ protected&nbsp;byte[]&nbsp;serializeToByteArray()</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaIdBackRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaDlFrontRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.austria"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.Result.html" target="_top">Frames</a></li>

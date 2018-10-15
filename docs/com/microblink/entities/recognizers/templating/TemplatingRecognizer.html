@@ -300,7 +300,8 @@ implements <a href="../../../../../com/microblink/entities/settings/GlareDetecto
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CLASS_NAME</h4>
-<pre>public static final&nbsp;java.lang.String CLASS_NAME</pre>
+<pre>@NonNull
+public static final&nbsp;java.lang.String CLASS_NAME</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../constant-values.html#com.microblink.entities.recognizers.templating.TemplatingRecognizer.CLASS_NAME">Constant Field Values</a></dd>
@@ -322,6 +323,7 @@ implements <a href="../../../../../com/microblink/entities/settings/GlareDetecto
 <li class="blockList">
 <h4>TemplatingRecognizer</h4>
 <pre>protected&nbsp;TemplatingRecognizer(long&nbsp;nativeRecognizer,
+                               @NonNull
                                <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.Result.html" title="class in com.microblink.entities.recognizers.templating">TemplatingRecognizer.Result</a>&nbsp;concreteResult)</pre>
 </li>
 </ul>
@@ -332,7 +334,9 @@ implements <a href="../../../../../com/microblink/entities/settings/GlareDetecto
 <li class="blockList">
 <h4>TemplatingRecognizer</h4>
 <pre>protected&nbsp;TemplatingRecognizer(long&nbsp;nativeRecognizer,
+                               @NonNull
                                <a href="../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.Result.html" title="class in com.microblink.entities.recognizers.templating">TemplatingRecognizer.Result</a>&nbsp;concreteResult,
+                               @NonNull
                                android.os.Parcel&nbsp;in)</pre>
 </li>
 </ul>
@@ -399,7 +403,8 @@ public&nbsp;void&nbsp;consumeResultFrom(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -415,7 +420,8 @@ public&nbsp;void&nbsp;consumeResultFrom(@NonNull
 <ul class="blockListLast">
 <li class="blockList">
 <h4>readFromParcel</h4>
-<pre>protected&nbsp;void&nbsp;readFromParcel(android.os.Parcel&nbsp;in)</pre>
+<pre>protected&nbsp;void&nbsp;readFromParcel(@NonNull
+                              android.os.Parcel&nbsp;in)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="../../../../../com/microblink/entities/Entity.html#readFromParcel-android.os.Parcel-">readFromParcel</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>

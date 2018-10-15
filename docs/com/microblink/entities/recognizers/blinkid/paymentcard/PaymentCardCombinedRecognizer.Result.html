@@ -277,7 +277,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>int</code></td>
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardCombinedRecognizer.Result.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></span>()</code>
 <div class="block">Returns digital signature version.</div>
 </td>
@@ -465,7 +465,7 @@ public&nbsp;byte[]&nbsp;getEncodedFrontFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the front side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -487,7 +487,7 @@ public&nbsp;java.lang.String&nbsp;getCvv()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDigitalSignatureVersion</h4>
-<pre>public&nbsp;int&nbsp;getDigitalSignatureVersion()</pre>
+<pre>public&nbsp;long&nbsp;getDigitalSignatureVersion()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">DigitalSignatureResult</a></code></span></div>
 <div class="block">Returns digital signature version.</div>
 <dl>
@@ -529,7 +529,7 @@ public&nbsp;byte[]&nbsp;getEncodedBackFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedCombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedCombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image from the back side in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
 </li>
@@ -547,8 +547,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>back side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -576,8 +576,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/CombinedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">CombinedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>front side image of the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>

@@ -360,7 +360,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>getDetectionMode</h4>
-<pre>public&nbsp;<a href="../../../../../../com/microblink/entities/detectors/quad/document/DetectionMode.html" title="class in com.microblink.entities.detectors.quad.document">DetectionMode</a>&nbsp;getDetectionMode()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/entities/detectors/quad/document/DetectionMode.html" title="class in com.microblink.entities.detectors.quad.document">DetectionMode</a>&nbsp;getDetectionMode()</pre>
 <div class="block">Returns the detection mode that defines in which orientations can this document be detected.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -374,7 +375,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>setDetectionMode</h4>
-<pre>public&nbsp;void&nbsp;setDetectionMode(<a href="../../../../../../com/microblink/entities/detectors/quad/document/DetectionMode.html" title="class in com.microblink.entities.detectors.quad.document">DetectionMode</a>&nbsp;mode)</pre>
+<pre>public&nbsp;void&nbsp;setDetectionMode(@NonNull
+                             <a href="../../../../../../com/microblink/entities/detectors/quad/document/DetectionMode.html" title="class in com.microblink.entities.detectors.quad.document">DetectionMode</a>&nbsp;mode)</pre>
 <div class="block">Sets the detection mode that defines in which orientations can this document be detected.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -405,7 +407,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>getLandscapeScale</h4>
-<pre>public&nbsp;double[]&nbsp;getLandscapeScale()</pre>
+<pre>@NonNull
+public&nbsp;double[]&nbsp;getLandscapeScale()</pre>
 <div class="block">Returns the scale and tolerance that will be used when detecting document in landscape orientation.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -436,7 +439,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>getPortraitScale</h4>
-<pre>public&nbsp;double[]&nbsp;getPortraitScale()</pre>
+<pre>@NonNull
+public&nbsp;double[]&nbsp;getPortraitScale()</pre>
 <div class="block">Returns the scale and tolerance that will be used when detecting document in portrait orientation.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -512,7 +516,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>getXRange</h4>
-<pre>public&nbsp;double[]&nbsp;getXRange()</pre>
+<pre>@NonNull
+public&nbsp;double[]&nbsp;getXRange()</pre>
 <div class="block">Gets the percentage of possible document offset on x axis.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -543,7 +548,8 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockList">
 <li class="blockList">
 <h4>getYRange</h4>
-<pre>public&nbsp;double[]&nbsp;getYRange()</pre>
+<pre>@NonNull
+public&nbsp;double[]&nbsp;getYRange()</pre>
 <div class="block">Gets the percentage of possible document offset on y axis.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -571,8 +577,9 @@ extends <a href="../../../../../../com/microblink/entities/detectors/quad/Specif
 <ul class="blockListLast">
 <li class="blockList">
 <h4>createFromPreset</h4>
-<pre>public static&nbsp;<a href="../../../../../../com/microblink/entities/detectors/quad/document/DocumentSpecification.html" title="class in com.microblink.entities.detectors.quad.document">DocumentSpecification</a>&nbsp;createFromPreset(@NonNull
-                                                     <a href="../../../../../../com/microblink/entities/detectors/quad/document/DocumentSpecificationPreset.html" title="class in com.microblink.entities.detectors.quad.document">DocumentSpecificationPreset</a>&nbsp;preset)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../../../../com/microblink/entities/detectors/quad/document/DocumentSpecification.html" title="class in com.microblink.entities.detectors.quad.document">DocumentSpecification</a>&nbsp;createFromPreset(@NonNull
+                                                              <a href="../../../../../../com/microblink/entities/detectors/quad/document/DocumentSpecificationPreset.html" title="class in com.microblink.entities.detectors.quad.document">DocumentSpecificationPreset</a>&nbsp;preset)</pre>
 <div class="block">Creates a new document that will be detected from preset.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

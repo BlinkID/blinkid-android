@@ -247,31 +247,31 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getAddress--">getAddress</a></span>()</code>
-<div class="block">The Singapore ID owner's address</div>
+<div class="block">The address of Singapore ID owner.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getAddressChangeDate--">getAddressChangeDate</a></span>()</code>
-<div class="block">The Singapore ID owner's address change date, present if the address is on a sticker</div>
+<div class="block">The address change date, present if the address is on a sticker, of Singapore ID owner.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getBloodType--">getBloodType</a></span>()</code>
-<div class="block">The Singapore ID owner's blood type</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getBloodGroup--">getBloodGroup</a></span>()</code>
+<div class="block">The blood group of Singapore ID owner.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getCardNumber--">getCardNumber</a></span>()</code>
-<div class="block">The Singapore ID card number</div>
+<div class="block">The card number of Singapore ID.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeIdBackRecognizer.Result.html#getDateOfIssue--">getDateOfIssue</a></span>()</code>
-<div class="block">The Singapore ID's date of issue</div>
+<div class="block">The date of issue of Singapore ID.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -364,6 +364,17 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getBloodGroup--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBloodGroup</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getBloodGroup()</pre>
+<div class="block">The blood group of Singapore ID owner.</div>
+</li>
+</ul>
 <a name="getFullDocumentImage--">
 <!--   -->
 </a>
@@ -377,8 +388,8 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--">getFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>image of the full document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a> )}
- , else <code>null</code></dd>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -390,7 +401,7 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <h4>getAddress</h4>
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getAddress()</pre>
-<div class="block">The Singapore ID owner's address</div>
+<div class="block">The address of Singapore ID owner.</div>
 </li>
 </ul>
 <a name="getAddressChangeDate--">
@@ -401,7 +412,7 @@ public&nbsp;java.lang.String&nbsp;getAddress()</pre>
 <h4>getAddressChangeDate</h4>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getAddressChangeDate()</pre>
-<div class="block">The Singapore ID owner's address change date, present if the address is on a sticker</div>
+<div class="block">The address change date, present if the address is on a sticker, of Singapore ID owner.</div>
 </li>
 </ul>
 <a name="getEncodedFullDocumentImage--">
@@ -417,20 +428,9 @@ public&nbsp;byte[]&nbsp;getEncodedFullDocumentImage()</pre>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>encoded full document image in JPEG format if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
-</li>
-</ul>
-<a name="getBloodType--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBloodType</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getBloodType()</pre>
-<div class="block">The Singapore ID owner's blood type</div>
 </li>
 </ul>
 <a name="getDateOfIssue--">
@@ -441,7 +441,7 @@ public&nbsp;java.lang.String&nbsp;getBloodType()</pre>
 <h4>getDateOfIssue</h4>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getDateOfIssue()</pre>
-<div class="block">The Singapore ID's date of issue</div>
+<div class="block">The date of issue of Singapore ID.</div>
 </li>
 </ul>
 <a name="getCardNumber--">
@@ -452,7 +452,7 @@ public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.ht
 <h4>getCardNumber</h4>
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getCardNumber()</pre>
-<div class="block">The Singapore ID card number</div>
+<div class="block">The card number of Singapore ID.</div>
 </li>
 </ul>
 <a name="toString--">

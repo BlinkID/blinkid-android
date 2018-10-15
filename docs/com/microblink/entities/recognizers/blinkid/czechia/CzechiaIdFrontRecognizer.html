@@ -286,7 +286,8 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdFrontRecognizer.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;displayFullDocumentImage)</code>
-<div class="block">Sets whether full document image should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
+<div class="block">Sets whether full document image should be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
@@ -352,7 +353,8 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/czechia/CzechiaIdFrontRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
-<div class="block">Returns whether full document image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
+<div class="block">Returns whether full document image will be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i22" class="altColor">
@@ -648,11 +650,13 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
  If enabled, get image using <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html#getFaceImage--"><code>FaceImageResult.getFaceImage()</code></a>
  By default, this is set to 'false'.
 
- <b>IMPORTANT NOTE: </b> If you set <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode)</code></a> to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a>
- recognizer which contains encoded image cannot be parcelized and
- passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ <b>IMPORTANT NOTE: </b> If you set
+ <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(com.microblink.intent.IntentDataTransferMode)</code></a>
+ to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a> recognizer which contains encoded image
+ cannot be parcelized and passed by <code>Intent</code> extras because of Android limitations
+ on intent extras size.
  If you are using one of the provided scan activities and expect receiving scan results in
- <code>Activity.onActivityResult(int, int, Intent)</code> method
+ <code>Activity.onActivityResult(int, int, android.content.Intent)</code> method
  use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a> or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -689,15 +693,18 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <pre>public&nbsp;void&nbsp;setReturnSignatureImage(boolean&nbsp;displaySignatureImage)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-">SignatureImageOptions</a></code></span></div>
 <div class="block">Sets whether signature image should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>SignatureImageResult</code></a>.
- If enabled, get image using <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--"><code>SignatureImageResult.getSignatureImage()</code></a> ()}
+ If enabled, get image using <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--"><code>SignatureImageResult.getSignatureImage()</code></a>
  By default, this is set to 'false'.
 
- <b>IMPORTANT NOTE: </b> If you set <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode)</code></a> to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a>
- recognizer which contains encoded image cannot be parcelized and
- passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ <b>IMPORTANT NOTE: </b> If you set
+ <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(com.microblink.intent.IntentDataTransferMode)</code></a>
+ to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a> recognizer which contains encoded image
+ cannot be parcelized and passed by <code>Intent</code> extras because of Android limitations
+ on intent extras size.
  If you are using one of the provided scan activities and expect receiving scan results in
- <code>Activity.onActivityResult(int, int, Intent)</code> method
- use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a> or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a></div>
+ <code>Activity.onActivityResult(int, int, android.content.Intent)</code> method
+ use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a>
+ or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-">setReturnSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">SignatureImageOptions</a></code></dd>
@@ -732,23 +739,29 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <h4>setReturnFullDocumentImage</h4>
 <pre>public&nbsp;void&nbsp;setReturnFullDocumentImage(boolean&nbsp;displayFullDocumentImage)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-">FullDocumentImageOptions</a></code></span></div>
-<div class="block">Sets whether full document image should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
- If enabled, get image using <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--"><code>FullDocumentImageResult.getFullDocumentImage()</code></a> ()}
+<div class="block">Sets whether full document image should be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
+ If enabled, get image using
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--"><code>FullDocumentImageResult.getFullDocumentImage()</code></a>
  By default, this is set to 'false'.
 
-  <b>IMPORTANT NOTE: </b> If you set <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode)</code></a> to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a>
- recognizer which contains encoded image cannot be parcelized and
- passed by <code>Intent</code> extras because of Android limitations on intent extras size.
+ <b>IMPORTANT NOTE: </b> If you set
+ <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(com.microblink.intent.IntentDataTransferMode)</code></a>
+ to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a> recognizer which contains encoded image
+ cannot be parcelized and passed by <code>Intent</code> extras because of Android limitations
+ on intent extras size.
  If you are using one of the provided scan activities and expect receiving scan results in
- <code>Activity.onActivityResult(int, int, Intent)</code> method
- use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a> or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a>
+ <code>Activity.onActivityResult(int, int, android.content.Intent)</code> method
+ use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a>
+ or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a>
 
  By default, this is set to 'false'</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>displayFullDocumentImage</code> - whether full document image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
+<dd><code>displayFullDocumentImage</code> - whether full document image will be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -760,7 +773,8 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <h4>shouldReturnFullDocumentImage</h4>
 <pre>public&nbsp;boolean&nbsp;shouldReturnFullDocumentImage()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#shouldReturnFullDocumentImage--">FullDocumentImageOptions</a></code></span></div>
-<div class="block">Returns whether full document image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
+<div class="block">Returns whether full document image will be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
  By default, this is set to 'false'.
 
  By default, this is set to 'false'</div>
@@ -768,7 +782,8 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>whether full document image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
+<dd>whether full document image will be available in
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</dd>
 </dl>
 </li>
 </ul>

@@ -276,7 +276,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -337,7 +338,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDefaultROI</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;getDefaultROI()</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;getDefaultROI()</pre>
 <div class="block">Returns the default rectangle that defines the whole image or view</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -351,7 +353,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
@@ -382,7 +385,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>toRectF</h4>
-<pre>public&nbsp;android.graphics.RectF&nbsp;toRectF()</pre>
+<pre>@NonNull
+public&nbsp;android.graphics.RectF&nbsp;toRectF()</pre>
 </li>
 </ul>
 <a name="getX--">
@@ -456,7 +460,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

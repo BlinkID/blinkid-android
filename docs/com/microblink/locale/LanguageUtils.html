@@ -204,8 +204,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLanguageAndCountry</h4>
-<pre>public static&nbsp;void&nbsp;setLanguageAndCountry(java.lang.String&nbsp;language,
+<pre>public static&nbsp;void&nbsp;setLanguageAndCountry(@Nullable
+                                         java.lang.String&nbsp;language,
+                                         @Nullable
                                          java.lang.String&nbsp;country,
+                                         @NonNull
                                          android.content.Context&nbsp;ctx)</pre>
 <div class="block">Sets the language and country locale for given language and country.
  If either language or country is null, default is loaded from shared preferences.
@@ -224,7 +227,8 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setLanguageConfiguration</h4>
-<pre>public static&nbsp;void&nbsp;setLanguageConfiguration(android.content.res.Resources&nbsp;res)</pre>
+<pre>public static&nbsp;void&nbsp;setLanguageConfiguration(@NonNull
+                                            android.content.res.Resources&nbsp;res)</pre>
 <div class="block">Method that will set correct language configuration to given Resources
  object.</div>
 <dl>

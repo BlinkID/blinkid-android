@@ -244,7 +244,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -262,6 +263,7 @@ implements android.os.Parcelable</pre>
 <li class="blockList">
 <h4>CharWithVariants</h4>
 <pre>public&nbsp;CharWithVariants(long&nbsp;nativePtr,
+                        @Nullable
                         <a href="../../../../com/microblink/results/ocr/OcrLine.html" title="class in com.microblink.results.ocr">OcrLine</a>&nbsp;parentLine)</pre>
 </li>
 </ul>
@@ -288,7 +290,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getChar</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>&nbsp;getChar()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>&nbsp;getChar()</pre>
 <div class="block">Returns the <a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr"><code>OcrChar</code></a> which contains information about the char.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -302,7 +305,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRecognitionVariants</h4>
-<pre>public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>[]&nbsp;getRecognitionVariants()</pre>
+<pre>@Nullable
+public&nbsp;<a href="../../../../com/microblink/results/ocr/OcrChar.html" title="class in com.microblink.results.ocr">OcrChar</a>[]&nbsp;getRecognitionVariants()</pre>
 <div class="block">Returns the recognition variants of this char or null if there are no variants.
  Note that char is defined by all its parameters (value, font, position, quality, etc.),
  so in recognition variants it is possible to have same char value with different font.</div>
@@ -331,7 +335,8 @@ implements android.os.Parcelable</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>

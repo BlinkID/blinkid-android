@@ -214,10 +214,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildImageFromNativeContext</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromNativeContext(long&nbsp;nativeContext,
-                                                boolean&nbsp;ownsNativeObject,
-                                                @Nullable
-                                                java.lang.Object&nbsp;keep)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromNativeContext(long&nbsp;nativeContext,
+                                                         boolean&nbsp;ownsNativeObject,
+                                                         @Nullable
+                                                         java.lang.Object&nbsp;keep)</pre>
 <div class="block">Builds image object from native context. This method is called from native code. Calling it
  directly from Java with invalid native context will crash the app.</div>
 <dl>
@@ -236,12 +237,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>buildImageFromCamera2Image</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromCamera2Image(@NonNull
-                                               android.media.Image&nbsp;image,
-                                               @NonNull
-                                               <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
-                                               @Nullable
-                                               <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromCamera2Image(@NonNull
+                                                        android.media.Image&nbsp;image,
+                                                        @NonNull
+                                                        <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                                                        @Nullable
+                                                        <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
 <div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -260,14 +262,15 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>buildImageFromCamera1NV21Frame</h4>
-<pre>public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromCamera1NV21Frame(@NonNull
-                                                   byte[]&nbsp;imageBuffer,
-                                                   int&nbsp;imageWidth,
-                                                   int&nbsp;imageHeight,
-                                                   @NonNull
-                                                   <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
-                                                   @Nullable
-                                                   <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromCamera1NV21Frame(@NonNull
+                                                            byte[]&nbsp;imageBuffer,
+                                                            int&nbsp;imageWidth,
+                                                            int&nbsp;imageHeight,
+                                                            @NonNull
+                                                            <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+                                                            @Nullable
+                                                            <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
 </li>
 </ul>
 </li>

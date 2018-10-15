@@ -68,6 +68,8 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [Germany](#blinkid_recognizers_germany)
         * [HongKong](#blinkid_recognizers_hongkong)
         * [Indonesia](#blinkid_recognizers_indonesia)
+        * [Ireland](#blinkid_recognizers_ireland)
+        * [Italy](#blinkid_recognizers_italy)
         * [Jordan](#blinkid_recognizers_jordan)
         * [Kuwait](#blinkid_recognizers_kuwait)
         * [Malaysia](#blinkid_recognizers_malaysia)
@@ -170,7 +172,7 @@ In your `build.gradle` you first need to add _BlinkID_ maven repository to repos
 
 ```
 repositories {
-	maven { url 'https://maven.microblink.com' }
+    maven { url 'https://maven.microblink.com' }
 }
 ```
 
@@ -178,8 +180,8 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.2.0@aar') {
-    	transitive = true
+    implementation('com.microblink:blinkid:4.3.0@aar') {
+        transitive = true
     }
 }
 ```
@@ -190,7 +192,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.2.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.3.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -208,7 +210,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
     ```
     dependencies {
         implementation project(':LibBlinkID')
-        implementation "com.android.support:appcompat-v7:27.1.1"
+        implementation "com.android.support:appcompat-v7:28.0.0"
     }
     ```
     
@@ -252,19 +254,19 @@ Open your `pom.xml` file and add these directives as appropriate:
 
 ```xml
 <repositories>
-   	<repository>
-       	<id>MicroblinkRepo</id>
-       	<url>https://maven.microblink.com</url>
+    <repository>
+        <id>MicroblinkRepo</id>
+        <url>https://maven.microblink.com</url>
    	</repository>
 </repositories>
 
 <dependencies>
-	<dependency>
-		  <groupId>com.microblink</groupId>
-		  <artifactId>blinkid</artifactId>
-		  <version>4.2.0</version>
-		  <type>aar</type>
-  	</dependency>
+    <dependency>
+        <groupId>com.microblink</groupId>
+        <artifactId>blinkid</artifactId>
+        <version>4.3.0</version>
+        <type>aar</type>
+    </dependency>
 </dependencies>
 ```
 ## <a name="quickScan"></a> Performing your first scan
@@ -1129,6 +1131,12 @@ The [`PaymentCardFrontRecognizer`](https://blinkid.github.io/blinkid-android/com
 #### <a name="payment_card_combined"></a> Payment / Debit card combined recognizer
 The [`PaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardCombinedRecognizer.html) scans back side of Payment / Debit card after scanning the front side and combines data from both sides.
 
+#### <a name="elite_payment_card_single"></a> Elite Payment / Debit card front and back side recognizers
+The [`ElitePaymentCardFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardFrontRecognizer.html) and [`ElitePaymentCardBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardBackRecognizer.html) are used for scanning the front and back side of elite Payment / Debit card.
+
+#### <a name="elite_payment_card_combined"></a> Elite Payment / Debit card combined recognizer
+The [`ElitePaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardCombinedRecognizer.html) scans back side of elite Payment / Debit card after scanning the front side and combines data from both sides.
+
 
 ### <a name="documentFaceRecognizer"></a> Document face recognizer
 The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/eudl/EudlRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
@@ -1162,12 +1170,15 @@ The [`AustriaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 - Austrian passport
 
 #### <a name="austria_dl"></a> Scanning Austrian driver's license
-For scanning [the front side of Austrian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Austria), [`EudlRecognizer`](#eudlRecognizer) is used.
+The [`AustriaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaDlFrontRecognizer.html) is used for scanning [the front side of Austrian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Austria).
 
 ### <a name="blinkid_recognizers_colombia"></a> Colombia
 
 #### <a name="colombia_id"></a> Colombia ID front and back side recognizers
 The [`ColombiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdFrontRecognizer.html) and [`ColombiaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaIdBackRecognizer.html) are used for scanning the front and back side of Colombian identity card.
+
+#### <a name="colombia_dl"></a> Colombia driver's license front side recognizer
+The [`ColombiaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/colombia/ColombiaDlFrontRecognizer.html) is used for scanning the front side of Colombian driver's license.
 
 
 ### <a name="blinkid_recognizers_croatia"></a> Croatia
@@ -1243,6 +1254,22 @@ You can find information about usage context at the beginning of [this section](
 The [`IndonesiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/indonesia/IndonesiaIdFrontRecognizer.html) is used for scanning [front side of Indonesian identity card](https://en.wikipedia.org/wiki/Indonesian_identity_card).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+
+### <a name="blinkid_recognizers_ireland"></a> Ireland
+
+#### <a name="ireland_dl"></a> Ireland driver's license front side recognizer
+The [`IrelandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/ireland/IrelandDlFrontRecognizer.html) is used for scanning [front side of Irish driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_the_Republic_of_Ireland).
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+### <a name="blinkid_recognizers_italy"></a> Italy
+
+#### <a name="italy_dl"></a> Italy driver's license front side recognizer
+The [`ItalyDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/italy/ItalyDlFrontRecognizer.html) is used for scanning [front side of Italian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Italy).
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
 
 ### <a name="blinkid_recognizers_jordan"></a> Jordan
 
@@ -1406,7 +1433,7 @@ For scanning [the front side of UK driver's license](https://en.wikipedia.org/wi
 
 ### <a name="blinkid_recognizers_us_canada"></a> US / Canada
 
-#### <a name="austria_dl"></a> Scanning US / Canada driver's license
+#### <a name="uscanada_dl"></a> Scanning US / Canada driver's license
 For scanning the PDF417 barcode from the US / Canada driver's license, [`UsdlRecognizer`](#us_dl_recognizer) is used.
 
 The [`UsdlCombinedRecognizer`](#us_dl_combined_recognizer) can also be used for scanning the PDF417 barcode from the back side of US / Canada driver's license after scanning the full document image and face image from the front side.

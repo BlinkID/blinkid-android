@@ -341,24 +341,6 @@ extends <a href="../../../../../../com/microblink/entities/recognizers/Recognize
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getOptionalElements--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getOptionalElements</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String[]&nbsp;getOptionalElements()</pre>
-<div class="block">Array of elements that are not part of AAMVA standard and are specific to each US state.
- If no specific elements existed inside 2D barcode, this is an empty array. Otherwise,
- this array contains list of state-specific elements in the same order as given inside
- barcode.
- NOTE: Size of this array is both state-specific and barcode-specific. Each US state has
- ability to arbitrarily define size and contents of these elements. You can obtain the
- US state with <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.Result.html#getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-"><code>UsdlRecognizer.Result.getField(UsdlKeys)</code></a> and using <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html#IssuingJurisdictionName"><code>UsdlKeys.IssuingJurisdictionName</code></a>
- as a parameter.</div>
-</li>
-</ul>
 <a name="getRawData--">
 <!--   -->
 </a>
@@ -392,6 +374,24 @@ public&nbsp;java.lang.String&nbsp;getRawStringData()</pre>
  (has parts of it missing).</div>
 </li>
 </ul>
+<a name="getOptionalElements--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getOptionalElements</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String[]&nbsp;getOptionalElements()</pre>
+<div class="block">Array of elements that are not part of AAMVA standard and are specific to each US state.
+ If no specific elements existed inside 2D barcode, this is an empty array. Otherwise,
+ this array contains list of state-specific elements in the same order as given inside
+ barcode.
+ NOTE: Size of this array is both state-specific and barcode-specific. Each US state has
+ ability to arbitrarily define size and contents of these elements. You can obtain the
+ US state with <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.Result.html#getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-"><code>UsdlRecognizer.Result.getField(UsdlKeys)</code></a> and using <a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlKeys.html#IssuingJurisdictionName"><code>UsdlKeys.IssuingJurisdictionName</code></a>
+ as a parameter.</div>
+</li>
+</ul>
 <a name="getField-com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlKeys-">
 <!--   -->
 </a>
@@ -406,7 +406,7 @@ public&nbsp;java.lang.String&nbsp;getField(@NonNull
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - Key representing the required information.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>required information (if it exists), or null if it does not</dd>
+<dd>required information (if it exists), or empty string if it does not</dd>
 </dl>
 </li>
 </ul>

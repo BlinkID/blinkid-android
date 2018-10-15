@@ -256,7 +256,8 @@ implements android.os.Parcelable, <a href="../../../../com/microblink/results/Re
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -307,11 +308,12 @@ public&nbsp;<a href="../../../../com/microblink/results/date/Date.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>createFromDMY</h4>
-<pre>public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createFromDMY(int&nbsp;day,
-                                       int&nbsp;month,
-                                       int&nbsp;year,
-                                       @NonNull
-                                       java.lang.String&nbsp;originalDateString)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createFromDMY(int&nbsp;day,
+                                                int&nbsp;month,
+                                                int&nbsp;year,
+                                                @NonNull
+                                                java.lang.String&nbsp;originalDateString)</pre>
 <div class="block">This method is called from native code to build <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> from native object.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -330,8 +332,9 @@ public&nbsp;<a href="../../../../com/microblink/results/date/Date.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>createUnparsed</h4>
-<pre>public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createUnparsed(@NonNull
-                                        java.lang.String&nbsp;originalDateString)</pre>
+<pre>@NonNull
+public static&nbsp;<a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;createUnparsed(@NonNull
+                                                 java.lang.String&nbsp;originalDateString)</pre>
 <div class="block">This method is called from native code to build <a href="../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date"><code>DateResult</code></a> from native object, when
  date has not been successfully parsed from the given <code>originalDateString</code>.</div>
 <dl>
@@ -362,7 +365,8 @@ public&nbsp;<a href="../../../../com/microblink/results/date/Date.html" title="c
 <ul class="blockList">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;parcel,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;parcel,
                           int&nbsp;i)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -414,7 +418,8 @@ public&nbsp;java.lang.String&nbsp;getStringResult()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>toString</h4>
-<pre>public&nbsp;java.lang.String&nbsp;toString()</pre>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;toString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>

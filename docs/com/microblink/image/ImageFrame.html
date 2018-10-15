@@ -288,7 +288,8 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>mImage</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a> mImage</pre>
+<pre>@NonNull
+protected&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a> mImage</pre>
 </li>
 </ul>
 </li>
@@ -305,7 +306,8 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ImageFrame</h4>
-<pre>public&nbsp;ImageFrame(<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+<pre>public&nbsp;ImageFrame(@Nullable
+                  <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
                   long&nbsp;id)</pre>
 </li>
 </ul>
@@ -343,7 +345,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setVisiblePart</h4>
-<pre>public final&nbsp;void&nbsp;setVisiblePart(android.graphics.RectF&nbsp;visiblePart)</pre>
+<pre>public final&nbsp;void&nbsp;setVisiblePart(@NonNull
+                                 android.graphics.RectF&nbsp;visiblePart)</pre>
 <div class="block">sets the region that defines the visible part of frame</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -357,7 +360,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getFormat</h4>
-<pre>public&nbsp;CameraDataFormat&nbsp;getFormat()</pre>
+<pre>@NonNull
+public&nbsp;CameraDataFormat&nbsp;getFormat()</pre>
 </li>
 </ul>
 <a name="isFocused--">
@@ -386,7 +390,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getVisiblePart</h4>
-<pre>public final&nbsp;android.graphics.RectF&nbsp;getVisiblePart()</pre>
+<pre>@NonNull
+public final&nbsp;android.graphics.RectF&nbsp;getVisiblePart()</pre>
 <div class="block">returns the region that defines the visible part of frame</div>
 </li>
 </ul>
@@ -444,7 +449,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setOrientation</h4>
-<pre>public final&nbsp;void&nbsp;setOrientation(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
+<pre>public final&nbsp;void&nbsp;setOrientation(@Nullable
+                                 <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
 <div class="block">Sets the orientation of the current frame.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -458,7 +464,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getOrientation</h4>
-<pre>public final&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;getOrientation()</pre>
+<pre>@NonNull
+public final&nbsp;<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;getOrientation()</pre>
 <div class="block">Returns the orientation of the current frame.</div>
 </li>
 </ul>

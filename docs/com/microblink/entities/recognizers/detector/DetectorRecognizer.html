@@ -335,7 +335,8 @@ extends <a href="../../../../../com/microblink/entities/recognizers/templating/T
 <ul class="blockListLast">
 <li class="blockList">
 <h4>CREATOR</h4>
-<pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<pre>@NonNull
+public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
 </li>
 </ul>
 </li>
@@ -374,7 +375,8 @@ extends <a href="../../../../../com/microblink/entities/recognizers/templating/T
 <ul class="blockList">
 <li class="blockList">
 <h4>getDetector</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/detectors/quad/QuadWithSizeDetector.html" title="class in com.microblink.entities.detectors.quad">QuadWithSizeDetector</a>&nbsp;getDetector()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/detectors/quad/QuadWithSizeDetector.html" title="class in com.microblink.entities.detectors.quad">QuadWithSizeDetector</a>&nbsp;getDetector()</pre>
 <div class="block">Returns the detector that will be used for performing the document detection during recognition</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -512,7 +514,8 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>clone</h4>
-<pre>public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/detector/DetectorRecognizer.html" title="class in com.microblink.entities.recognizers.detector">DetectorRecognizer</a>&nbsp;clone()</pre>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/detector/DetectorRecognizer.html" title="class in com.microblink.entities.recognizers.detector">DetectorRecognizer</a>&nbsp;clone()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/microblink/entities/Entity.html#clone--">Entity</a></code></span></div>
 <div class="block">Create a copy of the entity.
  This is required if properties of the entity must be modified while background thread
@@ -556,7 +559,8 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>writeToParcel</h4>
-<pre>public&nbsp;void&nbsp;writeToParcel(android.os.Parcel&nbsp;dest,
+<pre>public&nbsp;void&nbsp;writeToParcel(@NonNull
+                          android.os.Parcel&nbsp;dest,
                           int&nbsp;flags)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
