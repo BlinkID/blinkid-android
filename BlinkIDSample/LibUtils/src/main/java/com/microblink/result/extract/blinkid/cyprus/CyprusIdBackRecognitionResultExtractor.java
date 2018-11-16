@@ -9,5 +9,6 @@ public class CyprusIdBackRecognitionResultExtractor extends BlinkIdExtractor< Cy
     protected void extractData(CyprusIdBackRecognizer.Result result) {
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPSex, result.getSex());
+        add(R.string.PPDateOfExpiry, result.getExpiresOn());
     }
 }
