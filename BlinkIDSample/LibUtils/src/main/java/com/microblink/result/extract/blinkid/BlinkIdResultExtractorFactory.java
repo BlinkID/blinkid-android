@@ -26,6 +26,7 @@ import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePayment
 import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognizer;
@@ -41,9 +42,10 @@ import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdBackRecognizer
 import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.IkadRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyTenteraFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MyTenteraRecognizer;
+import com.microblink.entities.recognizers.blinkid.mexico.MexicoVoterIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
@@ -104,6 +106,7 @@ import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardBa
 import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.eudl.EUDriversLicenceRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.germany.GermanDLBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDFrontSideRecognitionResultExtractor;
@@ -123,6 +126,7 @@ import com.microblink.result.extract.blinkid.malaysia.MalaysianDLFrontRecognitio
 import com.microblink.result.extract.blinkid.malaysia.MyKadBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.malaysia.MyKadFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.malaysia.MyTenteraRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.mexico.MexicoVoterIdFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.morocco.MoroccoIdBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.morocco.MoroccoIdFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.mrtd.MRTDCombinedRecognitionResultExtractor;
@@ -216,6 +220,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new GermanIDFrontSideRecognitionResultExtractor());
         add(GermanyPassportRecognizer.class,
                 new GermanPassportRecognitionResultExtractor());
+        add(GermanyDlBackRecognizer.class,
+                new GermanDLBackSideRecognitionResultExtractor());
         add(IndonesiaIdFrontRecognizer.class,
                 new IndonesianIDFrontSideRecognitionResultExtractor());
         add(IrelandDlFrontRecognizer.class,
@@ -258,10 +264,12 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new MyKadFrontRecognitionResultExtractor());
         add(MyKadBackRecognizer.class,
                 new MyKadBackRecognitionResultExtractor());
-        add(MyTenteraRecognizer.class,
+        add(MalaysiaMyTenteraFrontRecognizer.class,
                 new MyTenteraRecognitionResultExtractor());
         add(IkadRecognizer.class,
                 new IKadRecognitionResultExtractor());
+        add(MexicoVoterIdFrontRecognizer.class,
+                new MexicoVoterIdFrontRecognitionResultExtractor());
         add(MoroccoIdBackRecognizer.class,
                 new MoroccoIdBackRecognitionResultExtractor());
         add(MoroccoIdFrontRecognizer.class,

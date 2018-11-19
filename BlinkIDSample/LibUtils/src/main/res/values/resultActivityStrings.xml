@@ -108,6 +108,7 @@
     <string name="PPIssuer">Issuer</string>
     <string name="PPMRZText">MRZ text</string>
     <string name="PPFirstName">First name</string>
+    <string name="PPGivenNames">Given names</string>
     <string name="PPLastName">Last name</string>
     <string name="PPFamilyName">Family Name</string>
     <string name="PPSurnameAtBirth">Surname at birth</string>
@@ -209,7 +210,6 @@
     <string name="PPCANNumber">CAN number</string>
     <string name="PPResidentialStatus">Residential status</string>
     <string name="PPCompanyName">Company name</string>
-
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
     <string name="MBEncodedFullDocumentImage">Encoded full document image</string>
@@ -223,19 +223,18 @@
     <string name="MBEncodedFaceImage">Encoded face image</string>
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
-
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>
-
     <string name="MBDocumentLocation">Document location</string>
     <string name="MBFaceLocation">Face location</string>
-
     <string name="MBFormVersion">Form version</string>
     <string name="MBFormFunction">Form function</string>
     <string name="MBAvailableAccounts">Available accounts</string>
-
     <string name="MBSlovakPaymentInfoKeySuffix">(%d)</string>
-
     <string name="MBBirthData">Birth data</string>
+    <string name="PPElectorKey">Elector key</string>
+    <string name="PPCURP">CURP</string>
+    <string name="PPDateOfIssueDlCategoryB">Date of issue B category</string>
+    <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
 
 </resources>

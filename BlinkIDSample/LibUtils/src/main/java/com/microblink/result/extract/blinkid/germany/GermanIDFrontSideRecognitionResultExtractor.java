@@ -8,8 +8,8 @@ public class GermanIDFrontSideRecognitionResultExtractor extends BlinkIdExtracto
 
     @Override
     protected void extractData(GermanyIdFrontRecognizer.Result result) {
-        add(R.string.PPLastName, result.getLastName());
-        add(R.string.PPFirstName, result.getFirstName());
+        add(R.string.PPSurname, result.getSurname());
+        add(R.string.PPGivenNames, result.getGivenNames());
         add(R.string.PPNationality, result.getNationality());
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());

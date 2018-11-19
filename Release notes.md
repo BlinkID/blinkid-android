@@ -1,5 +1,55 @@
 # Release notes
 
+## 4.4.0
+
+### New features:
+
+- added support for reading back side of Germany Driver's License (reading of single B10 field - date of issue for B category)  - use `GermanyDlBackRecognizer`
+
+- added support for reading front side of Mexico Voter ID  - use `MexicoVoterIdFrontRecognizer`
+
+### Improvements for existing features:
+
+- added support for hiding sensitive parts of images returned by payment card recognizers:
+    - `PaymentCardFrontRecognizer`: setAnonymizeOwner, setAnonymizeCardNumber
+    - `PaymentCardBackRecognizer`: setAnonymizeCvv
+    - `PaymentCardCombinedRecognizer`:  setAnonymizeOwner, setAnonymizeCardNumber, setAnonymizeCvv
+    - `ElitePaymentCardFrontRecognizer`: setAnonymizeOwner
+    - `ElitePaymentCardBackRecognizer`: setAnonymizeCardNumber, setAnonymizeCvv
+    - `ElitePaymentCardBackRecognizer`: setAnonymizeOwner,  setAnonymizeCardNumber, setAnonymizeCvv
+- `CyprusIdBackRecognizer`: added support for reading date of expiry, use `getExpiresOn` on its result
+- `SlovakiaIdFrontRecognizer`: improved reading of `personalNumber` field
+- improved reading accuracy for the following recognizers:
+    - `MalaysiaMyTenteraFrontRecognizer`
+    - `SingaporeDlFrontRecognizer`
+    - `CroatiaIdFrontRecognizer`
+    - `IndonesiaIdFrontRecognizer`
+- improved image return processor:
+    - the processor now estimates detected (dewarped) document image quality and returns the best quality dewarped image from the best quality detection
+- `DocumentVerificationActivity` does not extend `AppCompatActivity` any more
+
+### Minor API changes:
+- renamed methods in `GermanyIdFrontRecognizer` and its `Result`:
+    - `lastName` to `surname`
+    - `firstName` to `givenNames`
+- renamed `MyTenteraRecognizer` to `MalaysiaMyTenteraFrontRecognizer` and  methods in recognizer and its `Result`:
+    - `ownerFullName` -> `fullName`
+    - `ownerAddress` -> `fullAddress`
+    - `ownerAddressStreet` -> `street`
+    - `ownerAddressZipCode` -> `zipcode`
+    - `ownerAddressCity` -> `city`
+    - `ownerAddressState` -> `ownerState`
+    - `ownerBirthDate` -> `birthDate`
+    - `ownerSex` -> `sex`
+    - `ownerReligion` -> `religion`
+    - `nricNumber` -> `nric`
+- renamded enum `com.microblink.uisettings.options.ShowOcrResultMode` to `com.microblink.uisettings.options.OcrResultDisplayMode`
+- for all `UISettings` classes which support setting of OCR result display mode, renamed method `setShowOcrResultMode` to `setOcrResultDisplayMode`
+
+### Bug fixes:
+- fixed camera autofocus problems on Samsung S9/S9+ when optimisation for near scanning is enabled
+- fixed autofocus problems in `Field by field` scanning on Huawei P20 pro, Huawei P20 and Huawei P20 lite 
+
 ## 4.3.0
 
 ### New features:

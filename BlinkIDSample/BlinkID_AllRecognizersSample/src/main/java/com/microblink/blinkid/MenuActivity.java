@@ -50,6 +50,7 @@ import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePayment
 import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognizer;
@@ -65,9 +66,10 @@ import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdBackRecognizer
 import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.IkadRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyTenteraFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MyTenteraRecognizer;
+import com.microblink.entities.recognizers.blinkid.mexico.MexicoVoterIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
@@ -114,8 +116,8 @@ import com.microblink.uisettings.FieldByFieldUISettings;
 import com.microblink.uisettings.UISettings;
 import com.microblink.uisettings.options.BeepSoundUIOptions;
 import com.microblink.uisettings.options.HelpIntentUIOptions;
-import com.microblink.uisettings.options.ShowOcrResultMode;
-import com.microblink.uisettings.options.ShowOcrResultUIOptions;
+import com.microblink.uisettings.options.OcrResultDisplayMode;
+import com.microblink.uisettings.options.OcrResultDisplayUIOptions;
 import com.microblink.util.ImageSettings;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
@@ -201,6 +203,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildJordanIdElement());
         items.add(buildJordanIdCombinedElement());
         items.add(buildKuwaitIdElement());
+        items.add(buildMexicoVoterIdElement());
         items.add(buildMyKadElement());
         items.add(buildIKadElement());
         items.add(buildMyTenteraElement());
@@ -229,8 +232,9 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildItalyDlElement());
         items.add(buildMalaysianDLElement());
         items.add(buildNewZealandDLElement());
-        items.add(buildGermanDLElement());
-        items.add(buildSingaporeDlElement());
+        items.add(buildGermanDLFrontElement());
+        items.add(buildGermanDLBackElement());
+        items.add(buildSingaporeDLElement());
         items.add(buildSpainDLElement());
         items.add(buildSwedenDLElement());
         items.add(buildSwissDLElement());
@@ -303,7 +307,7 @@ public class MenuActivity extends BaseMenuActivity {
             // scan activity will hide the help button.
             ((HelpIntentUIOptions) settings).setHelpIntent(helpIntent);
         }
-        if (settings instanceof ShowOcrResultUIOptions) {
+        if (settings instanceof OcrResultDisplayUIOptions) {
             // If you want, you can disable drawing of OCR results on scan activity. Drawing OCR results can be visually
             // appealing and might entertain the user while waiting for scan to complete, but might introduce a small
             // performance penalty.
@@ -311,7 +315,7 @@ public class MenuActivity extends BaseMenuActivity {
 
             // Enable showing of OCR results as animated dots. This does not have effect if non-OCR recognizer like
             // barcode recognizer is active.
-            ((ShowOcrResultUIOptions) settings).setShowOcrResultMode(ShowOcrResultMode.ANIMATED_DOTS);
+            ((OcrResultDisplayUIOptions) settings).setOcrResultDisplayMode(OcrResultDisplayMode.ANIMATED_DOTS);
         }
         if (settings instanceof BaseScanUISettings) {
             // If you want you can have scan activity display the focus rectangle whenever camera
@@ -522,6 +526,18 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildMexicoVoterIdElement() {
+        return new MenuListItem("Mexico Voter ID", new Runnable() {
+            @Override
+            public void run() {
+                MexicoVoterIdFrontRecognizer mexicoFront = new MexicoVoterIdFrontRecognizer();
+                ImageSettings.enableAllImages(mexicoFront);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(mexicoFront)));
+            }
+        });
+    }
+
     private MenuListItem buildMyKadElement() {
         return new MenuListItem("Malaysian ID", new Runnable() {
             @Override
@@ -553,7 +569,7 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("Malaysian MyTentera", new Runnable() {
             @Override
             public void run() {
-                MyTenteraRecognizer myTenteraRec = new MyTenteraRecognizer();
+                MalaysiaMyTenteraFrontRecognizer myTenteraRec = new MalaysiaMyTenteraFrontRecognizer();
                 ImageSettings.enableAllImages(myTenteraRec);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(myTenteraRec)));
@@ -762,8 +778,20 @@ public class MenuActivity extends BaseMenuActivity {
         return buildEUDLElement("UK Driver's License", EudlCountry.EUDL_COUNTRY_UK);
     }
 
-    private MenuListItem buildGermanDLElement() {
-        return buildEUDLElement("German Driver's License", EudlCountry.EUDL_COUNTRY_GERMANY);
+    private MenuListItem buildGermanDLFrontElement() {
+        return buildEUDLElement("German Driver's License Front", EudlCountry.EUDL_COUNTRY_GERMANY);
+    }
+
+    private MenuListItem buildGermanDLBackElement() {
+        return new MenuListItem("German Driver's License Back", new Runnable() {
+            @Override
+            public void run() {
+                GermanyDlBackRecognizer germanDlBack = new GermanyDlBackRecognizer();
+                ImageSettings.enableAllImages(germanDlBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanDlBack)));
+            }
+        });
     }
 
     private MenuListItem buildAustriaDLFrontElement() {
@@ -852,7 +880,7 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildSingaporeDlElement() {
+    private MenuListItem buildSingaporeDLElement() {
         return new MenuListItem("Singapore Driver's License", new Runnable() {
             @Override
             public void run() {

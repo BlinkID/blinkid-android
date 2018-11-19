@@ -10,6 +10,8 @@ Using _BlinkID_ in your app requires a valid license. You can obtain a trial lic
 
 See below for more information about how to integrate _BlinkID_ SDK into your app and also check latest [Release notes](Release notes.md).
 
+To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/apps/details?id=com.microblink.blinkidapp). If you want the same user experience in your application, or just want to reuse some functionalities from this demo, there is an open-source library [blinkid-ui-android](https://github.com/BlinkID/blinkid-ui-android) that can help you.
+
 # Table of contents
 
 * [Android _BlinkID_ integration instructions](#intro)
@@ -73,6 +75,7 @@ See below for more information about how to integrate _BlinkID_ SDK into your ap
         * [Jordan](#blinkid_recognizers_jordan)
         * [Kuwait](#blinkid_recognizers_kuwait)
         * [Malaysia](#blinkid_recognizers_malaysia)
+        * [Mexico](#blinkid_recognizers_mexico)
         * [Morocco](#blinkid_recognizers_morocco)
         * [New Zealand](#blinkid_recognizers_newzealand)
         * [Poland](#blinkid_recognizers_poland)
@@ -180,7 +183,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.3.0@aar') {
+    implementation('com.microblink:blinkid:4.4.0@aar') {
         transitive = true
     }
 }
@@ -192,7 +195,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.3.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.4.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -264,7 +267,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.3.0</version>
+        <version>4.4.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
@@ -1237,7 +1240,7 @@ The [`GermanyCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 - German passport
 
 #### <a name="germany_dl"></a> Scanning German driver's license
-For scanning [the front side of German driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Germany), [`EudlRecognizer`](#eudlRecognizer) is used.
+For scanning [the front side of German driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Germany), [`EudlRecognizer`](#eudlRecognizer) is used. For the back side, use [`GermanyDlBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/germany/GermanyDlBackRecognizer.html).
 
 
 ### <a name="blinkid_recognizers_hongkong"></a> HongKong
@@ -1303,6 +1306,14 @@ The [`MyTenteraRecognizer`](https://blinkid.github.io/blinkid-android/com/microb
 
 #### <a name="malaysia_dl"></a> Malaysian driver's license front side recognizer
 The [`MalaysiaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaDlFrontRecognizer.html) is used for scanning [front side of Malaysian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Malaysia).
+
+
+### <a name="blinkid_recognizers_mexico"></a> Mexico
+
+#### <a name="mexico_voter_id"></a> Mexico Voter ID front side recognizer
+The [`MexicoVoterIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/mexico/MexicoVoterIdFrontRecognizer.html) is used for scanning front side of the Mexico voter identity card.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 
 ### <a name="blinkid_recognizers_morocco"></a> Morocco
