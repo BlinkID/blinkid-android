@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":9,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -209,17 +209,22 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code>protected android.os.Parcelable</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a></span>(java.lang.String&nbsp;optionName,
+              android.os.Parcelable&nbsp;defaultValue)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></span>(boolean&nbsp;usingFlagSecure)</code>
 <div class="block">Defines whether FLAG_SECURE on activity window, which indicates that the display has a secure
@@ -341,7 +346,7 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 <h4>putParcelable</h4>
 <pre>protected final&nbsp;void&nbsp;putParcelable(@NonNull
                                    java.lang.String&nbsp;optionName,
-                                   @NonNull
+                                   @Nullable
                                    android.os.Parcelable&nbsp;value)</pre>
 </li>
 </ul>
@@ -356,6 +361,19 @@ protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
                                                                java.lang.String&nbsp;optionName)</pre>
 </li>
 </ul>
+<a name="readParcelable-java.lang.String-T-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readParcelable</h4>
+<pre>@NonNull
+protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
+                                                              java.lang.String&nbsp;optionName,
+                                                              @NonNull
+                                                              android.os.Parcelable&nbsp;defaultValue)</pre>
+</li>
+</ul>
 <a name="putString-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
@@ -364,7 +382,7 @@ protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
 <h4>putString</h4>
 <pre>protected final&nbsp;void&nbsp;putString(@NonNull
                                java.lang.String&nbsp;optionName,
-                               @NonNull
+                               @Nullable
                                java.lang.String&nbsp;value)</pre>
 </li>
 </ul>

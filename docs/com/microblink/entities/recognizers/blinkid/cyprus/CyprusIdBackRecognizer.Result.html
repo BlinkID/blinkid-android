@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -255,24 +255,30 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getExpiresOn--">getExpiresOn</a></span>()</code>
+<div class="block">The expiry date of Cyprus ID card.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getFullDocumentImage--">getFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getSex--">getSex</a></span>()</code>
 <div class="block">The sex of the Cyprus ID card owner.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -402,6 +408,17 @@ public&nbsp;byte[]&nbsp;getEncodedFullDocumentImage()</pre>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getDateOfBirth()</pre>
 <div class="block">The date of birth of the Cyprus ID card owner.</div>
+</li>
+</ul>
+<a name="getExpiresOn--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getExpiresOn</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getExpiresOn()</pre>
+<div class="block">The expiry date of Cyprus ID card.</div>
 </li>
 </ul>
 <a name="toString--">

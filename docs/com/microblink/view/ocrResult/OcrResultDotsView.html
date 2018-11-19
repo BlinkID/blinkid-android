@@ -357,7 +357,7 @@ implements <a href="../../../../com/microblink/view/ocrResult/IOcrResultView.htm
 <pre>public&nbsp;OcrResultDotsView(@NonNull
                          android.content.Context&nbsp;context,
                          int&nbsp;hostActivityOrientation,
-                         @NonNull
+                         @Nullable
                          <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;initialRecognizerOrientation)</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -371,7 +371,9 @@ implements <a href="../../../../com/microblink/view/ocrResult/IOcrResultView.htm
                                 <code>ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE</code>.</dd>
 <dd><code>initialRecognizerOrientation</code> - initial orientation of <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a>
                                      rotatable view. Can be obtained by using
-                                     <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--"><code>BaseCameraView.getInitialOrientation()</code></a>.</dd>
+                                     <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--"><code>BaseCameraView.getInitialOrientation()</code></a>.
+                                     If set to <code>null</code> or <a href="../../../../com/microblink/hardware/orientation/Orientation.html#ORIENTATION_UNKNOWN"><code>Orientation.ORIENTATION_UNKNOWN</code></a>
+                                     recognizer orientation will be set to <a href="../../../../com/microblink/hardware/orientation/Orientation.html#ORIENTATION_PORTRAIT"><code>Orientation.ORIENTATION_PORTRAIT</code></a>.</dd>
 </dl>
 </li>
 </ul>
@@ -384,7 +386,7 @@ implements <a href="../../../../com/microblink/view/ocrResult/IOcrResultView.htm
 <pre>public&nbsp;OcrResultDotsView(@NonNull
                          android.content.Context&nbsp;context,
                          int&nbsp;hostActivityOrientation,
-                         @NonNull
+                         @Nullable
                          <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;initialRecognizerOrientation,
                          int&nbsp;numberOfDots)</pre>
 <dl>
@@ -399,7 +401,9 @@ implements <a href="../../../../com/microblink/view/ocrResult/IOcrResultView.htm
                                 <code>ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE</code>.</dd>
 <dd><code>initialRecognizerOrientation</code> - initial orientation of <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a>
                                      rotatable view. Can be obtained by using
-                                     <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--"><code>BaseCameraView.getInitialOrientation()</code></a>.</dd>
+                                     <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--"><code>BaseCameraView.getInitialOrientation()</code></a>.
+                                     If set to <code>null</code> or <a href="../../../../com/microblink/hardware/orientation/Orientation.html#ORIENTATION_UNKNOWN"><code>Orientation.ORIENTATION_UNKNOWN</code></a>
+                                     recognizer orientation will be set to <a href="../../../../com/microblink/hardware/orientation/Orientation.html#ORIENTATION_PORTRAIT"><code>Orientation.ORIENTATION_PORTRAIT</code></a>.</dd>
 <dd><code>numberOfDots</code> - maximum number of dots being displayed.</dd>
 </dl>
 </li>
