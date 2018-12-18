@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlinkIDImageListenerSample</string>
+    <string name="app_name">BlinkID Images Sample</string>
 
     <string name="blinkid">BlinkID</string>
     <string name="scanMRTD">Scan MRTD</string>
