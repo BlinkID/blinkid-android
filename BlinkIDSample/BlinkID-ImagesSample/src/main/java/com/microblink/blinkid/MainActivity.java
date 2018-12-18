@@ -16,12 +16,16 @@ import android.widget.Toast;
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
 import com.microblink.activity.DocumentScanActivity;
+import com.microblink.entities.recognizers.HighResImagesBundle;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
+import com.microblink.image.highres.HighResImageWrapper;
 import com.microblink.result.ResultActivity;
+import com.microblink.uisettings.ActivityRunner;
+import com.microblink.uisettings.DocumentUISettings;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -83,26 +87,12 @@ public class MainActivity extends BaseMenuActivity {
 
         // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
         SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mrtdRecognizer);
-
-        // use provided ScanCard activity to scan machine readable travel documents
-        Intent intent = new Intent(this, DocumentScanActivity.class);
         recognizerBundle = new RecognizerBundle(successFrameGrabberRecognizer);
-        recognizerBundle.saveToIntent(intent);
-        startActivityForResult(intent, SCAN_ACTIVITY_REQ_CODE);
-    }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
-            // If request is cancelled, the result arrays are empty.
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission was granted
-                startScanning();
-            } else {
-                // permission denied
-                Toast.makeText(this, "Write external storage permission is required!", Toast.LENGTH_SHORT).show();
-            }
-        }
+        DocumentUISettings documentUISettings = new DocumentUISettings(recognizerBundle);
+        //enable capturing success frame in full camera resolution
+        documentUISettings.enableHighResSuccessFrameCapture(true);
+        ActivityRunner.startActivityForResult(this, SCAN_ACTIVITY_REQ_CODE, documentUISettings);
     }
 
     @Override
@@ -117,6 +107,8 @@ public class MainActivity extends BaseMenuActivity {
 
         // make sure BlinkID activity returned result
         if (resultCode == DocumentScanActivity.RESULT_OK && data != null) {
+            storeHighResImage(data);
+
             // get images from recognizers and store them
             Recognizer firstRecognizer = recognizerBundle.getRecognizers()[0];
             SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = (SuccessFrameGrabberRecognizer) firstRecognizer;
@@ -138,14 +130,36 @@ public class MainActivity extends BaseMenuActivity {
         }
     }
 
-    private void storeImage(String imageName, Image image) {
-        // we will save images to 'myImages' folder on external storage
-        // image filenames will be 'imageType - currentTimestamp.jpg'
-        String output = Environment.getExternalStorageDirectory().getAbsolutePath() + "/myImages";
-        File f = new File(output);
-        if (!f.exists()) {
-            f.mkdirs();
+    private void storeHighResImage(Intent resultIntent) {
+        // load high res image from result intent
+        HighResImagesBundle highResImagesBundle = new HighResImagesBundle(resultIntent);
+
+        // if high res image capture is disabled, images list will be empty
+        // otherwise, we'll get 1 image per scanned document side
+        List<HighResImageWrapper> highResImageWrappers = highResImagesBundle.getImages();
+        if (highResImageWrappers.isEmpty()) {
+            return;
         }
+
+        HighResImageWrapper highResImageWrapper = highResImageWrappers.get(0);
+
+        String imagesFolderPath = createImagesFolder();
+        String imagePath = imagesFolderPath + "/highRes.jpg";
+        try {
+            // optimal way to save high res image to file,
+            // alternatively, you could get bitmap using highResImageWrapper.getImage().convertToBitmap()
+            highResImageWrapper.saveToFile(new File(imagePath));
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "Failed to save image " + e.toString());
+        }
+
+        // dispose image once you're done with it
+        highResImageWrapper.dispose();
+    }
+
+    private void storeImage(String imageName, Image image) {
+        // image filenames will be 'imageType - currentTimestamp.jpg'
+        String output = createImagesFolder();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         String dateString = dateFormat.format(new Date());
         String filename = null;
@@ -197,6 +211,31 @@ public class MainActivity extends BaseMenuActivity {
         }
         // after this line, image gets disposed. If you want to save it
         // for later, you need to clone it with image.clone()
+    }
+
+    @NonNull
+    private String createImagesFolder() {
+        // we will save images to 'myImages' folder on external storage
+        String imagesDirPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/myImages";
+        File f = new File(imagesDirPath);
+        if (!f.exists()) {
+            f.mkdirs();
+        }
+        return imagesDirPath;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
+            // If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // permission was granted
+                startScanning();
+            } else {
+                // permission denied
+                Toast.makeText(this, "Write external storage permission is required!", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 }
