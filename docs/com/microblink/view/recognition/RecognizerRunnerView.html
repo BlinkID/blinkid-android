@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,12 +127,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.graphics.drawable.Drawable.Callback, android.view.accessibility.AccessibilityEventSource, android.view.KeyEvent.Callback, android.view.ViewManager, android.view.ViewParent</dd>
+<dd>android.arch.lifecycle.LifecycleObserver, android.graphics.drawable.Drawable.Callback, android.view.accessibility.AccessibilityEventSource, android.view.KeyEvent.Callback, android.view.ViewManager, android.view.ViewParent</dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">RecognizerRunnerView</span>
-extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view">CameraViewGroup</a></pre>
+extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view">CameraViewGroup</a>
+implements android.arch.lifecycle.LifecycleObserver</pre>
 <div class="block">A view that controls the camera and recognition procedure.</div>
 </li>
 </ul>
@@ -239,160 +240,174 @@ extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="cl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#captureHighResImage-HighResImageListener-">captureHighResImage</a></span>(HighResImageListener&nbsp;highResImageListener)</code>
+<div class="block">Starts capturing frame at full camera resolution and notifies listener once it's done.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#changeConfigurationInternal-android.content.res.Configuration-">changeConfigurationInternal</a></span>(android.content.res.Configuration&nbsp;newConfig)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#create--">create</a></span>()</code>
 <div class="block">This method must be called from activity's onCreate.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected CameraListener</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#createCameraListener--">createCameraListener</a></span>()</code>
 <div class="block">ABSTRACT METHODS</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected OrientationChangeListener</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#createOrientationChangeListener--">createOrientationChangeListener</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#destroy--">destroy</a></span>()</code>
 <div class="block">This method must be called from activity's onDestroy.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#getRecognizerBundle--">getRecognizerBundle</a></span>()</code>
 <div class="block">Returns the currently active recognizer bundle.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#getScanningRegion--">getScanningRegion</a></span>()</code>
 <div class="block">Returns the current scanning region or null if entire image is scanned.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#getScanResultListener--">getScanResultListener</a></span>()</code>
 <div class="block">Returns the listener that will obtain the results of the scanning.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#isScanningPaused--">isScanningPaused</a></span>()</code>
 <div class="block">Returns true if scanning is paused or if scanning still has not yet started.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#onActivityFlip--">onActivityFlip</a></span>()</code>
 <div class="block">Called when activity is flipped - this event is not raised by OS so we have custom detection
  of that state.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#onCameraPreviewStarted--">onCameraPreviewStarted</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#onCameraPreviewStopped--">onCameraPreviewStopped</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pause--">pause</a></span>()</code>
 <div class="block">This method must be called from activity's onPause.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--">pauseScanning</a></span>()</code>
 <div class="block">Pauses the scanning loop.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#prepareCameraSettings-CameraSettings-">prepareCameraSettings</a></span>(CameraSettings&nbsp;settings)</code>
 <div class="block">Called inside onCreate method before creating camera manager.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#reconfigureRecognizers-com.microblink.entities.recognizers.RecognizerBundle-">reconfigureRecognizers</a></span>(<a href="../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>
 <div class="block">Use this method to reconfigure available recognizers.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#requireAutofocusFeature--">requireAutofocusFeature</a></span>()</code>
 <div class="block">If autofocus feature is required, please return true from this method.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resetRecognitionState--">resetRecognitionState</a></span>()</code>
 <div class="block">Resets the recognizer state, i.e.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resume--">resume</a></span>()</code>
 <div class="block">This method must be called from activity's onResume.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-">resumeScanning</a></span>(boolean&nbsp;resetState)</code>
 <div class="block">This method resumes scanning loop that was paused by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setLifecycle-android.arch.lifecycle.Lifecycle-">setLifecycle</a></span>(android.arch.lifecycle.Lifecycle&nbsp;lifecycle)</code>
+<div class="block">Sets lifecycle that will be observed
+ so that you don't have to manually call
+ <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#create--"><code>RecognizerRunnerView.create()</code></a>, <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resume--"><code>RecognizerRunnerView.resume()</code></a> and other lifecycle methods.</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setMetadataCallbacks-com.microblink.metadata.MetadataCallbacks-">setMetadataCallbacks</a></span>(<a href="../../../../com/microblink/metadata/MetadataCallbacks.html" title="class in com.microblink.metadata">MetadataCallbacks</a>&nbsp;metadataCallbacks)</code>
 <div class="block">Sets the metadata callbacks that will obtain metadata during processing.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setRecognizerBundle-com.microblink.entities.recognizers.RecognizerBundle-">setRecognizerBundle</a></span>(<a href="../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>
 <div class="block">Sets the recognizer bundle containing recognizers that will perform the recognition.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setScanningRegion-com.microblink.geometry.Rectangle-boolean-">setScanningRegion</a></span>(<a href="../../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion,
                  boolean&nbsp;rotateRegionWithDevice)</code>
 <div class="block">Define scanning region as a rectangle.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setScanResultListener-com.microblink.view.recognition.ScanResultListener-">setScanResultListener</a></span>(<a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</code>
 <div class="block">Sets the listener that will obtain the results of the scanning.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#shouldRotateScanningRegion--">shouldRotateScanningRegion</a></span>()</code>
 <div class="block">Returns true if scanning region should be rotated with device.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#shouldStartCamera--">shouldStartCamera</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#start--">start</a></span>()</code>
 <div class="block">This method must be called from activity's onStart.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#stop--">stop</a></span>()</code>
 <div class="block">This method must be called from activity's onStop.</div>
@@ -411,7 +426,7 @@ extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="cl
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.view.<a href="../../../../com/microblink/view/BaseCameraView.html" title="class in com.microblink.view">BaseCameraView</a></h3>
-<code><a href="../../../../com/microblink/view/BaseCameraView.html#addOrientationChangeListener-OrientationChangeListener-">addOrientationChangeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#areCameraPixelsLandscapeLeft--">areCameraPixelsLandscapeLeft</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#calculateHostScreenOrientation--">calculateHostScreenOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#changeConfiguration-android.content.res.Configuration-">changeConfiguration</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#createCameraViewEventsListener--">createCameraViewEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#focusCamera--">focusCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getAspectMode--">getAspectMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraEventsListener--">getCameraEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraFactorySettings--">getCameraFactorySettings</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraPreviewHeight--">getCameraPreviewHeight</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraPreviewWidth--">getCameraPreviewWidth</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraViewState--">getCameraViewState</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getConfigurationOrientation--">getConfigurationOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCurrentOrientation--">getCurrentOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getHostActivity--">getHostActivity</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getHostScreenOrientation--">getHostScreenOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--">getInitialOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getOpenedCameraType--">getOpenedCameraType</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getVisiblePart--">getVisiblePart</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getZoomLevel--">getZoomLevel</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isAutofocusSupported--">isAutofocusSupported</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraActive--">isCameraActive</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraFocused--">isCameraFocused</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraTorchSupported--">isCameraTorchSupported</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isDeviceShaking--">isDeviceShaking</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isHostActivityOrientationOnSensor--">isHostActivityOrientationOnSensor</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isPinchToZoomAllowed--">isPinchToZoomAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationSensor-int-">isRequestedOrientationSensor</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationUser-int-">isRequestedOrientationUser</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isTapToFocusAllowed--">isTapToFocusAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#onLayout-boolean-int-int-int-int-">onLayout</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#onMeasure-int-int-">onMeasure</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#removeOrientationChangeListener-OrientationChangeListener-">removeOrientationChangeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#runOnUIThread-java.lang.Runnable-">runOnUIThread</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setAspectMode-com.microblink.view.CameraAspectMode-">setAspectMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setCameraEventsListener-com.microblink.view.CameraEventsListener-">setCameraEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setForceUseLegacyCamera-boolean-">setForceUseLegacyCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setMeteringAreas-android.graphics.RectF:A-boolean-">setMeteringAreas</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setMeteringAreasToCamera--">setMeteringAreasToCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOnActivityFlipListener-com.microblink.view.OnActivityFlipListener-">setOnActivityFlipListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOnSizeChangedListener-com.microblink.view.OnSizeChangedListener-">setOnSizeChangedListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOptimizeCameraForNearScan-boolean-">setOptimizeCameraForNearScan</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOrientationAllowedListener-com.microblink.view.OrientationAllowedListener-">setOrientationAllowedListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setPhotoMode-boolean-">setPhotoMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setPinchToZoomAllowed-boolean-">setPinchToZoomAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">setRequestAutofocusOnShakingStopInContinousAutofocusMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setRequestedSurfaceViewForCameraDisplay-CameraSurface-">setRequestedSurfaceViewForCameraDisplay</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setShakeListener-com.microblink.hardware.accelerometer.ShakeCallback-">setShakeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setTapToFocusAllowed-boolean-">setTapToFocusAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setTorchState-boolean-com.microblink.hardware.SuccessCallback-">setTorchState</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setVideoResolutionPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setVideoResolutionPreset</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setZoomLevel-float-">setZoomLevel</a></code></li>
+<code><a href="../../../../com/microblink/view/BaseCameraView.html#addOrientationChangeListener-OrientationChangeListener-">addOrientationChangeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#areCameraPixelsLandscapeLeft--">areCameraPixelsLandscapeLeft</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#calculateHostScreenOrientation--">calculateHostScreenOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#captureHighResFrame--">captureHighResFrame</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#changeConfiguration-android.content.res.Configuration-">changeConfiguration</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#createCameraViewEventsListener--">createCameraViewEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#focusCamera--">focusCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getAspectMode--">getAspectMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraEventsListener--">getCameraEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraFactorySettings--">getCameraFactorySettings</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraPreviewHeight--">getCameraPreviewHeight</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraPreviewWidth--">getCameraPreviewWidth</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCameraViewState--">getCameraViewState</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getConfigurationOrientation--">getConfigurationOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getCurrentOrientation--">getCurrentOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getHighResFrameLimit--">getHighResFrameLimit</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getHostActivity--">getHostActivity</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getHostScreenOrientation--">getHostScreenOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getInitialOrientation--">getInitialOrientation</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getOpenedCameraType--">getOpenedCameraType</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getVisiblePart--">getVisiblePart</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#getZoomLevel--">getZoomLevel</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isAutofocusSupported--">isAutofocusSupported</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraActive--">isCameraActive</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraFocused--">isCameraFocused</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isCameraTorchSupported--">isCameraTorchSupported</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isDeviceShaking--">isDeviceShaking</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isHostActivityOrientationOnSensor--">isHostActivityOrientationOnSensor</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isPinchToZoomAllowed--">isPinchToZoomAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationSensor-int-">isRequestedOrientationSensor</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isRequestedOrientationUser-int-">isRequestedOrientationUser</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#isTapToFocusAllowed--">isTapToFocusAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#onLayout-boolean-int-int-int-int-">onLayout</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#onMeasure-int-int-">onMeasure</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#removeOrientationChangeListener-OrientationChangeListener-">removeOrientationChangeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#runOnUIThread-java.lang.Runnable-">runOnUIThread</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setAspectMode-com.microblink.view.CameraAspectMode-">setAspectMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setCameraEventsListener-com.microblink.view.CameraEventsListener-">setCameraEventsListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setForceUseLegacyCamera-boolean-">setForceUseLegacyCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setHighResFrameLimit-int-">setHighResFrameLimit</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setMeteringAreas-android.graphics.RectF:A-boolean-">setMeteringAreas</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setMeteringAreasToCamera--">setMeteringAreasToCamera</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOnActivityFlipListener-com.microblink.view.OnActivityFlipListener-">setOnActivityFlipListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOnSizeChangedListener-com.microblink.view.OnSizeChangedListener-">setOnSizeChangedListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOptimizeCameraForNearScan-boolean-">setOptimizeCameraForNearScan</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setOrientationAllowedListener-com.microblink.view.OrientationAllowedListener-">setOrientationAllowedListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setPinchToZoomAllowed-boolean-">setPinchToZoomAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">setRequestAutofocusOnShakingStopInContinousAutofocusMode</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setRequestedSurfaceViewForCameraDisplay-CameraSurface-">setRequestedSurfaceViewForCameraDisplay</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setShakeListener-com.microblink.hardware.accelerometer.ShakeCallback-">setShakeListener</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setTapToFocusAllowed-boolean-">setTapToFocusAllowed</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setTorchState-boolean-com.microblink.hardware.SuccessCallback-">setTorchState</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setVideoResolutionPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setVideoResolutionPreset</a>, <a href="../../../../com/microblink/view/BaseCameraView.html#setZoomLevel-float-">setZoomLevel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.android.view.ViewGroup">
@@ -503,6 +518,23 @@ public&nbsp;void&nbsp;create()</pre>
 <dd><code>java.lang.UnsatisfiedLinkError</code> - if native library could not be loaded</dd>
 <dd><code>java.lang.NullPointerException</code> - if scan result listener or camera events listener is not set</dd>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer settings array is null or empty</dd>
+</dl>
+</li>
+</ul>
+<a name="setLifecycle-android.arch.lifecycle.Lifecycle-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLifecycle</h4>
+<pre>public&nbsp;void&nbsp;setLifecycle(@NonNull
+                         android.arch.lifecycle.Lifecycle&nbsp;lifecycle)</pre>
+<div class="block">Sets lifecycle that will be observed
+ so that you don't have to manually call
+ <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#create--"><code>RecognizerRunnerView.create()</code></a>, <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resume--"><code>RecognizerRunnerView.resume()</code></a> and other lifecycle methods.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>lifecycle</code> - lifecycle that will be observed</dd>
 </dl>
 </li>
 </ul>
@@ -934,7 +966,7 @@ public&nbsp;void&nbsp;setMetadataCallbacks(@Nullable
 <a name="getScanResultListener--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getScanResultListener</h4>
 <pre>@Nullable
@@ -943,6 +975,22 @@ public&nbsp;<a href="../../../../com/microblink/view/recognition/ScanResultListe
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the listener that will obtain the results of the scanning.</dd>
+</dl>
+</li>
+</ul>
+<a name="captureHighResImage-HighResImageListener-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>captureHighResImage</h4>
+<pre>@AnyThread
+public&nbsp;void&nbsp;captureHighResImage(@Nullable
+                                           HighResImageListener&nbsp;highResImageListener)</pre>
+<div class="block">Starts capturing frame at full camera resolution and notifies listener once it's done.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>highResImageListener</code> - listener that will be notified when high res frame is available</dd>
 </dl>
 </li>
 </ul>

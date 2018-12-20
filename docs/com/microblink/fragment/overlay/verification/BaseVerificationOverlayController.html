@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":6,"i14":6,"i15":10,"i16":10};
+var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6,"i15":6,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -179,14 +179,18 @@ implements <a href="../../../../../com/microblink/fragment/overlay/ScanningOverl
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../../../com/microblink/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#mHighResImagesBundle">mHighResImagesBundle</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.OverlayState.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.OverlayState</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#mOverlayState">mOverlayState</a></span></code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#mRecognizerRunnerFragment">mRecognizerRunnerFragment</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#mRecognizerRunnerView">mRecognizerRunnerView</a></span></code>&nbsp;</td>
 </tr>
@@ -254,78 +258,82 @@ implements <a href="../../../../../com/microblink/fragment/overlay/ScanningOverl
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a></span>()</code>
 <div class="block">Called when camera preview is started.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraTorchSupportStatusAvailable-boolean-">onCameraTorchSupportStatusAvailable</a></span>(boolean&nbsp;cameraTorchSupported)</code>
 <div class="block">This method is called when camera preview is started and camera torch(flashlight) support status is
  available.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onGlare-boolean-">onGlare</a></span>(boolean&nbsp;glareDetected)</code>
 <div class="block">Callback that is called during recognition process when/if the glare is detected on the
  scanned document.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></span>(<a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
                                   android.app.Activity&nbsp;activity)</code>
 <div class="block">Called after <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a></span>(android.os.Bundle&nbsp;outState)</code>
 <div class="block">Called from the <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>, from its <code>Fragment.onSaveInstanceState(Bundle)</code>.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a></span>(<a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code>
 <div class="block">Called when <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
  <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></span>(RecognitionSuccessType&nbsp;successType)</code>
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onStartDocumentFirstSide-boolean-">onStartDocumentFirstSide</a></span>(boolean&nbsp;isCameraPreviewStarted)</code>
 <div class="block">Callback method that is called when document recognizer is set to scan first side and recognition
  is started.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected abstract void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onStartDocumentSecondSide-boolean-">onStartDocumentSecondSide</a></span>(boolean&nbsp;isCameraPreviewStarted)</code>
 <div class="block">Callback method that is called when document recognizer is set to scan second side
  (only if second side exists) and recognition is started.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>&nbsp;</td>
 </tr>
@@ -390,6 +398,16 @@ protected&nbsp;<a href="../../../../../com/microblink/fragment/RecognizerRunnerF
 <h4>mRecognizerRunnerView</h4>
 <pre>@Nullable
 protected&nbsp;<a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a> mRecognizerRunnerView</pre>
+</li>
+</ul>
+<a name="mHighResImagesBundle">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mHighResImagesBundle</h4>
+<pre>@NonNull
+protected&nbsp;<a href="../../../../../com/microblink/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a> mHighResImagesBundle</pre>
 </li>
 </ul>
 <a name="mOverlayState">
@@ -501,6 +519,17 @@ protected&nbsp;<a href="../../../../../com/microblink/metadata/MetadataCallbacks
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>initialized metadata callbacks</dd>
 </dl>
+</li>
+</ul>
+<a name="getHighResImagesBundle--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHighResImagesBundle</h4>
+<pre>@AnyThread
+ @NonNull
+public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a>&nbsp;getHighResImagesBundle()</pre>
 </li>
 </ul>
 <a name="onScanningDone-RecognitionSuccessType-">

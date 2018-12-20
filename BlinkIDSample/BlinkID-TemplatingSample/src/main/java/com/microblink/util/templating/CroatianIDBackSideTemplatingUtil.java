@@ -270,7 +270,8 @@ public final class CroatianIDBackSideTemplatingUtil {
         // allow saving image of the Machine Readable Zone
         mMRTDRecognizer.setReturnMrzImage(true);
         // save those images in 200 DPI
-        mMRTDRecognizer.setSaveImageDPI(200);
+        mMRTDRecognizer.setFullDocumentImageDpi(200);
+        mMRTDRecognizer.setMrzImageDpi(200);
     }
 
     /**

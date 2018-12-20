@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,6 +163,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromJpegBytes-byte:A-int-">buildImageFromJpegBytes</a></span>(byte[]&nbsp;bytes,
+                       int&nbsp;imageOrientation)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static <a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/image/ImageBuilder.html#buildImageFromNativeContext-long-boolean-java.lang.Object-">buildImageFromNativeContext</a></span>(long&nbsp;nativeContext,
                            boolean&nbsp;ownsNativeObject,
                            java.lang.Object&nbsp;keep)</code>
@@ -259,7 +264,7 @@ public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="cla
 <a name="buildImageFromCamera1NV21Frame-byte:A-int-int-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>buildImageFromCamera1NV21Frame</h4>
 <pre>@NonNull
@@ -271,6 +276,18 @@ public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="cla
                                                             <a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                                                             @Nullable
                                                             <a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanningRegion)</pre>
+</li>
+</ul>
+<a name="buildImageFromJpegBytes-byte:A-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>buildImageFromJpegBytes</h4>
+<pre>@NonNull
+public static&nbsp;<a href="../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;buildImageFromJpegBytes(@Nullable
+                                                     byte[]&nbsp;bytes,
+                                                     int&nbsp;imageOrientation)</pre>
 </li>
 </ul>
 </li>

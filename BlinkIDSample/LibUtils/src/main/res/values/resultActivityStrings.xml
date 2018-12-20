@@ -103,6 +103,7 @@
     <string name="PPOpt1">Optional field 1</string>
     <string name="PPOpt2">Optional field 2</string>
     <string name="PPSex">Sex</string>
+    <string name="PPGender">Gender</string>
     <string name="PPNationality">Nationality</string>
     <string name="PPCitizenship">Citizenship</string>
     <string name="PPIssuer">Issuer</string>
@@ -133,6 +134,7 @@
     <string name="PPNRICNumber">National Registration Identity Card Number</string>
     <string name="PPArmyNumber">Army number</string>
     <string name="PPCountryId">Country</string>
+    <string name="PPCountryCode">Country code</string>
     <string name="PPVariableSymbol">Variable symbol</string>
     <string name="PPConstantSymbol">Constant symbol</string>
     <string name="PPSpecificSymbol">Specific symbol</string>
@@ -199,6 +201,7 @@
     <string name="PPMaritalStatus">Marital status</string>
     <string name="PPOccupation">Occupation</string>
     <string name="PPExtendedNRIC">Extended NRIC</string>
+    <string name="PPOldNRIC">Old NRIC</string>
     <string name="PPFingerprint">Fingerprint</string>
     <string name="PPClass">Class</string>
     <string name="PPIdentityNumber">Identity number</string>

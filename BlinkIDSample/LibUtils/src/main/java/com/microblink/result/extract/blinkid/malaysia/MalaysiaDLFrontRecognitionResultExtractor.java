@@ -4,7 +4,7 @@ import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecog
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class MalaysianDLFrontRecognitionResultExtractor extends BlinkIdExtractor<MalaysiaDlFrontRecognizer.Result, MalaysiaDlFrontRecognizer> {
+public class MalaysiaDLFrontRecognitionResultExtractor extends BlinkIdExtractor<MalaysiaDlFrontRecognizer.Result, MalaysiaDlFrontRecognizer> {
 
     @Override
     protected void extractData(MalaysiaDlFrontRecognizer.Result result) {

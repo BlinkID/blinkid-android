@@ -2,44 +2,22 @@ package com.microblink.result.extract.blinkid.switzerland;
 
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
-import com.microblink.results.date.Date;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class SwissIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<SwitzerlandIdBackRecognizer.Result, SwitzerlandIdBackRecognizer> {
+public class SwissIDBackSideRecognitionResultExtractor extends BlinkIdExtractor<SwitzerlandIdBackRecognizer.Result, SwitzerlandIdBackRecognizer> {
 
     @Override
     protected void extractData(SwitzerlandIdBackRecognizer.Result result) {
-        super.extractData(result);
+        extractMRZResult(result.getMrzResult());
 
-        String placeOfOrigin = result.getPlaceOfOrigin();
-        if (placeOfOrigin != null) {
-            add(R.string.PPPlaceOfOrigin, placeOfOrigin);
-        }
-
+        add(R.string.PPPlaceOfOrigin, result.getPlaceOfOrigin());
         String authority = result.getAuthority();
-        if (authority != null && !authority.isEmpty()) {
+        if (!authority.isEmpty()) {
             add(R.string.PPAuthority, authority);
         }
-
-        Date dateOfIssue = result.getDateOfIssue();
-        if (dateOfIssue != null) {
-            add(R.string.PPIssueDate, dateOfIssue);
-        }
-
-        Date dateOfExpiry = result.getNonMrzDateOfExpiry();
-        if (dateOfExpiry != null) {
-            add(R.string.PPDateOfExpiry, dateOfExpiry);
-        }
-
-        String sex = result.getNonMrzSex();
-        if (sex != null) {
-            add(R.string.PPSex, sex);
-        }
-
-        String height = result.getHeight();
-        if (height != null) {
-            add(R.string.PPHeight, height);
-        }
+        add(R.string.PPIssueDate, result.getDateOfIssue().getDate());
+        add(R.string.PPDateOfExpiry, result.getDateOfExpiry().getDate());
+        add(R.string.PPSex, result.getSex());
+        add(R.string.PPHeight, result.getHeight());
     }
-
 }

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -245,40 +245,28 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#deserializeFromByteArray-byte:A-">deserializeFromByteArray</a></span>(byte[]&nbsp;arr)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getDateOfBirth--">getDateOfBirth</a></span>()</code>
-<div class="block">The date of birth of the Cyprus ID card owner.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getExpiresOn--">getExpiresOn</a></span>()</code>
-<div class="block">The expiry date of Cyprus ID card.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getFullDocumentImage--">getFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getSex--">getSex</a></span>()</code>
-<div class="block">The sex of the Cyprus ID card owner.</div>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#getMrzResult--">getMrzResult</a></span>()</code>
+<div class="block">The data extracted from the machine readable zone.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -370,15 +358,15 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 </dl>
 </li>
 </ul>
-<a name="getSex--">
+<a name="getMrzResult--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getSex</h4>
+<h4>getMrzResult</h4>
 <pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getSex()</pre>
-<div class="block">The sex of the Cyprus ID card owner.</div>
+public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a>&nbsp;getMrzResult()</pre>
+<div class="block">The data extracted from the machine readable zone.</div>
 </li>
 </ul>
 <a name="getEncodedFullDocumentImage--">
@@ -397,28 +385,6 @@ public&nbsp;byte[]&nbsp;getEncodedFullDocumentImage()</pre>
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-"><code>EncodeFullDocumentImagesOptions.setEncodeFullDocumentImage(boolean)</code></a>
  , else <code>null</code></dd>
 </dl>
-</li>
-</ul>
-<a name="getDateOfBirth--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDateOfBirth</h4>
-<pre>@NonNull
-public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getDateOfBirth()</pre>
-<div class="block">The date of birth of the Cyprus ID card owner.</div>
-</li>
-</ul>
-<a name="getExpiresOn--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getExpiresOn</h4>
-<pre>@NonNull
-public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getExpiresOn()</pre>
-<div class="block">The expiry date of Cyprus ID card.</div>
 </li>
 </ul>
 <a name="toString--">

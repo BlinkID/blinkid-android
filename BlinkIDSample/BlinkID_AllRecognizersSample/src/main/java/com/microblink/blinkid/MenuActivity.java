@@ -32,6 +32,7 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
@@ -40,6 +41,8 @@ import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.cyprus.CyprusOldIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.cyprus.CyprusOldIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
@@ -64,11 +67,13 @@ import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer
 import com.microblink.entities.recognizers.blinkid.jordan.JordanIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.IkadRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaIkadFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKadBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKadFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKasFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyPrFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyTenteraFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MyKadBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MyKadFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mexico.MexicoVoterIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
@@ -188,10 +193,12 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
+        items.add(buildBruneiIDElement());
         items.add(buildColombiaIDElement());
         items.add(buildCroatianIDElement());
         items.add(buildCroatianIDCombinedElement());
         items.add(buildCyprusIDElement());
+        items.add(buildCyprusOldIDElement());
         items.add(buildCzechIDElement());
         items.add(buildCzechIDCombinedElement());
         items.add(buildEgyptIDFrontElement());
@@ -207,6 +214,8 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildMyKadElement());
         items.add(buildIKadElement());
         items.add(buildMyTenteraElement());
+        items.add(buildMyPrElement());
+        items.add(buildMyKasElement());
         items.add(buildMoroccoIDElement());
         items.add(buildPolishIdElement());
         items.add(buildPolishIdCombinedElement());
@@ -371,6 +380,18 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildBruneiIDElement() {
+        return new MenuListItem("Brunei ID front", new Runnable() {
+            @Override
+            public void run() {
+                BruneiIdFrontRecognizer bruneiFront = new BruneiIdFrontRecognizer();
+                ImageSettings.enableAllImages(bruneiFront);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront)));
+            }
+        });
+    }
+
     private MenuListItem buildColombiaIDElement() {
         return new MenuListItem("Colombia ID", new Runnable() {
             @Override
@@ -411,6 +432,21 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(cyprusBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(cyprusFront, cyprusBack)));
+            }
+        });
+    }
+
+    private MenuListItem buildCyprusOldIDElement() {
+        return new MenuListItem("Cyprus Old ID", new Runnable() {
+            @Override
+            public void run() {
+                CyprusOldIdFrontRecognizer cyprusOldIdFrontRecognizer = new CyprusOldIdFrontRecognizer();
+                ImageSettings.enableAllImages(cyprusOldIdFrontRecognizer);
+
+                CyprusOldIdBackRecognizer cyprusOldIdBackRecognizer = new CyprusOldIdBackRecognizer();
+                ImageSettings.enableAllImages(cyprusOldIdBackRecognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(cyprusOldIdFrontRecognizer, cyprusOldIdBackRecognizer)));
             }
         });
     }
@@ -542,10 +578,10 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("Malaysian ID", new Runnable() {
             @Override
             public void run() {
-                MyKadFrontRecognizer mykadFront = new MyKadFrontRecognizer();
+                MalaysiaMyKadFrontRecognizer mykadFront = new MalaysiaMyKadFrontRecognizer();
                 ImageSettings.enableAllImages(mykadFront);
 
-                MyKadBackRecognizer mykadBack = new MyKadBackRecognizer();
+                MalaysiaMyKadBackRecognizer mykadBack = new MalaysiaMyKadBackRecognizer();
                 ImageSettings.enableAllImages(mykadBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(mykadFront, mykadBack)));
@@ -557,7 +593,7 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("Malaysian Immigrator ID", new Runnable() {
             @Override
             public void run() {
-                IkadRecognizer ikad = new IkadRecognizer();
+                MalaysiaIkadFrontRecognizer ikad = new MalaysiaIkadFrontRecognizer();
                 ImageSettings.enableAllImages(ikad);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(ikad)));
@@ -573,6 +609,30 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(myTenteraRec);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(myTenteraRec)));
+            }
+        });
+    }
+
+    private MenuListItem buildMyPrElement() {
+        return new MenuListItem("Malaysian MyPR", new Runnable() {
+            @Override
+            public void run() {
+                MalaysiaMyPrFrontRecognizer myPrRec = new MalaysiaMyPrFrontRecognizer();
+                ImageSettings.enableAllImages(myPrRec);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(myPrRec)));
+            }
+        });
+    }
+
+    private MenuListItem buildMyKasElement() {
+        return new MenuListItem("Malaysian MyKAS", new Runnable() {
+            @Override
+            public void run() {
+                MalaysiaMyKasFrontRecognizer myKasRec = new MalaysiaMyKasFrontRecognizer();
+                ImageSettings.enableAllImages(myKasRec);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(myKasRec)));
             }
         });
     }
