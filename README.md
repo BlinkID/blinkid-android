@@ -62,6 +62,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
     * [Country-specific BlinkID recognizers](#blinkid_recognizers_countries)
         * [Australia](#blinkid_recognizers_australia)
         * [Austria](#blinkid_recognizers_austria)
+        * [Brunei](#blinkid_recognizers_brunei)
         * [Colombia](#blinkid_recognizers_colombia)
         * [Croatia](#blinkid_recognizers_croatia)
         * [Cyprus](#blinkid_recognizers_cyprus)
@@ -183,7 +184,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.4.0@aar') {
+    implementation('com.microblink:blinkid:4.5.0@aar') {
         transitive = true
     }
 }
@@ -195,7 +196,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.4.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.5.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -267,7 +268,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.4.0</version>
+        <version>4.5.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
@@ -1172,8 +1173,15 @@ The [`AustriaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 - back side of Austrian ID after scanning the front side and combines data from both sides
 - Austrian passport
 
-#### <a name="austria_dl"></a> Scanning Austrian driver's license
+#### <a name="austria_dl"></a> Austria driver's license recognizer
 The [`AustriaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaDlFrontRecognizer.html) is used for scanning [the front side of Austrian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Austria).
+
+
+### <a name="blinkid_recognizers_brunei"></a> Brunei
+
+#### <a name="brunei_id"></a> Brunei ID front side recognizer
+The [`BruneiIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdFrontRecognizer.html) is used for scanning the front side of Bruneian identity card.
+
 
 ### <a name="blinkid_recognizers_colombia"></a> Colombia
 
@@ -1198,7 +1206,10 @@ The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 ### <a name="blinkid_recognizers_cyprus"></a> Cyprus
 
 #### <a name="cyprus_id"></a> Cyprus ID front and back side recognizers
-The [`CyprusIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdFrontRecognizer.html) and [`CyprusIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus identity card](https://en.wikipedia.org/wiki/Cypriot_identity_card).
+The [`CyprusIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdFrontRecognizer.html) and [`CyprusIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus identity card, issued in 2015. or later](https://en.wikipedia.org/wiki/Cypriot_identity_card).
+
+#### <a name="cyprus_idOld"></a> Cyprus Old ID front and back side recognizers
+The [`CyprusOldIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdFrontRecognizer.html) and [`CyprusOldIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus Old identity card, issued before 2015] (https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 ### <a name="blinkid_recognizers_czechia"></a> Czechia
 
@@ -1296,13 +1307,19 @@ The [`KuwaitIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/mi
 For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 #### <a name="malaysia_mykad"></a> Malaysian MyKad front and back side recognizers
-The [`MyKadFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyKadFrontRecognizer.html) and [`MyKadBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyKadBackRecognizer.html) are used for scanning the [front and back side of Malaysian MyKad card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
+The [`MalaysiaMyKadFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadFrontRecognizer.html) and [`MalaysiaMyKadBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.html) are used for scanning the [front and back side of Malaysian MyKad card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
 
 #### <a name="malaysia_ikad"></a> Malaysian iKad front side recognizer
-The [`IkadRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/IkadRecognizer.html) is used for scanning front side of Malaysian iKad (immigrator) card.
+The [`MalaysiaIkadFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaIkadFrontRecognizer.html) is used for scanning front side of Malaysian iKad (immigrator) card.
+
+#### <a name="malaysia_mykas"></a> Malaysian MyKAS front side recognizer
+The [`MalaysiaMyKasFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKasFrontRecognizer.html) is used for scanning [front side of Malaysian MyKAS card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
+
+#### <a name="malaysia_mypr"></a> Malaysian MyPR front side recognizer
+The [`MalaysiaMyPrFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyPrFrontRecognizer.html) is used for scanning [front side of Malaysian MyPR card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
 
 #### <a name="malaysia_mytentera"></a> Malaysian MyTentera front side recognizer
-The [`MyTenteraRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MyTenteraRecognizer.html) is used for scanning [front side of Malaysian MyTentera card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
+The [`MalaysiaMyTenteraFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyTenteraFrontRecognizer.html) is used for scanning [front side of Malaysian MyTentera card](https://en.wikipedia.org/wiki/Malaysian_identity_card).
 
 #### <a name="malaysia_dl"></a> Malaysian driver's license front side recognizer
 The [`MalaysiaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaDlFrontRecognizer.html) is used for scanning [front side of Malaysian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Malaysia).

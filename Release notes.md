@@ -1,5 +1,70 @@
 # Release notes
 
+## 4.5.0
+
+### New features:
+
+- added support for reading front side of Brunei ID - use `BruneiIdFrontRecognizer`
+- added support for reading front and back side of Cyprus ID, issued after 2015.  - use `CyprusIdFrontRecognizer` and `CyprusIdBackRecognizer`
+- added support for reading front side of Malaysian MyKAS - use `MalaysiaMyKasFrontRecognizer`
+- added support for reading front side of Malaysian MyPR - use `MalaysiaMyPrFrontRecognizer`
+- enabled capturing high resolution camera frames:
+    - When custom UI integration is performed, use `RecognizerRunnerView.captureHighResImage`
+    - When using provided scan activities, high resolution full camera frames taken at the moment of successful scan are returned if this option is enabled through `UISettings`. Concrete `UISettings` which implement interface `HighResSuccessFrameCaptureUIOptions` support this feature.
+
+### Improvements for existing features:
+- improved reading accuracy for the following recognizers (**DeepOCR** support):
+    - `HongKongIdFrontRecognizer`
+    - `MalaysiaMyKadFrontRecognizer`
+    - `MalaysiaMyKadBackRecognizer`
+    - `MalaysiaMyTenteraFrontRecognizer`
+    - `MalaysiaDlFrontRecognizer`
+    - `NewZealandDlFrontRecognizer`
+- improved `PaymentCard` recognizers:
+    - better OCR and data extraction
+    - added support for reading payment card numbers in 4x6x4 and 4x6x5 format
+- improveed UAE recognizers:
+    - glare detection is enabled for all images returned from `UnitedArabEmiratesDlFrontRecognizer`, `UnitedArabEmiratesIdBackRecognizer` and `UnitedArabEmiratesIdFrontRecognizer` recognizers
+- improved `MrtdRecognizer`:
+    - added option to set extension factors for full document image: use method `setFullDocumentImageExtensionFactors`
+    - added option to encode `fullDocumentImage` and `mrzImage` to JPEG and save them to `MrtdRecognizer.Result`: use `setEncodeMrzImage` and `setEncodeFullDocumentImage` to enable encoding
+- `RecognizerRunnerView` is lifecycle-aware now, it implements `android.arch.lifecycle.LifecycleObserver` interface
+
+### Minor API changes:
+
+- renamed `IkadRecognizer` to `MalaysiaIkadFrontRecognizer` and  methods in recognizer and its `Result`:
+    - `expiryDate` to `dateOfExpiry `
+    - `sex ` to `gender`
+- renamed `MyKadFrontRecogniezer ` to `MalaysiaMyKadFrontRecognizer ` and  methods in recognizer and its `Result`:
+    - `ownerFullName ` to `fullName `
+    - `ownerAddress ` to `fullAddress `
+    - `addressStreet ` to `street `
+    - `ownerAddressZipCode ` to `zipcode `
+    - `ownerAddressCity ` to `city `
+    - `ownerAddressState ` to `ownerState `
+    - `ownerBirthDate ` to `birthDate `
+    - `ownerSex ` to `sex `
+    - `ownerReligion ` to `religion `
+    - `nricNumber ` to `nric `
+- `MalaysiaMyKadFrontRecognizer` does not extract `armyNumber` anymore, use `MalaysiaMyTenteraFrontRecognizer` for scanning `MyTentera`
+- `MrtdRecognizer`: 
+    - method `setSaveImageDPI` which has been used to set DPI for full document and MRZ image is replaced with methods `setFullDocumentImageDpi` and `setMrzImageDpi`
+
+- renamed methods in `SwitzerlandIdBackRecognizer` and its `Result`: 
+    - `nonMrzDateOfExpiry` to `dateOfExpiry`
+    - `nonMrzSex` to `sex`
+- renamed methods in `SwitzerlandPassportRecognizer` and its `Result`:
+    - `placeOfBirth` to `placeOfOrigin`
+    - `nonMrzDateOfBirth` to `dateOfBirth`
+    - `nonMrzDateOfExpiry` to `dateOfExpiry`
+    - `nonMrzSex` to `sex`
+
+### Bug fixes:
+- fixed problems in camera management:
+    - default camera surface is `TextureVeiw` for devices that use Camera1 API, otherwise `SurfaceView` is used
+- `DocumentFaceRecognizer` now correctly applies DPI settings to returned face and full document images
+- various other bug fixes and improvements
+
 ## 4.4.0
 
 ### New features:

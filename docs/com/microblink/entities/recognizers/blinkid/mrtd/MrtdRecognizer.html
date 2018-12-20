@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -122,13 +122,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">MrzImageOptions</a>, <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">MrzImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeMrzImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">MrzImageOptions</a>, <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">MrtdRecognizer</span>
 extends <a href="../../../../../../com/microblink/entities/recognizers/templating/TemplatingRecognizer.html" title="class in com.microblink.entities.recognizers.templating">TemplatingRecognizer</a>
-implements <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">MrzImageOptions</a></pre>
+implements <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">MrzImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">MrzImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeMrzImageOptions</a></pre>
 <div class="block">Recognizer that can recognize Machine Readable Zone (MRZ) of the Machine Readable Travel Document (MRTD)</div>
 </li>
 </ul>
@@ -201,11 +201,25 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.imageoptions.encode.EncodeFullDocumentImagesOptions">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageoptions.encode.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a></h3>
+<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.imageoptions.MrzImageOptions">
 <!--   -->
 </a>
 <h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageoptions.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">MrzImageOptions</a></h3>
 <code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/MrzImageOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.imageoptions.encode.EncodeMrzImageOptions">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageoptions.encode.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeMrzImageOptions</a></h3>
+<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
@@ -263,121 +277,169 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#getSaveImageDPI--">getSaveImageDPI</a></span>()</code>
-<div class="block">Desired DPI for MRZ and full document images (if saving of those is enabled)
- By default, this is set to '250'</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#getFullDocumentImageDpi--">getFullDocumentImageDpi</a></span>()</code>
+<div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></span>()</code>
+<div class="block">Returns the extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#getMrzImageDpi--">getMrzImageDpi</a></span>()</code>
+<div class="block">Returns the DPI (Dots Per Inch) for MRZ image that should be returned.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/detectors/quad/mrtd/MrtdSpecification.html" title="class in com.microblink.entities.detectors.quad.mrtd">MrtdSpecification</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#getSpecifications--">getSpecifications</a></span>()</code>
 <div class="block">Returns the array of <code>MrtdSpecification</code> objects that will define which MRTD documents
  should be detectable.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#isAllowUnparsedResults--">isAllowUnparsedResults</a></span>()</code>
 <div class="block">Whether returning of unparsed results is allowed
  By default, this is set to 'false'</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#isAllowUnverifiedResults--">isAllowUnverifiedResults</a></span>()</code>
 <div class="block">Whether returning of unverified results is allowed
  Unverified result is result that is parsed, but check digits are incorrect.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#readFromParcel-android.os.Parcel-">readFromParcel</a></span>(android.os.Parcel&nbsp;in)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#serializeNativeSettings--">serializeNativeSettings</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setAllowUnparsedResults-boolean-">setAllowUnparsedResults</a></span>(boolean&nbsp;allowUnparsedResults)</code>
 <div class="block">Whether returning of unparsed results is allowed
  By default, this is set to 'false'</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setAllowUnverifiedResults-boolean-">setAllowUnverifiedResults</a></span>(boolean&nbsp;allowUnverifiedResults)</code>
 <div class="block">Whether returning of unverified results is allowed
  Unverified result is result that is parsed, but check digits are incorrect.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
 <div class="block">Defines whether glare detector will be used during recognition process.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setEncodeFullDocumentImage-boolean-">setEncodeFullDocumentImage</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
+<div class="block">Sets whether full document image should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setEncodeMrzImage-boolean-">setEncodeMrzImage</a></span>(boolean&nbsp;encodeMrzImage)</code>
+<div class="block">Sets whether MRZ image from document should be encoded in JPEG format and written into the corresponding
+ recognition result.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setFullDocumentImageDpi-int-">setFullDocumentImageDpi</a></span>(int&nbsp;desiredDPI)</code>
+<div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setFullDocumentImageExtensionFactors-com.microblink.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code>
+<div class="block">Sets extension factors for full document image.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setMRZFilter-com.microblink.entities.recognizers.blinkid.mrtd.MrzFilter-">setMRZFilter</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzFilter.html" title="interface in com.microblink.entities.recognizers.blinkid.mrtd">MrzFilter</a>&nbsp;mrzFilter)</code>
 <div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzFilter.html" title="interface in com.microblink.entities.recognizers.blinkid.mrtd"><code>MrzFilter</code></a> that can determine whether document should be processed or filtered out.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setMrzImageDpi-int-">setMrzImageDpi</a></span>(int&nbsp;desiredDPI)</code>
+<div class="block">Sets desired DPI (Dots Per Inch) for MRZ image that should be returned.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setNativeTemplatingClasses-long:A-">setNativeTemplatingClasses</a></span>(long[]&nbsp;nativeTemplatingClasses)</code>&nbsp;</td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setReturnMrzImage-boolean-">setReturnMrzImage</a></span>(boolean&nbsp;returnMrzImage)</code>
 <div class="block">Sets whether MRZ image should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/MrzImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>MrzImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setSaveImageDPI-int-">setSaveImageDPI</a></span>(int&nbsp;saveImageDPI)</code>
-<div class="block">Desired DPI for MRZ and full document images (if saving of those is enabled)
- By default, this is set to '250'</div>
-</td>
-</tr>
-<tr id="i17" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#setSpecifications-com.microblink.entities.detectors.quad.mrtd.MrtdSpecification:A-">setSpecifications</a></span>(<a href="../../../../../../com/microblink/entities/detectors/quad/mrtd/MrtdSpecification.html" title="class in com.microblink.entities.detectors.quad.mrtd">MrtdSpecification</a>[]&nbsp;specifications)</code>
 <div class="block">Sets one or more <code>MrtdSpecification</code> objects that will define which MRTD documents
  should be detectable.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
 <div class="block">Returns whether glare detector is enabled.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
+<div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#shouldEncodeMrzImage--">shouldEncodeMrzImage</a></span>()</code>
+<div class="block">Returns whether encoding of MRZ image from document and writing it into the recognition result is enabled.</div>
+</td>
+</tr>
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether full document image will be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#shouldReturnMrzImage--">shouldReturnMrzImage</a></span>()</code>
 <div class="block">Returns whether MRZ image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/MrzImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>MrzImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -523,28 +585,6 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
  By default, this is set to 'false'</div>
 </li>
 </ul>
-<a name="setSaveImageDPI-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setSaveImageDPI</h4>
-<pre>public&nbsp;void&nbsp;setSaveImageDPI(int&nbsp;saveImageDPI)</pre>
-<div class="block">Desired DPI for MRZ and full document images (if saving of those is enabled)
- By default, this is set to '250'</div>
-</li>
-</ul>
-<a name="getSaveImageDPI--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSaveImageDPI</h4>
-<pre>public&nbsp;int&nbsp;getSaveImageDPI()</pre>
-<div class="block">Desired DPI for MRZ and full document images (if saving of those is enabled)
- By default, this is set to '250'</div>
-</li>
-</ul>
 <a name="setReturnFullDocumentImage-boolean-">
 <!--   -->
 </a>
@@ -601,6 +641,52 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </dl>
 </li>
 </ul>
+<a name="setEncodeFullDocumentImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodeFullDocumentImage</h4>
+<pre>public&nbsp;void&nbsp;setEncodeFullDocumentImage(boolean&nbsp;encodeFullDocumentImage)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-">EncodeFullDocumentImagesOptions</a></code></span></div>
+<div class="block">Sets whether full document image should be encoded in JPEG format and written into the corresponding
+ recognition result. By default, this is set to 'false'.<br/>
+ <b>IMPORTANT NOTE: </b> If you set
+ <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(com.microblink.intent.IntentDataTransferMode)</code></a>
+ to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a> recognizer which contains encoded image
+ cannot be parcelized and passed by <code>Intent</code> extras because of Android limitations
+ on intent extras size.
+ If you are using one of the provided scan activities and expect receiving scan results in
+ <code>Activity.onActivityResult(int, int, Intent)</code> method
+ use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a>
+ or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-">setEncodeFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>encodeFullDocumentImage</code> - whether full document images should be encoded in JPEG format and written into the
+                                corresponding recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldEncodeFullDocumentImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEncodeFullDocumentImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldEncodeFullDocumentImage()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#shouldEncodeFullDocumentImage--">EncodeFullDocumentImagesOptions</a></code></span></div>
+<div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.
+ By default, this is set to 'false'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether encoding of full document images and writing them into the recognition result is enabled.</dd>
+</dl>
+</li>
+</ul>
 <a name="setReturnMrzImage-boolean-">
 <!--   -->
 </a>
@@ -647,6 +733,52 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </dl>
 </li>
 </ul>
+<a name="setEncodeMrzImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEncodeMrzImage</h4>
+<pre>public&nbsp;void&nbsp;setEncodeMrzImage(boolean&nbsp;encodeMrzImage)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html#setEncodeMrzImage-boolean-">EncodeMrzImageOptions</a></code></span></div>
+<div class="block">Sets whether MRZ image from document should be encoded in JPEG format and written into the corresponding
+ recognition result. By default, this is set to 'false'.<br/>
+ <b>IMPORTANT NOTE: </b> If you set
+ <a href="../../../../../../com/microblink/MicroblinkSDK.html#setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-"><code>MicroblinkSDK.setIntentDataTransferMode(com.microblink.intent.IntentDataTransferMode)</code></a>
+ to <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#STANDARD"><code>IntentDataTransferMode.STANDARD</code></a> recognizer which contains encoded image
+ cannot be parcelized and passed by <code>Intent</code> extras because of Android limitations
+ on intent extras size.
+ If you are using one of the provided scan activities and expect receiving scan results in
+ <code>Activity.onActivityResult(int, int, android.content.Intent)</code> method
+ use either <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a>
+ or <a href="../../../../../../com/microblink/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED"><code>IntentDataTransferMode.PERSISTED_OPTIMISED</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html#setEncodeMrzImage-boolean-">setEncodeMrzImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeMrzImageOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>encodeMrzImage</code> - whether MRZ image should be encoded in JPEG format and written into the
+                        corresponding recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldEncodeMrzImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldEncodeMrzImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldEncodeMrzImage()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html#shouldEncodeMrzImage--">EncodeMrzImageOptions</a></code></span></div>
+<div class="block">Returns whether encoding of MRZ image from document and writing it into the recognition result is enabled.
+ By default, this is set to 'false'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html#shouldEncodeMrzImage--">shouldEncodeMrzImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeMrzImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeMrzImageOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether encoding of MRZ image from document and writing it into the recognition result is enabled.</dd>
+</dl>
+</li>
+</ul>
 <a name="setAllowUnparsedResults-boolean-">
 <!--   -->
 </a>
@@ -667,6 +799,110 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <pre>public&nbsp;boolean&nbsp;isAllowUnparsedResults()</pre>
 <div class="block">Whether returning of unparsed results is allowed
  By default, this is set to 'false'</div>
+</li>
+</ul>
+<a name="getFullDocumentImageDpi--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImageDpi</h4>
+<pre>public&nbsp;int&nbsp;getFullDocumentImageDpi()</pre>
+<div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.
+ By default, this is set to '250'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html#getFullDocumentImageDpi--">getFullDocumentImageDpi</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>DPI for full document image that should be returned.</dd>
+</dl>
+</li>
+</ul>
+<a name="setFullDocumentImageDpi-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFullDocumentImageDpi</h4>
+<pre>public&nbsp;void&nbsp;setFullDocumentImageDpi(int&nbsp;desiredDPI)</pre>
+<div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
+ By default, this is set to '250'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html#setFullDocumentImageDpi-int-">setFullDocumentImageDpi</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>desiredDPI</code> - desired DPI in range [100, 400]</dd>
+</dl>
+</li>
+</ul>
+<a name="setFullDocumentImageExtensionFactors-com.microblink.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFullDocumentImageExtensionFactors</h4>
+<pre>public&nbsp;void&nbsp;setFullDocumentImageExtensionFactors(@NonNull
+                                                 <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</pre>
+<div class="block">Sets extension factors for full document image.
+ By default, this is set to '[0.0, 0.0, 0.0, 0.0]'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html#setFullDocumentImageExtensionFactors-com.microblink.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>fullDocumentImageExtensionFactors</code> - extension factors for full document image.</dd>
+</dl>
+</li>
+</ul>
+<a name="getFullDocumentImageExtensionFactors--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImageExtensionFactors</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;getFullDocumentImageExtensionFactors()</pre>
+<div class="block">Returns the extension factors for full document image.
+ By default, this is set to '[0.0, 0.0, 0.0, 0.0]'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>extension factors for full document image.</dd>
+</dl>
+</li>
+</ul>
+<a name="getMrzImageDpi--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMrzImageDpi</h4>
+<pre>public&nbsp;int&nbsp;getMrzImageDpi()</pre>
+<div class="block">Returns the DPI (Dots Per Inch) for MRZ image that should be returned.
+ By default, this is set to '250'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html#getMrzImageDpi--">getMrzImageDpi</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">MrzImageDpiOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>DPI for MRZ image that should be returned.</dd>
+</dl>
+</li>
+</ul>
+<a name="setMrzImageDpi-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMrzImageDpi</h4>
+<pre>public&nbsp;void&nbsp;setMrzImageDpi(int&nbsp;desiredDPI)</pre>
+<div class="block">Sets desired DPI (Dots Per Inch) for MRZ image that should be returned.
+ By default, this is set to '250'.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html#setMrzImageDpi-int-">setMrzImageDpi</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/MrzImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">MrzImageDpiOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>desiredDPI</code> - desired DPI in range [100, 400]</dd>
+</dl>
 </li>
 </ul>
 <a name="setNativeTemplatingClasses-long:A-">

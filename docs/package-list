@@ -33,6 +33,7 @@ com.microblink.entities.recognizers.blinkbarcode.vin
 com.microblink.entities.recognizers.blinkid
 com.microblink.entities.recognizers.blinkid.australia
 com.microblink.entities.recognizers.blinkid.austria
+com.microblink.entities.recognizers.blinkid.brunei
 com.microblink.entities.recognizers.blinkid.colombia
 com.microblink.entities.recognizers.blinkid.croatia
 com.microblink.entities.recognizers.blinkid.cyprus
@@ -90,6 +91,7 @@ com.microblink.hardware.accelerometer
 com.microblink.hardware.camera
 com.microblink.hardware.orientation
 com.microblink.image
+com.microblink.image.highres
 com.microblink.intent
 com.microblink.locale
 com.microblink.metadata
