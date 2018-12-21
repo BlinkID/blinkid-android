@@ -1143,7 +1143,7 @@ The [`ElitePaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-and
 
 
 ### <a name="documentFaceRecognizer"></a> Document face recognizer
-The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/eudl/EudlRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
+The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/documentface/DocumentFaceRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
