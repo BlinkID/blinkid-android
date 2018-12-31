@@ -79,6 +79,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
         * [Mexico](#blinkid_recognizers_mexico)
         * [Morocco](#blinkid_recognizers_morocco)
         * [New Zealand](#blinkid_recognizers_newzealand)
+        * [Nigeria](#blinkid_recognizers_nigeria)
         * [Poland](#blinkid_recognizers_poland)
         * [Romania](#blinkid_recognizers_romania)
         * [Serbia](#blinkid_recognizers_serbia)
@@ -1347,6 +1348,14 @@ You can find information about usage context at the beginning of [this section](
 The [`NewZealandDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/newzealand/NewZealandDlFrontRecognizer.html) is used for scanning front side of New Zealand driver's license.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+
+### <a name="blinkid_recognizers_nigeria"></a> Nigeria
+
+#### <a name="nigeria_dl"></a> Scanning Nigerian driver's license
+For scanning the PDF417 barcode from the Nigerian driver's license, [`UsdlRecognizer`](#us_dl_recognizer) is used.
+
+The [`UsdlCombinedRecognizer`](#us_dl_combined_recognizer) can also be used for scanning the PDF417 barcode from the back side of Nigerian driver's license after scanning the full document image and face image from the front side.
 
 
 ### <a name="blinkid_recognizers_poland"></a> Poland
