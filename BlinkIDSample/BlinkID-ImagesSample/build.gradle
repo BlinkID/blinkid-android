@@ -30,7 +30,7 @@ dependencies {
     }
 
     // uncomment this to use custom LibBlinkID build
-//    implementation project(':LibBlinkID-release')
+//    implementation project(':LibBlinkID')
 //    implementation "com.android.support:appcompat-v7:${rootProject.ext.appCompatVersion}"
 
     implementation project(':LibUtils')
