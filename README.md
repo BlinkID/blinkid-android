@@ -1210,7 +1210,7 @@ The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 The [`CyprusIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdFrontRecognizer.html) and [`CyprusIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus identity card, issued in 2015. or later](https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 #### <a name="cyprus_idOld"></a> Cyprus Old ID front and back side recognizers
-The [`CyprusOldIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdFrontRecognizer.html) and [`CyprusOldIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus Old identity card, issued before 2015] (https://en.wikipedia.org/wiki/Cypriot_identity_card).
+The [`CyprusOldIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdFrontRecognizer.html) and [`CyprusOldIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus Old identity card, issued before 2015](https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 ### <a name="blinkid_recognizers_czechia"></a> Czechia
 
