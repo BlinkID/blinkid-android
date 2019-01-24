@@ -2,57 +2,53 @@ package com.microblink.result.extract.blinkid.germany;
 
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
-import com.microblink.results.date.Date;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class GermanIDBackSideRecognitionResultExtractor extends MrtdResultExtractor<GermanyIdBackRecognizer.Result, GermanyIdBackRecognizer> {
+public class GermanIDBackSideRecognitionResultExtractor extends BlinkIdExtractor<GermanyIdBackRecognizer.Result, GermanyIdBackRecognizer> {
 
     @Override
     protected void extractData(GermanyIdBackRecognizer.Result result) {
-        super.extractData(result);
+        extractMRZResult(result.getMrzResult());
 
-        String address = result.getAddress();
-        if (address != null && !address.isEmpty()) {
+        String address = result.getFullAddress();
+        if (!address.isEmpty()) {
             add(R.string.PPAddress, address);
         }
 
         String zipCode = result.getAddressZipCode();
-        if (zipCode != null && !zipCode.isEmpty()) {
+        if (!zipCode.isEmpty()) {
             add(R.string.PPAddressZipCode, zipCode);
         }
 
         String city = result.getAddressCity();
-        if (city != null && !city.isEmpty()) {
+        if (!city.isEmpty()) {
             add(R.string.PPAddressCity, city);
         }
 
         String street = result.getAddressStreet();
-        if (street != null && !street.isEmpty()) {
+        if (!street.isEmpty()) {
             add(R.string.PPAddressStreet, street);
         }
 
         String houseNumber = result.getAddressHouseNumber();
-        if (houseNumber != null && !houseNumber.isEmpty()) {
+        if (!houseNumber.isEmpty()) {
             add(R.string.PPAddressHouseNumber, houseNumber);
         }
 
         String authority = result.getAuthority();
-        if (authority != null && !authority.isEmpty()) {
+        if (!authority.isEmpty()) {
             add(R.string.PPAuthority, authority);
         }
 
-        Date dateOfIssue = result.getDateOfIssue();
-        if (dateOfIssue != null) {
-            add(R.string.PPIssueDate, dateOfIssue);
-        }
+        add(R.string.PPIssueDate, result.getDateOfIssue());
 
-        String eyeColor = result.getEyeColour();
-        if (eyeColor != null && !eyeColor.isEmpty()) {
+        String eyeColor = result.getColourOfEyes();
+        if (!eyeColor.isEmpty()) {
             add(R.string.PPEyeColour, eyeColor);
         }
 
         String height = result.getHeight();
-        if (height != null && !height.isEmpty()) {
+        if (!height.isEmpty()) {
             add(R.string.PPHeight, height);
         }
     }

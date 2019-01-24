@@ -12,7 +12,6 @@ public class MyKadBackRecognitionResultExtractor extends BlinkIdExtractor<Malays
         add(R.string.PPExtendedNRIC, result.getExtendedNric());
         add(R.string.PPOldNRIC, result.getOldNric());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPSex, result.getSex());
     }
 
 }

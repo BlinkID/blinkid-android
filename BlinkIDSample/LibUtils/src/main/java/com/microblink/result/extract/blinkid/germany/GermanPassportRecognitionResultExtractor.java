@@ -2,44 +2,37 @@ package com.microblink.result.extract.blinkid.germany;
 
 import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
-import com.microblink.results.date.Date;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class GermanPassportRecognitionResultExtractor extends MrtdResultExtractor<GermanyPassportRecognizer.Result, GermanyPassportRecognizer> {
+public class GermanPassportRecognitionResultExtractor extends BlinkIdExtractor<GermanyPassportRecognizer.Result, GermanyPassportRecognizer> {
 
     @Override
     protected void extractData(GermanyPassportRecognizer.Result result) {
-        super.extractData(result);
+        extractMRZResult(result.getMrzResult());
 
-        String name = result.getName();
-        if (name != null && !name.isEmpty()) {
-            add(R.string.PPFirstName, name);
+        String name = result.getGivenName();
+        if (!name.isEmpty()) {
+            add(R.string.PPFirstName, result.getGivenName());
         }
 
         String surname = result.getSurname();
-        if (surname != null && !surname.isEmpty()) {
-            add(R.string.PPLastName, surname);
+        if (!surname.isEmpty()) {
+            add(R.string.PPLastName, result.getSurname());
         }
 
         String authority = result.getAuthority();
-        if (authority != null && !authority.isEmpty()) {
-            add(R.string.PPAuthority, authority);
+        if (!authority.isEmpty()) {
+            add(R.string.PPAuthority, result.getAuthority());
         }
 
-        Date dateOfIssue = result.getDateOfIssue();
-        if (dateOfIssue != null) {
-            add(R.string.PPIssueDate, dateOfIssue);
-        }
+        add(R.string.PPIssueDate, result.getDateOfIssue());
 
         String nat = result.getNationality();
-        if (nat != null && !nat.isEmpty()) {
+        if (!nat.isEmpty()) {
             add(R.string.PPNationality, nat);
         }
 
-        String placeOfBirth = result.getPlaceOfBirth();
-        if (placeOfBirth != null) {
-            add(R.string.PPPlaceOfBirth, placeOfBirth);
-        }
+        add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
     }
 
 }

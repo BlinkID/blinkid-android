@@ -32,7 +32,10 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
@@ -54,9 +57,10 @@ import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyIdOldRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
@@ -193,7 +197,10 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
-        items.add(buildBruneiIDElement());
+        items.add(buildBruneiIdFrontElement());
+        items.add(buildBruneiIdBackElement());
+        items.add(buildBruneiResidencePermitFrontElement());
+        items.add(buildBruneiResidencePermitBackElement());
         items.add(buildColombiaIDElement());
         items.add(buildCroatianIDElement());
         items.add(buildCroatianIDCombinedElement());
@@ -380,7 +387,7 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildBruneiIDElement() {
+    private MenuListItem buildBruneiIdFrontElement() {
         return new MenuListItem("Brunei ID front", new Runnable() {
             @Override
             public void run() {
@@ -388,6 +395,42 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(bruneiFront);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront)));
+            }
+        });
+    }
+
+    private MenuListItem buildBruneiIdBackElement() {
+        return new MenuListItem("Brunei ID back", new Runnable() {
+            @Override
+            public void run() {
+                BruneiIdBackRecognizer recognizer = new BruneiIdBackRecognizer();
+                ImageSettings.enableAllImages(recognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildBruneiResidencePermitFrontElement() {
+        return new MenuListItem("Brunei residence permit front", new Runnable() {
+            @Override
+            public void run() {
+                BruneiResidencePermitFrontRecognizer recognizer = new BruneiResidencePermitFrontRecognizer();
+                ImageSettings.enableAllImages(recognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildBruneiResidencePermitBackElement() {
+        return new MenuListItem("Brunei residence permit back", new Runnable() {
+            @Override
+            public void run() {
+                BruneiResidencePermitBackRecognizer recognizer = new BruneiResidencePermitBackRecognizer();
+                ImageSettings.enableAllImages(recognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
             }
         });
     }
@@ -488,7 +531,7 @@ public class MenuActivity extends BaseMenuActivity {
                 GermanyIdBackRecognizer germanyIdBack = new GermanyIdBackRecognizer();
                 ImageSettings.enableAllImages(germanyIdBack);
 
-                GermanyOldIdRecognizer germanyIdOld = new GermanyOldIdRecognizer();
+                GermanyIdOldRecognizer germanyIdOld = new GermanyIdOldRecognizer();
                 ImageSettings.enableAllImages(germanyIdOld);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(germanyIdFront, germanyIdBack, germanyIdOld)));
@@ -839,7 +882,15 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private MenuListItem buildGermanDLFrontElement() {
-        return buildEUDLElement("German Driver's License Front", EudlCountry.EUDL_COUNTRY_GERMANY);
+        return new MenuListItem("German Driver's License Front", new Runnable() {
+            @Override
+            public void run() {
+                GermanyDlFrontRecognizer recognizer = new GermanyDlFrontRecognizer();
+                ImageSettings.enableAllImages(recognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+            }
+        });
     }
 
     private MenuListItem buildGermanDLBackElement() {

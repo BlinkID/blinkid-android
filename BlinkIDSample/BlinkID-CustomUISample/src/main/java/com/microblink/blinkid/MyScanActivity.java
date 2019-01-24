@@ -366,10 +366,10 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                         mTorchEnabled = !mTorchEnabled;
                         if (mTorchEnabled) {
                             mTorchButton.setText(R.string.mb_light_on);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_lighton, 0, 0, 0);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_on_24dp, 0, 0, 0);
                         } else {
                             mTorchButton.setText(R.string.mb_light_off);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_lightoff, 0, 0, 0);
+                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_off_24dp, 0, 0, 0);
                         }
                     }
                 });

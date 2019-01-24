@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -66,11 +67,11 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
     /** Currently shown bitmap created from dewarped image. */
     private Bitmap mShownBitmap;
     /** This is a torch control button */
-    private Button mTorchButton;
+    private ImageButton mTorchButton;
     /** Is torch enabled? */
     private boolean mTorchEnabled = false;
     /** Back button from recognizer overlay */
-    private Button mBackButton;
+    private ImageButton mBackButton;
     /** Save button in result view */
     private Button mBtnSave;
 
@@ -341,8 +342,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
     private void enableTorchButtonIfPossible() {
         if (mRecognizerView.isCameraTorchSupported() && mTorchButton != null) {
             mTorchButton.setVisibility(View.VISIBLE);
-            mTorchButton.setText(com.microblink.library.R.string.mb_light_off);
-            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lightoff, 0, 0, 0);
+            mTorchButton.setImageResource(com.microblink.library.R.drawable.mb_ic_flash_off_24dp);
             mTorchEnabled = false;
             mTorchButton.setOnClickListener(new View.OnClickListener() {
 
@@ -358,11 +358,9 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
                                     if (success) {
                                         mTorchEnabled = !mTorchEnabled;
                                         if (mTorchEnabled) {
-                                            mTorchButton.setText(com.microblink.library.R.string.mb_light_on);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lighton, 0, 0, 0);
+                                            mTorchButton.setImageResource(com.microblink.library.R.drawable.mb_ic_flash_on_24dp);
                                         } else {
-                                            mTorchButton.setText(com.microblink.library.R.string.mb_light_off);
-                                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(com.microblink.library.R.drawable.mb_lightoff, 0, 0, 0);
+                                            mTorchButton.setImageResource(com.microblink.library.R.drawable.mb_ic_flash_off_24dp);
                                         }
                                     }
                                 }
