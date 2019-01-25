@@ -82,6 +82,7 @@ com.microblink.entities.recognizers.templating.parcelization
 com.microblink.entities.settings
 com.microblink.fragment
 com.microblink.fragment.overlay
+com.microblink.fragment.overlay.components
 com.microblink.fragment.overlay.listener
 com.microblink.fragment.overlay.listener.verification
 com.microblink.fragment.overlay.verification

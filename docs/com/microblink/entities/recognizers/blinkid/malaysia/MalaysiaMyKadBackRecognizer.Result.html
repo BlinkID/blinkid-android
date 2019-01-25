@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":42,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></dd>
 </dl>
 <dl>
 <dt>Enclosing class:</dt>
@@ -127,7 +127,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public static final class <span class="typeNameLabel">MalaysiaMyKadBackRecognizer.Result</span>
 extends <a href="../../../../../../com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a>
-implements <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></pre>
+implements <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a></pre>
 </li>
 </ul>
 </div>
@@ -195,20 +195,6 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html#CLASS_NAME">CLASS_NAME</a></code></li>
 </ul>
 <ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.imageresult.SignatureImageResult">
-<!--   -->
-</a>
-<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageresult.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></h3>
-<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#CLASS_NAME">CLASS_NAME</a></code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult">
-<!--   -->
-</a>
-<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageresult.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></h3>
-<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html#CLASS_NAME">CLASS_NAME</a></code></li>
-</ul>
-<ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
 <!--   -->
 </a>
@@ -243,7 +229,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -269,50 +255,36 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getEncodedSignatureImage--">getEncodedSignatureImage</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getExtendedNric--">getExtendedNric</a></span>()</code>
-<div class="block">Returns extended NRIC (National Registration Identity Card Number) of MyKad.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getFullDocumentImage--">getFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getNric--">getNric</a></span>()</code>
 <div class="block">Returns NRIC (National Registration Identity Card Number) of MyKad.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getOldNric--">getOldNric</a></span>()</code>
 <div class="block">Returns old NRIC (National Registration Identity Card Number) of MyKad.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getSex--">getSex</a></span>()</code>
-<div class="block">Returns sex of MyKad owner.</div>
-</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#getSignatureImage--">getSignatureImage</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/malaysia/MalaysiaMyKadBackRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -401,24 +373,6 @@ public&nbsp;java.lang.String&nbsp;getOldNric()</pre>
 </dl>
 </li>
 </ul>
-<a name="getEncodedSignatureImage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEncodedSignatureImage</h4>
-<pre>@NonNull
-public&nbsp;byte[]&nbsp;getEncodedSignatureImage()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html#getEncodedSignatureImage--">getEncodedSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>encoded signature in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeSignatureImageOptions.html#setEncodeSignatureImage-boolean-"><code>EncodeSignatureImageOptions.setEncodeSignatureImage(boolean)</code></a>
- , else <code>null</code></dd>
-</dl>
-</li>
-</ul>
 <a name="getFullDocumentImage--">
 <!--   -->
 </a>
@@ -444,44 +398,13 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <li class="blockList">
 <h4>getExtendedNric</h4>
 <pre>@NonNull
+ @Deprecated
 public&nbsp;java.lang.String&nbsp;getExtendedNric()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns extended NRIC (National Registration Identity Card Number) of MyKad.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>extended NRIC of MyKad.</dd>
-</dl>
-</li>
-</ul>
-<a name="getSignatureImage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSignatureImage</h4>
-<pre>@Nullable
-public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;getSignatureImage()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--">getSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>signature image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-"><code>SignatureImageOptions.setReturnSignatureImage(boolean)</code></a>,
- else <code>null</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getSex--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSex</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getSex()</pre>
-<div class="block">Returns sex of MyKad owner.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>sex of MyKad owner.</dd>
 </dl>
 </li>
 </ul>

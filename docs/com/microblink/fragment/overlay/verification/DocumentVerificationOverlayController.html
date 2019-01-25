@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -152,30 +152,16 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected android.widget.ImageButton</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#mIbTorch">mIbTorch</a></span></code>&nbsp;</td>
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#mShowTopButtons">mShowTopButtons</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#mShowTorchButton">mShowTorchButton</a></span></code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected android.view.View.OnClickListener</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#mTorchButtonOnClickListener">mTorchButtonOnClickListener</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#mTorchOn">mTorchOn</a></span></code>
-<div class="block">Flag which indicates whether torch(flashlight) is on or off.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#SPLASH_DURATION_NEXT_SIDE">SPLASH_DURATION_NEXT_SIDE</a></span></code>
 <div class="block">Duration of the splash screen when next side of the document should be scanned</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>protected static long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#SPLASH_FADE_ANIMATION_DURATION">SPLASH_FADE_ANIMATION_DURATION</a></span></code>
 <div class="block">Duration of the alpha animation on splash screen in milliseconds</div>
@@ -293,22 +279,18 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setShowTorchButton-boolean-">setShowTorchButton</a></span>(boolean&nbsp;showTorchButton)</code>
-<div class="block">Sets whether the torch button will be shown and available to user for changing the torch
- state.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setShowTopButtons-boolean-">setShowTopButtons</a></span>(boolean&nbsp;showTopButtons)</code>
+<div class="block">Sets whether the torch nad back buttons will be shown and available to user for changing the torch
+ state and exiting the activity.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setTorchIcon-boolean-">setTorchIcon</a></span>(boolean&nbsp;torchOn)</code>&nbsp;</td>
-</tr>
-<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setTorchState-boolean-">setTorchState</a></span>(boolean&nbsp;torchOn)</code>
 <div class="block">Turns the torch on or off.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setTorchStateListener-com.microblink.fragment.overlay.listener.verification.OverlayTorchStateListener-">setTorchStateListener</a></span>(<a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTorchStateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTorchStateListener</a>&nbsp;torchStateListener)</code>
 <div class="block">Sets torch state listener that will be notified on every torch status change.</div>
@@ -371,43 +353,13 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 </dl>
 </li>
 </ul>
-<a name="mTorchOn">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mTorchOn</h4>
-<pre>protected&nbsp;boolean mTorchOn</pre>
-<div class="block">Flag which indicates whether torch(flashlight) is on or off.</div>
-</li>
-</ul>
-<a name="mIbTorch">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mIbTorch</h4>
-<pre>@Nullable
-protected&nbsp;android.widget.ImageButton mIbTorch</pre>
-</li>
-</ul>
-<a name="mShowTorchButton">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>mShowTorchButton</h4>
-<pre>protected&nbsp;boolean mShowTorchButton</pre>
-</li>
-</ul>
-<a name="mTorchButtonOnClickListener">
+<a name="mShowTopButtons">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>mTorchButtonOnClickListener</h4>
-<pre>@NonNull
-protected&nbsp;android.view.View.OnClickListener mTorchButtonOnClickListener</pre>
+<h4>mShowTopButtons</h4>
+<pre>protected&nbsp;boolean mShowTopButtons</pre>
 </li>
 </ul>
 </li>
@@ -484,20 +436,21 @@ protected&nbsp;android.view.View.OnClickListener mTorchButtonOnClickListener</pr
 </dl>
 </li>
 </ul>
-<a name="setShowTorchButton-boolean-">
+<a name="setShowTopButtons-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setShowTorchButton</h4>
-<pre>public&nbsp;void&nbsp;setShowTorchButton(boolean&nbsp;showTorchButton)</pre>
-<div class="block">Sets whether the torch button will be shown and available to user for changing the torch
- state. When overlay does not control the torch state (e.g. when host activity has torch button),
+<h4>setShowTopButtons</h4>
+<pre>public&nbsp;void&nbsp;setShowTopButtons(boolean&nbsp;showTopButtons)</pre>
+<div class="block">Sets whether the torch nad back buttons will be shown and available to user for changing the torch
+ state and exiting the activity.
+ When overlay does not control the torch state (e.g. when host activity has torch button),
  torch button which is shown inside overlay should be hidden by using this method. In that case
  torch state can be updated programmatically by using <a href="../../../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html#setTorchState-boolean-"><code>DocumentVerificationOverlayController.setTorchState(boolean)</code></a> method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>showTorchButton</code> - <code>true</code> to show torch button, <code>false</code> to hide it</dd>
+<dd><code>showTopButtons</code> - <code>true</code> to show torch and back buttons, <code>false</code> to hide it</dd>
 </dl>
 </li>
 </ul>
@@ -584,16 +537,6 @@ protected&nbsp;android.view.View&nbsp;createDocumentStepCameraOverlay()</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>created camera overlay view.</dd>
 </dl>
-</li>
-</ul>
-<a name="setTorchIcon-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTorchIcon</h4>
-<pre>@UiThread
-protected&nbsp;void&nbsp;setTorchIcon(boolean&nbsp;torchOn)</pre>
 </li>
 </ul>
 <a name="onStartDocumentFirstSide-boolean-">
