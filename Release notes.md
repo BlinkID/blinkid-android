@@ -1,5 +1,93 @@
 # Release notes
 
+## 4.6.0
+
+### New features:
+
+- added support for reading front side of German Driver's License - use `GermanyDlFrontRecognizer`
+- added support for reading back side of Brunei ID - use `BruneiIdBackRecognizer`
+- added support for reading front side of Brunei Residence Permit - use `BruneiResidencePermitFrontRecognizer`
+- added support for reading back side of Brunei Residence Permit - use `BruneiResidencePermitBackRecognizer`
+- updated default UI icons
+
+### Improvements for existing features:
+
+- improved reading accuracy for the following recognizers (**DeepOCR** support):
+	- `MalaysiaMyKadBackRecognizer`
+
+### Minor API changes:
+- if using high res frame capture in custom UI, you now have to explicitly enable it using new `RecognizerRunnerView` method  `setHighResFrameCaptureEnabled`
+- renamed `GermanyOldIdRecognizer` to `GermanyIdOldRecognizer`
+- removed `sex` and `signatureImage` from `MalaysiaMyKadBackRecognizer `
+- renamed methods in `CroatiaCombinedRecognizer` and its result:
+    - `identityCardNumber` to `documentNumber`
+    - `address` to `residence`
+    - `issuingAuthority` to `issuedBy`
+    - `personalIdentificationNumber` to `oib`
+    - `nonResident` to `documentForNonResident`
+- removed `mrzImage` from `MrtdCombinedRecognizer` and its result
+- renamed methods in `AustraliaDlFrontRecognizer.Result`:
+    - `name` to `fullName`
+    - `dateOfExpiry` to `licenceExpiry`
+- renamed `eyeColour` to `colourOfEyes` in `GermanyIdBackRecognizer.Result`
+- deprecated the following recognizers:
+    - `SerbiaIdBackRecognizer`
+    - `SerbiaIdFrontRecognizer`
+    - `SerbiaCombinedRecognizer`
+- deprecated the following result fields:
+    - `HongKongIdFrontRecognizer.Result`:
+        - `commercialCode`
+    - `IndonesiaIdFrontRecognizer.Result`:
+        - `bloodType`
+        - `district`
+        - `kelDesa`
+        - `rt`
+        - `rw`
+    - `NewZealandDlFrontRecognizer.Result`:
+        - `donorIndicator`
+        - `cardVersion`
+    - `MalaysiaMyKadBackRecognizer.Result`:
+        - `extendedNric`
+    - `MexicoVoterIdFrontRecognizer.Result`:
+        - `electorKey`
+    - `IrelandDlFrontRecognizer.Result`:
+        - `driverNumber`
+    - `SwedenDlFrontRecognizer.Result`:
+        - `referenceNumber`
+    - `MalaysiaIkadFrontRecognizer.Result`:
+        - `passportNumber`    
+    - `AustriaIdBackRecognizer.Result`:
+        - `principalResidence`
+        - `height`
+        - `eyeColour`
+    - `AustriaPassportRecognizer.Result`:
+        - `height`
+     - `GermanyIdBackRecognizer.Result`:
+        - `colourOfEyes`
+        - `height`
+    - `SwitzerlandIdBackRecognizer.Result`:
+        - `height`
+    - `SwitzerlandPassportRecognizer.Result`:
+        - `height`
+     - `SingaporeIdBackRecognizer.Result`:
+        - `bloodGroup`
+    - `ColombiaIdBackRecognizer.Result`:
+        - `bloodGroup`
+    - `SwitzerlandPassportRecognizer.Result`:
+        - `height`
+    - `PolandIdFrontRecognizer.Result`:
+        - `familyName`
+        - `parentsGivenNames`
+    - `MoroccoIdBackRecognizer.Result`:
+        - `fathersName`
+        - `mothersName`
+    - `RomaniaIdFrontRecognizer.Result`:
+        - `parentNames`
+        
+### Bug fixes:
+
+- fixed crash on some devices when using `VIDEO_RESOLUTION_MAX_AVAILABLE`
+
 ## 4.5.0
 
 ### New features:

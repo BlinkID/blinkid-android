@@ -24,15 +24,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void onScanButtonClick(View view) {
         // we'll use Machine Readable Travel Document recognizer
         mMRTDRecognizer = new MrtdRecognizer();
 
         // put our recognizer in bundle so that it can be sent via intent
         mRecognizerBundle = new RecognizerBundle(mMRTDRecognizer);
+    }
 
+    public void onScanButtonClick(View view) {
         // use default UI for scanning documents
         DocumentUISettings documentUISettings = new DocumentUISettings(mRecognizerBundle);
 

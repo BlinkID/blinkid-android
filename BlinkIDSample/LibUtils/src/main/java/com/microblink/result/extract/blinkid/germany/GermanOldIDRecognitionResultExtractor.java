@@ -1,19 +1,15 @@
 package com.microblink.result.extract.blinkid.germany;
 
-import com.microblink.entities.recognizers.blinkid.germany.GermanyOldIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.germany.GermanyIdOldRecognizer;
 import com.microblink.libresult.R;
-import com.microblink.result.extract.blinkid.mrtd.MrtdResultExtractor;
+import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
-public class GermanOldIDRecognitionResultExtractor extends MrtdResultExtractor<GermanyOldIdRecognizer.Result, GermanyOldIdRecognizer> {
+public class GermanOldIDRecognitionResultExtractor extends BlinkIdExtractor<GermanyIdOldRecognizer.Result, GermanyIdOldRecognizer> {
 
     @Override
-    protected void extractData(GermanyOldIdRecognizer.Result result) {
-        super.extractData(result);
-
-        String placeOfBirth = result.getPlaceOfBirth();
-        if (placeOfBirth != null) {
-            add(R.string.PPPlaceOfBirth, placeOfBirth);
-        }
+    protected void extractData(GermanyIdOldRecognizer.Result result) {
+        extractMRZResult(result.getMrzResult());
+        add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
     }
 
 }

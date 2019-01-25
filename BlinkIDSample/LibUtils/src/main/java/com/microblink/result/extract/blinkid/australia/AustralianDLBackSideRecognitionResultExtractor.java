@@ -11,7 +11,7 @@ public class AustralianDLBackSideRecognitionResultExtractor extends BlinkIdExtra
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPLicenceNumber, result.getLicenceNumber());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiry, result.getLicenceExpiry());
     }
 
 }

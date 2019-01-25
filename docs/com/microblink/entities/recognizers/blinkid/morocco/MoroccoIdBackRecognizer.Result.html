@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":42,"i8":10,"i9":42,"i10":10,"i11":10,"i12":10,"i13":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -229,7 +229,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -275,7 +275,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/morocco/MoroccoIdBackRecognizer.Result.html#getFathersName--">getFathersName</a></span>()</code>
-<div class="block">The father's name of the Moroccan ID owner</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -285,7 +285,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/morocco/MoroccoIdBackRecognizer.Result.html#getMothersName--">getMothersName</a></span>()</code>
-<div class="block">The mother's name of the Moroccan ID owner</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -423,7 +423,9 @@ public&nbsp;java.lang.String&nbsp;getAddress()</pre>
 <li class="blockList">
 <h4>getFathersName</h4>
 <pre>@NonNull
+ @Deprecated
 public&nbsp;java.lang.String&nbsp;getFathersName()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">The father's name of the Moroccan ID owner</div>
 </li>
 </ul>
@@ -456,7 +458,9 @@ public&nbsp;java.lang.String&nbsp;getCivilStatusNumber()</pre>
 <li class="blockList">
 <h4>getMothersName</h4>
 <pre>@NonNull
+ @Deprecated
 public&nbsp;java.lang.String&nbsp;getMothersName()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">The mother's name of the Moroccan ID owner</div>
 </li>
 </ul>

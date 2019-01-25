@@ -48,6 +48,19 @@ public class MainActivity extends BaseMenuActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // create MRTD (Machine Readable Travel Document) recognizer
+        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+        // set to true to obtain images containing full document
+        mrtdRecognizer.setReturnFullDocumentImage(true);
+        // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
+        mrtdRecognizer.setReturnMrzImage(true);
+
+        // other recognizers might also support returning face and signature images
+
+        // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
+        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mrtdRecognizer);
+        recognizerBundle = new RecognizerBundle(successFrameGrabberRecognizer);
     }
 
     @Override
@@ -76,19 +89,6 @@ public class MainActivity extends BaseMenuActivity {
     }
 
     private void startScanning() {
-        // create MRTD (Machine Readable Travel Document) recognizer
-        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
-        // set to true to obtain images containing full document
-        mrtdRecognizer.setReturnFullDocumentImage(true);
-        // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
-        mrtdRecognizer.setReturnMrzImage(true);
-
-        // other recognizers might also support returning face and signature images
-
-        // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
-        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mrtdRecognizer);
-        recognizerBundle = new RecognizerBundle(successFrameGrabberRecognizer);
-
         DocumentUISettings documentUISettings = new DocumentUISettings(recognizerBundle);
         //enable capturing success frame in full camera resolution
         documentUISettings.enableHighResSuccessFrameCapture(true);
@@ -98,6 +98,7 @@ public class MainActivity extends BaseMenuActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         // onActivityResult is called whenever we are returned from activity started
         // with startActivityForResult. We need to check request code to determine
         // that we have really returned from BlinkID activity.
@@ -107,6 +108,8 @@ public class MainActivity extends BaseMenuActivity {
 
         // make sure BlinkID activity returned result
         if (resultCode == DocumentScanActivity.RESULT_OK && data != null) {
+            recognizerBundle.loadFromIntent(data);
+
             storeHighResImage(data);
 
             // get images from recognizers and store them
@@ -119,10 +122,9 @@ public class MainActivity extends BaseMenuActivity {
             storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
             storeImage("mrzImage", mrtdRecognizer.getResult().getMrzImage());
 
-            // set intent's component to ResultActivity and pass its contents
-            // to ResultActivity. ResultActivity will show how to extract data from result.
-            data.setComponent(new ComponentName(this, ResultActivity.class));
-            startActivity(data);
+            Intent resultScreenIntent = new Intent(this, ResultActivity.class);
+            recognizerBundle.saveToIntent(resultScreenIntent);
+            startActivity(resultScreenIntent);
         } else {
             // if BlinkID activity did not return result, user has probably
             // pressed Back button and cancelled scanning

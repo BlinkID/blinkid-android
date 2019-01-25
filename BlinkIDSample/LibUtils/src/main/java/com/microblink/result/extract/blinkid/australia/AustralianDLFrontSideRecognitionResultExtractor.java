@@ -8,12 +8,12 @@ public class AustralianDLFrontSideRecognitionResultExtractor extends BlinkIdExtr
 
     @Override
     protected void extractData(AustraliaDlFrontRecognizer.Result result) {
-        add(R.string.PPFullName, result.getName());
+        add(R.string.PPFullName, result.getFullName());
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPLicenceNumber, result.getLicenceNumber());
         add(R.string.PPLicenceType, result.getLicenceType());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
-        add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiry, result.getLicenceExpiry());
     }
 
 }

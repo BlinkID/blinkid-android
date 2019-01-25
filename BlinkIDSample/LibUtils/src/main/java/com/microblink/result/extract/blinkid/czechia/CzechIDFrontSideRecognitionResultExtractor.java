@@ -8,9 +8,9 @@ public class CzechIDFrontSideRecognitionResultExtractor extends BlinkIdExtractor
 
     @Override
     protected void extractData(CzechiaIdFrontRecognizer.Result result) {
-        add(R.string.PPLastName, result.getLastName());
-        add(R.string.PPFirstName, result.getFirstName());
-        add(R.string.PPDocumentNumber, result.getIdentityCardNumber());
+        add(R.string.PPLastName, result.getSurname());
+        add(R.string.PPFirstName, result.getGivenNames());
+        add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPIssueDate, result.getDateOfIssue());

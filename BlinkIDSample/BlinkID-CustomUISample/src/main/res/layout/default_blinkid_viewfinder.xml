@@ -29,7 +29,7 @@
          android:layout_gravity="right|top"
          android:layout_margin="8dp"
          android:background="@drawable/mb_button"
-         android:drawableLeft="@drawable/mb_lightoff"
+         android:drawableLeft="@drawable/mb_ic_flash_off_24dp"
          android:drawablePadding="5dp"
          android:minHeight="1dp"
          android:minWidth="1dp"
