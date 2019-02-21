@@ -1,7 +1,6 @@
 package com.microblink.blinkid;
 
 import android.Manifest;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -54,7 +53,6 @@ public class MainActivity extends BaseMenuActivity {
         // set to true to obtain images containing full document
         mrtdRecognizer.setReturnFullDocumentImage(true);
         // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
-        mrtdRecognizer.setReturnMrzImage(true);
 
         // other recognizers might also support returning face and signature images
 
@@ -120,7 +118,6 @@ public class MainActivity extends BaseMenuActivity {
             //get wrapped recognizer
             MrtdRecognizer mrtdRecognizer = (MrtdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
             storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
-            storeImage("mrzImage", mrtdRecognizer.getResult().getMrzImage());
 
             Intent resultScreenIntent = new Intent(this, ResultActivity.class);
             recognizerBundle.saveToIntent(resultScreenIntent);

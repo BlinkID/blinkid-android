@@ -6,11 +6,9 @@ import com.microblink.entities.recognizers.blinkid.imageresult.CombinedFullDocum
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
-import com.microblink.entities.recognizers.blinkid.imageresult.EncodedMrzImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
-import com.microblink.entities.recognizers.blinkid.imageresult.MrzImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.RecognitionResultEntry;
@@ -70,17 +68,6 @@ public class BlinkIDExtractionUtils {
             byte[] encodedFullDocumentImageBack = encodedCombinedFullDocumentImageResult.getEncodedBackFullDocumentImage();
             if (shouldShowEncodedImageEntry(encodedFullDocumentImageBack)) {
                 extractedData.add(builder.build(R.string.MBEncodedFullDocumentImageBack, encodedFullDocumentImageBack));
-            }
-        }
-
-        if(result instanceof MrzImageResult) {
-            extractedData.add(builder.build(R.string.MBMRZImage, ((MrzImageResult) result).getMrzImage()));
-        }
-
-        if (result instanceof EncodedMrzImageResult) {
-            byte[] encodedMrzImage = ((EncodedMrzImageResult) result).getEncodedMrzImage();
-            if (shouldShowEncodedImageEntry(encodedMrzImage)) {
-                extractedData.add(builder.build(R.string.MBEncodedMrzImage, encodedMrzImage));
             }
         }
 

@@ -24,7 +24,7 @@
             android:layout_marginRight="@dimen/mb_activity_horizontal_margin_verification_flow"
             android:background="@drawable/mb_bg_circle_button"
             android:src="@drawable/mb_ic_flash_off_24dp"
-            android:contentDescription="@string/mb_action_torch"
+            android:contentDescription="@string/mb_light"
             tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 

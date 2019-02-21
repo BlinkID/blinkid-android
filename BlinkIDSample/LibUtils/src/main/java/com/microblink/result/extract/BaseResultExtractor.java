@@ -42,6 +42,12 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         mExtractedData.add(mBuilder.build(key, value));
     }
 
+    protected void addIfNotEmpty(int key, String value) {
+        if (!value.isEmpty()) {
+            mExtractedData.add(mBuilder.build(key, value));
+        }
+    }
+
     protected void add(int key, int value, String valueSuffix) {
         mExtractedData.add(mBuilder.build(key, value, valueSuffix));
     }
