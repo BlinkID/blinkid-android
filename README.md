@@ -185,7 +185,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.6.0@aar') {
+    implementation('com.microblink:blinkid:4.7.0@aar') {
         transitive = true
     }
 }
@@ -197,7 +197,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.6.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.7.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -269,7 +269,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.6.0</version>
+        <version>4.7.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
@@ -605,6 +605,11 @@ Within _BlinkID_ SDK there are several built-in activities and scanning overlays
 
 [`DocumentVerificationActivity`](https://blinkid.github.io/blinkid-android/com/microblink/activity/DocumentVerificationActivity.html) contains `RecognizerRunnerFragment` with [`DocumentVerificationOverlayController `](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html), which can be used out of the box to perform scanning using the default UI.
 
+#### <a name="blinkcardUiComponent"></a> `BlinkCardActivity` and `BlinkCardOverlayController`
+
+[`BlinkCardOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html) is overlay for [`RecognizerRunnerFragment`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/RecognizerRunnerFragment.html) best suited for scanning payment cards. It can be used for other card documents like ID cards, passports, driver's licenses, etc. This overlay also supports **combined recognizers**, because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process.
+
+[`BlinkCardActivity`](https://blinkid.github.io/blinkid-android/com/microblink/activity/BlinkCardActivity.html) contains `RecognizerRunnerFragment` with [`BlinkCardOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html), which can be used out of the box to perform scanning, using the default UI.
 #### <a name="fieldByFieldUiComponent"></a> `FieldByFieldScanActivity` and `FieldByFieldOverlayController`
 
 [`FieldByFieldOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/FieldByFieldOverlayController.html) is overlay for [`RecognizerRunnerFragment`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/RecognizerRunnerFragment.html) best suited for performing scanning of small text fields, which are scanned in the predefined order, one by one. 
@@ -1181,12 +1186,13 @@ The [`AustriaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/m
 ### <a name="blinkid_recognizers_brunei"></a> Brunei
 
 #### <a name="brunei_id"></a> Brunei ID front and back side recognizer
-The [`BruneiIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdFrontRecognizer.html) is used for scanning the front side of Bruneian identity card.
-The [`BruneiIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdBackRecognizer.html) is used for scanning the front side of Bruneian identity card.
+The [`BruneiIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdFrontRecognizer.html) and [`BruneiIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdBackRecognizer.html) are used for scanning the front and back side of Bruneian identity card.
 
-#### <a name="brunei_id"></a> Brunei residence permit front and back side recognizer
-The [`BruneiResidencePermitFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitFrontRecognizer.html) is used for scanning the front side of Bruneian residence permit.
-The [`BruneiResidencePermitBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitBackRecognizer.html) is used for scanning the front side of Bruneian residence permit.
+#### <a name="brunei_residence_permit"></a> Brunei residence permit front and back side recognizer
+The [`BruneiResidencePermitFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitFrontRecognizer.html) and [`BruneiResidencePermitBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitBackRecognizer.html)  are used for scanning the front and back side of Bruneian residence permit.
+
+#### <a name="brunei_temp_residence_permit"></a> Brunei temporary residence permit front and back side recognizer
+The [`BruneiTemporaryResidencePermitFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiTemporaryResidencePermitFrontRecognizer.html) and [`BruneiTemporaryResidencePermitBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiTemporaryResidencePermitBackRecognizer.html) are used for scanning the front and back side of Bruneian residence permit.
 
 ### <a name="blinkid_recognizers_colombia"></a> Colombia
 
@@ -1214,7 +1220,7 @@ The [`CroatiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 The [`CyprusIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdFrontRecognizer.html) and [`CyprusIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus identity card, issued in 2015. or later](https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 #### <a name="cyprus_idOld"></a> Cyprus Old ID front and back side recognizers
-The [`CyprusOldIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdFrontRecognizer.html) and [`CyprusOldIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus Old identity card, issued before 2015](https://en.wikipedia.org/wiki/Cypriot_identity_card).
+The [`CyprusOldIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdFrontRecognizer.html) and [`CyprusOldIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/cyprus/CyprusOldIdBackRecognizer.html) are used for scanning the [front and back side of Cyprus Old identity card, issued before 2015] (https://en.wikipedia.org/wiki/Cypriot_identity_card).
 
 ### <a name="blinkid_recognizers_czechia"></a> Czechia
 

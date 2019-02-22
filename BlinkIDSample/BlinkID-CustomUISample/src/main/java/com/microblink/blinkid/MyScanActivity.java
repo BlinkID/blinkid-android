@@ -223,7 +223,6 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     private Recognizer[] createRecognizers() {
         MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
         mrtdRecognizer.setReturnFullDocumentImage(true);
-        mrtdRecognizer.setReturnMrzImage(true);
 
         UsdlRecognizer usdlRecognizer = new UsdlRecognizer();
 
@@ -365,10 +364,10 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                     public void run() {
                         mTorchEnabled = !mTorchEnabled;
                         if (mTorchEnabled) {
-                            mTorchButton.setText(R.string.mb_light_on);
+                            mTorchButton.setText(R.string.mb_light);
                             mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_on_24dp, 0, 0, 0);
                         } else {
-                            mTorchButton.setText(R.string.mb_light_off);
+                            mTorchButton.setText(R.string.mb_light);
                             mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_off_24dp, 0, 0, 0);
                         }
                     }

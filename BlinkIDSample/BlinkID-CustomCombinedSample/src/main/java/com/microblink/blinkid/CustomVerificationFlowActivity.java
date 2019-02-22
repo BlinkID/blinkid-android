@@ -559,7 +559,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
             handleError(defaultDialogTitle, getString(R.string.mb_error_initializing));
         } else if (ex instanceof AutoFocusRequiredButNotSupportedException) {
             Log.e(this, ex, "Autofocus required, but not supported!");
-            handleError(defaultDialogTitle, getNotSupportedReasonDescription(NotSupportedReason.NO_AUTOFOCUS_CAMERA));
+            handleError(defaultDialogTitle, getString(R.string.mb_feature_unsupported_autofocus));
         } else if (ex instanceof FeatureNotSupportedException) {
             handleError(defaultDialogTitle, getNotSupportedReasonDescription(((FeatureNotSupportedException) ex).getReason()));
         } else if (ex instanceof SecurityException) {
@@ -593,8 +593,6 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                 return getString(R.string.mb_custom_ui_forbidden);
             case UNSUPPORTED_ANDROID_VERSION:
                 return getString(R.string.mb_feature_unsupported_android_version);
-            case NO_AUTOFOCUS_CAMERA:
-                return getString(R.string.mb_feature_unsupported_autofocus);
             case BLACKLISTED_DEVICE:
             case NO_CAMERA:
             case UNSUPPORTED_PROCESSOR_ARCHITECTURE:
@@ -953,7 +951,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.mb_action_torch);
+        mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.mb_light);
         mTorchItem.setIcon(R.drawable.mb_ic_flash_off_24dp);
         mTorchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;

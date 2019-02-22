@@ -25,6 +25,8 @@ import com.microblink.entities.recognizers.blinkbarcode.pdf417.Pdf417Recognizer;
 import com.microblink.entities.recognizers.blinkbarcode.simnumber.SimNumberRecognizer;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkbarcode.vin.VinRecognizer;
+import com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer;
+import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
@@ -36,6 +38,8 @@ import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
@@ -50,9 +54,6 @@ import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecogn
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.elitepaymentcard.ElitePaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
@@ -83,9 +84,6 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.paymentcard.PaymentCardFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
@@ -119,6 +117,7 @@ import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BarcodeUISettings;
 import com.microblink.uisettings.BaseScanUISettings;
+import com.microblink.uisettings.BlinkCardUISettings;
 import com.microblink.uisettings.DocumentUISettings;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 import com.microblink.uisettings.FieldByFieldUISettings;
@@ -197,10 +196,9 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
-        items.add(buildBruneiIdFrontElement());
-        items.add(buildBruneiIdBackElement());
-        items.add(buildBruneiResidencePermitFrontElement());
-        items.add(buildBruneiResidencePermitBackElement());
+        items.add(buildBruneiIDElement());
+        items.add(buildBruneiResidencePermitElement());
+        items.add(buildBruneiTemporaryResidencePermitElement());
         items.add(buildColombiaIDElement());
         items.add(buildCroatianIDElement());
         items.add(buildCroatianIDCombinedElement());
@@ -260,10 +258,8 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildUsdlCombinedElement());
 
         // entries for documents which are not country-specific
-        items.add(buildPaymentCardElement());
-        items.add(buildPaymentCardCombinedElement());
-        items.add(buildElitePaymentCardElement());
-        items.add(buildElitePaymentCardCombinedElement());
+        items.add(buildBlinkCardElement());
+        items.add(buildBlinkCardEliteElement());
 
         // barcode list entries
         items.add(buildPDF417Element());
@@ -306,6 +302,17 @@ public class MenuActivity extends BaseMenuActivity {
      */
     private void combinedRecognitionAction(Recognizer combinedRecognizer) {
         DocumentVerificationUISettings uiSettings = new DocumentVerificationUISettings(new RecognizerBundle(combinedRecognizer));
+        uiSettings.setBeepSoundResourceID(R.raw.beep);
+
+        ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
+    }
+
+    /**
+     * Starts {@link com.microblink.activity.BlinkCardActivity} with given recognizer.
+     * @param recognizer that will be used.
+     */
+    private void blinkCardRecognitionAction(Recognizer recognizer) {
+        BlinkCardUISettings uiSettings = new BlinkCardUISettings(new RecognizerBundle(recognizer));
         uiSettings.setBeepSoundResourceID(R.raw.beep);
 
         ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
@@ -387,50 +394,47 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildBruneiIdFrontElement() {
-        return new MenuListItem("Brunei ID front", new Runnable() {
+    private MenuListItem buildBruneiIDElement() {
+        return new MenuListItem("Brunei ID", new Runnable() {
             @Override
             public void run() {
                 BruneiIdFrontRecognizer bruneiFront = new BruneiIdFrontRecognizer();
                 ImageSettings.enableAllImages(bruneiFront);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront)));
+                BruneiIdBackRecognizer bruneiIdBack = new BruneiIdBackRecognizer();
+                ImageSettings.enableAllImages(bruneiIdBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront, bruneiIdBack)));
             }
         });
     }
 
-    private MenuListItem buildBruneiIdBackElement() {
-        return new MenuListItem("Brunei ID back", new Runnable() {
+    private MenuListItem buildBruneiResidencePermitElement() {
+        return new MenuListItem("Brunei Residence Permit", new Runnable() {
             @Override
             public void run() {
-                BruneiIdBackRecognizer recognizer = new BruneiIdBackRecognizer();
-                ImageSettings.enableAllImages(recognizer);
+                BruneiResidencePermitFrontRecognizer resPermitFront = new BruneiResidencePermitFrontRecognizer();
+                ImageSettings.enableAllImages(resPermitFront);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+                BruneiResidencePermitBackRecognizer resPermitBack = new BruneiResidencePermitBackRecognizer();
+                ImageSettings.enableAllImages(resPermitBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(resPermitFront, resPermitBack)));
             }
         });
     }
 
-    private MenuListItem buildBruneiResidencePermitFrontElement() {
-        return new MenuListItem("Brunei residence permit front", new Runnable() {
+    private MenuListItem buildBruneiTemporaryResidencePermitElement() {
+        return new MenuListItem("Brunei Temp. Residence Permit", new Runnable() {
             @Override
             public void run() {
-                BruneiResidencePermitFrontRecognizer recognizer = new BruneiResidencePermitFrontRecognizer();
-                ImageSettings.enableAllImages(recognizer);
+                BruneiTemporaryResidencePermitFrontRecognizer tempResPermitFront = new BruneiTemporaryResidencePermitFrontRecognizer();
+                ImageSettings.enableAllImages(tempResPermitFront);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
-            }
-        });
-    }
+                BruneiTemporaryResidencePermitBackRecognizer tempResPermitBack = new BruneiTemporaryResidencePermitBackRecognizer();
+                ImageSettings.enableAllImages(tempResPermitBack);
 
-    private MenuListItem buildBruneiResidencePermitBackElement() {
-        return new MenuListItem("Brunei residence permit back", new Runnable() {
-            @Override
-            public void run() {
-                BruneiResidencePermitBackRecognizer recognizer = new BruneiResidencePermitBackRecognizer();
-                ImageSettings.enableAllImages(recognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(tempResPermitFront, tempResPermitBack)));
             }
         });
     }
@@ -835,36 +839,6 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildPaymentCardElement() {
-        return new MenuListItem("Payment Card", new Runnable() {
-            @Override
-            public void run() {
-                PaymentCardFrontRecognizer paymentCardFront = new PaymentCardFrontRecognizer();
-                ImageSettings.enableAllImages(paymentCardFront);
-
-                PaymentCardBackRecognizer paymentCardBack = new PaymentCardBackRecognizer();
-                ImageSettings.enableAllImages(paymentCardBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(paymentCardFront, paymentCardBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildElitePaymentCardElement() {
-        return new MenuListItem("Elite Payment Card", new Runnable() {
-            @Override
-            public void run() {
-                ElitePaymentCardFrontRecognizer frontRec = new ElitePaymentCardFrontRecognizer();
-                ImageSettings.enableAllImages(frontRec);
-
-                ElitePaymentCardBackRecognizer backRec = new ElitePaymentCardBackRecognizer();
-                ImageSettings.enableAllImages(backRec);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(frontRec, backRec)));
-            }
-        });
-    }
-
     private MenuListItem buildEUDLElement(String title, final EudlCountry country) {
         return new MenuListItem(title, new Runnable() {
             @Override
@@ -885,10 +859,10 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("German Driver's License Front", new Runnable() {
             @Override
             public void run() {
-                GermanyDlFrontRecognizer recognizer = new GermanyDlFrontRecognizer();
-                ImageSettings.enableAllImages(recognizer);
+                GermanyDlFrontRecognizer germanDlFront = new GermanyDlFrontRecognizer();
+                ImageSettings.enableAllImages(germanDlFront);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(recognizer)));
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanDlFront)));
             }
         });
     }
@@ -1121,26 +1095,26 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildPaymentCardCombinedElement() {
-        return new MenuListItem("Payment Card Combined", new Runnable() {
+    private MenuListItem buildBlinkCardElement() {
+        return new MenuListItem("BlinkCard", new Runnable() {
             @Override
             public void run() {
-                PaymentCardCombinedRecognizer paymentCardCombined = new PaymentCardCombinedRecognizer();
-                ImageSettings.enableAllImages(paymentCardCombined);
+                BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
+                ImageSettings.enableAllImages(blinkCard);
 
-                combinedRecognitionAction(paymentCardCombined);
+                blinkCardRecognitionAction(blinkCard);
             }
         });
     }
 
-    private MenuListItem buildElitePaymentCardCombinedElement() {
-        return new MenuListItem("Elite Payment Card Combined", new Runnable() {
+    private MenuListItem buildBlinkCardEliteElement() {
+        return new MenuListItem("BlinkCard elite", new Runnable() {
             @Override
             public void run() {
-                ElitePaymentCardCombinedRecognizer paymentCardCombined = new ElitePaymentCardCombinedRecognizer();
-                ImageSettings.enableAllImages(paymentCardCombined);
+                BlinkCardEliteRecognizer blinkCardElite = new BlinkCardEliteRecognizer();
+                ImageSettings.enableAllImages(blinkCardElite);
 
-                combinedRecognitionAction(paymentCardCombined);
+                blinkCardRecognitionAction(blinkCardElite);
             }
         });
     }

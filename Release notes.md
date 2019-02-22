@@ -1,5 +1,36 @@
 # Release notes
 
+## 4.7.0
+
+### New features:
+
+- added support for reading front and back side of Brunei Temporary Residence Permit - use `BruneiTemporaryResidencePermitFrontRecognizer` and `BruneiTemporaryResidencePermitBackRecognizer`
+- added new scan activity and overlay: `BlinkCardActivity` and `BlinkCardOverlayController` which are best suited for scanning payment cards with `BlinkCardRecognizer`
+
+### Improvements for existing features:
+
+- enabled reading year-only dates of birth on **Kuwait IDs**
+- improved `SingaporeIdBackRecognizer`:
+    - better reading of documents with sticker
+- improved `MrtdRecognizer`:
+    - added `allowSpecialCharacters` option which is required for parsing Malaysian Passport IMM13P MRZ type
+- all recognizers now reset their results on shake, except Combined recognizers
+- `BlinkCardRecognizer` returns card issuer
+
+### Minor API changes:
+
+- `MrtdRecognizer` and `MrtdCombinedRecognizer` do not return MRZ image any more
+- `MrtdComginedRecognizer` does not have glare detection options (it does not detect glare any more)
+- replaced `PaymentCardFrontRecognizer`, `PaymentCardBackRecognizer` and `PaymentCardCombinedRecognizer` with single recognizer - `BlinkCardRecognizer`
+- replaced `ElitePaymentCardFrontRecognizer`, `ElitePaymentCardBackRecognizer` and `ElitePaymentCardCombinedRecognizer` with single recognizer - `BlinkCardEliteRecognizer`
+- `PolandIdBackRecognizer.Result` does not extend `MRTDResult` any more, it has getter `getMrzResult` for obtaining MRZ results
+
+### Bug fixes:
+
+- removed incorrect autofocus check that was performed before concrete camera type is chosen
+- `MrtdRecognizer`:  result state is now properly invalidated after detection fails
+- various other bug fixes and improvements
+
 ## 4.6.0
 
 ### New features:

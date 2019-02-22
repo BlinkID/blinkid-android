@@ -38,7 +38,7 @@
          android:paddingRight="6dp"
          android:paddingTop="4dp"
          android:alpha="0.9"
-         android:text="@string/mb_light_off"
+         android:text="@string/mb_light"
          android:textColor="@color/mb_button_text_color"
          android:textSize="14sp" />
 
