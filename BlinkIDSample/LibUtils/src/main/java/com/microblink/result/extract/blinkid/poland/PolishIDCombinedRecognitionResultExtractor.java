@@ -14,7 +14,7 @@ public class PolishIDCombinedRecognitionResultExtractor extends BlinkIdExtractor
         add(R.string.PPParentNames, result.getParentsGivenNames());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPNationality, result.getNationality());
-        add(R.string.PPIssuer, result.getIssuer());
+        add(R.string.PPIssuedBy, result.getIssuedBy());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());

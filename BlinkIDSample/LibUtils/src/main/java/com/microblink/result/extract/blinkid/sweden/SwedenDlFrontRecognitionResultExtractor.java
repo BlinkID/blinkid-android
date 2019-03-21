@@ -1,6 +1,7 @@
 package com.microblink.result.extract.blinkid.sweden;
 
-import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
+import com.microblink.MicroblinkSDK;
+import com.microblink.entities.recognizers.blinkid.sweden.SwedenDlFrontRecognizer;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 

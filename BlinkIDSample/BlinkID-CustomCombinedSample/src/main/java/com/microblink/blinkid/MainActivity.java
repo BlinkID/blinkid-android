@@ -17,7 +17,6 @@ import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecogn
 import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
@@ -58,7 +57,6 @@ public class MainActivity extends BaseMenuActivity {
         items.add(createMenuListItem("German combined", ImageSettings.enableAllImages(new GermanyCombinedRecognizer())));
         items.add(createMenuListItem("Jordan ID combined", ImageSettings.enableAllImages(new JordanCombinedRecognizer())));
         items.add(createMenuListItem("Polish ID combined", ImageSettings.enableAllImages(new PolandCombinedRecognizer())));
-        items.add(createMenuListItem("Serbian ID combined", ImageSettings.enableAllImages(new SerbiaCombinedRecognizer())));
         items.add(createMenuListItem("Singapore ID combined", ImageSettings.enableAllImages(new SingaporeCombinedRecognizer())));
         items.add(createMenuListItem("Slovak ID combined", ImageSettings.enableAllImages(new SlovakiaCombinedRecognizer())));
         items.add(createMenuListItem("Slovenian ID combined", ImageSettings.enableAllImages(new SloveniaCombinedRecognizer())));

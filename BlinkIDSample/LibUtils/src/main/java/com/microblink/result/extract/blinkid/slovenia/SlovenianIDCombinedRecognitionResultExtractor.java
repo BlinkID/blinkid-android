@@ -8,17 +8,17 @@ public class SlovenianIDCombinedRecognitionResultExtractor extends BlinkIdExtrac
 
     @Override
     protected void extractData(SloveniaCombinedRecognizer.Result result) {
-        add(R.string.PPLastName, result.getLastName());
-        add(R.string.PPFirstName, result.getFirstName());
-        add(R.string.PPDocumentNumber, result.getIdentityCardNumber());
+        add(R.string.PPSurname, result.getSurname());
+        add(R.string.PPGivenNames, result.getGivenNames());
+        add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
-        add(R.string.PPCitizenship, result.getCitizenship());
+        add(R.string.PPCitizenship, result.getNationality());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        add(R.string.PPIssuingAuthority, result.getAdministrativeUnit());
         add(R.string.PPIssueDate, result.getDateOfIssue());
-        add(R.string.PPPersonalNumber, result.getPersonalIdentificationNumber());
+        add(R.string.PPPersonalNumber, result.getPin());
         add(R.string.PPMRZVerified, result.isMrzVerified());
         add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
     }

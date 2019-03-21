@@ -36,6 +36,8 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitBackRecognizer;
@@ -88,9 +90,6 @@ import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecogniz
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.romania.RomaniaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeChangiEmployeeIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeDlFrontRecognizer;
@@ -103,7 +102,7 @@ import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedReco
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.spain.SpainDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.sweden.SwedenDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
@@ -197,6 +196,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
         items.add(buildBruneiIDElement());
+        items.add(buildbruneiMilitaryIdElement());
         items.add(buildBruneiResidencePermitElement());
         items.add(buildBruneiTemporaryResidencePermitElement());
         items.add(buildColombiaIDElement());
@@ -228,8 +228,6 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildSingaporeIDElement());
         items.add(buildSingaporeChangiEmployeeIdElement());
         items.add(buildSingaporeIDCombinedElement());
-        items.add(buildSerbianIDElement());
-        items.add(buildSerbianIDCombinedElement());
         items.add(buildSlovakIDElement());
         items.add(buildSlovakIDCombinedElement());
         items.add(buildSlovenianIDElement());
@@ -405,6 +403,21 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(bruneiIdBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront, bruneiIdBack)));
+            }
+        });
+    }
+
+    private MenuListItem buildbruneiMilitaryIdElement() {
+        return new MenuListItem("Brunei Military ID", new Runnable() {
+            @Override
+            public void run() {
+                BruneiMilitaryIdFrontRecognizer militaryIdFront = new BruneiMilitaryIdFrontRecognizer();
+                ImageSettings.enableAllImages(militaryIdFront);
+
+                BruneiMilitaryIdBackRecognizer militaryIdBack = new BruneiMilitaryIdBackRecognizer();
+                ImageSettings.enableAllImages(militaryIdBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(militaryIdFront, militaryIdBack)));
             }
         });
     }
@@ -748,21 +761,6 @@ public class MenuActivity extends BaseMenuActivity {
                 SingaporeChangiEmployeeIdRecognizer singaporeChangiEmployeeIdRecognizer = new SingaporeChangiEmployeeIdRecognizer();
                 ImageSettings.enableAllImages(singaporeChangiEmployeeIdRecognizer);
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeChangiEmployeeIdRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildSerbianIDElement() {
-        return new MenuListItem("Serbian ID", new Runnable() {
-            @Override
-            public void run() {
-                SerbiaIdFrontRecognizer serbiaFront = new SerbiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(serbiaFront);
-
-                SerbiaIdBackRecognizer serbiaBack = new SerbiaIdBackRecognizer();
-                ImageSettings.enableAllImages(serbiaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(serbiaFront, serbiaBack)));
             }
         });
     }
@@ -1127,18 +1125,6 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(polandCombined);
 
                 combinedRecognitionAction(polandCombined);
-            }
-        });
-    }
-
-    private MenuListItem buildSerbianIDCombinedElement() {
-        return new MenuListItem("Serbian Combined", new Runnable() {
-            @Override
-            public void run() {
-                SerbiaCombinedRecognizer serbiaCombined = new SerbiaCombinedRecognizer();
-                ImageSettings.enableAllImages(serbiaCombined);
-
-                combinedRecognitionAction(serbiaCombined);
             }
         });
     }

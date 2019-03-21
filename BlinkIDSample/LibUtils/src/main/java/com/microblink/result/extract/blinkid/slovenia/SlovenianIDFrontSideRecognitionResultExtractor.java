@@ -8,8 +8,8 @@ public class SlovenianIDFrontSideRecognitionResultExtractor extends BlinkIdExtra
 
     @Override
     protected void extractData(SloveniaIdFrontRecognizer.Result sloIdFrontResult) {
-        add(R.string.PPLastName, sloIdFrontResult.getLastName());
-        add(R.string.PPFirstName, sloIdFrontResult.getFirstName());
+        add(R.string.PPSurname, sloIdFrontResult.getSurname());
+        add(R.string.PPGivenNames, sloIdFrontResult.getGivenNames());
         add(R.string.PPSex, sloIdFrontResult.getSex());
         add(R.string.PPNationality, sloIdFrontResult.getNationality());
         add(R.string.PPDateOfBirth, sloIdFrontResult.getDateOfBirth());

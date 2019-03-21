@@ -239,5 +239,7 @@
     <string name="PPCURP">CURP</string>
     <string name="PPDateOfIssueDlCategoryB">Date of issue B category</string>
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
+    <string name="PPAdministrativeUnit">Administrative Unit</string>
+    <string name="PPRank">Rank</string>
 
 </resources>
