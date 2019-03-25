@@ -9,10 +9,11 @@ To be more precise, we measured and compared existing vs. new MRTD scanning. The
 
 In order to use new *MrtdRecognizer* or *MrtdCombinedRecognizer* or to continue using any additional *Recognizer for scanning any ID with the MRZ (machine readable zone)* within the latest BlinkID SDK update, you *must* have a new license key. Before updating to the SDK version 4.8.0, please contact your account manager or send an email to support@microblink.com to obtain the *new production license key*.
 
-Important notes:
-The MRTD scanning with the older BlinkID SDK versions (v4.7.0 and below) will continue to work without any problems - until you decide to update.
-If you upgrade to the SDK version 4.8.0 without a new license key scanning of MRTD/MRZ documents will not work.
-Contact us at support@microblink.com to obtain a new license key if you plan to update your app with the latest release.
+**Important notes**:
+
+- The MRTD scanning with the older BlinkID SDK versions (v4.7.0 and below) will continue to work without any problems - until you decide to update.
+- If you upgrade to the SDK version 4.8.0 without a new license key scanning of MRTD/MRZ documents will not work.
+- Contact us at support@microblink.com to obtain a new license key if you plan to update your app with the latest release.
 
 For any questions, you might have, we stand at your service.
 
