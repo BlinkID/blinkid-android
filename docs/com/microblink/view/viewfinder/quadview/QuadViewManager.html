@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,6 +184,12 @@ extends java.lang.Object</pre>
 <div class="block">Sets a listener that will be notified when quad animation has started and finished.</div>
 </td>
 </tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html#setInitialHostActivityOrientation-int-">setInitialHostActivityOrientation</a></span>(int&nbsp;hostActivityOrientation)</code>
+<div class="block">Changes initial host activity orientation.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -302,12 +308,30 @@ public&nbsp;void&nbsp;configurationChanged(@NonNull
 <a name="setAnimationListener-com.microblink.view.viewfinder.quadview.QuadViewAnimationListener-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setAnimationListener</h4>
 <pre>public&nbsp;void&nbsp;setAnimationListener(@Nullable
                                  <a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewAnimationListener.html" title="interface in com.microblink.view.viewfinder.quadview">QuadViewAnimationListener</a>&nbsp;listener)</pre>
 <div class="block">Sets a listener that will be notified when quad animation has started and finished.</div>
+</li>
+</ul>
+<a name="setInitialHostActivityOrientation-int-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setInitialHostActivityOrientation</h4>
+<pre>public&nbsp;void&nbsp;setInitialHostActivityOrientation(int&nbsp;hostActivityOrientation)</pre>
+<div class="block">Changes initial host activity orientation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hostActivityOrientation</code> - allowed values are:
+ <br> <code>ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE</code>
+ <br> <code>ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE</code>
+ <br> <code>ActivityInfo.SCREEN_ORIENTATION_PORTRAIT</code>
+ <br> <code>ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT</code></dd>
+</dl>
 </li>
 </ul>
 </li>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -209,145 +209,157 @@ implements <a href="../../../com/microblink/uisettings/options/DebugImageListene
 </td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getForcedOrientation--">getForcedOrientation</a></span>()</code>
+<div class="block">Returns forced overlay orientation.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getPinchToZoomAllowed--">getPinchToZoomAllowed</a></span>()</code>
 <div class="block">Returns whether pinch to zoom is allowed on camera activity.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>CameraSurface</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getPreferredCameraSurface--">getPreferredCameraSurface</a></span>()</code>
 <div class="block">Returns requested camera surface which view will be used for displaying
  camera preview.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getRecognizerBundle--">getRecognizerBundle</a></span>()</code>
 <div class="block">Returns the <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers"><code>RecognizerBundle</code></a> containing recognizers that will be used for processing.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getRegionOfInterestRotatable--">getRegionOfInterestRotatable</a></span>()</code>
 <div class="block">Returns whether ROI (Region of Interest) will be rotated with user interface.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getScanRegionOfInterest--">getScanRegionOfInterest</a></span>()</code>
 <div class="block">Returns defined scanning ROI (Region of Interest) that will be scanned.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getShowingFocusRectangle--">getShowingFocusRectangle</a></span>()</code>
 <div class="block">Returns flag which indicates whether showing of focus rectangle is enabled.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getSplashScreenLayoutResourceID--">getSplashScreenLayoutResourceID</a></span>()</code>
 <div class="block">Returns the ID of the layout resource that will be used as camera splash screen displayed
  while camera is being initialized.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#getUsingLegacyCameraAPI--">getUsingLegacyCameraAPI</a></span>()</code>
 <div class="block">Returns whether legacy camera API should be used even on Lollipop devices that support
  newer Camera2 API.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#isHighResSuccessFrameCaptureEnabled--">isHighResSuccessFrameCaptureEnabled</a></span>()</code>
 <div class="block">Returns whether capturing high res frames on recognition success is enabled.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a></span>(int&nbsp;beepSoundResourceID)</code>
 <div class="block">Defines the resource ID of the sound to be played when recognition is successful.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setCameraAspectMode-com.microblink.view.CameraAspectMode-">setCameraAspectMode</a></span>(<a href="../../../com/microblink/view/CameraAspectMode.html" title="class in com.microblink.view">CameraAspectMode</a>&nbsp;cameraAspectMode)</code>
 <div class="block">Defines which camera aspect mode will be used.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setCameraOptimizedForNearScanning-boolean-">setCameraOptimizedForNearScanning</a></span>(boolean&nbsp;cameraOptimizedForNearScanning)</code>
 <div class="block">Defines whether camera parameters should be optimized for near object scanning.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a></span>(<a href="../../../com/microblink/hardware/camera/CameraType.html" title="class in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</code>
 <div class="block">Sets type of camera that will be used.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a></span>(<a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;cameraVideoPreset)</code>
 <div class="block">Sets the video resolution preset that will be used when choosing camera resolution
  for scanning.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a></span>(<a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</code>
 <div class="block">Sets implementation of <a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><code>DebugImageListener</code></a> interface that will obtain images that are
  being processed.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setForcedOrientation-com.microblink.uisettings.options.OverlayOrientation-">setForcedOrientation</a></span>(<a href="../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a>&nbsp;orientation)</code>
+<div class="block">Defines forced overlay orientation.</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setPinchToZoomAllowed-boolean-">setPinchToZoomAllowed</a></span>(boolean&nbsp;pinchToZoomAllowed)</code>
 <div class="block">Defines whether pinch to zoom will be allowed on camera activity, default is <code>false</code>.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setPreferredCameraSurface-CameraSurface-">setPreferredCameraSurface</a></span>(CameraSurface&nbsp;preferredCameraSurface)</code>
 <div class="block">Defines which view will be used for displaying camera preview.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setRegionOfInterestRotatable-boolean-">setRegionOfInterestRotatable</a></span>(boolean&nbsp;regionOfInterestRotatable)</code>
 <div class="block">Defines whether ROI (Region of Interest) will be rotated with user interface.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setScanRegionOfInterest-com.microblink.geometry.Rectangle-">setScanRegionOfInterest</a></span>(<a href="../../../com/microblink/geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanRegionOfInterest)</code>
 <div class="block">Sets the scanning ROI (Region of Interest) that will be scanned.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setShowingFocusRectangle-boolean-">setShowingFocusRectangle</a></span>(boolean&nbsp;showingFocusRectangle)</code>
 <div class="block">Defines whether showing of focus rectangle is enabled.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a></span>(int&nbsp;splashScreenLayoutResourceID)</code>
 <div class="block">Defines the ID of the layout resource that will be used as camera splash screen displayed
  while camera is being initialized.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BaseScanUISettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></span>(boolean&nbsp;usingLegacyCameraAPI)</code>
 <div class="block">Sets whether legacy camera API should be used even on Lollipop devices that support
@@ -360,7 +372,7 @@ implements <a href="../../../com/microblink/uisettings/options/DebugImageListene
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></h3>
-<code><a href="../../../com/microblink/uisettings/UISettings.html#buildOptionKeyConstant-java.lang.String-java.lang.String-">buildOptionKeyConstant</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getTargetActivity--">getTargetActivity</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure-boolean-">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putBoolean-java.lang.String-boolean-">putBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putInteger-java.lang.String-int-">putInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putParcelable-java.lang.String-android.os.Parcelable-">putParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
+<code><a href="../../../com/microblink/uisettings/UISettings.html#buildOptionKeyConstant-java.lang.String-java.lang.String-">buildOptionKeyConstant</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getTargetActivity--">getTargetActivity</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure-boolean-">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putBoolean-java.lang.String-boolean-">putBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putInteger-java.lang.String-int-">putInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putParcelable-java.lang.String-android.os.Parcelable-">putParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putSerializable-java.lang.String-java.io.Serializable-">putSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readSerializable-java.lang.String-">readSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -915,7 +927,7 @@ public final&nbsp;CameraSurface&nbsp;getPreferredCameraSurface()</pre>
 <a name="isHighResSuccessFrameCaptureEnabled--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isHighResSuccessFrameCaptureEnabled</h4>
 <pre>public&nbsp;boolean&nbsp;isHighResSuccessFrameCaptureEnabled()</pre>
@@ -926,6 +938,38 @@ public final&nbsp;CameraSurface&nbsp;getPreferredCameraSurface()</pre>
 <dd><code><a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html#isHighResSuccessFrameCaptureEnabled--">isHighResSuccessFrameCaptureEnabled</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>true</code> if capturing high res success frames is enabled, <code>false</code> otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="getForcedOrientation--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getForcedOrientation</h4>
+<pre>@Nullable
+public&nbsp;<a href="../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a>&nbsp;getForcedOrientation()</pre>
+<div class="block">Returns forced overlay orientation.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>forced overlay orientation or null if non is forced.</dd>
+</dl>
+</li>
+</ul>
+<a name="setForcedOrientation-com.microblink.uisettings.options.OverlayOrientation-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setForcedOrientation</h4>
+<pre>public&nbsp;void&nbsp;setForcedOrientation(@Nullable
+                                 <a href="../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a>&nbsp;orientation)</pre>
+<div class="block">Defines forced overlay orientation.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>orientation</code> - forced overlay orientation.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options"><code>for more details.</code></a></dd>
 </dl>
 </li>
 </ul>

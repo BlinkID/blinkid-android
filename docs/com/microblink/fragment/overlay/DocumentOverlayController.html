@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -187,26 +187,20 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#createQuadView-com.microblink.view.recognition.RecognizerRunnerView-">createQuadView</a></span>(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#createQuadViewManager-com.microblink.view.recognition.RecognizerRunnerView-">createQuadViewManager</a></span>(<a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#handleRecognitionDone-RecognitionSuccessType-">handleRecognitionDone</a></span>(RecognitionSuccessType&nbsp;recognitionSuccessType)</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a></span>(<a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</code>
-<div class="block">Called in onOrientationChange.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#onDetectionFailed--">onDetectionFailed</a></span>()</code>
 <div class="block">Invoked when all recognizers in active <a href="../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers"><code>Recognizer</code></a>
  chain have failed to detect anything on the image.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/DocumentOverlayController.html#onPointsDetection-com.microblink.metadata.detection.points.DisplayablePointsDetection-">onPointsDetection</a></span>(<a href="../../../../com/microblink/metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;pointsDetection)</code>
 <div class="block">Called when <a href="../../../../com/microblink/metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points"><code>DisplayablePointsDetection</code></a> gets available.</div>
@@ -225,7 +219,7 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.<a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html" title="class in com.microblink.fragment.overlay">BaseScanOverlayController</a></h3>
-<code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#createPointSetView-com.microblink.view.recognition.RecognizerRunnerView-">createPointSetView</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getDefaultOrientation--">getDefaultOrientation</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getRecognizerRunnerView--">getRecognizerRunnerView</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#hasAnimatedViews--">hasAnimatedViews</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#initDebugStatus--">initDebugStatus</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#isAnyAnimationInProgress--">isAnyAnimationInProgress</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onAutofocusStarted-android.graphics.Rect:A-">onAutofocusStarted</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onAutofocusStopped-android.graphics.Rect:A-">onAutofocusStopped</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCameraPreviewStopped--">onCameraPreviewStopped</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCreate-android.os.Bundle-">onCreate</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onDestroy--">onDestroy</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onError-java.lang.Throwable-">onError</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onPause--">onPause</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onQuadDetection-com.microblink.metadata.detection.quad.DisplayableQuadDetection-">onQuadDetection</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onSaveInstanceState-android.os.Bundle-">onSaveInstanceState</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onStart--">onStart</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onStop--">onStop</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#soundNotification--">soundNotification</a></code></li>
+<code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#createPointSetView-com.microblink.view.recognition.RecognizerRunnerView-">createPointSetView</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getDefaultOrientation--">getDefaultOrientation</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#getRecognizerRunnerView--">getRecognizerRunnerView</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#hasAnimatedViews--">hasAnimatedViews</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#initDebugStatus--">initDebugStatus</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#isAnyAnimationInProgress--">isAnyAnimationInProgress</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onAutofocusStarted-android.graphics.Rect:A-">onAutofocusStarted</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onAutofocusStopped-android.graphics.Rect:A-">onAutofocusStopped</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCameraPreviewStopped--">onCameraPreviewStopped</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onCreate-android.os.Bundle-">onCreate</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onDestroy--">onDestroy</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onError-java.lang.Throwable-">onError</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onPause--">onPause</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onQuadDetection-com.microblink.metadata.detection.quad.DisplayableQuadDetection-">onQuadDetection</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onSaveInstanceState-android.os.Bundle-">onSaveInstanceState</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onStart--">onStart</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#onStop--">onStop</a>, <a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#soundNotification--">soundNotification</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -336,41 +330,18 @@ extends <a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayContr
 </dl>
 </li>
 </ul>
-<a name="isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isOrientationAllowed</h4>
-<pre>public&nbsp;boolean&nbsp;isOrientationAllowed(@NonNull
-                                    <a href="../../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;orientation)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/view/OrientationAllowedListener.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">OrientationAllowedListener</a></code></span></div>
-<div class="block">Called in onOrientationChange. Use it to determine if given orientation
- is allowed.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../com/microblink/view/OrientationAllowedListener.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/view/OrientationAllowedListener.html" title="interface in com.microblink.view">OrientationAllowedListener</a></code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html#isOrientationAllowed-com.microblink.hardware.orientation.Orientation-">isOrientationAllowed</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseScanOverlayController.html" title="class in com.microblink.fragment.overlay">BaseScanOverlayController</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>orientation</code> - Orientation of the device.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>true if orientation is allowed, otherwise false</dd>
-</dl>
-</li>
-</ul>
-<a name="createQuadView-com.microblink.view.recognition.RecognizerRunnerView-">
+<a name="createQuadViewManager-com.microblink.view.recognition.RecognizerRunnerView-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>createQuadView</h4>
+<h4>createQuadViewManager</h4>
 <pre>@Nullable
-protected&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadView(@NonNull
-                                                   <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+protected&nbsp;<a href="../../../../com/microblink/view/viewfinder/quadview/QuadViewManager.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewManager</a>&nbsp;createQuadViewManager(@NonNull
+                                                          <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html#createQuadView-com.microblink.view.recognition.RecognizerRunnerView-">createQuadView</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOcrOverlayController</a></code></dd>
+<dd><code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html#createQuadViewManager-com.microblink.view.recognition.RecognizerRunnerView-">createQuadViewManager</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/BaseOcrOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOcrOverlayController</a></code></dd>
 </dl>
 </li>
 </ul>

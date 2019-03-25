@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -238,17 +238,41 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedIssuer--">getSanitizedIssuer</a></span>()</code>
+<div class="block">Returns issuer, but without additional '<' characters if they exist.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedNationality--">getSanitizedNationality</a></span>()</code>
+<div class="block">Returns nationality, but without additional '<' characters if they exist.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt1--">getSanitizedOpt1</a></span>()</code>
+<div class="block">Returns opt1 field, but without additional '<' characters if they exist.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt2--">getSanitizedOpt2</a></span>()</code>
+<div class="block">Returns opt2 field, but without additional '<' characters if they exist.</div>
+</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSecondaryId--">getSecondaryId</a></span>()</code>
 <div class="block">Returns the secondary identifier.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzParsed--">isMrzParsed</a></span>()</code>
 <div class="block">Returns true if Machine Readable Zone has been parsed, false otherwise.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzVerified--">isMrzVerified</a></span>()</code>
 <div class="block">Returns true if all check digits inside MRZ are correct, false otherwise.</div>
@@ -362,6 +386,21 @@ public&nbsp;java.lang.String&nbsp;getIssuer()</pre>
 </dl>
 </li>
 </ul>
+<a name="getSanitizedIssuer--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSanitizedIssuer</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getSanitizedIssuer()</pre>
+<div class="block">Returns issuer, but without additional '<' characters if they exist.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getIssuer--"><code>MrzResult.getIssuer()</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="getDateOfBirth--">
 <!--   -->
 </a>
@@ -408,6 +447,21 @@ public&nbsp;java.lang.String&nbsp;getNationality()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>nationality of the holder represented by a three-letter or two-letter code</dd>
+</dl>
+</li>
+</ul>
+<a name="getSanitizedNationality--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSanitizedNationality</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getSanitizedNationality()</pre>
+<div class="block">Returns nationality, but without additional '<' characters if they exist.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationality--"><code>MrzResult.getNationality()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -479,6 +533,21 @@ public&nbsp;java.lang.String&nbsp;getOpt1()</pre>
 </dl>
 </li>
 </ul>
+<a name="getSanitizedOpt1--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSanitizedOpt1</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getSanitizedOpt1()</pre>
+<div class="block">Returns opt1 field, but without additional '<' characters if they exist.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt1--"><code>MrzResult.getOpt1()</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="getOpt2--">
 <!--   -->
 </a>
@@ -492,6 +561,21 @@ public&nbsp;java.lang.String&nbsp;getOpt2()</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>second optional data or empty string if not available</dd>
+</dl>
+</li>
+</ul>
+<a name="getSanitizedOpt2--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSanitizedOpt2</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getSanitizedOpt2()</pre>
+<div class="block">Returns opt2 field, but without additional '<' characters if they exist.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt2--"><code>MrzResult.getOpt2()</code></a></dd>
 </dl>
 </li>
 </ul>

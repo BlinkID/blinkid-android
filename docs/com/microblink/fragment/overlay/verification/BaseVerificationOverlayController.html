@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6,"i15":6,"i16":10,"i17":10};
+var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":6,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":6,"i15":6,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -153,6 +153,12 @@ implements <a href="../../../../../com/microblink/fragment/overlay/ScanningOverl
 <td class="colFirst"><code>protected static class&nbsp;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.OverlayState.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.OverlayState</a></span></code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.VerificationStepListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.VerificationStepListener</a></span></code>
+<div class="block">Listener that is called when any of the verification steps is starting.</div>
+</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -249,7 +255,7 @@ implements <a href="../../../../../com/microblink/fragment/overlay/ScanningOverl
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected java.lang.String</code></td>
+<td class="colFirst"><code>protected java.lang.CharSequence</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a></span>(int&nbsp;textId,
           java.lang.String&nbsp;text,
           int&nbsp;defaultTextId,
@@ -330,12 +336,24 @@ implements <a href="../../../../../com/microblink/fragment/overlay/ScanningOverl
 </td>
 </tr>
 <tr id="i16" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
+</td>
 </tr>
 <tr id="i17" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#setVerificationStepListener-com.microblink.fragment.overlay.verification.BaseVerificationOverlayController.VerificationStepListener-">setVerificationStepListener</a></span>(<a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.VerificationStepListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.VerificationStepListener</a>&nbsp;listener)</code>
+<div class="block">Sets the verification step listener, for the first side and second side of the document.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -602,8 +620,16 @@ protected&nbsp;void&nbsp;onCameraPreviewStarted()</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>resumeScanning</h4>
-<pre>@WorkerThread
-protected&nbsp;void&nbsp;resumeScanning()</pre>
+<pre>@AnyThread
+public&nbsp;void&nbsp;resumeScanning()</pre>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.
+
+ If the  <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></dd>
+</dl>
 </li>
 </ul>
 <a name="pauseScanning--">
@@ -613,7 +639,34 @@ protected&nbsp;void&nbsp;resumeScanning()</pre>
 <li class="blockList">
 <h4>pauseScanning</h4>
 <pre>@AnyThread
-protected&nbsp;void&nbsp;pauseScanning()</pre>
+public&nbsp;void&nbsp;pauseScanning()</pre>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>. But keeps camera active.
+ If the  <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.
+
+ You can resume scanning by calling <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--"><code>BaseVerificationOverlayController.resumeScanning()</code></a>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="setVerificationStepListener-com.microblink.fragment.overlay.verification.BaseVerificationOverlayController.VerificationStepListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setVerificationStepListener</h4>
+<pre>@AnyThread
+public&nbsp;void&nbsp;setVerificationStepListener(@Nullable
+                                                   <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.VerificationStepListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.VerificationStepListener</a>&nbsp;listener)</pre>
+<div class="block">Sets the verification step listener, for the first side and second side of the document.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>listener</code> - verification step listener that will receive notifications when scanning of
+                 the first side and second side of the document is started,
+                 or <code>null</code> to deactivate previous listener.</dd>
+</dl>
 </li>
 </ul>
 <a name="onCameraTorchSupportStatusAvailable-boolean-">
@@ -732,13 +785,13 @@ protected abstract&nbsp;<a href="../../../../../com/microblink/fragment/overlay/
 <h4>findString</h4>
 <pre>@AnyThread
  @NonNull
-protected&nbsp;java.lang.String&nbsp;findString(int&nbsp;textId,
-                                                           @Nullable
-                                                           java.lang.String&nbsp;text,
-                                                           @StringRes
-                                                           int&nbsp;defaultTextId,
-                                                           @NonNull
-                                                           android.content.Context&nbsp;context)</pre>
+protected&nbsp;java.lang.CharSequence&nbsp;findString(int&nbsp;textId,
+                                                                 @Nullable
+                                                                 java.lang.String&nbsp;text,
+                                                                 @StringRes
+                                                                 int&nbsp;defaultTextId,
+                                                                 @NonNull
+                                                                 android.content.Context&nbsp;context)</pre>
 <div class="block">Chooses which string will be used among given strings. If the given string resource id is not
  <code>0</code> uses string obtained from that resource id, otherwise uses given String object if it is not
  <code>null</code>. If strign resource is <code>0</code> and String is <code>null</code> then string resource

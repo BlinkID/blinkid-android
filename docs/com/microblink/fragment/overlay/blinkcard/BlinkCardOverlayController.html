@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.com.microblink.fragment.overlay.verification.BaseVerificationOverlayController">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.fragment.overlay.verification.BaseVerificationOverlayController">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -135,7 +135,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <!--   -->
 </a>
 <h3>Nested classes/interfaces inherited from class&nbsp;com.microblink.fragment.overlay.verification.<a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.AdditionalStepConfiguration.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.AdditionalStepConfiguration</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.AdditionalStepEventListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.AdditionalStepEventListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.OverlayState.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.OverlayState</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.AdditionalStepConfiguration.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.AdditionalStepConfiguration</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.AdditionalStepEventListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.AdditionalStepEventListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.OverlayState.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.OverlayState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.VerificationStepListener.html" title="interface in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController.VerificationStepListener</a></code></li>
 </ul>
 </li>
 </ul>
@@ -145,6 +145,17 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#mShowTopButtons">mShowTopButtons</a></span></code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.com.microblink.fragment.overlay.verification.BaseVerificationOverlayController">
 <!--   -->
@@ -212,17 +223,47 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 </td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></span>(<a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
+                                  android.app.Activity&nbsp;activity)</code>
+<div class="block">Called after <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onStartDocumentFirstSide-boolean-">onStartDocumentFirstSide</a></span>(boolean&nbsp;isCameraPreviewStarted)</code>
 <div class="block">Callback method that is called when document recognizer is set to scan first side and recognition
  is started.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#onStartDocumentSecondSide-boolean-">onStartDocumentSecondSide</a></span>(boolean&nbsp;isCameraPreviewStarted)</code>
 <div class="block">Callback method that is called when document recognizer is set to scan second side
  (only if second side exists) and recognition is started.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setShowButtons-boolean-">setShowButtons</a></span>(boolean&nbsp;showTopButtons)</code>
+<div class="block">Sets whether the torch nad back buttons will be shown and available to user for changing the torch
+ state and exiting the activity.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchButton-android.widget.ImageView-">setTorchButton</a></span>(android.widget.ImageView&nbsp;torchButton)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchState-boolean-">setTorchState</a></span>(boolean&nbsp;torchOn)</code>
+<div class="block">Turns the torch on or off.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchStateListener-com.microblink.fragment.overlay.listener.verification.OverlayTorchStateListener-">setTorchStateListener</a></span>(<a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTorchStateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTorchStateListener</a>&nbsp;torchStateListener)</code>
+<div class="block">Sets torch state listener that will be notified on every torch status change.</div>
 </td>
 </tr>
 </table>
@@ -231,7 +272,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.verification.<a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#setVerificationStepListener-com.microblink.fragment.overlay.verification.BaseVerificationOverlayController.VerificationStepListener-">setVerificationStepListener</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -248,6 +289,23 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="mShowTopButtons">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>mShowTopButtons</h4>
+<pre>protected&nbsp;boolean mShowTopButtons</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -309,6 +367,35 @@ protected&nbsp;android.view.View&nbsp;createDocumentStepCameraOverlay()</pre>
 <dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createDocumentStepCameraOverlay--">createDocumentStepCameraOverlay</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>created camera overlay view.</dd>
+</dl>
+</li>
+</ul>
+<a name="onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onRecognizerRunnerFragmentAttached</h4>
+<pre>public&nbsp;void&nbsp;onRecognizerRunnerFragmentAttached(@NonNull
+                                               <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
+                                               @NonNull
+                                               android.app.Activity&nbsp;activity)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">ScanningOverlay</a></code></span></div>
+<div class="block">Called after <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity. This happens before
+ <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html#onCreateView-android.view.LayoutInflater-android.view.ViewGroup-android.os.Bundle-"><code>RecognizerRunnerFragment.onCreateView(LayoutInflater, ViewGroup, Bundle)</code></a> which internally invokes
+ <a href="../../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-"><code>ScanningOverlay.onRecognizerRunnerViewCreated(RecognizerRunnerFragment)</code></a>. This means that at the time this method
+ is invoked, methods like <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html#getRecognizerRunnerView--"><code>RecognizerRunnerFragment.getRecognizerRunnerView()</code></a> or <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html#getContentLayout--"><code>RecognizerRunnerFragment.getContentLayout()</code></a>
+ will return null.
+ However, this is a good place to register your <a href="../../../../../com/microblink/fragment/LifecycleObserver.html" title="interface in com.microblink.fragment"><code>LifecycleObserver</code></a> with <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html#registerLifecycleObserver-com.microblink.fragment.LifecycleObserver-"><code>RecognizerRunnerFragment.registerLifecycleObserver(LifecycleObserver)</code></a>
+ if your overlay needs to be notified about lifecycle events of <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognizerRunnerFragment</code> - <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> that has been attached to host activity.</dd>
+<dd><code>activity</code> - <code>Activity</code> to which <a href="../../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> has been attached.</dd>
 </dl>
 </li>
 </ul>
@@ -382,7 +469,7 @@ protected&nbsp;android.view.View&nbsp;createDocumentStepCameraOverlay()</pre>
 <a name="createAdditionalStepConfiguration--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>createAdditionalStepConfiguration</h4>
 <pre>@Nullable
@@ -397,6 +484,67 @@ protected&nbsp;<a href="../../../../../com/microblink/fragment/overlay/verificat
 <dd>configuration for the additional verification step that can be performed in the verification
  flow in addition to the document recognizer step, or <code>null</code> if the additional
  verification step is not needed. In that case additional step will not be performed.</dd>
+</dl>
+</li>
+</ul>
+<a name="setTorchButton-android.widget.ImageView-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTorchButton</h4>
+<pre>@AnyThread
+protected final&nbsp;void&nbsp;setTorchButton(@Nullable
+                                               android.widget.ImageView&nbsp;torchButton)</pre>
+</li>
+</ul>
+<a name="setTorchStateListener-com.microblink.fragment.overlay.listener.verification.OverlayTorchStateListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setTorchStateListener</h4>
+<pre>public&nbsp;void&nbsp;setTorchStateListener(@Nullable
+                                  <a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTorchStateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTorchStateListener</a>&nbsp;torchStateListener)</pre>
+<div class="block">Sets torch state listener that will be notified on every torch status change. Also it receives
+ notifications about torch support status when camera preview is started.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>torchStateListener</code> - listener that will receive notifications, or <code>null</code> to remove
+                           existing listener.</dd>
+</dl>
+</li>
+</ul>
+<a name="setShowButtons-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowButtons</h4>
+<pre>public&nbsp;void&nbsp;setShowButtons(boolean&nbsp;showTopButtons)</pre>
+<div class="block">Sets whether the torch nad back buttons will be shown and available to user for changing the torch
+ state and exiting the activity.
+ When overlay does not control the torch state (e.g. when host activity has torch button),
+ torch button which is shown inside overlay should be hidden by using this method. In that case
+ torch state can be updated programmatically by using <a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchState-boolean-"><code>BlinkCardOverlayController.setTorchState(boolean)</code></a> method.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showTopButtons</code> - <code>true</code> to show torch and back buttons, <code>false</code> to hide it</dd>
+</dl>
+</li>
+</ul>
+<a name="setTorchState-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setTorchState</h4>
+<pre>public&nbsp;void&nbsp;setTorchState(boolean&nbsp;torchOn)</pre>
+<div class="block">Turns the torch on or off. If torch update is not yet available (e.g. camera is not started
+ yet) does nothing.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>torchOn</code> - <code>true</code> to turn the torch on, <code>false</code> to turn it off.</dd>
 </dl>
 </li>
 </ul>
@@ -453,13 +601,13 @@ protected&nbsp;<a href="../../../../../com/microblink/fragment/overlay/verificat
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.classes.inherited.from.class.com.microblink.fragment.overlay.verification.BaseVerificationOverlayController">Nested</a>&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.fragment.overlay.verification.BaseVerificationOverlayController">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

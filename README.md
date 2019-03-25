@@ -39,7 +39,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
         * [Using DirectAPI while RecognizerRunnerView is active](#directAPIWithRecognizer)
     * [Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`](#processingEvents)
         * [Note about the `setMetadataCallbacks` method](#processingEventsImportantNote)
-* [`Recogniezr` concept and `RecognizerBundle`](#availableRecognizers)
+* [`Recognizer` concept and `RecognizerBundle`](#availableRecognizers)
     * [The `Recognizer` concept](#recognizerConcept)
     * [`RecognizerBundle`](#recognizerBundle)
         * [Passing `Recognizer` objects between activities](#intentOptimization)
@@ -50,6 +50,9 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
     * [Barcode recognizer](#barcodeRecognizer)
     * [BlinkInput recognizer](#blinkInputRecognizer)
     * [Detector recognizer](#detectorRecognizer)
+    * [BlinkCard recognizers](#blinkcard_recognizers)
+        * [BlinkCard recognizer](#blink_card_combined)
+        * [BlinkCardElite recognizer](#elite_blink_card_combined)
     * [SIM number recognizer](#simNumberRecognizer)
     * [BlinkID recognizers](#blinkid_recognizers)
         * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
@@ -57,7 +60,6 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
         * [US / Canada driver's license barcode recognizer](#us_dl_recognizer)
         * [US / Canada driver's license combined recognizer](#us_dl_combined_recognizer)
         * [EU Driver's License recognizer](#eudlRecognizer)
-        * [Payment / Debit card recognizers ](#payment_card_recognizers)
         * [Document face recognizer](#documentFaceRecognizer)
     * [Country-specific BlinkID recognizers](#blinkid_recognizers_countries)
         * [Australia](#blinkid_recognizers_australia)
@@ -82,7 +84,6 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
         * [Nigeria](#blinkid_recognizers_nigeria)
         * [Poland](#blinkid_recognizers_poland)
         * [Romania](#blinkid_recognizers_romania)
-        * [Serbia](#blinkid_recognizers_serbia)
         * [Singapore](#blinkid_recognizers_singapore)
         * [Slovakia](#blinkid_recognizers_slovakia)
         * [Slovenia](#blinkid_recognizers_slovenia)
@@ -185,7 +186,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.7.0@aar') {
+    implementation('com.microblink:blinkid:4.8.0@aar') {
         transitive = true
     }
 }
@@ -197,7 +198,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.7.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.8.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -269,15 +270,17 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.7.0</version>
+        <version>4.8.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
 ```
 ## <a name="quickScan"></a> Performing your first scan
-1. Before starting a recognition process, you need to obtain a license from [Microblink dashboard](https://microblink.com/login). After registering, you will be able to generate a trial license for your app. License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
+1. First you'll need to create an account at [Microblink dashboard](https://microblink.com/login) where you can generate a demo license for your app. License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
 
-    After creating a license, you will have the option to download the license as a file that you must place within your application's _assets_ folder. You must ensure that license key is set before instantiating any other classes from the SDK, otherwise you will get an exception at runtime. Therefore, we recommend that you extend [Android Application class](https://developer.android.com/reference/android/app/Application.html) and set the license in its [onCreate callback](https://developer.android.com/reference/android/app/Application.html#onCreate()) in the following way:
+    Download your licence file and put it in your application's _assets_ folder. Make sure to set the license key before using any other classes from the SDK, otherwise you will get a runtime exception. 
+    
+    We recommend that you extend [Android Application class](https://developer.android.com/reference/android/app/Application.html) and set the license in [onCreate callback](https://developer.android.com/reference/android/app/Application.html#onCreate()) like this:
 
     ```java
     public class MyApplication extends Application {
@@ -288,7 +291,9 @@ Open your `pom.xml` file and add these directives as appropriate:
     }
     ```
 
-2. In your main activity, create recognizer objects that will perform image recognition, configure them and store them into [RecognizerBundle object](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and about `RecognizerBundle` in chapter [RecognizerBundle and available recognizers](#availableRecognizers). For example, to scan Machine Readable Travel Document (MRTD), you can configure your recognizer object in the following way:
+2. In your main activity, create recognizer objects that will perform image recognition, configure them and put them into [RecognizerBundle object](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and `RecognizerBundle` [here](#availableRecognizers). 
+
+	For example, to scan Machine Readable Travel Document (MRTD), configure your recognizer like this:
 
     ```java
     public class MyActivity extends Activity {
@@ -310,7 +315,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     }
     ```
 
-3. You can start recognition process by starting `DocumentScanActivity` activity by creating `DocumentUISettings` and calling [`ActivityRunner.startActivityForResult`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/ActivityRunner.html#startActivityForResult-android.app.Activity-int-com.microblink.uisettings.UISettings-) method:
+3. Start recognition process by creating `DocumentUISettings` and calling [`ActivityRunner.startActivityForResult`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/ActivityRunner.html#startActivityForResult-android.app.Activity-int-com.microblink.uisettings.UISettings-):
 	
 	```java
 	// method within MyActivity from previous step
@@ -325,7 +330,7 @@ Open your `pom.xml` file and add these directives as appropriate:
 	}
 	```
 	
-4. After `DocumentScanActivity` activity finishes the scan, it will return to the calling activity or fragment and will call its method `onActivityResult`. You can obtain the scanning results in that method.
+4. `onActivityResult` will be called in your activity after scanning is finished, here you can get the scanning results.
 
 	```java
     @Override
@@ -335,7 +340,6 @@ Open your `pom.xml` file and add these directives as appropriate:
         if (requestCode == MY_REQUEST_CODE) {
             if (resultCode == DocumentScanActivity.RESULT_OK && data != null) {
                 // load the data into all recognizers bundled within your RecognizerBundle
-                
                 mRecognizerBundle.loadFromIntent(data);
                 
                 // now every recognizer object that was bundled within RecognizerBundle
@@ -989,7 +993,7 @@ Similarly, if you, for example, remove the `QuadDetectionCallback` from `Metadat
 
 **Remember**, each time you make some changes to `MetadataCallbacks` object, you need to apply those changes to to your `RecognizerRunner` or `RecognizerRunnerView` by calling its `setMetadataCallbacks` method.
 
-# <a name="availableRecognizers"></a> `Recogniezr` concept and `RecognizerBundle`
+# <a name="availableRecognizers"></a> `Recognizer` concept and `RecognizerBundle`
 
 This section will first describe [what is a `Recognizer`](#recognizerConcept) and how it should be used to perform recognition of the images, videos and camera stream. Next, [we will describe how `RecognizerBundle`](#recognizerBundle) can be used to tweak the recognition procedure and to transfer `Recognizer` objects between activities.
 
@@ -1087,6 +1091,15 @@ This recognizer can be used in any context. It is used internally in the impleme
 The [`DetectorRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/detector/DetectorRecognizer.html) is recognizer for scanning generic documents using custom `Detector`. You can find more about `Detector` in [The Detector concept](#detectorConcept) section. `DetectorRecognizer` can be used simply for document detection and obtaining its image. The more interesting use case is data extraction from the custom document type. `DetectorRecognizer` performs document detection and can be configured to extract fields of interest from the scanned document by using **Templating API**. You can find more about Templating API in [this](#detectorTemplating) section.  
 
 This recognizer can be used in any context, but it works best with the activity which has UI suited for document scanning.
+## <a name="blinkcard_recognizers"></a> BlinkCard recognizers
+
+BlinkCard recognizers work best with the [`BlinkCardActivity`](#blinkcardUiComponent), which has UI best suited for payment / debit card scanning. 
+
+### <a name="blink_card_combined"></a> BlinkCard recognizer
+The [`BlinkCardRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.html) scans back side of Payment / Debit card after scanning the front side and combines data from both sides. 
+
+### <a name="elite_blink_card_combined"></a> BlinkCardElite recognizer
+The [`BlinkCardEliteRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.html) scans back side of elite Payment / Debit card after scanning the front side and combines data from both sides.
 ## <a name="simNumberRecognizer"></a> SIM number recognizer
 
 The [`SimNumberRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/simnumber/SimNumberRecognizer.html) is a special type of barcode recognizer specifically tailored for performing recognition of barcodes on packagings of [SIM cards](https://en.wikipedia.org/wiki/Subscriber_identity_module). This recognizer is useful in combination with some ID recognizers in use cases when application requires quick scanning of SIM number on the packaging of new mobile network subscriber after scanning the new subscriber's identity document.
@@ -1130,24 +1143,6 @@ The [`EudlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
-
-### <a name="payment_card_recognizers"></a> Payment / Debit card recognizers 
-
-For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-
-#### <a name="payment_card_single"></a> Payment / Debit card front and back side recognizers
-The [`PaymentCardFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardFrontRecognizer.html) and [`PaymentCardBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardBackRecognizer.html) are used for scanning the [front and back side of Payment / Debit card](https://en.wikipedia.org/wiki/Payment_card).
-
-#### <a name="payment_card_combined"></a> Payment / Debit card combined recognizer
-The [`PaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/paymentcard/PaymentCardCombinedRecognizer.html) scans back side of Payment / Debit card after scanning the front side and combines data from both sides.
-
-#### <a name="elite_payment_card_single"></a> Elite Payment / Debit card front and back side recognizers
-The [`ElitePaymentCardFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardFrontRecognizer.html) and [`ElitePaymentCardBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardBackRecognizer.html) are used for scanning the front and back side of elite Payment / Debit card.
-
-#### <a name="elite_payment_card_combined"></a> Elite Payment / Debit card combined recognizer
-The [`ElitePaymentCardCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/elitepaymentcard/ElitePaymentCardCombinedRecognizer.html) scans back side of elite Payment / Debit card after scanning the front side and combines data from both sides.
-
-
 ### <a name="documentFaceRecognizer"></a> Document face recognizer
 The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/documentface/DocumentFaceRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
 
@@ -1187,6 +1182,9 @@ The [`AustriaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/m
 
 #### <a name="brunei_id"></a> Brunei ID front and back side recognizer
 The [`BruneiIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdFrontRecognizer.html) and [`BruneiIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiIdBackRecognizer.html) are used for scanning the front and back side of Bruneian identity card.
+
+#### <a name="brunei_military_id"></a> Brunei Military ID front and back side recognizer
+The [`BruneiMilitaryIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiMilitaryIdFrontRecognizer.html) and [`BruneiMilitaryIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiMilitaryIdBackRecognizer.html) are used for scanning the front and back side of Bruneian military identity card.
 
 #### <a name="brunei_residence_permit"></a> Brunei residence permit front and back side recognizer
 The [`BruneiResidencePermitFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitFrontRecognizer.html) and [`BruneiResidencePermitBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/brunei/BruneiResidencePermitBackRecognizer.html)  are used for scanning the front and back side of Bruneian residence permit.
@@ -1385,17 +1383,6 @@ The [`PolandCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/m
 The [`RomaniaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/romania/RomaniaIdFrontRecognizer.html) is used for scanning [front side of Romanian identity card](https://en.wikipedia.org/wiki/Romanian_identity_card).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-
-
-### <a name="blinkid_recognizers_serbia"></a> Serbia
-
-For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-
-#### <a name="serbia_id"></a> Serbia ID front and back side recognizers
-The [`SerbiaIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/serbia/SerbiaIdFrontRecognizer.html) and [`SerbiaIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/serbia/SerbiaIdBackRecognizer.html) are used for scanning the [front and back side of Serbian identity card](https://en.wikipedia.org/wiki/Serbian_identity_card).
-
-#### <a name="serbia_combined"></a> Serbia combined recognizer
-The [`SerbiaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/serbia/SerbiaCombinedRecognizer.html) scans back side of Serbian ID after scanning the front side and combines data from both sides.
 
 
 ### <a name="blinkid_recognizers_singapore"></a> Singapore
