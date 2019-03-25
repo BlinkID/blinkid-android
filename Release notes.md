@@ -1,5 +1,112 @@
 # Release notes
 
+## 4.8.0
+
+**Important notice on MRTD recognizer in the latest BlinkID SDK release (v4.8.0)**
+
+Please note that we have significantly improved accuracy for MRZ/MRTD scanning because now we switched to the newest OCR technology based on machine learning.
+To be more precise, we measured and compared existing vs. new MRTD scanning. The new OCR system based on machine learning achieves 99.9% accuracy on the character level, which results with a 50% reduction in the error rate in MRZ extraction.
+
+In order to use new *MrtdRecognizer* or *MrtdCombinedRecognizer* or to continue using any additional *Recognizer for scanning any ID with the MRZ (machine readable zone)* within the latest BlinkID SDK update, you *must* have a new license key. Before updating to the SDK version 4.8.0, please contact your account manager or send an email to support@microblink.com to obtain the *new production license key*.
+
+**Important notes**:
+
+- The MRTD scanning with the older BlinkID SDK versions (v4.7.0 and below) will continue to work without any problems - until you decide to update.
+- If you upgrade to the SDK version 4.8.0 without a new license key scanning of MRTD/MRZ documents will not work.
+- Contact us at support@microblink.com to obtain a new license key if you plan to update your app with the latest release.
+
+For any questions, you might have, we stand at your service.
+
+### New features:
+
+- added support for reading front and back side of Brunei Military ID - use `BruneiMilitaryIdFrontRecognizer` and `BruneiMilitaryIdBackRecognizer`
+
+### Improvements for existing features:
+
+- improved reading accuracy for all MRZ recognizers
+- added option to force overlay orientation for `DocumentOverlayController` (`DocumentScanActivity`) and `BarcodeOverlayController` (`BarcodeScanActivity`) - use `DocumentUISettings.setForcedOrientation(OverlayOrientation)` and `BarcodeUISettings.setForcedOrientation(OverlayOrientation)`
+
+### Minor API changes:
+
+- removed `SerbiaIdFrontRecognizer`, `SerbiaIdBackRecognizer` and `SerbiaCombinedRecognizer`
+- fields that are **not** deprecated anymore:
+    - Sweden DL - reference number
+    - Ireland DL - driver number
+    - Malaysia iKad - passport number
+    - Hong Kong ID - commercial code
+- deprecated the following methods in `UsdlRecognizer.Result` and `UsdlCombinedRecognizer.Result`: (they have been replaced with new getters):
+    - getField(UsdlKeys)
+    - getOptionalElements
+- added new getters to following results:
+    - `UsdlRecognizer.Result` and `UsdlCombinedRecognizer.Result`:
+        - `firstName`
+        - `lastName`
+        - `fullName`
+        - `address`
+        - `documentNumber`
+        - `sex`
+        - `restrictions`
+        - `endorsements`
+        - `vehicleClass`
+        - `dateOfBirth`
+        - `dateOfIssue`
+        - `dateOfExpiry`
+    - `MrzResult`:
+       - `sanitizedOpt1`
+       - `sanitizedOpt2`
+       - `sanitizedNationality`
+       - `sanitizedIssuer`
+- moved `SwedenDlFrontRecognizer` from package `com.microblink.entities.recognizers.blinkid.sweden.dl` to `com.microblink.entities.recognizers.blinkid.sweden`
+- renamed methods in the following recognizers and its results:
+    - `CzechiaCombinedRecognizer`:
+        - `lastName` to `surname`
+        - `firstName` to `givenNames`
+        - `identityCardNumber` to `documentNumber`
+        - `address` to `permanentStay`
+        - `issuingAuthority` to `authority`
+        - `personalIdentificationNumber` to `personalNumber`
+    - `GermanyCombinedRecognizer`:
+        - `lastName` to `surname`
+        - `firstName` to `givenNames`
+        - `identityCardNumber` to `documentNumber`
+        - `issuingAuthority` to `authority`
+        - `eyeColor` to `colourOfEyes`
+    - `JordanCombinedRecognizer`:
+        - `issuer` to `issuedBy`
+    - `PolandCombinedRecognizer`:
+        - `issuer` to `issuedBy`
+    - `RomaniaIdFrontRecognizer`:
+       - `lastName` to `surname`
+       - `cardNumber` to `documentNumber` from `MrzResult`
+       - `parentNames` to `parentName`
+       - `nonMRZNationality` to `nationality`
+       - `nonMRZSex` to `sex`
+       - `validFrom` to `dateOfIssue`
+       - `validUntil` to `dateOfExpiry`
+       - removed field `idSeries`
+       - removed field `cnp`
+       - MRZ fields are available through `MrzResult` which can be obtained by using getter `RomaniaIdFrontRecognizer.Result.getMrzResult()`
+    - `SlovakiaCombinedRecognizer`:
+       - `issuingAuthority` to `issuedBy`
+       - `personalIdentificationNumber` to `personalNumber`
+    - `SloveniaIdFrontRecognizer`:
+       - `lastName` to `surname`
+       - `firstName` to `givenNames`
+    - `SloveniaIdBackRecognizer`:
+       - `authority` to `administrativeUnit`
+       - MRZ fields are available through `MrzResult` which can be obtained by using getter `SloveniaIdBackRecognizer.Result.getMrzResult()`
+    - `SloveniaCombinedRecognizer`:
+       - `lastName` to `surname`
+       - `firstName` to `givenNames`
+       - `identityCardNumber` to `documentNumber`
+       - `citizenship` to `nationality`
+       - `issuingAuthority` to `administrativeUnit`
+       - `personalIdentificationNumber` to `pin`
+
+### Bug fixes:
+
+- fixed crashes on Nexus 6
+
 ## 4.7.0
 
 ### New features:

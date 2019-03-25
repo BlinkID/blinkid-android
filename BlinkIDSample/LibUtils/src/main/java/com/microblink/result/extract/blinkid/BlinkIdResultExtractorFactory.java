@@ -12,6 +12,8 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitBackRecognizer;
@@ -65,9 +67,6 @@ import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecogniz
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.romania.RomaniaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.serbia.SerbiaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeChangiEmployeeIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.singapore.SingaporeDlFrontRecognizer;
@@ -80,7 +79,7 @@ import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedReco
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.spain.SpainDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.sweden.dl.SwedenDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.sweden.SwedenDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandDlFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
@@ -100,6 +99,8 @@ import com.microblink.result.extract.blinkid.austria.AustrianIDFrontSideRecognit
 import com.microblink.result.extract.blinkid.austria.AustrianPassportRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiIdBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiIdFrontRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.brunei.BruneiMilitaryIdBackRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.brunei.BruneiMilitaryIdFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiResidencePermitBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiResidencePermitFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiTemporaryResidencePermitBackRecognitionResultExtractor;
@@ -153,9 +154,6 @@ import com.microblink.result.extract.blinkid.poland.PolishIDBackSideRecognitionR
 import com.microblink.result.extract.blinkid.poland.PolishIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDFrontSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.romania.RomanianIDFrontSideRecognitionResultExtractor;
-import com.microblink.result.extract.blinkid.serbia.SerbianIDBackRecognitionResultExtractor;
-import com.microblink.result.extract.blinkid.serbia.SerbianIDCombinedRecognitionResultExtractor;
-import com.microblink.result.extract.blinkid.serbia.SerbianIDFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.singapore.SingaporeChangiEmployeeIdRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.singapore.SingaporeCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.singapore.SingaporeDlFrontRecognitionResultExtractor;
@@ -190,10 +188,6 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new USDLResultExtractor());
         add(UsdlCombinedRecognizer.class,
                 new USDLCombinedResultExtractor());
-        add(SerbiaIdFrontRecognizer.class,
-                new SerbianIDFrontRecognitionResultExtractor());
-        add(SerbiaIdBackRecognizer.class,
-                new SerbianIDBackRecognitionResultExtractor());
         add(AustraliaDlFrontRecognizer.class,
                 new AustralianDLFrontSideRecognitionResultExtractor());
         add(AustraliaDlBackRecognizer.class,
@@ -220,6 +214,10 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new BruneiTemporaryResidencePermitFrontRecognitionResultExtractor());
         add(BruneiTemporaryResidencePermitBackRecognizer.class,
                 new BruneiTemporaryResidencePermitBackRecognitionResultExtractor());
+        add(BruneiMilitaryIdFrontRecognizer.class,
+                new BruneiMilitaryIdFrontRecognitionResultExtractor());
+        add(BruneiMilitaryIdBackRecognizer.class,
+                new BruneiMilitaryIdBackRecognitionResultExtractor());
         add(CroatiaIdFrontRecognizer.class,
                 new CroatianIDFrontSideRecognitionResultExtractor());
         add(CroatiaIdBackRecognizer.class,
@@ -332,8 +330,6 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new SlovenianIDBackSideRecognitionResultExtractor());
         add(SloveniaCombinedRecognizer.class,
                 new SlovenianIDCombinedRecognitionResultExtractor());
-        add(SerbiaCombinedRecognizer.class,
-                new SerbianIDCombinedRecognitionResultExtractor());
         add(SingaporeIdBackRecognizer.class,
                 new SingaporeIDBackRecognitionResultExtractor());
         add(SingaporeIdFrontRecognizer.class,

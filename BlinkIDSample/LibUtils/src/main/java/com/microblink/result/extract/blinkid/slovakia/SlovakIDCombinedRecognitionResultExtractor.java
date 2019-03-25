@@ -16,9 +16,9 @@ public class SlovakIDCombinedRecognitionResultExtractor extends BlinkIdExtractor
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPIssuedBy, result.getIssuingAuthority());
+        add(R.string.PPIssuedBy, result.getIssuedBy());
         add(R.string.PPIssueDate, result.getDateOfIssue());
-        add(R.string.PPPersonalNumber, result.getPersonalIdentificationNumber());
+        add(R.string.PPPersonalNumber, result.getPersonalNumber());
         add(R.string.PPSurnameAtBirth, result.getSurnameAtBirth());
         add(R.string.PPSpecialRemarks, result.getSpecialRemarks());
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());

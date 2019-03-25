@@ -14,7 +14,7 @@ public class JordanIDCombinedRecognitionResultExtractor extends BlinkIdExtractor
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPNationality, result.getNationality());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
-        add(R.string.PPIssuer, result.getIssuer());
+        add(R.string.PPIssuedBy, result.getIssuedBy());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPMRZVerified, result.isMrzVerified());
         add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());

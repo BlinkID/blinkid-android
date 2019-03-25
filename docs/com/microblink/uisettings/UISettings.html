@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":9,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -191,40 +191,49 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putSerializable-java.lang.String-java.io.Serializable-">putSerializable</a></span>(java.lang.String&nbsp;optionName,
+               java.io.Serializable&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a></span>(java.lang.String&nbsp;optionName,
          java.lang.String&nbsp;value)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a></span>(java.lang.String&nbsp;optionName,
            boolean&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a></span>(java.lang.String&nbsp;optionName,
            int&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected android.os.Parcelable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected android.os.Parcelable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a></span>(java.lang.String&nbsp;optionName,
               android.os.Parcelable&nbsp;defaultValue)</code>&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>protected java.io.Serializable</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readSerializable-java.lang.String-">readSerializable</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></span>(boolean&nbsp;usingFlagSecure)</code>
 <div class="block">Defines whether FLAG_SECURE on activity window, which indicates that the display has a secure
@@ -372,6 +381,29 @@ protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
                                                               java.lang.String&nbsp;optionName,
                                                               @NonNull
                                                               android.os.Parcelable&nbsp;defaultValue)</pre>
+</li>
+</ul>
+<a name="putSerializable-java.lang.String-java.io.Serializable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>putSerializable</h4>
+<pre>protected final&nbsp;void&nbsp;putSerializable(@NonNull
+                                     java.lang.String&nbsp;optionName,
+                                     @Nullable
+                                     java.io.Serializable&nbsp;value)</pre>
+</li>
+</ul>
+<a name="readSerializable-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>readSerializable</h4>
+<pre>@Nullable
+protected final&nbsp;java.io.Serializable&nbsp;readSerializable(@NonNull
+                                                                java.lang.String&nbsp;optionName)</pre>
 </li>
 </ul>
 <a name="putString-java.lang.String-java.lang.String-">
