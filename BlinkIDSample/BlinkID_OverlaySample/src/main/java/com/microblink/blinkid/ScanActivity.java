@@ -31,6 +31,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
             Intent intent = new Intent();
             saveResultsToIntent(intent);
 
+            // set result before finish scan activity
             switch (recognitionSuccessType) {
                 case SUCCESSFUL:
                     setResult(RESULT_OK, intent);
@@ -78,6 +79,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
 
     @Override
     public void onBackPressed() {
+        // user cancels scanning by pressing back button
         setResult(RESULT_CANCELED);
         super.onBackPressed();
     }
@@ -88,7 +90,11 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
         return scanningOverlay;
     }
 
-    protected void saveResultsToIntent(@NonNull Intent intent) {
+    /**
+     * Save scanning results from the bundle in intent for later usage.
+     * @param intent intent in which scan results will be saved.
+     */
+    private void saveResultsToIntent(@NonNull Intent intent) {
         scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
 
         RecognizerBundle bundle = uiSettings.getRecognizerBundle();

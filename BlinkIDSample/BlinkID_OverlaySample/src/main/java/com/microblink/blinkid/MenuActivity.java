@@ -42,8 +42,10 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
             recognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
 
             if (recognitionSuccessType == RecognitionSuccessType.SUCCESSFUL) {
+                // save results to intent
                 Intent intent = new Intent();
                 scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
+                // results from bundle can be saved directly to intent since we have access to bundle
                 bundle.saveToIntent(intent);
                 startResultActivity(intent);
 
@@ -91,6 +93,10 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         return items;
     }
 
+    /**
+     * Start scanning by using separate activity.
+     * @return item in menu list with defined action.
+     */
     private MenuListItem buildActivityScanItem() {
         return new MenuListItem(
                 "Use Activity",
@@ -98,6 +104,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
                     @Override
                     public void run() {
                         Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
+                        // scan activity intent should have recognizer bundle as part of intent extra
                         bundle.saveToIntent(intent);
                         startActivityForResult(intent, REQUEST_CODE);
                     }
@@ -105,6 +112,10 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         );
     }
 
+    /**
+     * Start scanning by using fragment on top of current activity instead of using separate activity.
+     * @return item in menu list with defined action.
+     */
     private MenuListItem buildFragmentScanItem() {
         return new MenuListItem(
                 "Use Fragment",
@@ -118,7 +129,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     }
 
     /**
-     * Starts scanning with the given overlay on {@link RecognizerRunnerFragment}.
+     * Starts scanning with the overlay on {@link RecognizerRunnerFragment}.
      */
     private void startScanningWithOverlay() {
         if (recognizerRunnerFragment == null) {
@@ -138,7 +149,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
 
     /**
      * This method is invoked after returning from scan activity. You can obtain
-     * scan results here
+     * scan results here.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -149,11 +160,19 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         }
     }
 
+    /**
+     * Starts build-in scan activity for showing scan results.
+     * @param data intent populated with scan results.
+     */
     private void startResultActivity(Intent data) {
         data.setComponent(new ComponentName(this, ResultActivity.class));
         startActivity(data);
     }
 
+    /**
+     *  This method is called when scanning fragment is closed, it removes view for scanning and
+     *  sets {@link RecognizerRunnerFragment} to null as a flag that scanning is done.
+     */
     private void finishScanning() {
         runOnUiThread(new Runnable() {
             @Override
