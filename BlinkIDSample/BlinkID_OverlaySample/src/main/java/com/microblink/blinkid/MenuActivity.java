@@ -12,6 +12,9 @@ import android.widget.FrameLayout;
 
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
+import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.DocumentOverlayController;
 import com.microblink.fragment.overlay.ScanningOverlay;
@@ -25,14 +28,25 @@ import java.util.List;
 
 public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
 
+    private static final int REQUEST_CODE = 137;
+
     private RecognizerRunnerFragment recognizerRunnerFragment;
-    private DocumentOverlayController overlayController;
+    private RecognizerBundle bundle;
+    private DocumentOverlayController scanningOverlay;
+    private DocumentUISettings uiSettings;
 
     private ScanResultListener scanResultListener = new ScanResultListener() {
         @Override
         public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+            // pause scanning to prevent new results while activity is being shut down
+            recognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
+
             if (recognitionSuccessType == RecognitionSuccessType.SUCCESSFUL) {
-                showResult(ScanUtil.extractResult());
+                Intent intent = new Intent();
+                scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
+                bundle.saveToIntent(intent);
+                startResultActivity(intent);
+
                 finishScanning();
             }
         }
@@ -45,6 +59,12 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         parent = findViewById(android.R.id.content);
+
+        Recognizer recognizer = new MrtdRecognizer();
+        bundle = new RecognizerBundle(recognizer);
+
+        uiSettings = new DocumentUISettings(bundle);
+        scanningOverlay = new DocumentOverlayController(uiSettings, scanResultListener);
     }
 
     @Override
@@ -65,39 +85,41 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(buildRecognizer());
-        items.add(buildFragmentRecognizer());
+        items.add(buildActivityScanItem());
+        items.add(buildFragmentScanItem());
 
         return items;
     }
 
-    private MenuListItem buildRecognizer() {
+    private MenuListItem buildActivityScanItem() {
         return new MenuListItem(
                 "Use Activity",
                 new Runnable() {
                     @Override
                     public void run() {
                         Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
-                        startActivityForResult(intent, ScanUtil.REQUEST_CODE);
+                        bundle.saveToIntent(intent);
+                        startActivityForResult(intent, REQUEST_CODE);
                     }
                 }
         );
     }
 
-    private MenuListItem buildFragmentRecognizer() {
+    private MenuListItem buildFragmentScanItem() {
         return new MenuListItem(
                 "Use Fragment",
                 new Runnable() {
                     @Override
                     public void run() {
-                        DocumentUISettings uiSettings = ScanUtil.createUISettings();
-                        overlayController = ScanUtil.createOverlayController(uiSettings, scanResultListener);
                         startScanningWithOverlay();
                     }
                 }
         );
     }
 
+    /**
+     * Starts scanning with the given overlay on {@link RecognizerRunnerFragment}.
+     */
     private void startScanningWithOverlay() {
         if (recognizerRunnerFragment == null) {
             scanLayout = LayoutInflater.from(this).inflate(R.layout.fragment_layout, parent, false);
@@ -114,16 +136,20 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         }
     }
 
+    /**
+     * This method is invoked after returning from scan activity. You can obtain
+     * scan results here
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (data != null && resultCode == Activity.RESULT_OK && requestCode == ScanUtil.REQUEST_CODE) {
-            showResult(data);
+        if (data != null && resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+            startResultActivity(data);
         }
     }
 
-    private void showResult(Intent data) {
+    private void startResultActivity(Intent data) {
         data.setComponent(new ComponentName(this, ResultActivity.class));
         startActivity(data);
     }
@@ -135,13 +161,13 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
                 parent.removeView(scanLayout);
             }
         });
-
+        getFragmentManager().popBackStack();
         recognizerRunnerFragment = null;
     }
 
     @NonNull
     @Override
     public ScanningOverlay getScanningOverlay() {
-        return overlayController;
+        return scanningOverlay;
     }
 }
