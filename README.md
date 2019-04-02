@@ -151,6 +151,7 @@ The package contains Android Archive (AAR) that contains everything you need to 
 - _BlinkID-DirectApiSample_ demonstrates how to perform scanning of [Android Bitmaps](https://developer.android.com/reference/android/graphics/Bitmap.html)
 - _BlinkID-ImagesSample_ demonstrates how to obtain document images.
 - _BlinkID-TemplatingSample_ shows how to use Templating API to implement support for scanning generic documents.
+- _BlinkID-OverlaySample_ demonstrates how to use `RecognizerRunnerFragment` and built in camera overlay controller within your activity
  
 The source code of all sample apps is given to you to show you how to perform integration of _BlinkID_ SDK into your app. You can use this source code and all resources as you wish. You can use sample apps as a basis for creating your own app, or you can copy/paste the code and/or resources from sample apps into your app and use them as you wish without even asking us for permission.
  
