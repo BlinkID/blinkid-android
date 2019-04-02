@@ -31,28 +31,9 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     private static final int REQUEST_CODE = 137;
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
-    private RecognizerBundle bundle;
+    private RecognizerBundle recognizerBundle;
     private DocumentOverlayController scanningOverlay;
     private DocumentUISettings uiSettings;
-
-    private ScanResultListener scanResultListener = new ScanResultListener() {
-        @Override
-        public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
-            // pause scanning to prevent new results while activity is being shut down
-            recognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
-
-            if (recognitionSuccessType == RecognitionSuccessType.SUCCESSFUL) {
-                // save results to intent
-                Intent intent = new Intent();
-                scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
-                // results from bundle can be saved directly to intent since we have access to bundle
-                bundle.saveToIntent(intent);
-                startResultActivity(intent);
-
-                finishScanning();
-            }
-        }
-    };
 
     private ViewGroup parent;
     private View scanLayout;
@@ -63,9 +44,10 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         parent = findViewById(android.R.id.content);
 
         Recognizer recognizer = new MrtdRecognizer();
-        bundle = new RecognizerBundle(recognizer);
+        ((MrtdRecognizer) recognizer).setReturnFullDocumentImage(true);
+        recognizerBundle = new RecognizerBundle(recognizer);
 
-        uiSettings = new DocumentUISettings(bundle);
+        uiSettings = new DocumentUISettings(recognizerBundle);
         scanningOverlay = new DocumentOverlayController(uiSettings, scanResultListener);
     }
 
@@ -104,8 +86,9 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
                     @Override
                     public void run() {
                         Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
-                        // scan activity intent should have recognizer bundle as part of intent extra
-                        bundle.saveToIntent(intent);
+                        // scan activity intent should have prepared ui settings with recognizer
+                        // bundle as part of intent extra
+                        uiSettings.saveToIntent(intent);
                         startActivityForResult(intent, REQUEST_CODE);
                     }
                 }
@@ -189,4 +172,24 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     public ScanningOverlay getScanningOverlay() {
         return scanningOverlay;
     }
+
+
+    private ScanResultListener scanResultListener = new ScanResultListener() {
+        @Override
+        public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
+            // pause scanning to prevent new results while finishing scanning
+            recognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
+
+            if (recognitionSuccessType == RecognitionSuccessType.SUCCESSFUL) {
+                // save results to intent
+                Intent intent = new Intent();
+                // recognizer bundle with results can be saved directly to intent for result activity,
+                // since we have access to bundle
+                recognizerBundle.saveToIntent(intent);
+                startResultActivity(intent);
+
+                finishScanning();
+            }
+        }
+    };
 }

@@ -1,6 +1,5 @@
 package com.microblink.blinkid;
 
-import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.DocumentOverlayController;
 import com.microblink.fragment.overlay.ScanningOverlay;
@@ -52,17 +50,13 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Intent intent = getIntent();
 
+        // DocumentUISettings object is expected in intent
         uiSettings = new DocumentUISettings(intent);
         scanningOverlay = new DocumentOverlayController(uiSettings, scanResultListener);
 
         // scanning overlay must be created before restoring fragment state
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_activity);
-
-        ActionBar ab = getActionBar();
-        if (ab != null) {
-            ab.setDisplayHomeAsUpEnabled(true);
-        }
 
         if (null == savedInstanceState) {
             // create fragment transaction to replace R.id.recognizer_runner_view_container with RecognizerRunnerFragment
@@ -95,11 +89,10 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
      * @param intent intent in which scan results will be saved.
      */
     private void saveResultsToIntent(@NonNull Intent intent) {
+        // save HighResImagesBundle, for cases when high res frames are enabled in ui settings
         scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
 
-        RecognizerBundle bundle = uiSettings.getRecognizerBundle();
-        if (bundle != null) {
-            bundle.saveToIntent(intent);
-        }
+        // save recognizer bundle to make it available for loading later
+        uiSettings.getRecognizerBundle().saveToIntent(intent);
     }
 }
