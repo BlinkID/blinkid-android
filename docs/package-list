@@ -60,6 +60,7 @@ com.microblink.entities.recognizers.blinkid.mexico
 com.microblink.entities.recognizers.blinkid.morocco
 com.microblink.entities.recognizers.blinkid.mrtd
 com.microblink.entities.recognizers.blinkid.newzealand
+com.microblink.entities.recognizers.blinkid.passport
 com.microblink.entities.recognizers.blinkid.poland
 com.microblink.entities.recognizers.blinkid.romania
 com.microblink.entities.recognizers.blinkid.singapore

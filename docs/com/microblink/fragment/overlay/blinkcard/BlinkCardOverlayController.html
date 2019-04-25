@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -245,22 +245,36 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setShowButtons-boolean-">setShowButtons</a></span>(boolean&nbsp;showTopButtons)</code>
 <div class="block">Sets whether the torch nad back buttons will be shown and available to user for changing the torch
  state and exiting the activity.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchButton-android.widget.ImageView-">setTorchButton</a></span>(android.widget.ImageView&nbsp;torchButton)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchState-boolean-">setTorchState</a></span>(boolean&nbsp;torchOn)</code>
 <div class="block">Turns the torch on or off.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html#setTorchStateListener-com.microblink.fragment.overlay.listener.verification.OverlayTorchStateListener-">setTorchStateListener</a></span>(<a href="../../../../../com/microblink/fragment/overlay/listener/verification/OverlayTorchStateListener.html" title="interface in com.microblink.fragment.overlay.listener.verification">OverlayTorchStateListener</a>&nbsp;torchStateListener)</code>
 <div class="block">Sets torch state listener that will be notified on every torch status change.</div>
@@ -272,7 +286,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/Bas
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.verification.<a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#setVerificationStepListener-com.microblink.fragment.overlay.verification.BaseVerificationOverlayController.VerificationStepListener-">setVerificationStepListener</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#createMetadataCallbacks--">createMetadataCallbacks</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#findString-int-java.lang.String-int-android.content.Context-">findString</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#getHighResImagesBundle--">getHighResImagesBundle</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onBackPressed--">onBackPressed</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onCameraPreviewStarted--">onCameraPreviewStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentResume--">onRecognizerRunnerFragmentResume</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerFragmentSaveInstanceState-android.os.Bundle-">onRecognizerRunnerFragmentSaveInstanceState</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#setVerificationStepListener-com.microblink.fragment.overlay.verification.BaseVerificationOverlayController.VerificationStepListener-">setVerificationStepListener</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -484,6 +498,47 @@ protected&nbsp;<a href="../../../../../com/microblink/fragment/overlay/verificat
 <dd>configuration for the additional verification step that can be performed in the verification
  flow in addition to the document recognizer step, or <code>null</code> if the additional
  verification step is not needed. In that case additional step will not be performed.</dd>
+</dl>
+</li>
+</ul>
+<a name="pauseScanning--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>pauseScanning</h4>
+<pre>public&nbsp;void&nbsp;pauseScanning()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">BaseVerificationOverlayController</a></code></span></div>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>. But keeps camera active.
+ If the  <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.
+
+ You can resume scanning by calling <a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--"><code>BaseVerificationOverlayController.resumeScanning()</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#pauseScanning--">pauseScanning</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="resumeScanning--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resumeScanning</h4>
+<pre>public&nbsp;void&nbsp;resumeScanning()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">BaseVerificationOverlayController</a></code></span></div>
+<div class="block">If the <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.
+
+ If the  <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html#resumeScanning--">resumeScanning</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/BaseVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">BaseVerificationOverlayController</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
