@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.microblink.entities.detectors.quad.QuadWithSizeDetector;
@@ -491,7 +492,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
 
         if (mBackButton != null) {
             // set margins for back button
-            FrameLayout.LayoutParams backButtonParams = (FrameLayout.LayoutParams) mBackButton.getLayoutParams();
+            LinearLayout.LayoutParams backButtonParams = (LinearLayout.LayoutParams) mBackButton.getLayoutParams();
             if (backButtonParams.leftMargin != horizontalMargin || backButtonParams.topMargin != verticalMargin) {
                 backButtonParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
                 mBackButton.setLayoutParams(backButtonParams);
@@ -500,7 +501,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
 
         if (mTorchButton != null) {
             // set margins for torch button
-            FrameLayout.LayoutParams torchButtonParams = (FrameLayout.LayoutParams) mTorchButton.getLayoutParams();
+            LinearLayout.LayoutParams torchButtonParams = (LinearLayout.LayoutParams) mTorchButton.getLayoutParams();
             if (torchButtonParams.leftMargin != horizontalMargin || torchButtonParams.topMargin != verticalMargin) {
                 torchButtonParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
                 mTorchButton.setLayoutParams(torchButtonParams);

@@ -86,6 +86,7 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
@@ -192,6 +193,7 @@ public class MenuActivity extends BaseMenuActivity {
 
         // ID document list entries
         items.add(buildMrtdElement());
+        items.add(buildPassportElement());
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
@@ -361,6 +363,18 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(mrtdRecogniezr);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecogniezr)));
+            }
+        });
+    }
+
+    private MenuListItem buildPassportElement() {
+        return new MenuListItem("Passport", new Runnable() {
+            @Override
+            public void run() {
+                PassportRecognizer passportRecogniezr = new PassportRecognizer();
+                ImageSettings.enableAllImages(passportRecogniezr);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecogniezr)));
             }
         });
     }
