@@ -57,6 +57,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
     * [BlinkID recognizers](#blinkid_recognizers)
         * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
         * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
+        * [Passport recognizer](#passportRecognizer)
         * [US / Canada driver's license barcode recognizer](#us_dl_recognizer)
         * [US / Canada driver's license combined recognizer](#us_dl_combined_recognizer)
         * [EU Driver's License recognizer](#eudlRecognizer)
@@ -187,7 +188,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.8.0@aar') {
+    implementation('com.microblink:blinkid:4.9.0@aar') {
         transitive = true
     }
 }
@@ -199,7 +200,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.8.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.9.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -271,7 +272,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.8.0</version>
+        <version>4.9.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
@@ -606,7 +607,7 @@ Within _BlinkID_ SDK there are several built-in activities and scanning overlays
 
 #### <a name="documentVerifyUiComponent"></a> `DocumentVerificationActivity` and `DocumentVerificationOverlayController`
 
-[`DocumentVerificationOverlayController `](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html) is overlay for [`RecognizerRunnerFragment`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/RecognizerRunnerFragment.html) best suited for **combined recognizers** because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It can also be used for single side scanning of ID cards, passports, driver's licenses, etc.
+[`DocumentVerificationOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html) is overlay for [`RecognizerRunnerFragment`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/RecognizerRunnerFragment.html) best suited for **combined recognizers** because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It can also be used for single side scanning of ID cards, passports, driver's licenses, etc.
 
 [`DocumentVerificationActivity`](https://blinkid.github.io/blinkid-android/com/microblink/activity/DocumentVerificationActivity.html) contains `RecognizerRunnerFragment` with [`DocumentVerificationOverlayController `](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html), which can be used out of the box to perform scanning using the default UI.
 
@@ -1122,6 +1123,11 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="mrtd_combined_recognizer"></a> Machine Readable Travel Document combined recognizer
 The [`MrtdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.html) scans Machine Readable Zone (MRZ) after scanning the full document image and face image (usually MRZ is on the back side and face image is on the front side of the document). Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [MrtdRecognizer](#mrtdRecognizer) for scanning the MRZ.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+### <a name="passportRecognizer"></a> Passport recognizer
+The [`PassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various passport documents. This recognizer also returns face image from the passport.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -2054,7 +2060,7 @@ This usually happens when you attempt to transfer standalone `Result` that conta
 
 In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
 # <a name="info"></a> Additional info
-Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android/index.html). 
+Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android). 
 
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
 

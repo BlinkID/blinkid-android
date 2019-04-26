@@ -24,6 +24,7 @@ public class GermanIDCombinedRecognitionResultExtractor extends BlinkIdExtractor
         add(R.string.PPMRZVerified, result.isMrzVerified());
         add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
         add(R.string.PPCANNumber, result.getCanNumber());
+        add(R.string.PPMRZText, result.getRawMrzString());
     }
 
 }

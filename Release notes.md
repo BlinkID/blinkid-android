@@ -1,5 +1,30 @@
 # Release notes
 
+## 4.9.0
+
+### New features:
+
+- added support for reading all passports with MRZ - use `PassportRecognizer`
+
+### Improvements for existing features:
+
+- added `tryBothOrientations` option to `DocumentFaceRecognizer` which defines whether document will be scanned in both orientations (normal and upside down)
+- `GermanyCombinedRecognizer.Result`:
+    - added getter for the full MRZ string: `getRawMrzString`
+- added support for reading commercial code in two rows for `HongKongIdFrontRecognizer`
+- added support for `HongKongIdFrontRecognizer` 2018 version
+- improved reading accuracy for the following recognizers (**DeepOCR** support):
+`MalaysiaIKadFrontRecognizer`
+- improved scanning time of all Malaysian ID front recognizers: `MalaysiaMyKadFrontRecognizer`, `MalaysiaMyKasFrontRecognizer`, `MalaysiaMyPrFrontRecognizer`, `MalaysiaMyTenteraFrontRecognizer`
+
+### Minor API changes:
+
+- Scanning timeout that can be configured by using `RecognizerBundle.setNumMsBeforeTimeout` is by default set to `RecognizerBundle.TIMEOUT_INFINITY`, which means that timeout is disabled by default. Previous default timeout value was 10 seconds.
+
+### Bug fixes:
+
+- DPI options on images are now correctly applied to dewarped image results in `DocumentFaceRecognizer.Result`
+
 ## 4.8.0
 
 **Important notice on MRTD recognizer in the latest BlinkID SDK release (v4.8.0)**

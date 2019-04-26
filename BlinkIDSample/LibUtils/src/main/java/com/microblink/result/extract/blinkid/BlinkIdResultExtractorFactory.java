@@ -63,6 +63,7 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
@@ -150,6 +151,7 @@ import com.microblink.result.extract.blinkid.morocco.MoroccoIdFrontRecognitionRe
 import com.microblink.result.extract.blinkid.mrtd.MRTDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.mrtd.MrtdRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.newzealand.NewZealandDLFrontSideRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.passport.PassportResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDFrontSideRecognitionResultExtractor;
@@ -312,6 +314,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new BlinkCardRecognitionResultExtractor());
         add(BlinkCardEliteRecognizer.class,
                 new BlinkCardEliteRecognitionResultExtractor());
+        add(PassportRecognizer.class,
+                new PassportResultExtractor());
         add(PolandIdBackRecognizer.class,
                 new PolishIDBackSideRecognitionResultExtractor());
         add(PolandIdFrontRecognizer.class,
