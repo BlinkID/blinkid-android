@@ -241,5 +241,8 @@
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
     <string name="PPAdministrativeUnit">Administrative Unit</string>
     <string name="PPRank">Rank</string>
+    <string name="PPRestrictions">Restrictions</string>
+    <string name="PPEndorsements">Endorsements</string>
+    <string name="PPVehicleClass">Vehicle Class</string>
 
 </resources>

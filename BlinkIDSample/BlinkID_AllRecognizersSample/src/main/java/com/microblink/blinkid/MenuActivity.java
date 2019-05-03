@@ -474,6 +474,7 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(colombiaFront);
 
                 ColombiaIdBackRecognizer colombiaBack = new ColombiaIdBackRecognizer();
+                ImageSettings.enableAllImages(colombiaBack);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(colombiaFront, colombiaBack)));
             }
