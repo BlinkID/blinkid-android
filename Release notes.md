@@ -1,5 +1,13 @@
 # Release notes
 
+## 4.9.1
+
+### Bug fixes:
+
+- fixed bug in `DocumentFaceRecognizer` which caused that DPI settings has not been applied to dewarped images
+- fixed bug in `DocumentVerificationOverlayController`/`DocumentVerificationActivity` - alert dialog has not been shown in cases when front and back side of the scanned document don't match
+- `ColombiaIdBackRecognizer` - fixed result strings encoding problem
+
 ## 4.9.0
 
 ### New features:
