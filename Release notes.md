@@ -32,6 +32,7 @@
 ### Bug fixes:
 
 - DPI options on images are now correctly applied to dewarped image results in `DocumentFaceRecognizer.Result`
+- fixed a validation issue for the gender field in `SloveniaCombinedRecognizer`
 
 ## 4.8.0
 
