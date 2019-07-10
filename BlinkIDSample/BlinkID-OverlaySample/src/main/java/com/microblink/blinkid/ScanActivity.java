@@ -8,8 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.microblink.fragment.RecognizerRunnerFragment;
-import com.microblink.fragment.overlay.DocumentOverlayController;
 import com.microblink.fragment.overlay.ScanningOverlay;
+import com.microblink.fragment.overlay.basic.BasicOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.uisettings.DocumentUISettings;
 import com.microblink.view.recognition.ScanResultListener;
@@ -17,7 +17,7 @@ import com.microblink.view.recognition.ScanResultListener;
 public class ScanActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
-    private DocumentOverlayController scanningOverlay;
+    private BasicOverlayController scanningOverlay;
     private DocumentUISettings uiSettings;
 
     private ScanResultListener scanResultListener = new ScanResultListener() {
@@ -52,7 +52,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
 
         // DocumentUISettings object is expected in intent
         uiSettings = new DocumentUISettings(intent);
-        scanningOverlay = new DocumentOverlayController(uiSettings, scanResultListener);
+        scanningOverlay = new BasicOverlayController(uiSettings.toOverlaySettings(this), scanResultListener);
 
         // scanning overlay must be created before restoring fragment state
         super.onCreate(savedInstanceState);

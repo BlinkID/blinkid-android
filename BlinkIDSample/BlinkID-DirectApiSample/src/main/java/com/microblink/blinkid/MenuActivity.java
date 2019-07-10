@@ -1,6 +1,7 @@
 package com.microblink.blinkid;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
-import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.customcamera.Camera1Activity;
 import com.microblink.blinkid.customcamera.camera2.Camera2Activity;
 import com.microblink.blinkid.demo.R;
@@ -111,7 +111,7 @@ public class MenuActivity extends BaseMenuActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MY_REQUEST_CODE && resultCode == BaseScanActivity.RESULT_OK) {
+        if (requestCode == MY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
             if (!(result instanceof MrtdRecognizer.Result)) {

@@ -45,7 +45,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
@@ -647,7 +646,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
             // return results
             Intent intent = new Intent();
             mRecognizerBundle.saveToIntent(intent);
-            getActivity().setResult(BaseScanActivity.RESULT_OK, intent);
+            getActivity().setResult(Activity.RESULT_OK, intent);
             getActivity().finish();
         } else {
             try {

@@ -33,12 +33,12 @@ public class ResultFormater {
         return builder.toString().trim();
     }
 
-    public static String stringifyRecognitionResults(Recognizer<?,?>[] recognizers) {
+    public static String stringifyRecognitionResults(Recognizer<?>[] recognizers) {
         StringBuilder sb = new StringBuilder();
         if (recognizers == null) {
             return "";
         }
-        for (Recognizer<?,?> rec : recognizers) {
+        for (Recognizer<?> rec : recognizers) {
             if (rec.getResult().getResultState() != Recognizer.Result.State.Empty) {
                 sb.append(rec.getResult().getClass().getSimpleName());
                 sb.append(":\n");
@@ -50,7 +50,7 @@ public class ResultFormater {
         return sb.toString();
     }
 
-    public static CharSequence getRecognizerSimpleName(Recognizer<?, ?> recognizer) {
+    public static CharSequence getRecognizerSimpleName(Recognizer<?> recognizer) {
         if (recognizer instanceof SuccessFrameGrabberRecognizer) {
             return getRecognizerSimpleName(((SuccessFrameGrabberRecognizer) recognizer).getSlaveRecognizer());
         } else {

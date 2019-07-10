@@ -21,7 +21,7 @@ public class TemplateDataExtractor {
     private RecognitionResultEntry.Builder mBuilder;
     private List<RecognitionResultEntry> mExtractedData;
 
-    public List<RecognitionResultEntry> extract(Context context, TemplatingRecognizer<?, ?> templatingRecognizer) {
+    public List<RecognitionResultEntry> extract(Context context, TemplatingRecognizer<?> templatingRecognizer) {
         mExtractedData = new ArrayList<>();
         mBuilder = new RecognitionResultEntry.Builder(context);
         // add class (if found)

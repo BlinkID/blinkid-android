@@ -12,11 +12,12 @@ public class SlovenianIDCombinedRecognitionResultExtractor extends BlinkIdExtrac
         add(R.string.PPGivenNames, result.getGivenNames());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
-        add(R.string.PPCitizenship, result.getNationality());
+        add(R.string.PPNationality, result.getNationality());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPIssuingAuthority, result.getAdministrativeUnit());
+        add(R.string.PPAdministrativeUnit, result.getAdministrativeUnit());
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPPersonalNumber, result.getPin());
         add(R.string.PPMRZVerified, result.isMrzVerified());

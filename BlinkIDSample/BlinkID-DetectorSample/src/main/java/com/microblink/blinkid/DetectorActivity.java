@@ -232,7 +232,7 @@ public class DetectorActivity extends Activity implements CameraEventsListener, 
         });
 
         // camera overlay
-        View overlay = getLayoutInflater().inflate(R.layout.mb_default_barcode_camera_overlay, null);
+        View overlay = getLayoutInflater().inflate(R.layout.mb_default_camera_overlay, null);
 
         mTorchButton = overlay.findViewById(R.id.defaultTorchButton);
         mBackButton = overlay.findViewById(R.id.defaultBackButton);

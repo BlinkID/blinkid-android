@@ -14,7 +14,7 @@
         android:drawablePadding="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:padding="6dp"
-        android:text="@string/mb_align"
+        android:text="@string/msg_align"
         android:minHeight="1dp"
         android:minWidth="1dp"
         android:textColor="@color/mb_status_foreground"

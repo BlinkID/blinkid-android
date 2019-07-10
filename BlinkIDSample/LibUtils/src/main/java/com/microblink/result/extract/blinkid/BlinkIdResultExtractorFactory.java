@@ -34,6 +34,8 @@ import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyDlFrontRecognizer;
@@ -63,6 +65,7 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.nigeria.NigeriaVoterIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
@@ -122,6 +125,8 @@ import com.microblink.result.extract.blinkid.czechia.CzechIDFrontSideRecognition
 import com.microblink.result.extract.blinkid.documentface.DocumentFaceRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.egypt.EgyptIDFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.eudl.EUDriversLicenceRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.generic.BlinkIDCombinedRecognizerResultExtractor;
+import com.microblink.result.extract.blinkid.generic.BlinkIDRecognizerResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanDLBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.germany.GermanIDCombinedRecognitionResultExtractor;
@@ -151,6 +156,7 @@ import com.microblink.result.extract.blinkid.morocco.MoroccoIdFrontRecognitionRe
 import com.microblink.result.extract.blinkid.mrtd.MRTDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.mrtd.MrtdRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.newzealand.NewZealandDLFrontSideRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.nigeria.NigeriaVoterIdBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.passport.PassportResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDBackSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.poland.PolishIDCombinedRecognitionResultExtractor;
@@ -204,6 +210,10 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new AustrianIDCombinedRecognitionResultExtractor());
         add(AustriaPassportRecognizer.class,
                 new AustrianPassportRecognitionResultExtractor());
+        add(BlinkIdRecognizer.class,
+                new BlinkIDRecognizerResultExtractor());
+        add(BlinkIdCombinedRecognizer.class,
+                new BlinkIDCombinedRecognizerResultExtractor());
         add(BruneiIdFrontRecognizer.class,
                 new BruneiIdFrontRecognitionResultExtractor());
         add(BruneiIdBackRecognizer.class,
@@ -314,6 +324,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new BlinkCardRecognitionResultExtractor());
         add(BlinkCardEliteRecognizer.class,
                 new BlinkCardEliteRecognitionResultExtractor());
+        add(NigeriaVoterIdBackRecognizer.class,
+                new NigeriaVoterIdBackRecognitionResultExtractor());
         add(PassportRecognizer.class,
                 new PassportResultExtractor());
         add(PolandIdBackRecognizer.class,

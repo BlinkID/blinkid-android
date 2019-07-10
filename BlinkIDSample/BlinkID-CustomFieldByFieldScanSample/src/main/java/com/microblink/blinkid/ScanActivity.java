@@ -347,7 +347,7 @@ public class ScanActivity extends Activity implements CameraEventsListener, Scan
         FieldByFieldElement scanElement = mFieldByFieldElements[mSelectedElement];
 
         // obtain result of the currently active parser
-        Parser.Result<?> parserResult = scanElement.getParser().getResult();
+        Parser.Result parserResult = scanElement.getParser().getResult();
 
         if (parserResult.getResultState() == Parser.Result.State.Valid) {
             final String resultString = parserResult.toString().trim();

@@ -6,7 +6,7 @@ import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.BaseResultExtractor;
 
-public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<?, ResultType>> extends BaseResultExtractor<ResultType, RecognizerType> {
+public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<ResultType>> extends BaseResultExtractor<ResultType, RecognizerType> {
 
     @Override
     protected void onDataExtractionDone(ResultType result) {
