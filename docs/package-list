@@ -43,6 +43,7 @@ com.microblink.entities.recognizers.blinkid.digitalsignature
 com.microblink.entities.recognizers.blinkid.documentface
 com.microblink.entities.recognizers.blinkid.egypt
 com.microblink.entities.recognizers.blinkid.eudl
+com.microblink.entities.recognizers.blinkid.generic
 com.microblink.entities.recognizers.blinkid.germany
 com.microblink.entities.recognizers.blinkid.hongkong
 com.microblink.entities.recognizers.blinkid.imageoptions
@@ -60,6 +61,7 @@ com.microblink.entities.recognizers.blinkid.mexico
 com.microblink.entities.recognizers.blinkid.morocco
 com.microblink.entities.recognizers.blinkid.mrtd
 com.microblink.entities.recognizers.blinkid.newzealand
+com.microblink.entities.recognizers.blinkid.nigeria
 com.microblink.entities.recognizers.blinkid.passport
 com.microblink.entities.recognizers.blinkid.poland
 com.microblink.entities.recognizers.blinkid.romania
@@ -81,11 +83,17 @@ com.microblink.entities.recognizers.templating.parcelization
 com.microblink.entities.settings
 com.microblink.fragment
 com.microblink.fragment.overlay
-com.microblink.fragment.overlay.blinkcard
+com.microblink.fragment.overlay.basic
+com.microblink.fragment.overlay.blinkid
+com.microblink.fragment.overlay.blinkid.reticleui
 com.microblink.fragment.overlay.components
-com.microblink.fragment.overlay.listener
-com.microblink.fragment.overlay.listener.verification
+com.microblink.fragment.overlay.components.debug
+com.microblink.fragment.overlay.components.feedback
+com.microblink.fragment.overlay.components.settings
+com.microblink.fragment.overlay.components.statusmsg
+com.microblink.fragment.overlay.fieldbyfield
 com.microblink.fragment.overlay.verification
+com.microblink.fragment.overlay.verification.settings
 com.microblink.geometry
 com.microblink.hardware
 com.microblink.hardware.accelerometer

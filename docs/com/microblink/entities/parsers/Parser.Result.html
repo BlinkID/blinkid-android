@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -206,22 +206,28 @@ extends <a href="../../../../com/microblink/entities/Entity.Result.html" title="
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>abstract <a href="../../../../com/microblink/entities/parsers/Parser.Result.html" title="class in com.microblink.entities.parsers">Parser.Result</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/parsers/Parser.Result.html#clone--">clone</a></span>()</code>
+<div class="block">Create a copy of the result.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../../com/microblink/entities/parsers/Parser.Result.State.html" title="class in com.microblink.entities.parsers">Parser.Result.State</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/parsers/Parser.Result.html#getResultState--">getResultState</a></span>()</code>
 <div class="block">Returns the state of the parser result.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/parsers/Parser.Result.html#isEmpty--">isEmpty</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/parsers/Parser.Result.html#toString--">toString</a></span>()</code>
 <div class="block">Returns extracted result string.</div>
@@ -233,7 +239,7 @@ extends <a href="../../../../com/microblink/entities/Entity.Result.html" title="
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.entities.<a href="../../../../com/microblink/entities/Entity.Result.html" title="class in com.microblink.entities">Entity.Result</a></h3>
-<code><a href="../../../../com/microblink/entities/Entity.Result.html#clone--">clone</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#describeContents--">describeContents</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#deserializeFromByteArray-byte:A-">deserializeFromByteArray</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#finalize--">finalize</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#getNativeContext--">getNativeContext</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#readFromParcel-android.os.Parcel-">readFromParcel</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#serializeToByteArray--">serializeToByteArray</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#terminateNative-long-">terminateNative</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code></li>
+<code><a href="../../../../com/microblink/entities/Entity.Result.html#describeContents--">describeContents</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#deserializeFromByteArray-byte:A-">deserializeFromByteArray</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#finalize--">finalize</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#getNativeContext--">getNativeContext</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#readFromParcel-android.os.Parcel-">readFromParcel</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#serializeToByteArray--">serializeToByteArray</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#terminateNative-long-">terminateNative</a>, <a href="../../../../com/microblink/entities/Entity.Result.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -273,6 +279,25 @@ extends <a href="../../../../com/microblink/entities/Entity.Result.html" title="
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="clone--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>clone</h4>
+<pre>@NonNull
+public abstract&nbsp;<a href="../../../../com/microblink/entities/parsers/Parser.Result.html" title="class in com.microblink.entities.parsers">Parser.Result</a>&nbsp;clone()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../com/microblink/entities/Entity.Result.html#clone--">Entity.Result</a></code></span></div>
+<div class="block">Create a copy of the result.
+ This is required in order to retain the result even after owning entity has mutated it.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../com/microblink/entities/Entity.Result.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../com/microblink/entities/Entity.Result.html" title="class in com.microblink.entities">Entity.Result</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>a copy of the result</dd>
+</dl>
+</li>
+</ul>
 <a name="getResultState--">
 <!--   -->
 </a>

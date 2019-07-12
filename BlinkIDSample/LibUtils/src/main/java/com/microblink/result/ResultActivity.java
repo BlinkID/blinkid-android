@@ -68,7 +68,7 @@ public class ResultActivity extends FragmentActivity implements
             case RECOGNIZER_BUNDLE:
                 mRecognizersWithResult = new ArrayList<>();
                 mRecognizerBundle.loadFromIntent(intent);
-                for ( Recognizer< Recognizer, Recognizer.Result > r : mRecognizerBundle.getRecognizers() ) {
+                for ( Recognizer< Recognizer.Result > r : mRecognizerBundle.getRecognizers() ) {
                     if ( r.getResult().getResultState() != Recognizer.Result.State.Empty ) {
                         mRecognizersWithResult.add( r );
                     }
@@ -114,7 +114,7 @@ public class ResultActivity extends FragmentActivity implements
     }
 
     @Override
-    public Recognizer< Recognizer, Recognizer.Result > getRecognizerAtPosition(int resultPosition) {
+    public Recognizer<Recognizer.Result> getRecognizerAtPosition(int resultPosition) {
         if (resultPosition < 0 || resultPosition >= mRecognizersWithResult.size()) {
             throw new IllegalStateException("Recognizer with non empty result on requested position"
                     + " does not exist. Possible cause is that recognizer bundle state has been lost"

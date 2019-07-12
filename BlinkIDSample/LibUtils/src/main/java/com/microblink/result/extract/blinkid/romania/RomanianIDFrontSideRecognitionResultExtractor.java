@@ -18,6 +18,7 @@ public class RomanianIDFrontSideRecognitionResultExtractor extends BlinkIdExtrac
         add(R.string.PPIssuingAuthority, result.getIssuedBy());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPNationality, result.getNationality());
+        add(R.string.PPCNP, result.getCnpNumber());
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
     }

@@ -16,8 +16,8 @@ import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
-import com.microblink.fragment.overlay.DocumentOverlayController;
 import com.microblink.fragment.overlay.ScanningOverlay;
+import com.microblink.fragment.overlay.basic.BasicOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.DocumentUISettings;
@@ -32,7 +32,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
     private RecognizerBundle recognizerBundle;
-    private DocumentOverlayController scanningOverlay;
+    private BasicOverlayController scanningOverlay;
     private DocumentUISettings uiSettings;
 
     private ViewGroup parent;
@@ -48,7 +48,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         recognizerBundle = new RecognizerBundle(recognizer);
 
         uiSettings = new DocumentUISettings(recognizerBundle);
-        scanningOverlay = new DocumentOverlayController(uiSettings, scanResultListener);
+        scanningOverlay = new BasicOverlayController(uiSettings.toOverlaySettings(this), scanResultListener);
     }
 
     @Override

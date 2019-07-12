@@ -58,6 +58,8 @@ import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecogni
 import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
 import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.germany.GermanyDlFrontRecognizer;
@@ -86,6 +88,7 @@ import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecogniz
 import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.nigeria.NigeriaVoterIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
@@ -116,8 +119,9 @@ import com.microblink.help.HelpActivity;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BarcodeUISettings;
-import com.microblink.uisettings.BaseScanUISettings;
+import com.microblink.uisettings.BasicScanUISettings;
 import com.microblink.uisettings.BlinkCardUISettings;
+import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.uisettings.DocumentUISettings;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 import com.microblink.uisettings.FieldByFieldUISettings;
@@ -192,6 +196,8 @@ public class MenuActivity extends BaseMenuActivity {
         List<MenuListItem> items = new ArrayList<>();
 
         // ID document list entries
+        items.add(buildBlinkIdElement());
+        items.add(buildBlinkIdCombinedElement());
         items.add(buildMrtdElement());
         items.add(buildPassportElement());
         items.add(buildAustrianIDElement());
@@ -224,6 +230,7 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildMyPrElement());
         items.add(buildMyKasElement());
         items.add(buildMoroccoIDElement());
+        items.add(buildNigeriaVoterIdBackElement());
         items.add(buildPolishIdElement());
         items.add(buildPolishIdCombinedElement());
         items.add(buildRomanianElement());
@@ -340,7 +347,7 @@ public class MenuActivity extends BaseMenuActivity {
             // barcode recognizer is active.
             ((OcrResultDisplayUIOptions) settings).setOcrResultDisplayMode(OcrResultDisplayMode.ANIMATED_DOTS);
         }
-        if (settings instanceof BaseScanUISettings) {
+        if (settings instanceof BasicScanUISettings) {
             // If you want you can have scan activity display the focus rectangle whenever camera
             // attempts to focus, similarly to various camera app's touch to focus effect.
             // By default this is off, and you can turn this on by setting EXTRAS_SHOW_FOCUS_RECTANGLE
@@ -350,8 +357,20 @@ public class MenuActivity extends BaseMenuActivity {
             // If you want, you can enable the pinch to zoom feature of scan activity.
             // By enabling this you allow the user to use the pinch gesture to zoom the camera.
             // By default this is off
-            ((BaseScanUISettings) settings).setPinchToZoomAllowed(true);
+            ((BasicScanUISettings) settings).setPinchToZoomAllowed(true);
         }
+    }
+
+    private MenuListItem buildBlinkIdElement() {
+        return new MenuListItem("BlinkId", new Runnable() {
+            @Override
+            public void run() {
+                BlinkIdRecognizer blinkidRecognizer = new BlinkIdRecognizer();
+                ImageSettings.enableAllImages(blinkidRecognizer);
+
+                scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkidRecognizer)));
+            }
+        });
     }
 
     private MenuListItem buildMrtdElement() {
@@ -727,6 +746,18 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildNigeriaVoterIdBackElement() {
+        return new MenuListItem("Nigeria Voter ID back", new Runnable() {
+            @Override
+            public void run() {
+                NigeriaVoterIdBackRecognizer nigeriaVoterIdBack = new NigeriaVoterIdBackRecognizer();
+                ImageSettings.enableAllImages(nigeriaVoterIdBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(nigeriaVoterIdBack)));
+            }
+        });
+    }
+
     private MenuListItem buildPolishIdElement() {
         return new MenuListItem("Polish ID", new Runnable() {
             @Override
@@ -1049,6 +1080,17 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
+    private MenuListItem buildBlinkIdCombinedElement() {
+        return new MenuListItem("BlinkId Combined", new Runnable() {
+            @Override
+            public void run() {
+                BlinkIdCombinedRecognizer blinkIdCombined = new BlinkIdCombinedRecognizer();
+                ImageSettings.enableAllImages(blinkIdCombined);
+                scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkIdCombined)));
+            }
+        });
+    }
+
     private MenuListItem buildAustrianIDCombinedElement() {
         return new MenuListItem("Austrian Combined", new Runnable() {
             @Override
@@ -1199,7 +1241,6 @@ public class MenuActivity extends BaseMenuActivity {
                 Pdf417Recognizer pdf417Recognizer = new Pdf417Recognizer();
 
                 BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(pdf417Recognizer));
-                activitySettings.setShowDialogAfterScan(false);
 
                 scanAction(activitySettings);
             }
@@ -1225,7 +1266,6 @@ public class MenuActivity extends BaseMenuActivity {
                 barcode.setScanUpce(true);
 
                 BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(barcode));
-                activitySettings.setShowDialogAfterScan(false);
 
                 scanAction(activitySettings);
             }
@@ -1239,7 +1279,6 @@ public class MenuActivity extends BaseMenuActivity {
                 SimNumberRecognizer simNumberRecognizer = new SimNumberRecognizer();
 
                 BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(simNumberRecognizer));
-                activitySettings.setShowDialogAfterScan(false);
 
                 scanAction(activitySettings);
             }
@@ -1253,7 +1292,6 @@ public class MenuActivity extends BaseMenuActivity {
                 VinRecognizer vinRecognizer = new VinRecognizer();
 
                 BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(vinRecognizer));
-                activitySettings.setShowDialogAfterScan(false);
 
                 scanAction(activitySettings);
             }
@@ -1295,7 +1333,7 @@ public class MenuActivity extends BaseMenuActivity {
         return new Intent(this, HelpActivity.class);
     }
 
-    private RecognizerBundle prepareRecognizerBundle(@NonNull Recognizer<?,?>... recognizers ) {
+    private RecognizerBundle prepareRecognizerBundle(@NonNull Recognizer<?>... recognizers ) {
         return new RecognizerBundle(recognizers);
     }
 

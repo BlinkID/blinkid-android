@@ -10,7 +10,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
-import com.microblink.activity.BaseScanActivity;
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
@@ -155,7 +154,7 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
             // return results
             Intent intent = new Intent();
             mRecognizerBundle.saveToIntent(intent);
-            setResult(BaseScanActivity.RESULT_OK, intent);
+            setResult(Activity.RESULT_OK, intent);
             finish();
         } else {
             if (mCamera != null) {

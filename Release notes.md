@@ -1,5 +1,50 @@
 # Release notes
 
+## 4.10.0
+
+### New features:
+- added `BlinkIdRecognizer` for scanning front side of ID cards and `BlinkIdCombinedRecognizer` for combined scanning of front and back side of ID cards
+    - for now, these recognizers classify and extract data from **87** different classes of **United States driver's licenses and IDs** (front and back side)
+    - list of all supported document types can be found [here](https://github.com/BlinkID/blinkid-android/tree/master/documentation/BlinkIDRecognizer.md)
+    - in the upcoming releases, we are planning to add support for more document types from different countries
+- completely new UX for scanning ID cards with new scan activity and overlay: `BlinkIdActivity` and `BlinkIdOverlayController`:
+    -  best suited for scanning with `BlinkIdRecognizer` and `BlinkIdCombinedRecognizer`
+    - other single side and combined document recognizers are also supported
+- added support for reading back side of Nigerian Voter ID card - use `NigeriaVoterIdBackRecognizer`
+
+### Improvements for existing features:
+- improved `RomaniaIdFrontRecognizer`
+    - now extracts `CNP` number
+- improved `SloveniaIdFrontRecognizer` and `SloveniaCombinedRecognizer`:
+    - return boolean flag which indicates whether **date of expiry** is permanent - use `SloveniaIdFrontRecognizer.Result.isDateOfExpiryPermanent()` and `SloveniaCombinedRecognizer.Result.isDateOfExpiryPermanent()`
+- improved `GermanyPassportRecognizer`:
+    - better passport classification
+- improved `ColombiaIdFrontRecognizer`:
+    - support for document number in format 1-3-3
+- improved `SlovakiaIdFrontRecognizer`:
+    - support for German letters
+- Malaysia:
+    - `MalaysiaMyTenteraFrontRecognizer` supports 6-digit army number
+    - `MalaysiaIkadFrontRecognizer` - better extraction of the following fields (**DeepOCR** support): date of birth, sector, employer, address and date of expiry
+- United Arab Emirates:
+    - glare detection is disabled by default for `UnitedArabEmiratesIdFrontRecognizer` and `UnitedArabEmiratesIdBackRecognizer` 
+    - `UnitedArabEmiratesIdBackRecognizer` - optimized detection for black backgrounds
+
+### Minor API changes:
+- overlay controllers are no longer using UI settings, they're now using Overlay settings, you can convert UI settings to Overlay settings like this: `uiSettings.toOverlaySettings()` 
+- `Recognizer` now only has one type parameter
+- `Recognizer.Result` no longer has any type parameters
+- `DocumentOverlayController` and `BarcodeOverlayController` are replaced with single overlay controller - `BasicOverlayController`
+
+### Removed features:
+- `BarcodeScanActivity` no longer supports results dialog
+- verification activities no longer support action bar built in obsolete activity themes
+
+### Bug fixes:
+- all default scan activities correctly set volume to media instead of ring
+- all default scan activities now apply secure flag if enabled in ui settings
+- fixed scanning bug for devices with problematic camera resolution, which caused that SDK was unable to scan data, known affected devices were: `OnePlus 6T`, `OnePlus 7 Pro` and `Vivo V15`
+
 ## 4.9.1
 
 ### Bug fixes:

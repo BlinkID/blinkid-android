@@ -14,6 +14,7 @@ public class SlovenianIDFrontSideRecognitionResultExtractor extends BlinkIdExtra
         add(R.string.PPNationality, sloIdFrontResult.getNationality());
         add(R.string.PPDateOfBirth, sloIdFrontResult.getDateOfBirth());
         add(R.string.PPDateOfExpiry, sloIdFrontResult.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, sloIdFrontResult.isDateOfExpiryPermanent());
     }
 
 }

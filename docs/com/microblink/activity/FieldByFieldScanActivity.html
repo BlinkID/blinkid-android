@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.android.app.Activity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -127,13 +127,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.content.ComponentCallbacks, android.content.ComponentCallbacks2, android.view.KeyEvent.Callback, android.view.LayoutInflater.Factory, android.view.LayoutInflater.Factory2, android.view.View.OnCreateContextMenuListener, android.view.Window.Callback, <a href="../../../com/microblink/fragment/overlay/listener/FieldByFieldResultListener.html" title="interface in com.microblink.fragment.overlay.listener">FieldByFieldResultListener</a>, <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></dd>
+<dd>android.content.ComponentCallbacks, android.content.ComponentCallbacks2, android.view.KeyEvent.Callback, android.view.LayoutInflater.Factory, android.view.LayoutInflater.Factory2, android.view.View.OnCreateContextMenuListener, android.view.Window.Callback, <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">FieldByFieldScanActivity</span>
-extends android.app.Activity
-implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a>, <a href="../../../com/microblink/fragment/overlay/listener/FieldByFieldResultListener.html" title="interface in com.microblink.fragment.overlay.listener">FieldByFieldResultListener</a></pre>
+extends android.app.Activity</pre>
 <div class="block">Activity that is designed for scanning text fields with OCR and extracting data of interest by
  using chosen parsers.</div>
 </li>
@@ -148,6 +147,17 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#recognizerRunnerFragment">recognizerRunnerFragment</a></span></code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.app.Activity">
 <!--   -->
@@ -201,24 +211,31 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">createScanningOverlay</a></span>(android.content.Intent&nbsp;intent,
+                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#getScanningOverlay--">getScanningOverlay</a></span>()</code>
 <div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
-</tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#getUiSettings--">getUiSettings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></span>(RecognitionSuccessType&nbsp;successType)</code>
-<div class="block">This method is called when field by field scanning is done.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/FieldByFieldScanActivity.html#saveResultsToIntent-android.content.Intent-">saveResultsToIntent</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -271,6 +288,23 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="recognizerRunnerFragment">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>recognizerRunnerFragment</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> recognizerRunnerFragment</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -294,6 +328,54 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createScanningOverlay</h4>
+<pre>protected&nbsp;void&nbsp;createScanningOverlay(@NonNull
+                                     android.content.Intent&nbsp;intent,
+                                     @NonNull
+                                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</pre>
+</li>
+</ul>
+<a name="saveResultsToIntent-android.content.Intent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveResultsToIntent</h4>
+<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
+                                   android.content.Intent&nbsp;intent)</pre>
+</li>
+</ul>
+<a name="getUiSettings--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getUiSettings</h4>
+<pre>@NonNull
+protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a>&nbsp;getUiSettings()</pre>
+</li>
+</ul>
+<a name="getScanningOverlay--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getScanningOverlay</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a>&nbsp;getScanningOverlay()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></span></div>
+<div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
+</dl>
+</li>
+</ul>
 <a name="onCreate-android.os.Bundle-">
 <!--   -->
 </a>
@@ -311,52 +393,13 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <a name="onBackPressed--">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>onBackPressed</h4>
 <pre>public&nbsp;void&nbsp;onBackPressed()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>onBackPressed</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getScanningOverlay--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getScanningOverlay</h4>
-<pre>@NonNull
-public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a>&nbsp;getScanningOverlay()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></span></div>
-<div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">getScanningOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
-</dl>
-</li>
-</ul>
-<a name="onScanningDone-RecognitionSuccessType-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>onScanningDone</h4>
-<pre>public&nbsp;void&nbsp;onScanningDone(@NonNull
-                           RecognitionSuccessType&nbsp;successType)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/fragment/overlay/listener/FieldByFieldResultListener.html#onScanningDone-RecognitionSuccessType-">FieldByFieldResultListener</a></code></span></div>
-<div class="block">This method is called when field by field scanning is done. Scanning is done
- when all required fields are accepted and all optional fields are skipped by the user, or
- when scanning is canceled.
- Because the user controls the scanning process, this callback is invoked on the UI thread.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/fragment/overlay/listener/FieldByFieldResultListener.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/fragment/overlay/listener/FieldByFieldResultListener.html" title="interface in com.microblink.fragment.overlay.listener">FieldByFieldResultListener</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>successType</code> - indicates the success type of recognition</dd>
 </dl>
 </li>
 </ul>
@@ -413,13 +456,13 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.android.app.Activity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

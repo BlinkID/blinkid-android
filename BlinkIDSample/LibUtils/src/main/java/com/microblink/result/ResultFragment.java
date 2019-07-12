@@ -45,7 +45,7 @@ public class ResultFragment extends BaseResultFragment {
     @Override
     protected List<RecognitionResultEntry> createResultEntries(Context context) {
         // this must be called after the activity has been created
-        Recognizer<Recognizer, Recognizer.Result> recognizer =
+        Recognizer<Recognizer.Result> recognizer =
                 ((IResultFragmentActivity) getActivity()).getRecognizerAtPosition(
                         mRecognizerPosition);
 
@@ -82,6 +82,6 @@ public class ResultFragment extends BaseResultFragment {
      * Interface which must be implemented by all activities that use {@link ResultFragment}.
      */
     public interface IResultFragmentActivity {
-        Recognizer<Recognizer, Recognizer.Result > getRecognizerAtPosition(int resultPosition);
+        Recognizer<Recognizer.Result> getRecognizerAtPosition(int resultPosition);
     }
 }

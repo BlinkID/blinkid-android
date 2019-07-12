@@ -67,7 +67,7 @@ import com.microblink.view.viewfinder.points.PointSetView;
 
 /**
  * Scan activity designed for scanning documents by using combined recognizers
- * ({@link com.microblink.recognizers.blinkid.CombinedRecognizerSettings}). Scanning is performed
+ * ({@link CombinedRecognizer}). Scanning is performed
  * in multiple steps, in each step single side/part of the document is being scanned.
  */
 public class CustomVerificationFlowActivity extends AppCompatActivity implements CameraEventsListener, ScanResultListener, OnActivityFlipListener {
@@ -685,10 +685,10 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         // scan again and show scan again dialog to the user
         pauseScanning();
         new AlertDialog.Builder(this)
-                .setTitle(R.string.mb_alert_title)
+                .setTitle(R.string.mb_data_not_match_title)
                 .setMessage(R.string.mb_data_not_match_msg)
                 .setCancelable(false)
-                .setPositiveButton(R.string.mb_scan_again, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.mb_data_not_match_retry_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         restartVerification();
