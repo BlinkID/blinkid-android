@@ -255,7 +255,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/hongkong/HongKongIdFrontRecognizer.html#consumeResultFrom-com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer-">consumeResultFrom</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/hongkong/HongKongIdFrontRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.hongkong">HongKongIdFrontRecognizer</a>&nbsp;other)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/hongkong/HongKongIdFrontRecognizer.html#consumeResultFrom-com.microblink.entities.Entity-">consumeResultFrom</a></span>(<a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</code>
 <div class="block">Consume result from other entity.</div>
 </td>
 </tr>
@@ -1052,21 +1052,21 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
  or <a href="../../../../../../com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi"><code>RecognizerRunner</code></a> with the updated entity hierarchy.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/Entity.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/Recognizer.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of the entity</dd>
 </dl>
 </li>
 </ul>
-<a name="consumeResultFrom-com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer-">
+<a name="consumeResultFrom-com.microblink.entities.Entity-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>consumeResultFrom</h4>
 <pre>public&nbsp;void&nbsp;consumeResultFrom(@NonNull
-                              <a href="../../../../../../com/microblink/entities/recognizers/blinkid/hongkong/HongKongIdFrontRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.hongkong">HongKongIdFrontRecognizer</a>&nbsp;other)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html#consumeResultFrom-E-">Entity</a></code></span></div>
+                              <a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html#consumeResultFrom-com.microblink.entities.Entity-">Entity</a></code></span></div>
 <div class="block">Consume result from other entity. The result from other will be put instead current result
  of this entity.
  This method is used inside <code>com.microblink.entities.recognizers.RecognizerBundle#loadFromIntent(Intent)</code>
@@ -1074,7 +1074,7 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
  have arrived over <code>Intent</code></div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/Entity.html#consumeResultFrom-E-">consumeResultFrom</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/entities/Entity.html#consumeResultFrom-com.microblink.entities.Entity-">consumeResultFrom</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>other</code> - Entity from which result should be consumed.</dd>
 </dl>

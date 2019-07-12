@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -333,14 +333,20 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i14" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/slovenia/SloveniaIdFrontRecognizer.Result.html#isDateOfExpiryPermanent--">isDateOfExpiryPermanent</a></span>()</code>
+<div class="block">Determines if date of expiry of Slovenian ID card is permanent</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/slovenia/SloveniaIdFrontRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/slovenia/SloveniaIdFrontRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/slovenia/SloveniaIdFrontRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -414,24 +420,6 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getEncodedSignatureImage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getEncodedSignatureImage</h4>
-<pre>@NonNull
-public&nbsp;byte[]&nbsp;getEncodedSignatureImage()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html#getEncodedSignatureImage--">getEncodedSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>encoded signature in JPEG from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeSignatureImageOptions.html#setEncodeSignatureImage-boolean-"><code>EncodeSignatureImageOptions.setEncodeSignatureImage(boolean)</code></a>
- , else <code>null</code></dd>
-</dl>
-</li>
-</ul>
 <a name="getDateOfExpiry--">
 <!--   -->
 </a>
@@ -441,64 +429,6 @@ public&nbsp;byte[]&nbsp;getEncodedSignatureImage()</pre>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a>&nbsp;getDateOfExpiry()</pre>
 <div class="block">The date of expiry of Slovenian ID card.</div>
-</li>
-</ul>
-<a name="getFullDocumentImage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getFullDocumentImage</h4>
-<pre>@Nullable
-public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;getFullDocumentImage()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--">getFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>image of the full document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
- else <code>null</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getNationality--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getNationality</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getNationality()</pre>
-<div class="block">The nationality of Slovenian ID owner.</div>
-</li>
-</ul>
-<a name="getSurname--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSurname</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getSurname()</pre>
-<div class="block">The surname of Slovenian ID owner.</div>
-</li>
-</ul>
-<a name="getSignatureImage--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSignatureImage</h4>
-<pre>@Nullable
-public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;getSignatureImage()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--">getSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>signature image from the document if enabled with
- <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-"><code>SignatureImageOptions.setReturnSignatureImage(boolean)</code></a>,
- else <code>null</code></dd>
-</dl>
 </li>
 </ul>
 <a name="getGivenNames--">
@@ -588,6 +518,92 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 </dl>
 </li>
 </ul>
+<a name="getEncodedSignatureImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getEncodedSignatureImage</h4>
+<pre>@NonNull
+public&nbsp;byte[]&nbsp;getEncodedSignatureImage()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html#getEncodedSignatureImage--">getEncodedSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedSignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedSignatureImageResult</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>encoded signature in JPEG from the document if enabled with
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeSignatureImageOptions.html#setEncodeSignatureImage-boolean-"><code>EncodeSignatureImageOptions.setEncodeSignatureImage(boolean)</code></a>
+ , else <code>null</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getFullDocumentImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFullDocumentImage</h4>
+<pre>@Nullable
+public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;getFullDocumentImage()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html#getFullDocumentImage--">getFullDocumentImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>image of the full document if enabled with
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
+ else <code>null</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getNationality--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNationality</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getNationality()</pre>
+<div class="block">The nationality of Slovenian ID owner.</div>
+</li>
+</ul>
+<a name="isDateOfExpiryPermanent--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDateOfExpiryPermanent</h4>
+<pre>public&nbsp;boolean&nbsp;isDateOfExpiryPermanent()</pre>
+<div class="block">Determines if date of expiry of Slovenian ID card is permanent</div>
+</li>
+</ul>
+<a name="getSurname--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSurname</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getSurname()</pre>
+<div class="block">The surname of Slovenian ID owner.</div>
+</li>
+</ul>
+<a name="getSignatureImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSignatureImage</h4>
+<pre>@Nullable
+public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;getSignatureImage()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html#getSignatureImage--">getSignatureImage</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/SignatureImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">SignatureImageResult</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>signature image from the document if enabled with
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/SignatureImageOptions.html#setReturnSignatureImage-boolean-"><code>SignatureImageOptions.setReturnSignatureImage(boolean)</code></a>,
+ else <code>null</code></dd>
+</dl>
+</li>
+</ul>
 <a name="toString--">
 <!--   -->
 </a>
@@ -643,7 +659,7 @@ protected&nbsp;byte[]&nbsp;serializeToByteArray()</pre>
  This is required in order to retain the result even after owning entity has mutated it.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/Entity.Result.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.Result.html" title="class in com.microblink.entities">Entity.Result</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/Recognizer.Result.html#clone--">clone</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a copy of the result</dd>
 </dl>

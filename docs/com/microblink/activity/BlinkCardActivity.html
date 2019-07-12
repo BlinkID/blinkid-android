@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/microblink/activity/BaseScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/microblink/activity/DocumentScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BarcodeScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BlinkIdActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/activity/BlinkCardActivity.html" target="_top">Frames</a></li>
@@ -73,13 +73,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.android.app.Activity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -131,7 +131,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <hr>
 <br>
-<pre>public class <span class="typeNameLabel">BlinkCardActivity</span>
+<pre>public final class <span class="typeNameLabel">BlinkCardActivity</span>
 extends android.app.Activity
 implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></pre>
 </li>
@@ -146,6 +146,17 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#recognizerRunnerFragment">recognizerRunnerFragment</a></span></code>&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.app.Activity">
 <!--   -->
@@ -199,26 +210,31 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">createScanningOverlay</a></span>(android.content.Intent&nbsp;intent,
+                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#getScanningOverlay--">getScanningOverlay</a></span>()</code>
 <div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#getUiSettings--">getUiSettings</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onCreateOptionsMenu-android.view.Menu-">onCreateOptionsMenu</a></span>(android.view.Menu&nbsp;menu)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onOptionsItemSelected-android.view.MenuItem-">onOptionsItemSelected</a></span>(android.view.MenuItem&nbsp;item)</code>&nbsp;</td>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#saveResultsToIntent-android.content.Intent-">saveResultsToIntent</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -226,7 +242,7 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;android.app.Activity</h3>
-<code>addContentView, attachBaseContext, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onChildTitleChanged, onConfigurationChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDestroy, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsMenuClosed, onPanelClosed, onPause, onPictureInPictureModeChanged, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRequestPermissionsResult, onRestart, onRestoreInstanceState, onRestoreInstanceState, onResume, onRetainNonConfigurationInstance, onSaveInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onStart, onStateNotSaved, onStop, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, requireViewById, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShowWhenLocked, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
+<code>addContentView, attachBaseContext, closeContextMenu, closeOptionsMenu, createPendingResult, dismissDialog, dismissKeyboardShortcutsHelper, dispatchGenericMotionEvent, dispatchKeyEvent, dispatchKeyShortcutEvent, dispatchPopulateAccessibilityEvent, dispatchTouchEvent, dispatchTrackballEvent, dump, enterPictureInPictureMode, enterPictureInPictureMode, findViewById, finish, finishActivity, finishActivityFromChild, finishAffinity, finishAfterTransition, finishAndRemoveTask, finishFromChild, getActionBar, getApplication, getCallingActivity, getCallingPackage, getChangingConfigurations, getComponentName, getContentScene, getContentTransitionManager, getCurrentFocus, getFragmentManager, getIntent, getLastNonConfigurationInstance, getLayoutInflater, getLoaderManager, getLocalClassName, getMaxNumPictureInPictureActions, getMediaController, getMenuInflater, getParent, getParentActivityIntent, getPreferences, getReferrer, getRequestedOrientation, getSearchEvent, getSystemService, getTaskId, getTitle, getTitleColor, getVoiceInteractor, getVolumeControlStream, getWindow, getWindowManager, hasWindowFocus, invalidateOptionsMenu, isActivityTransitionRunning, isChangingConfigurations, isChild, isDestroyed, isFinishing, isImmersive, isInMultiWindowMode, isInPictureInPictureMode, isLocalVoiceInteractionSupported, isTaskRoot, isVoiceInteraction, isVoiceInteractionRoot, managedQuery, moveTaskToBack, navigateUpTo, navigateUpToFromChild, onActionModeFinished, onActionModeStarted, onActivityReenter, onActivityResult, onApplyThemeResource, onAttachedToWindow, onAttachFragment, onChildTitleChanged, onConfigurationChanged, onContentChanged, onContextItemSelected, onContextMenuClosed, onCreate, onCreateContextMenu, onCreateDescription, onCreateDialog, onCreateDialog, onCreateNavigateUpTaskStack, onCreateOptionsMenu, onCreatePanelMenu, onCreatePanelView, onCreateThumbnail, onCreateView, onCreateView, onDestroy, onDetachedFromWindow, onEnterAnimationComplete, onGenericMotionEvent, onKeyDown, onKeyLongPress, onKeyMultiple, onKeyShortcut, onKeyUp, onLocalVoiceInteractionStarted, onLocalVoiceInteractionStopped, onLowMemory, onMenuItemSelected, onMenuOpened, onMultiWindowModeChanged, onMultiWindowModeChanged, onNavigateUp, onNavigateUpFromChild, onNewIntent, onOptionsItemSelected, onOptionsMenuClosed, onPanelClosed, onPause, onPictureInPictureModeChanged, onPictureInPictureModeChanged, onPostCreate, onPostCreate, onPostResume, onPrepareDialog, onPrepareDialog, onPrepareNavigateUpTaskStack, onPrepareOptionsMenu, onPreparePanel, onProvideAssistContent, onProvideAssistData, onProvideKeyboardShortcuts, onProvideReferrer, onRequestPermissionsResult, onRestart, onRestoreInstanceState, onRestoreInstanceState, onResume, onRetainNonConfigurationInstance, onSaveInstanceState, onSaveInstanceState, onSearchRequested, onSearchRequested, onStart, onStateNotSaved, onStop, onTitleChanged, onTouchEvent, onTrackballEvent, onTrimMemory, onUserInteraction, onUserLeaveHint, onVisibleBehindCanceled, onWindowAttributesChanged, onWindowFocusChanged, onWindowStartingActionMode, onWindowStartingActionMode, openContextMenu, openOptionsMenu, overridePendingTransition, postponeEnterTransition, recreate, registerForContextMenu, releaseInstance, removeDialog, reportFullyDrawn, requestDragAndDropPermissions, requestPermissions, requestShowKeyboardShortcuts, requestVisibleBehind, requestWindowFeature, requireViewById, runOnUiThread, setActionBar, setContentTransitionManager, setContentView, setContentView, setContentView, setDefaultKeyMode, setEnterSharedElementCallback, setExitSharedElementCallback, setFeatureDrawable, setFeatureDrawableAlpha, setFeatureDrawableResource, setFeatureDrawableUri, setFinishOnTouchOutside, setImmersive, setIntent, setMediaController, setPictureInPictureParams, setProgress, setProgressBarIndeterminate, setProgressBarIndeterminateVisibility, setProgressBarVisibility, setRequestedOrientation, setResult, setResult, setSecondaryProgress, setShowWhenLocked, setTaskDescription, setTheme, setTitle, setTitle, setTitleColor, setTurnScreenOn, setVisible, setVolumeControlStream, setVrModeEnabled, shouldShowRequestPermissionRationale, shouldUpRecreateTask, showAssist, showDialog, showDialog, showLockTaskEscapeMessage, startActionMode, startActionMode, startActivities, startActivities, startActivity, startActivity, startActivityForResult, startActivityForResult, startActivityFromChild, startActivityFromChild, startActivityFromFragment, startActivityFromFragment, startActivityIfNeeded, startActivityIfNeeded, startIntentSender, startIntentSender, startIntentSenderForResult, startIntentSenderForResult, startIntentSenderFromChild, startIntentSenderFromChild, startLocalVoiceInteraction, startLockTask, startManagingCursor, startNextMatchingActivity, startNextMatchingActivity, startPostponedEnterTransition, startSearch, stopLocalVoiceInteraction, stopLockTask, stopManagingCursor, takeKeyEvents, triggerSearch, unregisterForContextMenu</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.android.view.ContextThemeWrapper">
@@ -271,6 +287,23 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="recognizerRunnerFragment">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>recognizerRunnerFragment</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> recognizerRunnerFragment</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -302,57 +335,35 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <h4>onCreate</h4>
 <pre>protected&nbsp;void&nbsp;onCreate(@Nullable
                         android.os.Bundle&nbsp;savedInstanceState)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onCreate</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
 </li>
 </ul>
-<a name="onCreateOptionsMenu-android.view.Menu-">
+<a name="createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onCreateOptionsMenu</h4>
-<pre>public&nbsp;boolean&nbsp;onCreateOptionsMenu(@Nullable
-                                   android.view.Menu&nbsp;menu)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onCreateOptionsMenu</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
+<h4>createScanningOverlay</h4>
+<pre>@NonNull
+protected&nbsp;void&nbsp;createScanningOverlay(@NonNull
+                                              android.content.Intent&nbsp;intent,
+                                              @NonNull
+                                              com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</pre>
 </li>
 </ul>
-<a name="onOptionsItemSelected-android.view.MenuItem-">
+<a name="getUiSettings--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>onOptionsItemSelected</h4>
-<pre>public&nbsp;boolean&nbsp;onOptionsItemSelected(@Nullable
-                                     android.view.MenuItem&nbsp;item)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onOptionsItemSelected</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onBackPressed--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onBackPressed</h4>
-<pre>public&nbsp;void&nbsp;onBackPressed()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onBackPressed</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
-</dl>
+<h4>getUiSettings</h4>
+<pre>@NonNull
+protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a>&nbsp;getUiSettings()</pre>
 </li>
 </ul>
 <a name="getScanningOverlay--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getScanningOverlay</h4>
 <pre>@NonNull
@@ -364,6 +375,29 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 <dd><code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">getScanningOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
+</dl>
+</li>
+</ul>
+<a name="saveResultsToIntent-android.content.Intent-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveResultsToIntent</h4>
+<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
+                                   android.content.Intent&nbsp;intent)</pre>
+</li>
+</ul>
+<a name="onBackPressed--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onBackPressed</h4>
+<pre>public&nbsp;void&nbsp;onBackPressed()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>onBackPressed</code>&nbsp;in class&nbsp;<code>android.app.Activity</code></dd>
 </dl>
 </li>
 </ul>
@@ -394,8 +428,8 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../com/microblink/activity/BaseScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../com/microblink/activity/DocumentScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BarcodeScanActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../com/microblink/activity/BlinkIdActivity.html" title="class in com.microblink.activity"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?com/microblink/activity/BlinkCardActivity.html" target="_top">Frames</a></li>
@@ -420,13 +454,13 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.android.app.Activity">Field</a>&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
