@@ -1369,7 +1369,7 @@ The [`SpainDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/mic
 ### <a name="blinkid_recognizers_sweden"></a> Sweden
 
 #### <a name="sweden_dl"></a> Sweden driver's license front side recognizer
-The [`SwedenDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/sweden/dl/SwedenDlFrontRecognizer.html) is used for scanning front side of Swedish driver's license.
+The [`SwedenDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/sweden/SwedenDlFrontRecognizer.html) is used for scanning front side of Swedish driver's license.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
