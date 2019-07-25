@@ -11,14 +11,13 @@
 | USA            |California       |Driver's License    |ID Card|
 | USA            |Colorado         |Driver's License    |ID Card|
 | USA            |Connecticut      |Driver's License    ||
-| USA            |Flora          |Driver's License    |ID Card|
+| USA            |Florida          |Driver's License    |ID Card|
 | USA            |Georgia          |Driver's License    |ID Card|
 | USA            |Hawaii           |Driver's License    |ID Card|
 | USA            |Idaho            |Driver's License    ||
 | USA            |Illinois         |Driver's License    |ID Card|
 | USA            |Indiana          |Driver's License    ||
 | USA            |Iowa             |Driver's License    ||
-| USA            |Indiana          |Driver's License    ||
 | USA            |Kansas           |Driver's License    ||
 | USA            |Kentucky         |Driver's License    ||
 | USA            |Louisiana        |Driver's License    ||
