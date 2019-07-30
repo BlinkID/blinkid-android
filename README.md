@@ -1086,7 +1086,7 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="blinkid_recognizers_australia"></a> Australia
 
-#### <a name="australia_dl"></a> Ausralia driver's license front and back side recognizers
+#### <a name="australia_dl"></a> Australia driver's license front and back side recognizers
 The [`AustraliaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlFrontRecognizer.html) and [`AustraliaDlBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/australia/AustraliaDlBackRecognizer.html) are used for scanning [Australian driver's license front and back side](https://en.wikipedia.org/wiki/Driving_licence_in_Australia).
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
