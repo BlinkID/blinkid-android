@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,8 +132,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">BlinkCardActivity</span>
-extends android.app.Activity
-implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></pre>
+extends android.app.Activity</pre>
 </li>
 </ul>
 </div>
@@ -155,6 +154,14 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#recognizerRunnerFragment">recognizerRunnerFragment</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#scanningOverlay">scanningOverlay</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#uiSettings">uiSettings</a></span></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -210,29 +217,24 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">createScanningOverlay</a></span>(android.content.Intent&nbsp;intent,
-                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#getScanningOverlay--">getScanningOverlay</a></span>()</code>
 <div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#getUiSettings--">getUiSettings</a></span>()</code>&nbsp;</td>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/BlinkCardUISettings.html" title="class in com.microblink.uisettings">BlinkCardUISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#loadUiSettings-android.content.Intent-">loadUiSettings</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/BlinkCardActivity.html#saveResultsToIntent-android.content.Intent-">saveResultsToIntent</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
@@ -296,10 +298,28 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
 <a name="recognizerRunnerFragment">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>recognizerRunnerFragment</h4>
 <pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> recognizerRunnerFragment</pre>
+</li>
+</ul>
+<a name="uiSettings">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>uiSettings</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a> uiSettings</pre>
+</li>
+</ul>
+<a name="scanningOverlay">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>scanningOverlay</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a> scanningOverlay</pre>
 </li>
 </ul>
 </li>
@@ -337,27 +357,25 @@ implements <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.Sc
                         android.os.Bundle&nbsp;savedInstanceState)</pre>
 </li>
 </ul>
-<a name="createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">
+<a name="loadUiSettings-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createScanningOverlay</h4>
+<h4>loadUiSettings</h4>
 <pre>@NonNull
-protected&nbsp;void&nbsp;createScanningOverlay(@NonNull
-                                              android.content.Intent&nbsp;intent,
-                                              @NonNull
-                                              com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</pre>
+protected&nbsp;<a href="../../../com/microblink/uisettings/BlinkCardUISettings.html" title="class in com.microblink.uisettings">BlinkCardUISettings</a>&nbsp;loadUiSettings(@NonNull
+                                                      android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
-<a name="getUiSettings--">
+<a name="saveResultsToIntent-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getUiSettings</h4>
-<pre>@NonNull
-protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a>&nbsp;getUiSettings()</pre>
+<h4>saveResultsToIntent</h4>
+<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
+                                   android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
 <a name="getScanningOverlay--">
@@ -376,16 +394,6 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
 </dl>
-</li>
-</ul>
-<a name="saveResultsToIntent-android.content.Intent-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>saveResultsToIntent</h4>
-<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
-                                   android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
 <a name="onBackPressed--">

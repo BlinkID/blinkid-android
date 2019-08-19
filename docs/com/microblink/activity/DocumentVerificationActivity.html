@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -152,12 +152,16 @@ extends android.app.Activity</pre>
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">DocumentVerificationOverlayController</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#mScanningOverlay">mScanningOverlay</a></span></code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#recognizerRunnerFragment">recognizerRunnerFragment</a></span></code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#scanningOverlay">scanningOverlay</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#uiSettings">uiSettings</a></span></code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -213,37 +217,24 @@ extends android.app.Activity</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">DocumentVerificationOverlayController</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#createOverlayController-com.microblink.activity.BaseScanActivity.ResultListener-">createOverlayController</a></span>(com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">createScanningOverlay</a></span>(android.content.Intent&nbsp;intent,
-                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#createUiSettings-android.content.Intent-">createUiSettings</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#getScanningOverlay--">getScanningOverlay</a></span>()</code>
 <div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#getUiSettings--">getUiSettings</a></span>()</code>&nbsp;</td>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#loadUiSettings-android.content.Intent-">loadUiSettings</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#onBackPressed--">onBackPressed</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#onCreate-android.os.Bundle-">onCreate</a></span>(android.os.Bundle&nbsp;savedInstanceState)</code>&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/activity/DocumentVerificationActivity.html#saveResultsToIntent-android.content.Intent-">saveResultsToIntent</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
@@ -304,23 +295,31 @@ extends android.app.Activity</pre>
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="mScanningOverlay">
+<a name="recognizerRunnerFragment">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>mScanningOverlay</h4>
-<pre>@NonNull
-protected&nbsp;<a href="../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">DocumentVerificationOverlayController</a> mScanningOverlay</pre>
+<h4>recognizerRunnerFragment</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> recognizerRunnerFragment</pre>
 </li>
 </ul>
-<a name="recognizerRunnerFragment">
+<a name="uiSettings">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>uiSettings</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a> uiSettings</pre>
+</li>
+</ul>
+<a name="scanningOverlay">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>recognizerRunnerFragment</h4>
-<pre>protected&nbsp;<a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a> recognizerRunnerFragment</pre>
+<h4>scanningOverlay</h4>
+<pre>protected&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a> scanningOverlay</pre>
 </li>
 </ul>
 </li>
@@ -348,48 +347,25 @@ protected&nbsp;<a href="../../../com/microblink/fragment/overlay/verification/Do
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createScanningOverlay-android.content.Intent-com.microblink.activity.BaseScanActivity.ResultListener-">
+<a name="loadUiSettings-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createScanningOverlay</h4>
-<pre>protected&nbsp;void&nbsp;createScanningOverlay(@NonNull
-                                     android.content.Intent&nbsp;intent,
-                                     @NonNull
-                                     com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</pre>
+<h4>loadUiSettings</h4>
+<pre>@NonNull
+protected&nbsp;<a href="../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a>&nbsp;loadUiSettings(@NonNull
+                                                                 android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
-<a name="createUiSettings-android.content.Intent-">
+<a name="saveResultsToIntent-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>createUiSettings</h4>
-<pre>@NonNull
-protected&nbsp;<a href="../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a>&nbsp;createUiSettings(@NonNull
-                                                                   android.content.Intent&nbsp;intent)</pre>
-</li>
-</ul>
-<a name="createOverlayController-com.microblink.activity.BaseScanActivity.ResultListener-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createOverlayController</h4>
-<pre>@NonNull
-protected&nbsp;<a href="../../../com/microblink/fragment/overlay/verification/DocumentVerificationOverlayController.html" title="class in com.microblink.fragment.overlay.verification">DocumentVerificationOverlayController</a>&nbsp;createOverlayController(@NonNull
-                                                                                 com.microblink.activity.BaseScanActivity.ResultListener&nbsp;scanResultListener)</pre>
-</li>
-</ul>
-<a name="getUiSettings--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getUiSettings</h4>
-<pre>@NonNull
-protected&nbsp;<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a>&nbsp;getUiSettings()</pre>
+<h4>saveResultsToIntent</h4>
+<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
+                                   android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
 <a name="getScanningOverlay--">
@@ -403,19 +379,11 @@ public&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.ht
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></span></div>
 <div class="block">Returns the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html#getScanningOverlay--">getScanningOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html" title="interface in com.microblink.fragment">RecognizerRunnerFragment.ScanningOverlayBinder</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the scanning overlay that will receive events from <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</dd>
 </dl>
-</li>
-</ul>
-<a name="saveResultsToIntent-android.content.Intent-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>saveResultsToIntent</h4>
-<pre>protected&nbsp;void&nbsp;saveResultsToIntent(@NonNull
-                                   android.content.Intent&nbsp;intent)</pre>
 </li>
 </ul>
 <a name="onCreate-android.os.Bundle-">

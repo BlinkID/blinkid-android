@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/PulseView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -132,7 +132,9 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#ReticleOverlayView-com.microblink.fragment.overlay.blinkid.BlinkIdOverlaySettings-">ReticleOverlayView</a></span>(<a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings</a>&nbsp;overlaySettings)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#ReticleOverlayView-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">ReticleOverlayView</a></span>(boolean&nbsp;shouldShowControlButtons,
+                  <a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
+                  int&nbsp;style)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -156,29 +158,29 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>android.view.View</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#createLayout-android.app.Activity-android.view.ViewGroup-">createLayout</a></span>(android.app.Activity&nbsp;activity,
-            android.view.ViewGroup&nbsp;recognizerRunnerView)</code>
-<div class="block">Inflate your custom layout layout here</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">createLayout</a></span>(android.app.Activity&nbsp;activity,
+            <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>
+<div class="block">Inflate your custom layout layout here and add it to the parent view</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getDocumentNotSupportedDialogStrings--">getDocumentNotSupportedDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/fragment/overlay/components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">createTorchController</a></span>(<a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>
+<div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getRecognitionTimeoutDialogStrings--">getRecognitionTimeoutDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getDocumentNotSupportedDialogStrings--">getDocumentNotSupportedDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getSidesNotMatchingDialogStrings--">getSidesNotMatchingDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getRecognitionTimeoutDialogStrings--">getRecognitionTimeoutDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>android.widget.ImageView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getTorchButton--">getTorchButton</a></span>()</code>
-<div class="block">Return image view that will be used to control torch</div>
-</td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#getSidesNotMatchingDialogStrings--">getSidesNotMatchingDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -205,15 +207,28 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onGlare-boolean-">onGlare</a></span>(boolean&nbsp;hasGlare)</code>
+<div class="block">Called on glare detection update.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
+<div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
+ will be called when the document is classified.</div>
 </td>
 </tr>
 </table>
@@ -238,14 +253,17 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ReticleOverlayView-com.microblink.fragment.overlay.blinkid.BlinkIdOverlaySettings-">
+<a name="ReticleOverlayView-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReticleOverlayView</h4>
-<pre>public&nbsp;ReticleOverlayView(@NonNull
-                          <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings</a>&nbsp;overlaySettings)</pre>
+<pre>public&nbsp;ReticleOverlayView(boolean&nbsp;shouldShowControlButtons,
+                          @Nullable
+                          <a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
+                          @StyleRes
+                          int&nbsp;style)</pre>
 </li>
 </ul>
 </li>
@@ -256,45 +274,45 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createLayout-android.app.Activity-android.view.ViewGroup-">
+<a name="createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>createLayout</h4>
-<pre>@NonNull
-public&nbsp;android.view.View&nbsp;createLayout(@NonNull
-                                               android.app.Activity&nbsp;activity,
-                                               @NonNull
-                                               android.view.ViewGroup&nbsp;recognizerRunnerView)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-android.view.ViewGroup-">BlinkIdOverlayView</a></code></span></div>
-<div class="block">Inflate your custom layout layout here</div>
+<pre>public&nbsp;void&nbsp;createLayout(@NonNull
+                         android.app.Activity&nbsp;activity,
+                         @NonNull
+                         <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Inflate your custom layout layout here and add it to the parent view</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-android.view.ViewGroup-">createLayout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">createLayout</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>activity</code> - current activity</dd>
 <dd><code>recognizerRunnerView</code> - root view to be used as inflation parent</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>root view of your custom layout</dd>
 </dl>
 </li>
 </ul>
-<a name="getTorchButton--">
+<a name="createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getTorchButton</h4>
-<pre>@Nullable
-public&nbsp;android.widget.ImageView&nbsp;getTorchButton()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getTorchButton--">BlinkIdOverlayView</a></code></span></div>
-<div class="block">Return image view that will be used to control torch</div>
+<h4>createTorchController</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a>&nbsp;createTorchController(@NonNull
+                                                      <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getTorchButton--">getTorchButton</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">createTorchController</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognizerRunnerView</code> - required for torch controller setup</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>torch button</dd>
+<dd>torch controller</dd>
 </dl>
 </li>
 </ul>
@@ -325,6 +343,24 @@ public&nbsp;android.widget.ImageView&nbsp;getTorchButton()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="setRecognizerSupportsClassification-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRecognizerSupportsClassification</h4>
+<pre>public&nbsp;void&nbsp;setRecognizerSupportsClassification(boolean&nbsp;isClassificationSupported)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
+ will be called when the document is classified.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>isClassificationSupported</code> - true if classification is supported</dd>
 </dl>
 </li>
 </ul>
@@ -375,6 +411,23 @@ public&nbsp;android.widget.ImageView&nbsp;getTorchButton()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onErrorDialogShown--">onErrorDialogShown</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="onGlare-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onGlare</h4>
+<pre>public&nbsp;void&nbsp;onGlare(boolean&nbsp;hasGlare)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onGlare-boolean-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Called on glare detection update.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onGlare-boolean-">onGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hasGlare</code> - true if glare detected</dd>
 </dl>
 </li>
 </ul>
@@ -484,7 +537,7 @@ public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/blinkid/R
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/PulseView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

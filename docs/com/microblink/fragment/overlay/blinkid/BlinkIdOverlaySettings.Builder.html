@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -73,7 +73,7 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.fragment.overlay.verification.settings.BaseVerificationOverlaySettings.Builder">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
@@ -98,12 +98,7 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">com.microblink.fragment.overlay.verification.settings.BaseVerificationOverlaySettings.Builder</a></li>
-<li>
-<ul class="inheritance">
 <li>com.microblink.fragment.overlay.blinkid.BlinkIdOverlaySettings.Builder</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -117,7 +112,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public static class <span class="typeNameLabel">BlinkIdOverlaySettings.Builder</span>
-extends <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">BaseVerificationOverlaySettings.Builder</a></pre>
+extends java.lang.Object</pre>
 <div class="block">Builds settings to be used with <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html" title="class in com.microblink.fragment.overlay.blinkid"><code>BlinkIdOverlayController</code></a></div>
 </li>
 </ul>
@@ -125,21 +120,6 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/set
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<ul class="blockList">
-<li class="blockList"><a name="fields.inherited.from.class.com.microblink.fragment.overlay.verification.settings.BaseVerificationOverlaySettings.Builder">
-<!--   -->
-</a>
-<h3>Fields inherited from class&nbsp;com.microblink.fragment.overlay.verification.settings.<a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">BaseVerificationOverlaySettings.Builder</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mBeepResourceId">mBeepResourceId</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mCameraSettings">mCameraSettings</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mControlButtonResources">mControlButtonResources</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mCurrentImageListener">mCurrentImageListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mDebugImageListener">mDebugImageListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mIsHighResEnabled">mIsHighResEnabled</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mRecognizerBundle">mRecognizerBundle</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mShouldShowControlButtons">mShouldShowControlButtons</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#mVerificationResources">mVerificationResources</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#requireDocumentDataMatch">requireDocumentDataMatch</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#splashResourceId">splashResourceId</a></code></li>
-</ul>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -152,8 +132,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/set
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#Builder-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-">Builder</a></span>(android.content.Context&nbsp;context,
-       <a href="../../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#Builder-com.microblink.entities.recognizers.RecognizerBundle-">Builder</a></span>(<a href="../../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -175,17 +154,46 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/set
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#build--">build</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#getThis--">getThis</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#isHighResSuccessFrameCaptureEnabled-boolean-">isHighResSuccessFrameCaptureEnabled</a></span>(boolean&nbsp;isHighResEnabled)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setBeepResourceId-int-">setBeepResourceId</a></span>(int&nbsp;beepResourceId)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setCameraSettings-com.microblink.fragment.overlay.components.settings.OverlayCameraSettings-">setCameraSettings</a></span>(<a href="../../../../../com/microblink/fragment/overlay/components/settings/OverlayCameraSettings.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings</a>&nbsp;cameraSettings)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a></span>(<a href="../../../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a></span>(<a href="../../../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setDocumentDataMatchRequired-boolean-">setDocumentDataMatchRequired</a></span>(boolean&nbsp;isRequired)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setLockedToPortrait-boolean-">setLockedToPortrait</a></span>(boolean&nbsp;lockedToPortrait)</code>&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">setOcrResultDisplayMode</a></span>(<a href="../../../../../com/microblink/uisettings/options/OcrResultDisplayMode.html" title="class in com.microblink.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setShowMrzDots-boolean-">setShowMrzDots</a></span>(boolean&nbsp;shouldShowMrzDots)</code>&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html#setSplashResourceId-int-">setSplashResourceId</a></span>(int&nbsp;splashResourceId)</code>&nbsp;</td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.microblink.fragment.overlay.verification.settings.BaseVerificationOverlaySettings.Builder">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.verification.settings.<a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">BaseVerificationOverlaySettings.Builder</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setBeepResourceId-int-">setBeepResourceId</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setCameraSettings-com.microblink.fragment.overlay.components.settings.OverlayCameraSettings-">setCameraSettings</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setControlButtonResources-com.microblink.fragment.overlay.components.settings.ControlButtonResources-">setControlButtonResources</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setDocumentDataMatchRequired-boolean-">setDocumentDataMatchRequired</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setIsHighResEnabled-boolean-">setIsHighResEnabled</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setShouldShowControlButtons-boolean-">setShouldShowControlButtons</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setSplashResourceId-int-">setSplashResourceId</a>, <a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#setVerificationResources-com.microblink.fragment.overlay.components.settings.VerificationResources-">setVerificationResources</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
@@ -207,15 +215,13 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/set
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Builder-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-">
+<a name="Builder-com.microblink.entities.recognizers.RecognizerBundle-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Builder</h4>
 <pre>public&nbsp;Builder(@NonNull
-               android.content.Context&nbsp;context,
-               @NonNull
                <a href="../../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
 </li>
 </ul>
@@ -227,18 +233,109 @@ extends <a href="../../../../../com/microblink/fragment/overlay/verification/set
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getThis--">
+<a name="setCameraSettings-com.microblink.fragment.overlay.components.settings.OverlayCameraSettings-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getThis</h4>
+<h4>setCameraSettings</h4>
 <pre>@NonNull
-protected&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;getThis()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#getThis--">getThis</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">BaseVerificationOverlaySettings.Builder</a></code></dd>
-</dl>
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setCameraSettings(@NonNull
+                                                                 <a href="../../../../../com/microblink/fragment/overlay/components/settings/OverlayCameraSettings.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings</a>&nbsp;cameraSettings)</pre>
+</li>
+</ul>
+<a name="setDebugImageListener-com.microblink.image.DebugImageListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDebugImageListener</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setDebugImageListener(@Nullable
+                                                                     <a href="../../../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</pre>
+</li>
+</ul>
+<a name="setCurrentImageListener-com.microblink.image.CurrentImageListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCurrentImageListener</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setCurrentImageListener(@Nullable
+                                                                       <a href="../../../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</pre>
+</li>
+</ul>
+<a name="isHighResSuccessFrameCaptureEnabled-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isHighResSuccessFrameCaptureEnabled</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;isHighResSuccessFrameCaptureEnabled(boolean&nbsp;isHighResEnabled)</pre>
+</li>
+</ul>
+<a name="setBeepResourceId-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBeepResourceId</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setBeepResourceId(int&nbsp;beepResourceId)</pre>
+</li>
+</ul>
+<a name="setSplashResourceId-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSplashResourceId</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setSplashResourceId(@LayoutRes
+                                                                   int&nbsp;splashResourceId)</pre>
+</li>
+</ul>
+<a name="setDocumentDataMatchRequired-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDocumentDataMatchRequired</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setDocumentDataMatchRequired(boolean&nbsp;isRequired)</pre>
+</li>
+</ul>
+<a name="setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOcrResultDisplayMode</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setOcrResultDisplayMode(@NonNull
+                                                                       <a href="../../../../../com/microblink/uisettings/options/OcrResultDisplayMode.html" title="class in com.microblink.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</pre>
+</li>
+</ul>
+<a name="setShowMrzDots-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowMrzDots</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setShowMrzDots(boolean&nbsp;shouldShowMrzDots)</pre>
+</li>
+</ul>
+<a name="setLockedToPortrait-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLockedToPortrait</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings.Builder</a>&nbsp;setLockedToPortrait(boolean&nbsp;lockedToPortrait)</pre>
 </li>
 </ul>
 <a name="build--">
@@ -249,10 +346,6 @@ protected&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/B
 <h4>build</h4>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings</a>&nbsp;build()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html#build--">build</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../com/microblink/fragment/overlay/verification/settings/BaseVerificationOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.verification.settings">BaseVerificationOverlaySettings.Builder</a></code></dd>
-</dl>
 </li>
 </ul>
 </li>
@@ -308,7 +401,7 @@ public&nbsp;<a href="../../../../../com/microblink/fragment/overlay/blinkid/Blin
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#fields.inherited.from.class.com.microblink.fragment.overlay.verification.settings.BaseVerificationOverlaySettings.Builder">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>

@@ -1,5 +1,33 @@
 # Release notes
 
+## 4.11.0
+
+### New features:
+
+- added support for reading front and back side of Belgium ID - use `BelgiumIdFrontRecognizer`, `BelgiumIdBackRecognizer` and `BelgiumCombinedRecognizer`
+- added support for reading all visa documents containing Machine Readable Zone - use `VisaRecognizer`
+
+### Improvements for existing features:
+
+- improved `MrtdRecognizer`: 
+    - added support for documents with non-binary gender specification (symbol X)
+- improved `DocumentFaceRecognizer`:
+    - improved scanning time (faster scan)
+    - added support for vertical IDs
+    - removed the `tryBothOrientations` option (improved scan in all directions is enabled by default)
+- improved scanning time (faster scan) for `PassportRecognizer`
+
+### Minor API changes:
+
+- FieldByFieldOverlay is now configured by using FieldByFieldOverlaySettings instead of FieldByFieldUISettings
+- DocumentVerificationUISettings and DocumentUISettings now support BlinkID recognizer
+- BlinkIdUISettings now allow customisation of strings, colors and icons
+- moved some classes to new packages
+
+### Bug fixes:
+
+- fix for document not supported never reported if using BlinkIdRecognizer wrapped in SuccessFrameGrabberRecognizer
+
 ## 4.10.0
 
 ### New features:

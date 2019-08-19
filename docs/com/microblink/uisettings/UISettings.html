@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":6,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":6,"i1":6,"i2":10,"i3":10,"i4":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -107,7 +107,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a>, <a href="../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
+<dd><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a>, <a href="../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../com/microblink/uisettings/BlinkCardUISettings.html" title="class in com.microblink.uisettings">BlinkCardUISettings</a>, <a href="../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
 </dl>
 <hr>
 <br>
@@ -131,16 +131,10 @@ extends java.lang.Object</pre>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colFirst" scope="col">Modifier</th>
-<th class="colLast" scope="col">Constructor and Description</th>
+<th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#UISettings--">UISettings</a></span>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected </code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#UISettings-android.content.Intent-">UISettings</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#UISettings--">UISettings</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -152,15 +146,17 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected static java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#buildOptionKeyConstant-java.lang.String-java.lang.String-">buildOptionKeyConstant</a></span>(java.lang.String&nbsp;activityName,
-                      java.lang.String&nbsp;optionName)</code>&nbsp;</td>
+<td class="colFirst"><code>abstract <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">createOverlayController</a></span>(android.app.Activity&nbsp;activity,
+                       <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</code>
+<div class="block">Creates overlay controller and configures it using set values.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>abstract java.lang.Class</code></td>
@@ -170,70 +166,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a></span>()</code>
-<div class="block">Returns whether using of FLAG_SECURE on activity window is requested.</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putBoolean-java.lang.String-boolean-">putBoolean</a></span>(java.lang.String&nbsp;extraName,
-          boolean&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putInteger-java.lang.String-int-">putInteger</a></span>(java.lang.String&nbsp;optionName,
-          int&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putParcelable-java.lang.String-android.os.Parcelable-">putParcelable</a></span>(java.lang.String&nbsp;optionName,
-             android.os.Parcelable&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putSerializable-java.lang.String-java.io.Serializable-">putSerializable</a></span>(java.lang.String&nbsp;optionName,
-               java.io.Serializable&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a></span>(java.lang.String&nbsp;optionName,
-         java.lang.String&nbsp;value)</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a></span>(java.lang.String&nbsp;optionName,
-           boolean&nbsp;defaultValue)</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>protected int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a></span>(java.lang.String&nbsp;optionName,
-           int&nbsp;defaultValue)</code>&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>protected android.os.Parcelable</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>protected android.os.Parcelable</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a></span>(java.lang.String&nbsp;optionName,
-              android.os.Parcelable&nbsp;defaultValue)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>protected java.io.Serializable</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readSerializable-java.lang.String-">readSerializable</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>protected java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a></span>(java.lang.String&nbsp;optionName)</code>&nbsp;</td>
-</tr>
-<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></span>(boolean&nbsp;usingFlagSecure)</code>
 <div class="block">Defines whether FLAG_SECURE on activity window, which indicates that the display has a secure
@@ -265,20 +207,10 @@ extends java.lang.Object</pre>
 <a name="UISettings--">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>UISettings</h4>
-<pre>public&nbsp;UISettings()</pre>
-</li>
-</ul>
-<a name="UISettings-android.content.Intent-">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>UISettings</h4>
-<pre>protected&nbsp;UISettings(@NonNull
-                     android.content.Intent&nbsp;intent)</pre>
+<pre>public&nbsp;UISettings()</pre>
 </li>
 </ul>
 </li>
@@ -296,12 +228,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getUsingFlagSecure</h4>
 <pre>public final&nbsp;boolean&nbsp;getUsingFlagSecure()</pre>
-<div class="block">Returns whether using of FLAG_SECURE on activity window is requested.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if using of FLAG_SECURE on activity window is requested, <code>false</code>
- otherwise.</dd>
-</dl>
 </li>
 </ul>
 <a name="setUsingFlagSecure-boolean-">
@@ -345,149 +271,10 @@ public&nbsp;void&nbsp;saveToIntent(@NonNull
 </dl>
 </li>
 </ul>
-<a name="putParcelable-java.lang.String-android.os.Parcelable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>putParcelable</h4>
-<pre>protected final&nbsp;void&nbsp;putParcelable(@NonNull
-                                   java.lang.String&nbsp;optionName,
-                                   @Nullable
-                                   android.os.Parcelable&nbsp;value)</pre>
-</li>
-</ul>
-<a name="readParcelable-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readParcelable</h4>
-<pre>@Nullable
-protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
-                                                               java.lang.String&nbsp;optionName)</pre>
-</li>
-</ul>
-<a name="readParcelable-java.lang.String-T-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readParcelable</h4>
-<pre>@NonNull
-protected final&nbsp;android.os.Parcelable&nbsp;readParcelable(@NonNull
-                                                              java.lang.String&nbsp;optionName,
-                                                              @NonNull
-                                                              android.os.Parcelable&nbsp;defaultValue)</pre>
-</li>
-</ul>
-<a name="putSerializable-java.lang.String-java.io.Serializable-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>putSerializable</h4>
-<pre>protected final&nbsp;void&nbsp;putSerializable(@NonNull
-                                     java.lang.String&nbsp;optionName,
-                                     @Nullable
-                                     java.io.Serializable&nbsp;value)</pre>
-</li>
-</ul>
-<a name="readSerializable-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readSerializable</h4>
-<pre>@Nullable
-protected final&nbsp;java.io.Serializable&nbsp;readSerializable(@NonNull
-                                                                java.lang.String&nbsp;optionName)</pre>
-</li>
-</ul>
-<a name="putString-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>putString</h4>
-<pre>protected final&nbsp;void&nbsp;putString(@NonNull
-                               java.lang.String&nbsp;optionName,
-                               @Nullable
-                               java.lang.String&nbsp;value)</pre>
-</li>
-</ul>
-<a name="readString-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readString</h4>
-<pre>@Nullable
-protected final&nbsp;java.lang.String&nbsp;readString(@NonNull
-                                                      java.lang.String&nbsp;optionName)</pre>
-</li>
-</ul>
-<a name="putInteger-java.lang.String-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>putInteger</h4>
-<pre>protected final&nbsp;void&nbsp;putInteger(@NonNull
-                                java.lang.String&nbsp;optionName,
-                                int&nbsp;value)</pre>
-</li>
-</ul>
-<a name="readInteger-java.lang.String-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readInteger</h4>
-<pre>protected final&nbsp;int&nbsp;readInteger(@NonNull
-                                java.lang.String&nbsp;optionName,
-                                int&nbsp;defaultValue)</pre>
-</li>
-</ul>
-<a name="putBoolean-java.lang.String-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>putBoolean</h4>
-<pre>protected final&nbsp;void&nbsp;putBoolean(@NonNull
-                                java.lang.String&nbsp;extraName,
-                                boolean&nbsp;value)</pre>
-</li>
-</ul>
-<a name="readBoolean-java.lang.String-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readBoolean</h4>
-<pre>protected final&nbsp;boolean&nbsp;readBoolean(@NonNull
-                                    java.lang.String&nbsp;optionName,
-                                    boolean&nbsp;defaultValue)</pre>
-</li>
-</ul>
-<a name="buildOptionKeyConstant-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>buildOptionKeyConstant</h4>
-<pre>@NonNull
-protected static&nbsp;java.lang.String&nbsp;buildOptionKeyConstant(@NonNull
-                                                                  java.lang.String&nbsp;activityName,
-                                                                  @NonNull
-                                                                  java.lang.String&nbsp;optionName)</pre>
-</li>
-</ul>
 <a name="getTargetActivity--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getTargetActivity</h4>
 <pre>@NonNull
@@ -499,6 +286,20 @@ public abstract&nbsp;java.lang.Class&nbsp;getTargetActivity()</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>target activity.</dd>
 </dl>
+</li>
+</ul>
+<a name="createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>createOverlayController</h4>
+<pre>@NonNull
+public abstract&nbsp;<a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a>&nbsp;createOverlayController(@NonNull
+                                                                 android.app.Activity&nbsp;activity,
+                                                                 @NonNull
+                                                                 <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</pre>
+<div class="block">Creates overlay controller and configures it using set values.</div>
 </li>
 </ul>
 </li>
