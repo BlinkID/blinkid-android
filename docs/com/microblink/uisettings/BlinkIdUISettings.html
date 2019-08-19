@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -101,7 +101,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">com.microblink.uisettings.UISettings</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">com.microblink.uisettings.BaseVerificationUISettings</a></li>
+<li><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">com.microblink.uisettings.BaseBlinkIdUiSettings</a></li>
 <li>
 <ul class="inheritance">
 <li>com.microblink.uisettings.BlinkIdUISettings</li>
@@ -117,12 +117,12 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a></dd>
+<dd><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.uisettings.options">OcrResultDisplayUIOptions</a>, <a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">BlinkIdUISettings</span>
-extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a></pre>
+extends <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a></pre>
 </li>
 </ul>
 </div>
@@ -144,7 +144,7 @@ extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.h
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#BlinkIdUISettings-android.content.Intent-">BlinkIdUISettings</a></span>(android.content.Intent&nbsp;intent)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#BlinkIdUISettings-com.microblink.entities.recognizers.RecognizerBundle-">BlinkIdUISettings</a></span>(<a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;documentRecognizerBundle)</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#BlinkIdUISettings-com.microblink.entities.recognizers.RecognizerBundle-">BlinkIdUISettings</a></span>(<a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -162,31 +162,45 @@ extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.h
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>protected <a href="../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#createOverlayView--">createOverlayView</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>java.lang.Class</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#getTargetActivity--">getTargetActivity</a></span>()</code>
 <div class="block">Returns target activity.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#toOverlaySettings-android.app.Activity-">toOverlaySettings</a></span>(android.app.Activity&nbsp;activity)</code>
-<div class="block">Creates overlay settings that is built by copying configuration of these ui settings</div>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#isLockedToPortrait--">isLockedToPortrait</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#setOverlayViewStyle-int-">setOverlayViewStyle</a></span>(int&nbsp;styleResourceID)</code>
+<div class="block">Provide your own style to replace default icons and colors.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkIdUISettings.html#setStrings-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-">setStrings</a></span>(<a href="../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings)</code>
+<div class="block">Sets strings that will be used in the UI.</div>
 </td>
 </tr>
 </table>
 <ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.microblink.uisettings.BaseVerificationUISettings">
+<li class="blockList"><a name="methods.inherited.from.class.com.microblink.uisettings.BaseBlinkIdUiSettings">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a></h3>
-<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#buildCameraSettings--">buildCameraSettings</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#buildVerificationResources-android.app.Activity-">buildVerificationResources</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#enableHighResSuccessFrameCapture-boolean-">enableHighResSuccessFrameCapture</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getBeepSoundResourceID--">getBeepSoundResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCameraTypeForDocumentScan--">getCameraTypeForDocumentScan</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCameraVideoPreset--">getCameraVideoPreset</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCurrentImageListener--">getCurrentImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDebugImageListener--">getDebugImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonText--">getDialogNotMatchButtonText</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonTextResourceID--">getDialogNotMatchButtonTextResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessage--">getDialogNotMatchMessage</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessageResourceID--">getDialogNotMatchMessageResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitle--">getDialogNotMatchTitle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitleResourceID--">getDialogNotMatchTitleResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDocumentRecognizerBundle--">getDocumentRecognizerBundle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getIsDocumentDataMatchRequired--">getIsDocumentDataMatchRequired</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getSplashScreenLayoutResourceID--">getSplashScreenLayoutResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getUsingLegacyCameraAPI--">getUsingLegacyCameraAPI</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#isHighResSuccessFrameCaptureEnabled--">isHighResSuccessFrameCaptureEnabled</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraTypeForDocumentScan-com.microblink.hardware.camera.CameraType-">setCameraTypeForDocumentScan</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonText-java.lang.String-">setDialogNotMatchButtonText</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonTextResourceID-int-">setDialogNotMatchButtonTextResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessage-java.lang.String-">setDialogNotMatchMessage</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessageResourceID-int-">setDialogNotMatchMessageResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitle-java.lang.String-">setDialogNotMatchTitle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitleResourceID-int-">setDialogNotMatchTitleResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDocumentDataMatchRequired-boolean-">setDocumentDataMatchRequired</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></code></li>
+<h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a></h3>
+<code><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">createOverlayController</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#enableHighResSuccessFrameCapture-boolean-">enableHighResSuccessFrameCapture</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#getRecognizerBundle--">getRecognizerBundle</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#saveToIntent-android.content.Intent-">saveToIntent</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setDocumentDataMatchRequired-boolean-">setDocumentDataMatchRequired</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">setOcrResultDisplayMode</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setShowMrzDetection-boolean-">setShowMrzDetection</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a>, <a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.uisettings.UISettings">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></h3>
-<code><a href="../../../com/microblink/uisettings/UISettings.html#buildOptionKeyConstant-java.lang.String-java.lang.String-">buildOptionKeyConstant</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putBoolean-java.lang.String-boolean-">putBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putInteger-java.lang.String-int-">putInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putParcelable-java.lang.String-android.os.Parcelable-">putParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putSerializable-java.lang.String-java.io.Serializable-">putSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readSerializable-java.lang.String-">readSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
+<code><a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -216,7 +230,7 @@ extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.h
 <li class="blockList">
 <h4>BlinkIdUISettings</h4>
 <pre>public&nbsp;BlinkIdUISettings(@Nullable
-                         <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;documentRecognizerBundle)</pre>
+                         <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
 </li>
 </ul>
 <a name="BlinkIdUISettings-android.content.Intent-">
@@ -237,6 +251,50 @@ extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.h
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="isLockedToPortrait--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isLockedToPortrait</h4>
+<pre>protected&nbsp;boolean&nbsp;isLockedToPortrait()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#isLockedToPortrait--">isLockedToPortrait</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="setOverlayViewStyle-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOverlayViewStyle</h4>
+<pre>public&nbsp;void&nbsp;setOverlayViewStyle(@StyleRes
+                                int&nbsp;styleResourceID)</pre>
+<div class="block">Provide your own style to replace default icons and colors.
+ Supports attributes from R.styleable.BlinkIdReticleOverlay</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>styleResourceID</code> - your style</dd>
+</dl>
+</li>
+</ul>
+<a name="setStrings-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStrings</h4>
+<pre>public&nbsp;void&nbsp;setStrings(@NonNull
+                       <a href="../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings)</pre>
+<div class="block">Sets strings that will be used in the UI.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>strings</code> - strings that will be used</dd>
+</dl>
+</li>
+</ul>
 <a name="getTargetActivity--">
 <!--   -->
 </a>
@@ -257,24 +315,17 @@ public&nbsp;java.lang.Class&nbsp;getTargetActivity()</pre>
 </dl>
 </li>
 </ul>
-<a name="toOverlaySettings-android.app.Activity-">
+<a name="createOverlayView--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>toOverlaySettings</h4>
+<h4>createOverlayView</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlaySettings</a>&nbsp;toOverlaySettings(@NonNull
-                                                         android.app.Activity&nbsp;activity)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#toOverlaySettings-android.app.Activity-">BaseVerificationUISettings</a></code></span></div>
-<div class="block">Creates overlay settings that is built by copying configuration of these ui settings</div>
+protected&nbsp;<a href="../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a>&nbsp;createOverlayView()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#toOverlaySettings-android.app.Activity-">toOverlaySettings</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>activity</code> - to be used when context is required</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>overlay settings that match these ui settings</dd>
+<dd><code><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html#createOverlayView--">createOverlayView</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a></code></dd>
 </dl>
 </li>
 </ul>

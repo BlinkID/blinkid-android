@@ -17,12 +17,6 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
-var altColor = "altColor";
-var rowColor = "rowColor";
-var tableTab = "tableTab";
-var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -75,13 +69,13 @@ var activeTableTab = "activeTableTab";
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -91,17 +85,26 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">com.microblink.fragment.overlay.basic</div>
-<h2 title="Interface BasicOverlaySettings" class="title">Interface BasicOverlaySettings</h2>
+<h2 title="Class BasicOverlaySettings" class="title">Class BasicOverlaySettings</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li>java.lang.Object</li>
+<li>
+<ul class="inheritance">
+<li>com.microblink.fragment.overlay.basic.BasicOverlaySettings</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">BasicOverlaySettings</span></pre>
+<pre>public class <span class="typeNameLabel">BasicOverlaySettings</span>
+extends java.lang.Object</pre>
 <div class="block">Collection of configuration settings for <a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlayController.html" title="class in com.microblink.fragment.overlay.basic"><code>BasicOverlayController</code></a>.
- It can be created by using <a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.basic"><code>BasicOverlaySettings.Builder</code></a> or <a href="../../../../../com/microblink/uisettings/BasicScanUISettings.html#toOverlaySettings-android.app.Activity-"><code>BasicScanUISettings.toOverlaySettings(Activity)</code></a></div>
+ It can be created by using <a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.basic"><code>BasicOverlaySettings.Builder</code></a>.</div>
 </li>
 </ul>
 </div>
@@ -118,7 +121,7 @@ var activeTableTab = "activeTableTab";
 <caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Interface and Description</th>
+<th class="colLast" scope="col">Class and Description</th>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
@@ -135,206 +138,12 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Method and Description</th>
-</tr>
-<tr id="i0" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getBeepSoundResourceId--">getBeepSoundResourceId</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/settings/OverlayCameraSettings.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getCameraSettings--">getCameraSettings</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/settings/ControlsLayoutConfig.html" title="class in com.microblink.fragment.overlay.components.settings">ControlsLayoutConfig</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getControlsLayoutConfig--">getControlsLayoutConfig</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getDebugImageListener--">getDebugImageListener</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getForcedOrientation--">getForcedOrientation</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.lang.Runnable</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getHelpAction--">getHelpAction</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewPreset.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewPreset</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getQuadViewPreset--">getQuadViewPreset</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/feedback/RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getRecognitionFeedbackHandler--">getRecognitionFeedbackHandler</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getRecognizerBundle--">getRecognizerBundle</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/settings/ScanRegionOfInterestSettings.html" title="class in com.microblink.fragment.overlay.components.settings">ScanRegionOfInterestSettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getScanRoiSettings--">getScanRoiSettings</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getSplashScreenLayoutResourceId--">getSplashScreenLayoutResourceId</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusMessageTranslator.html" title="interface in com.microblink.fragment.overlay.components.statusmsg">StatusMessageTranslator</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#getStatusMessageTranslator--">getStatusMessageTranslator</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/basic/BasicOverlaySettings.html#isHighResSuccessFrameCaptureEnabled--">isHighResSuccessFrameCaptureEnabled</a></span>()</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="details">
 <ul class="blockList">
-<li class="blockList">
-<!-- ============ METHOD DETAIL ========== -->
-<ul class="blockList">
-<li class="blockList"><a name="method.detail">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Method Detail</h3>
-<a name="getRecognizerBundle--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRecognizerBundle</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;getRecognizerBundle()</pre>
-</li>
-</ul>
-<a name="getQuadViewPreset--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getQuadViewPreset</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/view/viewfinder/quadview/QuadViewPreset.html" title="class in com.microblink.view.viewfinder.quadview">QuadViewPreset</a>&nbsp;getQuadViewPreset()</pre>
-</li>
-</ul>
-<a name="getRecognitionFeedbackHandler--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getRecognitionFeedbackHandler</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/fragment/overlay/components/feedback/RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a>&nbsp;getRecognitionFeedbackHandler()</pre>
-</li>
-</ul>
-<a name="getControlsLayoutConfig--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getControlsLayoutConfig</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/fragment/overlay/components/settings/ControlsLayoutConfig.html" title="class in com.microblink.fragment.overlay.components.settings">ControlsLayoutConfig</a>&nbsp;getControlsLayoutConfig()</pre>
-</li>
-</ul>
-<a name="getStatusMessageTranslator--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getStatusMessageTranslator</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusMessageTranslator.html" title="interface in com.microblink.fragment.overlay.components.statusmsg">StatusMessageTranslator</a>&nbsp;getStatusMessageTranslator()</pre>
-</li>
-</ul>
-<a name="getForcedOrientation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getForcedOrientation</h4>
-<pre>@Nullable
-<a href="../../../../../com/microblink/uisettings/options/OverlayOrientation.html" title="class in com.microblink.uisettings.options">OverlayOrientation</a>&nbsp;getForcedOrientation()</pre>
-</li>
-</ul>
-<a name="getCameraSettings--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCameraSettings</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/fragment/overlay/components/settings/OverlayCameraSettings.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings</a>&nbsp;getCameraSettings()</pre>
-</li>
-</ul>
-<a name="getHelpAction--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getHelpAction</h4>
-<pre>@Nullable
-java.lang.Runnable&nbsp;getHelpAction()</pre>
-</li>
-</ul>
-<a name="getSplashScreenLayoutResourceId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSplashScreenLayoutResourceId</h4>
-<pre>@LayoutRes
-int&nbsp;getSplashScreenLayoutResourceId()</pre>
-</li>
-</ul>
-<a name="isHighResSuccessFrameCaptureEnabled--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isHighResSuccessFrameCaptureEnabled</h4>
-<pre>boolean&nbsp;isHighResSuccessFrameCaptureEnabled()</pre>
-</li>
-</ul>
-<a name="getBeepSoundResourceId--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBeepSoundResourceId</h4>
-<pre>int&nbsp;getBeepSoundResourceId()</pre>
-</li>
-</ul>
-<a name="getDebugImageListener--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDebugImageListener</h4>
-<pre>@Nullable
-<a href="../../../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;getDebugImageListener()</pre>
-</li>
-</ul>
-<a name="getScanRoiSettings--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getScanRoiSettings</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/fragment/overlay/components/settings/ScanRegionOfInterestSettings.html" title="class in com.microblink.fragment.overlay.components.settings">ScanRegionOfInterestSettings</a>&nbsp;getScanRoiSettings()</pre>
-</li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -391,13 +200,13 @@ int&nbsp;getSplashScreenLayoutResourceId()</pre>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.summary">Method</a></li>
+<li><a href="#methods.inherited.from.class.java.lang.Object">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li><a href="#method.detail">Method</a></li>
+<li>Method</li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

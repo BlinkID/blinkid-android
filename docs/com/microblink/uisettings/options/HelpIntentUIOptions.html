@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
+var methods = {"i0":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../com/microblink/uisettings/BarcodeUISettings.html" title="class in com.microblink.uisettings">BarcodeUISettings</a>, <a href="../../../../com/microblink/uisettings/BaseOcrUISettings.html" title="class in com.microblink.uisettings">BaseOcrUISettings</a>, <a href="../../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../../com/microblink/uisettings/DocumentUISettings.html" title="class in com.microblink.uisettings">DocumentUISettings</a>, <a href="../../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
+<dd><a href="../../../../com/microblink/uisettings/BarcodeUISettings.html" title="class in com.microblink.uisettings">BarcodeUISettings</a>, <a href="../../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
 </dl>
 <hr>
 <br>
@@ -123,24 +123,6 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.lang.Runnable</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#getHelpAction--">getHelpAction</a></span>()</code>
-<div class="block">Returns the <code>Runnable</code> that will be invoked when user presses the help button on the scanning UI.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>android.content.Intent</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#getHelpIntent--">getHelpIntent</a></span>()</code>
-<div class="block">Returns intent for help activity called when help should be shown.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#setHelpAction-java.lang.Runnable-">setHelpAction</a></span>(java.lang.Runnable&nbsp;helpAction)</code>
-<div class="block">Defines action that will be executed when user presses the help button.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#setHelpIntent-android.content.Intent-">setHelpIntent</a></span>(android.content.Intent&nbsp;helpIntent)</code>
 <div class="block">Defines intent for help activity called when help should be shown.</div>
@@ -161,25 +143,10 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getHelpIntent--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getHelpIntent</h4>
-<pre>@Nullable
-android.content.Intent&nbsp;getHelpIntent()</pre>
-<div class="block">Returns intent for help activity called when help should be shown.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>intent for help activity called when help should be shown.</dd>
-</dl>
-</li>
-</ul>
 <a name="setHelpIntent-android.content.Intent-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>setHelpIntent</h4>
 <pre>void&nbsp;setHelpIntent(@Nullable
@@ -189,44 +156,6 @@ android.content.Intent&nbsp;getHelpIntent()</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>helpIntent</code> - intent for help activity called when help should be shown.</dd>
-</dl>
-</li>
-</ul>
-<a name="getHelpAction--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getHelpAction</h4>
-<pre>@Nullable
-java.lang.Runnable&nbsp;getHelpAction()</pre>
-<div class="block">Returns the <code>Runnable</code> that will be invoked when user presses the help button on the scanning UI.
- For more information, see <a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#setHelpAction-java.lang.Runnable-"><code>HelpIntentUIOptions.setHelpAction(Runnable)</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the <code>Runnable</code> that will be invoked when user presses the help button on the scanning UI.</dd>
-</dl>
-</li>
-</ul>
-<a name="setHelpAction-java.lang.Runnable-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>setHelpAction</h4>
-<pre>void&nbsp;setHelpAction(@Nullable
-                   java.lang.Runnable&nbsp;helpAction)</pre>
-<div class="block">Defines action that will be executed when user presses the help button. If not set or set to
- null, pressing help button will invoke <code>Intent</code> set by <a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#setHelpIntent-android.content.Intent-"><code>HelpIntentUIOptions.setHelpIntent(Intent)</code></a>.
- If neither help <code>Intent</code> nor help action is set, help button will not be shown in the
- scanning UI. If both are set, then this action has priority, i.e. help intent set with
- <a href="../../../../com/microblink/uisettings/options/HelpIntentUIOptions.html#setHelpIntent-android.content.Intent-"><code>HelpIntentUIOptions.setHelpIntent(Intent)</code></a> will be ignored.
- Note that since <code>Runnable</code> cannot be serialized and transferred via <code>Intent</code>,
- this makes only sense if using <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> with
- compatible overlay. An attempt to save to <code>Intent</code> using <a href="../../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-"><code>UISettings.saveToIntent(Intent)</code></a>, a <code>IllegalStateException</code> will be thrown.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>helpAction</code> - <code>Runnable</code> that will be invoked when user presses the help button on the scanning UI.</dd>
 </dl>
 </li>
 </ul>

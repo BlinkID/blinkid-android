@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
+var methods = {"i0":6,"i1":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../com/microblink/uisettings/BarcodeUISettings.html" title="class in com.microblink.uisettings">BarcodeUISettings</a>, <a href="../../../../com/microblink/uisettings/BaseOcrUISettings.html" title="class in com.microblink.uisettings">BaseOcrUISettings</a>, <a href="../../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a>, <a href="../../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../../com/microblink/uisettings/BlinkCardUISettings.html" title="class in com.microblink.uisettings">BlinkCardUISettings</a>, <a href="../../../../com/microblink/uisettings/BlinkIdUISettings.html" title="class in com.microblink.uisettings">BlinkIdUISettings</a>, <a href="../../../../com/microblink/uisettings/DocumentUISettings.html" title="class in com.microblink.uisettings">DocumentUISettings</a>, <a href="../../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a>, <a href="../../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
+<dd><a href="../../../../com/microblink/uisettings/BarcodeUISettings.html" title="class in com.microblink.uisettings">BarcodeUISettings</a>, <a href="../../../../com/microblink/uisettings/BaseBlinkIdUiSettings.html" title="class in com.microblink.uisettings">BaseBlinkIdUiSettings</a>, <a href="../../../../com/microblink/uisettings/BasicScanUISettings.html" title="class in com.microblink.uisettings">BasicScanUISettings</a>, <a href="../../../../com/microblink/uisettings/BlinkCardUISettings.html" title="class in com.microblink.uisettings">BlinkCardUISettings</a>, <a href="../../../../com/microblink/uisettings/BlinkIdUISettings.html" title="class in com.microblink.uisettings">BlinkIdUISettings</a>, <a href="../../../../com/microblink/uisettings/DocumentUISettings.html" title="class in com.microblink.uisettings">DocumentUISettings</a>, <a href="../../../../com/microblink/uisettings/DocumentVerificationUISettings.html" title="class in com.microblink.uisettings">DocumentVerificationUISettings</a>, <a href="../../../../com/microblink/uisettings/FieldByFieldUISettings.html" title="class in com.microblink.uisettings">FieldByFieldUISettings</a></dd>
 </dl>
 <hr>
 <br>
@@ -123,27 +123,13 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#getCameraVideoPreset--">getCameraVideoPreset</a></span>()</code>
-<div class="block">Returns the video resolution preset that will be used when choosing camera resolution
- for scanning.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#getUsingLegacyCameraAPI--">getUsingLegacyCameraAPI</a></span>()</code>
-<div class="block">Returns whether legacy camera API should be used even on Lollipop devices that support
- newer Camera2 API.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a></span>(<a href="../../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;cameraVideoPreset)</code>
 <div class="block">Sets the video resolution preset that will be used when choosing camera resolution
  for scanning.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></span>(boolean&nbsp;usingLegacyCameraAPI)</code>
 <div class="block">Sets whether legacy camera API should be used even on Lollipop devices that support
@@ -165,23 +151,6 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getCameraVideoPreset--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getCameraVideoPreset</h4>
-<pre>@Nullable
-<a href="../../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;getCameraVideoPreset()</pre>
-<div class="block">Returns the video resolution preset that will be used when choosing camera resolution
- for scanning.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>video resolution preset that will be used when choosing camera resolution
- for scanning.</dd>
-</dl>
-</li>
-</ul>
 <a name="setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">
 <!--   -->
 </a>
@@ -196,21 +165,6 @@ var activeTableTab = "activeTableTab";
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>cameraVideoPreset</code> - video resolution preset that will be used
                           when choosing camera resolution for scanning.</dd>
-</dl>
-</li>
-</ul>
-<a name="getUsingLegacyCameraAPI--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getUsingLegacyCameraAPI</h4>
-<pre>boolean&nbsp;getUsingLegacyCameraAPI()</pre>
-<div class="block">Returns whether legacy camera API should be used even on Lollipop devices that support
- newer Camera2 API.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if legacy camera API should be used, <code>false</code> otherwise.</dd>
 </dl>
 </li>
 </ul>

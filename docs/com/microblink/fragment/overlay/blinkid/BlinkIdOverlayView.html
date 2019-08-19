@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayView</a></dd>
+<dd><a href="../../../../../com/microblink/fragment/overlay/blinkid/document/DocumentOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.document">DocumentOverlayView</a>, <a href="../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.documentverification">DocumentVerificationOverlayView</a>, <a href="../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayView</a></dd>
 </dl>
 <hr>
 <br>
@@ -129,29 +129,29 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>android.view.View</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-android.view.ViewGroup-">createLayout</a></span>(android.app.Activity&nbsp;activity,
-            android.view.ViewGroup&nbsp;parentView)</code>
-<div class="block">Inflate your custom layout layout here</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">createLayout</a></span>(android.app.Activity&nbsp;activity,
+            <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;parentView)</code>
+<div class="block">Inflate your custom layout layout here and add it to the parent view</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getDocumentNotSupportedDialogStrings--">getDocumentNotSupportedDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">createTorchController</a></span>(<a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>
+<div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getRecognitionTimeoutDialogStrings--">getRecognitionTimeoutDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getDocumentNotSupportedDialogStrings--">getDocumentNotSupportedDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getSidesNotMatchingDialogStrings--">getSidesNotMatchingDialogStrings</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getRecognitionTimeoutDialogStrings--">getRecognitionTimeoutDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>android.widget.ImageView</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getTorchButton--">getTorchButton</a></span>()</code>
-<div class="block">Return image view that will be used to control torch</div>
-</td>
+<td class="colFirst"><code><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#getSidesNotMatchingDialogStrings--">getSidesNotMatchingDialogStrings</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
@@ -178,15 +178,28 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onGlare-boolean-">onGlare</a></span>(boolean&nbsp;hasGlare)</code>
+<div class="block">Called on glare detection update.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
+<div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
+ will be called when the document is classified.</div>
 </td>
 </tr>
 </table>
@@ -204,39 +217,39 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createLayout-android.app.Activity-android.view.ViewGroup-">
+<a name="createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>createLayout</h4>
-<pre>@NonNull
-android.view.View&nbsp;createLayout(@NonNull
-                                        android.app.Activity&nbsp;activity,
-                                        @NonNull
-                                        android.view.ViewGroup&nbsp;parentView)</pre>
-<div class="block">Inflate your custom layout layout here</div>
+<pre>void&nbsp;createLayout(@NonNull
+                  android.app.Activity&nbsp;activity,
+                  @NonNull
+                  <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;parentView)</pre>
+<div class="block">Inflate your custom layout layout here and add it to the parent view</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>activity</code> - current activity</dd>
 <dd><code>parentView</code> - root view to be used as inflation parent</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>root view of your custom layout</dd>
 </dl>
 </li>
 </ul>
-<a name="getTorchButton--">
+<a name="createTorchController-com.microblink.view.recognition.RecognizerRunnerView-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getTorchButton</h4>
-<pre>@Nullable
-android.widget.ImageView&nbsp;getTorchButton()</pre>
-<div class="block">Return image view that will be used to control torch</div>
+<h4>createTorchController</h4>
+<pre>@NonNull
+<a href="../../../../../com/microblink/fragment/overlay/components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a>&nbsp;createTorchController(@NonNull
+                                               <a href="../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognizerRunnerView</code> - required for torch controller setup</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>torch button</dd>
+<dd>torch controller</dd>
 </dl>
 </li>
 </ul>
@@ -258,6 +271,21 @@ android.widget.ImageView&nbsp;getTorchButton()</pre>
 <h4>onSecondSideScanStarted</h4>
 <pre>void&nbsp;onSecondSideScanStarted()</pre>
 <div class="block">Called when scanning of the second side starts.</div>
+</li>
+</ul>
+<a name="setRecognizerSupportsClassification-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setRecognizerSupportsClassification</h4>
+<pre>void&nbsp;setRecognizerSupportsClassification(boolean&nbsp;isClassificationSupported)</pre>
+<div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
+ will be called when the document is classified.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>isClassificationSupported</code> - true if classification is supported</dd>
+</dl>
 </li>
 </ul>
 <a name="onDocumentClassified--">
@@ -305,6 +333,20 @@ android.widget.ImageView&nbsp;getTorchButton()</pre>
 <h4>onErrorDialogShown</h4>
 <pre>void&nbsp;onErrorDialogShown()</pre>
 <div class="block">Called when error dialog is shown. Make sure to stop animations here.</div>
+</li>
+</ul>
+<a name="onGlare-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onGlare</h4>
+<pre>void&nbsp;onGlare(boolean&nbsp;hasGlare)</pre>
+<div class="block">Called on glare detection update.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hasGlare</code> - true if glare detected</dd>
+</dl>
 </li>
 </ul>
 <a name="getDocumentNotSupportedDialogStrings--">

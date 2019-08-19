@@ -59,6 +59,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
         * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
         * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
         * [Passport recognizer](#passportRecognizer)
+        * [Visa recognizer](#visaRecognizer)
         * [US / Canada driver's license barcode recognizer](#us_dl_recognizer)
         * [US / Canada driver's license combined recognizer](#us_dl_combined_recognizer)
         * [EU Driver's License recognizer](#eudlRecognizer)
@@ -66,6 +67,7 @@ To see _BlinkID_ in action, check our [demo app](https://play.google.com/store/a
     * [Country-specific BlinkID recognizers](#blinkid_recognizers_countries)
         * [Australia](#blinkid_recognizers_australia)
         * [Austria](#blinkid_recognizers_austria)
+        * [Belgium](#blinkid_recognizers_belgium)
         * [Brunei](#blinkid_recognizers_brunei)
         * [Colombia](#blinkid_recognizers_colombia)
         * [Croatia](#blinkid_recognizers_croatia)
@@ -190,7 +192,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.10.0@aar') {
+    implementation('com.microblink:blinkid:4.11.0@aar') {
         transitive = true
     }
 }
@@ -202,7 +204,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.10.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.11.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -274,7 +276,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.10.0</version>
+        <version>4.11.0</version>
         <type>aar</type>
     </dependency>
 </dependencies>
@@ -1058,6 +1060,11 @@ The [`PassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microbl
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
+### <a name="visaRecognizer"></a> Visa recognizer
+The [`VisaRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/visa/VisaRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various visa documents. This recognizer also returns face image from the visa document.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
 ### <a name="us_dl_recognizer"></a> US / Canada driver's license barcode recognizer
 The [`UsdlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html) is used for scanning PDF417 barcode from the US / Canada driver's license.
 
@@ -1110,6 +1117,17 @@ The [`AustriaCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/
 
 #### <a name="austria_dl"></a> Austria driver's license recognizer
 The [`AustriaDlFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/austria/AustriaDlFrontRecognizer.html) is used for scanning [the front side of Austrian driver's license](https://en.wikipedia.org/wiki/Driving_licence_in_Austria).
+
+
+### <a name="blinkid_recognizers_belgium"></a> Belgium
+
+For all recognizers, you can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+#### <a name="belgium_id"></a> Belgium ID front and back side recognizers
+The [`BelgiumIdFrontRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/belgium/BelgiumIdFrontRecognizer.html) and [`BelgiumIdBackRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/belgium/BelgiumIdBackRecognizer.html) are used for scanning the [front and back side of Belgian identity card](https://en.wikipedia.org/wiki/Belgian_national_identity_card).
+
+#### <a name="belgium_combined"></a> Belgium combined recognizer
+The [`BelgiumCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/belgium/BelgiumCombinedRecognizer.html) scans back side of Belgian ID after scanning the front side and combines data from both sides.
 
 
 ### <a name="blinkid_recognizers_brunei"></a> Brunei

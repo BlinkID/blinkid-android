@@ -10,6 +10,9 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdBackRecognizer;
@@ -92,6 +95,7 @@ import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArab
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.visa.VisaRecognizer;
 import com.microblink.result.extract.blinkcard.BlinkCardEliteRecognitionResultExtractor;
 import com.microblink.result.extract.blinkcard.BlinkCardRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.australia.AustralianDLBackSideRecognitionResultExtractor;
@@ -101,6 +105,9 @@ import com.microblink.result.extract.blinkid.austria.AustrianIDBackSideRecogniti
 import com.microblink.result.extract.blinkid.austria.AustrianIDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianIDFrontSideRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.austria.AustrianPassportRecognitionResultExtractor;
+import com.microblink.result.extract.blinkid.belgium.BelgiumCombinedRecognizerResultExtractor;
+import com.microblink.result.extract.blinkid.belgium.BelgiumIdBackRecognizerResultExtractor;
+import com.microblink.result.extract.blinkid.belgium.BelgiumIdFrontRecognizerResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiIdBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiIdFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.brunei.BruneiMilitaryIdBackRecognitionResultExtractor;
@@ -183,6 +190,7 @@ import com.microblink.result.extract.blinkid.unitedArabEmirates.UnitedArabEmirat
 import com.microblink.result.extract.blinkid.unitedArabEmirates.UnitedArabEmiratesIDBackRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.unitedArabEmirates.UnitedArabEmiratesIDFrontRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.usdl.USDLCombinedResultExtractor;
+import com.microblink.result.extract.blinkid.visa.VisaRecognizerResultExtractor;
 import com.microblink.result.extract.blinkinput.BlinkInputResultExtractorFactory;
 import com.microblink.result.extract.usdl.USDLResultExtractor;
 
@@ -210,6 +218,12 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new AustrianIDCombinedRecognitionResultExtractor());
         add(AustriaPassportRecognizer.class,
                 new AustrianPassportRecognitionResultExtractor());
+        add(BelgiumIdFrontRecognizer.class,
+                new BelgiumIdFrontRecognizerResultExtractor());
+        add(BelgiumIdBackRecognizer.class,
+                new BelgiumIdBackRecognizerResultExtractor());
+        add(BelgiumCombinedRecognizer.class,
+                new BelgiumCombinedRecognizerResultExtractor());
         add(BlinkIdRecognizer.class,
                 new BlinkIDRecognizerResultExtractor());
         add(BlinkIdCombinedRecognizer.class,
@@ -366,6 +380,8 @@ public class BlinkIdResultExtractorFactory extends BlinkInputResultExtractorFact
                 new UnitedArabEmiratesIDBackRecognitionResultExtractor());
         add(UnitedArabEmiratesDlFrontRecognizer.class,
                 new UnitedArabEmiratesDlFrontRecognitionResultExtractor());
+        add(VisaRecognizer.class,
+                new VisaRecognizerResultExtractor());
         add(MrtdCombinedRecognizer.class,
                 new MRTDCombinedRecognitionResultExtractor());
         add(MrtdRecognizer.class,

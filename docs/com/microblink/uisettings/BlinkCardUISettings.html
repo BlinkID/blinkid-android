@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -101,12 +101,7 @@ var activeTableTab = "activeTableTab";
 <li><a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">com.microblink.uisettings.UISettings</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">com.microblink.uisettings.BaseVerificationUISettings</a></li>
-<li>
-<ul class="inheritance">
 <li>com.microblink.uisettings.BlinkCardUISettings</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -117,13 +112,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a>, <a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></dd>
+<dd><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.uisettings.options">OcrResultDisplayUIOptions</a>, <a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">BlinkCardUISettings</span>
-extends <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a>
-implements <a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></pre>
+extends <a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a>
+implements <a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a>, <a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a>, <a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a>, <a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a>, <a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a>, <a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.uisettings.options">OcrResultDisplayUIOptions</a></pre>
 </li>
 </ul>
 </div>
@@ -163,123 +158,109 @@ implements <a href="../../../com/microblink/uisettings/options/ScanInstructionsU
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getBackIconResourceID--">getBackIconResourceID</a></span>()</code>
-<div class="block">Returns back button icon</div>
+<td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html" title="class in com.microblink.fragment.overlay.blinkcard">BlinkCardOverlayController</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">createOverlayController</a></span>(android.app.Activity&nbsp;activity,
+                       <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</code>
+<div class="block">Creates overlay controller and configures it using set values.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getFirstSideInstructions--">getFirstSideInstructions</a></span>()</code>
-<div class="block">Returns user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#enableHighResSuccessFrameCapture-boolean-">enableHighResSuccessFrameCapture</a></span>(boolean&nbsp;enabled)</code>
+<div class="block">Sets whether to enable capturing high res frames on recognition success.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getFirstSideInstructionsResourceID--">getFirstSideInstructionsResourceID</a></span>()</code>
-<div class="block">Returns user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
+<td class="colFirst"><code><a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getRecognizerBundle--">getRecognizerBundle</a></span>()</code>
+<div class="block">Returns the <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers"><code>RecognizerBundle</code></a> containing recognizers that will be used for processing.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getSecondSideInstructions--">getSecondSideInstructions</a></span>()</code>
-<div class="block">Returns user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getSecondSideInstructionsResourceID--">getSecondSideInstructionsResourceID</a></span>()</code>
-<div class="block">Returns user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.Class</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getTargetActivity--">getTargetActivity</a></span>()</code>
 <div class="block">Returns target activity.</div>
 </td>
 </tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
+<div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
+ corresponding scan activity.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a></span>(int&nbsp;beepSoundResourceID)</code>
+<div class="block">Defines the resource ID of the sound to be played when recognition is successful.</div>
+</td>
+</tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getTorchOffIconResourceID--">getTorchOffIconResourceID</a></span>()</code>
-<div class="block">Returns torch (flashlight) button icon that is shown while torch is turned OFF.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a></span>(<a href="../../../com/microblink/hardware/camera/CameraType.html" title="class in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</code>
+<div class="block">Sets type of camera that will be used.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#getTorchOnIconResourceID--">getTorchOnIconResourceID</a></span>()</code>
-<div class="block">Returns torch (flashlight) button icon that is shown while torch is turned ON.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a></span>(<a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;cameraVideoPreset)</code>
+<div class="block">Sets the video resolution preset that will be used when choosing camera resolution
+ for scanning.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setBackIconResourceID-int-">setBackIconResourceID</a></span>(int&nbsp;backIconResourceID)</code>
-<div class="block">Sets back button icon, pass in 0 if you don't want to display back button</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a></span>(<a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</code>
+<div class="block">Sets implementation of <a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image"><code>CurrentImageListener</code></a> interface that will obtain images that
+ are currently being processed.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setFirstSideInstructions-java.lang.String-">setFirstSideInstructions</a></span>(java.lang.String&nbsp;firstSideInstructions)</code>
-<div class="block">Sets user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a></span>(<a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</code>
+<div class="block">Sets implementation of <a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><code>DebugImageListener</code></a> interface that will obtain images that are
+ being processed.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setFirstSideInstructionsResourceID-int-">setFirstSideInstructionsResourceID</a></span>(int&nbsp;firstSideInstructionsResourceID)</code>
-<div class="block">Sets user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">setOcrResultDisplayMode</a></span>(<a href="../../../com/microblink/uisettings/options/OcrResultDisplayMode.html" title="class in com.microblink.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</code>
+<div class="block">Defines mode in which OCR result will be drawn on camera preview.</div>
 </td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setSecondSideInstructions-java.lang.String-">setSecondSideInstructions</a></span>(java.lang.String&nbsp;secondSideInstructions)</code>
-<div class="block">Sets user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setOverlayViewStyle-int-">setOverlayViewStyle</a></span>(int&nbsp;styleResourceID)</code>
+<div class="block">Provide your own style to replace default icons and colors.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setSecondSideInstructionsResourceID-int-">setSecondSideInstructionsResourceID</a></span>(int&nbsp;secondSideInstructionsResourceID)</code>
-<div class="block">Sets user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a></span>(int&nbsp;splashScreenLayoutResourceID)</code>
+<div class="block">Defines the ID of the layout resource that will be used as camera splash screen displayed
+ while camera is being initialized.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setTorchOffIconResourceID-int-">setTorchOffIconResourceID</a></span>(int&nbsp;torchOffIconResourceID)</code>
-<div class="block">Sets torch (flashlight) button icon that is shown while torch is turned OFF.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setStrings-com.microblink.fragment.overlay.blinkcard.scanlineui.ScanLineOverlayStrings-">setStrings</a></span>(<a href="../../../com/microblink/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&nbsp;strings)</code>
+<div class="block">Sets strings that will be used in the UI.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setTorchOnIconResourceID-int-">setTorchOnIconResourceID</a></span>(int&nbsp;torchOnIconResourceID)</code>
-<div class="block">Sets torch (flashlight) button icon that is shown while torch is turned ON.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code><a href="../../../com/microblink/fragment/overlay/verification/settings/BlinkCardOverlaySettings.html" title="class in com.microblink.fragment.overlay.verification.settings">BlinkCardOverlaySettings</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#toOverlaySettings-android.app.Activity-">toOverlaySettings</a></span>(android.app.Activity&nbsp;activity)</code>
-<div class="block">Creates overlay settings that is built by copying configuration of these ui settings</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/BlinkCardUISettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></span>(boolean&nbsp;usingLegacyCameraAPI)</code>
+<div class="block">Sets whether legacy camera API should be used even on Lollipop devices that support
+ newer Camera2 API.</div>
 </td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.com.microblink.uisettings.BaseVerificationUISettings">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a></h3>
-<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#buildCameraSettings--">buildCameraSettings</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#buildVerificationResources-android.app.Activity-">buildVerificationResources</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#enableHighResSuccessFrameCapture-boolean-">enableHighResSuccessFrameCapture</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getBeepSoundResourceID--">getBeepSoundResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCameraTypeForDocumentScan--">getCameraTypeForDocumentScan</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCameraVideoPreset--">getCameraVideoPreset</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getCurrentImageListener--">getCurrentImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDebugImageListener--">getDebugImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonText--">getDialogNotMatchButtonText</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchButtonTextResourceID--">getDialogNotMatchButtonTextResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessage--">getDialogNotMatchMessage</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchMessageResourceID--">getDialogNotMatchMessageResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitle--">getDialogNotMatchTitle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDialogNotMatchTitleResourceID--">getDialogNotMatchTitleResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getDocumentRecognizerBundle--">getDocumentRecognizerBundle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getIsDocumentDataMatchRequired--">getIsDocumentDataMatchRequired</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getSplashScreenLayoutResourceID--">getSplashScreenLayoutResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#getUsingLegacyCameraAPI--">getUsingLegacyCameraAPI</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#isHighResSuccessFrameCaptureEnabled--">isHighResSuccessFrameCaptureEnabled</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraTypeForDocumentScan-com.microblink.hardware.camera.CameraType-">setCameraTypeForDocumentScan</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonText-java.lang.String-">setDialogNotMatchButtonText</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchButtonTextResourceID-int-">setDialogNotMatchButtonTextResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessage-java.lang.String-">setDialogNotMatchMessage</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchMessageResourceID-int-">setDialogNotMatchMessageResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitle-java.lang.String-">setDialogNotMatchTitle</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDialogNotMatchTitleResourceID-int-">setDialogNotMatchTitleResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setDocumentDataMatchRequired-boolean-">setDocumentDataMatchRequired</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a>, <a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.uisettings.UISettings">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.uisettings.<a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></h3>
-<code><a href="../../../com/microblink/uisettings/UISettings.html#buildOptionKeyConstant-java.lang.String-java.lang.String-">buildOptionKeyConstant</a>, <a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putBoolean-java.lang.String-boolean-">putBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putInteger-java.lang.String-int-">putInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putParcelable-java.lang.String-android.os.Parcelable-">putParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putSerializable-java.lang.String-java.io.Serializable-">putSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#putString-java.lang.String-java.lang.String-">putString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readBoolean-java.lang.String-boolean-">readBoolean</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readInteger-java.lang.String-int-">readInteger</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readParcelable-java.lang.String-T-">readParcelable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readSerializable-java.lang.String-">readSerializable</a>, <a href="../../../com/microblink/uisettings/UISettings.html#readString-java.lang.String-">readString</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
+<code><a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a>, <a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -330,6 +311,220 @@ implements <a href="../../../com/microblink/uisettings/options/ScanInstructionsU
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getRecognizerBundle--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRecognizerBundle</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;getRecognizerBundle()</pre>
+<div class="block">Returns the <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers"><code>RecognizerBundle</code></a> containing recognizers that will be used for processing.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the <a href="../../../com/microblink/entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers"><code>RecognizerBundle</code></a> containing recognizers that will be used for processing.</dd>
+</dl>
+</li>
+</ul>
+<a name="setOverlayViewStyle-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOverlayViewStyle</h4>
+<pre>public&nbsp;void&nbsp;setOverlayViewStyle(@StyleRes
+                                int&nbsp;styleResourceID)</pre>
+<div class="block">Provide your own style to replace default icons and colors.
+ Supports attributes from R.styleable.BlinkCardScanLineOverlay</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>styleResourceID</code> - your style</dd>
+</dl>
+</li>
+</ul>
+<a name="setStrings-com.microblink.fragment.overlay.blinkcard.scanlineui.ScanLineOverlayStrings-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setStrings</h4>
+<pre>public&nbsp;void&nbsp;setStrings(@NonNull
+                       <a href="../../../com/microblink/fragment/overlay/blinkcard/scanlineui/ScanLineOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkcard.scanlineui">ScanLineOverlayStrings</a>&nbsp;strings)</pre>
+<div class="block">Sets strings that will be used in the UI.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>strings</code> - strings that will be used</dd>
+</dl>
+</li>
+</ul>
+<a name="setBeepSoundResourceID-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBeepSoundResourceID</h4>
+<pre>public&nbsp;void&nbsp;setBeepSoundResourceID(@RawRes
+                                   int&nbsp;beepSoundResourceID)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html#setBeepSoundResourceID-int-">BeepSoundUIOptions</a></code></span></div>
+<div class="block">Defines the resource ID of the sound to be played when recognition is successful.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html#setBeepSoundResourceID-int-">setBeepSoundResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/BeepSoundUIOptions.html" title="interface in com.microblink.uisettings.options">BeepSoundUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>beepSoundResourceID</code> - resource ID of the sound to be played when recognition is successful.</dd>
+</dl>
+</li>
+</ul>
+<a name="setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCameraVideoPreset</h4>
+<pre>public&nbsp;void&nbsp;setCameraVideoPreset(@NonNull
+                                 <a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;cameraVideoPreset)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">CameraSettingsUIOptions</a></code></span></div>
+<div class="block">Sets the video resolution preset that will be used when choosing camera resolution
+ for scanning.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setCameraVideoPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setCameraVideoPreset</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cameraVideoPreset</code> - video resolution preset that will be used
+                          when choosing camera resolution for scanning.</dd>
+</dl>
+</li>
+</ul>
+<a name="setUsingLegacyCameraAPI-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setUsingLegacyCameraAPI</h4>
+<pre>public&nbsp;void&nbsp;setUsingLegacyCameraAPI(boolean&nbsp;usingLegacyCameraAPI)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setUsingLegacyCameraAPI-boolean-">CameraSettingsUIOptions</a></code></span></div>
+<div class="block">Sets whether legacy camera API should be used even on Lollipop devices that support
+ newer Camera2 API. Default is <code>false</code>;</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html#setUsingLegacyCameraAPI-boolean-">setUsingLegacyCameraAPI</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/CameraSettingsUIOptions.html" title="interface in com.microblink.uisettings.options">CameraSettingsUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>usingLegacyCameraAPI</code> - <code>true</code> to use legacy camera API, <code>false</code> otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="setCameraType-com.microblink.hardware.camera.CameraType-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCameraType</h4>
+<pre>public&nbsp;void&nbsp;setCameraType(@NonNull
+                          <a href="../../../com/microblink/hardware/camera/CameraType.html" title="class in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</pre>
+<div class="block">Sets type of camera that will be used.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>cameraType</code> - type of camera that will be used.</dd>
+</dl>
+</li>
+</ul>
+<a name="setDebugImageListener-com.microblink.image.DebugImageListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDebugImageListener</h4>
+<pre>public&nbsp;void&nbsp;setDebugImageListener(@Nullable
+                                  <a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image">DebugImageListener</a>&nbsp;debugImageListener)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html#setDebugImageListener-com.microblink.image.DebugImageListener-">DebugImageListenerUIOptions</a></code></span></div>
+<div class="block">Sets implementation of <a href="../../../com/microblink/image/DebugImageListener.html" title="interface in com.microblink.image"><code>DebugImageListener</code></a> interface that will obtain images that are
+ being processed. DebugImageListener will receive all possible debug images that become
+ available during recognition process.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html#setDebugImageListener-com.microblink.image.DebugImageListener-">setDebugImageListener</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/DebugImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">DebugImageListenerUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>debugImageListener</code> - Implementation of debug image listener or <code>null</code> to clear listener
+                           that has been set previously.</dd>
+</dl>
+</li>
+</ul>
+<a name="setCurrentImageListener-com.microblink.image.CurrentImageListener-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCurrentImageListener</h4>
+<pre>public&nbsp;void&nbsp;setCurrentImageListener(@Nullable
+                                    <a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">CurrentImageListenerUIOptions</a></code></span></div>
+<div class="block">Sets implementation of <a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image"><code>CurrentImageListener</code></a> interface that will obtain images that
+ are currently being processed. <a href="../../../com/microblink/image/CurrentImageListener.html" title="interface in com.microblink.image"><code>CurrentImageListener</code></a> will receive all possible images
+ that become available during recognition process.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html#setCurrentImageListener-com.microblink.image.CurrentImageListener-">setCurrentImageListener</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/CurrentImageListenerUIOptions.html" title="interface in com.microblink.uisettings.options">CurrentImageListenerUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>currentImageListener</code> - Implementation of image listener or <code>null</code> to clear listener
+                             that has been set previously.</dd>
+</dl>
+</li>
+</ul>
+<a name="enableHighResSuccessFrameCapture-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enableHighResSuccessFrameCapture</h4>
+<pre>public&nbsp;void&nbsp;enableHighResSuccessFrameCapture(boolean&nbsp;enabled)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html#enableHighResSuccessFrameCapture-boolean-">HighResSuccessFrameCaptureUIOptions</a></code></span></div>
+<div class="block">Sets whether to enable capturing high res frames on recognition success.
+ Default is <code>false</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html#enableHighResSuccessFrameCapture-boolean-">enableHighResSuccessFrameCapture</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/HighResSuccessFrameCaptureUIOptions.html" title="interface in com.microblink.uisettings.options">HighResSuccessFrameCaptureUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>enabled</code> - <code>true</code> if you wish to enable high res success frame capture</dd>
+</dl>
+</li>
+</ul>
+<a name="setSplashScreenLayoutResourceID-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSplashScreenLayoutResourceID</h4>
+<pre>public&nbsp;void&nbsp;setSplashScreenLayoutResourceID(int&nbsp;splashScreenLayoutResourceID)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html#setSplashScreenLayoutResourceID-int-">SplashScreenUIOptions</a></code></span></div>
+<div class="block">Defines the ID of the layout resource that will be used as camera splash screen displayed
+ while camera is being initialized. If not set, default splash screen will be used.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html#setSplashScreenLayoutResourceID-int-">setSplashScreenLayoutResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/SplashScreenUIOptions.html" title="interface in com.microblink.uisettings.options">SplashScreenUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>splashScreenLayoutResourceID</code> - ID of the layout resource that will be used as camera
+                                    splash screen displayed while camera is being initialized.</dd>
+</dl>
+</li>
+</ul>
+<a name="setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setOcrResultDisplayMode</h4>
+<pre>public&nbsp;void&nbsp;setOcrResultDisplayMode(@Nullable
+                                    <a href="../../../com/microblink/uisettings/options/OcrResultDisplayMode.html" title="class in com.microblink.uisettings.options">OcrResultDisplayMode</a>&nbsp;ocrResultDisplayMode)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html#setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">OcrResultDisplayUIOptions</a></code></span></div>
+<div class="block">Defines mode in which OCR result will be drawn on camera preview.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html#setOcrResultDisplayMode-com.microblink.uisettings.options.OcrResultDisplayMode-">setOcrResultDisplayMode</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/OcrResultDisplayUIOptions.html" title="interface in com.microblink.uisettings.options">OcrResultDisplayUIOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ocrResultDisplayMode</code> - mode in which OCR result will be drawn on camera preview.</dd>
+</dl>
+</li>
+</ul>
 <a name="getTargetActivity--">
 <!--   -->
 </a>
@@ -350,286 +545,45 @@ public&nbsp;java.lang.Class&nbsp;getTargetActivity()</pre>
 </dl>
 </li>
 </ul>
-<a name="getFirstSideInstructionsResourceID--">
+<a name="saveToIntent-android.content.Intent-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getFirstSideInstructionsResourceID</h4>
-<pre>@StringRes
-public&nbsp;int&nbsp;getFirstSideInstructionsResourceID()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getFirstSideInstructionsResourceID--">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Returns user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
+<h4>saveToIntent</h4>
+<pre>@CallSuper
+public&nbsp;void&nbsp;saveToIntent(@NonNull
+                                    android.content.Intent&nbsp;intent)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">UISettings</a></code></span></div>
+<div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
+ corresponding scan activity. Intent target activity must be set before calling this method,
+ and target activity must be compatible with this settings.
+
+ DO NOT USE THIS METHOD UNLESS YOU KNOW WHAT YOU ARE DOING. Improper usage will crash your app.</div>
 <dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getFirstSideInstructionsResourceID--">getFirstSideInstructionsResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>first side instructions string resource ID</dd>
-</dl>
-</li>
-</ul>
-<a name="setFirstSideInstructionsResourceID-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setFirstSideInstructionsResourceID</h4>
-<pre>public&nbsp;void&nbsp;setFirstSideInstructionsResourceID(@StringRes
-                                               int&nbsp;firstSideInstructionsResourceID)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setFirstSideInstructionsResourceID-int-">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Sets user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setFirstSideInstructionsResourceID-int-">setFirstSideInstructionsResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>firstSideInstructionsResourceID</code> - first side instructions string resource ID</dd>
+<dd><code>intent</code> - Intent to which this scan activity settings should be saved.</dd>
 </dl>
 </li>
 </ul>
-<a name="getFirstSideInstructions--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getFirstSideInstructions</h4>
-<pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getFirstSideInstructions()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getFirstSideInstructions--">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Returns user instructions that are shown above camera preview while the first side of the
- document is being scanned.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getFirstSideInstructions--">getFirstSideInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>first side instructions string or null if instructions do not exist</dd>
-</dl>
-</li>
-</ul>
-<a name="setFirstSideInstructions-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setFirstSideInstructions</h4>
-<pre>public&nbsp;void&nbsp;setFirstSideInstructions(@Nullable
-                                     java.lang.String&nbsp;firstSideInstructions)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setFirstSideInstructions-java.lang.String-">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Sets user instructions that are shown above camera preview while the first side of the
- document is being scanned.
- Please prefer to use <a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setFirstSideInstructionsResourceID-int-"><code>ScanInstructionsUIOptions.setFirstSideInstructionsResourceID(int)</code></a>.
- If both methods were called, instructions that were set as string resource will be taken.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setFirstSideInstructions-java.lang.String-">setFirstSideInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>firstSideInstructions</code> - first side instructions string</dd>
-</dl>
-</li>
-</ul>
-<a name="getSecondSideInstructionsResourceID--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSecondSideInstructionsResourceID</h4>
-<pre>@StringRes
-public&nbsp;int&nbsp;getSecondSideInstructionsResourceID()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getSecondSideInstructionsResourceID--">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Returns user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getSecondSideInstructionsResourceID--">getSecondSideInstructionsResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>second side instructions string resource ID</dd>
-</dl>
-</li>
-</ul>
-<a name="setSecondSideInstructionsResourceID-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setSecondSideInstructionsResourceID</h4>
-<pre>public&nbsp;void&nbsp;setSecondSideInstructionsResourceID(@StringRes
-                                                int&nbsp;secondSideInstructionsResourceID)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setSecondSideInstructionsResourceID-int-">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Sets user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setSecondSideInstructionsResourceID-int-">setSecondSideInstructionsResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>secondSideInstructionsResourceID</code> - second side instructions string resource ID</dd>
-</dl>
-</li>
-</ul>
-<a name="getSecondSideInstructions--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getSecondSideInstructions</h4>
-<pre>@Nullable
-public&nbsp;java.lang.String&nbsp;getSecondSideInstructions()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getSecondSideInstructions--">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Returns user instructions that are shown above camera preview while the second side of the
- document is being scanned.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#getSecondSideInstructions--">getSecondSideInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>second side instructions string or null if instructions do not exist</dd>
-</dl>
-</li>
-</ul>
-<a name="setSecondSideInstructions-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setSecondSideInstructions</h4>
-<pre>public&nbsp;void&nbsp;setSecondSideInstructions(@NonNull
-                                      java.lang.String&nbsp;secondSideInstructions)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setSecondSideInstructions-java.lang.String-">ScanInstructionsUIOptions</a></code></span></div>
-<div class="block">Sets user instructions that are shown above camera preview while the second side of the
- document is being scanned.
- Please prefer to use <a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setSecondSideInstructionsResourceID-int-"><code>ScanInstructionsUIOptions.setSecondSideInstructionsResourceID(int)</code></a>
- If both methods were called, instructions that were set as string resource will be taken.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html#setSecondSideInstructions-java.lang.String-">setSecondSideInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/ScanInstructionsUIOptions.html" title="interface in com.microblink.uisettings.options">ScanInstructionsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>secondSideInstructions</code> - second side instructions string</dd>
-</dl>
-</li>
-</ul>
-<a name="getBackIconResourceID--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getBackIconResourceID</h4>
-<pre>public&nbsp;int&nbsp;getBackIconResourceID()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getBackIconResourceID--">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Returns back button icon</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getBackIconResourceID--">getBackIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>back button icon drawable resource ID</dd>
-</dl>
-</li>
-</ul>
-<a name="setBackIconResourceID-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setBackIconResourceID</h4>
-<pre>public&nbsp;void&nbsp;setBackIconResourceID(int&nbsp;backIconResourceID)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setBackIconResourceID-int-">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Sets back button icon, pass in 0 if you don't want to display back button</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setBackIconResourceID-int-">setBackIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>backIconResourceID</code> - back button icon drawable resource ID</dd>
-</dl>
-</li>
-</ul>
-<a name="getTorchOnIconResourceID--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTorchOnIconResourceID</h4>
-<pre>@DrawableRes
-public&nbsp;int&nbsp;getTorchOnIconResourceID()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getTorchOnIconResourceID--">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Returns torch (flashlight) button icon that is shown while torch is turned ON.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getTorchOnIconResourceID--">getTorchOnIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>torch button icon drawable resource ID while torch is ON</dd>
-</dl>
-</li>
-</ul>
-<a name="setTorchOnIconResourceID-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTorchOnIconResourceID</h4>
-<pre>public&nbsp;void&nbsp;setTorchOnIconResourceID(@DrawableRes
-                                     int&nbsp;torchOnIconResourceID)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setTorchOnIconResourceID-int-">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Sets torch (flashlight) button icon that is shown while torch is turned ON.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setTorchOnIconResourceID-int-">setTorchOnIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>torchOnIconResourceID</code> - torch button icon drawable resource ID while torch is ON</dd>
-</dl>
-</li>
-</ul>
-<a name="getTorchOffIconResourceID--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getTorchOffIconResourceID</h4>
-<pre>@DrawableRes
-public&nbsp;int&nbsp;getTorchOffIconResourceID()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getTorchOffIconResourceID--">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Returns torch (flashlight) button icon that is shown while torch is turned OFF.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#getTorchOffIconResourceID--">getTorchOffIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>torch button icon drawable resource ID while torch is OFF</dd>
-</dl>
-</li>
-</ul>
-<a name="setTorchOffIconResourceID-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setTorchOffIconResourceID</h4>
-<pre>public&nbsp;void&nbsp;setTorchOffIconResourceID(@DrawableRes
-                                      int&nbsp;torchOffIconResourceID)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setTorchOffIconResourceID-int-">TopButtonsUIOptions</a></code></span></div>
-<div class="block">Sets torch (flashlight) button icon that is shown while torch is turned OFF.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html#setTorchOffIconResourceID-int-">setTorchOffIconResourceID</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/uisettings/options/TopButtonsUIOptions.html" title="interface in com.microblink.uisettings.options">TopButtonsUIOptions</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>torchOffIconResourceID</code> - torch button icon drawable resource ID while torch is OFF</dd>
-</dl>
-</li>
-</ul>
-<a name="toOverlaySettings-android.app.Activity-">
+<a name="createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>toOverlaySettings</h4>
+<h4>createOverlayController</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../com/microblink/fragment/overlay/verification/settings/BlinkCardOverlaySettings.html" title="class in com.microblink.fragment.overlay.verification.settings">BlinkCardOverlaySettings</a>&nbsp;toOverlaySettings(@NonNull
-                                                           android.app.Activity&nbsp;activity)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#toOverlaySettings-android.app.Activity-">BaseVerificationUISettings</a></code></span></div>
-<div class="block">Creates overlay settings that is built by copying configuration of these ui settings</div>
+public&nbsp;<a href="../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html" title="class in com.microblink.fragment.overlay.blinkcard">BlinkCardOverlayController</a>&nbsp;createOverlayController(@NonNull
+                                                                   android.app.Activity&nbsp;activity,
+                                                                   @NonNull
+                                                                   <a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../com/microblink/uisettings/UISettings.html#createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">UISettings</a></code></span></div>
+<div class="block">Creates overlay controller and configures it using set values.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html#toOverlaySettings-android.app.Activity-">toOverlaySettings</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/BaseVerificationUISettings.html" title="class in com.microblink.uisettings">BaseVerificationUISettings</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>activity</code> - to be used when context is required</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>overlay settings that match these ui settings</dd>
+<dd><code><a href="../../../com/microblink/uisettings/UISettings.html#createOverlayController-android.app.Activity-com.microblink.view.recognition.ScanResultListener-">createOverlayController</a></code>&nbsp;in class&nbsp;<code><a href="../../../com/microblink/uisettings/UISettings.html" title="class in com.microblink.uisettings">UISettings</a></code></dd>
 </dl>
 </li>
 </ul>

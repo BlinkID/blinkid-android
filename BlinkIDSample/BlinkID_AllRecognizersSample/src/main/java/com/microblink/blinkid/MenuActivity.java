@@ -34,6 +34,9 @@ import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecogni
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdBackRecognizer;
+import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdBackRecognizer;
@@ -115,11 +118,11 @@ import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArab
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.visa.VisaRecognizer;
 import com.microblink.help.HelpActivity;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BarcodeUISettings;
-import com.microblink.uisettings.BasicScanUISettings;
 import com.microblink.uisettings.BlinkCardUISettings;
 import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.uisettings.DocumentUISettings;
@@ -200,9 +203,12 @@ public class MenuActivity extends BaseMenuActivity {
         items.add(buildBlinkIdCombinedElement());
         items.add(buildMrtdElement());
         items.add(buildPassportElement());
+        items.add(buildVisaElement());
         items.add(buildAustrianIDElement());
         items.add(buildAustrianIDCombinedElement());
         items.add(buildAustrianPassportElement());
+        items.add(buildBelgianIDElement());
+        items.add(buildBelgianCombinedElement());
         items.add(buildBruneiIDElement());
         items.add(buildbruneiMilitaryIdElement());
         items.add(buildBruneiResidencePermitElement());
@@ -347,18 +353,6 @@ public class MenuActivity extends BaseMenuActivity {
             // barcode recognizer is active.
             ((OcrResultDisplayUIOptions) settings).setOcrResultDisplayMode(OcrResultDisplayMode.ANIMATED_DOTS);
         }
-        if (settings instanceof BasicScanUISettings) {
-            // If you want you can have scan activity display the focus rectangle whenever camera
-            // attempts to focus, similarly to various camera app's touch to focus effect.
-            // By default this is off, and you can turn this on by setting EXTRAS_SHOW_FOCUS_RECTANGLE
-            // extra to true.
-            // ((BaseScanUISettings) settings).setShowingFocusRectangle(true);
-
-            // If you want, you can enable the pinch to zoom feature of scan activity.
-            // By enabling this you allow the user to use the pinch gesture to zoom the camera.
-            // By default this is off
-            ((BasicScanUISettings) settings).setPinchToZoomAllowed(true);
-        }
     }
 
     private MenuListItem buildBlinkIdElement() {
@@ -377,11 +371,11 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("Passport and ID", new Runnable() {
             @Override
             public void run() {
-                MrtdRecognizer mrtdRecogniezr = new MrtdRecognizer();
-                mrtdRecogniezr.setAllowUnverifiedResults(true);
-                ImageSettings.enableAllImages(mrtdRecogniezr);
+                MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+                mrtdRecognizer.setAllowUnverifiedResults(true);
+                ImageSettings.enableAllImages(mrtdRecognizer);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecogniezr)));
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecognizer)));
             }
         });
     }
@@ -390,10 +384,22 @@ public class MenuActivity extends BaseMenuActivity {
         return new MenuListItem("Passport", new Runnable() {
             @Override
             public void run() {
-                PassportRecognizer passportRecogniezr = new PassportRecognizer();
-                ImageSettings.enableAllImages(passportRecogniezr);
+                PassportRecognizer passportRecognizer = new PassportRecognizer();
+                ImageSettings.enableAllImages(passportRecognizer);
 
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecogniezr)));
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildVisaElement() {
+        return new MenuListItem("Visa", new Runnable() {
+            @Override
+            public void run() {
+                VisaRecognizer visaRecognizer = new VisaRecognizer();
+                ImageSettings.enableAllImages(visaRecognizer);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(visaRecognizer)));
             }
         });
     }
@@ -421,6 +427,21 @@ public class MenuActivity extends BaseMenuActivity {
                 ImageSettings.enableAllImages(austriaPassport);
 
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaPassport)));
+            }
+        });
+    }
+
+    private MenuListItem buildBelgianIDElement() {
+        return new MenuListItem("Belgian ID", new Runnable() {
+            @Override
+            public void run() {
+                BelgiumIdFrontRecognizer belgiumFront = new BelgiumIdFrontRecognizer();
+                ImageSettings.enableAllImages(belgiumFront);
+
+                BelgiumIdBackRecognizer belgiumBack = new BelgiumIdBackRecognizer();
+                ImageSettings.enableAllImages(belgiumBack);
+
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(belgiumFront, belgiumBack)));
             }
         });
     }
@@ -1098,6 +1119,17 @@ public class MenuActivity extends BaseMenuActivity {
                 AustriaCombinedRecognizer austriaCombined = new AustriaCombinedRecognizer();
                 ImageSettings.enableAllImages(austriaCombined);
                 combinedRecognitionAction(austriaCombined);
+            }
+        });
+    }
+
+    private MenuListItem buildBelgianCombinedElement() {
+        return new MenuListItem("Belgian Combined", new Runnable() {
+            @Override
+            public void run() {
+                BelgiumCombinedRecognizer belgiumCombined = new BelgiumCombinedRecognizer();
+                ImageSettings.enableAllImages(belgiumCombined);
+                combinedRecognitionAction(belgiumCombined);
             }
         });
     }
