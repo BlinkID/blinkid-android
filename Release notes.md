@@ -1,5 +1,13 @@
 # Release notes
 
+## 4.11.1
+
+### Bug fixes:
+
+- fixed crash on some devices that use armeabi-v7a ABI - SDK was unable to reserve address space due to memory fragmentation
+- fixed camera busy error in camera management that was happening during the quick closing and opening of the camera
+- fixed rare crash on Samsung J5 Prime which has been caused by race condition during the initialization of native camera frame
+
 ## 4.11.0
 
 ### New features:
