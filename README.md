@@ -192,7 +192,7 @@ After that, you just need to add _BlinkID_ as a dependency to your application (
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:4.11.0@aar') {
+    implementation('com.microblink:blinkid:4.11.1@aar') {
         transitive = true
     }
 }
@@ -204,7 +204,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-4.11.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-4.11.1` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -276,7 +276,7 @@ Open your `pom.xml` file and add these directives as appropriate:
     <dependency>
         <groupId>com.microblink</groupId>
         <artifactId>blinkid</artifactId>
-        <version>4.11.0</version>
+        <version>4.11.1</version>
         <type>aar</type>
     </dependency>
 </dependencies>
