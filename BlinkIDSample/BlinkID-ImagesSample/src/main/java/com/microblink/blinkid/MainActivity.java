@@ -18,13 +18,13 @@ import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.HighResImagesBundle;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
 import com.microblink.image.highres.HighResImageWrapper;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.BlinkIdUISettings;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-// in this example MRTD documents will be scanned and during scan multiple document images will be stored on external storage
+// in this example documents will be scanned and during scan multiple document images will be stored on external storage
 public class MainActivity extends BaseMenuActivity {
 
     private static final String LOG_TAG = "MainActivity";
@@ -48,16 +48,13 @@ public class MainActivity extends BaseMenuActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // create MRTD (Machine Readable Travel Document) recognizer
-        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+        // create recognizer
+        BlinkIdRecognizer blinkIdRecognizer = new BlinkIdRecognizer();
         // set to true to obtain images containing full document
-        mrtdRecognizer.setReturnFullDocumentImage(true);
-        // if you want to obtain dewarped(cropped) images of MRZ zone, enable this
-
-        // other recognizers might also support returning face and signature images
+        blinkIdRecognizer.setReturnFullDocumentImage(true);
 
         // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
-        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(mrtdRecognizer);
+        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(blinkIdRecognizer);
         recognizerBundle = new RecognizerBundle(successFrameGrabberRecognizer);
     }
 
@@ -65,7 +62,7 @@ public class MainActivity extends BaseMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(new MenuListItem(getString(R.string.scanMRTD), new Runnable() {
+        items.add(new MenuListItem("Scan document", new Runnable() {
             @Override
             public void run() {
                 if (ContextCompat.checkSelfPermission(MainActivity.this,
@@ -87,10 +84,10 @@ public class MainActivity extends BaseMenuActivity {
     }
 
     private void startScanning() {
-        DocumentUISettings documentUISettings = new DocumentUISettings(recognizerBundle);
+        BlinkIdUISettings uiSettings = new BlinkIdUISettings(recognizerBundle);
         //enable capturing success frame in full camera resolution
-        documentUISettings.enableHighResSuccessFrameCapture(true);
-        ActivityRunner.startActivityForResult(this, SCAN_ACTIVITY_REQ_CODE, documentUISettings);
+        uiSettings.enableHighResSuccessFrameCapture(true);
+        ActivityRunner.startActivityForResult(this, SCAN_ACTIVITY_REQ_CODE, uiSettings);
     }
 
     @Override
@@ -116,8 +113,8 @@ public class MainActivity extends BaseMenuActivity {
             storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
 
             //get wrapped recognizer
-            MrtdRecognizer mrtdRecognizer = (MrtdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
-            storeImage("fullDocumentImage", mrtdRecognizer.getResult().getFullDocumentImage());
+            BlinkIdRecognizer blinkIdRecognizer = (BlinkIdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
+            storeImage("fullDocumentImage", blinkIdRecognizer.getResult().getFullDocumentImage());
 
             Intent resultScreenIntent = new Intent(this, ResultActivity.class);
             recognizerBundle.saveToIntent(resultScreenIntent);
