@@ -21,7 +21,7 @@ import com.microblink.blinkid.imagescan.ScanImageActivity;
 import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,8 +98,8 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private void buildRecognizerBundle() {
-        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
-        mRecognizerBundle = new RecognizerBundle(mrtdRecognizer);
+        BlinkIdRecognizer blinkIdRecognizer = new BlinkIdRecognizer();
+        mRecognizerBundle = new RecognizerBundle(blinkIdRecognizer);
     }
 
     private void startScanActivityForResult(Class activityClass) {
@@ -114,15 +114,15 @@ public class MenuActivity extends BaseMenuActivity {
         if (requestCode == MY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
-            if (!(result instanceof MrtdRecognizer.Result)) {
+            if (!(result instanceof BlinkIdRecognizer.Result)) {
                 Toast.makeText(this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            MrtdRecognizer.Result mrtdResult = (MrtdRecognizer.Result) result;
+            BlinkIdRecognizer.Result blinkIdResult = (BlinkIdRecognizer.Result) result;
             String scanResults =
-                    "First name: " + mrtdResult.getMrzResult().getSecondaryId() +
-                    "\nLast name: " + mrtdResult.getMrzResult().getPrimaryId();
+                    "First name: " + blinkIdResult.getFirstName() +
+                    "\nLast name: " + blinkIdResult.getLastName();
 
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle("Scan result")
