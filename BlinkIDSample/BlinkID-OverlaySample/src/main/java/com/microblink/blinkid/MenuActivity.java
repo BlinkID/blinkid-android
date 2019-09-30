@@ -12,16 +12,14 @@ import android.widget.FrameLayout;
 
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
-import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
-import com.microblink.fragment.overlay.basic.BasicOverlayController;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.result.ResultActivity;
-import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.view.recognition.ScanResultListener;
 
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     private RecognizerRunnerFragment recognizerRunnerFragment;
     private RecognizerBundle recognizerBundle;
     private BlinkIdOverlayController scanningOverlay;
-    private DocumentUISettings uiSettings;
+    private BlinkIdUISettings uiSettings;
 
     private ViewGroup parent;
     private View scanLayout;
@@ -44,11 +42,12 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         super.onCreate(savedInstanceState);
         parent = findViewById(android.R.id.content);
 
-        Recognizer recognizer = new MrtdRecognizer();
-        ((MrtdRecognizer) recognizer).setReturnFullDocumentImage(true);
+        BlinkIdRecognizer recognizer = new BlinkIdRecognizer();
+        recognizer.setReturnFullDocumentImage(true);
+        recognizer.setReturnFaceImage(true);
         recognizerBundle = new RecognizerBundle(recognizer);
 
-        uiSettings = new DocumentUISettings(recognizerBundle);
+        uiSettings = new BlinkIdUISettings(recognizerBundle);
         scanningOverlay = uiSettings.createOverlayController(this, scanResultListener);
     }
 

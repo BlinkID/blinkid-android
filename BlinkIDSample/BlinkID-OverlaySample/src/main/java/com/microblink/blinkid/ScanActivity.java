@@ -11,14 +11,14 @@ import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.view.recognition.ScanResultListener;
 
 public class ScanActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
     private BlinkIdOverlayController scanningOverlay;
-    private DocumentUISettings uiSettings;
+    private BlinkIdUISettings uiSettings;
 
     private ScanResultListener scanResultListener = new ScanResultListener() {
         @Override
@@ -51,7 +51,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
         Intent intent = getIntent();
 
         // DocumentUISettings object is expected in intent
-        uiSettings = new DocumentUISettings(intent);
+        uiSettings = new BlinkIdUISettings(intent);
         scanningOverlay = uiSettings.createOverlayController(this, scanResultListener);
         // scanning overlay must be created before restoring fragment state
         super.onCreate(savedInstanceState);
