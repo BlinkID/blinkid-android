@@ -1,4 +1,4 @@
-package com.microblink.result.extract.pdf417mobi;
+package com.microblink.result.extract;
 
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;

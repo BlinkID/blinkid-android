@@ -3,7 +3,6 @@ package com.microblink.util;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.blinkid.imageoptions.FaceImageOptions;
 import com.microblink.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
-import com.microblink.entities.recognizers.blinkid.imageoptions.SignatureImageOptions;
 
 public class ImageSettings {
 
@@ -15,10 +14,6 @@ public class ImageSettings {
         if(recognizer instanceof FaceImageOptions) {
             FaceImageOptions options = (FaceImageOptions) recognizer;
             options.setReturnFaceImage(true);
-        }
-        if(recognizer instanceof SignatureImageOptions) {
-            SignatureImageOptions options = (SignatureImageOptions) recognizer;
-            options.setReturnSignatureImage(true);
         }
         return recognizer;
     }

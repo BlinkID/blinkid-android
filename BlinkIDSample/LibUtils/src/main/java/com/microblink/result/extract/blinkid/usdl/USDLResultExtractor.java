@@ -1,4 +1,4 @@
-package com.microblink.result.extract.usdl;
+package com.microblink.result.extract.blinkid.usdl;
 
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.libresult.R;
