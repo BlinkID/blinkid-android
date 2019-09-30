@@ -8,17 +8,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.DocumentUISettings;
+import com.microblink.uisettings.BlinkIdUISettings;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 123;
 
-    private MrtdRecognizer mMRTDRecognizer;
-    private RecognizerBundle mRecognizerBundle;
+    private BlinkIdRecognizer recognizer;
+    private RecognizerBundle recognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +25,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // we'll use Machine Readable Travel Document recognizer
-        mMRTDRecognizer = new MrtdRecognizer();
+        recognizer = new BlinkIdRecognizer();
 
         // put our recognizer in bundle so that it can be sent via intent
-        mRecognizerBundle = new RecognizerBundle(mMRTDRecognizer);
+        recognizerBundle = new RecognizerBundle(recognizer);
     }
 
     public void onScanButtonClick(View view) {
         // use default UI for scanning documents
-        DocumentUISettings documentUISettings = new DocumentUISettings(mRecognizerBundle);
+        BlinkIdUISettings uiSettings = new BlinkIdUISettings(recognizerBundle);
 
         // start scan activity based on UI settings
-        ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, documentUISettings);
+        ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
     }
 
     @Override
@@ -61,13 +60,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void onScanSuccess(Intent data) {
         // update recognizer results with scanned data
-        mRecognizerBundle.loadFromIntent(data);
+        recognizerBundle.loadFromIntent(data);
 
         // you can now extract any scanned data from result, we'll just get primary id
-        MrtdRecognizer.Result mrtdResult = mMRTDRecognizer.getResult();
-        MrzResult mrzResult = mrtdResult.getMrzResult();
-        String scannedPrimaryId = mrzResult.getPrimaryId();
-        Toast.makeText(this, "Scanned primary id: " + scannedPrimaryId, Toast.LENGTH_LONG).show();
+        BlinkIdRecognizer.Result result = recognizer.getResult();
+        String name = result.getFullName();
+        if (name.isEmpty()) {
+            name = result.getFirstName();
+        }
+        Toast.makeText(this, "Name: " + name, Toast.LENGTH_LONG).show();
     }
 
     private void onScanCanceled() {
