@@ -11,123 +11,22 @@ import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
-import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldBundle;
-import com.microblink.entities.parsers.config.fieldbyfield.FieldByFieldElement;
-import com.microblink.entities.parsers.date.DateParser;
-import com.microblink.entities.parsers.email.EMailParser;
-import com.microblink.entities.parsers.licenseplates.LicensePlatesParser;
-import com.microblink.entities.parsers.raw.RawParser;
-import com.microblink.entities.parsers.vin.VinParser;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkbarcode.barcode.BarcodeRecognizer;
-import com.microblink.entities.recognizers.blinkbarcode.pdf417.Pdf417Recognizer;
-import com.microblink.entities.recognizers.blinkbarcode.simnumber.SimNumberRecognizer;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
-import com.microblink.entities.recognizers.blinkbarcode.vin.VinRecognizer;
-import com.microblink.entities.recognizers.blinkcard.BlinkCardEliteRecognizer;
-import com.microblink.entities.recognizers.blinkcard.BlinkCardRecognizer;
-import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.australia.AustraliaDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustriaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustriaDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustriaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustriaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.austria.AustriaPassportRecognizer;
-import com.microblink.entities.recognizers.blinkid.belgium.BelgiumCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.belgium.BelgiumIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiMilitaryIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiResidencePermitFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.brunei.BruneiTemporaryResidencePermitFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.colombia.ColombiaDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.colombia.ColombiaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.croatia.CroatiaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.croatia.CroatiaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.cyprus.CyprusIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.cyprus.CyprusOldIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.cyprus.CyprusOldIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.czechia.CzechiaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.czechia.CzechiaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.egypt.EgyptIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.eudl.EudlCountry;
-import com.microblink.entities.recognizers.blinkid.eudl.EudlRecognizer;
+import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyDlBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyIdOldRecognizer;
-import com.microblink.entities.recognizers.blinkid.germany.GermanyPassportRecognizer;
-import com.microblink.entities.recognizers.blinkid.hongkong.HongKongIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.indonesia.IndonesiaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.ireland.IrelandDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.italy.ItalyDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.jordan.JordanCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.jordan.JordanIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.jordan.JordanIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.kuwait.KuwaitIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaIkadFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKadBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKadFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyKasFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyPrFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.malaysia.MalaysiaMyTenteraFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.mexico.MexicoVoterIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.morocco.MoroccoIdFrontRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
-import com.microblink.entities.recognizers.blinkid.newzealand.NewZealandDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.nigeria.NigeriaVoterIdBackRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
-import com.microblink.entities.recognizers.blinkid.poland.PolandCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.poland.PolandIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.poland.PolandIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.romania.RomaniaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeChangiEmployeeIdRecognizer;
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.singapore.SingaporeIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovakia.SlovakiaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.slovenia.SloveniaIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.spain.SpainDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.sweden.SwedenDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandIdFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.switzerland.SwitzerlandPassportRecognizer;
-import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesDlFrontRecognizer;
-import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdBackRecognizer;
-import com.microblink.entities.recognizers.blinkid.unitedArabEmirates.UnitedArabEmiratesIdFrontRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.visa.VisaRecognizer;
-import com.microblink.help.HelpActivity;
 import com.microblink.result.ResultActivity;
 import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.BarcodeUISettings;
-import com.microblink.uisettings.BlinkCardUISettings;
 import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.uisettings.DocumentUISettings;
 import com.microblink.uisettings.DocumentVerificationUISettings;
-import com.microblink.uisettings.FieldByFieldUISettings;
 import com.microblink.uisettings.UISettings;
 import com.microblink.uisettings.options.BeepSoundUIOptions;
 import com.microblink.uisettings.options.HelpIntentUIOptions;
@@ -198,91 +97,19 @@ public class MenuActivity extends BaseMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        // ID document list entries
         items.add(buildBlinkIdElement());
         items.add(buildBlinkIdCombinedElement());
-        items.add(buildMrtdElement());
+
         items.add(buildPassportElement());
+
         items.add(buildVisaElement());
-        items.add(buildAustrianIDElement());
-        items.add(buildAustrianIDCombinedElement());
-        items.add(buildAustrianPassportElement());
-        items.add(buildBelgianIDElement());
-        items.add(buildBelgianCombinedElement());
-        items.add(buildBruneiIDElement());
-        items.add(buildbruneiMilitaryIdElement());
-        items.add(buildBruneiResidencePermitElement());
-        items.add(buildBruneiTemporaryResidencePermitElement());
-        items.add(buildColombiaIDElement());
-        items.add(buildCroatianIDElement());
-        items.add(buildCroatianIDCombinedElement());
-        items.add(buildCyprusIDElement());
-        items.add(buildCyprusOldIDElement());
-        items.add(buildCzechIDElement());
-        items.add(buildCzechIDCombinedElement());
-        items.add(buildEgyptIDFrontElement());
-        items.add(buildGermanIDElement());
-        items.add(buildGermanPassportElement());
-        items.add(buildGermanIDCombinedElement());
-        items.add(buildHongKongIDFrontElement());
-        items.add(buildIndonesianIdElement());
-        items.add(buildJordanIdElement());
-        items.add(buildJordanIdCombinedElement());
-        items.add(buildKuwaitIdElement());
-        items.add(buildMexicoVoterIdElement());
-        items.add(buildMyKadElement());
-        items.add(buildIKadElement());
-        items.add(buildMyTenteraElement());
-        items.add(buildMyPrElement());
-        items.add(buildMyKasElement());
-        items.add(buildMoroccoIDElement());
-        items.add(buildNigeriaVoterIdBackElement());
-        items.add(buildPolishIdElement());
-        items.add(buildPolishIdCombinedElement());
-        items.add(buildRomanianElement());
-        items.add(buildSingaporeIDElement());
-        items.add(buildSingaporeChangiEmployeeIdElement());
-        items.add(buildSingaporeIDCombinedElement());
-        items.add(buildSlovakIDElement());
-        items.add(buildSlovakIDCombinedElement());
-        items.add(buildSlovenianIDElement());
-        items.add(buildSlovenianIDCombinedElement());
-        items.add(buildSwissIDElement());
-        items.add(buildSwissPassportElement());
-        items.add(buildUnitedArabEmiratesIdElement());
 
-        // DL list entries
-        items.add(buildAustriaDLFrontElement());
-        items.add(buildAustralianDLElement());
-        items.add(buildColombiaDLElement());
-        items.add(buildIrelandDLElement());
-        items.add(buildItalyDlElement());
-        items.add(buildMalaysianDLElement());
-        items.add(buildNewZealandDLElement());
-        items.add(buildGermanDLFrontElement());
-        items.add(buildGermanDLBackElement());
-        items.add(buildSingaporeDLElement());
-        items.add(buildSpainDLElement());
-        items.add(buildSwedenDLElement());
-        items.add(buildSwissDLElement());
-        items.add(buildUKDLElement());
+        items.add(buildMrtdElement());
+        items.add(buildMrtdCombinedElement());
+        items.add(buildDocumentFaceElement());
+
         items.add(buildUsdlElement());
-        items.add(buildUnitedArabEmiratesDLElement());
         items.add(buildUsdlCombinedElement());
-
-        // entries for documents which are not country-specific
-        items.add(buildBlinkCardElement());
-        items.add(buildBlinkCardEliteElement());
-
-        // barcode list entries
-        items.add(buildPDF417Element());
-        items.add(buildBarcodeElement());
-        items.add(buildSimNumberElement());
-        items.add(buildVinElement());
-
-        // Field by field entries
-        items.add(buildGenericFieldByFieldElement());
-        items.add(buildVehicleFieldByFieldElement());
 
         return items;
     }
@@ -320,17 +147,6 @@ public class MenuActivity extends BaseMenuActivity {
         ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
     }
 
-    /**
-     * Starts {@link com.microblink.activity.BlinkCardActivity} with given recognizer.
-     * @param recognizer that will be used.
-     */
-    private void blinkCardRecognitionAction(Recognizer recognizer) {
-        BlinkCardUISettings uiSettings = new BlinkCardUISettings(new RecognizerBundle(recognizer));
-        uiSettings.setBeepSoundResourceID(R.raw.beep);
-
-        ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
-    }
-
     private void setupActivitySettings(@NonNull UISettings settings, @Nullable Intent helpIntent) {
         if (settings instanceof BeepSoundUIOptions) {
             // optionally, if you want the beep sound to be played after a scan
@@ -361,742 +177,7 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 BlinkIdRecognizer blinkidRecognizer = new BlinkIdRecognizer();
                 ImageSettings.enableAllImages(blinkidRecognizer);
-
                 scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkidRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildMrtdElement() {
-        return new MenuListItem("Passport and ID", new Runnable() {
-            @Override
-            public void run() {
-                MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
-                mrtdRecognizer.setAllowUnverifiedResults(true);
-                ImageSettings.enableAllImages(mrtdRecognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildPassportElement() {
-        return new MenuListItem("Passport", new Runnable() {
-            @Override
-            public void run() {
-                PassportRecognizer passportRecognizer = new PassportRecognizer();
-                ImageSettings.enableAllImages(passportRecognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildVisaElement() {
-        return new MenuListItem("Visa", new Runnable() {
-            @Override
-            public void run() {
-                VisaRecognizer visaRecognizer = new VisaRecognizer();
-                ImageSettings.enableAllImages(visaRecognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(visaRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildAustrianIDElement() {
-        return new MenuListItem("Austrian ID", new Runnable() {
-            @Override
-            public void run() {
-                AustriaIdFrontRecognizer austriaFront = new AustriaIdFrontRecognizer();
-                ImageSettings.enableAllImages(austriaFront);
-
-                AustriaIdBackRecognizer austriaBack = new AustriaIdBackRecognizer();
-                ImageSettings.enableAllImages(austriaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaFront, austriaBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildAustrianPassportElement() {
-        return new MenuListItem("Austrian passport", new Runnable() {
-            @Override
-            public void run() {
-                AustriaPassportRecognizer austriaPassport = new AustriaPassportRecognizer();
-                ImageSettings.enableAllImages(austriaPassport);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaPassport)));
-            }
-        });
-    }
-
-    private MenuListItem buildBelgianIDElement() {
-        return new MenuListItem("Belgian ID", new Runnable() {
-            @Override
-            public void run() {
-                BelgiumIdFrontRecognizer belgiumFront = new BelgiumIdFrontRecognizer();
-                ImageSettings.enableAllImages(belgiumFront);
-
-                BelgiumIdBackRecognizer belgiumBack = new BelgiumIdBackRecognizer();
-                ImageSettings.enableAllImages(belgiumBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(belgiumFront, belgiumBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildBruneiIDElement() {
-        return new MenuListItem("Brunei ID", new Runnable() {
-            @Override
-            public void run() {
-                BruneiIdFrontRecognizer bruneiFront = new BruneiIdFrontRecognizer();
-                ImageSettings.enableAllImages(bruneiFront);
-
-                BruneiIdBackRecognizer bruneiIdBack = new BruneiIdBackRecognizer();
-                ImageSettings.enableAllImages(bruneiIdBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(bruneiFront, bruneiIdBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildbruneiMilitaryIdElement() {
-        return new MenuListItem("Brunei Military ID", new Runnable() {
-            @Override
-            public void run() {
-                BruneiMilitaryIdFrontRecognizer militaryIdFront = new BruneiMilitaryIdFrontRecognizer();
-                ImageSettings.enableAllImages(militaryIdFront);
-
-                BruneiMilitaryIdBackRecognizer militaryIdBack = new BruneiMilitaryIdBackRecognizer();
-                ImageSettings.enableAllImages(militaryIdBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(militaryIdFront, militaryIdBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildBruneiResidencePermitElement() {
-        return new MenuListItem("Brunei Residence Permit", new Runnable() {
-            @Override
-            public void run() {
-                BruneiResidencePermitFrontRecognizer resPermitFront = new BruneiResidencePermitFrontRecognizer();
-                ImageSettings.enableAllImages(resPermitFront);
-
-                BruneiResidencePermitBackRecognizer resPermitBack = new BruneiResidencePermitBackRecognizer();
-                ImageSettings.enableAllImages(resPermitBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(resPermitFront, resPermitBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildBruneiTemporaryResidencePermitElement() {
-        return new MenuListItem("Brunei Temp. Residence Permit", new Runnable() {
-            @Override
-            public void run() {
-                BruneiTemporaryResidencePermitFrontRecognizer tempResPermitFront = new BruneiTemporaryResidencePermitFrontRecognizer();
-                ImageSettings.enableAllImages(tempResPermitFront);
-
-                BruneiTemporaryResidencePermitBackRecognizer tempResPermitBack = new BruneiTemporaryResidencePermitBackRecognizer();
-                ImageSettings.enableAllImages(tempResPermitBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(tempResPermitFront, tempResPermitBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildColombiaIDElement() {
-        return new MenuListItem("Colombia ID", new Runnable() {
-            @Override
-            public void run() {
-                ColombiaIdFrontRecognizer colombiaFront = new ColombiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(colombiaFront);
-
-                ColombiaIdBackRecognizer colombiaBack = new ColombiaIdBackRecognizer();
-                ImageSettings.enableAllImages(colombiaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(colombiaFront, colombiaBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildCroatianIDElement() {
-        return new MenuListItem("Croatian ID", new Runnable() {
-            @Override
-            public void run() {
-                CroatiaIdFrontRecognizer croatiaFront = new CroatiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(croatiaFront);
-
-                CroatiaIdBackRecognizer croatiaBack = new CroatiaIdBackRecognizer();
-                ImageSettings.enableAllImages(croatiaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(croatiaFront, croatiaBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildCyprusIDElement() {
-        return new MenuListItem("Cyprus ID", new Runnable() {
-            @Override
-            public void run() {
-                CyprusIdFrontRecognizer cyprusFront = new CyprusIdFrontRecognizer();
-                ImageSettings.enableAllImages(cyprusFront);
-
-                CyprusIdBackRecognizer cyprusBack = new CyprusIdBackRecognizer();
-                ImageSettings.enableAllImages(cyprusBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(cyprusFront, cyprusBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildCyprusOldIDElement() {
-        return new MenuListItem("Cyprus Old ID", new Runnable() {
-            @Override
-            public void run() {
-                CyprusOldIdFrontRecognizer cyprusOldIdFrontRecognizer = new CyprusOldIdFrontRecognizer();
-                ImageSettings.enableAllImages(cyprusOldIdFrontRecognizer);
-
-                CyprusOldIdBackRecognizer cyprusOldIdBackRecognizer = new CyprusOldIdBackRecognizer();
-                ImageSettings.enableAllImages(cyprusOldIdBackRecognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(cyprusOldIdFrontRecognizer, cyprusOldIdBackRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildCzechIDElement() {
-        return new MenuListItem("Czech ID", new Runnable() {
-            @Override
-            public void run() {
-                CzechiaIdFrontRecognizer czechiaFront = new CzechiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(czechiaFront);
-
-                CzechiaIdBackRecognizer czechiaBack = new CzechiaIdBackRecognizer();
-                ImageSettings.enableAllImages(czechiaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(czechiaFront, czechiaBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildEgyptIDFrontElement() {
-        return new MenuListItem("Egypt ID Front", new Runnable() {
-            @Override
-            public void run() {
-                EgyptIdFrontRecognizer egyptFront = new EgyptIdFrontRecognizer();
-                ImageSettings.enableAllImages(egyptFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(egyptFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildGermanIDElement() {
-        return new MenuListItem("German ID", new Runnable() {
-            @Override
-            public void run() {
-                GermanyIdFrontRecognizer germanyIdFront = new GermanyIdFrontRecognizer();
-                ImageSettings.enableAllImages(germanyIdFront);
-
-                GermanyIdBackRecognizer germanyIdBack = new GermanyIdBackRecognizer();
-                ImageSettings.enableAllImages(germanyIdBack);
-
-                GermanyIdOldRecognizer germanyIdOld = new GermanyIdOldRecognizer();
-                ImageSettings.enableAllImages(germanyIdOld);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanyIdFront, germanyIdBack, germanyIdOld)));
-            }
-        });
-    }
-
-    private MenuListItem buildGermanPassportElement() {
-        return new MenuListItem("German Passport", new Runnable() {
-            @Override
-            public void run() {
-                GermanyPassportRecognizer germanyPassport = new GermanyPassportRecognizer();
-                ImageSettings.enableAllImages(germanyPassport);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanyPassport)));
-            }
-        });
-    }
-
-    private MenuListItem buildHongKongIDFrontElement() {
-        return new MenuListItem("Hong Kong ID", new Runnable() {
-            @Override
-            public void run() {
-                HongKongIdFrontRecognizer hongKongFront = new HongKongIdFrontRecognizer();
-                ImageSettings.enableAllImages(hongKongFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(hongKongFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildIndonesianIdElement() {
-        return new MenuListItem("Indonesian ID", new Runnable() {
-            @Override
-            public void run() {
-                IndonesiaIdFrontRecognizer indonesiaFront = new IndonesiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(indonesiaFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(indonesiaFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildJordanIdElement() {
-        return new MenuListItem("Jordan ID", new Runnable() {
-            @Override
-            public void run() {
-                JordanIdFrontRecognizer jordanFront = new JordanIdFrontRecognizer();
-                ImageSettings.enableAllImages(jordanFront);
-
-                JordanIdBackRecognizer jordanBack = new JordanIdBackRecognizer();
-                ImageSettings.enableAllImages(jordanBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(jordanFront, jordanBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildKuwaitIdElement() {
-        return new MenuListItem("Kuwait ID", new Runnable() {
-            @Override
-            public void run() {
-                KuwaitIdFrontRecognizer kuwaitFront = new KuwaitIdFrontRecognizer();
-                ImageSettings.enableAllImages(kuwaitFront);
-
-                KuwaitIdBackRecognizer kuwaitBack = new KuwaitIdBackRecognizer();
-                ImageSettings.enableAllImages(kuwaitBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(kuwaitFront, kuwaitBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildMexicoVoterIdElement() {
-        return new MenuListItem("Mexico Voter ID", new Runnable() {
-            @Override
-            public void run() {
-                MexicoVoterIdFrontRecognizer mexicoFront = new MexicoVoterIdFrontRecognizer();
-                ImageSettings.enableAllImages(mexicoFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mexicoFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildMyKadElement() {
-        return new MenuListItem("Malaysian ID", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaMyKadFrontRecognizer mykadFront = new MalaysiaMyKadFrontRecognizer();
-                ImageSettings.enableAllImages(mykadFront);
-
-                MalaysiaMyKadBackRecognizer mykadBack = new MalaysiaMyKadBackRecognizer();
-                ImageSettings.enableAllImages(mykadBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mykadFront, mykadBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildIKadElement() {
-        return new MenuListItem("Malaysian Immigrator ID", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaIkadFrontRecognizer ikad = new MalaysiaIkadFrontRecognizer();
-                ImageSettings.enableAllImages(ikad);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(ikad)));
-            }
-        });
-    }
-
-    private MenuListItem buildMyTenteraElement() {
-        return new MenuListItem("Malaysian MyTentera", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaMyTenteraFrontRecognizer myTenteraRec = new MalaysiaMyTenteraFrontRecognizer();
-                ImageSettings.enableAllImages(myTenteraRec);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(myTenteraRec)));
-            }
-        });
-    }
-
-    private MenuListItem buildMyPrElement() {
-        return new MenuListItem("Malaysian MyPR", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaMyPrFrontRecognizer myPrRec = new MalaysiaMyPrFrontRecognizer();
-                ImageSettings.enableAllImages(myPrRec);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(myPrRec)));
-            }
-        });
-    }
-
-    private MenuListItem buildMyKasElement() {
-        return new MenuListItem("Malaysian MyKAS", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaMyKasFrontRecognizer myKasRec = new MalaysiaMyKasFrontRecognizer();
-                ImageSettings.enableAllImages(myKasRec);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(myKasRec)));
-            }
-        });
-    }
-
-    private MenuListItem buildMoroccoIDElement() {
-        return new MenuListItem("Morocco ID", new Runnable() {
-            @Override
-            public void run() {
-                MoroccoIdFrontRecognizer moroccoFront = new MoroccoIdFrontRecognizer();
-                ImageSettings.enableAllImages(moroccoFront);
-
-                MoroccoIdBackRecognizer moroccoBack = new MoroccoIdBackRecognizer();
-                ImageSettings.enableAllImages(moroccoBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(moroccoFront, moroccoBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildNigeriaVoterIdBackElement() {
-        return new MenuListItem("Nigeria Voter ID back", new Runnable() {
-            @Override
-            public void run() {
-                NigeriaVoterIdBackRecognizer nigeriaVoterIdBack = new NigeriaVoterIdBackRecognizer();
-                ImageSettings.enableAllImages(nigeriaVoterIdBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(nigeriaVoterIdBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildPolishIdElement() {
-        return new MenuListItem("Polish ID", new Runnable() {
-            @Override
-            public void run() {
-                PolandIdFrontRecognizer polandFront = new PolandIdFrontRecognizer();
-                ImageSettings.enableAllImages(polandFront);
-
-                PolandIdBackRecognizer polandBack = new PolandIdBackRecognizer();
-                ImageSettings.enableAllImages(polandBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(polandFront, polandBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildRomanianElement() {
-        return new MenuListItem("Romanian ID", new Runnable() {
-            @Override
-            public void run() {
-                RomaniaIdFrontRecognizer romaniaFront = new RomaniaIdFrontRecognizer();
-                ImageSettings.enableAllImages(romaniaFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(romaniaFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildSingaporeIDElement() {
-        return new MenuListItem("Singapore ID", new Runnable() {
-            @Override
-            public void run() {
-                SingaporeIdFrontRecognizer singaporeFront = new SingaporeIdFrontRecognizer();
-                ImageSettings.enableAllImages(singaporeFront);
-
-                SingaporeIdBackRecognizer singaporeBack = new SingaporeIdBackRecognizer();
-                ImageSettings.enableAllImages(singaporeBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeFront, singaporeBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildSingaporeChangiEmployeeIdElement() {
-        return new MenuListItem("Singapore Changi Employee ID", new Runnable() {
-            @Override
-            public void run() {
-                SingaporeChangiEmployeeIdRecognizer singaporeChangiEmployeeIdRecognizer = new SingaporeChangiEmployeeIdRecognizer();
-                ImageSettings.enableAllImages(singaporeChangiEmployeeIdRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeChangiEmployeeIdRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildSlovakIDElement() {
-        return new MenuListItem("Slovak ID", new Runnable() {
-            @Override
-            public void run() {
-                SlovakiaIdFrontRecognizer slovakFront = new SlovakiaIdFrontRecognizer();
-                ImageSettings.enableAllImages(slovakFront);
-
-                SlovakiaIdBackRecognizer slovakBack = new SlovakiaIdBackRecognizer();
-                ImageSettings.enableAllImages(slovakBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(slovakFront, slovakBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildSlovenianIDElement() {
-        return new MenuListItem("Slovenian ID", new Runnable() {
-            @Override
-            public void run() {
-                SloveniaIdFrontRecognizer sloveniaFront = new SloveniaIdFrontRecognizer();
-                ImageSettings.enableAllImages(sloveniaFront);
-
-                SloveniaIdBackRecognizer sloveniaBack = new SloveniaIdBackRecognizer();
-                ImageSettings.enableAllImages(sloveniaBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(sloveniaFront, sloveniaBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildSwissIDElement() {
-        return new MenuListItem("Swiss ID", new Runnable() {
-            @Override
-            public void run() {
-                SwitzerlandIdFrontRecognizer switzerlandFront = new SwitzerlandIdFrontRecognizer();
-                ImageSettings.enableAllImages(switzerlandFront);
-
-                SwitzerlandIdBackRecognizer switzerlandBack = new SwitzerlandIdBackRecognizer();
-                ImageSettings.enableAllImages(switzerlandBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandFront, switzerlandBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildSwissPassportElement() {
-        return new MenuListItem("Swiss Passport", new Runnable() {
-            @Override
-            public void run() {
-                SwitzerlandPassportRecognizer switzerlandPassport = new SwitzerlandPassportRecognizer();
-                ImageSettings.enableAllImages(switzerlandPassport);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandPassport)));
-            }
-        });
-    }
-
-    private MenuListItem buildUnitedArabEmiratesIdElement() {
-        return new MenuListItem("United Arab Emirates ID", new Runnable() {
-            @Override
-            public void run() {
-                UnitedArabEmiratesIdFrontRecognizer uaeFront = new UnitedArabEmiratesIdFrontRecognizer();
-                ImageSettings.enableAllImages(uaeFront);
-
-                UnitedArabEmiratesIdBackRecognizer uaeBack = new UnitedArabEmiratesIdBackRecognizer();
-                ImageSettings.enableAllImages(uaeBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(uaeFront, uaeBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildEUDLElement(String title, final EudlCountry country) {
-        return new MenuListItem(title, new Runnable() {
-            @Override
-            public void run() {
-                EudlRecognizer eudl = new EudlRecognizer(country);
-                ImageSettings.enableAllImages(eudl);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(eudl)));
-            }
-        });
-    }
-
-    private MenuListItem buildUKDLElement() {
-        return buildEUDLElement("UK Driver's License", EudlCountry.EUDL_COUNTRY_UK);
-    }
-
-    private MenuListItem buildGermanDLFrontElement() {
-        return new MenuListItem("German Driver's License Front", new Runnable() {
-            @Override
-            public void run() {
-                GermanyDlFrontRecognizer germanDlFront = new GermanyDlFrontRecognizer();
-                ImageSettings.enableAllImages(germanDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildGermanDLBackElement() {
-        return new MenuListItem("German Driver's License Back", new Runnable() {
-            @Override
-            public void run() {
-                GermanyDlBackRecognizer germanDlBack = new GermanyDlBackRecognizer();
-                ImageSettings.enableAllImages(germanDlBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(germanDlBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildAustriaDLFrontElement() {
-        return new MenuListItem("Austria Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                AustriaDlFrontRecognizer austriaDlFrontRecognizer = new AustriaDlFrontRecognizer();
-                ImageSettings.enableAllImages(austriaDlFrontRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(austriaDlFrontRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildAustralianDLElement() {
-        return new MenuListItem("Australian Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                AustraliaDlFrontRecognizer australiaDlFront = new AustraliaDlFrontRecognizer();
-                ImageSettings.enableAllImages(australiaDlFront);
-
-                AustraliaDlBackRecognizer australiaDlBack = new AustraliaDlBackRecognizer();
-                ImageSettings.enableAllImages(australiaDlBack);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(australiaDlFront, australiaDlBack)));
-            }
-        });
-    }
-
-    private MenuListItem buildIrelandDLElement() {
-        return new MenuListItem("Ireland Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                IrelandDlFrontRecognizer irelandDlFront = new IrelandDlFrontRecognizer();
-                ImageSettings.enableAllImages(irelandDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(irelandDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildItalyDlElement(){
-        return new MenuListItem("Italy Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                ItalyDlFrontRecognizer italyDlFrontRecognizer = new ItalyDlFrontRecognizer();
-                ImageSettings.enableAllImages(italyDlFrontRecognizer);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(italyDlFrontRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildColombiaDLElement() {
-        return new MenuListItem("Colombia Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                ColombiaDlFrontRecognizer colombiaDlFront = new ColombiaDlFrontRecognizer();
-                ImageSettings.enableAllImages(colombiaDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(colombiaDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildMalaysianDLElement() {
-        return new MenuListItem("Malaysian Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                MalaysiaDlFrontRecognizer malaysiaDlFront = new MalaysiaDlFrontRecognizer();
-                ImageSettings.enableAllImages(malaysiaDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(malaysiaDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildNewZealandDLElement() {
-        return new MenuListItem("New Zealand Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                NewZealandDlFrontRecognizer newZealandDlFront = new NewZealandDlFrontRecognizer();
-                ImageSettings.enableAllImages(newZealandDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(newZealandDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildSingaporeDLElement() {
-        return new MenuListItem("Singapore Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                SingaporeDlFrontRecognizer singaporeDlFrontRecognizer = new SingaporeDlFrontRecognizer();
-                ImageSettings.enableAllImages(singaporeDlFrontRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(singaporeDlFrontRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildSpainDLElement() {
-        return new MenuListItem("Spain Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                SpainDlFrontRecognizer spainDlFrontRecognizer = new SpainDlFrontRecognizer();
-                ImageSettings.enableAllImages(spainDlFrontRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(spainDlFrontRecognizer)));
-            }
-        });
-    }
-
-    private MenuListItem buildSwedenDLElement() {
-        return new MenuListItem("Sweden Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                SwedenDlFrontRecognizer sweDL = new SwedenDlFrontRecognizer();
-                ImageSettings.enableAllImages(sweDL);
-
-                sweDL.setExtractLicenceCategories(true);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(sweDL)));
-            }
-        });
-    }
-
-    private MenuListItem buildSwissDLElement() {
-        return new MenuListItem("Swiss Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                SwitzerlandDlFrontRecognizer switzerlandDl = new SwitzerlandDlFrontRecognizer();
-                ImageSettings.enableAllImages(switzerlandDl);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(switzerlandDl)));
-            }
-        });
-    }
-
-    private MenuListItem buildUnitedArabEmiratesDLElement() {
-        return new MenuListItem("United Arab Emirates Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                UnitedArabEmiratesDlFrontRecognizer uaeDlFront = new UnitedArabEmiratesDlFrontRecognizer();
-                ImageSettings.enableAllImages(uaeDlFront);
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(uaeDlFront)));
-            }
-        });
-    }
-
-    private MenuListItem buildUsdlElement() {
-        return new MenuListItem("US Driver's License", new Runnable() {
-            @Override
-            public void run() {
-                UsdlRecognizer usdl = new UsdlRecognizer();
-
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(usdl)));
             }
         });
     }
@@ -1112,257 +193,82 @@ public class MenuActivity extends BaseMenuActivity {
         });
     }
 
-    private MenuListItem buildAustrianIDCombinedElement() {
-        return new MenuListItem("Austrian Combined", new Runnable() {
+    private MenuListItem buildPassportElement() {
+        return new MenuListItem("Passport", new Runnable() {
             @Override
             public void run() {
-                AustriaCombinedRecognizer austriaCombined = new AustriaCombinedRecognizer();
-                ImageSettings.enableAllImages(austriaCombined);
-                combinedRecognitionAction(austriaCombined);
+                PassportRecognizer passportRecognizer = new PassportRecognizer();
+                ImageSettings.enableAllImages(passportRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecognizer)));
             }
         });
     }
 
-    private MenuListItem buildBelgianCombinedElement() {
-        return new MenuListItem("Belgian Combined", new Runnable() {
+    private MenuListItem buildVisaElement() {
+        return new MenuListItem("Visa", new Runnable() {
             @Override
             public void run() {
-                BelgiumCombinedRecognizer belgiumCombined = new BelgiumCombinedRecognizer();
-                ImageSettings.enableAllImages(belgiumCombined);
-                combinedRecognitionAction(belgiumCombined);
+                VisaRecognizer visaRecognizer = new VisaRecognizer();
+                ImageSettings.enableAllImages(visaRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(visaRecognizer)));
             }
         });
     }
 
-    private MenuListItem buildCroatianIDCombinedElement() {
-        return new MenuListItem("Croatian Combined", new Runnable() {
+    private MenuListItem buildMrtdElement() {
+        return new MenuListItem("Passport and ID", new Runnable() {
             @Override
             public void run() {
-                CroatiaCombinedRecognizer croatiaCombined = new CroatiaCombinedRecognizer();
-                ImageSettings.enableAllImages(croatiaCombined);
-
-                combinedRecognitionAction(croatiaCombined);
+                MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+                mrtdRecognizer.setAllowUnverifiedResults(true);
+                ImageSettings.enableAllImages(mrtdRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecognizer)));
             }
         });
     }
 
-    private MenuListItem buildCzechIDCombinedElement() {
-        return new MenuListItem("Czech Combined", new Runnable() {
+    private MenuListItem buildMrtdCombinedElement() {
+        return new MenuListItem("Passport and ID Combined", new Runnable() {
             @Override
             public void run() {
-                CzechiaCombinedRecognizer czechiaCombined = new CzechiaCombinedRecognizer();
-                ImageSettings.enableAllImages(czechiaCombined);
-
-                combinedRecognitionAction(czechiaCombined);
+                MrtdCombinedRecognizer mrtdCombinedRecognizer = new MrtdCombinedRecognizer();
+                ImageSettings.enableAllImages(mrtdCombinedRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdCombinedRecognizer)));
             }
         });
     }
 
-    private MenuListItem buildGermanIDCombinedElement() {
-        return new MenuListItem("German Combined", new Runnable() {
+    private MenuListItem buildDocumentFaceElement() {
+        return new MenuListItem("Document Face", new Runnable() {
             @Override
             public void run() {
-                GermanyCombinedRecognizer germanyCombined = new GermanyCombinedRecognizer();
-                ImageSettings.enableAllImages(germanyCombined);
-
-                combinedRecognitionAction(germanyCombined);
+                DocumentFaceRecognizer documentFaceRecognizer = new DocumentFaceRecognizer();
+                ImageSettings.enableAllImages(documentFaceRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(documentFaceRecognizer)));
             }
         });
     }
 
-    private MenuListItem buildJordanIdCombinedElement() {
-        return new MenuListItem("Jordan Combined", new Runnable() {
+    private MenuListItem buildUsdlElement() {
+        return new MenuListItem("USDL", new Runnable() {
             @Override
             public void run() {
-                JordanCombinedRecognizer jordanCombined = new JordanCombinedRecognizer();
-                ImageSettings.enableAllImages(jordanCombined);
-
-                combinedRecognitionAction(jordanCombined);
-            }
-        });
-    }
-
-    private MenuListItem buildBlinkCardElement() {
-        return new MenuListItem("BlinkCard", new Runnable() {
-            @Override
-            public void run() {
-                BlinkCardRecognizer blinkCard = new BlinkCardRecognizer();
-                ImageSettings.enableAllImages(blinkCard);
-
-                blinkCardRecognitionAction(blinkCard);
-            }
-        });
-    }
-
-    private MenuListItem buildBlinkCardEliteElement() {
-        return new MenuListItem("BlinkCard elite", new Runnable() {
-            @Override
-            public void run() {
-                BlinkCardEliteRecognizer blinkCardElite = new BlinkCardEliteRecognizer();
-                ImageSettings.enableAllImages(blinkCardElite);
-
-                blinkCardRecognitionAction(blinkCardElite);
-            }
-        });
-    }
-
-    private MenuListItem buildPolishIdCombinedElement() {
-        return new MenuListItem("Polish Combined", new Runnable() {
-            @Override
-            public void run() {
-                PolandCombinedRecognizer polandCombined = new PolandCombinedRecognizer();
-                ImageSettings.enableAllImages(polandCombined);
-
-                combinedRecognitionAction(polandCombined);
-            }
-        });
-    }
-
-    private MenuListItem buildSlovenianIDCombinedElement() {
-        return new MenuListItem("Slovenian Combined", new Runnable() {
-            @Override
-            public void run() {
-                SloveniaCombinedRecognizer sloveniaCombined = new SloveniaCombinedRecognizer();
-                ImageSettings.enableAllImages(sloveniaCombined);
-
-                combinedRecognitionAction(sloveniaCombined);
-            }
-        });
-    }
-
-    private MenuListItem buildSlovakIDCombinedElement() {
-        return new MenuListItem("Slovak Combined", new Runnable() {
-            @Override
-            public void run() {
-                SlovakiaCombinedRecognizer slovakiaCombined = new SlovakiaCombinedRecognizer();
-                ImageSettings.enableAllImages(slovakiaCombined);
-
-                combinedRecognitionAction(slovakiaCombined);
-            }
-        });
-    }
-
-    private MenuListItem buildSingaporeIDCombinedElement() {
-        return new MenuListItem("Singapore Combined", new Runnable() {
-            @Override
-            public void run() {
-                SingaporeCombinedRecognizer singaporeCombined = new SingaporeCombinedRecognizer();
-                ImageSettings.enableAllImages(singaporeCombined);
-
-                combinedRecognitionAction(singaporeCombined);
+                UsdlRecognizer usdlRecognizer = new UsdlRecognizer();
+                ImageSettings.enableAllImages(usdlRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(usdlRecognizer)));
             }
         });
     }
 
     private MenuListItem buildUsdlCombinedElement() {
-        return new MenuListItem("US Driver's License combined", new Runnable() {
+        return new MenuListItem("USDL Combined", new Runnable() {
             @Override
             public void run() {
-                UsdlCombinedRecognizer usdlCombined = new UsdlCombinedRecognizer();
-                ImageSettings.enableAllImages(usdlCombined);
-
-                combinedRecognitionAction(usdlCombined);
+                UsdlCombinedRecognizer usdlCombinedRecognizer = new UsdlCombinedRecognizer();
+                ImageSettings.enableAllImages(usdlCombinedRecognizer);
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(usdlCombinedRecognizer)));
             }
         });
-    }
-
-    private MenuListItem buildPDF417Element() {
-        return new MenuListItem("PDF417 barcode", new Runnable() {
-            @Override
-            public void run() {
-                Pdf417Recognizer pdf417Recognizer = new Pdf417Recognizer();
-
-                BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(pdf417Recognizer));
-
-                scanAction(activitySettings);
-            }
-        });
-    }
-
-    private MenuListItem buildBarcodeElement() {
-        return new MenuListItem("Blink barcode", new Runnable() {
-            @Override
-            public void run() {
-                BarcodeRecognizer barcode = new BarcodeRecognizer();
-                barcode.setScanCode39(true);
-                barcode.setScanCode128(true);
-                barcode.setScanInverse(true);
-                barcode.setScanAztecCode(true);
-                barcode.setScanDataMatrix(true);
-                barcode.setScanEan13(true);
-                barcode.setScanEan8(true);
-                barcode.setScanItf(true);
-                barcode.setScanPdf417(true);
-                barcode.setScanQrCode(true);
-                barcode.setScanUpca(true);
-                barcode.setScanUpce(true);
-
-                BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(barcode));
-
-                scanAction(activitySettings);
-            }
-        });
-    }
-
-    private MenuListItem buildSimNumberElement() {
-        return new MenuListItem("Sim number barcode", new Runnable() {
-            @Override
-            public void run() {
-                SimNumberRecognizer simNumberRecognizer = new SimNumberRecognizer();
-
-                BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(simNumberRecognizer));
-
-                scanAction(activitySettings);
-            }
-        });
-    }
-
-    private MenuListItem buildVinElement() {
-        return new MenuListItem("VIN barcode", new Runnable() {
-            @Override
-            public void run() {
-                VinRecognizer vinRecognizer = new VinRecognizer();
-
-                BarcodeUISettings activitySettings = new BarcodeUISettings(prepareRecognizerBundle(vinRecognizer));
-
-                scanAction(activitySettings);
-            }
-        });
-    }
-
-    private MenuListItem buildGenericFieldByFieldElement() {
-        return new MenuListItem("Generic field by field scan", new Runnable() {
-            @Override
-            public void run() {
-                FieldByFieldBundle bundle = new FieldByFieldBundle(
-                        new FieldByFieldElement(R.string.email_title, R.string.email_msg, new EMailParser()),
-                        new FieldByFieldElement(R.string.date_title, R.string.date_msg, new DateParser()),
-                        new FieldByFieldElement(R.string.raw_title, R.string.raw_msg, new RawParser())
-                );
-                FieldByFieldUISettings settings = new FieldByFieldUISettings(bundle);
-
-                scanAction(settings, createHelpIntent());
-            }
-        });
-    }
-
-    private MenuListItem buildVehicleFieldByFieldElement() {
-        return new MenuListItem("Vehicle field by field scan", new Runnable() {
-            @Override
-            public void run() {
-                FieldByFieldBundle bundle = new FieldByFieldBundle(
-                        new FieldByFieldElement("VIN", "Position VIN in this frame", new VinParser()),
-                        new FieldByFieldElement("License Plate", "Position license plate in this frame", new LicensePlatesParser())
-                );
-                FieldByFieldUISettings settings = new FieldByFieldUISettings(bundle);
-
-                scanAction(settings, createHelpIntent());
-            }
-        });
-    }
-
-    private Intent createHelpIntent() {
-        return new Intent(this, HelpActivity.class);
     }
 
     private RecognizerBundle prepareRecognizerBundle(@NonNull Recognizer<?>... recognizers ) {
