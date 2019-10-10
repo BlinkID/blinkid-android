@@ -3,11 +3,6 @@ package com.microblink.result;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.microblink.entities.recognizers.Recognizer;
@@ -16,6 +11,12 @@ import com.microblink.help.pageindicator.TabPageIndicator;
 import com.microblink.libresult.R;
 
 import java.util.ArrayList;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class ResultActivity extends FragmentActivity implements ResultFragment.IResultFragmentActivity{
 

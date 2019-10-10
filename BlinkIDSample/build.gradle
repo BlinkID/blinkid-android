@@ -5,7 +5,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:3.5.1'
     }
 }
 
@@ -13,7 +13,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://maven.microblink.com' }
-        //mavenLocal()
+//        mavenLocal()
         google()
     }
 }
@@ -21,9 +21,9 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '4.11.1'
+    blinkIdVersion = '5.0.0'
     compileSdkVersion = 28
     targetSdkVersion = 28
     buildToolsVersion = '28.0.3'
-    appCompatVersion = '28.0.0'
+    appCompatVersion = '1.1.0'
 }

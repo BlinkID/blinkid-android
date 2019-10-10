@@ -5,8 +5,6 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
@@ -38,6 +36,9 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class MenuActivity extends BaseMenuActivity {
 
@@ -233,7 +234,7 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 MrtdCombinedRecognizer mrtdCombinedRecognizer = new MrtdCombinedRecognizer();
                 ImageSettings.enableAllImages(mrtdCombinedRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdCombinedRecognizer)));
+                combinedRecognitionAction(mrtdCombinedRecognizer);
             }
         });
     }
@@ -266,7 +267,7 @@ public class MenuActivity extends BaseMenuActivity {
             public void run() {
                 UsdlCombinedRecognizer usdlCombinedRecognizer = new UsdlCombinedRecognizer();
                 ImageSettings.enableAllImages(usdlCombinedRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(usdlCombinedRecognizer)));
+                combinedRecognitionAction(usdlCombinedRecognizer);
             }
         });
     }

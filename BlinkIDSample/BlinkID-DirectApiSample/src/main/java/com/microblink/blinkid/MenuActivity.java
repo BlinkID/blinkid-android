@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import android.widget.Toast;
 
 import com.microblink.BaseMenuActivity;
@@ -22,6 +22,8 @@ import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,8 +100,8 @@ public class MenuActivity extends BaseMenuActivity {
     }
 
     private void buildRecognizerBundle() {
-        BlinkIdRecognizer blinkIdRecognizer = new BlinkIdRecognizer();
-        mRecognizerBundle = new RecognizerBundle(blinkIdRecognizer);
+        MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+        mRecognizerBundle = new RecognizerBundle(mrtdRecognizer);
     }
 
     private void startScanActivityForResult(Class activityClass) {
@@ -114,15 +116,15 @@ public class MenuActivity extends BaseMenuActivity {
         if (requestCode == MY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
-            if (!(result instanceof BlinkIdRecognizer.Result)) {
+            if (!(result instanceof MrtdRecognizer.Result)) {
                 Toast.makeText(this, "Nothing scanned!", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            BlinkIdRecognizer.Result blinkIdResult = (BlinkIdRecognizer.Result) result;
+            MrzResult mrzResult = ((MrtdRecognizer.Result)result).getMrzResult();
             String scanResults =
-                    "First name: " + blinkIdResult.getFirstName() +
-                    "\nLast name: " + blinkIdResult.getLastName();
+                    "First name: " + mrzResult.getSecondaryId() +
+                    "\nLast name: " + mrzResult.getPrimaryId();
 
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setTitle("Scan result")

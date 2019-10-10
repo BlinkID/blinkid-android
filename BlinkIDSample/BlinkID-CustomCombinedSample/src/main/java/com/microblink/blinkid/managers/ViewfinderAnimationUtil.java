@@ -4,13 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.microblink.view.viewfinder.ViewfinderShapeView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class ViewfinderAnimationUtil {
 

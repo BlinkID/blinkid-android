@@ -3,9 +3,6 @@ package com.microblink.blinkid;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
@@ -13,6 +10,10 @@ import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.view.recognition.ScanResultListener;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ScanActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
 

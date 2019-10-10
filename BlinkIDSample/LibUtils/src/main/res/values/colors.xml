@@ -12,4 +12,6 @@
     <color name="red_button_pressed_background">#FFB70000</color>
 
     <color name="help_background">#ff434343</color>
+
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

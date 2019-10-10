@@ -2,7 +2,6 @@ package com.microblink;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 import com.microblink.libresult.R;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 public abstract class BaseMenuActivity extends Activity {
 

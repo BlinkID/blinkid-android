@@ -3,7 +3,6 @@ package com.microblink.result;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.Recognizer;
@@ -13,6 +12,8 @@ import com.microblink.result.extract.ResultExtractorFactoryProvider;
 import com.microblink.util.Log;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
 
 public class ResultFragment extends BaseResultFragment {
 

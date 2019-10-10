@@ -1,6 +1,7 @@
 package com.microblink.result.extract.blinkid;
 
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
+import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
@@ -35,6 +36,6 @@ public class BlinkIdResultExtractorFactory extends BaseResultExtractorFactory {
         add(VisaRecognizer.class, new VisaRecognizerResultExtractor());
         add(MrtdCombinedRecognizer.class, new MRTDCombinedRecognitionResultExtractor());
         add(MrtdRecognizer.class, new MrtdRecognitionResultExtractor());
-        add(DocumentFaceRecognitionResultExtractor.class, new DocumentFaceRecognitionResultExtractor());
+        add(DocumentFaceRecognizer.class, new DocumentFaceRecognitionResultExtractor());
     }
 }
