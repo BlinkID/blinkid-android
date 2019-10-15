@@ -20,7 +20,7 @@
         android:theme="@style/Theme.AppTheme.FullScreen">
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.microblink.blinkid.provider"
             android:exported="false"
             android:grantUriPermissions="true">

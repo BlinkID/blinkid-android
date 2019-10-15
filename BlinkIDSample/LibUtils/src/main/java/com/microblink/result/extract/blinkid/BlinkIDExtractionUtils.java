@@ -6,10 +6,8 @@ import com.microblink.entities.recognizers.blinkid.imageresult.CombinedFullDocum
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
-import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
-import com.microblink.entities.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.libresult.R;
 import com.microblink.result.extract.RecognitionResultEntry;
 
@@ -28,17 +26,6 @@ public class BlinkIDExtractionUtils {
             byte[] encodedFaceImage = ((EncodedFaceImageResult) result).getEncodedFaceImage();
             if (shouldShowEncodedImageEntry(encodedFaceImage)) {
                 extractedData.add(builder.build(R.string.MBEncodedFaceImage, encodedFaceImage));
-            }
-        }
-
-        if(result instanceof SignatureImageResult) {
-            extractedData.add(builder.build(R.string.MBSignatureImage, ((SignatureImageResult) result).getSignatureImage()));
-        }
-
-        if (result instanceof EncodedSignatureImageResult) {
-            byte[] encodedSignatureImage = ((EncodedSignatureImageResult) result).getEncodedSignatureImage();
-            if (shouldShowEncodedImageEntry(encodedSignatureImage)) {
-                extractedData.add(builder.build(R.string.MBEncodedSignatureImage, encodedSignatureImage));
             }
         }
 

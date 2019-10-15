@@ -244,5 +244,10 @@
     <string name="PPRestrictions">Restrictions</string>
     <string name="PPEndorsements">Endorsements</string>
     <string name="PPVehicleClass">Vehicle Class</string>
+    <string name="PPAdditionalNameInformation">Additional name information</string>
+    <string name="PPAdditionalAddressInformation">Additional Address Information</string>
+    <string name="PPProfession">Profession</string>
+    <string name="PPDocumentAdditionalNumber">Document additional number</string>
+    <string name="PPConditions">Conditions</string>
 
 </resources>

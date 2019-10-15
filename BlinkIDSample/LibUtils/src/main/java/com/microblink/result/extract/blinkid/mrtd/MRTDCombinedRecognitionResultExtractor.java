@@ -9,7 +9,7 @@ public class MRTDCombinedRecognitionResultExtractor extends BlinkIdExtractor<Mrt
     @Override
     protected void extractData(MrtdCombinedRecognizer.Result result) {
         extractMRZResult(result.getMrzResult());
-        add(R.string.PPDocumentBothSidesMatch, result.isDocumentDataMatch());
+        add(R.string.PPDocumentBothSidesMatch, result.getDocumentDataMatch());
     }
 
 }

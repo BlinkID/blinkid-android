@@ -285,40 +285,39 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getDocumentDataMatch--">getDocumentDataMatch</a></span>()</code>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedFaceImage--">getEncodedFaceImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedBackFullDocumentImage--">getEncodedBackFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedFaceImage--">getEncodedFaceImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFaceImage--">getFaceImage</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getEncodedFrontFullDocumentImage--">getEncodedFrontFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFaceImage--">getFaceImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFullDocumentBackImage--">getFullDocumentBackImage</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getFullDocumentFrontImage--">getFullDocumentFrontImage</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#getMrzResult--">getMrzResult</a></span>()</code>
 <div class="block">The data extracted from the machine readable zone.</div>
-</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html#isDocumentDataMatch--">isDocumentDataMatch</a></span>()</code>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
@@ -407,24 +406,26 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="isDocumentDataMatch--">
+<a name="getDocumentDataMatch--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isDocumentDataMatch</h4>
-<pre>public&nbsp;boolean&nbsp;isDocumentDataMatch()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isDocumentDataMatch--">CombinedResult</a></code></span></div>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise. For example if date of expiry is scanned from the front and back side
- of the document and values do not match, this method will return <code>false</code>. Result will
- be  only if scanned values for all fields that are compared are the same.</div>
+<h4>getDocumentDataMatch</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a>&nbsp;getDocumentDataMatch()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">CombinedResult</a></code></span></div>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.
+ For example if date of expiry is scanned from the front and back side
+ of the document and values do not match, this method will return <a href="../../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Failed"><code>DataMatchResult.Failed</code></a>.
+ Result will be <a href="../../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Success"><code>DataMatchResult.Success</code></a> only if scanned values for all fields that are
+ compared are the same. If data matching has not been performed, result will be
+ <a href="../../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#NotPerformed"><code>DataMatchResult.NotPerformed</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isDocumentDataMatch--">isDocumentDataMatch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html" title="interface in com.microblink.entities.recognizers.blinkid">CombinedResult</a></code></dd>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">getDocumentDataMatch</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html" title="interface in com.microblink.entities.recognizers.blinkid">CombinedResult</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</dd>
+<dd>result of the data matching algorithm for scanned parts/sides of the document.</dd>
 </dl>
 </li>
 </ul>

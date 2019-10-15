@@ -15,13 +15,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.InflateException;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +29,7 @@ import com.microblink.blinkid.managers.DocumentViewfinderManager;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.CombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.DataMatchResult;
 import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.camera.AutoFocusRequiredButNotSupportedException;
@@ -64,6 +58,14 @@ import com.microblink.view.recognition.RecognizerRunnerView;
 import com.microblink.view.recognition.ScanResultListener;
 import com.microblink.view.viewfinder.ViewfinderShapeView;
 import com.microblink.view.viewfinder.points.PointSetView;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 /**
  * Scan activity designed for scanning documents by using combined recognizers
@@ -672,7 +674,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
         if (recognizer instanceof CombinedRecognizer) {
             CombinedRecognizer combinedRecognizer = (CombinedRecognizer) recognizer;
-            if (combinedRecognizer.getCombinedResult().isDocumentDataMatch()) {
+            if (combinedRecognizer.getCombinedResult().getDocumentDataMatch() != DataMatchResult.Failed) {
                 finishWithResults();
             } else {
                 // handle case when scanned sides were from different documents

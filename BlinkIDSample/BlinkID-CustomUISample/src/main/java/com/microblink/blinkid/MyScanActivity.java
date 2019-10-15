@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -48,6 +47,8 @@ import com.microblink.view.viewfinder.points.PointSetView;
 import com.microblink.view.viewfinder.quadview.QuadViewManager;
 import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
 import com.microblink.view.viewfinder.quadview.QuadViewPreset;
+
+import androidx.annotation.NonNull;
 
 public class MyScanActivity extends Activity implements ScanResultListener, CameraEventsListener, OnSizeChangedListener, OnActivityFlipListener {
 
@@ -118,7 +119,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // changes - if orientation is allowed, rotatable views will be rotated to that orientation
         mRecognizerView.setOrientationAllowedListener(new OrientationAllowedListener() {
             @Override
-            public boolean isOrientationAllowed(Orientation orientation) {
+            public boolean isOrientationAllowed(@NonNull Orientation orientation) {
                 // allow all orientations
                 return true;
             }

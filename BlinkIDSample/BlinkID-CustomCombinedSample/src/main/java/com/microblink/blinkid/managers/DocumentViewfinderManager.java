@@ -3,15 +3,16 @@ package com.microblink.blinkid.managers;
 import android.animation.Animator;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.microblink.view.viewfinder.ViewfinderShapeView;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 /**
  * Document viewfinder manager that should be used for showing the splash screens over the viewfinder.

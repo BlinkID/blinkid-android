@@ -48,6 +48,10 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         }
     }
 
+    protected void add(int key, Enum value) {
+        mExtractedData.add(mBuilder.build(key, value.name()));
+    }
+
     protected void add(int key, int value, String valueSuffix) {
         mExtractedData.add(mBuilder.build(key, value, valueSuffix));
     }

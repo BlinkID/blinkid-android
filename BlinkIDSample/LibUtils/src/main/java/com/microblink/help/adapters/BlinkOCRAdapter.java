@@ -2,11 +2,12 @@ package com.microblink.help.adapters;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import com.microblink.help.fragments.HelpFragment;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 public class BlinkOCRAdapter extends FragmentPagerAdapter {
 
