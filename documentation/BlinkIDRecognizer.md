@@ -1,53 +1,123 @@
 ## New BlinkID recognizer and BlinkID combined recognizer
 
-### Supported documents
+### Supported identity documents
 
-| Country        | State           |      |    |
-| ---------------|-----------------|------|----|
-| USA            |Alabama          |Driver's License    ||
-| USA            |Alaska           |Driver's License    ||
-| USA            |Arizona          |Driver's License    |ID Card|
-| USA            |Arkansas         |Driver's License    ||
-| USA            |California       |Driver's License    |ID Card|
-| USA            |Colorado         |Driver's License    |ID Card|
-| USA            |Connecticut      |Driver's License    ||
-| USA            |Florida          |Driver's License    |ID Card|
-| USA            |Georgia          |Driver's License    |ID Card|
-| USA            |Hawaii           |Driver's License    |ID Card|
-| USA            |Idaho            |Driver's License    ||
-| USA            |Illinois         |Driver's License    |ID Card|
-| USA            |Indiana          |Driver's License    ||
-| USA            |Iowa             |Driver's License    ||
-| USA            |Kansas           |Driver's License    ||
-| USA            |Kentucky         |Driver's License    ||
-| USA            |Louisiana        |Driver's License    ||
-| USA            |Maine            |Driver's License    ||
-| USA            |Maryland         |Driver's License    ||
-| USA            |Massachusetts    |Driver's License    ||
-| USA            |Michigan         |Driver's License    |ID Card|
-| USA            |Minnesota        |Driver's License    ||
-| USA            |Mississippi      |Driver's License    ||
-| USA            |Missouri         |Driver's License    ||
-| USA            |Montana          |Driver's License    ||
-| USA            |Nebraska         |Driver's License    ||
-| USA            |Nevada           |Driver's License    ||
-| USA            |New Hampshire    |Driver's License    ||
-| USA            |New Jersey       |Driver's License    |ID Card|
-| USA            |New Mexico       |Driver's License    ||
-| USA            |New York         |Driver's License    |ID Card|
-| USA            |North Carolina   |Driver's License    |ID Card|
-| USA            |North Dakota     |Driver's License    ||
-| USA            |Ohio             |Driver's License    |ID Card|
-| USA            |Oregon           |Driver's License    ||
-| USA            |Pennsylvania     |Driver's License    |ID Card|
-| USA            |South Carolina   |Driver's License    ||
-| USA            |South Dakota     |Driver's License    ||
-| USA            |Tennessee        |Driver's License    ||
-| USA            |Texas            |Driver's License    ||
-| USA            |Utah             |Driver's License    ||
-| USA            |Vermont          |Driver's License    ||
-| USA            |Virginia         |Driver's License    ||
-| USA            |Washington       |Driver's License    ||
-| USA            |West Virginia    |Driver's License    ||
-| USA            |Wisconsin        |Driver's License    ||
-| USA            |Wyoming          |Driver's License    ||
+| Country        |Supported Document Types|
+| :---------------|:------------------|
+| Albania                           |ID Card|
+| Argentina                         |ID Card*|
+| Australia - New South Wales       |Driving License*|
+| Australia - Victoria              |Driving License|
+| Austria                           |ID Card<br> Driving License*|
+| Azerbaijan                        |ID Card*|
+| Bahrain                           |ID Card|
+| Bangladesh                        |ID Card|
+| Belgium                           |ID Card<br> Driving License*|
+| Bosnia And Herzegovina            |ID Card|
+| Brunei                            |ID Card|
+| Bulgaria                          |ID Card<br> Driving License*|
+| Cambodia                          |ID Card*|
+| Canada - Manitoba                 |Driving License|
+| Canada - Saskatchewan             |Driving License|
+| Chile                             |ID Card|
+| Colombia                          |ID Card<br> Driving License*|
+| Costa Rica                        |ID Card*|
+| Croatia                           |ID Card<br> Driving License*|
+| Cyprus                            |ID Card*<br> Driving License*|
+| Dominican Republic                |ID Card|
+| Estonia                           |ID Card|
+| Finland                           |ID Card*|
+| France                            |ID Card* <br> Driving License* <br> Residence Permit<sup>BETA|
+| Georgia                           |ID Card|
+| Germany                           |ID Card* <br> Driving License* <br> Residence Permit<sup>BETA</sup>|
+| Guatemala                         |ID Card*|
+| Hong Kong                         |ID Card*|
+| Hungary                           |ID Card <br> Driving License*|
+| Indonesia                         |ID Card* <br> Driving License*|
+| Ireland                           |Driving License*|
+| Italy                             |ID Card* <br> Driving License*|
+| Jordan                            |ID Card|
+| Kazakhstan                        |ID Card*|
+| Kosovo                            |ID Card|
+| Kuwait                            |ID Card <br> Driving License<sup>BETA</sup> <br> Resident ID*|
+| Lithuania                         |ID Card|
+| Malaysia                          |MyKad <br> Driving License* <br> i-Kad* |
+| Malta                             |ID Card|
+| Netherlands                       |ID Card <br> Driving License*|
+| New Zealand                       |Driving License*|
+| Pakistan                          |ID Card* <br> Consular ID*|
+| Philippines                       |Multipurpose ID* <br> Driving License*|
+| Poland                            |ID Card <br> Driving License*|
+| Portugal                          |ID Card|
+| Qatar                             |Residence Permit*|
+| Romania                           |ID Card* <br> Driving License*|
+| Serbia                            |ID Card <br> Driving License*|
+| Singapore                         |ID Card <br> Driving License* <br> Resident ID* <br> Employment Pass*|
+| Slovakia                          |ID Card|
+| Slovenia                          |ID Card|
+| Spain                             |ID Card <br> Driving License*|
+| Sweden                            |ID Card <br> Driving License*|
+| Switzerland                       |ID Card <br> Driving License*|
+| Turkey                            |ID Card <br> Driving License*|
+| UAE                               |ID Card <br> Driving License*<br> Resident ID|
+| Ukraine                           |ID Card|
+| UK                                |Driving License* <br> Residence Permit|
+| Vietnam                           |ID Card<sup>*, BETA</sup>|
+
+\* Front side only
+
+### USA Supported identity documents
+Horizontal documents only
+
+| State        |Supported Document Types     |
+| :-------------|:------------------|
+| Alabama                     |Driver's License   |
+| Alaska                      |Driver's License    |
+| Arizona                     |ID Card<br> Driver's License   |
+| Arkansas                    |Driver's License    |
+| California                  |ID Card<br> Driver's License   |
+| Colorado                    |ID Card<br> Driver's License   |
+| Connecticut                 |Driver's License    |
+| Delaware                    |Driver's License    |
+| Florida                     |ID Card<br> Driver's License   |
+| Georgia                     |ID Card<br> Driver's License   |
+| Hawaii                      |ID Card|
+| Idaho                       |Driver's License    |
+| Illinois                    |ID Card<br> Driver's License   |
+| Indiana                     |Driver's License    |
+| Iowa                        |Driver's License    |
+| Kansas                      |Driver's License    |
+| Kentucky                    |Driver's License    |
+| Louisiana                   |Driver's License    |
+| Maine                       |Driver's License    |
+| Maryland                    |Driver's License    |
+| Massachusetts               |Driver's License    |
+| Michigan                    |ID Card<br> Driver's License   |
+| Minnesota                   |Driver's License    |
+| Mississippi                 |Driver's License    |
+| Missouri                    |Driver's License    |
+| Montana                     |Driver's License    |
+| Nebraska                    |Driver's License    |
+| Nevada                      |Driver's License    |
+| New Hampshire               |Driver's License    |
+| New Jersey                  |ID Card<br> Driver's License   |
+| New Mexico                  |Driver's License    |
+| New York                    |ID Card<br> Driver's License   |
+| North Carolina              |ID Card<br> Driver's License   |
+| North Dakota                |Driver's License    |
+| Ohio                        |ID Card<br> Driver's License   |
+| Oklahoma                    |ID Card<br> Driver's License |
+| Oregon                      |Driver's License    |
+| Pennsylvania                |ID Card<br> Driver's License   |
+| Rhode Island                |Driver's License    |
+| South Carolina              |Driver's License    |
+| South Dakota                |Driver's License    |
+| Tennessee                   |Driver's License    |
+| Texas                       |Driver's License    |
+| Utah                        |Driver's License    |
+| Vermont                     |Driver's License    |
+| Virginia                    |Driver's License    |
+| Washington                  |Driver's License    |
+| West Virginia               |Driver's License    |
+| Wisconsin                   |Driver's License    |
+| Wyoming                     |Driver's License    |

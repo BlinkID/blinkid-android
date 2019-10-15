@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../com/microblink/fragment/overlay/OverlayStringsBuilder.html" title="class in com.microblink.fragment.overlay"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/microblink/fragment/overlay/ScanningOverlayController.html" title="interface in com.microblink.fragment.overlay"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/microblink/fragment/overlay/ScanningOverlay.html" target="_top">Frames</a></li>
@@ -103,7 +103,7 @@ var activeTableTab = "activeTableTab";
 </dl>
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a>, <a href="../../../../com/microblink/fragment/overlay/basic/BasicOverlayController.html" title="class in com.microblink.fragment.overlay.basic">BasicOverlayController</a>, <a href="../../../../com/microblink/fragment/overlay/blinkcard/BlinkCardOverlayController.html" title="class in com.microblink.fragment.overlay.blinkcard">BlinkCardOverlayController</a>, <a href="../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayController</a>, <a href="../../../../com/microblink/fragment/overlay/fieldbyfield/FieldByFieldOverlayController.html" title="class in com.microblink.fragment.overlay.fieldbyfield">FieldByFieldOverlayController</a></dd>
+<dd><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a>, <a href="../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayController</a></dd>
 </dl>
 <hr>
 <br>
@@ -143,6 +143,20 @@ extends <a href="../../../../com/microblink/view/recognition/ScanResultListener.
  <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#pauseScanning--">pauseScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#resumeScanning--">resumeScanning</a></span>()</code>
+<div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.com.microblink.view.recognition.ScanResultListener">
@@ -165,6 +179,43 @@ extends <a href="../../../../com/microblink/view/recognition/ScanResultListener.
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="resumeScanning--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resumeScanning</h4>
+<pre>@AnyThread
+void&nbsp;resumeScanning()</pre>
+<div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.
+ <p>
+ If the  <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="pauseScanning--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>pauseScanning</h4>
+<pre>@AnyThread
+void&nbsp;pauseScanning()</pre>
+<div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>. But keeps camera active.
+ If the  <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.
+ <p>
+ You can resume scanning by calling <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#resumeScanning--"><code>ScanningOverlay.resumeScanning()</code></a>.</div>
+<dl>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">
 <!--   -->
 </a>
@@ -245,7 +296,7 @@ extends <a href="../../../../com/microblink/view/recognition/ScanResultListener.
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../com/microblink/fragment/overlay/OverlayStringsBuilder.html" title="class in com.microblink.fragment.overlay"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../com/microblink/fragment/overlay/ScanningOverlayController.html" title="interface in com.microblink.fragment.overlay"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?com/microblink/fragment/overlay/ScanningOverlay.html" target="_top">Frames</a></li>

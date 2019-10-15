@@ -127,13 +127,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.arch.lifecycle.LifecycleObserver, android.graphics.drawable.Drawable.Callback, android.view.accessibility.AccessibilityEventSource, android.view.KeyEvent.Callback, android.view.ViewManager, android.view.ViewParent</dd>
+<dd>android.graphics.drawable.Drawable.Callback, android.view.accessibility.AccessibilityEventSource, android.view.KeyEvent.Callback, android.view.ViewManager, android.view.ViewParent, androidx.lifecycle.LifecycleObserver</dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">RecognizerRunnerView</span>
 extends <a href="../../../../com/microblink/view/CameraViewGroup.html" title="class in com.microblink.view">CameraViewGroup</a>
-implements android.arch.lifecycle.LifecycleObserver</pre>
+implements androidx.lifecycle.LifecycleObserver</pre>
 <div class="block">A view that controls the camera and recognition procedure.</div>
 </li>
 </ul>
@@ -360,7 +360,7 @@ implements android.arch.lifecycle.LifecycleObserver</pre>
 </tr>
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setLifecycle-android.arch.lifecycle.Lifecycle-">setLifecycle</a></span>(android.arch.lifecycle.Lifecycle&nbsp;lifecycle)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#setLifecycle-androidx.lifecycle.Lifecycle-">setLifecycle</a></span>(androidx.lifecycle.Lifecycle&nbsp;lifecycle)</code>
 <div class="block">Sets lifecycle that will be observed
  so that you don't have to manually call
  <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#create--"><code>RecognizerRunnerView.create()</code></a>, <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resume--"><code>RecognizerRunnerView.resume()</code></a> and other lifecycle methods.</div>
@@ -521,14 +521,14 @@ public&nbsp;void&nbsp;create()</pre>
 </dl>
 </li>
 </ul>
-<a name="setLifecycle-android.arch.lifecycle.Lifecycle-">
+<a name="setLifecycle-androidx.lifecycle.Lifecycle-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setLifecycle</h4>
 <pre>public&nbsp;void&nbsp;setLifecycle(@NonNull
-                         android.arch.lifecycle.Lifecycle&nbsp;lifecycle)</pre>
+                         androidx.lifecycle.Lifecycle&nbsp;lifecycle)</pre>
 <div class="block">Sets lifecycle that will be observed
  so that you don't have to manually call
  <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#create--"><code>RecognizerRunnerView.create()</code></a>, <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resume--"><code>RecognizerRunnerView.resume()</code></a> and other lifecycle methods.</div>

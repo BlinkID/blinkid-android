@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedRecognizer.html" title="interface in com.microblink.entities.recognizers.blinkid"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/entities/recognizers/blinkid/CombinedResult.html" target="_top">Frames</a></li>
@@ -99,7 +99,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Known Implementing Classes:</dt>
-<dd><a href="../../../../../com/microblink/entities/recognizers/blinkid/austria/AustriaCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.austria">AustriaCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/belgium/BelgiumCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.belgium">BelgiumCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardEliteRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkcard">BlinkCardEliteRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkcard/BlinkCardRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkcard">BlinkCardRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.generic">BlinkIdCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/croatia/CroatiaCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.croatia">CroatiaCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/czechia/CzechiaCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.czechia">CzechiaCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/germany/GermanyCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.germany">GermanyCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/jordan/JordanCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.jordan">JordanCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrtdCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/poland/PolandCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.poland">PolandCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/singapore/SingaporeCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.singapore">SingaporeCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/slovakia/SlovakiaCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.slovakia">SlovakiaCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/slovenia/SloveniaCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.slovenia">SloveniaCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.usdl">UsdlCombinedRecognizer.Result</a></dd>
+<dd><a href="../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.generic">BlinkIdCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrtdCombinedRecognizer.Result</a>, <a href="../../../../../com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.usdl">UsdlCombinedRecognizer.Result</a></dd>
 </dl>
 <hr>
 <br>
@@ -143,10 +143,9 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isDocumentDataMatch--">isDocumentDataMatch</a></span>()</code>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</div>
+<td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">getDocumentDataMatch</a></span>()</code>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -190,21 +189,23 @@ static final&nbsp;java.lang.String CLASS_NAME</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="isDocumentDataMatch--">
+<a name="getDocumentDataMatch--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isDocumentDataMatch</h4>
-<pre>boolean&nbsp;isDocumentDataMatch()</pre>
-<div class="block">Returns <code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise. For example if date of expiry is scanned from the front and back side
- of the document and values do not match, this method will return <code>false</code>. Result will
- be  only if scanned values for all fields that are compared are the same.</div>
+<h4>getDocumentDataMatch</h4>
+<pre>@NonNull
+<a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a>&nbsp;getDocumentDataMatch()</pre>
+<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.
+ For example if date of expiry is scanned from the front and back side
+ of the document and values do not match, this method will return <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Failed"><code>DataMatchResult.Failed</code></a>.
+ Result will be <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Success"><code>DataMatchResult.Success</code></a> only if scanned values for all fields that are
+ compared are the same. If data matching has not been performed, result will be
+ <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#NotPerformed"><code>DataMatchResult.NotPerformed</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if data from scanned parts/sides of the document match,
- <code>false</code> otherwise.</dd>
+<dd>result of the data matching algorithm for scanned parts/sides of the document.</dd>
 </dl>
 </li>
 </ul>
@@ -250,7 +251,7 @@ static final&nbsp;java.lang.String CLASS_NAME</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedRecognizer.html" title="interface in com.microblink.entities.recognizers.blinkid"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/entities/recognizers/blinkid/CombinedResult.html" target="_top">Frames</a></li>
