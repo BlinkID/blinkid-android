@@ -1371,7 +1371,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
-<tr> <th colspan=2>USA ILLISometimesIS DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA ILLINOIS DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -1384,7 +1384,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Restrictions (Driver license detailed info)</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
-<tr> <th colspan=2>USA ILLISometimesIS DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA ILLINOIS DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -1397,7 +1397,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
-<tr> <th colspan=2>USA ILLISometimesIS ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA ILLINOIS ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class (Driver license detailed info)</td> <td>Sometimes</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -1408,7 +1408,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Sometimes</td><tr>
 <tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
-<tr> <th colspan=2>USA ILLISometimesIS ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA ILLINOIS ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -1967,7 +1967,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
-<tr> <th colspan=2>USA SometimesRTH CAROLINA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH CAROLINA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -1980,7 +1980,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Restrictions (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
-<tr> <th colspan=2>USA SometimesRTH CAROLINA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH CAROLINA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -1993,7 +1993,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
-<tr> <th colspan=2>USA SometimesRTH CAROLINA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH CAROLINA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -2002,7 +2002,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>First name</td> <td>Always</td><tr>
 <tr> <td>Last name</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
-<tr> <th colspan=2>USA SometimesRTH CAROLINA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH CAROLINA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -2015,7 +2015,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
-<tr> <th colspan=2>USA SometimesRTH DAKOTA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH DAKOTA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -2027,7 +2027,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Always</td><tr>
 <tr> <td>Restrictions (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
-<tr> <th colspan=2>USA SometimesRTH DAKOTA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <th colspan=2>USA NORTH DAKOTA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
