@@ -45,11 +45,6 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>First name</td> <td>Always</td><tr>
 <tr> <td>Last name</td> <td>Always</td><tr>
 <tr> <td>Restrictions (Driver license detailed info)</td> <td>Sometimes</td><tr>
-<tr> <th colspan=2>AUSTRALIA VICTORIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Address</td> <td>Sometimes</td><tr>
-<tr> <td>Date of expiry</td> <td>Always</td><tr>
-<tr> <td>Document number</td> <td>Sometimes</td><tr>
-<tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <th colspan=2>AUSTRIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class (Driver license detailed info)</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
