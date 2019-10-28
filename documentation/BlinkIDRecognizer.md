@@ -7,7 +7,7 @@
 | Albania                           |ID Card|
 | Argentina                         |ID Card*|
 | Australia - New South Wales       |Driving License*|
-| Australia - Victoria              |Driving License|
+| Australia - Victoria              |Driving License*|
 | Austria                           |ID Card<br> Driving License*|
 | Azerbaijan                        |ID Card*|
 | Bahrain                           |ID Card|
