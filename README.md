@@ -281,7 +281,7 @@ public class MyActivity extends Activity implements RecognizerRunnerFragment.Sca
     @Override
     @NonNull
     public ScanningOverlay getScanningOverlay() {
-        return mScanningOverlay;
+        return mScanOverlay;
     }
 
     private BlinkIdOverlayController createOverlay() {
