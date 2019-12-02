@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.microblink.BaseMenuActivity;
 import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
@@ -43,7 +43,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         super.onCreate(savedInstanceState);
         parent = findViewById(android.R.id.content);
 
-        BlinkIdRecognizer recognizer = new BlinkIdRecognizer();
+        BlinkIdCombinedRecognizer recognizer = new BlinkIdCombinedRecognizer();
         recognizer.setReturnFullDocumentImage(true);
         recognizer.setReturnFaceImage(true);
         recognizerBundle = new RecognizerBundle(recognizer);

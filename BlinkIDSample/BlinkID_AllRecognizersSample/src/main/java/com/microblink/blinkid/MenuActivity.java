@@ -14,7 +14,6 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
@@ -98,7 +97,6 @@ public class MenuActivity extends BaseMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(buildBlinkIdElement());
         items.add(buildBlinkIdCombinedElement());
 
         items.add(buildPassportElement());
@@ -170,17 +168,6 @@ public class MenuActivity extends BaseMenuActivity {
             // barcode recognizer is active.
             ((OcrResultDisplayUIOptions) settings).setOcrResultDisplayMode(OcrResultDisplayMode.ANIMATED_DOTS);
         }
-    }
-
-    private MenuListItem buildBlinkIdElement() {
-        return new MenuListItem("BlinkId", new Runnable() {
-            @Override
-            public void run() {
-                BlinkIdRecognizer blinkidRecognizer = new BlinkIdRecognizer();
-                ImageSettings.enableAllImages(blinkidRecognizer);
-                scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkidRecognizer)));
-            }
-        });
     }
 
     private MenuListItem buildBlinkIdCombinedElement() {
