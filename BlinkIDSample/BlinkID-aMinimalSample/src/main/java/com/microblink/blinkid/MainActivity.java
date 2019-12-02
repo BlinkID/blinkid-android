@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BlinkIdUISettings;
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 123;
 
-    private BlinkIdRecognizer recognizer;
+    private BlinkIdCombinedRecognizer recognizer;
     private RecognizerBundle recognizerBundle;
 
     @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // we'll use Machine Readable Travel Document recognizer
-        recognizer = new BlinkIdRecognizer();
+        recognizer = new BlinkIdCombinedRecognizer();
 
         // put our recognizer in bundle so that it can be sent via intent
         recognizerBundle = new RecognizerBundle(recognizer);
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         recognizerBundle.loadFromIntent(data);
 
         // you can now extract any scanned data from result, we'll just get primary id
-        BlinkIdRecognizer.Result result = recognizer.getResult();
+        BlinkIdCombinedRecognizer.Result result = recognizer.getResult();
         String name = result.getFullName();
         if (name.isEmpty()) {
             name = result.getFirstName();

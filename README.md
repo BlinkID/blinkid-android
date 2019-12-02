@@ -42,7 +42,6 @@ Download our [BlinkID app](https://play.google.com/store/apps/details?id=com.mic
     * [Frame Grabber Recognizer](#frameGrabberRecognizer)
     * [Success Frame Grabber Recognizer](#successFrameGrabberRecognizer)
     * [BlinkID recognizers](#blinkid_recognizers)
-        * [BlinkID recognizer](#blinkidRecognizer)
         * [BlinkID combined recognizer](#blinkidCombinedRecognizer)
         * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
         * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
@@ -136,7 +135,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
     ```java
     public class MyActivity extends Activity {
-        private BlinkIdRecognizer mRecognizer;
+        private BlinkIdCombinedRecognizer mRecognizer;
         private RecognizerBundle mRecognizerBundle;
         
         @Override
@@ -145,8 +144,8 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
             
             // setup views, as you would normally do in onCreate callback
             
-            // create BlinkIdRecognizer
-            mRecognizer = new BlinkIdRecognizer();
+            // create BlinkIdCombinedRecognizer
+            mRecognizer = new BlinkIdCombinedRecognizer();
             
             // bundle recognizers into RecognizerBundle
             mRecognizerBundle = new RecognizerBundle(mRecognizer);
@@ -159,7 +158,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 	```java
 	// method within MyActivity from previous step
 	public void startScanning() {
-        // Settings for BlinkIdActivity Activity
+        // Settings for BlinkIdActivity
         BlinkIdUISettings settings = new BlinkIdUISettings(mRecognizerBundle);
         
         // tweak settings as you wish
@@ -185,7 +184,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
                 // has been updated with results obtained during scanning session
                 
                 // you can get the result by invoking getResult on recognizer
-                BlinkIdRecognizer.Result result = mRecognizer.getResult();
+                BlinkIdCombinedRecognizer.Result result = mRecognizer.getResult();
                 if (result.getResultState() == Recognizer.Result.State.Valid) {
                     // result is valid, you can use it however you wish
                 }
@@ -256,7 +255,7 @@ Here is the minimum example for activity that hosts the `RecognizerRunnerFragmen
 
 ```java
 public class MyActivity extends Activity implements RecognizerRunnerFragment.ScanningOverlayBinder {
-    private BlinkIdRecognizer mRecognizer;
+    private BlinkIdCombinedRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
     private BlinkIdOverlayController mScanOverlay = createOverlay();
     private RecognizerRunnerFragment mRecognizerRunnerFragment;
@@ -285,8 +284,8 @@ public class MyActivity extends Activity implements RecognizerRunnerFragment.Sca
     }
 
     private BlinkIdOverlayController createOverlay() {
-        // create BlinkIdRecognizer
-        mRecognizer = new BlinkIdRecognizer();
+        // create BlinkIdCombinedRecognizer
+        mRecognizer = new BlinkIdCombinedRecognizer();
 
         // bundle recognizers into RecognizerBundle
         mRecognizerBundle = new RecognizerBundle(mRecognizer);
@@ -331,13 +330,13 @@ Here is the minimum example of integration of `RecognizerRunnerView` as the only
 public class MyScanActivity extends Activity {
     private static final int PERMISSION_CAMERA_REQUEST_CODE = 69;
     private RecognizerRunnerView mRecognizerRunnerView;
-    private BlinkIdRecognizer mRecognizer;
+    private BlinkIdCombinedRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // create BlinkIdRecognizer
-        mRecognizer = new BlinkIdRecognizer();
+        // create BlinkIdCombinedRecognizer
+        mRecognizer = new BlinkIdCombinedRecognizer();
 
         // bundle recognizers into RecognizerBundle
         mRecognizerBundle = new RecognizerBundle(mRecognizer);
@@ -477,7 +476,7 @@ public class MyScanActivity extends Activity {
             // recognizer that you bundled into RecognizerBundle.
             // for example:
 
-            BlinkIdRecognizer.Result result = mRecognizer.getResult();
+            BlinkIdCombinedRecognizer.Result result = mRecognizer.getResult();
             if (result.getResultState() == Recognizer.Result.State.Valid) {
                 // result is valid, you can use it however you wish
             }
@@ -488,7 +487,7 @@ public class MyScanActivity extends Activity {
             // need to create a immutable copy of the result, you can do that
             // by calling clone() on it, for example:
 
-            BlinkIdRecognizer.Result immutableCopy = result.clone();
+            BlinkIdCombinedRecognizer.Result immutableCopy = result.clone();
 
             // After this method ends, scanning will be resumed and recognition
             // state will be retained. If you want to prevent that, then
@@ -539,15 +538,15 @@ Here is the minimum example of usage of direct API for recognizing android Bitma
 ```java
 public class DirectAPIActivity extends Activity {
     private RecognizerRunner mRecognizerRunner;
-    private BlinkIdRecognizer mRecognizer;
+    private BlinkIdCombinedRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate();
         // initialize your activity here
-        // create BlinkIdRecognizer
-        mRecognizer = new BlinkIdRecognizer();
+        // create BlinkIdCombinedRecognizer
+        mRecognizer = new BlinkIdCombinedRecognizer();
 
         // bundle recognizers into RecognizerBundle
         mRecognizerBundle = new RecognizerBundle(mRecognizer);
@@ -592,7 +591,7 @@ public class DirectAPIActivity extends Activity {
             // recognizer that you bundled into RecognizerBundle.
             // for example:
 
-            BlinkIdRecognizer.Result result = mRecognizer.getResult();
+            BlinkIdCombinedRecognizer.Result result = mRecognizer.getResult();
             if (result.getResultState() == Recognizer.Result.State.Valid) {
                 // result is valid, you can use it however you wish
             }
@@ -647,6 +646,7 @@ Both [RecognizerRunnerView](#recognizerRunnerView) and `RecognizerRunner` use th
 The new UI allows the user to scan the document at an any angle, in any orientation. We recommend forcing landscape orientation if you scan barcodes on the back side, because in that orientation success rate will be higher. 
 
 To launch a built-in activity that uses `BlinkIdOverlayController` use [`BlinkIdUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/BlinkIdUISettings.html).
+
 ## <a name="documentUiComponent"></a> `DocumentUISettings`
 
 [`DocumentUISettings `](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/DocumentUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for scanning single document side of various card documents and it shouldn't be used with combined recognizers as it provides no user instructions on when to switch to the back side.
@@ -774,28 +774,22 @@ This recognizer is best for use cases when you need to capture the exact image t
 
 ## <a name="blinkid_recognizers"></a> BlinkID recognizers
 
-Unless stated otherwise for concrete recognizer, **single side BlinkID recognizes** from this list can be used in any context, but they work best with the [`DocumentScanActivity`](#documentUiComponent) and [`BlinkIdActivity`](#blinkidUiComponent), with UIs best suited for document scanning. 
+Unless stated otherwise for concrete recognizer, **single side BlinkID recognizes** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkidUiComponent) and [`DocumentScanUISettings`](#documentUiComponent), with UIs best suited for document scanning. 
 
-**Combined recognizers** should be used with [`DocumentVerificationActivity`](#documentVerifyUiComponent) or [`BlinkIdActivity`](#blinkidUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
-
-### <a name="blinkidRecognizer"></a> BlinkID recognizer
-The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) scans and extracts data from the front side of the supported document. 
-You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
-We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
-
-The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) works best with the [`BlinkIdActivity` and `BlinkIdOverlayController`](#blinkidUiComponent). 
+**Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent) or [`DocumentVerificationUISettings`](#documentVerifyUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
 ### <a name="blinkidCombinedRecognizer"></a> BlinkID combined recognizer
 Use [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) for scanning both sides of the supported document. First, it scans and extracts data from the front, then scans and extracts data from the back, and finally, combines results from both sides. The [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) also performs data matching and returns a flag if the extracted data captured from the front side matches the data from the back.
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
-The [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) works best with the [`BlinkIdActivity` and `BlinkIdOverlayController`](#blinkidUiComponent). 
+The [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent). 
 
 ### <a name="mrtdRecognizer"></a> Machine Readable Travel Document recognizer
 The [`MrtdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various Machine Readable Travel Documents (MRTDs) like ID cards and passports. This recognizer is not bound to the specific country, but it can be configured to only return data that match some criteria defined by the [`MrzFilter`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/mrtd/MrzFilter.html).
 
-The `MrtdRecognizer` can also be configured to extract additional fields of interest from the scanned document, which are not part of the Machine Readable Zone, by using **Templating API**. You can find more about Templating API in [this](#mrtdTemplating) section.
+
+
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -828,7 +822,6 @@ You can find information about usage context at the beginning of [this section](
 The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/documentface/DocumentFaceRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-
 # <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
 
 To integrate _BlinkID_ inside your SDK, contact us at [help.microblink.com](http://help.microblink.com) to get a special licence that is not bound to package name and can be used in multiple different apps.

@@ -15,7 +15,7 @@ import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.HighResImagesBundle;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
 import com.microblink.image.highres.HighResImageWrapper;
@@ -27,13 +27,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -50,7 +48,7 @@ public class MainActivity extends BaseMenuActivity {
         super.onCreate(savedInstanceState);
 
         // create recognizer
-        BlinkIdRecognizer blinkIdRecognizer = new BlinkIdRecognizer();
+        BlinkIdCombinedRecognizer blinkIdRecognizer = new BlinkIdCombinedRecognizer();
         // set to true to obtain images containing full document
         blinkIdRecognizer.setReturnFullDocumentImage(true);
 
@@ -61,22 +59,21 @@ public class MainActivity extends BaseMenuActivity {
 
     @Override
     protected List<MenuListItem> createMenuListItems() {
-        List<MenuListItem> items = new ArrayList<>();
-
-        items.add(new MenuListItem("Scan document", new Runnable() {
-            @Override
-            public void run() {
-                if (ContextCompat.checkSelfPermission(MainActivity.this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    // request write permission
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
-                } else {
-                    startScanning();
-                }
-            }
-        }));
-        return items;
+        return Collections.singletonList(
+                new MenuListItem("Scan document", new Runnable() {
+                    @Override
+                    public void run() {
+                        if (ContextCompat.checkSelfPermission(MainActivity.this,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            // request write permission
+                            ActivityCompat.requestPermissions(MainActivity.this,
+                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
+                        } else {
+                            startScanning();
+                        }
+                    }
+                })
+        );
     }
 
     @Override
@@ -102,29 +99,28 @@ public class MainActivity extends BaseMenuActivity {
             return;
         }
 
-        // make sure BlinkID activity returned result
-        if (resultCode == DocumentScanActivity.RESULT_OK && data != null) {
-            recognizerBundle.loadFromIntent(data);
-
-            storeHighResImage(data);
-
-            // get images from recognizers and store them
-            Recognizer firstRecognizer = recognizerBundle.getRecognizers()[0];
-            SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = (SuccessFrameGrabberRecognizer) firstRecognizer;
-            storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
-
-            //get wrapped recognizer
-            BlinkIdRecognizer blinkIdRecognizer = (BlinkIdRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
-            storeImage("fullDocumentImage", blinkIdRecognizer.getResult().getFullDocumentImage());
-
-            Intent resultScreenIntent = new Intent(this, ResultActivity.class);
-            recognizerBundle.saveToIntent(resultScreenIntent);
-            startActivity(resultScreenIntent);
-        } else {
+        if (resultCode != DocumentScanActivity.RESULT_OK || data == null) {
             // if BlinkID activity did not return result, user has probably
             // pressed Back button and cancelled scanning
             Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        recognizerBundle.loadFromIntent(data);
+
+        Recognizer firstRecognizer = recognizerBundle.getRecognizers()[0];
+        SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = (SuccessFrameGrabberRecognizer) firstRecognizer;
+        //get wrapped recognizer
+        BlinkIdCombinedRecognizer blinkIdRecognizer = (BlinkIdCombinedRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
+
+        storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
+        storeImage("fullDocumentImageFront", blinkIdRecognizer.getResult().getFullDocumentFrontImage());
+        storeImage("fullDocumentImageBack", blinkIdRecognizer.getResult().getFullDocumentBackImage());
+        storeHighResImage(data);
+
+        Intent resultScreenIntent = new Intent(this, ResultActivity.class);
+        recognizerBundle.saveToIntent(resultScreenIntent);
+        startActivity(resultScreenIntent);
     }
 
     private void storeHighResImage(Intent resultIntent) {
@@ -134,46 +130,30 @@ public class MainActivity extends BaseMenuActivity {
         // if high res image capture is disabled, images list will be empty
         // otherwise, we'll get 1 image per scanned document side
         List<HighResImageWrapper> highResImageWrappers = highResImagesBundle.getImages();
-        if (highResImageWrappers.isEmpty()) {
+        for (int i = 0; i < highResImageWrappers.size(); i++) {
+            HighResImageWrapper highResImageWrapper = highResImageWrappers.get(i);
+            String imagesFolderPath = createImagesFolder();
+            String imagePath = imagesFolderPath + "/highRes" + i + ".jpg";
+            try {
+                // optimal way to save high res image to file,
+                // alternatively, you could get bitmap using highResImageWrapper.getImage().convertToBitmap()
+                highResImageWrapper.saveToFile(new File(imagePath));
+            } catch (IOException e) {
+                Log.e(LOG_TAG, "Failed to save image " + e.toString());
+            }
+
+            // dispose image once you're done with it
+            highResImageWrapper.dispose();
+        }
+    }
+
+    private void storeImage(String imageName, @Nullable Image image) {
+        if (image == null) {
             return;
         }
 
-        HighResImageWrapper highResImageWrapper = highResImageWrappers.get(0);
-
-        String imagesFolderPath = createImagesFolder();
-        String imagePath = imagesFolderPath + "/highRes.jpg";
-        try {
-            // optimal way to save high res image to file,
-            // alternatively, you could get bitmap using highResImageWrapper.getImage().convertToBitmap()
-            highResImageWrapper.saveToFile(new File(imagePath));
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "Failed to save image " + e.toString());
-        }
-
-        // dispose image once you're done with it
-        highResImageWrapper.dispose();
-    }
-
-    private void storeImage(String imageName, Image image) {
-        // image filenames will be 'imageType - currentTimestamp.jpg'
         String output = createImagesFolder();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        String dateString = dateFormat.format(new Date());
-        String filename = null;
-        switch (image.getImageFormat()) {
-            case ALPHA_8: {
-                filename = output + "/alpha_8 - " + imageName + " - " + dateString + ".jpg";
-                break;
-            }
-            case BGRA_8888: {
-                filename = output + "/bgra - " + imageName + " - " + dateString + ".jpg";
-                break;
-            }
-            case YUV_NV21: {
-                filename = output + "/yuv - " + imageName + " - " + dateString + ".jpg";
-                break;
-            }
-        }
+        String filename = output + "/" + imageName + ".jpg";
         Bitmap bitmap = image.convertToBitmap();
         if (bitmap == null) {
             Log.e(LOG_TAG, "Bitmap is null");
@@ -186,15 +166,13 @@ public class MainActivity extends BaseMenuActivity {
             boolean success = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             if (!success) {
                 Log.e(LOG_TAG, "Failed to compress bitmap!");
-                if (fos != null) {
-                    try {
-                        fos.close();
-                    } catch (IOException ignored) {
-                    } finally {
-                        fos = null;
-                    }
-                    new File(filename).delete();
+                try {
+                    fos.close();
+                } catch (IOException ignored) {
+                } finally {
+                    fos = null;
                 }
+                new File(filename).delete();
             }
         } catch (FileNotFoundException e) {
             Log.e(LOG_TAG, "Failed to save image " + e.toString());
@@ -222,7 +200,7 @@ public class MainActivity extends BaseMenuActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
