@@ -1,5 +1,20 @@
 # Release notes
 
+## 5.0.1
+
+### New features:
+
+- new options in `BlinkIdUISettings`, `DocumentUISettings`, `DocumentVerificationUISettings` and `BlinkIdOverlaySettings`:
+    - option to disable displaying of "Document Not Supported" dialog when `BlinkIdRecognizer` or `BlinkIdCombinedRecognizer` is used in combination with other recognizers - use method `setShowNotSupportedDialog`
+    - option to configure back side scanning timeout - use `setBackSideScanningTimeoutMs`
+- it is possible to set theme that will be used by activity launched from the UISettings - use UISettings.setActivityTheme
+
+### Minor API changes:
+- all scan activity classes are final now
+
+### Bug fixes:
+- fixed problems with aspect ratio of camera preview on Huawei Mate 10
+
 ## 5.0.0
 
 ### **BlinkID v5 Release Announcement**
