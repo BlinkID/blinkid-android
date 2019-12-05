@@ -1,3 +1,7 @@
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
+</p>
+
 # _BlinkID_ SDK for Android
 
 [![Build Status](https://travis-ci.org/BlinkID/blinkid-android.svg?branch=master)](https://travis-ci.org/BlinkID/blinkid-android)
@@ -12,6 +16,10 @@ _BlinkID_ SDK for Android enables scanning of over 150 international identity do
 You can get started by trying out our [sample apps](#quickDemo) first or begin [integrating the SDK](#androidStudioIntegration) into your app right away.
 
 Download our [BlinkID app](https://play.google.com/store/apps/details?id=com.microblink.blinkidapp) to see SDK integration in a production app. Scanning UX from this app is available as an open-source library [blinkid-ui-android](https://github.com/BlinkID/blinkid-ui-android).
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid-v5.gif" alt="BlinkID SDK">
+</p>
 
 # Table of contents
 
