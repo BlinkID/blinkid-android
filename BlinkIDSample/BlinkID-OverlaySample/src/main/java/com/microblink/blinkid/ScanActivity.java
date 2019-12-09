@@ -4,11 +4,12 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.view.recognition.ScanResultListener;
 
 import androidx.annotation.NonNull;
@@ -18,8 +19,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ScanActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
-    private BlinkIdOverlayController scanningOverlay;
-    private BlinkIdUISettings uiSettings;
+    private BlinkIdOverlayController overlayController;
+    private RecognizerBundle recognizerBundle;
 
     private ScanResultListener scanResultListener = new ScanResultListener() {
         @Override
@@ -28,18 +29,21 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
             recognizerRunnerFragment.getRecognizerRunnerView().pauseScanning();
 
             Intent intent = new Intent();
-            saveResultsToIntent(intent);
+
+            // save recognizer bundle to make it available for loading later
+            recognizerBundle.saveToIntent(intent);
+
+            // save HighResImagesBundle, for cases when high res frames are enabled
+            overlayController.getHighResImagesBundle().saveToIntent(intent);
 
             // set result before finish scan activity
             switch (recognitionSuccessType) {
                 case SUCCESSFUL:
+                case PARTIAL:
                     setResult(RESULT_OK, intent);
                     break;
                 case UNSUCCESSFUL:
                     setResult(RESULT_CANCELED);
-                    break;
-                case PARTIAL:
-                    setResult(RESULT_OK, intent);
                     break;
             }
 
@@ -49,11 +53,14 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        Intent intent = getIntent();
+        // setup recognizer and put it into recognizer bundle
+        BlinkIdCombinedRecognizer recognizer = new BlinkIdCombinedRecognizer();
+        recognizer.setReturnFullDocumentImage(true);
+        recognizer.setReturnFaceImage(true);
+        recognizerBundle = new RecognizerBundle(recognizer);
 
-        // DocumentUISettings object is expected in intent
-        uiSettings = new BlinkIdUISettings(intent);
-        scanningOverlay = uiSettings.createOverlayController(this, scanResultListener);
+        overlayController = BlinkIdOverlayControllerBuilder.build(this, recognizerBundle, scanResultListener);
+
         // scanning overlay must be created before restoring fragment state
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_activity);
@@ -68,7 +75,6 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
             // obtain reference to fragment restored by Android within super.onCreate() call
             recognizerRunnerFragment = (RecognizerRunnerFragment) getFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
         }
-
     }
 
     @Override
@@ -81,18 +87,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
     @NonNull
     @Override
     public ScanningOverlay getScanningOverlay() {
-        return scanningOverlay;
+        return overlayController;
     }
 
-    /**
-     * Save scanning results from the bundle in intent for later usage.
-     * @param intent intent in which scan results will be saved.
-     */
-    private void saveResultsToIntent(@NonNull Intent intent) {
-        // save HighResImagesBundle, for cases when high res frames are enabled in ui settings
-        scanningOverlay.getHighResImagesBundle().saveToIntent(intent);
-
-        // save recognizer bundle to make it available for loading later
-        uiSettings.getRecognizerBundle().saveToIntent(intent);
-    }
 }

@@ -18,10 +18,9 @@ import com.microblink.fragment.overlay.ScanningOverlay;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.result.ResultActivity;
-import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.view.recognition.ScanResultListener;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -32,8 +31,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
 
     private RecognizerRunnerFragment recognizerRunnerFragment;
     private RecognizerBundle recognizerBundle;
-    private BlinkIdOverlayController scanningOverlay;
-    private BlinkIdUISettings uiSettings;
+    private BlinkIdOverlayController overlayController;
 
     private ViewGroup parent;
     private View scanLayout;
@@ -43,13 +41,13 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         super.onCreate(savedInstanceState);
         parent = findViewById(android.R.id.content);
 
+        // setup recognizer and put it into recognizer bundle
         BlinkIdCombinedRecognizer recognizer = new BlinkIdCombinedRecognizer();
         recognizer.setReturnFullDocumentImage(true);
         recognizer.setReturnFaceImage(true);
         recognizerBundle = new RecognizerBundle(recognizer);
 
-        uiSettings = new BlinkIdUISettings(recognizerBundle);
-        scanningOverlay = uiSettings.createOverlayController(this, scanResultListener);
+        overlayController = BlinkIdOverlayControllerBuilder.build(this, recognizerBundle, scanResultListener);
     }
 
     @Override
@@ -68,41 +66,28 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
 
     @Override
     protected List<MenuListItem> createMenuListItems() {
-        List<MenuListItem> items = new ArrayList<>();
-
-        items.add(buildActivityScanItem());
-        items.add(buildFragmentScanItem());
-
-        return items;
+        return Arrays.asList(
+                buildSeparateActivityScanItem(),
+                buildCurrentActivityScanItem()
+        );
     }
 
-    /**
-     * Start scanning by using separate activity.
-     * @return item in menu list with defined action.
-     */
-    private MenuListItem buildActivityScanItem() {
+    private MenuListItem buildSeparateActivityScanItem() {
         return new MenuListItem(
-                "Use Activity",
+                "Overlay in a separate activity",
                 new Runnable() {
                     @Override
                     public void run() {
                         Intent intent = new Intent(MenuActivity.this, ScanActivity.class);
-                        // scan activity intent should have prepared ui settings with recognizer
-                        // bundle as part of intent extra
-                        uiSettings.saveToIntent(intent);
                         startActivityForResult(intent, REQUEST_CODE);
                     }
                 }
         );
     }
 
-    /**
-     * Start scanning by using fragment on top of current activity instead of using separate activity.
-     * @return item in menu list with defined action.
-     */
-    private MenuListItem buildFragmentScanItem() {
+    private MenuListItem buildCurrentActivityScanItem() {
         return new MenuListItem(
-                "Use Fragment",
+                "Overlay in the current activity",
                 new Runnable() {
                     @Override
                     public void run() {
@@ -132,8 +117,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     }
 
     /**
-     * This method is invoked after returning from scan activity. You can obtain
-     * scan results here.
+     * This method is invoked after returning from scan activity. You can obtain scan results here.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -171,9 +155,8 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
     @NonNull
     @Override
     public ScanningOverlay getScanningOverlay() {
-        return scanningOverlay;
+        return overlayController;
     }
-
 
     private ScanResultListener scanResultListener = new ScanResultListener() {
         @Override
@@ -193,4 +176,5 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
             }
         }
     };
+
 }
