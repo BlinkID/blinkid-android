@@ -1,16 +1,25 @@
 package com.microblink.result.extract.blinkid;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdDocumentType;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
-import com.microblink.libresult.R;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.BaseResultExtractor;
+import com.microblink.result.extract.RecognitionResultEntry;
+import com.microblink.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;
+import com.microblink.result.extract.util.signature.DigitalSignatureExtractUtil;
+
+import java.util.List;
 
 public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<ResultType>> extends BaseResultExtractor<ResultType, RecognizerType> {
 
     @Override
     protected void onDataExtractionDone(ResultType result) {
-        BlinkIDExtractionUtils.extractCommonData(result, mExtractedData, mBuilder);
+        extractCommonData(result, mExtractedData, mBuilder);
         super.onDataExtractionDone(result);
     }
 
@@ -24,11 +33,11 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         add(R.string.PPSecondaryId, mrzResult.getSecondaryId());
         add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
         add(R.string.PPSex, mrzResult.getGender());
-        add(R.string.PPNationality, mrzResult.getNationality());
+        add(R.string.PPNationality, mrzResult.getSanitizedNationality());
         add(R.string.PPDocumentCode, mrzResult.getDocumentCode());
-        add(R.string.PPIssuer, mrzResult.getIssuer());
+        add(R.string.PPIssuer, mrzResult.getSanitizedIssuer());
         add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate());
-        add(R.string.PPOpt2, mrzResult.getOpt2());
+        add(R.string.PPOpt2, mrzResult.getSanitizedOpt2());
         add(R.string.PPMRZText, mrzResult.getMrzText());
 
         if (docType == MrtdDocumentType.MRTD_TYPE_GREEN_CARD) {
@@ -37,8 +46,41 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
             add(R.string.PPImmigrantCaseNumber, mrzResult.getImmigrantCaseNumber());
         } else {
             add(R.string.PPDocumentNumber, mrzResult.getDocumentNumber());
-            add(R.string.PPOpt1, mrzResult.getOpt1());
+            add(R.string.PPOpt1, mrzResult.getSanitizedOpt1());
         }
+    }
+
+    protected void extractCommonData(Recognizer.Result result,
+                                         List<RecognitionResultEntry> extractedData,
+                                         RecognitionResultEntry.Builder builder) {
+        if(result instanceof FaceImageResult) {
+            extractedData.add(builder.build(R.string.MBFaceImage, ((FaceImageResult) result).getFaceImage()));
+        }
+
+        if (result instanceof EncodedFaceImageResult) {
+            byte[] encodedFaceImage = ((EncodedFaceImageResult) result).getEncodedFaceImage();
+            if (shouldShowEncodedImageEntry(encodedFaceImage)) {
+                extractedData.add(builder.build(R.string.MBEncodedFaceImage, encodedFaceImage));
+            }
+        }
+
+        if(result instanceof FullDocumentImageResult) {
+            extractedData.add(builder.build(R.string.MBFullDocumentImage, ((FullDocumentImageResult) result).getFullDocumentImage()));
+        }
+
+        if (result instanceof EncodedFullDocumentImageResult) {
+            byte[] encodedFullDocumentImage = ((EncodedFullDocumentImageResult) result).getEncodedFullDocumentImage();
+            if (shouldShowEncodedImageEntry(encodedFullDocumentImage)) {
+                extractedData.add(builder.build(R.string.MBEncodedFullDocumentImage, encodedFullDocumentImage));
+            }
+        }
+
+        CombinedFullDocumentImagesExtractUtil.extractCombinedFullDocumentImages(result, extractedData, builder);
+        DigitalSignatureExtractUtil.extractDigitalSignature(result, extractedData, builder);
+    }
+
+    protected static boolean shouldShowEncodedImageEntry(byte[] encodedImage) {
+        return encodedImage != null && encodedImage.length > 0;
     }
 
 }

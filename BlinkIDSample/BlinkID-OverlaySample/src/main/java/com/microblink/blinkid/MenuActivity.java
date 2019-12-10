@@ -9,15 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.fragment.RecognizerRunnerFragment;
 import com.microblink.fragment.overlay.ScanningOverlay;
 import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
+import com.microblink.menu.BaseMenuActivity;
+import com.microblink.menu.MenuListItem;
 import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.result.ResultActivity;
+import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.view.recognition.ScanResultListener;
 
 import java.util.Arrays;
@@ -133,7 +133,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
      * @param data intent populated with scan results.
      */
     private void startResultActivity(Intent data) {
-        data.setComponent(new ComponentName(this, ResultActivity.class));
+        data.setComponent(new ComponentName(this, RecognizerBundleResultActivity.class));
         startActivity(data);
     }
 

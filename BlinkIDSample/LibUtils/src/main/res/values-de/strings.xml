@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- PaymentData stuff NOTUPTODATE -->
+    <string name="PPAmount">Betrag</string>
+    <string name="PPCurrency">Währung</string>
+    <string name="PPAccount">Kontonr.</string>
+    <string name="PPReference">Referenznr.</string>
+    <string name="PPReferenceModel">Modell</string>
+    <string name="PPBankCode">BLZ</string>
+    <string name="PPBankName">Name der Bank</string>
+    <string name="PPIBAN">IBAN</string>
+    <string name="PPBIC">BIC</string>
+    <string name="PPFormID">Belegart</string>
+    <string name="PPSlipID">Überweisung ID</string>
+    <string name="PPPayerID">Empfänger ID</string>
+    <string name="PPPayerName">Auftraggeber</string>
+    <string name="PPPayerAddress">Auftraggeber Adresse</string>
+    <string name="PPPayerDetailedAddress">Auftraggeber noch Adresse</string>
+    <string name="PPRecipientName">Empfänger</string>
+    <string name="PPRecipientAddress">Adresse</string>
+    <string name="PPRecipientDetailedAddress">Noch Adresse</string>
+    <string name="PPPaymentDescriptionCode">Verwendungszweck ID</string>
+    <string name="PPPaymentDescription">Verwendungszweck</string>
+    <string name="PPDueDate">Fälligkeit</string>
+    <string name="PPPaymentStatus">Status</string>
+    <string name="PPPayerAccount">Kontonr.</string>
+    <string name="PPPayerReference">Referenznr.</string>
+    <string name="PPPayerReferenceModel">Modell</string>
+    <string name="PPPayerBankCode">Bank</string>
+    <string name="PPPayerBankName">Name der Bank</string>
+    <string name="PPPayerIBAN">IBAN</string>
+    <string name="PPPaymentDataType">Datentyp</string>
+    <string name="PPPurposeCode">Geschäftscode</string>
+    <string name="PPTaxNumber">Steuernummer</string>
+    <string name="PPCustomerData">Kundendaten</string>
+    <string name="PPPrufziffer">Prüfziffer</string>
+    <string name="PPBelegnummer">Belegnr.</string>
+    <string name="PPContractAccount">Vertragskonto</string>
+    <string name="PPDisplayData">Anzeige</string>
+    <string name="PPAuthorityType">Art der Vorlage</string>
+    <string name="PPExecutionDate">Datum der Ausführung</string>
+    <string name="PPCreditorId">Gläubiger-ID</string>
+    <string name="PPDateOfSignature">Datum der Unterschrift</string>
+    <string name="PPFormFunction">Formularfunktion</string>
+    <string name="PPFormType">Formulartyp</string>
+    <string name="PPFormVersion">Formularversion</string>
+    <string name="PPMandateId">Mandats-ID</string>
+    <string name="PPPeriodicFirstExecutionDate">Periodisches erstes Ausführungsdatum</string>
+    <string name="PPPeriodicLastExecutionDate">Datum der letzten Ausführung</string>
+    <string name="PPPeriodicTimeUnit">Periodische Zeiteinheit</string>
+    <string name="PPPeriodicTimeUnitRotation">Zeitraum Dauer</string>
+    <string name="PPPostingKey">Buchungsschlüssel</string>
+
+</resources>

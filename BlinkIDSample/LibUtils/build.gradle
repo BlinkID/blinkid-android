@@ -11,9 +11,17 @@ android {
         versionName "1.0"
     }
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard/proguard-rules.pro'
+        }
+        distribute {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard/proguard-rules.pro'
+            matchingFallbacks = ['release']
         }
     }
 }
@@ -23,7 +31,7 @@ dependencies {
         transitive = true
     }
 
-    // uncomment this to use custom LibBlinkID build
-//    implementation project(':LibBlinkID')
-//    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
 }

@@ -2,7 +2,7 @@ package com.microblink.result.extract.blinkid.generic;
 
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
-import com.microblink.libresult.R;
+import com.microblink.libutils.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
 public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRecognizer.Result, BlinkIdRecognizer> {

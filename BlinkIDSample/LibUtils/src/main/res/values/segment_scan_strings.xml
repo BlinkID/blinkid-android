@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+    <string name="amount_title">Amount</string>
+    <string name="amount_msg">Position Amount in this frame</string>
+
+    <string name="large_amount_title">Large Amount</string>
+    <string name="large_amount_msg">Position large Amount in this frame</string>
+
+    <string name="arabic_amount_title">Arabic Amount</string>
+    <string name="arabic_amount_msg">Position Arabic Amount in this frame</string>
+
+    <string name="iban_title">IBAN</string>
+    <string name="iban_msg">Position IBAN in this frame</string>
+
+    <string name="raw_title">Raw text</string>
+    <string name="raw_msg">Position text in this frame</string>
+
+    <string name="payment_description_title">Payment description</string>
+    <string name="payment_description_msg">Position payment description in this frame</string>
+
+    <string name="email_title">E-mail</string>
+    <string name="email_msg">Position e-mail address in this frame</string>
+
+    <string name="date_title">Date</string>>
+    <string name="date_msg">Position date in this frame</string>
+
+    <string name="beneficiary_name_title">Beneficiary Name</string>
+    <string name="beneficiary_name_msg">Position beneficiary name in this frame</string>
+
+    <string name="purpose_title">Purpose</string>
+    <string name="purpose_msg">Position purpose description in this frame</string>
+
+    <string name="cro_amount_title">Cro Amount</string>
+    <string name="cro_amount_msg">Position amount in this frame</string>
+
+    <string name="cro_reference_title">Cro Reference</string>
+    <string name="cro_reference_msg">Position croatian reference in this frame</string>
+
+    <string name="aus_reference_title">Aus Reference</string>
+    <string name="aus_reference_msg">Position austrian reference in this frame</string>
+
+    <string name="de_reference_title">German Reference</string>
+    <string name="de_reference_msg">Position german reference in this frame</string>
+
+    <string name="swe_amount_title">Swe Amount</string>
+    <string name="swe_amount_msg">Position swedish giro slip amount in this frame</string>
+
+    <string name="swe_giro_title">Swe Giro</string>
+    <string name="swe_giro_msg">Position swedish giro slip giro in this frame</string>
+
+    <string name="swe_reference_title">Swe Reference</string>
+    <string name="swe_reference_msg">Position swedish giro slip reference in this frame</string>
+
+    <string name="swe_slip_code_title">Swe slip code</string>
+    <string name="swe_slip_code_msg">Position swedish giro code in this frame</string>
+
+    <string name="serb_account_title">Serbian Account</string>
+    <string name="serb_account_msg">Position serbian account number in this frame</string>
+
+    <string name="serb_reference_title">Serbian Reference</string>
+    <string name="serb_reference_msg">Position serbian reference number in this frame</string>
+
+    <string name="bih_account_title">Bosnian Account</string>
+    <string name="bih_account_msg">Position bosnian account number in this frame</string>
+
+    <string name="bih_reference_title">Bosnian Reference</string>
+    <string name="bih_reference_msg">Position bosnian reference number in this frame</string>
+
+    <string name="mkd_account_title">Macedonian Account</string>
+    <string name="mkd_account_msg">Position macedonian account number in this frame</string>
+
+    <string name="cz_account_title">Czech Account</string>
+    <string name="cz_account_msg">Position czech account number in this frame</string>
+
+    <string name="cz_variabilni_symbol_title">Czech Variabilni Symbol</string>
+    <string name="cz_variabilni_symbol_msg">Position czech variabilni symbol in this frame</string>
+
+    <string name="mkd_reference_title">Macedonian Reference</string>
+    <string name="mkd_reference_msg">Position macedonian reference number in this frame</string>
+
+    <string name="me_account_title">Montenegro Account</string>
+    <string name="me_account_msg">Position montenegro account number in this frame</string>
+
+    <string name="me_reference_title">Montenegro Reference</string>
+    <string name="me_reference_msg">Position montenegro reference number in this frame</string>
+
+    <string name="slo_reference_title">Slovenian Reference</string>
+    <string name="slo_reference_msg">Position slovenian reference in this frame</string>
+
+    <string name="hu_account_title">Hungarian Account</string>
+    <string name="hu_account_msg">Position hungarian slip account number in this frame</string>
+
+    <string name="hu_payer_id_title">Hungarian Payer Id</string>
+    <string name="hu_payer_id_msg">Position hungarian slip payer id in this frame</string>
+
+    <string name="license_plates_title">License Plate</string>
+    <string name="license_plates_msg">Position license plate in this frame</string>
+
+    <string name="vin_title">VIN</string>
+    <string name="vin_msg">Position vehicle identification number in this frame</string>
+
+    <string name="top_up_title">Top up</string>
+    <string name="top_up_msg">Position top up coupon in this frame</string>
+
+    <string name="australian_abn_title">Australian ABN Number</string>
+    <string name="australian_abn_msg">Position australian ABN number in this frame</string>
+
+    <string name="australian_account_title">Australian Account</string>
+    <string name="australian_account_msg">Position australian account number in this frame</string>
+
+    <string name="australian_bsb_title">Australian BSB Number</string>
+    <string name="australian_bsb_msg">Position australian BSB number in this frame</string>
+
+    <string name="australian_biller_title">Australian Biller Code</string>
+    <string name="australian_biller_msg">Position australian biller code in this frame</string>
+
+    <string name="australian_reference_title">Australian Reference</string>
+    <string name="australian_reference_msg">Position australian reference number in this frame</string>
+
+    <string name="random_scan_msg">Position scan element in this frame</string>
+
+    <string name="help_msg_01">Place mobile phone above element that should be scanned and center it inside scanning frame.</string>
+    <string name="help_msg_02">When scanning is done you can edit data by tapping it.</string>
+    <string name="help_msg_03">Swipe or tap title of element that should be scanned.</string>
+</resources>

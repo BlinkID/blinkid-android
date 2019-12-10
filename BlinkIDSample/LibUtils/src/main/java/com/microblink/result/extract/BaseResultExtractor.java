@@ -3,10 +3,6 @@ package com.microblink.result.extract;
 import android.content.Context;
 
 import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdDocumentType;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
-import com.microblink.libresult.R;
-import com.microblink.result.extract.blinkid.BlinkIDExtractionUtils;
 import com.microblink.results.date.Date;
 import com.microblink.results.date.DateResult;
 
@@ -48,10 +44,6 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         }
     }
 
-    protected void add(int key, Enum value) {
-        mExtractedData.add(mBuilder.build(key, value.name()));
-    }
-
     protected void add(int key, int value, String valueSuffix) {
         mExtractedData.add(mBuilder.build(key, value, valueSuffix));
     }
@@ -71,5 +63,10 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
     protected void add(int key, int value) {
         mExtractedData.add(mBuilder.build(key, value));
     }
+
+    protected void add(int key, byte[] value) {
+        mExtractedData.add(mBuilder.build(key, value));
+    }
+
 
 }

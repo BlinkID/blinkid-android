@@ -3,22 +3,21 @@ package com.microblink.result.extract;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import android.text.TextUtils;
 
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
-import com.microblink.libresult.R;
+import com.microblink.libutils.R;
 import com.microblink.results.date.Date;
 import com.microblink.results.date.DateResult;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 
 public class RecognitionResultEntry {
 
@@ -111,7 +110,7 @@ public class RecognitionResultEntry {
                     dateFormat.append("MM/");
                 }
                 dateFormat.append("yyyy");
-                SimpleDateFormat df = new SimpleDateFormat(dateFormat.toString(), Locale.US);
+                SimpleDateFormat df = new SimpleDateFormat(dateFormat.toString());
                 strVal = df.format(cal.getTime());
             }
             return new RecognitionResultEntry(createKey(key), strVal);
