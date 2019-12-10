@@ -8,12 +8,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import android.widget.Toast;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.blinkid.customcamera.Camera1Activity;
 import com.microblink.blinkid.customcamera.camera2.Camera2Activity;
 import com.microblink.blinkid.demo.R;
@@ -21,12 +17,16 @@ import com.microblink.blinkid.imagescan.ScanImageActivity;
 import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
+import com.microblink.menu.BaseMenuActivity;
+import com.microblink.menu.MenuListItem;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 
 public class MenuActivity extends BaseMenuActivity {
@@ -98,6 +98,7 @@ public class MenuActivity extends BaseMenuActivity {
     protected String getTitleText() {
         return getString(R.string.app_name);
     }
+
 
     private void buildRecognizerBundle() {
         MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();

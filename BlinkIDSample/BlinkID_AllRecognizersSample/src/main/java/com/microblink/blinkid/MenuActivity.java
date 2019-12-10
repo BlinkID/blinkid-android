@@ -1,14 +1,10 @@
 package com.microblink.blinkid;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
@@ -19,7 +15,9 @@ import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.visa.VisaRecognizer;
-import com.microblink.result.ResultActivity;
+import com.microblink.menu.MenuListItem;
+import com.microblink.menu.ResultHandlerMenuActivity;
+import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.uisettings.DocumentUISettings;
@@ -39,13 +37,25 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class MenuActivity extends BaseMenuActivity {
+;
+
+public class MenuActivity extends ResultHandlerMenuActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 123;
 
     @Override
     protected String getTitleText() {
         return getString(R.string.app_name);
+    }
+
+    @Override
+    protected boolean isScanRequestCode(int code) {
+        return code == MY_BLINKID_REQUEST_CODE;
+    }
+
+    @Override
+    protected Class<?> getResultActivityForRequestCode(int requestCode) {
+        return RecognizerBundleResultActivity.class;
     }
 
     @Override
@@ -63,34 +73,6 @@ public class MenuActivity extends BaseMenuActivity {
         if (supportStatus != RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
             Toast.makeText(this, "BlinkID is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();
         }
-    }
-
-    /**
-     * This method is invoked after returning from scan activity. You can obtain
-     * scan results here
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // onActivityResult is called whenever we are returned from activity started
-        // with startActivityForResult. We need to check request code to determine
-        // that we have really returned from BlinkID activity.
-        if (requestCode == MY_BLINKID_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
-            startResultActivity(data);
-        } else {
-            // if BlinkID activity did not return result, user has probably
-            // pressed Back button and cancelled scanning
-            Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void startResultActivity(Intent data) {
-        // set intent's component to ResultActivity and pass its contents
-        // to ResultActivity. ResultActivity will show how to extract
-        // data from result.
-        data.setComponent(new ComponentName(getApplicationContext(), ResultActivity.class));
-        startActivity(data);
     }
 
     @Override

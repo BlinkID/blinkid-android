@@ -9,8 +9,6 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.activity.DocumentScanActivity;
 import com.microblink.entities.recognizers.HighResImagesBundle;
 import com.microblink.entities.recognizers.Recognizer;
@@ -19,7 +17,9 @@ import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecogn
 import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
 import com.microblink.image.Image;
 import com.microblink.image.highres.HighResImageWrapper;
-import com.microblink.result.ResultActivity;
+import com.microblink.menu.BaseMenuActivity;
+import com.microblink.menu.MenuListItem;
+import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BlinkIdUISettings;
 
@@ -51,6 +51,7 @@ public class MainActivity extends BaseMenuActivity {
         BlinkIdCombinedRecognizer blinkIdRecognizer = new BlinkIdCombinedRecognizer();
         // set to true to obtain images containing full document
         blinkIdRecognizer.setReturnFullDocumentImage(true);
+        blinkIdRecognizer.setReturnFaceImage(true);
 
         // wrap recognizer in SuccessFrameGrabberRecognizer to obtain successful frames (full last frame on which scan has succeeded)
         SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = new SuccessFrameGrabberRecognizer(blinkIdRecognizer);
@@ -118,7 +119,7 @@ public class MainActivity extends BaseMenuActivity {
         storeImage("fullDocumentImageBack", blinkIdRecognizer.getResult().getFullDocumentBackImage());
         storeHighResImage(data);
 
-        Intent resultScreenIntent = new Intent(this, ResultActivity.class);
+        Intent resultScreenIntent = new Intent(this, RecognizerBundleResultActivity.class);
         recognizerBundle.saveToIntent(resultScreenIntent);
         startActivity(resultScreenIntent);
     }

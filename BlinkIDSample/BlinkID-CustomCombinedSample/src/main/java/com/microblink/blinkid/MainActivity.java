@@ -1,20 +1,19 @@
 package com.microblink.blinkid;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Toast;
 
-import com.microblink.BaseMenuActivity;
-import com.microblink.MenuListItem;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
 import com.microblink.hardware.camera.CameraType;
-import com.microblink.result.ResultActivity;
+import com.microblink.menu.MenuListItem;
+import com.microblink.menu.ResultHandlerMenuActivity;
+import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.util.ImageSettings;
 import com.microblink.util.RecognizerCompatibility;
 import com.microblink.util.RecognizerCompatibilityStatus;
@@ -22,10 +21,25 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseMenuActivity {
+public class MainActivity extends ResultHandlerMenuActivity {
 
     public static final int MY_BLINKID_REQUEST_CODE = 0x101;
     private RecognizerBundle mRecognizerBundle;
+
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.app_name);
+    }
+
+    @Override
+    protected boolean isScanRequestCode(int code) {
+        return code == MY_BLINKID_REQUEST_CODE;
+    }
+
+    @Override
+    protected Class<?> getResultActivityForRequestCode(int requestCode) {
+        return RecognizerBundleResultActivity.class;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,35 +75,6 @@ public class MainActivity extends BaseMenuActivity {
                 startActivityForResult(intent, MY_BLINKID_REQUEST_CODE);
             }
         });
-    }
-
-    @Override
-    protected String getTitleText() {
-        return getString(R.string.app_name);
-    }
-
-    /**
-     * This method is invoked after returning from scan activity. You can obtain
-     * scan results here
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != MY_BLINKID_REQUEST_CODE) {
-            return;
-        }
-
-        // make sure BlinkID activity returned result
-        if (resultCode == CustomVerificationFlowActivity.RESULT_OK && data != null) {
-            // set intent's component to ResultActivity and pass its contents
-            // to ResultActivity. ResultActivity will show how to extract data from result.
-            data.setComponent(new ComponentName(this, ResultActivity.class));
-            startActivity(data);
-        } else {
-            // if BlinkID activity did not return result, user has probably
-            // pressed Back button and cancelled scanning
-            Toast.makeText(this, "Scan cancelled!", Toast.LENGTH_SHORT).show();
-        }
     }
 
 }

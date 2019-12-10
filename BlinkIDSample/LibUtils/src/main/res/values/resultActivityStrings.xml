@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools"
            tools:ignore="MissingTranslation">
-    <string name="RecognizedData">Data</string>
-    <string name="Label">Label</string>
-    <string name="Value">Value</string>
-    <string name="IsDataCorrect">Confirm that all data is correct?</string>
-    <string name="Confirm">Confirm data</string>
-    <string name="Cancel">Cancel</string>
 
+    <string name="resultsContinue">Continue</string>
     <string name="title_field_by_field_results">Field by field results</string>
-    <string name="title_random_field_results">Random scan results</string>
 
     <!-- RecognitionResult strings -->
     <string name="PPAmount">Amount</string>
     <string name="PPCurrency">Currency</string>
+    <string name="PPCurrencyCode">Currency code</string>
     <string name="PPAccount">Account</string>
+    <string name="PPRecipientAccount">Recipient account</string>
     <string name="PPAccountPrefix">Account prefix</string>
     <string name="PPReference">Reference No.</string>
     <string name="PPReferenceModel">Model</string>
@@ -43,7 +39,9 @@
     <string name="PPRecipientPostalCode">Postal code</string>
     <string name="PPRecipientCity">City</string>
     <string name="PPRecipientCountry">Country</string>
+    <string name="PPCountryCode">Country code</string>
     <string name="PPRecipientDetailedAddress">Detailed Address</string>
+    <string name="PPReferenceNumber">Reference Number</string>
     <string name="PPUltimateRecipientName">Ultimate recipient</string>
     <string name="PPUltimateRecipientAddress">Ultimate recipient address</string>
     <string name="PPUltimateRecipientStreet">Ultimate recipient street</string>
@@ -51,6 +49,7 @@
     <string name="PPUltimateRecipientPostalCode">Ultimate recipient postal code</string>
     <string name="PPUltimateRecipientCity">Ultimate recipient city</string>
     <string name="PPUltimateRecipientCountry">Ultimate recipient country</string>
+    <string name="PPPaymentCode">Payment code</string>
     <string name="PPPaymentDescriptionCode">Payment description code</string>
     <string name="PPPaymentDescription">Payment description</string>
     <string name="PPDeposit">Deposit</string>
@@ -72,6 +71,7 @@
     <string name="PPBelegnummer">Beleg No.</string>
     <string name="PPSurname">Surname</string>
     <string name="PPFirstNames">First names</string>
+    <string name="PPGivenNames">Given names</string>
     <string name="PPCardVersion">Card version</string>
     <string name="PPDonorIndicator">Donor indicator</string>
     <string name="PPContractAccount">Contract account</string>
@@ -99,24 +99,29 @@
     <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDocumentNumber">Document number</string>
+    <string name="PPDocumentAdditionalNumber">Document additional number</string>
     <string name="PPNationalNumber">National number</string>
     <string name="PPOpt1">Optional field 1</string>
     <string name="PPOpt2">Optional field 2</string>
     <string name="PPSex">Sex</string>
-    <string name="PPGender">Gender</string>
     <string name="PPNationality">Nationality</string>
     <string name="PPCitizenship">Citizenship</string>
     <string name="PPIssuer">Issuer</string>
     <string name="PPMRZText">MRZ text</string>
     <string name="PPFirstName">First name</string>
-    <string name="PPGivenNames">Given names</string>
     <string name="PPLastName">Last name</string>
     <string name="PPFamilyName">Family Name</string>
     <string name="PPSurnameAtBirth">Surname at birth</string>
     <string name="PPIssuingAuthority">Issuing Authority</string>
+    <string name="PPConditions">Conditions</string>
+    <string name="PPAdministrativeUnit">Administrative Unit</string>
     <string name="PPIssuedBy">Issued by</string>
+    <string name="PPIssuingAgency">Issuing agency</string>
     <string name="PPAddress">Address</string>
+    <string name="PPAdditionalAddressInformation">Additional Address Information</string>
     <string name="PPResidence">Residence</string>
+    <string name="PPAddressChangeDate">Date of address change</string>
+    <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPAddressZipCode">Address ZIP code</string>
     <string name="PPAddressStreet">Address street</string>
     <string name="PPAddressCity">Address city</string>
@@ -129,12 +134,14 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
     <string name="PPFullName">Full name</string>
+    <string name="PPAdditionalNameInformation">Additional name information</string>
     <string name="PPCommercialCode">Commercial Code</string>
+    <string name="PPCompanyName">Company name</string>
     <string name="PPReligion">Religion</string>
+    <string name="PPProfession">Profession</string>
     <string name="PPNRICNumber">National Registration Identity Card Number</string>
     <string name="PPArmyNumber">Army number</string>
     <string name="PPCountryId">Country</string>
-    <string name="PPCountryCode">Country code</string>
     <string name="PPVariableSymbol">Variable symbol</string>
     <string name="PPConstantSymbol">Constant symbol</string>
     <string name="PPSpecificSymbol">Specific symbol</string>
@@ -145,7 +152,7 @@
     <string name="PPOrientationNumber">Orientation number</string>
     <string name="PPRace">Race</string>
     <string name="PPCountryOfBirth">Country of birth</string>
-    <string name="PPBloodType">Blood group</string>
+    <string name="PPBloodGroup">Blood group</string>
     <string name="PPDocumentClassification">Document Classification</string>
     <string name="PPPaymentType">Payment Type</string>
     <string name="PPMaturityDate">Maturity date</string>
@@ -177,23 +184,21 @@
     <string name="PPDistrictCode">District code</string>
     <string name="PPCustomerID">Customer ID</string>
     <string name="PPLicenceNumber">Licence Number</string>
-    <string name="PPLicencingAuthority">Licencing Authority</string>
     <string name="PPLicenceType">Licence Type</string>
+    <string name="PPLicenceCategories">Licence Categories</string>
+    <string name="PPVehicleCategories">Vehicle Categories</string>
+    <string name="PPVehicleClass">Vehicle Class</string>
+    <string name="PPLicencingAuthority">Licencing Authority</string>
     <string name="PPAlternativeSchemeParameters">Alternative scheme parameters</string>
     <string name="PPAdditionalInformation">Additional information</string>
     <string name="PPSuccessFrame">Camera frame on recognition success</string>
     <string name="PPProvince">Province</string>
     <string name="PPCity">City</string>
     <string name="PPName">Name</string>
+    <string name="PPOwner">Owner</string>
     <string name="PPFatherName">Father\'s name</string>
     <string name="PPMotherName">Mother\'s name</string>
     <string name="PPCivilStatusNumber">Civil status number</string>
-    <string name="PPCivilIdNumber">Civil Id Number</string>
-    <string name="PPSerialNo">Serial No</string>
-    <string name="PPPaymentCardNumber">Payment card number</string>
-    <string name="PPCVV">Card verification value</string>
-    <string name="PPInventoryNumber">Inventory number</string>
-    <string name="PPOwner">Owner</string>
     <string name="PPRT">RT</string>
     <string name="PPRW">RW</string>
     <string name="PPKelDesa">Kel/Desa</string>
@@ -205,14 +210,39 @@
     <string name="PPFingerprint">Fingerprint</string>
     <string name="PPClass">Class</string>
     <string name="PPIdentityNumber">Identity number</string>
-    <string name="PPIssuingAgency">Issuing agency</string>
-    <string name="PPLicenceCategories">Licence Categories</string>
-    <string name="PPVehicleCategories">Vehicle Categories</string>
-    <string name="PPReferenceNumber">Reference Number</string>
-    <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPCANNumber">CAN number</string>
+    <string name="PPIsAlive">Liveness check status</string>
     <string name="PPResidentialStatus">Residential status</string>
-    <string name="PPCompanyName">Company name</string>
+    <string name="PPCivilIdNumber">Civil Id Number</string>
+    <string name="PPSerialNo">Serial No</string>
+    <string name="PPPaymentCardNumber">Card number</string>
+    <string name="PaymentCardType">Type</string>
+    <string name="PPCVV">CVV</string>
+    <string name="PPInventoryNumber">Inventory number</string>
+    <string name="PPElectorKey">Elector key</string>
+    <string name="PPCURP">CURP</string>
+    <string name="PPIdentificationCode">Identification code</string>
+    <string name="PPMerchantCodeCategory">Merchant code category</string>
+    <string name="PPOneTimePaymentCode">One time payment code</string>
+    <string name="PPMerchantReference">Merchant reference</string>
+    <string name="PPCreditorId">Creditor ID</string>
+    <string name="PPDateOfSignature">Date of signature</string>
+    <string name="PPFormFunction">Form function</string>
+    <string name="PPFormType">Form type</string>
+    <string name="PPFormVersion">Form version</string>
+    <string name="PPMandateId">Mandate ID</string>
+    <string name="PPPeriodicFirstExecutionDate">Periodic first execution date</string>
+    <string name="PPPeriodicLastExecutionDate">Periodic last execution date</string>
+    <string name="PPPeriodicTimeUnit">Periodic time unit</string>
+    <string name="PPPeriodicTimeUnitRotation">Period duration</string>
+    <string name="PPPostingKey">Posting key</string>
+    <string name="PPRestrictions">Restrictions</string>
+    <string name="PPEndorsements">Endorsements</string>
+    <string name="PPRank">Rank</string>
+    <string name="PPClassInfoCountry">Country</string>
+    <string name="PPClassInfoRegion">Region</string>
+    <string name="PPClassInfoType">Type</string>
+
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
     <string name="MBEncodedFullDocumentImage">Encoded full document image</string>
@@ -226,28 +256,21 @@
     <string name="MBEncodedFaceImage">Encoded face image</string>
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
+
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>
+
     <string name="MBDocumentLocation">Document location</string>
     <string name="MBFaceLocation">Face location</string>
+
     <string name="MBFormVersion">Form version</string>
     <string name="MBFormFunction">Form function</string>
     <string name="MBAvailableAccounts">Available accounts</string>
+
     <string name="MBSlovakPaymentInfoKeySuffix">(%d)</string>
+
     <string name="MBBirthData">Birth data</string>
-    <string name="PPElectorKey">Elector key</string>
-    <string name="PPCURP">CURP</string>
+
     <string name="PPDateOfIssueDlCategoryB">Date of issue B category</string>
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
-    <string name="PPAdministrativeUnit">Administrative Unit</string>
-    <string name="PPRank">Rank</string>
-    <string name="PPRestrictions">Restrictions</string>
-    <string name="PPEndorsements">Endorsements</string>
-    <string name="PPVehicleClass">Vehicle Class</string>
-    <string name="PPAdditionalNameInformation">Additional name information</string>
-    <string name="PPAdditionalAddressInformation">Additional Address Information</string>
-    <string name="PPProfession">Profession</string>
-    <string name="PPDocumentAdditionalNumber">Document additional number</string>
-    <string name="PPConditions">Conditions</string>
-
 </resources>

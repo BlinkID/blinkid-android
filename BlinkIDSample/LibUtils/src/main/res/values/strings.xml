@@ -1,7 +1,16 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="help_msg_01">Place mobile phone above element that should be scanned and center it inside scanning frame.</string>
-    <string name="help_msg_02">When scanning is done you can edit data by tapping it.</string>
-    <string name="help_msg_03">Swipe or tap title of element that should be scanned.</string>
+    <string name="toast_error_not_supported">Feature not supported! Reason:</string>
+    <string name="toast_error_recognizer_runner">There was an error in RecognizerRunner:</string>
+    <string name="toast_error_open_file">Cannot open file!</string>
+    <string name="toast_error_read_file">Cannot read from file!</string>
+    <string name="toast_messsage_recognition_failed">Cannot recognize string.</string>
+
+    <string name="hint_insert_string_or_load">Insert string or load from file.</string>
+    <string name="btn_load_string">Load from file</string>
+    <string name="btn_recognize">Recognize</string>
+    <string name="checkbox_liveness_check_activated" tools:ignore="MissingTranslation">Liveness check activated</string>
+    <string name="splash_text_processing">Processing...</string>
 
 </resources>

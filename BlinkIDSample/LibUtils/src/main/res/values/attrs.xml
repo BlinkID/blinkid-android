@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ResizableOverlayView">
+        <attr name="windowMinWidth" format="dimension" />
+        <attr name="windowEdgeMargin" format="dimension" />
+        <attr name="windowMinHeight" format="dimension" />
+        <attr name="windowMaxHeightPercentage" format="integer" />
+    </declare-styleable>
+</resources>

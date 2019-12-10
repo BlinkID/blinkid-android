@@ -2,34 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="4dp"
     android:orientation="vertical"
-    android:paddingLeft="12dp"
-    android:paddingRight="12dp">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
 
     <TextView
         android:id="@+id/resultLabel"
-        style="@android:style/TextAppearance.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:textAppearance="@style/TextResultLabel"
         android:maxLines="1"
-        android:paddingTop="16dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="@string/Label"
-        android:textColor="@color/microblink_blue" />
+        android:paddingBottom="4dp"
+        tools:text="First name" />
 
-    <EditText
+    <TextView
         android:id="@+id/resultValue"
-        style="@android:style/TextAppearance.Medium"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:scrollHorizontally="false"
-        android:scrollbars="vertical"
-        android:text="@string/Value"
-        android:textColor="@color/textColor" />
+        android:textSize="16sp"
+        android:textColor="@color/textColor"
+        tools:text="Mirko"/>
 </LinearLayout>

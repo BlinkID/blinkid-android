@@ -1,22 +1,18 @@
 package com.microblink;
 
-import android.app.Application;
+import com.microblink.result.extract.BaseResultExtractorFactory;
+import com.microblink.result.extract.blinkid.BlinkIdResultExtractorFactory;
 
-import com.microblink.MicroblinkSDK;
-import com.microblink.intent.IntentDataTransferMode;
-
-public final class BlinkIdSampleApp extends Application {
+public final class BlinkIdSampleApp extends SampleApplication {
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected BaseResultExtractorFactory createResultExtractorFactory() {
+        return new BlinkIdResultExtractorFactory();
+    }
 
-        // obtain your licence at http://microblink.com/login or contact us at http://help.microblink.com
-        MicroblinkSDK.setLicenseFile("com.microblink.blinkid.mblic", this);
-
-        // use optimised way for transferring RecognizerBundle between activities, while ensuring
-        // data does not get lost when Android restarts the scanning activity
-        MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode.PERSISTED_OPTIMISED);
+    @Override
+    protected String getLicenceFilePath() {
+        return "com.microblink.blinkid.mblic";
     }
 
 }
