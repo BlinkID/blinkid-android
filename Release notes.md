@@ -1,5 +1,21 @@
 # Release notes
 
+## 5.1.0
+
+### New features:
+
+- added 38 new documents for `BlinkIdRecognizer` and `BlinkIdCombinedRecognizer`: Algeria ID, Argentina DL, Australia Victoria DL, Australia Queensland DL, Australia Western Australia DL, Belgium Resident ID, Canada British Columbia DL, Canada Ontario DL, Canada Quebec DL, Cyprus ID, Czechia DL, Czechia ID, Egypt ID, Greece DL, India ID, India Pan Card, Israel DL, Malaysia MyKid, Malaysia MyTentera, Maldives ID, Morocco ID, Nigeria DL, Paraguay ID, Portugal DL, Puerto Rico DL, Qatar DL, Russia DL, Singapore Fin Card, Singapore Resident ID, Slovakia DL, Slovenia DL, South Africa DL, South Africa ID, Thailand ID, Tunisia ID, UAE DL, Uganda ID and Vietnam ID.
+Details on each new document and the complete list of the supported documents is [here](https://github.com/BlinkID/blinkid-android/blob/Master/documentation/BlinkIDRecognizer.md).
+
+### Improvements:
+
+- **overall size impact on application reduced for almost 50%** when BlinkID SDK v5.1 is used, relative to size impact of the previous v5.0
+- added new fields in `MrzResult`:
+    - `sanitizedDocumentCode`
+    - `sanitizedDocumentNumber`
+- improved `BlinkIdRecognizer` and `BlinkIdCombinedRecognizer`:
+    - introduced blur filter that discards blurred frames and prevents reading data from them. This option is enabled by default, it can be disabled by using `BlinkIdRecognizer.setAllowBlurFilter(false)` and `BlinkIdCombinedRecognizer.setAllowBlurFilter(false)` 
+
 ## 5.0.1
 
 ### New features:
