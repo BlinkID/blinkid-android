@@ -782,7 +782,7 @@ This recognizer is best for use cases when you need to capture the exact image t
 
 ## <a name="blinkid_recognizers"></a> BlinkID recognizers
 
-Unless stated otherwise for concrete recognizer, **single side BlinkID recognizes** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkidUiComponent) and [`DocumentScanUISettings`](#documentUiComponent), with UIs best suited for document scanning. 
+Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkidUiComponent) and [`DocumentScanUISettings`](#documentUiComponent), with UIs best suited for document scanning. 
 
 **Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent) or [`DocumentVerificationUISettings`](#documentVerifyUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
