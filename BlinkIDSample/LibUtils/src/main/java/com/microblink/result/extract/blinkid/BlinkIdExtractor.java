@@ -34,7 +34,7 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
         add(R.string.PPSex, mrzResult.getGender());
         add(R.string.PPNationality, mrzResult.getSanitizedNationality());
-        add(R.string.PPDocumentCode, mrzResult.getDocumentCode());
+        add(R.string.PPDocumentCode, mrzResult.getSanitizedDocumentCode());
         add(R.string.PPIssuer, mrzResult.getSanitizedIssuer());
         add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate());
         add(R.string.PPOpt2, mrzResult.getSanitizedOpt2());
@@ -45,7 +45,7 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
             add(R.string.PPApplicationReceiptNumber, mrzResult.getApplicationReceiptNumber());
             add(R.string.PPImmigrantCaseNumber, mrzResult.getImmigrantCaseNumber());
         } else {
-            add(R.string.PPDocumentNumber, mrzResult.getDocumentNumber());
+            add(R.string.PPDocumentNumber, mrzResult.getSanitizedDocumentNumber());
             add(R.string.PPOpt1, mrzResult.getSanitizedOpt1());
         }
     }
