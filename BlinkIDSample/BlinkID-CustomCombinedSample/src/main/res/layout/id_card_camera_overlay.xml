@@ -12,19 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mb_overlay_camera_translucent"
+        android:paddingTop="@dimen/padding_top_bar"
+        android:paddingLeft="@dimen/padding_top_bar"
+        android:paddingRight="@dimen/padding_top_bar"
         android:paddingBottom="@dimen/mb_margin_torch_button">
         <ImageButton
             android:id="@+id/torchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/MB_top_button"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:gravity="right"
-            android:layout_marginTop="@dimen/mb_activity_vertical_margin_verification_flow"
-            android:layout_marginRight="@dimen/mb_activity_horizontal_margin_verification_flow"
-            android:background="@color/mb_transparent"
             android:src="@drawable/mb_ic_flash_off_24dp"
-            android:contentDescription="@string/mb_light"
             tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 

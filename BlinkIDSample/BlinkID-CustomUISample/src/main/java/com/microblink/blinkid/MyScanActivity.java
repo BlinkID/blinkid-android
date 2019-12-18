@@ -12,8 +12,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,11 +71,11 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     /**
      * This is a back button
      */
-    private Button mBackButton = null;
+    private ImageButton mBackButton = null;
     /**
      * This is a torch control button
      */
-    private Button mTorchButton = null;
+    private ImageButton mTorchButton = null;
     /**
      * Is torch enabled?
      */
@@ -163,7 +163,6 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         View view = getLayoutInflater().inflate(R.layout.default_blinkid_viewfinder, null);
 
         mBackButton = view.findViewById(R.id.defaultBackButton);
-        mBackButton.setText(getString(R.string.mb_home));
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -365,11 +364,9 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                     public void run() {
                         mTorchEnabled = !mTorchEnabled;
                         if (mTorchEnabled) {
-                            mTorchButton.setText(R.string.mb_light);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_on_24dp, 0, 0, 0);
+                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_on_24dp);
                         } else {
-                            mTorchButton.setText(R.string.mb_light);
-                            mTorchButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mb_ic_flash_off_24dp, 0, 0, 0);
+                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_off_24dp);
                         }
                     }
                 });
@@ -468,18 +465,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // we will use this callback in this example to adjust the margins of buttons
         int horizontalMargin = (int) (width * 0.07);
         int verticalMargin = (int) (height * 0.07);
-        // set margins for back button
-        FrameLayout.LayoutParams backButtonParams = (FrameLayout.LayoutParams) mBackButton.getLayoutParams();
-        if (backButtonParams.leftMargin != horizontalMargin && backButtonParams.topMargin != verticalMargin) {
-            backButtonParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
-            mBackButton.setLayoutParams(backButtonParams);
-        }
-        // set margins for torch button
-        FrameLayout.LayoutParams torchButtonParams = (FrameLayout.LayoutParams) mTorchButton.getLayoutParams();
-        if (torchButtonParams.leftMargin != horizontalMargin && torchButtonParams.topMargin != verticalMargin) {
-            torchButtonParams.setMargins(horizontalMargin, verticalMargin, horizontalMargin, verticalMargin);
-            mTorchButton.setLayoutParams(torchButtonParams);
-        }
+
         // set margins for text view
         FrameLayout.LayoutParams statusViewParams = (FrameLayout.LayoutParams) mStatusTextView.getLayoutParams();
         if (statusViewParams.bottomMargin != verticalMargin) {

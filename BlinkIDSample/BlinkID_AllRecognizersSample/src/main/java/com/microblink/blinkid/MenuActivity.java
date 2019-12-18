@@ -24,7 +24,6 @@ import com.microblink.uisettings.DocumentUISettings;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 import com.microblink.uisettings.UISettings;
 import com.microblink.uisettings.options.BeepSoundUIOptions;
-import com.microblink.uisettings.options.HelpIntentUIOptions;
 import com.microblink.uisettings.options.OcrResultDisplayMode;
 import com.microblink.uisettings.options.OcrResultDisplayUIOptions;
 import com.microblink.util.ImageSettings;
@@ -37,7 +36,7 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-;
+
 
 public class MenuActivity extends ResultHandlerMenuActivity {
 
@@ -133,12 +132,6 @@ public class MenuActivity extends ResultHandlerMenuActivity {
             // optionally, if you want the beep sound to be played after a scan
             // add a sound resource id
             ((BeepSoundUIOptions) settings).setBeepSoundResourceID(R.raw.beep);
-        }
-        if (helpIntent != null && settings instanceof HelpIntentUIOptions) {
-            // if we have help intent, we can pass it to scan activity so it can invoke
-            // it if user taps the help button. If we do not set the help intent,
-            // scan activity will hide the help button.
-            ((HelpIntentUIOptions) settings).setHelpIntent(helpIntent);
         }
         if (settings instanceof OcrResultDisplayUIOptions) {
             // If you want, you can disable drawing of OCR results on scan activity. Drawing OCR results can be visually
