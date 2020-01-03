@@ -70,8 +70,8 @@
 | Russia                            |Driving License*|
 | Serbia                            |ID Card <br> Driving License*|
 | Singapore                         |ID Card <br> Driving License* <br> Fin Card* <br> Resident ID <br> Employment Pass*|
-| Slovakia                          |Driving License<sup>*,BETA</sup>|
-| Slovenia                          |Driving License*|
+| Slovakia                          |ID Card <br> Driving License<sup>*,BETA</sup>|
+| Slovenia                          |ID Card <br> Driving License*|
 | South Africa                      |ID Card <br> Driving License*|
 | Spain                             |ID Card <br> Driving License*|
 | Sweden                            |ID Card <br> Driving License*|
@@ -80,8 +80,8 @@
 | Tunisia                           |ID Card*|
 | Turkey                            |ID Card <br> Driving License*|
 | UAE                               |ID Card <br> Driving License<br> Resident ID|
-| Ukraine                           |ID Card|
 | Uganda                            |ID Card|
+| Ukraine                           |ID Card|
 | UK                                |Driving License* <br> Residence Permit|
 | Vietnam                           |ID Card<sup>BETA</sup>|
 
