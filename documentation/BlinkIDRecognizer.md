@@ -45,7 +45,7 @@
 | India                             |ID Card<sup>* ,BETA</sup>   <br>Pan Card*|
 | Indonesia                         |ID Card* <br> Driving License*|
 | Ireland                           |Driving License*|
-| Israel                            |ID Card <br> Driving License<sup>*,BETA</sup>|
+| Israel                            |Driving License<sup>*,BETA</sup>|
 | Italy                             |ID Card* <br> Driving License*|
 | Jordan                            |ID Card|
 | Kazakhstan                        |ID Card*|
@@ -58,13 +58,13 @@
 | Morocco                           |ID Card<sup>BETA</sup>|
 | Netherlands                       |ID Card <br> Driving License*|
 | New Zealand                       |Driving License*|
-| Nigeria                           |ID Card <br> Driving License*|
+| Nigeria                           |Driving License*|
 | Pakistan                          |ID Card* <br> Consular ID*|
-| Paraguay                          |ID Card <br> Driving License*|
+| Paraguay                          |ID Card|
 | Philippines                       |Multipurpose ID* <br> Driving License*|
 | Poland                            |ID Card <br> Driving License*|
 | Portugal                          |ID Card <br> Driving License<sup>*, BETA</sup>|
-| Puerto Rico                       |ID Card <br> Driving License*|
+| Puerto Rico                       |Driving License*|
 | Qatar                             |Driving License* <br> Residence Permit*|
 | Romania                           |ID Card* <br> Driving License*|
 | Russia                            |Driving License*|
