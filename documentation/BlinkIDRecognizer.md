@@ -55,6 +55,7 @@
 | Malaysia                          |MyKad <br> Driving License* <br> i-Kad* <br>MyKid*  <br>MyTentera*|
 | Maldives                          |ID Card|
 | Malta                             |ID Card|
+| Mexico                            |Voter ID*|
 | Morocco                           |ID Card<sup>BETA</sup>|
 | Netherlands                       |ID Card <br> Driving License*|
 | New Zealand                       |Driving License*|
