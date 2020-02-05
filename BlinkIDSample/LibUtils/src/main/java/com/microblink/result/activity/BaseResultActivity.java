@@ -1,7 +1,11 @@
 package com.microblink.result.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,10 +17,15 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.microblink.entities.recognizers.HighResImagesBundle;
+import com.microblink.image.Image;
 import com.microblink.image.highres.HighResImageWrapper;
 import com.microblink.libutils.R;
 
@@ -58,6 +67,59 @@ public abstract class BaseResultActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mPager);
         tabLayout.setClipChildren(false);
+    }
+
+    private void showHighResImagesDialog() {
+        if (highResImagesBundle != null && !highResImagesBundle.getImages().isEmpty()) {
+            LinearLayout imagesLayout = new LinearLayout(this);
+            imagesLayout.setOrientation(LinearLayout.VERTICAL);
+
+            ScrollView scrollView = new ScrollView(this);
+            scrollView.addView(imagesLayout);
+
+            for (HighResImageWrapper highResImageWrapper : highResImagesBundle.getImages()) {
+                Image highResImage = highResImageWrapper.getImage();
+                Bitmap highResBmp = highResImage.convertToBitmap();
+                Matrix rotationMatrix = new Matrix();
+                switch (highResImage.getImageOrientation()) {
+                    case ORIENTATION_PORTRAIT:
+                        rotationMatrix.postRotate(90);
+                        break;
+                    case ORIENTATION_LANDSCAPE_LEFT:
+                        rotationMatrix.postRotate(180);
+                        break;
+                    case ORIENTATION_PORTRAIT_UPSIDE:
+                        rotationMatrix.postRotate(270);
+                }
+                Bitmap rotatedBmp = Bitmap.createBitmap(
+                        highResBmp, 0, 0, highResBmp.getWidth(), highResBmp.getHeight(), rotationMatrix, true);
+                highResBmp.recycle();
+
+                final float scale = getResources().getDisplayMetrics().density;
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        (int) (400 * scale)
+                );
+                layoutParams.topMargin = (int) (20 * scale);
+
+                ImageView imageView = new ImageView(this);
+                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                imageView.setLayoutParams(layoutParams);
+                imageView.setImageBitmap(rotatedBmp);
+                imagesLayout.addView(imageView);
+            }
+
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+            dialogBuilder.setView(scrollView);
+            dialogBuilder.setTitle(R.string.dialog_title_high_res_images);
+            dialogBuilder.setPositiveButton(R.string.btn_close, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            dialogBuilder.create().show();
+        }
     }
 
     @Override
@@ -107,6 +169,9 @@ public abstract class BaseResultActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_save_high_res) {
             saveHighResImages();
+            return true;
+        } else if (item.getItemId() == R.id.action_show_high_res) {
+            showHighResImagesDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);

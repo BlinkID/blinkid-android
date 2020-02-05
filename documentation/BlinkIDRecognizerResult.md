@@ -2,8 +2,7 @@
 The tables below represent scanning results for each document in each country supported in BlinkID v5. The fields marked as "Always" present are mandatory on all document versions and will always be a part of the result set. The ones marked as "Sometimes" present will be returned only if they exist on the specific document being scanned. For barcode-only document sides, the "Pending" stands for those fields for which it's not certain whether or not they're present on all document versions.
 <br>
 <br>
-<table><tr> 
-<th colspan=2>ALBANIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<table><tr> <th colspan=2>ALBANIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 <tr> <td>Date of issue</td> <td>Always</td><tr>
@@ -225,6 +224,29 @@ The tables below represent scanning results for each document in each country su
 <th colspan=2>CAMBODIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Full name</td> <td>Always</td><tr>
 <tr> <td>MRZ</td> <td>Always</td><tr>
+<th colspan=2>CANADA ALBERTA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Conditions</td> <td>Sometimes</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA ALBERTA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>CANADA BRITISH COLUMBIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -458,6 +480,11 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Nationality</td> <td>Sometimes</td><tr>
 <tr> <td>Place of birth</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Sometimes</td><tr>
+<th colspan=2>CZECHIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+<tr> <td>MRZ</td> <td>Always</td><tr>
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
 <th colspan=2>DOMINICAN REPUBLIC ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -473,6 +500,10 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>MRZ</td> <td>Always</td><tr>
 <th colspan=2>EGYPT ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+<th colspan=2>EGYPT ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 <th colspan=2>ESTONIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -555,6 +586,11 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>MRZ</td> <td>Sometimes</td><tr>
 <tr> <td>Nationality</td> <td>Always</td><tr>
 <tr> <td>Place of birth</td> <td>Always</td><tr>
+<th colspan=2>GERMANY ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Sometimes</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+<tr> <td>MRZ</td> <td>Always</td><tr>
 <th colspan=2>GERMANY RESIDENCE PERMIT - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 <tr> <td>Date of issue</td> <td>Always</td><tr>
@@ -697,6 +733,13 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Nationality</td> <td>Sometimes</td><tr>
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Sometimes</td><tr>
+<th colspan=2>ITALY ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
+<tr> <td>Date of issue</td> <td>Sometimes</td><tr>
+<tr> <td>Document number</td> <td>Sometimes</td><tr>
+<tr> <td>MRZ</td> <td>Sometimes</td><tr>
+<tr> <td>Nationality</td> <td>Sometimes</td><tr>
 <th colspan=2>JORDAN ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Full name</td> <td>Always</td><tr>
@@ -898,6 +941,9 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Always</td><tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>PAKISTAN CONSULAR ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>MRZ</td> <td>Always</td><tr>
 <th colspan=2>PAKISTAN ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
@@ -905,6 +951,10 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Sometimes</td><tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Sometimes</td><tr>
+<th colspan=2>PAKISTAN ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
+<tr> <td>Date of issue</td> <td>Sometimes</td><tr>
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
 <th colspan=2>PARAGUAY ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>

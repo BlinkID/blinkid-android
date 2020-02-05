@@ -55,8 +55,8 @@ Download our [BlinkID app](https://play.google.com/store/apps/details?id=com.mic
         * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
         * [Passport recognizer](#passportRecognizer)
         * [Visa recognizer](#visaRecognizer)
-        * [US / Canada driver's license barcode recognizer](#us_dl_recognizer)
-        * [US / Canada driver's license combined recognizer](#us_dl_combined_recognizer)
+        * [AAMVA standard barcode recognizer (USA, Canada, Nigeria)](#us_dl_recognizer)
+        * [AAMVA standard combined recognizer (USA, Canada, Nigeria)](#us_dl_combined_recognizer)
         * [Document face recognizer](#documentFaceRecognizer)
 * [Embedding _BlinkID_ inside another SDK](#embedAAR)
 * [Processor architecture considerations](#archConsider)
@@ -101,7 +101,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.1.0@aar') {
+    implementation('com.microblink:blinkid:5.2.0@aar') {
         transitive = true
     }
 }
@@ -113,7 +113,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.1.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.2.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -816,13 +816,15 @@ The [`VisaRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
-### <a name="us_dl_recognizer"></a> US / Canada driver's license barcode recognizer
-The [`UsdlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html) is used for scanning PDF417 barcode from the US / Canada driver's license.
+### <a name="us_dl_recognizer"></a> AAMVA standard barcode recognizer (USA, Canada, Nigeria)
+The [`UsdlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html) is used for scanning PDF417 barcode from USA ID cards and driver’s licence, Canadian ID cards and driving licence, and Nigerian driving licence.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
-### <a name="us_dl_combined_recognizer"></a> US / Canada driver's license combined recognizer
-The [`UsdlCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.html) scans PDF417 barcode from the back side of US / Canada driver's license after scanning the full document image and face image from the front side. Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [UsdlRecognizer](#us_dl_recognizer) for scanning the PDF417 barcode.
+### <a name="us_dl_combined_recognizer"></a> AAMVA standard combined recognizer (USA, Canada, Nigeria)
+The [`UsdlCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/usdl/UsdlCombinedRecognizer.html) first scans the front side of the document to obtain the full document image and face image. It then scans PDF417 barcode from the back side of AAMVA standard documents. This includes USA ID cards and driver’s licence, Canadian ID cards and driving licence, and Nigerian driving licence.
+
+Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [UsdlRecognizer](#us_dl_recognizer) for scanning the PDF417 barcode.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 

@@ -83,6 +83,7 @@
     <string name="PPAuthorityType">Authority type</string>
     <string name="PPExecutionDate">Execution date</string>
     <string name="PPSubscriberNumber">Subscriber number</string>
+    <string name="PPOcrLine">Ocr line</string>
     <string name="PPUncertain">Uncertain data</string>
     <string name="PPBarcodeData">Barcode data</string>
     <string name="PPBarcodeRawData">Barcode raw data</string>
@@ -134,6 +135,7 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
     <string name="PPFullName">Full name</string>
+    <string name="PPLocalizedName">Localized name</string>
     <string name="PPAdditionalNameInformation">Additional name information</string>
     <string name="PPCommercialCode">Commercial Code</string>
     <string name="PPCompanyName">Company name</string>
@@ -256,6 +258,7 @@
     <string name="MBEncodedFaceImage">Encoded face image</string>
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
+    <string name="MBHighResImage">High resolution image</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>
@@ -270,6 +273,8 @@
     <string name="MBSlovakPaymentInfoKeySuffix">(%d)</string>
 
     <string name="MBBirthData">Birth data</string>
+
+    <string name="MBDocumentCaptureTitle">Document capture</string>
 
     <string name="PPDateOfIssueDlCategoryB">Date of issue B category</string>
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
