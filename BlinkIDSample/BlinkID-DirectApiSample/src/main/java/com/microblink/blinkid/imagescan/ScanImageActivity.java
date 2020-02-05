@@ -101,13 +101,7 @@ public class ScanImageActivity extends Activity {
         super.onStart();
 
         // get the recognizer runner instance
-        try {
-            mRecognizerRunner = RecognizerRunner.getSingletonInstance();
-        } catch (FeatureNotSupportedException e) {
-            Toast.makeText(this, "Feature not supported! Reason: " + e.getReason().getDescription(), Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
+        mRecognizerRunner = RecognizerRunner.getSingletonInstance();
 
         // initialize recognizer runner singleton
         mRecognizerRunner.initialize(this, mRecognizerBundle, new DirectApiErrorListener() {

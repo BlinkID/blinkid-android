@@ -56,13 +56,7 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
     protected void onStart() {
         super.onStart();
         // get the recognizer instance
-        try {
-            mRecognizerRunner = RecognizerRunner.getSingletonInstance();
-        } catch (FeatureNotSupportedException e) {
-            Toast.makeText(this, "Feature not supported! Reason: " + e.getReason().getDescription(), Toast.LENGTH_LONG).show();
-            finish();
-            return;
-        }
+        mRecognizerRunner = RecognizerRunner.getSingletonInstance();
 
         // initialize recognizer singleton
         mRecognizerRunner.initialize(this, mRecognizerBundle, new DirectApiErrorListener() {
