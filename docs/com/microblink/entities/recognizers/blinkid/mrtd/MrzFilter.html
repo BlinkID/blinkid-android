@@ -157,7 +157,7 @@ extends android.os.Parcelable</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzFilter.html#mrzFilter-com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer-">mrzFilter</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrtdRecognizer</a>&nbsp;mrtdRecognizer)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzFilter.html#mrzFilter-com.microblink.entities.recognizers.blinkid.mrtd.MrzResult-">mrzFilter</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a>&nbsp;mrzResult)</code>
 <div class="block">Determines whether document should be processed or it is filtered out.</div>
 </td>
 </tr>
@@ -183,7 +183,7 @@ extends android.os.Parcelable</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="mrzFilter-com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer-">
+<a name="mrzFilter-com.microblink.entities.recognizers.blinkid.mrtd.MrzResult-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -191,11 +191,11 @@ extends android.os.Parcelable</pre>
 <h4>mrzFilter</h4>
 <pre>@WorkerThread
 boolean&nbsp;mrzFilter(@NonNull
-                                <a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrtdRecognizer</a>&nbsp;mrtdRecognizer)</pre>
+                                <a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a>&nbsp;mrzResult)</pre>
 <div class="block">Determines whether document should be processed or it is filtered out.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>mrtdRecognizer</code> - <a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd"><code>MrtdRecognizer</code></a> currently being evaluated</dd>
+<dd><code>mrzResult</code> - <a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd"><code>MrzResult</code></a> currently being evaluated</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>true</code> if the document with the given MRZ should be processed, <code>false</code> if the document
  should be filtered out.</dd>

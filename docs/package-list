@@ -27,6 +27,7 @@ com.microblink.entities.recognizers.successframe
 com.microblink.entities.recognizers.templating
 com.microblink.entities.recognizers.templating.dewarpPolicies
 com.microblink.entities.settings
+com.microblink.entities.util
 com.microblink.fragment
 com.microblink.fragment.overlay
 com.microblink.fragment.overlay.blinkid
@@ -35,6 +36,7 @@ com.microblink.fragment.overlay.blinkid.documentverification
 com.microblink.fragment.overlay.blinkid.reticleui
 com.microblink.fragment.overlay.components
 com.microblink.fragment.overlay.components.feedback
+com.microblink.fragment.overlay.components.feedback.view
 com.microblink.fragment.overlay.components.settings
 com.microblink.fragment.overlay.components.statusmsg
 com.microblink.fragment.overlay.fieldbyfield

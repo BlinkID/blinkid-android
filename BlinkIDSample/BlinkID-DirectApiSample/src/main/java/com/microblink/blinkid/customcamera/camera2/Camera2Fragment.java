@@ -304,13 +304,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
     @Override
     public void onStart() {
         super.onStart();
-        try {
-            mRecognizer = RecognizerRunner.getSingletonInstance();
-        } catch (FeatureNotSupportedException e) {
-            Toast.makeText(Camera2Fragment.this.getActivity(), "Feature not supported! Reason: " + e.getReason().getDescription(), Toast.LENGTH_LONG).show();
-            getActivity().finish();
-            return;
-        }
+        mRecognizer = RecognizerRunner.getSingletonInstance();
 
         mRecognizer.initialize(getActivity(), mRecognizerBundle, new DirectApiErrorListener() {
             @Override

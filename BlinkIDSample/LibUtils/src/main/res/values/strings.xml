@@ -12,5 +12,7 @@
     <string name="btn_recognize">Recognize</string>
     <string name="checkbox_liveness_check_activated" tools:ignore="MissingTranslation">Liveness check activated</string>
     <string name="splash_text_processing">Processing...</string>
+    <string name="dialog_title_high_res_images">High res images</string>
+    <string name="btn_close">Close</string>
 
 </resources>

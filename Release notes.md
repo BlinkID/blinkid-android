@@ -1,5 +1,34 @@
 # Release notes
 
+## 5.2.0
+
+### Improvements:
+
+- **overall size impact on application reduced for almost 30%** when BlinkID SDK v5.2 is used, relative to size impact of the previous v5.1
+- enabled setting `MrzFilter` on `MrtdCombinedRecognizer`:
+    - determines whether document should be processed or it is filtered out, based on its MRZ (Machine Readable Zone)
+    - this feature is also available for `MrtdRecognizer` 
+-  added Canada Alberta DL support for `BlinkIdRecognizer` and `BlinkIdCombinedRecognizer`
+- enabled scanning back sides of 6 documents with `BlinkIdCombinedRecognizer`:
+    - Czechia ID
+    - Egypt ID
+    - Germany ID
+    - Italy ID
+    - Pakistan Consular ID
+    - Pakistan ID
+- added property `localizedName` to `BlinkIdRecognizer.Result` and `BlinkIdCombinedRecognizer.Result` (CCC to Chinese alphabet conversion for Hong Kong ID)
+- enabled digital signing of `BlinkIdCombinedRecognizer.Result`
+- improved camera performance on some Samsung devices
+
+### Minor API changes:
+
+- `MrzFilter` now accepts `MrzResult` for filtering, previously filtering has been performed based on the given `MrtdRecognizer` result.
+- `RecognizerRunner.getSingletonInstance()` does not throw `FeatureNotSupportedException` anymore
+
+### Bug fixes:
+
+- `BlinkIdCombinedRecognizer` - fixed issue when the front side of a document was returned as a back side
+
 ## 5.1.0
 
 ### New features:
