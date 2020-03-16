@@ -10,6 +10,7 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
@@ -35,8 +36,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-
 
 public class MenuActivity extends ResultHandlerMenuActivity {
 
@@ -79,15 +78,14 @@ public class MenuActivity extends ResultHandlerMenuActivity {
         List<MenuListItem> items = new ArrayList<>();
 
         items.add(buildBlinkIdCombinedElement());
-
         items.add(buildPassportElement());
-
         items.add(buildVisaElement());
 
         items.add(buildMrtdElement());
         items.add(buildMrtdCombinedElement());
         items.add(buildDocumentFaceElement());
 
+        items.add(buildIdBarcodeElement());
         items.add(buildUsdlElement());
         items.add(buildUsdlCombinedElement());
 
@@ -208,6 +206,16 @@ public class MenuActivity extends ResultHandlerMenuActivity {
                 DocumentFaceRecognizer documentFaceRecognizer = new DocumentFaceRecognizer();
                 ImageSettings.enableAllImages(documentFaceRecognizer);
                 scanAction(new DocumentUISettings(prepareRecognizerBundle(documentFaceRecognizer)));
+            }
+        });
+    }
+
+    private MenuListItem buildIdBarcodeElement() {
+        return new MenuListItem("ID barcode", new Runnable() {
+            @Override
+            public void run() {
+                IdBarcodeRecognizer idBarcodeRecognizer = new IdBarcodeRecognizer();
+                scanAction(new DocumentUISettings(prepareRecognizerBundle(idBarcodeRecognizer)));
             }
         });
     }
