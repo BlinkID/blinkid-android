@@ -21,6 +21,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
 
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPNationality, result.getNationality());

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -208,83 +208,97 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getIssuerName--">getIssuerName</a></span>()</code>
+<div class="block">Returns full issuer name that is expanded from the three-letter or two-letter code which indicate
+ the issuing State.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getMrzText--">getMrzText</a></span>()</code>
 <div class="block">Returns the entire Machine Readable Zone text from ID.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationality--">getNationality</a></span>()</code>
 <div class="block">Returns nationality of the holder represented by a three-letter or two-letter code.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationalityName--">getNationalityName</a></span>()</code>
+<div class="block">Returns full nationality of the holder, which is expanded from the three-letter or two-letter
+ nationality code.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt1--">getOpt1</a></span>()</code>
 <div class="block">Returns first optional data.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt2--">getOpt2</a></span>()</code>
 <div class="block">Returns second optional data.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getPrimaryId--">getPrimaryId</a></span>()</code>
 <div class="block">Returns the primary indentifier.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedDocumentCode--">getSanitizedDocumentCode</a></span>()</code>
 <div class="block">Returns document code, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedDocumentNumber--">getSanitizedDocumentNumber</a></span>()</code>
 <div class="block">Returns document number, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedIssuer--">getSanitizedIssuer</a></span>()</code>
 <div class="block">Returns issuer, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedNationality--">getSanitizedNationality</a></span>()</code>
 <div class="block">Returns nationality, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt1--">getSanitizedOpt1</a></span>()</code>
 <div class="block">Returns opt1 field, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt2--">getSanitizedOpt2</a></span>()</code>
 <div class="block">Returns opt2 field, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSecondaryId--">getSecondaryId</a></span>()</code>
 <div class="block">Returns the secondary identifier.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzParsed--">isMrzParsed</a></span>()</code>
 <div class="block">Returns true if Machine Readable Zone has been parsed, false otherwise.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzVerified--">isMrzVerified</a></span>()</code>
 <div class="block">Returns true if all check digits inside MRZ are correct, false otherwise.</div>
@@ -413,6 +427,22 @@ public&nbsp;java.lang.String&nbsp;getSanitizedIssuer()</pre>
 </dl>
 </li>
 </ul>
+<a name="getIssuerName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIssuerName</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getIssuerName()</pre>
+<div class="block">Returns full issuer name that is expanded from the three-letter or two-letter code which indicate
+ the issuing State.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>full issuer name that is expanded from the three-letter or two-letter issuer code.</dd>
+</dl>
+</li>
+</ul>
 <a name="getDateOfBirth--">
 <!--   -->
 </a>
@@ -489,6 +519,23 @@ public&nbsp;java.lang.String&nbsp;getSanitizedNationality()</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationality--"><code>MrzResult.getNationality()</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="getNationalityName--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNationalityName</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getNationalityName()</pre>
+<div class="block">Returns full nationality of the holder, which is expanded from the three-letter or two-letter
+ nationality code.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>full nationality of the holder, which is expanded from the three-letter or two-letter
+ nationality code.</dd>
 </dl>
 </li>
 </ul>

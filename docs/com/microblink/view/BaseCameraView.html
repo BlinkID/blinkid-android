@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":9,"i39":10,"i40":10,"i41":6,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":6,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":9,"i39":10,"i40":10,"i41":6,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":6,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -615,82 +615,88 @@ extends android.view.ViewGroup</pre>
 </tr>
 <tr id="i54" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setCameraFrameFactory-CameraFrameFactory-">setCameraFrameFactory</a></span>(CameraFrameFactory&nbsp;cameraFrameFactory)</code>
+<div class="block">Set your custom implementation of camera frame factory.</div>
+</td>
+</tr>
+<tr id="i55" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setCameraType-com.microblink.hardware.camera.CameraType-">setCameraType</a></span>(<a href="../../../com/microblink/hardware/camera/CameraType.html" title="class in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</code>
 <div class="block">Sets the camera type that will be used.</div>
 </td>
 </tr>
-<tr id="i55" class="rowColor">
+<tr id="i56" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setForceUseLegacyCamera-boolean-">setForceUseLegacyCamera</a></span>(boolean&nbsp;useLegacyCamera)</code>
 <div class="block">With this method you can request using legacy Camera API even on devices that natively support new Camera2 API.</div>
 </td>
 </tr>
-<tr id="i56" class="altColor">
+<tr id="i57" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setHighResFrameCaptureEnabled-boolean-">setHighResFrameCaptureEnabled</a></span>(boolean&nbsp;enabled)</code>
 <div class="block">High res frame capture is disabled by default and needs to be enabled by using this method.</div>
 </td>
 </tr>
-<tr id="i57" class="rowColor">
+<tr id="i58" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setHighResFrameLimit-int-">setHighResFrameLimit</a></span>(int&nbsp;highResFrameLimit)</code>
 <div class="block">Sets the maximum number of high res frames that can be active at a given moment.</div>
 </td>
 </tr>
-<tr id="i58" class="altColor">
+<tr id="i59" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setInitialOrientation-com.microblink.hardware.orientation.Orientation-">setInitialOrientation</a></span>(<a href="../../../com/microblink/hardware/orientation/Orientation.html" title="class in com.microblink.hardware.orientation">Orientation</a>&nbsp;initialOrientation)</code>
 <div class="block">Sets the initial orientation of rotatable view and recognizer.</div>
 </td>
 </tr>
-<tr id="i59" class="rowColor">
+<tr id="i60" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setMeteringAreas-android.graphics.RectF:A-boolean-">setMeteringAreas</a></span>(android.graphics.RectF[]&nbsp;meteringAreas,
                 boolean&nbsp;rotateAreasWithDevice)</code>
 <div class="block">Sets the areas where camera will perform focus, exposure and white balance meterings.</div>
 </td>
 </tr>
-<tr id="i60" class="altColor">
+<tr id="i61" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setMeteringAreasToCamera--">setMeteringAreasToCamera</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i61" class="rowColor">
+<tr id="i62" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setOnActivityFlipListener-com.microblink.view.OnActivityFlipListener-">setOnActivityFlipListener</a></span>(<a href="../../../com/microblink/view/OnActivityFlipListener.html" title="interface in com.microblink.view">OnActivityFlipListener</a>&nbsp;onActivityFlipListener)</code>
 <div class="block">Sets the listener that will be notified when activity flip event occurs.</div>
 </td>
 </tr>
-<tr id="i62" class="altColor">
+<tr id="i63" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setOnSizeChangedListener-com.microblink.view.OnSizeChangedListener-">setOnSizeChangedListener</a></span>(<a href="../../../com/microblink/view/OnSizeChangedListener.html" title="interface in com.microblink.view">OnSizeChangedListener</a>&nbsp;onSizeChangedListener)</code>
 <div class="block">Sets the listener that will be notified when size of child views changes.</div>
 </td>
 </tr>
-<tr id="i63" class="rowColor">
+<tr id="i64" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setOptimizeCameraForNearScan-boolean-">setOptimizeCameraForNearScan</a></span>(boolean&nbsp;nearScan)</code>&nbsp;</td>
 </tr>
-<tr id="i64" class="altColor">
+<tr id="i65" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setOrientationAllowedListener-com.microblink.view.OrientationAllowedListener-">setOrientationAllowedListener</a></span>(<a href="../../../com/microblink/view/OrientationAllowedListener.html" title="interface in com.microblink.view">OrientationAllowedListener</a>&nbsp;orientationAllowedListener)</code>
 <div class="block">Sets the listener that will be asked if device orientation is allowed prior rotating
  rotatable view and native recognizer to that orientation.</div>
 </td>
 </tr>
-<tr id="i65" class="rowColor">
+<tr id="i66" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setPinchToZoomAllowed-boolean-">setPinchToZoomAllowed</a></span>(boolean&nbsp;allowPinchToZoom)</code>
 <div class="block">Sets whether camear view will handle pinch events to manage camera zoom level.</div>
 </td>
 </tr>
-<tr id="i66" class="altColor">
+<tr id="i67" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">setRequestAutofocusOnShakingStopInContinousAutofocusMode</a></span>(boolean&nbsp;requestAutofocusOnShakingStopInContinousAutofocusMode)</code>
 <div class="block">If device supports continous autofocus mode, enabling this feature will request normal autofocus every time device shaking
  stops.</div>
 </td>
 </tr>
-<tr id="i67" class="rowColor">
+<tr id="i68" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setRequestedSurfaceViewForCameraDisplay-CameraSurface-">setRequestedSurfaceViewForCameraDisplay</a></span>(CameraSurface&nbsp;requestedSurface)</code>
 <div class="block">In order to display camera preview, camera view must use one of two android's view's that are
@@ -698,45 +704,45 @@ extends android.view.ViewGroup</pre>
  <code>TextureView</code>.</div>
 </td>
 </tr>
-<tr id="i68" class="altColor">
+<tr id="i69" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setShakeListener-com.microblink.hardware.accelerometer.ShakeCallback-">setShakeListener</a></span>(<a href="../../../com/microblink/hardware/accelerometer/ShakeCallback.html" title="interface in com.microblink.hardware.accelerometer">ShakeCallback</a>&nbsp;shakeCallback)</code>
 <div class="block">Sets the shake callback that will be notified about device shake events.</div>
 </td>
 </tr>
-<tr id="i69" class="rowColor">
+<tr id="i70" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setTapToFocusAllowed-boolean-">setTapToFocusAllowed</a></span>(boolean&nbsp;allowTapToFocus)</code>
 <div class="block">Sets whether camera view will handle tap events to ask camera to perform autofocus
  on tapped area.</div>
 </td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setTorchState-boolean-com.microblink.hardware.SuccessCallback-">setTorchState</a></span>(boolean&nbsp;on,
              <a href="../../../com/microblink/hardware/SuccessCallback.html" title="interface in com.microblink.hardware">SuccessCallback</a>&nbsp;successCallback)</code>
 <div class="block">Turns the torch on the camera on or off.</div>
 </td>
 </tr>
-<tr id="i71" class="rowColor">
+<tr id="i72" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setVideoResolutionPreset-com.microblink.hardware.camera.VideoResolutionPreset-">setVideoResolutionPreset</a></span>(<a href="../../../com/microblink/hardware/camera/VideoResolutionPreset.html" title="class in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;preset)</code>&nbsp;</td>
 </tr>
-<tr id="i72" class="altColor">
+<tr id="i73" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#setZoomLevel-float-">setZoomLevel</a></span>(float&nbsp;zoomLevel)</code>
 <div class="block">Sets the camera zoom level.</div>
 </td>
 </tr>
-<tr id="i73" class="rowColor">
+<tr id="i74" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#shouldStartCamera--">shouldStartCamera</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i74" class="altColor">
+<tr id="i75" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#start--">start</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i75" class="rowColor">
+<tr id="i76" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/view/BaseCameraView.html#stop--">stop</a></span>()</code>&nbsp;</td>
 </tr>
@@ -1710,6 +1716,16 @@ public&nbsp;<a href="../../../com/microblink/view/CameraAspectMode.html" title="
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>useLegacyCamera</code> - If set to true, legacy Camera API will be used even on devices that support new Camera2 API.</dd>
 </dl>
+</li>
+</ul>
+<a name="setCameraFrameFactory-CameraFrameFactory-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setCameraFrameFactory</h4>
+<pre>public final&nbsp;void&nbsp;setCameraFrameFactory(CameraFrameFactory&nbsp;cameraFrameFactory)</pre>
+<div class="block">Set your custom implementation of camera frame factory.</div>
 </li>
 </ul>
 <a name="setRequestAutofocusOnShakingStopInContinousAutofocusMode-boolean-">

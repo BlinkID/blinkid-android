@@ -1,5 +1,47 @@
 # Release notes
 
+## 5.3.0
+
+### Breaking change:
+
+We decided to remove support for **x86_64** processor architecture.
+ **x86** and **x86_64** architectures are used on very few devices today; most of them are manufactured before 2015 and they take about 1% of all Android devices, according to the device catalog on Google Play Console.
+We distribute SDK with **ARMv7**, **ARM64**, and **x86** native library binaries. Native library x86 in SDK is kept mainly for emulator support.
+
+### New features:
+
+- We added a new recognizer specialized for scanning and parsing barcodes on various identity cards - `IdBarcodeRecognizer`.  Supported document types are:
+    - AAMVA compliant (US DL, Canada DL, etc.)
+    - Argentina ID and driver license
+    - Panama ID
+    - Colombia ID and driver license
+    - South Africa ID
+    - Nigeria Voter ID and driver license
+
+- We added the option to disable Microblink logs in the console output. Use `LoggingSettings.disableMicroblinkLogging()`. Be careful with this option. We need full log outputs from the application for support purposes. In case of having problems with scanning certain items, undesired behavior on the specific device(s), crashes inside SDK or anything unmentioned, we will need a full log from your side. If you disable Microblink logging, you won't be able to provide us this information. Hence support might be limited.
+
+### Improvements for existing features:
+
+- We added new result fields in `MrzResult`, returned by all recognizers which scan MRZ (Machine Readable Zone):
+    - `issuerName`
+    - `nationalityName`
+- Improvements in `BlinkIdCombinedRecognizer` and `BlinkIdRecognizer`:
+    - new recognizer options: `allowUnparsedMrzResults` and `allowUnverifiedMrzResults`
+    - new result field: `dateOfExpiryPermanent`
+    - support for 14 new document types: `South Australia DL`, `Bosnia and Herzegovina DL`, `Canada Ontario ID`, `Costa Rica DL`, `Denmark DL`, `Estonia DL`, `Finland DL`, `Kenya ID`, `Lithuania DL`, `Malaysia MyPR`, `Malta DL`, `Mexico Consular ID`, `Nigeria Voter ID`, `Philippines Professional ID`
+    - improved support for: `USA Hawaii DL`, `Colombia DL`, `Costa Rica ID`, `France ID`, `India ID`, `Kazakhstan ID`, `Kuwait Resident ID`, `Israel DL`, `Kuwait DL`, `Thailand ID`
+
+### Minor API changes:
+
+- `CameraPermissionManager` constructor accepts object of type `CameraPermissionManager.ResourceIds` as a second parameter which can be used to customise "ask permission" layout - for previously used layout, use default implementation `com.microblink.hardware.camera.CameraPermissionManagerResources`
+- `RecognizerRunnerFragment` extends `androidx.fragment.app.Fragment`, instead of deprecated `android.app.Fragment`
+- All provided scan activities extend `AppCompatActivity`
+
+### Bug fixes:
+
+- We fixed crash when using Direct API on high resolution `com.microblink.image.Image` from `HighResImageWrapper`
+
+
 ## 5.2.0
 
 ### Improvements:

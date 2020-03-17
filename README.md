@@ -50,11 +50,13 @@ Download our [BlinkID app](https://play.google.com/store/apps/details?id=com.mic
     * [Frame Grabber Recognizer](#frameGrabberRecognizer)
     * [Success Frame Grabber Recognizer](#successFrameGrabberRecognizer)
     * [BlinkID recognizers](#blinkid_recognizers)
+        * [BlinkID recognizer](#blinkidRecognizer)
         * [BlinkID combined recognizer](#blinkidCombinedRecognizer)
         * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
         * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
         * [Passport recognizer](#passportRecognizer)
         * [Visa recognizer](#visaRecognizer)
+        * [ID barcode recognizer](#idBarcodeRecognizer)
         * [AAMVA standard barcode recognizer (USA, Canada, Nigeria)](#us_dl_recognizer)
         * [AAMVA standard combined recognizer (USA, Canada, Nigeria)](#us_dl_combined_recognizer)
         * [Document face recognizer](#documentFaceRecognizer)
@@ -101,7 +103,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.2.0@aar') {
+    implementation('com.microblink:blinkid:5.3.0@aar') {
         transitive = true
     }
 }
@@ -113,7 +115,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.2.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.3.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -205,21 +207,68 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 # <a name="supportCheck"></a> Device requirements
 
-_BlinkID_ requires Android 4.1 or newer. For best performance and compatibility, we recommend at least Android 5.0.
+### Android Version
+
+_BlinkID_ requires **Android 4.1** (API level **16**) or newer. For best performance and compatibility, we recommend at least Android 5.0.
+
+### Camera
 
 Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 480p. Note that camera preview resolution is not the same as video recording resolution. For example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports 720p video recording but preview resolution is only 320p - _BlinkID_ won't work on that device.
 
-_BlinkID_ is native library, written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkID_ native code only for most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface). Even before setting the license key, you should check if _BlinkID_ is supported on the current device. Attempting to call any method from the SDK that relies on native code, such as license check, on a device with unsupported CPU architecture will crash your app.
+### Processor architecture
 
-Here's how you can check whether the _BlinkID_ is supported on the device
+_BlinkID_ is distributed with **ARMv7**, **ARM64** and **x86** native library binaries.
+
+_BlinkID_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkID_ native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
+
+Depending on the other application dependencies that you use, there are two cases to consider:
+
+#### 1) _BlinkID_ is the single native library in the application
+
+Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). 
+
+This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
+
+To be able to upload your application which depends on _BlinkID_, you have to exclude x86 native code from _BlinkID_. 
+
+In the `build.gradle` file from your application module, you can do it in this way:
+
+```
+android {
+    defaultConfig {
+        ndk {
+            // Tells Gradle to package the following ABIs into your application
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+}
+```
+
+#### 2) There are other native libraries in the application
+
+If you are combining _BlinkID_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.
+
+For example, if a third party library has got only ARMv7 and ARM64 versions, you must use exactly ARMv7 and ARM64 versions of _BlinkID_ with that library, but not x86. Using these architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and will fail with UnsatisfiedLinkError.
+
+On the other hand, if a third party library supports more ABI versions than _BlinkID_, for example, ARMv7, ARM64, x86 and **x86_64**, on devices with preferred ABI x86_64, you cannot use _BlinkID_.
+
+Even before setting the license key, you should check if the _BlinkID_ is supported on the current device (see next section: *Compatibility check*). Attempting to call any method from the SDK that relies on native code, such as license check, on a device with unsupported CPU architecture will crash your app. You should disable _BlinkID_ features on x86_64 devices.
+
+For more information, see [Processor architecture considerations](#archConsider) section.
+
+### Compatibility check
+
+Here's how you can check whether the _BlinkID_ is supported on the device:
 	
 ```java
-// check if BlinkID is supported on the device
+// check if BlinkID is supported on the device,
 RecognizerCompatibilityStatus status = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
 if (status == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
     Toast.makeText(this, "BlinkID is supported!", Toast.LENGTH_LONG).show();
 } else if (status == RecognizerCompatibilityStatus.NO_CAMERA) {
     Toast.makeText(this, "BlinkID is supported only via Direct API!", Toast.LENGTH_LONG).show();
+} else if (status == RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED) {
+    Toast.makeText(this, "BlinkID is not supported on current processor architecture!", Toast.LENGTH_LONG).show();
 } else {
 	Toast.makeText(this, "BlinkID is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
 }
@@ -330,13 +379,13 @@ This section discusses how to embed [RecognizerRunnerView](https://blinkid.githu
 1. First make sure that `RecognizerRunnerView` is a member field in your activity. This is required because you will need to pass all activity's lifecycle events to `RecognizerRunnerView`.
 2. It is recommended to keep your scan activity in one orientation, such as `portrait` or `landscape`. Setting `sensor` as scan activity's orientation will trigger full restart of activity whenever device orientation changes. This will provide very poor user experience because both camera and _BlinkID_ native library will have to be restarted every time. There are measures against this behaviour that are discussed [later](#scanOrientation).
 3. In your activity's `onCreate` method, create a new `RecognizerRunnerView`, set [RecognizerBundle](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/RecognizerBundle.html) containing recognizers that will be used by the view, define [CameraEventsListener](https://blinkid.github.io/blinkid-android/com/microblink/view/CameraEventsListener.html) that will handle mandatory camera events, define [ScanResultListener](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html) that will receive call when recognition has been completed and then call its `create` method. After that, add your views that should be layouted on top of camera view.
-4. Override your activity's `onStart`, `onResume`, `onPause`, `onStop` and `onDestroy` methods and call `RecognizerRunnerView's` lifecycle methods `start`, `resume`, `pause`, `stop` and `destroy`. This will ensure correct camera and native resource management. If you plan to manage `RecognizerRunnerView's` lifecycle independently of host's lifecycle, make sure the order of calls to lifecycle methods is the same as is with activities (i.e. you should not call `resume` method if `create` and `start` were not called first).
+4. Pass in your activity's lifecycle using `setLifecycle` method to enable automatic handling of lifeceycle events.
 
 Here is the minimum example of integration of `RecognizerRunnerView` as the only view in your activity:
 
 ```java
-public class MyScanActivity extends Activity {
-    private static final int PERMISSION_CAMERA_REQUEST_CODE = 69;
+public class MyScanActivity extends AppCompatActivity {
+    private static final int PERMISSION_CAMERA_REQUEST_CODE = 42;
     private RecognizerRunnerView mRecognizerRunnerView;
     private BlinkIdCombinedRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
@@ -350,6 +399,9 @@ public class MyScanActivity extends Activity {
         mRecognizerBundle = new RecognizerBundle(mRecognizer);
         // create RecognizerRunnerView
         mRecognizerRunnerView = new RecognizerRunnerView(this);
+        
+        // set lifecycle to automatically call recognizer runner view lifecycle methods
+        mRecognizerRunnerView.setLifecycle(getLifecycle());
 
         // associate RecognizerBundle with RecognizerRunnerView
         mRecognizerRunnerView.setRecognizerBundle(mRecognizerBundle);
@@ -364,47 +416,11 @@ public class MyScanActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
-        mRecognizerRunnerView.start();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
-        mRecognizerRunnerView.resume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
-        mRecognizerRunnerView.pause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
-        mRecognizerRunnerView.stop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
-        mRecognizerRunnerView.destroy();
-    }
-
-    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // you need to pass all activity's lifecycle methods to RecognizerRunnerView
+        // changeConfiguration is not handled by lifecycle events so call it manually
         mRecognizerRunnerView.changeConfiguration(newConfig);
     }
-    
 
     private final CameraEventsListener mCameraEventsListener = new CameraEventsListener() {
         @Override
@@ -786,6 +802,13 @@ Unless stated otherwise for concrete recognizer, **single side BlinkID recognize
 
 **Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent) or [`DocumentVerificationUISettings`](#documentVerifyUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
+### <a name="blinkidRecognizer"></a> BlinkID recognizer
+The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) scans and extracts data from the front side of the supported document. 
+You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
+We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
+
+The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent). 
+
 ### <a name="blinkidCombinedRecognizer"></a> BlinkID combined recognizer
 Use [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) for scanning both sides of the supported document. First, it scans and extracts data from the front, then scans and extracts data from the back, and finally, combines results from both sides. The [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) also performs data matching and returns a flag if the extracted data captured from the front side matches the data from the back.
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
@@ -813,6 +836,11 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="visaRecognizer"></a> Visa recognizer
 The [`VisaRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/visa/VisaRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various visa documents. This recognizer also returns face image from the visa document.
+
+You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+
+### <a name="idBarcodeRecognizer"></a> ID barcode recognizer
+The [`IdBarcodeRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.html) is used for scanning barcodes from various ID cards. Check [`IdBarcodeDocumentType`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeDocumentType.html) enum to see the list of supported document types.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
@@ -847,29 +875,27 @@ This problem is usually solved with transitive Maven dependencies, i.e. when pub
 
 # <a name="archConsider"></a> Processor architecture considerations
 
-_BlinkID_ is distributed with ARMv7, ARM64, x86 and x86_64 native library binaries.
+_BlinkID_ is distributed with **ARMv7**, **ARM64** and **x86** native library binaries.
 
-ARMv7 architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkID_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2). Since these devices are old by today's standard, _BlinkID_ does not support them. For the same reason, _BlinkID_ does not support devices with ARMv5 (`armeabi`) architecture.
+**ARMv7** architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkID_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2). Since these devices are old by today's standard, _BlinkID_ does not support them. For the same reason, _BlinkID_ does not support devices with ARMv5 (`armeabi`) architecture.
 
-ARM64 is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with a single instruction.
+**ARM64** is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with a single instruction.
 
-x86 architecture gives the ability to obtain native speed on x86 android devices, like [Asus Zenfone 4](http://www.gsmarena.com/asus_zenfone_4-5951.php). Without that, _BlinkID_ will not work on such devices, or it will be run on top of ARM emulator that is shipped with device - this will give a huge performance penalty.
-
-x86_64 architecture gives better performance than x86 on devices that use 64-bit Intel Atom processor.
+**x86** and **x86_64** architectures are used on very few devices today, most of them are manufactured before 2015., like [Asus Zenfone 4](http://www.gsmarena.com/asus_zenfone_4-5951.php) and they take about 1% of all devices, according to the Device catalog on Google Play Console. Some x86 and x86_64 devices have ARM emulator, but running the _BlinkID_ on the emulator will give a huge performance penalty. _BlinkID_ contains x86 native library mostly to support emulators, while it does not support x86_64 ABI.
 
 There are some issues to be considered:
 
-- ARMv7 build of native library cannot be run on devices that do not have ARMv7 compatible processor
+- ARMv7 build of the native library cannot be run on devices that do not have ARMv7 compatible processor
 - ARMv7 processors do not understand x86 instruction set
 - x86 processors understand neither ARM64 nor ARMv7 instruction sets
-- some x86 android devices ship with the builtin [ARM emulator](http://commonsware.com/blog/2013/11/21/libhoudini-what-it-means-for-developers.html) - such devices are able to run ARM binaries but with performance penalty. There is also a risk that builtin ARM emulator will not understand some specific ARM instruction and will crash.
+- some x86 android devices ship with the builtin [ARM emulator](http://commonsware.com/blog/2013/11/21/libhoudini-what-it-means-for-developers.html) - such devices are able to run ARM binaries but with a performance penalty. There is also a risk that the builtin ARM emulator will not understand some specific ARM instruction and will crash.
 - ARM64 processors understand ARMv7 instruction set, but ARMv7 processors do not understand ARM64 instructions. 
-    - <a name="64bitNotice"></a> **NOTE:** as of year 2018, some android devices that ship with ARM64 processor do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google [has announced](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html) that as of August 2019 all apps on PlayStore that contain native code will need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
+    - <a name="64bitNotice"></a> **NOTE:** as of the year 2018, some android devices that ship with ARM64 processors do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google decided that as of August 2019 all apps on PlayStore that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
 - if ARM64 processor executes ARMv7 code, it does not take advantage of modern NEON64 SIMD operations and does not take advantage of 64-bit registers it has - it runs in emulation mode
 - x86_64 processors understand x86 instruction set, but x86 processors do not understand x86_64 instruction set
 - if x86_64 processor executes x86 code, it does not take advantage of 64-bit registers and use two instructions instead of one for 64-bit operations
 
-`LibBlinkID.aar` archive contains ARMv7, ARM64, x86 and x86_64 builds of native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64, x86 and x86_64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
+`LibBlinkID.aar` archive contains ARMv7, ARM64 and x86 builds of the native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all these processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64 and x86 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
 
 ## <a name="reduceSize"></a> Reducing the final size of your app
 
@@ -886,7 +912,7 @@ android {
     abi {
       enable true
       reset()
-      include 'x86', 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+      include 'x86', 'armeabi-v7a', 'arm64-v8a'
       universalApk true
     }
   }
@@ -897,7 +923,7 @@ With that build instructions, gradle will build four different APK files for you
 
 ```
 // map for the version code
-def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3, 'x86_64':4]
+def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3]
 
 import com.android.build.OutputFile
 
@@ -920,7 +946,21 @@ After generating multiple APK's, you need to upload them to Google Play. For tut
 
 If you won't be distributing your app via Google Play or for some other reasons want to have single APK of smaller size, you can completely remove support for certain CPU architecture from your APK. **This is not recommended due to [consequences](#archConsequences)**.
 
-To remove a certain CPU architecture, add the following statement to your `android` block inside `build.gradle`:
+To keep only some CPU architectures, for example `armeabi-v7a` and `arm64-v8a`, add the following statement to your `android` block inside `build.gradle`:
+
+```
+android {
+    ...
+    ndk {
+        // Tells Gradle to package the following ABIs into your application
+        abiFilters 'armeabi-v7a', 'arm64-v8a'
+    }
+}
+```
+
+This will remove other architecture builds for **all** native libraries used by the application.
+
+To remove support for a certain CPU architecture only for _BlinkID_, add the following statement to your `android` block inside `build.gradle`:
 
 ```
 android {
@@ -937,7 +977,6 @@ where `<ABI>` represents the CPU architecture you want to remove:
 - to remove x86 support, use `exclude 'lib/x86/libBlinkID.so'`
 - to remove ARM64 support, use `exclude 'lib/arm64-v8a/libBlinkID.so'`
     - **NOTE**: this is **not recommended**. See [this notice](#64bitNotice).
-- to remove x86_64 support, use `exclude 'lib/x86_64/libBlinkID.so'`
 
 You can also remove multiple processor architectures by specifying `exclude` directive multiple times. Just bear in mind that removing processor architecture will have side effects on performance and stability of your app. Please read [this](#archConsequences) for more information.
 
@@ -947,7 +986,6 @@ You can also remove multiple processor architectures by specifying `exclude` dir
 - by removing ARM64 support, _BlinkID_ will not use ARM64 features on ARM64 device
     - also, some future devices may ship with ARM64 processors that will not support ARMv7 instruction set. Please see [this note](#64bitNotice) for more information.
 - by removing x86 support, _BlinkID_ will not work on devices that have x86 processor, except in situations when devices have ARM emulator - in that case, _BlinkID_ will work, but will be slow and possibly unstable
-- by removing x86_64 support, _BlinkID_ will not use 64-bit optimizations on x86_64 processor, but if x86 support is not removed, _BlinkID_ should work
 
 
 ## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries

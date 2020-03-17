@@ -1,6 +1,5 @@
 package com.microblink.menu;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +12,9 @@ import com.microblink.libutils.R;
 import java.util.List;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseMenuActivity extends Activity {
+public abstract class BaseMenuActivity extends AppCompatActivity {
 
     private List<MenuListItem> mListItems;
 

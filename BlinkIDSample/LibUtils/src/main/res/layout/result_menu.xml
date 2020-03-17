@@ -33,7 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:onClick="footerButtonClickHandler"
         android:text="@string/resultsContinue"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 

@@ -89,7 +89,7 @@
     <string name="PPBarcodeRawData">Barcode raw data</string>
     <string name="PPBarcodeType">Barcode type</string>
     <string name="PPExtendedBarcodeData">Extended barcode data</string>
-    <string name="PPMRTDDocumentType">Document Type</string>
+    <string name="PPDocumentType">Document Type</string>
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
@@ -106,8 +106,10 @@
     <string name="PPOpt2">Optional field 2</string>
     <string name="PPSex">Sex</string>
     <string name="PPNationality">Nationality</string>
+    <string name="PPNationalityCode">Nationality code</string>
     <string name="PPCitizenship">Citizenship</string>
     <string name="PPIssuer">Issuer</string>
+    <string name="PPIssuerCode">Issuer code</string>
     <string name="PPMRZText">MRZ text</string>
     <string name="PPFirstName">First name</string>
     <string name="PPLastName">Last name</string>
