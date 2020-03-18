@@ -26,16 +26,18 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
     protected void extractMRZResult(MrzResult mrzResult) {
         MrtdDocumentType docType = mrzResult.getDocumentType();
 
-        add(R.string.PPMRTDDocumentType, docType.toString());
+        add(R.string.PPDocumentType, docType.toString());
         add(R.string.PPMRZParsed, mrzResult.isMrzParsed());
         add(R.string.PPMRZVerified, mrzResult.isMrzVerified());
         add(R.string.PPPrimaryId, mrzResult.getPrimaryId());
         add(R.string.PPSecondaryId, mrzResult.getSecondaryId());
         add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
         add(R.string.PPSex, mrzResult.getGender());
-        add(R.string.PPNationality, mrzResult.getSanitizedNationality());
+        add(R.string.PPNationalityCode, mrzResult.getSanitizedNationality());
+        add(R.string.PPNationality, mrzResult.getNationalityName());
         add(R.string.PPDocumentCode, mrzResult.getSanitizedDocumentCode());
-        add(R.string.PPIssuer, mrzResult.getSanitizedIssuer());
+        add(R.string.PPIssuerCode, mrzResult.getSanitizedIssuer());
+        add(R.string.PPIssuer, mrzResult.getIssuerName());
         add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate());
         add(R.string.PPOpt2, mrzResult.getSanitizedOpt2());
         add(R.string.PPMRZText, mrzResult.getMrzText());

@@ -33,6 +33,7 @@ import com.microblink.entities.recognizers.blinkid.DataMatchResult;
 import com.microblink.geometry.Rectangle;
 import com.microblink.hardware.SuccessCallback;
 import com.microblink.hardware.camera.AutoFocusRequiredButNotSupportedException;
+import com.microblink.hardware.camera.CameraPermissionManagerResources;
 import com.microblink.hardware.camera.CameraResolutionTooSmallException;
 import com.microblink.hardware.camera.CameraType;
 import com.microblink.hardware.orientation.Orientation;
@@ -302,7 +303,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
 
         ViewGroup vgRoot = findViewById(R.id.rootRecognizerView);
 
-        mCameraPermissionManager = new CameraPermissionManager(this);
+        mCameraPermissionManager = new CameraPermissionManager(this, new CameraPermissionManagerResources());
         View permissionOverlay = mCameraPermissionManager.getAskPermissionOverlay();
         if (permissionOverlay != null) {
             vgRoot.addView(permissionOverlay);

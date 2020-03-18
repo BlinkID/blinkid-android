@@ -7,11 +7,13 @@ com.microblink.entities.detectors.quad.mrtd
 com.microblink.entities.processors
 com.microblink.entities.processors.imageReturn
 com.microblink.entities.recognizers
+com.microblink.entities.recognizers.blinkbarcode
 com.microblink.entities.recognizers.blinkbarcode.usdl
 com.microblink.entities.recognizers.blinkid
 com.microblink.entities.recognizers.blinkid.digitalsignature
 com.microblink.entities.recognizers.blinkid.documentface
 com.microblink.entities.recognizers.blinkid.generic
+com.microblink.entities.recognizers.blinkid.idbarcode
 com.microblink.entities.recognizers.blinkid.imageoptions
 com.microblink.entities.recognizers.blinkid.imageoptions.dpi
 com.microblink.entities.recognizers.blinkid.imageoptions.encode

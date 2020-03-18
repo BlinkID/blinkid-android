@@ -9,11 +9,6 @@ import android.graphics.Matrix;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +26,12 @@ import com.microblink.libutils.R;
 
 import java.io.File;
 import java.io.IOException;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public abstract class BaseResultActivity extends AppCompatActivity {
 
@@ -67,6 +68,13 @@ public abstract class BaseResultActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mPager);
         tabLayout.setClipChildren(false);
+
+        findViewById(R.id.btnUseResult).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void showHighResImagesDialog() {
@@ -149,10 +157,6 @@ public abstract class BaseResultActivity extends AppCompatActivity {
 
     protected void setActivityContentView() {
         setContentView(R.layout.result_menu);
-    }
-
-    public void footerButtonClickHandler(View view) {
-        finish();
     }
 
     @Override

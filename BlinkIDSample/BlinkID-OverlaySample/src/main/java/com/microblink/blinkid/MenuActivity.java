@@ -109,7 +109,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
             addContentView(scanLayout, params);
 
             recognizerRunnerFragment = new RecognizerRunnerFragment();
-            getFragmentManager().beginTransaction()
+            getSupportFragmentManager().beginTransaction()
                     .add(R.id.recognizer_runner_view_container, recognizerRunnerFragment)
                     .addToBackStack(null)
                     .commit();
@@ -148,7 +148,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
                 parent.removeView(scanLayout);
             }
         });
-        getFragmentManager().popBackStack();
+        getSupportFragmentManager().popBackStack();
         recognizerRunnerFragment = null;
     }
 

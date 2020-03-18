@@ -6,84 +6,87 @@
 | :---------------|:------------------|
 | Albania                           |ID Card|
 | Algeria                           |ID Card|
-| Argentina                         |Driving Licence<sup>*, BETA</sup> <br> ID Card*|
-| Australia - New South Wales       |Driving Licence*|
+| Argentina                         |Driving Licence<sup>\*, BETA</sup> <br> ID Card\*|
+| Australia - New South Wales       |Driving Licence\*|
 | Australia - Queensland            |Driving Licence|
+| Australia - South Australia       |Driving Licence\*|
 | Australia - Victoria              |Driving Licence|
-| Australia - Western Australia     |Driving Licence*|
-| Austria                           |Driving Licence* <br> ID Card|
-| Azerbaijan                        |ID Card*|
+| Australia - Western Australia     |Driving Licence\*|
+| Austria                           |Driving Licence\* <br> ID Card|
+| Azerbaijan                        |ID Card\*|
 | Bahrain                           |ID Card|
 | Bangladesh                        |ID Card|
-| Belgium                           |Driving Licence* <br> ID Card <br> Resident ID|
-| Bosnia And Herzegovina            |ID Card|
+| Belgium                           |Driving Licence\* <br> ID Card <br> Resident ID|
+| Bosnia And Herzegovina            |Driving Licence\* <br> ID Card|
 | Brunei                            |ID Card|
-| Bulgaria                          |Driving Licence* <br> ID Card|
-| Cambodia                          |ID Card*|
+| Bulgaria                          |Driving Licence\* <br> ID Card|
+| Cambodia                          |ID Card\*|
 | Canada - Alberta                  |Driving Licence|
 | Canada - British Columbia         |Driving Licence|
 | Canada - Manitoba                 |Driving Licence|
-| Canada - Ontario                  |Driving Licence|
+| Canada - Ontario                  |Driving Licence <br> ID Card|
 | Canada - Quebec                   |Driving Licence|
 | Canada - Saskatchewan             |Driving Licence|
 | Chile                             |ID Card|
-| Colombia                          |Driving Licence* <br> ID Card|
-| Costa Rica                        |ID Card*|
-| Croatia                           |Driving Licence* <br> ID Card|
-| Cyprus                            |Driving Licence* <br> ID Card|
-| Czechia                           |Driving Licence* <br> ID Card|
+| Colombia                          |Driving Licence <br> ID Card|
+| Costa Rica                        |Driving Licence\* <br> ID Card|
+| Croatia                           |Driving Licence\* <br> ID Card|
+| Cyprus                            |Driving Licence\* <br> ID Card|
+| Czechia                           |Driving Licence\* <br> ID Card|
+| Denmark                           |Driving Licence\*|
 | Dominican Republic                |ID Card|
 | Egypt                             |ID Card|
-| Estonia                           |ID Card|
-| Finland                           |ID Card*|
-| France                            |Driving Licence* <br> ID Card* <br> Residence Permit<sup>BETA</sup>|
+| Estonia                           |Driving Licence\* <br> ID Card|
+| Finland                           |Driving Licence\* <br> ID Card\*|
+| France                            |Driving Licence\* <br> ID Card <br> Residence Permit<sup>BETA</sup>|
 | Georgia                           |ID Card|
-| Germany                           |Driving Licence* <br> ID Card <br> Residence Permit<sup>BETA</sup>|
-| Greece                            |Driving Licence*|
-| Guatemala                         |ID Card*|
-| Hong Kong                         |ID Card*|
-| Hungary                           |Driving Licence* <br> ID Card|
-| India                             |ID Card<sup>*, BETA</sup> <br> Pan Card*|
-| Indonesia                         |Driving Licence* <br> ID Card*|
-| Ireland                           |Driving Licence*|
-| Israel                            |Driving Licence<sup>*, BETA</sup>|
-| Italy                             |Driving Licence* <br> ID Card|
+| Germany                           |Driving Licence\* <br> ID Card <br> Residence Permit<sup>BETA</sup>|
+| Greece                            |Driving Licence\*|
+| Guatemala                         |ID Card\*|
+| Hong Kong                         |ID Card\*|
+| Hungary                           |Driving Licence\* <br> ID Card|
+| India                             |ID Card<sup>BETA</sup> <br> Pan Card\*|
+| Indonesia                         |Driving Licence\* <br> ID Card\*|
+| Ireland                           |Driving Licence\*|
+| Israel                            |Driving Licence<sup>\*, BETA</sup>|
+| Italy                             |Driving Licence\* <br> ID Card|
 | Jordan                            |ID Card|
-| Kazakhstan                        |ID Card*|
+| Kazakhstan                        |ID Card|
+| Kenya                             |ID Card\*|
 | Kosovo                            |ID Card|
-| Kuwait                            |Driving Licence<sup>BETA</sup> <br> ID Card <br> Resident ID*|
-| Lithuania                         |ID Card|
-| Malaysia                          |Driving Licence* <br> MyKad <br> MyKid* <br> MyTentera* <br> i-Kad*|
+| Kuwait                            |Driving Licence<sup>BETA</sup> <br> ID Card <br> Resident ID|
+| Lithuania                         |Driving Licence\* <br> ID Card|
+| Malaysia                          |Driving Licence\* <br> MyKad <br> MyKid\* <br> Mypr\* <br> MyTentera\* <br> i-Kad\*|
 | Maldives                          |ID Card|
-| Malta                             |ID Card|
-| Mauritius                         |ID Card*|
-| Mexico                            |Voter ID*|
+| Malta                             |Driving Licence\* <br> ID Card|
+| Mauritius                         |ID Card\*|
+| Mexico                            |Consular ID <br> Voter ID\*|
 | Morocco                           |ID Card<sup>BETA</sup>|
-| Netherlands                       |Driving Licence* <br> ID Card|
-| New Zealand                       |Driving Licence*|
-| Nigeria                           |Driving Licence*|
+| Netherlands                       |Driving Licence\* <br> ID Card|
+| New Zealand                       |Driving Licence\*|
+| Nigeria                           |Driving Licence\* <br> Voter ID|
 | Pakistan                          |Consular ID <br> ID Card|
 | Paraguay                          |ID Card|
-| Philippines                       |Driving Licence* <br> Multipurpose ID*|
-| Poland                            |Driving Licence* <br> ID Card|
-| Portugal                          |Driving Licence<sup>*, BETA</sup> <br> ID Card|
-| Puerto Rico                       |Driving Licence*|
-| Qatar                             |Driving Licence* <br> Residence Permit*|
-| Romania                           |Driving Licence* <br> ID Card*|
-| Russia                            |Driving Licence*|
-| Serbia                            |Driving Licence* <br> ID Card|
-| Singapore                         |Driving Licence* <br> Employment Pass* <br> Fin Card* <br> ID Card <br> Resident ID|
-| Slovakia                          |Driving Licence<sup>*, BETA</sup> <br> ID Card|
-| Slovenia                          |Driving Licence* <br> ID Card|
-| South Africa                      |Driving Licence* <br> ID Card|
-| Spain                             |Driving Licence* <br> ID Card|
-| Sweden                            |Driving Licence* <br> ID Card|
-| Switzerland                       |Driving Licence* <br> ID Card|
-| Thailand                          |ID Card<sup>*, BETA</sup>|
-| Tunisia                           |ID Card*|
-| Turkey                            |Driving Licence* <br> ID Card|
+| Philippines                       |Driving Licence\* <br> Multipurpose ID\* <br> Professional ID\*|
+| Poland                            |Driving Licence\* <br> ID Card|
+| Portugal                          |Driving Licence<sup>\*, BETA</sup> <br> ID Card|
+| Puerto Rico                       |Driving Licence\*|
+| Qatar                             |Driving Licence\* <br> Residence Permit\*|
+| Romania                           |Driving Licence\* <br> ID Card\*|
+| Russia                            |Driving Licence\*|
+| Serbia                            |Driving Licence\* <br> ID Card|
+| Singapore                         |Driving Licence\* <br> Employment Pass\* <br> Fin Card\* <br> ID Card <br> Resident ID|
+| Slovakia                          |Driving Licence<sup>\*, BETA</sup> <br> ID Card|
+| Slovenia                          |Driving Licence\* <br> ID Card|
+| South Africa                      |Driving Licence\* <br> ID Card|
+| Spain                             |Driving Licence\* <br> ID Card|
+| Sweden                            |Driving Licence\* <br> ID Card|
+| Switzerland                       |Driving Licence\* <br> ID Card|
+| Thailand                          |ID Card<sup>\*, BETA</sup>|
+| Tunisia                           |ID Card\*|
+| Turkey                            |Driving Licence\* <br> ID Card|
 | UAE                               |Driving Licence <br> ID Card <br> Resident ID|
-| UK                                |Driving Licence* <br> Residence Permit|
+| UK                                |Driving Licence\* <br> Residence Permit|
 | Uganda                            |ID Card|
 | Ukraine                           |ID Card|
 | Vietnam                           |ID Card<sup>BETA</sup>|
@@ -105,7 +108,7 @@ Horizontal documents only
 | Delaware                    |Driver License|
 | Florida                     |Driver License <br> ID Card|
 | Georgia                     |Driver License <br> ID Card|
-| Hawaii                      |ID Card|
+| Hawaii                      |Driver License <br> ID Card|
 | Idaho                       |Driver License|
 | Illinois                    |Driver License <br> ID Card|
 | Indiana                     |Driver License|
@@ -145,3 +148,4 @@ Horizontal documents only
 | West Virginia               |Driver License|
 | Wisconsin                   |Driver License|
 | Wyoming                     |Driver License|
+

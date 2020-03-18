@@ -4,6 +4,7 @@ import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
+import com.microblink.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
@@ -13,6 +14,7 @@ import com.microblink.result.extract.BaseResultExtractorFactory;
 import com.microblink.result.extract.blinkid.documentface.DocumentFaceRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.generic.BlinkIDCombinedRecognizerResultExtractor;
 import com.microblink.result.extract.blinkid.generic.BlinkIDRecognizerResultExtractor;
+import com.microblink.result.extract.blinkid.idbarcode.IdBarcodeResultExtractor;
 import com.microblink.result.extract.blinkid.mrtd.MRTDCombinedRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.mrtd.MrtdRecognitionResultExtractor;
 import com.microblink.result.extract.blinkid.passport.PassportResultExtractor;
@@ -42,5 +44,7 @@ public class BlinkIdResultExtractorFactory extends BaseResultExtractorFactory {
                 new MRTDCombinedRecognitionResultExtractor());
         add(MrtdRecognizer.class,
                 new MrtdRecognitionResultExtractor());
+        add(IdBarcodeRecognizer.class,
+                new IdBarcodeResultExtractor());
     }
 }
