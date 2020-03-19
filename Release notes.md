@@ -12,9 +12,9 @@ We distribute SDK with **ARMv7**, **ARM64**, and **x86** native library binaries
 
 - We added a new recognizer specialized for scanning and parsing barcodes on various identity cards - `IdBarcodeRecognizer`.  Supported document types are:
     - AAMVA compliant (US DL, Canada DL, etc.)
-    - Argentina ID and driver license
+    - Argentina ID
     - Panama ID
-    - Colombia ID and driver license
+    - Colombia ID
     - South Africa ID
     - Nigeria Voter ID and driver license
 
