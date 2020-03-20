@@ -803,7 +803,7 @@ Unless stated otherwise for concrete recognizer, **single side BlinkID recognize
 **Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent) or [`DocumentVerificationUISettings`](#documentVerifyUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
 ### <a name="blinkidRecognizer"></a> BlinkID recognizer
-The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) scans and extracts data from the front side of the supported document. 
+The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) scans and extracts data from the single side of the supported document. 
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
