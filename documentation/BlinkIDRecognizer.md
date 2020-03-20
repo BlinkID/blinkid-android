@@ -29,7 +29,7 @@
 | Canada - Saskatchewan             |Driving Licence|
 | Chile                             |ID Card|
 | Colombia                          |Driving Licence <br> ID Card|
-| Costa Rica                        |Driving Licence\* <br> ID Card|
+| Costa Rica                        |Driving Licence<sup>\*, BETA</sup> <br> ID Card|
 | Croatia                           |Driving Licence\* <br> ID Card|
 | Cyprus                            |Driving Licence\* <br> ID Card|
 | Czechia                           |Driving Licence\* <br> ID Card|
@@ -48,23 +48,23 @@
 | India                             |ID Card<sup>BETA</sup> <br> Pan Card\*|
 | Indonesia                         |Driving Licence\* <br> ID Card\*|
 | Ireland                           |Driving Licence\*|
-| Israel                            |Driving Licence<sup>\*, BETA</sup>|
+| Israel                            |Driving Licence\*|
 | Italy                             |Driving Licence\* <br> ID Card|
 | Jordan                            |ID Card|
 | Kazakhstan                        |ID Card|
 | Kenya                             |ID Card\*|
 | Kosovo                            |ID Card|
-| Kuwait                            |Driving Licence<sup>BETA</sup> <br> ID Card <br> Resident ID|
+| Kuwait                            |Driving Licence <br> ID Card <br> Resident ID|
 | Lithuania                         |Driving Licence\* <br> ID Card|
 | Malaysia                          |Driving Licence\* <br> MyKad <br> MyKid\* <br> Mypr\* <br> MyTentera\* <br> i-Kad\*|
 | Maldives                          |ID Card|
 | Malta                             |Driving Licence\* <br> ID Card|
 | Mauritius                         |ID Card\*|
-| Mexico                            |Consular ID <br> Voter ID\*|
+| Mexico                            |Consular ID<sup>BETA</sup> <br> Voter ID\*|
 | Morocco                           |ID Card<sup>BETA</sup>|
 | Netherlands                       |Driving Licence\* <br> ID Card|
 | New Zealand                       |Driving Licence\*|
-| Nigeria                           |Driving Licence\* <br> Voter ID|
+| Nigeria                           |Driving Licence\* <br> Voter ID<sup>BETA</sup>|
 | Pakistan                          |Consular ID <br> ID Card|
 | Paraguay                          |ID Card|
 | Philippines                       |Driving Licence\* <br> Multipurpose ID\* <br> Professional ID\*|
@@ -82,7 +82,7 @@
 | Spain                             |Driving Licence\* <br> ID Card|
 | Sweden                            |Driving Licence\* <br> ID Card|
 | Switzerland                       |Driving Licence\* <br> ID Card|
-| Thailand                          |ID Card<sup>\*, BETA</sup>|
+| Thailand                          |ID Card\*|
 | Tunisia                           |ID Card\*|
 | Turkey                            |Driving Licence\* <br> ID Card|
 | UAE                               |Driving Licence <br> ID Card <br> Resident ID|
