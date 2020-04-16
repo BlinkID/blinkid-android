@@ -40,7 +40,7 @@
 | Finland                           |Driving Licence\* <br> ID Card\*|
 | France                            |Driving Licence\* <br> ID Card <br> Residence Permit<sup>BETA</sup>|
 | Georgia                           |ID Card|
-| Germany                           |Driving Licence\* <br> ID Card <br> Residence Permit<sup>BETA</sup>|
+| Germany                           |Driving Licence\* (Führerschein)<br> ID Card (Personalausweis)<br> Residence Permit<sup>BETA</sup> (Aufenthaltstitel)|
 | Greece                            |Driving Licence\*|
 | Guatemala                         |ID Card\*|
 | Hong Kong                         |ID Card\*|
