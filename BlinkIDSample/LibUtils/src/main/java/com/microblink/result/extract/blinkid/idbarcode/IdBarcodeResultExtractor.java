@@ -19,6 +19,10 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        int age = result.getAge();
+        if (age != -1) {
+            add(R.string.PPAge, age);
+        }
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());

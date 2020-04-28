@@ -15,6 +15,10 @@ public class USDLCombinedResultExtractor extends BlinkIdExtractor<UsdlCombinedRe
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        int age = result.getAge();
+        if (age != -1) {
+            add(R.string.PPAge, age);
+        }
         add(R.string.PPRestrictions, result.getRestrictions());
         add(R.string.PPEndorsements, result.getEndorsements());
         add(R.string.PPVehicleClass, result.getVehicleClass());
