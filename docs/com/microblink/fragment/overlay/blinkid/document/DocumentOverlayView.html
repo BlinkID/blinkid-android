@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -228,6 +228,13 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/document/DocumentOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/document/DocumentOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
+<div class="block">Set whether to show additional instructions when scanning back side of the document instructing
+ user to scan the barcode.</div>
 </td>
 </tr>
 </table>
@@ -490,6 +497,24 @@ public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/blinkid/R
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>strings to be used for error dialog shown when data from the second document side
  doesn't match the data from the first side</dd>
+</dl>
+</li>
+</ul>
+<a name="setShowBackSideBarcodeInstructions-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowBackSideBarcodeInstructions</h4>
+<pre>public&nbsp;void&nbsp;setShowBackSideBarcodeInstructions(boolean&nbsp;shouldShow)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Set whether to show additional instructions when scanning back side of the document instructing
+ user to scan the barcode.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>shouldShow</code> - true if barcode instructions should be shown</dd>
 </dl>
 </li>
 </ul>

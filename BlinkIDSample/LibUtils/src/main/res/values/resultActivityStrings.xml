@@ -96,6 +96,7 @@
     <string name="PPPrimaryId">Primary ID</string>
     <string name="PPSecondaryId">Secondary ID</string>
     <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPAge">Age</string>
     <string name="PPDateOfExpiry">Date of Expiry</string>
     <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
     <string name="PPDocumentCode">Document code</string>
@@ -261,6 +262,11 @@
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
     <string name="MBHighResImage">High resolution image</string>
+
+    <string name="MBDocumentImageColorStatus">Image color status</string>
+    <string name="MBDocumentFrontImageColorStatus">Front image color status</string>
+    <string name="MBDocumentBackImageColorStatus">Back image color status</string>
+
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>

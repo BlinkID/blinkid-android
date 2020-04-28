@@ -103,7 +103,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.3.0@aar') {
+    implementation('com.microblink:blinkid:5.4.0@aar') {
         transitive = true
     }
 }
@@ -115,7 +115,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.3.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.4.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -217,42 +217,15 @@ Camera video preview resolution also matters. In order to perform successful sca
 
 ### Processor architecture
 
-_BlinkID_ is distributed with **ARMv7**, **ARM64** and **x86** native library binaries.
+_BlinkID_ is distributed with **ARMv7**, **ARM64**, **x86** and **x86_64** native library binaries.
 
 _BlinkID_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkID_ native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
 
-Depending on the other application dependencies that you use, there are two cases to consider:
-
-#### 1) _BlinkID_ is the single native library in the application
-
-Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). 
-
-This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
-
-To be able to upload your application which depends on _BlinkID_, you have to exclude x86 native code from _BlinkID_. 
-
-In the `build.gradle` file from your application module, you can do it in this way:
-
-```
-android {
-    defaultConfig {
-        ndk {
-            // Tells Gradle to package the following ABIs into your application
-            abiFilters 'armeabi-v7a', 'arm64-v8a'
-        }
-    }
-}
-```
-
-#### 2) There are other native libraries in the application
+Even before setting the license key, you should check if the _BlinkID_ is supported on the current device (see next section: *Compatibility check*). Attempting to call any method from the SDK that relies on native code, such as license check, on a device with unsupported CPU architecture will crash your app.
 
 If you are combining _BlinkID_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.
 
-For example, if a third party library has got only ARMv7 and ARM64 versions, you must use exactly ARMv7 and ARM64 versions of _BlinkID_ with that library, but not x86. Using these architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and will fail with UnsatisfiedLinkError.
-
-On the other hand, if a third party library supports more ABI versions than _BlinkID_, for example, ARMv7, ARM64, x86 and **x86_64**, on devices with preferred ABI x86_64, you cannot use _BlinkID_.
-
-Even before setting the license key, you should check if the _BlinkID_ is supported on the current device (see next section: *Compatibility check*). Attempting to call any method from the SDK that relies on native code, such as license check, on a device with unsupported CPU architecture will crash your app. You should disable _BlinkID_ features on x86_64 devices.
+For example, if a third party library has got only ARMv7 and ARM64 versions, you must use exactly ARMv7 and ARM64 versions of _BlinkID_ with that library, but not x86. Using these architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and will fail with `UnsatisfiedLinkError`. 
 
 For more information, see [Processor architecture considerations](#archConsider) section.
 
@@ -875,13 +848,13 @@ This problem is usually solved with transitive Maven dependencies, i.e. when pub
 
 # <a name="archConsider"></a> Processor architecture considerations
 
-_BlinkID_ is distributed with **ARMv7**, **ARM64** and **x86** native library binaries.
+_BlinkID_ is distributed with **ARMv7**, **ARM64**, **x86** and **x86_64** native library binaries.
 
 **ARMv7** architecture gives the ability to take advantage of hardware accelerated floating point operations and SIMD processing with [NEON](http://www.arm.com/products/processors/technologies/neon.php). This gives _BlinkID_ a huge performance boost on devices that have ARMv7 processors. Most new devices (all since 2012.) have ARMv7 processor so it makes little sense not to take advantage of performance boosts that those processors can give. Also note that some devices with ARMv7 processors do not support NEON instruction sets, most popular being those based on [NVIDIA Tegra 2](https://en.wikipedia.org/wiki/Tegra#Tegra_2). Since these devices are old by today's standard, _BlinkID_ does not support them. For the same reason, _BlinkID_ does not support devices with ARMv5 (`armeabi`) architecture.
 
 **ARM64** is the new processor architecture that most new devices use. ARM64 processors are very powerful and also have the possibility to take advantage of new NEON64 SIMD instruction set to quickly process multiple pixels with a single instruction.
 
-**x86** and **x86_64** architectures are used on very few devices today, most of them are manufactured before 2015., like [Asus Zenfone 4](http://www.gsmarena.com/asus_zenfone_4-5951.php) and they take about 1% of all devices, according to the Device catalog on Google Play Console. Some x86 and x86_64 devices have ARM emulator, but running the _BlinkID_ on the emulator will give a huge performance penalty. _BlinkID_ contains x86 native library mostly to support emulators, while it does not support x86_64 ABI.
+**x86** and **x86_64** architectures are used on very few devices today, most of them are manufactured before 2015, like [Asus Zenfone 4](http://www.gsmarena.com/asus_zenfone_4-5951.php) and they take about 1% of all devices, according to the Device catalog on Google Play Console. Some x86 and x86_64 devices have ARM emulator, but running the _BlinkID_ on the emulator will give a huge performance penalty.
 
 There are some issues to be considered:
 
@@ -895,7 +868,7 @@ There are some issues to be considered:
 - x86_64 processors understand x86 instruction set, but x86 processors do not understand x86_64 instruction set
 - if x86_64 processor executes x86 code, it does not take advantage of 64-bit registers and use two instructions instead of one for 64-bit operations
 
-`LibBlinkID.aar` archive contains ARMv7, ARM64 and x86 builds of the native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all these processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64 and x86 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
+`LibBlinkID.aar` archive contains ARMv7, ARM64, x86 and x86_64 builds of the native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all these processor architectures. Thus, _BlinkID_ will work on ARMv7, ARM64, x86 and x86_64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
 
 ## <a name="reduceSize"></a> Reducing the final size of your app
 
@@ -912,7 +885,7 @@ android {
     abi {
       enable true
       reset()
-      include 'x86', 'armeabi-v7a', 'arm64-v8a'
+      include 'x86', 'armeabi-v7a', 'arm64-v8a', 'x86_64'
       universalApk true
     }
   }
@@ -923,7 +896,7 @@ With that build instructions, gradle will build four different APK files for you
 
 ```
 // map for the version code
-def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3]
+def abiVersionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3, 'x86_64':4]
 
 import com.android.build.OutputFile
 
@@ -942,7 +915,7 @@ For more information about creating APK splits with gradle, check [this article 
 
 After generating multiple APK's, you need to upload them to Google Play. For tutorial and rules about uploading multiple APK's to Google Play, please read the [official Google article about multiple APKs](https://developer.android.com/google/play/publishing/multiple-apks.html).
 
-### Removing processor architecture support in gradle without using APK splits
+### Removing processor architecture support
 
 If you won't be distributing your app via Google Play or for some other reasons want to have single APK of smaller size, you can completely remove support for certain CPU architecture from your APK. **This is not recommended due to [consequences](#archConsequences)**.
 
@@ -977,15 +950,19 @@ where `<ABI>` represents the CPU architecture you want to remove:
 - to remove x86 support, use `exclude 'lib/x86/libBlinkID.so'`
 - to remove ARM64 support, use `exclude 'lib/arm64-v8a/libBlinkID.so'`
     - **NOTE**: this is **not recommended**. See [this notice](#64bitNotice).
+- to remove x86_64 support, use `exclude 'lib/x86_64/libBlinkID.so'`
 
 You can also remove multiple processor architectures by specifying `exclude` directive multiple times. Just bear in mind that removing processor architecture will have side effects on performance and stability of your app. Please read [this](#archConsequences) for more information.
 
 ### <a name="archConsequences"></a> Consequences of removing processor architecture
 
-- by removing ARMv7 support, _BlinkID_ will not work on devices that have ARMv7 processors. 
-- by removing ARM64 support, _BlinkID_ will not use ARM64 features on ARM64 device
+- Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
+
+- By removing ARMv7 support, _BlinkID_ will not work on devices that have ARMv7 processors. 
+- By removing ARM64 support, _BlinkID_ will not use ARM64 features on ARM64 device
     - also, some future devices may ship with ARM64 processors that will not support ARMv7 instruction set. Please see [this note](#64bitNotice) for more information.
-- by removing x86 support, _BlinkID_ will not work on devices that have x86 processor, except in situations when devices have ARM emulator - in that case, _BlinkID_ will work, but will be slow and possibly unstable
+- By removing x86 support, _BlinkID_ will not work on devices that have x86 processor, except in situations when devices have ARM emulator - in that case, _BlinkID_ will work, but will be slow and possibly unstable
+- By removing x86_64 support, _BlinkID_ will not use 64-bit optimizations on x86_64 processor, but if x86 support is not removed, _BlinkID_ should work
 
 
 ## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries
