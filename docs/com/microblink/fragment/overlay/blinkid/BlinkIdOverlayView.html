@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -200,6 +200,13 @@ var activeTableTab = "activeTableTab";
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
+<div class="block">Set whether to show additional instructions when scanning back side of the document instructing
+ user to scan the barcode.</div>
 </td>
 </tr>
 </table>
@@ -389,6 +396,21 @@ var activeTableTab = "activeTableTab";
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>strings to be used for error dialog shown when data from the second document side
  doesn't match the data from the first side</dd>
+</dl>
+</li>
+</ul>
+<a name="setShowBackSideBarcodeInstructions-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowBackSideBarcodeInstructions</h4>
+<pre>void&nbsp;setShowBackSideBarcodeInstructions(boolean&nbsp;shouldShow)</pre>
+<div class="block">Set whether to show additional instructions when scanning back side of the document instructing
+ user to scan the barcode.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>shouldShow</code> - true if barcode instructions should be shown</dd>
 </dl>
 </li>
 </ul>

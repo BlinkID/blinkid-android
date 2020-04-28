@@ -35,6 +35,8 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>First name</td> <td>Always</td><tr>
 <tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Nationality</td> <td>Sometimes</td><tr>
+<tr> <td>Sex</td> <td>Sometimes</td><tr>
 <th colspan=2>ARGENTINA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Sometimes</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -45,6 +47,14 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>MRZ</td> <td>Sometimes</td><tr>
 <tr> <td>Nationality</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>AUSTRALIA AUSTRALIAN CAPITAL TERRITORY DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Conditions</td> <td>Sometimes</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
 <th colspan=2>AUSTRALIA NEW SOUTH WALES DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -54,6 +64,18 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>Full name</td> <td>Always</td><tr>
 <tr> <td>Restrictions</td> <td>Sometimes</td><tr>
+<th colspan=2>AUSTRALIA NORTHERN TERRITORY DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Conditions</td> <td>Sometimes</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Sometimes</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<th colspan=2>AUSTRALIA NORTHERN TERRITORY DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
 <th colspan=2>AUSTRALIA QUEENSLAND DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 <tr> <td>Conditions</td> <td>Sometimes</td><tr>
@@ -73,6 +95,13 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>Full name</td> <td>Always</td><tr>
 <tr> <td>Restrictions</td> <td>Sometimes</td><tr>
+<th colspan=2>AUSTRALIA TASMANIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
 <th colspan=2>AUSTRALIA VICTORIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -95,6 +124,11 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>First name</td> <td>Always</td><tr>
 <tr> <td>Last name</td> <td>Always</td><tr>
+<th colspan=2>AUSTRALIA WESTERN AUSTRALIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Sometimes</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
 <th colspan=2>AUSTRIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -317,6 +351,56 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA NEW BRUNSWICK DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA NEW BRUNSWICK DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA NOVA SCOTIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA NOVA SCOTIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>CANADA ONTARIO DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -392,6 +476,98 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA YUKON DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Sometimes</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Sometimes</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA YUKON DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA DL PUBLIC SERVICES CARD - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Sometimes</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA DL PUBLIC SERVICES CARD - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA ALBERTA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA ALBERTA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>CANADA ONTARIO ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -402,6 +578,27 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>CANADA ONTARIO ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA PUBLIC SERVICES CARD - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>CANADA BRITISH COLUMBIA PUBLIC SERVICES CARD - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -429,11 +626,15 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 <tr> <td>Profession</td> <td>Sometimes</td><tr>
 <th colspan=2>COLOMBIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Sometimes</td><tr>
+<tr> <td>Date of birth</td> <td>Sometimes</td><tr>
+<tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
-<tr> <td>Full name</td> <td>Always</td><tr>
-<tr> <td>Issuing authority</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Sometimes</td><tr>
+<tr> <td>Full name</td> <td>Sometimes</td><tr>
+<tr> <td>Issuing authority</td> <td>Sometimes</td><tr>
+<tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Restrictions</td> <td>Sometimes</td><tr>
 <th colspan=2>COLOMBIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -464,7 +665,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>Place of birth</td> <td>Always</td><tr>
-<tr> <td>Sex</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Sometimes</td><tr>
 <th colspan=2>CROATIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -540,7 +741,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Place of birth</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Sometimes</td><tr>
 <th colspan=2>CZECHIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Address</td> <td>Sometimes</td><tr>
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
 <tr> <td>MRZ</td> <td>Always</td><tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
@@ -1040,6 +1241,7 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Always</td><tr>
 <tr> <td>Personal ID number</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>MEXICO VOTER ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <th colspan=2>MOROCCO ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -1065,6 +1267,9 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
 <tr> <td>Last name</td> <td>Always</td><tr>
 <tr> <td>Place of birth</td> <td>Always</td><tr>
+<th colspan=2>NETHERLANDS DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document number</td> <td>Sometimes</td><tr>
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
 <th colspan=2>NETHERLANDS ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -1131,6 +1336,23 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
 <tr> <td>Date of issue</td> <td>Sometimes</td><tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
+<th colspan=2>PANAMA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Nationality</td> <td>Always</td><tr>
+<th colspan=2>PANAMA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>PARAGUAY ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -1336,6 +1558,17 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
 <tr> <td>Nationality</td> <td>Always</td><tr>
+<th colspan=2>SINGAPORE WORK PERMIT - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Employer</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Profession</td> <td>Always</td><tr>
+<th colspan=2>SINGAPORE WORK PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Nationality</td> <td>Always</td><tr>
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>SLOVAKIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -1479,6 +1712,10 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Nationality</td> <td>Always</td><tr>
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>TAIWAN ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
 <th colspan=2>THAILAND ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -1766,6 +2003,31 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Restrictions</td> <td>Always</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>USA DELAWARE DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA DISTRICT OF COLUMBIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA DISTRICT OF COLUMBIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -2313,10 +2575,11 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
-<tr> <td>Endorsements</td> <td>Always</td><tr>
-<tr> <td>First name</td> <td>Always</td><tr>
-<tr> <td>Last name</td> <td>Always</td><tr>
-<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Sometimes</td><tr>
+<tr> <td>First name</td> <td>Sometimes</td><tr>
+<tr> <td>Full name</td> <td>Sometimes</td><tr>
+<tr> <td>Last name</td> <td>Sometimes</td><tr>
+<tr> <td>Restrictions</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>USA NEW JERSEY DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
@@ -2833,6 +3096,49 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA ALABAMA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA ALABAMA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA ALASKA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA ALASKA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>USA ARIZONA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Sometimes</td><tr>
@@ -2967,6 +3273,28 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA IDAHO ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA IDAHO ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>USA ILLINOIS ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Vehicle class</td> <td>Sometimes</td><tr>
@@ -2979,6 +3307,74 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>USA ILLINOIS ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA INDIANA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA INDIANA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA KENTUCKY ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA KENTUCKY ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA MASSACHUSETTS ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA MASSACHUSETTS ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>
@@ -3128,6 +3524,28 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Full name</td> <td>Pending</td><tr>
 <tr> <td>Last name</td> <td>Pending</td><tr>
 <tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA OREGON ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Sometimes</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA OREGON ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
 <th colspan=2>USA PENNSYLVANIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -3139,6 +3557,28 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Last name</td> <td>Sometimes</td><tr>
 <tr> <td>Sex</td> <td>Always</td><tr>
 <th colspan=2>USA PENNSYLVANIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Pending</td><tr>
+<tr> <td>Date of birth</td> <td>Pending</td><tr>
+<tr> <td>Date of expiry</td> <td>Pending</td><tr>
+<tr> <td>Date of issue</td> <td>Pending</td><tr>
+<tr> <td>Document number</td> <td>Pending</td><tr>
+<tr> <td>Endorsements</td> <td>Pending</td><tr>
+<tr> <td>Restrictions</td> <td>Pending</td><tr>
+<tr> <td>Vehicle class</td> <td>Pending</td><tr>
+<tr> <td>First name</td> <td>Pending</td><tr>
+<tr> <td>Full name</td> <td>Pending</td><tr>
+<tr> <td>Last name</td> <td>Pending</td><tr>
+<tr> <td>Sex</td> <td>Pending</td><tr>
+<th colspan=2>USA WASHINGTON ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+<tr> <td>First name</td> <td>Always</td><tr>
+<tr> <td>Last name</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always</td><tr>
+<th colspan=2>USA WASHINGTON ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Pending</td><tr>
 <tr> <td>Date of birth</td> <td>Pending</td><tr>
 <tr> <td>Date of expiry</td> <td>Pending</td><tr>

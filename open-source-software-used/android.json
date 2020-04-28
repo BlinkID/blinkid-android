@@ -1,0 +1,9 @@
+[
+   {
+      "licensor" : "Google LLC",
+      "url" : "https://github.com/firebase/mlkit-material-android/blob/0bd8e76299ea784413eb447f7810ec3abc93a7e4/app/src/main/java/com/google/firebase/ml/md/java/camera/CameraReticleAnimator.java",
+      "class" : "com.microblink.fragment.overlay.blinkid.reticleui.PulseAnimator",
+      "license" : "Apache License, Version 2.0"
+   }
+]
+

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -147,158 +147,170 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getAge--">getAge</a></span>()</code>
+<div class="block">The current age of the document owner in years.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html" title="class in com.microblink.entities.recognizers.blinkid">AgeLimitStatus</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getAgeLimitStatus-int-">getAgeLimitStatus</a></span>(int&nbsp;ageLimit)</code>
+<div class="block">Calculates whether the document owner is older than the given <code>ageLimit</code> in years or not.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getAlienNumber--">getAlienNumber</a></span>()</code>
 <div class="block">Returns alien number.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getApplicationReceiptNumber--">getApplicationReceiptNumber</a></span>()</code>
 <div class="block">Returns application receipt number.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getDateOfBirth--">getDateOfBirth</a></span>()</code>
 <div class="block">Returns holder's date of birth</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/results/date/DateResult.html" title="class in com.microblink.results.date">DateResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getDateOfExpiry--">getDateOfExpiry</a></span>()</code>
 <div class="block">Returns date of expiry</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getDocumentCode--">getDocumentCode</a></span>()</code>
 <div class="block">Returns document code.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getDocumentNumber--">getDocumentNumber</a></span>()</code>
 <div class="block">Returns document number.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrtdDocumentType.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrtdDocumentType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getDocumentType--">getDocumentType</a></span>()</code>
 <div class="block">Returns the MRTD document type of recognized document.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getGender--">getGender</a></span>()</code>
 <div class="block">Returns gender of the card holder.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getImmigrantCaseNumber--">getImmigrantCaseNumber</a></span>()</code>
 <div class="block">Returns immigrant case number.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getIssuer--">getIssuer</a></span>()</code>
 <div class="block">Returns three-letter or two-letter code which indicate the issuing State.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getIssuerName--">getIssuerName</a></span>()</code>
 <div class="block">Returns full issuer name that is expanded from the three-letter or two-letter code which indicate
  the issuing State.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getMrzText--">getMrzText</a></span>()</code>
 <div class="block">Returns the entire Machine Readable Zone text from ID.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationality--">getNationality</a></span>()</code>
 <div class="block">Returns nationality of the holder represented by a three-letter or two-letter code.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getNationalityName--">getNationalityName</a></span>()</code>
 <div class="block">Returns full nationality of the holder, which is expanded from the three-letter or two-letter
  nationality code.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt1--">getOpt1</a></span>()</code>
 <div class="block">Returns first optional data.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getOpt2--">getOpt2</a></span>()</code>
 <div class="block">Returns second optional data.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getPrimaryId--">getPrimaryId</a></span>()</code>
 <div class="block">Returns the primary indentifier.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedDocumentCode--">getSanitizedDocumentCode</a></span>()</code>
 <div class="block">Returns document code, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedDocumentNumber--">getSanitizedDocumentNumber</a></span>()</code>
 <div class="block">Returns document number, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedIssuer--">getSanitizedIssuer</a></span>()</code>
 <div class="block">Returns issuer, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedNationality--">getSanitizedNationality</a></span>()</code>
 <div class="block">Returns nationality, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt1--">getSanitizedOpt1</a></span>()</code>
 <div class="block">Returns opt1 field, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSanitizedOpt2--">getSanitizedOpt2</a></span>()</code>
 <div class="block">Returns opt2 field, but without additional '<' characters if they exist.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#getSecondaryId--">getSecondaryId</a></span>()</code>
 <div class="block">Returns the secondary identifier.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzParsed--">isMrzParsed</a></span>()</code>
 <div class="block">Returns true if Machine Readable Zone has been parsed, false otherwise.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html#isMrzVerified--">isMrzVerified</a></span>()</code>
 <div class="block">Returns true if all check digits inside MRZ are correct, false otherwise.</div>
@@ -455,6 +467,52 @@ public&nbsp;<a href="../../../../../../com/microblink/results/date/DateResult.ht
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>holder's date of birth</dd>
+</dl>
+</li>
+</ul>
+<a name="getAge--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAge</h4>
+<pre>public&nbsp;int&nbsp;getAge()</pre>
+<div class="block">The current age of the document owner in years. It is calculated as difference
+ between now and date of birth. Now is current time on the device.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>current age of the document owner in years or <code>-1</code> if date of birth is unknown.</dd>
+</dl>
+</li>
+</ul>
+<a name="getAgeLimitStatus-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAgeLimitStatus</h4>
+<pre>public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html" title="class in com.microblink.entities.recognizers.blinkid">AgeLimitStatus</a>&nbsp;getAgeLimitStatus(int&nbsp;ageLimit)</pre>
+<div class="block">Calculates whether the document owner is older than the given <code>ageLimit</code> in years or not.
+ Status is calculated by using the date of birth and the current time on the device.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>ageLimit</code> - age limit in years</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>age limit status for the document owner:
+ <ul>
+     <li>
+         <a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html#OverAgeLimit"><code>AgeLimitStatus.OverAgeLimit</code></a>:
+         age is greater than or equal to the given age limit
+     </li>
+     <li>
+         <a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html#BelowAgeLimit"><code>AgeLimitStatus.BelowAgeLimit</code></a>:
+         age is less than the given age limit
+     </li>
+     <li>
+         <a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html#NotAvailable"><code>AgeLimitStatus.NotAvailable</code></a>:
+         date of birth is unknown
+     </li>
+ </ul></dd>
 </dl>
 </li>
 </ul>

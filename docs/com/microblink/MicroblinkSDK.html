@@ -225,6 +225,84 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getApplicationContext--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getApplicationContext</h4>
+<pre>@Nullable
+public static&nbsp;android.content.Context&nbsp;getApplicationContext()</pre>
+</li>
+</ul>
+<a name="getIntentDataTransferMode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getIntentDataTransferMode</h4>
+<pre>@NonNull
+public static&nbsp;<a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent">IntentDataTransferMode</a>&nbsp;getIntentDataTransferMode()</pre>
+<div class="block">Returns current intent data transfer mode.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>current intent data transfer mode.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent"><code>IntentDataTransferMode</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setIntentDataTransferMode</h4>
+<pre>public static&nbsp;void&nbsp;setIntentDataTransferMode(@NonNull
+                                             <a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent">IntentDataTransferMode</a>&nbsp;intentDataTransferMode)</pre>
+<div class="block">Sets intent data transfer mode for passing Microblink SDK data between activities.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>intentDataTransferMode</code> - requested data transfer mode</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent"><code>IntentDataTransferMode</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="setShowTimeLimitedLicenseWarning-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setShowTimeLimitedLicenseWarning</h4>
+<pre>public static&nbsp;void&nbsp;setShowTimeLimitedLicenseWarning(boolean&nbsp;showTimeLimitedLicenseWarning)</pre>
+<div class="block">Disable or enable showing of toast when time limited license key is entered. By default, whenever
+ someone uses time-limited license key, a toast will appear informing user that license is time-limited.
+ This feature should protect you from accidentally using time-limited demo license key in production
+ version of your app.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>showTimeLimitedLicenseWarning</code> - whether or not warning for using time limited license should be shown</dd>
+</dl>
+</li>
+</ul>
+<a name="getNativeLibraryVersionString--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNativeLibraryVersionString</h4>
+<pre>@NonNull
+public static&nbsp;java.lang.String&nbsp;getNativeLibraryVersionString()</pre>
+<div class="block">Methods returns the version string of native library, if it has been
+ loaded. If native library is not loaded, method returns string
+ "native library not loaded".</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>version string of native library</dd>
+</dl>
+</li>
+</ul>
 <a name="setLicenseBuffer-byte:A-android.content.Context-">
 <!--   -->
 </a>
@@ -340,7 +418,7 @@ extends java.lang.Object</pre>
 <a name="setLicenseFile-java.lang.String-java.lang.String-android.content.Context-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>setLicenseFile</h4>
 <pre>public static&nbsp;void&nbsp;setLicenseFile(@NonNull
@@ -359,84 +437,6 @@ extends java.lang.Object</pre>
 <dd><code>applicationContext</code> - Application context required to access asset manager.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="../../com/microblink/recognition/InvalidLicenceKeyException.html" title="class in com.microblink.recognition">InvalidLicenceKeyException</a></code> - if license is not valid</dd>
-</dl>
-</li>
-</ul>
-<a name="getApplicationContext--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getApplicationContext</h4>
-<pre>@Nullable
-public static&nbsp;android.content.Context&nbsp;getApplicationContext()</pre>
-</li>
-</ul>
-<a name="getIntentDataTransferMode--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getIntentDataTransferMode</h4>
-<pre>@NonNull
-public static&nbsp;<a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent">IntentDataTransferMode</a>&nbsp;getIntentDataTransferMode()</pre>
-<div class="block">Returns current intent data transfer mode.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>current intent data transfer mode.</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent"><code>IntentDataTransferMode</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="setIntentDataTransferMode-com.microblink.intent.IntentDataTransferMode-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setIntentDataTransferMode</h4>
-<pre>public static&nbsp;void&nbsp;setIntentDataTransferMode(@NonNull
-                                             <a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent">IntentDataTransferMode</a>&nbsp;intentDataTransferMode)</pre>
-<div class="block">Sets intent data transfer mode for passing Microblink SDK data between activities.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>intentDataTransferMode</code> - requested data transfer mode</dd>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent"><code>IntentDataTransferMode</code></a></dd>
-</dl>
-</li>
-</ul>
-<a name="setShowTimeLimitedLicenseWarning-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setShowTimeLimitedLicenseWarning</h4>
-<pre>public static&nbsp;void&nbsp;setShowTimeLimitedLicenseWarning(boolean&nbsp;showTimeLimitedLicenseWarning)</pre>
-<div class="block">Disable or enable showing of toast when time limited license key is entered. By default, whenever
- someone uses time-limited license key, a toast will appear informing user that license is time-limited.
- This feature should protect you from accidentally using time-limited demo license key in production
- version of your app.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>showTimeLimitedLicenseWarning</code> - whether or not warning for using time limited license should be shown</dd>
-</dl>
-</li>
-</ul>
-<a name="getNativeLibraryVersionString--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getNativeLibraryVersionString</h4>
-<pre>@NonNull
-public static&nbsp;java.lang.String&nbsp;getNativeLibraryVersionString()</pre>
-<div class="block">Methods returns the version string of native library, if it has been
- loaded. If native library is not loaded, method returns string
- "native library not loaded".</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>version string of native library</dd>
 </dl>
 </li>
 </ul>

@@ -23,7 +23,6 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
 import com.microblink.hardware.SuccessCallback;
-import com.microblink.hardware.camera.CameraPermissionManagerResources;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.metadata.MetadataCallbacks;
 import com.microblink.metadata.detection.FailedDetectionCallback;
@@ -139,7 +138,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         mRecognizerView.setAspectMode(CameraAspectMode.ASPECT_FILL);
 
         // instantiate the camera permission manager
-        mCameraPermissionManager = new CameraPermissionManager(this, new CameraPermissionManagerResources());
+        mCameraPermissionManager = new CameraPermissionManager(this);
         // get the built in layout that should be displayed when camera permission is not given
         View v = mCameraPermissionManager.getAskPermissionOverlay();
         if (v != null) {

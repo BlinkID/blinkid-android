@@ -2,6 +2,7 @@ package com.microblink.result.extract.blinkid.generic;
 
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
+import com.microblink.entities.recognizers.blinkid.generic.classinfo.ClassInfo;
 import com.microblink.libutils.R;
 import com.microblink.result.extract.blinkid.BlinkIdExtractor;
 
@@ -19,6 +20,10 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        int age = result.getAge();
+        if (age != -1) {
+            add(R.string.PPAge, age);
+        }
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
@@ -47,9 +52,16 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
             add(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
         }
 
+        ClassInfo classInfo = result.getClassInfo();
+        add(R.string.PPClassInfoCountry, classInfo.getCountry().name());
+        add(R.string.PPClassInfoRegion, classInfo.getRegion().name());
+        add(R.string.PPClassInfoType, classInfo.getType().name());
+
         if ( result.getMrzResult().isMrzParsed() ) {
             extractMRZResult(result.getMrzResult());
         }
+
+        add(R.string.MBDocumentImageColorStatus, result.getDocumentImageColorStatus().name());
 
     }
 

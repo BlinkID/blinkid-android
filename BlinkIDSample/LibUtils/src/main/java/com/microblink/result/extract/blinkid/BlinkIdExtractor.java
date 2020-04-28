@@ -32,6 +32,10 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         add(R.string.PPPrimaryId, mrzResult.getPrimaryId());
         add(R.string.PPSecondaryId, mrzResult.getSecondaryId());
         add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
+        int age = mrzResult.getAge();
+        if (age != -1) {
+            add(R.string.PPAge, age);
+        }
         add(R.string.PPSex, mrzResult.getGender());
         add(R.string.PPNationalityCode, mrzResult.getSanitizedNationality());
         add(R.string.PPNationality, mrzResult.getNationalityName());
