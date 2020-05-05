@@ -10,7 +10,9 @@ pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd -P`
 popd > /dev/null
 
-hash apkanalyzer 2>/dev/null || { echo >&2 "apkanalyzer must be on path. Aborting. Please install `https://developer.android.com/studio/command-line/apkanalyzer` and add it to path."; exit 1; }
+APKANALYZER=apkanalyzer
+command -v $APKANALYZER > /dev/null || { APKANALYZER="${ANDROID_SDK_DIR}/tools/bin/apkanalyzer"; }
+command -v $APKANALYZER > /dev/null || { echo >&2 "Please set ANDROID_SDK_DIR environment variable or add apkanalyzer (https://developer.android.com/studio/command-line/apkanalyzer) to PATH."; exit 1; }
 
 SDK_NAME=$1
 PROJECT_PATH=$2
@@ -33,8 +35,8 @@ OUTPUT="## $SDK_NAME"$' SDK size report
 \n| ABI | APK file size | APK download size |\n| --- |:-------------:| :----------------:|\n'
 
 for abi in "${ABIS[@]}"; do
-    F_SIZE=`apkanalyzer -h apk file-size $APP_NAME-$abi-release.apk`
-    D_SIZE=`apkanalyzer -h apk download-size $APP_NAME-$abi-release.apk`
+    F_SIZE=`$APKANALYZER -h apk file-size $APP_NAME-$abi-release.apk` || exit 1
+    D_SIZE=`$APKANALYZER -h apk download-size $APP_NAME-$abi-release.apk` || exit 1
     echo "$abi APK File size is: $F_SIZE"
     echo "$abi APK Download size is: $D_SIZE"
     OUTPUT+=$"| $abi | $F_SIZE | $D_SIZE |"$'\n'
@@ -43,7 +45,4 @@ done
 popd > /dev/null
 popd > /dev/null
 
-
-
 echo "$OUTPUT" > $OUTPUT_MARKDOWN_FILE
-
