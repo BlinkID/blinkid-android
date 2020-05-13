@@ -75,7 +75,7 @@
 | Hong Kong | ID Card\* | 香港身份證 |
 | Hungary | Driving Licence\* | Vezetői engedély |
 | Hungary | ID Card | Személyazonosító igazolvány |
-| India | ID Card<sup>BETA</sup> | Aaadhaar card / आधार कार्ड |
+| India | ID Card<sup>BETA</sup> | Aadhaar card / आधार कार्ड |
 | India | PAN Card\* | स्थायी खाता संख्या कार्ड |
 | Indonesia | Driving Licence\* | Surat izin mengemudi (SIM) |
 | Indonesia | ID Card\* | Kartu tanda penduduk (KTP) |
