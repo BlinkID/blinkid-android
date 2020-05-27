@@ -124,7 +124,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 
 #### Performing your first scan
-1. First you'll need to create an account at [Microblink dashboard](https://microblink.com/login) where you can generate a demo license for your app. License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
+1. First you'll need to create an account at [Microblink dashboard](https://microblink.com/login) where you can generate a free trial license key for your app. License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
 
     Download your licence file and put it in your application's _assets_ folder. Make sure to set the license key before using any other classes from the SDK, otherwise you will get a runtime exception. 
     
