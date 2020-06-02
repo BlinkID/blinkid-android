@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn install:install-file -Dfile=LibBlinkID.aar -DpomFile=pom.xml -DcreateChecksum=true -Djavadoc=LibBlinkID-javadoc.jar
+mvn install:install-file -Dfile=LibBlinkID.aar -DpomFile=pom.xml -Djavadoc=LibBlinkID-javadoc.jar

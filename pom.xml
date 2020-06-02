@@ -35,7 +35,7 @@
       <plugin>
         <groupId>com.simpligility.maven.plugins</groupId>
         <artifactId>android-maven-plugin</artifactId>
-        <version>4.4.1</version>
+        <version>4.6.0</version>
         <extensions>true</extensions>
         <configuration>
           <sign>
@@ -43,6 +43,13 @@
           </sign>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.3.1</version>
+        <configuration>
+          <createChecksum>true</createChecksum>
+        </configuration>
+    </plugin>
     </plugins>
   </build>
 </project>
