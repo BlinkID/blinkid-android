@@ -161,6 +161,7 @@ public class ScanImageActivity extends Activity {
         pd.setCancelable(false);
         pd.show();
 
+        mRecognizerRunner.resetRecognitionState();
         mRecognizerRunner.recognizeBitmap(mBitmap, Orientation.ORIENTATION_LANDSCAPE_RIGHT, new ScanResultListener() {
             @Override
             public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
