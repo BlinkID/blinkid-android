@@ -62,6 +62,7 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         }
 
         add(R.string.MBDocumentImageColorStatus, result.getDocumentImageColorStatus().name());
+        add(R.string.MBDocumentImageMoireStatus, result.getDocumentImageMoireStatus().name());
 
     }
 

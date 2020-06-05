@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,25 +184,31 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onMovingCloserToBarcodeRequired--">onMovingCloserToBarcodeRequired</a></span>()</code>
+<div class="block">Called when user should be instructed to move closer to barcode.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -278,6 +284,16 @@ var activeTableTab = "activeTableTab";
 <h4>onSecondSideScanStarted</h4>
 <pre>void&nbsp;onSecondSideScanStarted()</pre>
 <div class="block">Called when scanning of the second side starts.</div>
+</li>
+</ul>
+<a name="onMovingCloserToBarcodeRequired--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onMovingCloserToBarcodeRequired</h4>
+<pre>void&nbsp;onMovingCloserToBarcodeRequired()</pre>
+<div class="block">Called when user should be instructed to move closer to barcode.</div>
 </li>
 </ul>
 <a name="setRecognizerSupportsClassification-boolean-">

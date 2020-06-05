@@ -13,9 +13,13 @@ _BlinkID_ SDK for Android enables scanning of over 150 international identity do
 - Front and back side data capture and comparison
 - Extraction of face, document, and signature photo
 
-You can get started by trying out our [sample apps](#quickDemo) first or begin [integrating the SDK](#androidStudioIntegration) into your app right away.
+You can get started by trying out our [sample apps](#quickDemo) first or begin [integrating the SDK](#androidStudioIntegration) into your app right away. 
 
-Download our [BlinkID app](https://play.google.com/store/apps/details?id=com.microblink.blinkidapp) to see SDK integration in a production app. Scanning UX from this app is available as an open-source library [blinkid-ui-android](https://github.com/BlinkID/blinkid-ui-android).
+This SDK can also be used to build apps for Huawei App Gallery.
+
+If you'd like to try _BlinkID_ without coding, simply download the free Microblink Vision demo app:
+
+[![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/playstore.png)](https://showcase.page.link/githubAndroid) [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/appgallery.png)](https://appgallery7.huawei.com/#/app/C101961459)
 
 <p align="center" >
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid-v5.gif" alt="BlinkID SDK">
@@ -103,7 +107,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.4.0@aar') {
+    implementation('com.microblink:blinkid:5.5.0@aar') {
         transitive = true
     }
 }
@@ -115,7 +119,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.4.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.5.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear

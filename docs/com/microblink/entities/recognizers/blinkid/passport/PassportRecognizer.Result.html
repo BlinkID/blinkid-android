@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,7 +117,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a></dd>
 </dl>
 <dl>
 <dt>Enclosing class:</dt>
@@ -127,7 +127,7 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public static final class <span class="typeNameLabel">PassportRecognizer.Result</span>
 extends <a href="../../../../../../com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a>
-implements <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a></pre>
+implements <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFaceImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">FullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult">EncodedFullDocumentImageResult</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureResult</a></pre>
 </li>
 </ul>
 </div>
@@ -209,6 +209,13 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/EncodedFullDocumentImageResult.html#CLASS_NAME">CLASS_NAME</a></code></li>
 </ul>
 <ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.digitalsignature.DigitalSignatureResult">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.digitalsignature.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureResult</a></h3>
+<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#CLASS_NAME">CLASS_NAME</a></code></li>
+</ul>
+<ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
 <!--   -->
 </a>
@@ -260,35 +267,47 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getEncodedFaceImage--">getEncodedFaceImage</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getDigitalSignature--">getDigitalSignature</a></span>()</code>
+<div class="block">Returns digital signature of recognition results.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></span>()</code>
+<div class="block">Returns digital signature version.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>byte[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getEncodedFaceImage--">getEncodedFaceImage</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getEncodedFullDocumentImage--">getEncodedFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getFaceImage--">getFaceImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/image/Image.html" title="class in com.microblink.image">Image</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getFullDocumentImage--">getFullDocumentImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/mrtd/MrzResult.html" title="class in com.microblink.entities.recognizers.blinkid.mrtd">MrzResult</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#getMrzResult--">getMrzResult</a></span>()</code>
 <div class="block">The data extracted from the machine readable zone.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -377,6 +396,41 @@ public&nbsp;<a href="../../../../../../com/microblink/image/Image.html" title="c
 <dd>image of the full document if enabled with
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-"><code>FullDocumentImageOptions.setReturnFullDocumentImage(boolean)</code></a>,
  else <code>null</code></dd>
+</dl>
+</li>
+</ul>
+<a name="getDigitalSignatureVersion--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDigitalSignatureVersion</h4>
+<pre>public&nbsp;long&nbsp;getDigitalSignatureVersion()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">DigitalSignatureResult</a></code></span></div>
+<div class="block">Returns digital signature version.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignatureVersion--">getDigitalSignatureVersion</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureResult</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>signature version</dd>
+</dl>
+</li>
+</ul>
+<a name="getDigitalSignature--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDigitalSignature</h4>
+<pre>@NonNull
+public&nbsp;byte[]&nbsp;getDigitalSignature()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignature--">DigitalSignatureResult</a></code></span></div>
+<div class="block">Returns digital signature of recognition results.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html#getDigitalSignature--">getDigitalSignature</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureResult.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureResult</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>signature if available, null otherwise</dd>
 </dl>
 </li>
 </ul>

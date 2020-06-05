@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -242,11 +242,17 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#resetRecognitionState--">resetRecognitionState</a></span>()</code>
+<div class="block">Resets the recognizer state, i.e.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#setMetadataCallbacks-com.microblink.metadata.MetadataCallbacks-">setMetadataCallbacks</a></span>(<a href="../../../com/microblink/metadata/MetadataCallbacks.html" title="class in com.microblink.metadata">MetadataCallbacks</a>&nbsp;metadataCallbacks)</code>
 <div class="block">Sets the metadata callbacks that will obtain metadata during processing.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#terminate--">terminate</a></span>()</code>
 <div class="block">Terminates the native library.</div>
@@ -459,6 +465,17 @@ public final&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.St
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is not initialized or is currently working</dd>
 <dd><code>java.lang.NullPointerException</code> - if given null scan result listener</dd>
 </dl>
+</li>
+</ul>
+<a name="resetRecognitionState--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetRecognitionState</h4>
+<pre>@AnyThread
+public final&nbsp;void&nbsp;resetRecognitionState()</pre>
+<div class="block">Resets the recognizer state, i.e. deletes the cached data from multiple recognitions.</div>
 </li>
 </ul>
 <a name="recognizeImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-">
