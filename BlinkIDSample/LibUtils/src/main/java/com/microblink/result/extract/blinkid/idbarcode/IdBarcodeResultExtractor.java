@@ -37,6 +37,9 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         add(R.string.PPPersonalNumber, result.getPersonalIdNumber());
         add(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        add(R.string.PPRestrictions, result.getRestrictions());
+        add(R.string.PPEndorsements, result.getEndorsements());
+        add(R.string.PPVehicleClass, result.getVehicleClass());
         add(R.string.PPBarcodeType, result.getBarcodeType().name());
         add(R.string.PPUncertain, result.isUncertain());
         add(R.string.PPBarcodeData, result.getStringData());

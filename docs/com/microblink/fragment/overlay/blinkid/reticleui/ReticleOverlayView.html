@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -213,25 +213,31 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onMovingCloserToBarcodeRequired--">onMovingCloserToBarcodeRequired</a></span>()</code>
+<div class="block">Called when user should be instructed to move closer to barcode.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -350,6 +356,21 @@ public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/component
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="onMovingCloserToBarcodeRequired--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onMovingCloserToBarcodeRequired</h4>
+<pre>public&nbsp;void&nbsp;onMovingCloserToBarcodeRequired()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onMovingCloserToBarcodeRequired--">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Called when user should be instructed to move closer to barcode.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onMovingCloserToBarcodeRequired--">onMovingCloserToBarcodeRequired</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -267,6 +267,9 @@
     <string name="MBDocumentFrontImageColorStatus">Front image color status</string>
     <string name="MBDocumentBackImageColorStatus">Back image color status</string>
 
+    <string name="MBDocumentImageMoireStatus">Moire status</string>
+    <string name="MBDocumentFrontImageMoireStatus">Front image Moire status</string>
+    <string name="MBDocumentBackImageMoireStatus">Back image Moire status</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c)2020 Microblink Ltd. All rights reserved.
+  ~
+  ~ ANY UNAUTHORIZED USE OR SALE, DUPLICATION, OR DISTRIBUTION
+  ~ OF THIS PROGRAM OR ANY OF ITS PARTS, IN SOURCE OR BINARY FORMS,
+  ~ WITH OR WITHOUT MODIFICATION, WITH THE PURPOSE OF ACQUIRING
+  ~ UNLAWFUL MATERIAL OR ANY OTHER BENEFIT IS PROHIBITED!
+  ~ THIS PROGRAM IS PROTECTED BY COPYRIGHT LAWS AND YOU MAY NOT
+  ~ REVERSE ENGINEER, DECOMPILE, OR DISASSEMBLE IT.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="mb_id_card">ID card</string>
+    <string name="mb_old_id_card">Old ID card</string>
+    <string name="mb_driver_license">Driver\'s license</string>
+    <string name="mb_driver_license_public_services_card">Driver\'s license / Public services card</string>
+    <string name="mb_public_services_card">Public services card</string>
+    <string name="mb_fin_card">Fin card</string>
+    <string name="mb_professional_id">Professional ID</string>
+    <string name="mb_passport">Passport</string>
+    <string name="mb_residence_permit">Residence permit</string>
+    <string name="mb_temporary_residence_permit">Temporary residence permit</string>
+    <string name="mb_visa">Travel visa</string>
+    <string name="mb_immigrator_id">Immigrator ID</string>
+    <string name="mb_military_id">Military ID</string>
+    <string name="mb_permanent_resident_id">Permanent resident ID</string>
+    <string name="mb_temporary_resident_id">Temporary resident ID</string>
+    <string name="mb_victoria_dl">Victoria driver\'s license</string>
+    <string name="mb_work_pass">Work pass</string>
+    <string name="mb_work_permit">Work permit</string>
+    <string name="mb_under_21_id">Under 21 ID</string>
+    <string name="mb_voter_id">Voter ID</string>
+    <string name="mb_consular_id" translatable="false">Consular ID</string>
+    <string name="mb_custom_mykad" translatable="false">MyKad</string>
+    <string name="mb_custom_ikad" translatable="false">iKad</string>
+    <string name="mb_custom_mykas" translatable="false">MyKAS</string>
+    <string name="mb_custom_mypr" translatable="false">MyPR</string>
+    <string name="mb_custom_mytentera" translatable="false">MyTentera</string>
+    <string name="mb_custom_mykid" translatable="false">MyKid</string>
+    <string name="mb_custom_mypolis" translatable="false">MyPolis</string>
+    <string name="mb_custom_myrela" translatable="false">MyRela</string>
+    <string name="mb_custom_id_blue_pink">ID (blue &amp; pink)</string>
+    <string name="mb_custom_employment_pass" translatable="false">Employment pass</string>
+    <string name="mb_multipurpose_id" translatable="false">Multipurpose ID</string>
+    <string name="mb_custom_kitas" translatable="false">Kitas</string>
+    <string name="mb_custom_pan_card" translatable="false">PAN Card</string>
+    <string name="mb_custom_entrepass" translatable="false">EntrePass</string>
+    <string name="mb_custom_s_pass" translatable="false">S Pass</string>
+</resources>

@@ -95,7 +95,7 @@
       "url" : "https://bitbucket.org/microblink/core-rapidjson",
       "description" : "A fast JSON parser/generator for C++ with both SAX/DOM style API",
       "license" : "BSD",
-      "package" : "RapidJSON/1.1.2@microblink/stable"
+      "package" : "RapidJSON/1.1.4@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/sweater",

@@ -63,6 +63,8 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
 
         add(R.string.MBDocumentFrontImageColorStatus, result.getDocumentFrontImageColorStatus().name());
         add(R.string.MBDocumentBackImageColorStatus, result.getDocumentBackImageColorStatus().name());
+        add(R.string.MBDocumentFrontImageMoireStatus, result.getDocumentFrontImageMoireStatus().name());
+        add(R.string.MBDocumentBackImageMoireStatus, result.getDocumentBackImageMoireStatus().name());
 
     }
 

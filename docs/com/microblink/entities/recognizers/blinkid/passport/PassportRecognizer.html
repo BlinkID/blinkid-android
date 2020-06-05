@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -117,13 +117,13 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></dd>
+<dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">PassportRecognizer</span>
 extends <a href="../../../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>
-implements <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a></pre>
+implements <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a></pre>
 <div class="block">Recognizer which can scan all passports with MRZ.</div>
 </li>
 </ul>
@@ -208,6 +208,13 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </a>
 <h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.imageoptions.encode.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a></h3>
 <code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
+</ul>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.com.microblink.entities.recognizers.blinkid.digitalsignature.DigitalSignatureOptions">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;com.microblink.entities.recognizers.blinkid.digitalsignature.<a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a></h3>
+<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#CLASS_NAME">CLASS_NAME</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="fields.inherited.from.class.android.os.Parcelable">
@@ -343,43 +350,55 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setSignResult-boolean-">setSignResult</a></span>(boolean&nbsp;signResult)</code>
+<div class="block">Whether or not recognition result should be signed.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldAnonymizeNetherlandsMrz--">shouldAnonymizeNetherlandsMrz</a></span>()</code>
 <div class="block">Defines whether the Netherlands MRZ should be anonymized.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
 <div class="block">Returns whether glare detector is enabled.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
 <div class="block">Returns whether face image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether full document image will be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldSignResult--">shouldSignResult</a></span>()</code>
+<div class="block">Returns whether or not recognition result should be signed.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
@@ -536,6 +555,42 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <dd><code><a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html#shouldDetectGlare--">shouldDetectGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>it the glare detector is enabled returns <code>true</code>, otherwise returns <code>false</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="setSignResult-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setSignResult</h4>
+<pre>public&nbsp;void&nbsp;setSignResult(boolean&nbsp;signResult)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#setSignResult-boolean-">DigitalSignatureOptions</a></code></span></div>
+<div class="block">Whether or not recognition result should be signed.
+ By default, this is set to 'false'</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#setSignResult-boolean-">setSignResult</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>signResult</code> - true if recognition result should be signed, false otherwise</dd>
+</dl>
+</li>
+</ul>
+<a name="shouldSignResult--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldSignResult</h4>
+<pre>public&nbsp;boolean&nbsp;shouldSignResult()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#shouldSignResult--">DigitalSignatureOptions</a></code></span></div>
+<div class="block">Returns whether or not recognition result should be signed.
+ By default, this is set to 'false'</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#shouldSignResult--">shouldSignResult</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>true if recognition result should be signed, false otherwise</dd>
 </dl>
 </li>
 </ul>

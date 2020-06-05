@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -317,124 +317,154 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setAnonymizeImage-boolean-">setAnonymizeImage</a></span>(boolean&nbsp;anonymizeImage)</code>
+<div class="block">Whether sensitive data should be anonymized in full document image result.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setBarcodeScanningStartedCallback-com.microblink.entities.recognizers.blinkid.generic.BarcodeScanningStartedCallback-">setBarcodeScanningStartedCallback</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BarcodeScanningStartedCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic">BarcodeScanningStartedCallback</a>&nbsp;barcodeScanningStartedCallback)</code>
+<div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BarcodeScanningStartedCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><code>BarcodeScanningStartedCallback</code></a> that will be invoked from the recognizer when barcode scanning step starts.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setClassFilter-com.microblink.entities.recognizers.blinkid.generic.ClassFilter-">setClassFilter</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/ClassFilter.html" title="interface in com.microblink.entities.recognizers.blinkid.generic">ClassFilter</a>&nbsp;classFilter)</code>
 <div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/ClassFilter.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><code>ClassFilter</code></a> that can determine whether document should be processed or filtered out.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setClassifierCallback-com.microblink.entities.recognizers.classifier.ClassifierCallback-">setClassifierCallback</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/classifier/ClassifierCallback.html" title="interface in com.microblink.entities.recognizers.classifier">ClassifierCallback</a>&nbsp;classifierCallback)</code>
 <div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/classifier/ClassifierCallback.html" title="interface in com.microblink.entities.recognizers.classifier"><code>ClassifierCallback</code></a> that will be invoked from the recognizer when document
  is classified.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setDewarpedImageCallback-com.microblink.entities.recognizers.blinkid.generic.DewarpedImageCallback-">setDewarpedImageCallback</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DewarpedImageCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic">DewarpedImageCallback</a>&nbsp;dewarpedImageCallback)</code>
 <div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DewarpedImageCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><code>DewarpedImageCallback</code></a> that will receive dewarped document images.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setEncodeFaceImage-boolean-">setEncodeFaceImage</a></span>(boolean&nbsp;encodeFaceImage)</code>
 <div class="block">Sets whether face image from document should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setEncodeFullDocumentImage-boolean-">setEncodeFullDocumentImage</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setFaceImageDpi-int-">setFaceImageDpi</a></span>(int&nbsp;desiredDPI)</code>
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setFullDocumentImageDpi-int-">setFullDocumentImageDpi</a></span>(int&nbsp;desiredDPI)</code>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setFullDocumentImageExtensionFactors-com.microblink.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code>
 <div class="block">Sets extension factors for full document image.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setPaddingEdge-float-">setPaddingEdge</a></span>(float&nbsp;paddingEdge)</code>
 <div class="block">Padding is a minimum distance from the edge of the frame and it is defined
  as a percentage of the frame width.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setReturnFaceImage-boolean-">setReturnFaceImage</a></span>(boolean&nbsp;returnFaceImage)</code>
 <div class="block">Sets whether face image from document should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
 <div class="block">Sets whether full document image should be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#setValidateResultCharacters-boolean-">setValidateResultCharacters</a></span>(boolean&nbsp;validateResultCharacters)</code>
+<div class="block">Whether result characters validatation is performed.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldAllowBlurFilter--">shouldAllowBlurFilter</a></span>()</code>
 <div class="block">Defines whether blured frames filtering is allowed"
   By default, this is set to 'true'</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldAllowUnparsedMrzResults--">shouldAllowUnparsedMrzResults</a></span>()</code>
 <div class="block">Defines whether returning of unparsed MRZ (Machine Readable Zone) results is allowed.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldAllowUnverifiedMrzResults--">shouldAllowUnverifiedMrzResults</a></span>()</code>
 <div class="block">Defines whether returning unverified MRZ (Machine Readable Zone) results is allowed.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldAnonymizeImage--">shouldAnonymizeImage</a></span>()</code>
+<div class="block">Whether sensitive data should be anonymized in full document image result.</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
 <div class="block">Returns whether face image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
 <div class="block">Returns whether full document image will be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i34" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#shouldValidateResultCharacters--">shouldValidateResultCharacters</a></span>()</code>
+<div class="block">Whether result characters validatation is performed.</div>
+</td>
+</tr>
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -553,6 +583,30 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>whether face image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</dd>
 </dl>
+</li>
+</ul>
+<a name="setValidateResultCharacters-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setValidateResultCharacters</h4>
+<pre>public&nbsp;void&nbsp;setValidateResultCharacters(boolean&nbsp;validateResultCharacters)</pre>
+<div class="block">Whether result characters validatation is performed.
+ If a result member contains invalid character, the result state cannot be valid.
+ By default, this is set to 'true'.</div>
+</li>
+</ul>
+<a name="shouldValidateResultCharacters--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldValidateResultCharacters</h4>
+<pre>public&nbsp;boolean&nbsp;shouldValidateResultCharacters()</pre>
+<div class="block">Whether result characters validatation is performed.
+ If a result member contains invalid character, the result state cannot be valid.
+ By default, this is set to 'true'.</div>
 </li>
 </ul>
 <a name="setAllowBlurFilter-boolean-">
@@ -700,6 +754,30 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <pre>public&nbsp;boolean&nbsp;shouldAllowUnverifiedMrzResults()</pre>
 <div class="block">Defines whether returning unverified MRZ (Machine Readable Zone) results is allowed.
  Unverified MRZ is parsed, but check digits are incorrect.
+ By default, this is set to 'true'.</div>
+</li>
+</ul>
+<a name="setAnonymizeImage-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAnonymizeImage</h4>
+<pre>public&nbsp;void&nbsp;setAnonymizeImage(boolean&nbsp;anonymizeImage)</pre>
+<div class="block">Whether sensitive data should be anonymized in full document image result.
+ The setting only applies to certain documents.
+ By default, this is set to 'true'.</div>
+</li>
+</ul>
+<a name="shouldAnonymizeImage--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldAnonymizeImage</h4>
+<pre>public&nbsp;boolean&nbsp;shouldAnonymizeImage()</pre>
+<div class="block">Whether sensitive data should be anonymized in full document image result.
+ The setting only applies to certain documents.
  By default, this is set to 'true'.</div>
 </li>
 </ul>
@@ -930,6 +1008,22 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>classifierCallback</code> - <a href="../../../../../../com/microblink/entities/recognizers/classifier/ClassifierCallback.html" title="interface in com.microblink.entities.recognizers.classifier"><code>ClassifierCallback</code></a> that will be invoked from the recognizer
                            when document is classified.</dd>
+</dl>
+</li>
+</ul>
+<a name="setBarcodeScanningStartedCallback-com.microblink.entities.recognizers.blinkid.generic.BarcodeScanningStartedCallback-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBarcodeScanningStartedCallback</h4>
+<pre>public&nbsp;void&nbsp;setBarcodeScanningStartedCallback(@Nullable
+                                              <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BarcodeScanningStartedCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic">BarcodeScanningStartedCallback</a>&nbsp;barcodeScanningStartedCallback)</pre>
+<div class="block">Sets the <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BarcodeScanningStartedCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><code>BarcodeScanningStartedCallback</code></a> that will be invoked from the recognizer when barcode scanning step starts.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>barcodeScanningStartedCallback</code> - <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/BarcodeScanningStartedCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><code>BarcodeScanningStartedCallback</code></a> that will be invoked from the recognizer
+                                                                            when barcode scanning step starts.</dd>
 </dl>
 </li>
 </ul>
