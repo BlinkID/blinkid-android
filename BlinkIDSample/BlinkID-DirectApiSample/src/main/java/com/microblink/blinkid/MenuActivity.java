@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.microblink.blinkid.customcamera.Camera1Activity;
 import com.microblink.blinkid.customcamera.camera2.Camera2Activity;
 import com.microblink.blinkid.demo.R;
+import com.microblink.blinkid.imagescan.CombinedScanImageActivity;
 import com.microblink.blinkid.imagescan.ScanImageActivity;
 import com.microblink.entities.Entity;
 import com.microblink.entities.recognizers.Recognizer;
@@ -72,6 +73,13 @@ public class MenuActivity extends BaseMenuActivity {
             }
         }));
 
+        items.add(new MenuListItem("Scan with combined recognizer", new Runnable() {
+            @Override
+            public void run() {
+                startScanActivityForResult(CombinedScanImageActivity.class);
+            }
+        }));
+
         items.add(new MenuListItem("Camera 1 activity", new Runnable() {
             @Override
             public void run() {
@@ -115,6 +123,7 @@ public class MenuActivity extends BaseMenuActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            mRecognizerBundle.loadFromIntent(data);
             Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
             Entity.Result result = recognizer.getResult();
             if (!(result instanceof MrtdRecognizer.Result)) {
