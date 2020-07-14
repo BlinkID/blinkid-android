@@ -222,7 +222,7 @@ extends java.lang.Enum</pre>
 <h4>STANDARD</h4>
 <pre>public static final&nbsp;<a href="../../../com/microblink/intent/IntentDataTransferMode.html" title="class in com.microblink.intent">IntentDataTransferMode</a> STANDARD</pre>
 <div class="block">Standard Android intent data transfer. Data size is limited due to Android limitations on
- intent extras size. This mode is used by default.</div>
+ intent extras size.</div>
 </li>
 </ul>
 <a name="OPTIMISED">
@@ -247,7 +247,8 @@ extends java.lang.Enum</pre>
 <div class="block">Like <a href="../../../com/microblink/intent/IntentDataTransferMode.html#OPTIMISED"><code>IntentDataTransferMode.OPTIMISED</code></a>, but additionally data is saved to the files in internal
  storage. When process is terminated, data can be read from the internal storage which is
  private to the application and other applications cannot access it (nor can the user).
- When data is not needed any more, all unused files will be cleared from the private storage.</div>
+ When data is not needed any more, all unused files will be cleared from the private storage.
+ This mode is used by default.</div>
 </li>
 </ul>
 </li>

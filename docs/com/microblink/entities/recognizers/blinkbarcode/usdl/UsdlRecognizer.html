@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -229,37 +229,49 @@ extends <a href="../../../../../../com/microblink/entities/recognizers/Recognize
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#isEnableCompactParser--">isEnableCompactParser</a></span>()</code>
+<div class="block">Enables parsing of compact barcode encoding format.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#isNullQuietZoneAllowed--">isNullQuietZoneAllowed</a></span>()</code>
 <div class="block">Allow scanning PDF417 barcodes which don't have quiet zone
  surrounding it (e.g.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#isUncertainDecoding--">isUncertainDecoding</a></span>()</code>
 <div class="block">Enable decoding of non-standard PDF417 barcodes, but without
  guarantee that all data will be read.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#serializeNativeSettings--">serializeNativeSettings</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#setEnableCompactParser-boolean-">setEnableCompactParser</a></span>(boolean&nbsp;enableCompactParser)</code>
+<div class="block">Enables parsing of compact barcode encoding format.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#setNullQuietZoneAllowed-boolean-">setNullQuietZoneAllowed</a></span>(boolean&nbsp;nullQuietZoneAllowed)</code>
 <div class="block">Allow scanning PDF417 barcodes which don't have quiet zone
  surrounding it (e.g.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#setUncertainDecoding-boolean-">setUncertainDecoding</a></span>(boolean&nbsp;uncertainDecoding)</code>
 <div class="block">Enable decoding of non-standard PDF417 barcodes, but without
  guarantee that all data will be read.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
@@ -385,6 +397,28 @@ extends <a href="../../../../../../com/microblink/entities/recognizers/Recognize
  surrounding it (e.g. text concatenated with barcode). This
  option can significantly increase recognition time.
  By default, this is set to 'true'</div>
+</li>
+</ul>
+<a name="setEnableCompactParser-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setEnableCompactParser</h4>
+<pre>public&nbsp;void&nbsp;setEnableCompactParser(boolean&nbsp;enableCompactParser)</pre>
+<div class="block">Enables parsing of compact barcode encoding format.
+ By default, this is set to 'false'</div>
+</li>
+</ul>
+<a name="isEnableCompactParser--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isEnableCompactParser</h4>
+<pre>public&nbsp;boolean&nbsp;isEnableCompactParser()</pre>
+<div class="block">Enables parsing of compact barcode encoding format.
+ By default, this is set to 'false'</div>
 </li>
 </ul>
 <a name="terminateNative-long-">

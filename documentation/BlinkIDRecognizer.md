@@ -1,6 +1,8 @@
 
 ## New BlinkID recognizer and BlinkID combined recognizer
 
+Other than documents listed here, BlinkID(Combined)Recognizer also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
+
 ### Supported identity documents
 
 | Country        | Supported Document Types | Localized Document Name |
@@ -44,18 +46,19 @@
 | Canada - British Columbia | Public Services Card |  |
 | Canada - Manitoba | Driving Licence |  |
 | Canada - New Brunswick | Driving Licence | Permis de conduire |
-| Canada - Nova Scotia | Driving Licence<sup>BETA</sup> |  |
+| Canada - Nova Scotia | Driving Licence |  |
 | Canada - Ontario | Driving Licence |  |
 | Canada - Ontario | ID Card | Photo card |
 | Canada - Quebec | Driving Licence | Permis de conduire |
 | Canada - Saskatchewan | Driving Licence |  |
-| Canada - Yukon | Driving Licence<sup>BETA</sup> |  |
+| Canada - Yukon | Driving Licence |  |
 | Chile | ID Card | Cédula de Identidad |
 | Colombia | Driving Licence | Licencia de Conducción |
 | Colombia | ID Card | Cédula de Ciudadanía (CC) |
 | Costa Rica | Driving Licence<sup>\*, BETA</sup> | Licencia de conducir |
 | Costa Rica | ID Card | Cédula de identidad |
 | Croatia | Driving Licence\* | Vozačka dozvola |
+| Croatia | Health Insurance Card<sup>\*, BETA</sup> | Zdravstvena iskaznica |
 | Croatia | ID Card | Osobna iskaznica |
 | Cyprus | Driving Licence\* | Sürüş ruhsati / Aάδεια οδήγησης |
 | Cyprus | ID Card | Kimlik kartı / Δελτίο Ταυτότητας |
@@ -63,7 +66,9 @@
 | Czechia | ID Card | Občanský průkaz |
 | Denmark | Driving Licence\* | Kørekort |
 | Dominican Republic | ID Card | Cédula de Identidad y Electoral (CIE) |
+| Ecuador | ID Card\* | Cédula de Identidad  |
 | Egypt | ID Card | <span style="text-align:right">بطاقة تحقيق الشخصية</span> |
+| El Salvador | ID Card<sup>BETA</sup> | Documento Único de Identidad (DUI) |
 | Estonia | Driving Licence\* | Juhiluba |
 | Estonia | ID Card | Isikutunnistus |
 | Finland | Driving Licence\* | Ajokortti / Körkort |
@@ -91,7 +96,7 @@
 | Italy | ID Card | Carta d'identità |
 | Jordan | ID Card | <span style="text-align:right">بطاقة شخصية</span> |
 | Kazakhstan | ID Card | Жеке қуәлік / Yдостоверение личности |
-| Kenya | ID Card\* | Kitambulisho |
+| Kenya | ID Card | Kitambulisho |
 | Kosovo | ID Card | Letёrnjoftim / Лична карта |
 | Kuwait | Driving Licence | <span style="text-align:right">رخصة القيادة</span> |
 | Kuwait | ID Card | <span style="text-align:right">بطاقة المدنية</span> |
@@ -117,7 +122,7 @@
 | New Zealand | Driving Licence\* |  |
 | Nigeria | Driving Licence\* |  |
 | Nigeria | Voter ID | Permanent Voters Card (PVC) |
-| Norway | Driving Licence<sup>\*, BETA</sup> | Førerkort / Førarkort |
+| Norway | Driving Licence\* | Førerkort / Førarkort |
 | Oman | ID Card | بطاقة الهوية |
 | Pakistan | Consular ID | National Identity Card for Overseas Pakistanis (NICOP) |
 | Pakistan | ID Card | National Identity Card (CNIC & SNIC) |
@@ -154,6 +159,7 @@
 | South Africa | ID Card | Smart ID card |
 | Spain | Driving Licence\* | Permiso de Conducción |
 | Spain | ID Card | Documento Nacional de Identidad (DNI) |
+| Sri Lanka | ID Card<sup>BETA</sup> | ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை  |
 | Sweden | Driving Licence\* | Körkort |
 | Sweden | ID Card | Nationellt identitetskort |
 | Sweden | Social Security Card\* | Identitetskort / Skatteverkets id-kort |
@@ -178,7 +184,8 @@
 \* Front side only
 
 ### USA Supported identity documents
-Horizontal documents only
+
+#### Supported horizontal documents:
 
 | State        | Supported Document Types |
 | :-------------|:------------------|
@@ -255,3 +262,32 @@ Horizontal documents only
 | West Virginia | Driver License |  |
 | Wisconsin | Driver License |  |
 | Wyoming | Driver License |  |
+
+
+#### Supported vertical US documents:
+
+| State        | Supported Document Types |
+| :-------------|:------------------|
+| Alabama | Driver License |
+| Arizona | Driver License |
+| California | Driver License |
+| Colorado | Driver License |
+| Connecticut | Driver License |
+| Georgia | Driver License |
+| Illinois | Driver License |
+| Iowa | Driver License |
+| Kansas | Driver License |
+| Kentucky | Driver License |
+| Maryland | Driver License |
+| Massachusetts | Driver License |
+| Minnesota | Driver License |
+| Missouri | Driver License |
+| New Jersey | Driver License |
+| Ohio | Driver License |
+| Pennsylvania | Driver License |
+| South Carolina | Driver License |
+| Tennessee | Driver License |
+| Texas | Driver License |
+| Utah | Driver License |
+| Washington | Driver License |
+| Wisconsin | Driver License |

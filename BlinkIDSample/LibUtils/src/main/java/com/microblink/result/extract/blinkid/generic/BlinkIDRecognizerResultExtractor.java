@@ -27,6 +27,7 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
+        add(R.string.PPExpired, result.isExpired());
 
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPNationality, result.getNationality());
@@ -61,8 +62,9 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
             extractMRZResult(result.getMrzResult());
         }
 
-        add(R.string.MBDocumentImageColorStatus, result.getDocumentImageColorStatus().name());
-        add(R.string.MBDocumentImageMoireStatus, result.getDocumentImageMoireStatus().name());
+        add(R.string.MBDocumentImageBlurred, result.getImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentImageColorStatus, result.getImageAnalysisResult().getDocumentImageColorStatus().name());
+        add(R.string.MBDocumentImageMoireStatus, result.getImageAnalysisResult().getDocumentImageMoireStatus().name());
 
     }
 

@@ -27,6 +27,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
+        add(R.string.PPExpired, result.isExpired());
 
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPNationality, result.getNationality());
@@ -61,11 +62,13 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
             extractMRZResult(result.getMrzResult());
         }
 
-        add(R.string.MBDocumentFrontImageColorStatus, result.getDocumentFrontImageColorStatus().name());
-        add(R.string.MBDocumentBackImageColorStatus, result.getDocumentBackImageColorStatus().name());
-        add(R.string.MBDocumentFrontImageMoireStatus, result.getDocumentFrontImageMoireStatus().name());
-        add(R.string.MBDocumentBackImageMoireStatus, result.getDocumentBackImageMoireStatus().name());
+        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentFrontImageColorStatus, result.getFrontImageAnalysisResult().getDocumentImageColorStatus().name());
+        add(R.string.MBDocumentFrontImageMoireStatus, result.getFrontImageAnalysisResult().getDocumentImageMoireStatus().name());
 
+        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentBackImageColorStatus, result.getBackImageAnalysisResult().getDocumentImageColorStatus().name());
+        add(R.string.MBDocumentBackImageMoireStatus, result.getBackImageAnalysisResult().getDocumentImageMoireStatus().name());
     }
 
 }

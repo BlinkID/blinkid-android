@@ -12,6 +12,10 @@ public class USDLResultExtractor extends BaseResultExtractor<UsdlRecognizer.Resu
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPFullName, result.getFullName());
         add(R.string.PPAddress, result.getAddress());
+        add(R.string.PPAddressStreet, result.getStreet());
+        add(R.string.PPAddressPostalCode, result.getPostalCode());
+        add(R.string.PPAddressCity, result.getCity());
+        add(R.string.PPAddressJurisdiction, result.getJurisdiction());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());

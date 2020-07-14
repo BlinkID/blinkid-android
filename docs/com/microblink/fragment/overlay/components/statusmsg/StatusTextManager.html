@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -130,6 +130,12 @@ extends java.lang.Object</pre>
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#StatusTextManager-android.widget.TextSwitcher-com.microblink.fragment.overlay.components.statusmsg.StatusTextStyler-">StatusTextManager</a></span>(android.widget.TextSwitcher&nbsp;statusTextSwitcher,
                  <a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextStyler.html" title="interface in com.microblink.fragment.overlay.components.statusmsg">StatusTextStyler</a>&nbsp;textViewStyle)</code>&nbsp;</td>
 </tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#StatusTextManager-android.widget.TextSwitcher-com.microblink.fragment.overlay.components.statusmsg.StatusTextStyler-int-int-">StatusTextManager</a></span>(android.widget.TextSwitcher&nbsp;statusTextSwitcher,
+                 <a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextStyler.html" title="interface in com.microblink.fragment.overlay.components.statusmsg">StatusTextStyler</a>&nbsp;textViewStyle,
+                 int&nbsp;outAnimationResource,
+                 int&nbsp;inAnimationResource)</code>&nbsp;</td>
+</tr>
 </table>
 </li>
 </ul>
@@ -151,31 +157,35 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#setStatusMessagesEnabled-boolean-">setStatusMessagesEnabled</a></span>(boolean&nbsp;statusEnabled)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#setSimultaneouslyStartAnimations-boolean-">setSimultaneouslyStartAnimations</a></span>(boolean&nbsp;simultaneouslyStartAnimations)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#setStatusMessagesEnabled-boolean-">setStatusMessagesEnabled</a></span>(boolean&nbsp;statusEnabled)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#shouldAnimate--">shouldAnimate</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#updateStatus-int-">updateStatus</a></span>(int&nbsp;newStatusStringRes)</code>
 <div class="block">Updates the current status message with the given one.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#updateStatus-java.lang.String-">updateStatus</a></span>(java.lang.String&nbsp;newStatus)</code>
 <div class="block">Similar to <a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#updateStatus-int-"><code>StatusTextManager.updateStatus(int)</code></a> but takes string as argument.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#updateStatusImmediately-java.lang.CharSequence-">updateStatusImmediately</a></span>(java.lang.CharSequence&nbsp;newStatus)</code>
 <div class="block">Updates the current status message with the given one, immediately.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextManager.html#updateStatusImmediately-int-">updateStatusImmediately</a></span>(int&nbsp;newStatusStringRes)</code>
 <div class="block">Updates the current status message with the given one, immediately.</div>
@@ -203,6 +213,22 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
+<a name="StatusTextManager-android.widget.TextSwitcher-com.microblink.fragment.overlay.components.statusmsg.StatusTextStyler-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>StatusTextManager</h4>
+<pre>public&nbsp;StatusTextManager(@NonNull
+                         android.widget.TextSwitcher&nbsp;statusTextSwitcher,
+                         @NonNull
+                         <a href="../../../../../../com/microblink/fragment/overlay/components/statusmsg/StatusTextStyler.html" title="interface in com.microblink.fragment.overlay.components.statusmsg">StatusTextStyler</a>&nbsp;textViewStyle,
+                         @AnimRes
+                         int&nbsp;outAnimationResource,
+                         @AnimRes
+                         int&nbsp;inAnimationResource)</pre>
+</li>
+</ul>
 <a name="StatusTextManager-android.widget.TextSwitcher-com.microblink.fragment.overlay.components.statusmsg.StatusTextStyler-">
 <!--   -->
 </a>
@@ -315,10 +341,19 @@ extends java.lang.Object</pre>
 <a name="setShouldAnimate-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setShouldAnimate</h4>
 <pre>public&nbsp;void&nbsp;setShouldAnimate(boolean&nbsp;shouldAnimate)</pre>
+</li>
+</ul>
+<a name="setSimultaneouslyStartAnimations-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setSimultaneouslyStartAnimations</h4>
+<pre>public&nbsp;void&nbsp;setSimultaneouslyStartAnimations(boolean&nbsp;simultaneouslyStartAnimations)</pre>
 </li>
 </ul>
 </li>
