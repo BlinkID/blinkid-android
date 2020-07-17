@@ -40,6 +40,7 @@ If you'd like to try _BlinkID_ without coding, simply download the free Microbli
         * [Using Direct API for `String` recognition (parsing)](#directAPI_strings)
         * [Understanding DirectAPI's state machine](#directAPIStateMachine)
         * [Using DirectAPI while RecognizerRunnerView is active](#directAPIWithRecognizer)
+        * [Using Direct API with combined recognizers ](#directAPI_combined_recognizers)
 * [Available activities and overlays](#builtInUIComponents)
     * [New: `BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent)
     * [`DocumentUISettings`](#documentUiComponent)
@@ -72,6 +73,9 @@ If you'd like to try _BlinkID_ without coding, simply download the free Microbli
 * [Troubleshooting](#troubleshoot)
 * [FAQ and known issues](#faq)
 * [Additional info](#info)
+    * [BlinkID SDK size](#size_report)
+    * [API reference](#api_reference)
+    * [Contact](#contact)
 
 # <a name="quickStart"></a> Quick Start
 
@@ -107,7 +111,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.5.0@aar') {
+    implementation('com.microblink:blinkid:5.6.0@aar') {
         transitive = true
     }
 }
@@ -119,7 +123,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.5.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.6.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -527,12 +531,15 @@ However, if you really want to set `screenOrientation` property to `sensor` or s
 
 This section will describe how to use direct API to recognize android Bitmaps and java `Strings` without the need for camera. You can use direct API anywhere from your application, not just from activities.
 
+Image recognition performance highly depends on the quality of the input images. When our camera management is used (scanning from a camera), we do our best to get camera frames with the best possible quality for the used device. On the other hand, when Direct API is used, you need to provide high-quality images without blur and glare for successful recognition.
+
 ### <a name="directAPI_images"></a> Using Direct API for recognition of Android Bitmaps and custom camera frames
 
 1. First, you need to obtain reference to [RecognizerRunner singleton](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html) using [getSingletonInstance](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#getSingletonInstance--).
 2. Second, you need to [initialize the recognizer runner](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-).
 3. After initialization, you can use singleton to [process Android bitmaps](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeBitmap-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-) or [images](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) that are [built from custom camera frames](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageBuilder.html#buildImageFromCamera1NV21Frame-byte:A-int-int-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-). Currently, it is not possible to process multiple images in parallel.
-4. Do not forget to [terminate](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#terminate--) the recognizer runner singleton after usage (it is a shared resource).
+4. When you want to delete all cached data from multiple recognitions, for example when you want to scan other document and/or restart scanning, you need to [reset the recognition state](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#resetRecognitionState--).
+5. Do not forget to [terminate](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#terminate--) the recognizer runner singleton after usage (it is a shared resource).
 
 Here is the minimum example of usage of direct API for recognizing android Bitmap:
 
@@ -602,6 +609,8 @@ public class DirectAPIActivity extends Activity {
 }
 ```
 
+[ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) method is called for each input image that you send to the recognition. You can call `RecognizerRunner.recognize*` method multiple times with different images of the same document for better reading accuracy until you get a successful result in the listener's `onScanningDone` method. This is useful when you are using your own or third-party camera management.
+
 ### <a name="directAPI_strings"></a> Using Direct API for `String` recognition (parsing)
 
 Some recognizers support recognition from `String`. They can be used through Direct API to parse given `String` and return data just like when they are used on an input image. When recognition is performed on `String`, there is no need for the OCR. Input `String` is used in the same way as the OCR output is used when image is being recognized. 
@@ -616,7 +625,7 @@ The only difference is that one of the [RecognizerRunner singleton](https://blin
 
 ### <a name="directAPIStateMachine"></a> Understanding DirectAPI's state machine
 
-DirectAPI's `RecognizerRunner` singleton is actually a state machine which can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`. 
+DirectAPI's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`. 
 
 - When you obtain the reference to `RecognizerRunner` singleton, it will be in `OFFLINE` state. 
 - You can initialize `RecognizerRunner` by calling [initialize](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-) method. If you call `initialize` method while `RecognizerRunner` is not in `OFFLINE` state, you will get `IllegalStateException`.
@@ -632,6 +641,10 @@ DirectAPI's `RecognizerRunner` singleton is actually a state machine which can b
 ### <a name="directAPIWithRecognizer"></a> Using DirectAPI while RecognizerRunnerView is active
 Both [RecognizerRunnerView](#recognizerRunnerView) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
 
+
+### <a name="directAPI_combined_recognizers"></a> Using Direct API with combined recognizers 
+
+When you are using combined recognizer and images of both document sides are required, you need to call `RecognizerRunner.recognize*` multiple times. Call it first with the images of the first side of the document, until it is read, and then with the images of the second side. The combined recognizer automatically switches to second side scanning, after it has successfully read the first side. To be notified when the first side scanning is completed, you have to set the [FirstSideRecognitionCallback](https://blinkid.github.io/blinkid-android/com/microblink/metadata/recognition/FirstSideRecognitionCallback.html) through [MetadataCallbacks](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataCallbacks.html). If you don't need that information, e.g. when you have only one image for each document side, don't set the `FirstSideRecognitionCallback` and check the [RecognitionSuccessType](https://blinkid.github.io/blinkid-android/com/microblink/recognition/RecognitionSuccessType.html) in [ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-), after the second side image has been processed.
 
 # <a name="builtInUIComponents"></a> Available activities and overlays
 ## <a name="blinkidUiComponent"></a> New: `BlinkIdUISettings` and `BlinkIdOverlayController`
@@ -1049,12 +1062,21 @@ This usually happens when you use `Recognizer` that produces image or similar la
 
 This usually happens when you attempt to transfer standalone `Result` that contains images or similar large objects via Intent and the size of the object exceeds Android intent transaction limit. Depending on the device, you will get either [TransactionTooLargeException](https://developer.android.com/reference/android/os/TransactionTooLargeException.html), a simple message `BINDER TRANSACTION FAILED` in log and your app will freeze or your app will get into restart loop. We recommend that you use `RecognizerBundle` and its API for sending `Recognizer` objects via Intent in a more safe manner ([check this section](#intentOptimization) for more information). However, if you really need to transfer standalone `Result` object (e.g. `Result` object obtained by cloning `Result` object owned by specific `Recognizer` object), you need to do that using global variables or singletons within your application. Sending large objects via Intent is not supported by Android.
 
+#### <a name="directApiBadPerformance"></a> Scanning with a camera works better than a recognition of images by using the `Direct API`
+
+When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
+
 #### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
 
 In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
 # <a name="info"></a> Additional info
-Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android). 
 
+## <a name="size_report"></a> BlinkID SDK size
+You can find BlinkID SDK size report for all supported ABIs [here](https://github.com/BlinkID/blinkid-android/blob/master/size-report/sdk_size_report.md).
+
+## <a name="api_reference"></a> API reference
+Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android).
+
+## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
-
 

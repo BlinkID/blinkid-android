@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -231,38 +231,38 @@ extends <a href="../../../../../../com/microblink/entities/recognizers/Recognize
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getAdditionalAddressInformation--">getAdditionalAddressInformation</a></span>()</code>
-<div class="block">THe additional address information of the document owner.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getAdditionalNameInformation--">getAdditionalNameInformation</a></span>()</code>
 <div class="block">The additional name information of the document owner.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getAddress--">getAddress</a></span>()</code>
 <div class="block">The address of the document owner.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getAge--">getAge</a></span>()</code>
 <div class="block">The current age of the document owner in years.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/AgeLimitStatus.html" title="class in com.microblink.entities.recognizers.blinkid">AgeLimitStatus</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getAgeLimitStatus-int-">getAgeLimitStatus</a></span>(int&nbsp;ageLimit)</code>
 <div class="block">Calculates whether the document owner is older than the given <code>ageLimit</code> in years or not.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkbarcode/BarcodeType.html" title="class in com.microblink.entities.recognizers.blinkbarcode">BarcodeType</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getBarcodeType--">getBarcodeType</a></span>()</code>
 <div class="block">The format of the scanned barcode.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getCity--">getCity</a></span>()</code>
+<div class="block">The city address portion of the document owner.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -333,103 +333,128 @@ extends <a href="../../../../../../com/microblink/entities/recognizers/Recognize
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getJurisdiction--">getJurisdiction</a></span>()</code>
+<div class="block">The jurisdiction code address portion of the document owner.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getLastName--">getLastName</a></span>()</code>
 <div class="block">The last name of the document owner.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getMaritalStatus--">getMaritalStatus</a></span>()</code>
 <div class="block">The marital status of the document owner.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getNationality--">getNationality</a></span>()</code>
 <div class="block">The nationality of the documet owner.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getPersonalIdNumber--">getPersonalIdNumber</a></span>()</code>
 <div class="block">The personal identification number.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getPlaceOfBirth--">getPlaceOfBirth</a></span>()</code>
 <div class="block">The place of birth of the document owner.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getPostalCode--">getPostalCode</a></span>()</code>
+<div class="block">The postal code address portion of the document owner.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getProfession--">getProfession</a></span>()</code>
 <div class="block">The profession of the document owner.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getRace--">getRace</a></span>()</code>
 <div class="block">The race of the document owner.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getRawData--">getRawData</a></span>()</code>
 <div class="block">The raw bytes contained inside barcode.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getReligion--">getReligion</a></span>()</code>
 <div class="block">The religion of the document owner.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getResidentialStatus--">getResidentialStatus</a></span>()</code>
 <div class="block">The residential status of the document owner.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getRestrictions--">getRestrictions</a></span>()</code>
 <div class="block">The restrictions to driving privileges for the driver license owner.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getSex--">getSex</a></span>()</code>
 <div class="block">The sex of the document owner.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i33" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getStreet--">getStreet</a></span>()</code>
+<div class="block">The street address portion of the document owner.</div>
+</td>
+</tr>
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getStringData--">getStringData</a></span>()</code>
 <div class="block">String representation of data inside barcode.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#getVehicleClass--">getVehicleClass</a></span>()</code>
 <div class="block">The type of vehicle the driver license owner has privilege to drive.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i36" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#isExpired--">isExpired</a></span>()</code>
+<div class="block">Checks whether the document has expired or not by comparing the current
+ time on the device with the date of expiry.</div>
+</td>
+</tr>
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#isUncertain--">isUncertain</a></span>()</code>
 <div class="block">True if returned result is uncertain, i.e.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#serializeToByteArray--">serializeToByteArray</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.Result.html#toString--">toString</a></span>()</code>&nbsp;</td>
 </tr>
@@ -525,6 +550,17 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <div class="block">The document type deduced from the recognized barcode</div>
 </li>
 </ul>
+<a name="getCity--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCity</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getCity()</pre>
+<div class="block">The city address portion of the document owner.</div>
+</li>
+</ul>
 <a name="getDocumentNumber--">
 <!--   -->
 </a>
@@ -558,6 +594,28 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <div class="block">The format of the scanned barcode.</div>
 </li>
 </ul>
+<a name="getJurisdiction--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getJurisdiction</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getJurisdiction()</pre>
+<div class="block">The jurisdiction code address portion of the document owner.</div>
+</li>
+</ul>
+<a name="getPostalCode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getPostalCode</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getPostalCode()</pre>
+<div class="block">The postal code address portion of the document owner.</div>
+</li>
+</ul>
 <a name="getRawData--">
 <!--   -->
 </a>
@@ -580,6 +638,17 @@ public&nbsp;byte[]&nbsp;getRawData()</pre>
  (has parts of it missing).</div>
 </li>
 </ul>
+<a name="getStreet--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getStreet</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getStreet()</pre>
+<div class="block">The street address portion of the document owner.</div>
+</li>
+</ul>
 <a name="getResidentialStatus--">
 <!--   -->
 </a>
@@ -589,17 +658,6 @@ public&nbsp;byte[]&nbsp;getRawData()</pre>
 <pre>@NonNull
 public&nbsp;java.lang.String&nbsp;getResidentialStatus()</pre>
 <div class="block">The residential status of the document owner.</div>
-</li>
-</ul>
-<a name="getAdditionalAddressInformation--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAdditionalAddressInformation</h4>
-<pre>@NonNull
-public&nbsp;java.lang.String&nbsp;getAdditionalAddressInformation()</pre>
-<div class="block">THe additional address information of the document owner.</div>
 </li>
 </ul>
 <a name="getEmployer--">
@@ -891,6 +949,22 @@ public&nbsp;java.lang.String&nbsp;getMaritalStatus()</pre>
          date of birth is unknown
      </li>
  </ul></dd>
+</dl>
+</li>
+</ul>
+<a name="isExpired--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isExpired</h4>
+<pre>public&nbsp;boolean&nbsp;isExpired()</pre>
+<div class="block">Checks whether the document has expired or not by comparing the current
+ time on the device with the date of expiry.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if the document has expired, <code>false</code> if the document has not
+ expired or date of expiry is unknown.</dd>
 </dl>
 </li>
 </ul>

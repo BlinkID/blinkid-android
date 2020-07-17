@@ -22,7 +22,6 @@ import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
-import com.microblink.recognition.FeatureNotSupportedException;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.view.recognition.ScanResultListener;
 
@@ -66,7 +65,7 @@ public class ScanImageActivity extends Activity {
         setContentView(R.layout.activity_scan_image);
 
         mScanButton = findViewById(R.id.btnScan);
-        mImgView = findViewById(R.id.imgImage);
+        mImgView = findViewById(R.id.ivImageFront);
 
         Intent intent = getIntent();
         mRecognizerBundle.loadFromIntent(intent);

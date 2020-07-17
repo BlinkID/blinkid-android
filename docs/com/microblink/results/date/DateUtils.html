@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9};
+var methods = {"i0":9,"i1":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -145,6 +145,12 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateUtils.html#isDatePassed-com.microblink.results.date.Date-">isDatePassed</a></span>(<a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;date)</code>
+<div class="block">Checks whether the given date has passed or not by comparing it with the current device time.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/results/date/DateUtils.html#yearsPassedFrom-com.microblink.results.date.Date-">yearsPassedFrom</a></span>(<a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;fromDate)</code>
 <div class="block">Number of full years passed from the given date.</div>
@@ -192,7 +198,7 @@ extends java.lang.Object</pre>
 <a name="yearsPassedFrom-com.microblink.results.date.Date-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>yearsPassedFrom</h4>
 <pre>public static&nbsp;int&nbsp;yearsPassedFrom(@NonNull
@@ -202,6 +208,21 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>number of full years passed from the given date.</dd>
+</dl>
+</li>
+</ul>
+<a name="isDatePassed-com.microblink.results.date.Date-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isDatePassed</h4>
+<pre>public static&nbsp;boolean&nbsp;isDatePassed(@NonNull
+                                   <a href="../../../../com/microblink/results/date/Date.html" title="class in com.microblink.results.date">Date</a>&nbsp;date)</pre>
+<div class="block">Checks whether the given date has passed or not by comparing it with the current device time.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if the date has passed, <code>false</code> otherwise.</dd>
 </dl>
 </li>
 </ul>

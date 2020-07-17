@@ -99,6 +99,7 @@
     <string name="PPAge">Age</string>
     <string name="PPDateOfExpiry">Date of Expiry</string>
     <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
+    <string name="PPExpired">Expired</string>
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDocumentNumber">Document number</string>
     <string name="PPDocumentAdditionalNumber">Document additional number</string>
@@ -127,10 +128,12 @@
     <string name="PPAddressChangeDate">Date of address change</string>
     <string name="PPFacultyAddress">Faculty Address</string>
     <string name="PPAddressZipCode">Address ZIP code</string>
+    <string name="PPAddressPostalCode">Address postal code</string>
     <string name="PPAddressStreet">Address street</string>
     <string name="PPAddressCity">Address city</string>
     <string name="PPAddressState">Address state</string>
     <string name="PPAddressHouseNumber">Address house number</string>
+    <string name="PPAddressJurisdiction">Address jurisdiction</string>
     <string name="PPPlaceOfBirth">Place of birth</string>
     <string name="PPPlaceOfOrigin">Place of origin</string>
     <string name="PPPlaceOfIssue">Place of issue</string>
@@ -270,6 +273,10 @@
     <string name="MBDocumentImageMoireStatus">Moire status</string>
     <string name="MBDocumentFrontImageMoireStatus">Front image Moire status</string>
     <string name="MBDocumentBackImageMoireStatus">Back image Moire status</string>
+
+    <string name="MBDocumentImageBlurred">Image blurred</string>
+    <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
+    <string name="MBDocumentBackImageBlurred">Back image blurred</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>

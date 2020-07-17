@@ -1,5 +1,90 @@
 # Release notes
 
+## 5.6.0
+
+### New features:
+
+- In `BlinkIdCombinedRecognizer` and `BlinkIdRecognizer` we added:
+    - Support for US documents with **vertical** orientations:
+        - Alabama DL
+        - Arizona DL
+        - California DL
+        - Colorado DL
+        - Connecticut DL
+        - Georgia DL
+        - Illinois DL
+        - Iowa DL
+        - Kansas DL
+        - Kentucky DL
+        - Maryland DL
+        - Massachusetts DL
+        - Minnesota DL
+        - Missouri DL
+        - New Jersey DL
+        - Ohio DL
+        - Pennsylvania DL
+        - South Carolina DL
+        - Tennessee DL
+        - Texas DL
+        - Utah DL
+        - Washington DL
+        - Wisconsin DL
+    - Support for **new document types**:
+        - Croatia Health Insurance Card / front side / BETA
+        - Ecuador ID / front side
+        - El Salvador ID / BETA
+        - Sri Lanka ID / BETA
+    - No longer BETA:
+        - Canada Nova Scotia DL
+        - Canada Yukon DL
+        - Norway DL
+    - Back side support:
+        - Kenya ID
+    - **Result anonymization** - with this option enabled, results are not returned for protected fields on documents listed here. The full document image will also have this data blacked out.
+        - Protected fields are:
+             - Document number on Hong Kong ID
+             - MRZ on Hong Kong passports
+             - Personal ID number on Netherlands DL
+             - Personal ID number and MRZ on Netherlands ID
+             - MRZ on Netherlands passports
+             - Document number on Singapore DL, ID, Fin Card, Resident ID
+             - Personal ID number on Singapore Employment Pass
+             - Document number and personal ID number on Singapore Work Permit
+             - MRZ on Singapore passports.
+        - By using `setAnonymizationMode` method, you can choose the `AnonymizationMode` : `ImageOnly`, `ResultFieldsOnly`, `FullResult` or `None`.
+        - `FullResult` anonymization (both images and data) is set by default.
+
+- We added support for new **MRZ** formats:
+    - Guatemala ID
+    - Kenya ID
+
+### Improvements to existing features:
+
+- We updated `UsdlRecognizer.Result` and `IdBarcodeRecognizer.Result` with additional address fields:
+    - `street`, `postalCode`, `city` and `jurisdiction` 
+- We added `isExpired()` method to `BlinkIdRecognizer.Result`, `BlinkIdCombinedRecognizer.Result` and `IdBarcodeRecognizer.Result`.
+    - It compares the current time on the device with the date of expiry and checks whether the document has expired or not. 
+- We made changes to the result structure of `BlinkIdCombinedRecognizer` and `BlinkIdRecognizer`:
+    - Barcode data is now encapsulated in its own result structure: `BarcodeResult`.
+    - Data from all OCR-ed fields, without MRZ data, is now encapsulated in a `VizResult` structure, representing the "Visual Inspection Zone" data. In `BlinkIdCombinedRecognizer`, front side data is available in its own structure (`frontVizResult`), back side data in its own (`backVizResult`), so you can now **access data from each side separately**.
+    - The main part of the result, outside these structures, is filled according to these rules:
+        - Document number is filled with data from the MRZ, if present.
+        - Remaining data is then filled with barcode data.
+        - Remaining data is filled from the back side's visual inspection zone (OCR data outside of MRZ).
+        - Remaining data is filled from the front side's visual inspection zone.
+        - Remaining data is filled with data from the MRZ.
+
+### Minor API changes:
+
+- We moved `BlinkIdRecognizer.Result` members `colorStatus` and `moireStatus` to the result's `imageAnalysisResult` (`frontImageAnalysisResult` and `backImageAnalysisResult` in `BlinkIDCombinedRecognizer.Result`).
+- We changed default `IntentDataTransferMode` to `IntentDataTransferMode.PERSISTED_OPTIMISED`. It can be configured by using `MicroblinkSDK.setIntentDataTransferMode`.
+
+### Bug fixes:
+
+- We fixed US driver's license address extraction (Oregon, Mississippi, Rhode Island).
+- We fixed a bug which caused that, in some cases, camera has not been resumed after the device screen was turned OFF and back ON.
+
+
 ## 5.5.0
 
 ### New features:
@@ -61,6 +146,10 @@
 	- Use `getRestrictions()`, `getEndorsements()` and `getVehicleClass()`.
 - We enabled usage of combined recognizers through the Direct API:
     - Recognition state is not automatically reset with every image that comes to the recognition through the Direct API. If reset is required, you should call `RecognizerRunner.resetRecognitionState()`
+
+### Bug fixes:
+
+- We fixed bug in `BlinkIdCombinedRecognizer` and `BlinkIdRecognizer` which caused that dates on Belgian ID cards are not parsed correctly in cases when month is July.
 
 
 ## 5.4.0

@@ -31,7 +31,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/imgImage"
+        android:id="@+id/ivImageFront"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

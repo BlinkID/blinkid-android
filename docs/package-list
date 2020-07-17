@@ -13,7 +13,10 @@ com.microblink.entities.recognizers.blinkid
 com.microblink.entities.recognizers.blinkid.digitalsignature
 com.microblink.entities.recognizers.blinkid.documentface
 com.microblink.entities.recognizers.blinkid.generic
+com.microblink.entities.recognizers.blinkid.generic.barcode
 com.microblink.entities.recognizers.blinkid.generic.classinfo
+com.microblink.entities.recognizers.blinkid.generic.imageanalysis
+com.microblink.entities.recognizers.blinkid.generic.viz
 com.microblink.entities.recognizers.blinkid.idbarcode
 com.microblink.entities.recognizers.blinkid.imageoptions
 com.microblink.entities.recognizers.blinkid.imageoptions.dpi

@@ -2,6 +2,45 @@
 The tables below represent scanning results for each document in each country supported in BlinkID v5. The fields marked as "Always" present are mandatory on all document versions and will always be a part of the result set. The ones marked as "Sometimes" present will be returned only if they exist on the specific document being scanned. For barcode-only document sides, the "Pending" stands for those fields for which it's not certain whether or not they're present on all document versions.
 <br>
 <br>
+Other than documents listed here, BlinkID(Combined)Recognizer also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
+<br>
+<br>
+The MRZ is parsed to produce a structure with fields:
+<ul>
+<li>Raw MRZ string</li>
+<li>Document code</li>
+<li>Document type</li>
+<li>Issuer country</li>
+<li>Document number</li>
+<li>OPT1 field (document dependent)</li>
+<li>OPT2 field (document dependent)</li>
+<li>Gender</li>
+<li>Nationality</li>
+<li>Primary ID (last name)</li>
+<li>Secondary ID (first name)</li>
+<li>Date of birth</li>
+<li>Date of expiry</li>
+<li>Alien number (if applicable)</li>
+<li>Application receipt number (if applicable)</li>
+<li>Immigrant case number (if applicable)</li>
+<li>Verified flag (check digits are verified)</li>
+</ul>
+<br>
+With the <strong>result anonymization option</strong> enabled, results are not returned for protected fields on documents listed here. The full document image will also have this data blacked out.
+<br>
+Protected fields are:
+<ul>
+<li>Document number on Hong Kong ID</li>
+<li>MRZ on Hong Kong passports</li>
+<li>Personal ID number on Netherlands DL</li>
+<li>Personal ID number and MRZ on Netherlands ID</li>
+<li>MRZ on Netherlands passports</li>
+<li>Document number on Singapore DL, ID, Fin Card, Resident ID</li>
+<li>Personal ID number on Singapore Employment Pass</li>
+<li>Document number and personal ID number on Singapore Work Permit</li>
+<li>MRZ on Singapore passports.</li>
+</ul>
+<br>
 <table><tr>
 
 <th colspan=2>ALBANIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -1403,6 +1442,15 @@ The tables below represent scanning results for each document in each country su
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
+<th colspan=2>CROATIA HEALTH INSURANCE CARD - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Additional personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
 <th colspan=2>CROATIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -1588,6 +1636,23 @@ The tables below represent scanning results for each document in each country su
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
+<th colspan=2>ECUADOR ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Marital status</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
 <th colspan=2>EGYPT ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
 
@@ -1600,6 +1665,35 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
 <tr> <td>Date of expiry</td> <td>Sometimes</td><tr>
+
+<th colspan=2>EL SALVADOR ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>EL SALVADOR ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Marital status</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Profession</td> <td>Always</td><tr>
 
 <th colspan=2>ESTONIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
@@ -2176,6 +2270,10 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>KENYA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>MRZ</td> <td>Always</td><tr>
 
 <th colspan=2>KOSOVO ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -3396,6 +3494,23 @@ The tables below represent scanning results for each document in each country su
 <tr> <td>Address</td> <td>Always</td><tr>
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<th colspan=2>SRI LANKA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>SRI LANKA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 

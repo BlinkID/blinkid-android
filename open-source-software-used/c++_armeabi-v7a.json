@@ -27,7 +27,7 @@
       "url" : "https://github.com/microblink/err",
       "description" : "err - yet another take on C++ error handling",
       "license" : "Boost Software License",
-      "package" : "Err/1.0.10@microblink/stable"
+      "package" : "Err/1.0.12@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/functionoid",

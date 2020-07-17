@@ -17,7 +17,10 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         add(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPAddress, result.getAddress());
-        add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
+        add(R.string.PPAddressStreet, result.getStreet());
+        add(R.string.PPAddressPostalCode, result.getPostalCode());
+        add(R.string.PPAddressCity, result.getCity());
+        add(R.string.PPAddressJurisdiction, result.getJurisdiction());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         int age = result.getAge();
         if (age != -1) {
@@ -25,6 +28,7 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         }
         add(R.string.PPIssueDate, result.getDateOfIssue());
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPExpired, result.isExpired());
         add(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         add(R.string.PPNationality, result.getNationality());
         add(R.string.PPRace, result.getRace());
