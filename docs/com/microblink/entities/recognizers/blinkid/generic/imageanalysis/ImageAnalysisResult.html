@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -195,9 +195,12 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#createFromNative-boolean-int-int-">createFromNative</a></span>(boolean&nbsp;blurred,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#createFromNative-boolean-int-int-int-int-int-">createFromNative</a></span>(boolean&nbsp;blurred,
                 int&nbsp;documentImageColorStatus,
-                int&nbsp;documentImageMoireStatus)</code>
+                int&nbsp;documentImageMoireStatus,
+                int&nbsp;faceDetectionStatus,
+                int&nbsp;mrzDetectionStatus,
+                int&nbsp;barcodeDetectionStatus)</code>
 <div class="block">This method is called from native code to build <a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis"><code>ImageAnalysisResult</code></a> from native object.</div>
 </td>
 </tr>
@@ -206,24 +209,42 @@ implements android.os.Parcelable</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#describeContents--">describeContents</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageColorStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic">DocumentImageColorStatus</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getDocumentImageColorStatus--">getDocumentImageColorStatus</a></span>()</code>
-<div class="block">TThe color status determined from scanned image.</div>
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getBarcodeDetectionStatus--">getBarcodeDetectionStatus</a></span>()</code>
+<div class="block">Barcode detection status determined from the scanned image.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageMoireStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic">DocumentImageMoireStatus</a></code></td>
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/DocumentImageColorStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">DocumentImageColorStatus</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getDocumentImageColorStatus--">getDocumentImageColorStatus</a></span>()</code>
+<div class="block">The color status determined from scanned image.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getDocumentImageMoireStatus--">getDocumentImageMoireStatus</a></span>()</code>
 <div class="block">The Moire pattern detection status determined from the scanned image.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getFaceDetectionStatus--">getFaceDetectionStatus</a></span>()</code>
+<div class="block">Face detection status determined from the scanned image.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#getMrzDetectionStatus--">getMrzDetectionStatus</a></span>()</code>
+<div class="block">Mrz detection status determined from the scanned image.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#isBlurred--">isBlurred</a></span>()</code>
 <div class="block">Whether the image is blurred.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -303,8 +324,8 @@ public&nbsp;boolean&nbsp;isBlurred()</pre>
 <li class="blockList">
 <h4>getDocumentImageColorStatus</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageColorStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic">DocumentImageColorStatus</a>&nbsp;getDocumentImageColorStatus()</pre>
-<div class="block">TThe color status determined from scanned image.</div>
+public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/DocumentImageColorStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">DocumentImageColorStatus</a>&nbsp;getDocumentImageColorStatus()</pre>
+<div class="block">The color status determined from scanned image.</div>
 </li>
 </ul>
 <a name="getDocumentImageMoireStatus--">
@@ -314,11 +335,44 @@ public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/bl
 <li class="blockList">
 <h4>getDocumentImageMoireStatus</h4>
 <pre>@NonNull
-public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageMoireStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic">DocumentImageMoireStatus</a>&nbsp;getDocumentImageMoireStatus()</pre>
+public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a>&nbsp;getDocumentImageMoireStatus()</pre>
 <div class="block">The Moire pattern detection status determined from the scanned image.</div>
 </li>
 </ul>
-<a name="createFromNative-boolean-int-int-">
+<a name="getFaceDetectionStatus--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFaceDetectionStatus</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a>&nbsp;getFaceDetectionStatus()</pre>
+<div class="block">Face detection status determined from the scanned image.</div>
+</li>
+</ul>
+<a name="getMrzDetectionStatus--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMrzDetectionStatus</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a>&nbsp;getMrzDetectionStatus()</pre>
+<div class="block">Mrz detection status determined from the scanned image.</div>
+</li>
+</ul>
+<a name="getBarcodeDetectionStatus--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBarcodeDetectionStatus</h4>
+<pre>@NonNull
+public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a>&nbsp;getBarcodeDetectionStatus()</pre>
+<div class="block">Barcode detection status determined from the scanned image.</div>
+</li>
+</ul>
+<a name="createFromNative-boolean-int-int-int-int-int-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -327,7 +381,10 @@ public&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/bl
 <pre>@NonNull
 public static&nbsp;<a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a>&nbsp;createFromNative(boolean&nbsp;blurred,
                                                             int&nbsp;documentImageColorStatus,
-                                                            int&nbsp;documentImageMoireStatus)</pre>
+                                                            int&nbsp;documentImageMoireStatus,
+                                                            int&nbsp;faceDetectionStatus,
+                                                            int&nbsp;mrzDetectionStatus,
+                                                            int&nbsp;barcodeDetectionStatus)</pre>
 <div class="block">This method is called from native code to build <a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisResult.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis"><code>ImageAnalysisResult</code></a> from native object.</div>
 </li>
 </ul>
@@ -386,7 +443,7 @@ public static&nbsp;<a href="../../../../../../../com/microblink/entities/recogni
 </div>
 <div class="subNav">
 <ul class="navList">
-<li>Prev&nbsp;Class</li>
+<li><a href="../../../../../../../com/microblink/entities/recognizers/blinkid/generic/imageanalysis/ImageAnalysisDetectionStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic.imageanalysis"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
