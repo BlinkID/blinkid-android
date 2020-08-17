@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.result.ResultSource;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.RecognitionResultEntry;
 import com.microblink.result.extract.ResultExtractorFactoryProvider;
@@ -17,8 +23,28 @@ import java.util.List;
 public class ResultFragment extends BaseResultFragment {
 
     public static final String RECOGNIZER_POSITION = "RECOGNIZER_POSITION";
-
     private int mRecognizerPosition;
+    private ResultSource resultSource = ResultSource.MIXED;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        resultTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> view, View view1, int pos, long l) {
+                ResultSource newResultSource = ResultSource.values()[pos];
+                if (newResultSource != resultSource) {
+                    resultSource = newResultSource;
+                    setupListAdapter();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> view) {
+            }
+        });
+        return view;
+    }
 
     /**
      * Fragment factory.
@@ -49,13 +75,18 @@ public class ResultFragment extends BaseResultFragment {
                 ((ResultFragmentActivity) getActivity()).getRecognizerAtPosition(
                         mRecognizerPosition);
 
+
         // Extract data from BaseRecognitionResult
         BaseResultExtractor resultExtractor = ResultExtractorFactoryProvider.get().createExtractor(recognizer);
-        List<RecognitionResultEntry> extractedData = resultExtractor.extractData(getActivity(), recognizer);
+        List<RecognitionResultEntry> extractedData;
 
+        if (resultExtractor.doesSupportResultSourceExtraction()) {
+            resultTypeSection.setVisibility(View.VISIBLE);
+        }
+
+        extractedData = resultExtractor.extractData(getActivity(), recognizer, resultSource);
         if (extractedData.size() <= 0) {
             Toast.makeText(getActivity(), "Result list is empty", Toast.LENGTH_SHORT).show();
-            getActivity().finish();
         }
 
         return extractedData;

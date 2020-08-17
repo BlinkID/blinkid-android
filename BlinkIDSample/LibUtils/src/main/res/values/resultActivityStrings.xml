@@ -274,9 +274,24 @@
     <string name="MBDocumentFrontImageMoireStatus">Front image Moire status</string>
     <string name="MBDocumentBackImageMoireStatus">Back image Moire status</string>
 
+    <string name="MBDocumentImageFaceStatus">Face detection status</string>
+    <string name="MBDocumentFrontImageFaceStatus">Front image face detection status</string>
+    <string name="MBDocumentBackImageFaceStatus">Back image face detection status</string>
+
+    <string name="MBDocumentImageMrzStatus">Mrz detection status</string>
+    <string name="MBDocumentFrontImageMrzStatus">Front image mrz detection status</string>
+    <string name="MBDocumentBackImageMrzStatus">Back image mrz detection status</string>
+
+    <string name="MBDocumentImageBarcodeStatus">Barcode detection status</string>
+    <string name="MBDocumentFrontImageBarcodeStatus">Front image barcode detection status</string>
+    <string name="MBDocumentBackImageBarcodeStatus">Back image barcode detection status</string>
+
     <string name="MBDocumentImageBlurred">Image blurred</string>
     <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
     <string name="MBDocumentBackImageBlurred">Back image blurred</string>
+
+    <string name="MBProcessingStatus">Processing status</string>
+    <string name="MBRecognitionMode">Recognition mode</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>

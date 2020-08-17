@@ -111,7 +111,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.6.0@aar') {
+    implementation('com.microblink:blinkid:5.7.0@aar') {
         transitive = true
     }
 }
@@ -123,7 +123,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.6.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.7.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -851,10 +851,8 @@ The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/mic
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 # <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
-
-To integrate _BlinkID_ inside your SDK, contact us at [help.microblink.com](http://help.microblink.com) to get a special licence that is not bound to package name and can be used in multiple different apps.
 	
-You'll also need to ensure that the final app gets all resources required by _BlinkID_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
+You need to ensure that the final app gets all resources required by _BlinkID_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
 
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 

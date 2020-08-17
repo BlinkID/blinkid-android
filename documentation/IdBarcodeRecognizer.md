@@ -1,5 +1,5 @@
 # IdBarcodeRecognizer
-## Supported Documents
+​## Supported Documents
 ### Domain Specific
 - Documents with [AAMVA standard](https://www.aamva.org/DL-ID-Card-Design-Standard/) compliant barcode
     - All US and Canadian IDs and DLs

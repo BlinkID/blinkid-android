@@ -27,19 +27,19 @@
       "url" : "https://github.com/microblink/err",
       "description" : "err - yet another take on C++ error handling",
       "license" : "Boost Software License",
-      "package" : "Err/1.0.12@microblink/stable"
+      "package" : "Err/1.1.0@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/functionoid",
       "description" : "a complete C++17 rewrite of boost/std::function",
       "license" : "Boost Software License, Version 1.0",
-      "package" : "Functionoid/1.1.6@microblink/stable"
+      "package" : "Functionoid/1.1.7@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/hash-library",
       "description" : "Portable C++ Hashing Library",
       "license" : "zlib",
-      "package" : "Hash/7.0.1@microblink/stable"
+      "package" : "Hash/8.0.0@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/mmap",
@@ -57,7 +57,7 @@
       "url" : "https://github.com/microblink/ADVobfuscator",
       "description" : "Obfuscation library based on C++11/14 and metaprogramming",
       "license" : "https://github.com/microblink/ADVobfuscator#copyright-and-license",
-      "package" : "Obfuscation/0.1.0@microblink/stable"
+      "package" : "Obfuscation/0.1.1@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
@@ -95,7 +95,7 @@
       "url" : "https://bitbucket.org/microblink/core-rapidjson",
       "description" : "A fast JSON parser/generator for C++ with both SAX/DOM style API",
       "license" : "BSD",
-      "package" : "RapidJSON/1.1.4@microblink/stable"
+      "package" : "RapidJSON/1.1.5@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/sweater",
@@ -113,7 +113,7 @@
       "url" : "https://github.com/microblink/zxing",
       "description" : "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android",
       "license" : "Apache License 2.0",
-      "package" : "ZXing/2.2.1@microblink/stable"
+      "package" : "ZXing/2.2.2@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
@@ -124,7 +124,7 @@
       "url" : "https://github.com/microblink/cpuinfo",
       "description" : "cpuinfo is a library to detect essential for performance optimization information about host CPU",
       "license" : "BSD 2-Clause \"Simplified\" License",
-      "package" : "cpuinfo/2.0.0@microblink/stable"
+      "package" : "cpuinfo/2.1.0@microblink/stable"
    },
    {
       "url" : "https://github.com/ericniebler/range-v3",

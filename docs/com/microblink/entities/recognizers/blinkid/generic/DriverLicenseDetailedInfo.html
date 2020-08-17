@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var methods = {"i0":9,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -47,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageMoireStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DewarpedImageCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/ProcessingStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html" target="_top">Frames</a></li>
@@ -195,9 +195,10 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic">DriverLicenseDetailedInfo</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#createFromNative-java.lang.String-java.lang.String-java.lang.String-">createFromNative</a></span>(java.lang.String&nbsp;restrictions,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#createFromNative-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">createFromNative</a></span>(java.lang.String&nbsp;restrictions,
                 java.lang.String&nbsp;endorsements,
-                java.lang.String&nbsp;vehicleClass)</code>
+                java.lang.String&nbsp;vehicleClass,
+                java.lang.String&nbsp;conditions)</code>
 <div class="block">This method is called from native code to build <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><code>DriverLicenseDetailedInfo</code></a> from native object.</div>
 </td>
 </tr>
@@ -207,29 +208,35 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#getConditions--">getConditions</a></span>()</code>
+<div class="block">The driver license conditions.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#getEndorsements--">getEndorsements</a></span>()</code>
 <div class="block">The additional privileges granted to the driver license owner.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#getRestrictions--">getRestrictions</a></span>()</code>
 <div class="block">The restrictions to driving privileges for the driver license owner.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#getVehicleClass--">getVehicleClass</a></span>()</code>
 <div class="block">The type of vehicle the driver license owner has privilege to drive.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#isEmpty--">isEmpty</a></span>()</code>
 <div class="block">Checks whether data is empty.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html#writeToParcel-android.os.Parcel-int-">writeToParcel</a></span>(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code>&nbsp;</td>
@@ -324,6 +331,17 @@ public&nbsp;java.lang.String&nbsp;getVehicleClass()</pre>
 <div class="block">The type of vehicle the driver license owner has privilege to drive.</div>
 </li>
 </ul>
+<a name="getConditions--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getConditions</h4>
+<pre>@NonNull
+public&nbsp;java.lang.String&nbsp;getConditions()</pre>
+<div class="block">The driver license conditions.</div>
+</li>
+</ul>
 <a name="isEmpty--">
 <!--   -->
 </a>
@@ -338,7 +356,7 @@ public&nbsp;java.lang.String&nbsp;getVehicleClass()</pre>
 </dl>
 </li>
 </ul>
-<a name="createFromNative-java.lang.String-java.lang.String-java.lang.String-">
+<a name="createFromNative-java.lang.String-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -350,7 +368,9 @@ public static&nbsp;<a href="../../../../../../com/microblink/entities/recognizer
                                                                   @NonNull
                                                                   java.lang.String&nbsp;endorsements,
                                                                   @NonNull
-                                                                  java.lang.String&nbsp;vehicleClass)</pre>
+                                                                  java.lang.String&nbsp;vehicleClass,
+                                                                  @NonNull
+                                                                  java.lang.String&nbsp;conditions)</pre>
 <div class="block">This method is called from native code to build <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><code>DriverLicenseDetailedInfo</code></a> from native object.</div>
 </li>
 </ul>
@@ -409,8 +429,8 @@ public static&nbsp;<a href="../../../../../../com/microblink/entities/recognizer
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DocumentImageMoireStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/DewarpedImageCallback.html" title="interface in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/ProcessingStatus.html" title="class in com.microblink.entities.recognizers.blinkid.generic"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../../index.html?com/microblink/entities/recognizers/blinkid/generic/DriverLicenseDetailedInfo.html" target="_top">Frames</a></li>
