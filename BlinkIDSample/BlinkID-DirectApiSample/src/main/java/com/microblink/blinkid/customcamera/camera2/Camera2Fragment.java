@@ -653,6 +653,14 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
         }
     }
 
+    @Override
+    public void onUnrecoverableError(@NonNull Throwable throwable) {
+        Activity activity = getActivity();
+        if (activity != null) {
+            Toast.makeText(activity, throwable.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     /**
      * Compares two {@code Size}s based on their areas.
      */

@@ -327,6 +327,12 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
     }
 
     @Override
+    public void onUnrecoverableError(@NonNull Throwable throwable) {
+        Toast.makeText(this, throwable.toString(), Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+    @Override
     public void onCameraPreviewStarted() {
         // this method is called just after camera preview has started
         enableTorchButtonIfPossible();

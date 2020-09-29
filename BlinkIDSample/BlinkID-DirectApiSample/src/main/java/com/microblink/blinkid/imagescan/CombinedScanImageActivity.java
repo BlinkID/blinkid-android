@@ -184,6 +184,11 @@ public class CombinedScanImageActivity extends Activity {
                 showFailureMessage();
             }
         }
+
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
+            Toast.makeText(CombinedScanImageActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
+        }
     };
 
     private ScanResultListener mScanResultListenerBackSide =  new ScanResultListener() {
@@ -195,6 +200,11 @@ public class CombinedScanImageActivity extends Activity {
             } else {
                 showFailureMessage();
             }
+        }
+
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
+            Toast.makeText(CombinedScanImageActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
         }
     };
 

@@ -2,6 +2,7 @@ package com.microblink.blinkid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
@@ -47,6 +48,12 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
                     break;
             }
 
+            finish();
+        }
+
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
+            Toast.makeText(ScanActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
             finish();
         }
     };

@@ -159,6 +159,12 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
     }
 
     @Override
+    public void onUnrecoverableError(@NonNull Throwable throwable) {
+        Toast.makeText(this, throwable.toString(), Toast.LENGTH_LONG).show();
+        finish();
+    }
+
+    @Override
     public void surfaceCreated(SurfaceHolder holder) {
         mHaveSurfaceView = true;
         startCamera();

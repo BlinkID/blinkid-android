@@ -27,7 +27,7 @@ class BlinkIdOverlayControllerBuilder {
         // for ReticleOverlayView check attributes in R.styleable.BlinkIdReticleOverlay
         int customStyle = R.style.BluePulseStyle;
 
-        BlinkIdOverlayView overlayView = new ReticleOverlayView(true, overlayStrings, customStyle);
+        BlinkIdOverlayView overlayView = new ReticleOverlayView(true, true, overlayStrings, customStyle);
         return new BlinkIdOverlayController(overlaySettings, scanResultListener, overlayView);
     }
 
