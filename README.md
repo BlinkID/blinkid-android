@@ -6,24 +6,28 @@
 
 [![Build Status](https://travis-ci.org/BlinkID/blinkid-android.svg?branch=master)](https://travis-ci.org/BlinkID/blinkid-android)
 
-_BlinkID_ SDK for Android enables scanning of over 150 international identity documents including driving licenses, national identity cards, passports and others. SDK includes:
+The BlinkID Android SDK lets you build a fantastic onboarding experience in your Android app.
 
-- Real-time data extraction
-- Offline, on-device processing for maximum security
-- Front and back side data capture and comparison
-- Extraction of face, document, and signature photo
+With one quick scan, your users will be able to extract information from their identity cards, passports, driver licenses and virtually any other government-issued ID there is.
 
-You can get started by trying out our [sample apps](#quickDemo) first or begin [integrating the SDK](#androidStudioIntegration) into your app right away. 
+BlinkID is:
 
-This SDK can also be used to build apps for Huawei App Gallery.
-
-If you'd like to try _BlinkID_ without coding, simply download the free Microblink Vision demo app:
-
-[![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/playstore.png)](https://showcase.page.link/githubAndroid) [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/appgallery.png)](https://appgallery7.huawei.com/#/app/C101961459)
+- **Fast**. Real-time data extraction in less than 400ms. Way better than minutes-long form-filling.
+- **Secure**. Privacy first, always. Scanning works even if the user’s phone is in airplane mode, meaning personal information never touches a third-party server.
+- **Intelligent**. Machine learning models, optimized to read and parse identity documents from more than 180 countries worldwide, automatically, no need to preselect any of them.
+- **Lightweight**. Designed to increase your app’s usability, not weight.
+- **What you make of it**. Customize and rebrand the default UI or leave it as it is. It’s up to you.
+- **More than just a powerful ID scanner**. Powerful data extraction, coupled with powerful perks. Get a cropped document image back, spot printed documents or data match both sides of the ID for parity. 
 
 <p align="center" >
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid-v5.gif" alt="BlinkID SDK">
 </p>
+
+To see all of these features at work download our free demo app:
+
+[![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/playstore.png)](https://showcase.page.link/githubAndroid) [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/appgallery.png)](https://appgallery7.huawei.com/#/app/C101961459)
+
+Feeling ready to crack on with the integration? First make sure we support your document type ➡️ [full list](https://microblink.com/blog/full-list-of-identity-documents-you-can-scan-with-blinkid). And then follow the guidelines below.
 
 # Table of contents
 
@@ -111,7 +115,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.7.0@aar') {
+    implementation('com.microblink:blinkid:5.8.0@aar') {
         transitive = true
     }
 }
@@ -123,7 +127,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.7.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.8.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -830,7 +834,7 @@ The [`VisaRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
 ### <a name="idBarcodeRecognizer"></a> ID barcode recognizer
-The [`IdBarcodeRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.html) is used for scanning barcodes from various ID cards. Check [`IdBarcodeDocumentType`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeDocumentType.html) enum to see the list of supported document types.
+The [`IdBarcodeRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.html) is used for scanning barcodes from various ID cards. Check [this document](https://github.com/BlinkID/blinkid-android/blob/master/documentation/IdBarcodeRecognizer.md) to see the list of supported document types.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 

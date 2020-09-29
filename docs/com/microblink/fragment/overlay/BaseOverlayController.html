@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":6};
+var methods = {"i0":6,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -157,10 +157,14 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#recognizerRunnerView">recognizerRunnerView</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#scanResultListener">scanResultListener</a></span></code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="../../../../com/microblink/fragment/overlay/components/ScanSoundPlayer.html" title="class in com.microblink.fragment.overlay.components">ScanSoundPlayer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#scanSoundPlayer">scanSoundPlayer</a></span></code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected <a href="../../../../com/microblink/fragment/overlay/components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#torchController">torchController</a></span></code>&nbsp;</td>
 </tr>
@@ -176,10 +180,12 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colOne" scope="col">Constructor and Description</th>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#BaseOverlayController--">BaseOverlayController</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#BaseOverlayController-com.microblink.view.recognition.ScanResultListener-">BaseOverlayController</a></span>(<a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -260,23 +266,29 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></span>(java.lang.Throwable&nbsp;throwable)</code>
+<div class="block">This method is called when the scanning cannot be performed because of an error.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
  loop by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
  loop (that has been paused) by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#setMeteringAreas--">setMeteringAreas</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected abstract boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#shouldResetStateOnRecognizerResume--">shouldResetStateOnRecognizerResume</a></span>()</code>&nbsp;</td>
 </tr>
@@ -293,7 +305,7 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;com.microblink.view.recognition.<a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></h3>
-<code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></code></li>
+<code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">onScanningDone</a></code></li>
 </ul>
 </li>
 </ul>
@@ -309,6 +321,16 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 <!--   -->
 </a>
 <h3>Field Detail</h3>
+<a name="scanResultListener">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scanResultListener</h4>
+<pre>@NonNull
+protected&nbsp;<a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a> scanResultListener</pre>
+</li>
+</ul>
 <a name="overlayState">
 <!--   -->
 </a>
@@ -387,13 +409,14 @@ protected&nbsp;<a href="../../../../com/microblink/fragment/overlay/components/T
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="BaseOverlayController--">
+<a name="BaseOverlayController-com.microblink.view.recognition.ScanResultListener-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>BaseOverlayController</h4>
-<pre>public&nbsp;BaseOverlayController()</pre>
+<pre>protected&nbsp;BaseOverlayController(@NonNull
+                                <a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;scanResultListener)</pre>
 </li>
 </ul>
 </li>
@@ -632,10 +655,28 @@ protected abstract&nbsp;int&nbsp;getSplashScreenLayoutId()</pre>
 <a name="onCameraAutofocusFailed--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onCameraAutofocusFailed</h4>
 <pre>protected&nbsp;void&nbsp;onCameraAutofocusFailed()</pre>
+</li>
+</ul>
+<a name="onUnrecoverableError-java.lang.Throwable-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onUnrecoverableError</h4>
+<pre>public&nbsp;void&nbsp;onUnrecoverableError(@NonNull
+                                 java.lang.Throwable&nbsp;throwable)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html#onUnrecoverableError-java.lang.Throwable-">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when the scanning cannot be performed because of an error.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>throwable</code> - type of error</dd>
+</dl>
 </li>
 </ul>
 </li>

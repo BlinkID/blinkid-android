@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -203,12 +203,18 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></span>(boolean&nbsp;torchOn)</code>
+<div class="block">Called when torch (flashlight) state is updated.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -369,6 +375,20 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hasGlare</code> - true if glare detected</dd>
+</dl>
+</li>
+</ul>
+<a name="onTorchStateChanged-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onTorchStateChanged</h4>
+<pre>void&nbsp;onTorchStateChanged(boolean&nbsp;torchOn)</pre>
+<div class="block">Called when torch (flashlight) state is updated.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>torchOn</code> - <code>true</code> if torch is turned on, <code>false</code> otherwise.</dd>
 </dl>
 </li>
 </ul>

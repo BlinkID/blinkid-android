@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var methods = {"i0":42,"i1":42,"i2":42,"i3":42,"i4":42,"i5":42,"i6":42,"i7":42,"i8":42,"i9":42,"i10":42,"i11":42,"i12":42,"i13":42,"i14":42,"i15":42,"i16":42,"i17":42,"i18":42,"i19":42,"i20":42,"i21":42,"i22":42,"i23":42,"i24":42};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -120,8 +120,10 @@ var activeTableTab = "activeTableTab";
 <dd>android.os.Parcelable, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a></dd>
 </dl>
 <hr>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
 <br>
-<pre>public final class <span class="typeNameLabel">PassportRecognizer</span>
+<pre>@Deprecated
+public final class <span class="typeNameLabel">PassportRecognizer</span>
 extends <a href="../../../../../../com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>
 implements <a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html" title="interface in com.microblink.entities.settings">GlareDetectorOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FaceImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FaceImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFaceImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions">FullDocumentImageOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/dpi/FullDocumentImageDpiOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.dpi">FullDocumentImageDpiOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/FullDocumentImageExtensionOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.extension">FullDocumentImageExtensionOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.imageoptions.encode">EncodeFullDocumentImagesOptions</a>, <a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html" title="interface in com.microblink.entities.recognizers.blinkid.digitalsignature">DigitalSignatureOptions</a></pre>
 <div class="block">Recognizer which can scan all passports with MRZ.</div>
@@ -145,7 +147,9 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.passport">PassportRecognizer.Result</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.Result.html" title="class in com.microblink.entities.recognizers.blinkid.passport">PassportRecognizer.Result</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -171,7 +175,9 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static android.os.Parcelable.Creator</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#CREATOR">CREATOR</a></span></code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#CREATOR">CREATOR</a></span></code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -237,7 +243,9 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#PassportRecognizer--">PassportRecognizer</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#PassportRecognizer--">PassportRecognizer</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -249,7 +257,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t6" class="tableTab"><span><a href="javascript:show(32);">Deprecated Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
@@ -257,56 +265,68 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.passport">PassportRecognizer</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#clone--">clone</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Create a copy of the entity.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#consumeResultFrom-com.microblink.entities.Entity-">consumeResultFrom</a></span>(<a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Consume result from other entity.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#deserializeNativeSettings-byte:A-">deserializeNativeSettings</a></span>(byte[]&nbsp;serializedSettings)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#deserializeNativeSettings-byte:A-">deserializeNativeSettings</a></span>(byte[]&nbsp;serializedSettings)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#getFaceImageDpi--">getFaceImageDpi</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the DPI (Dots Per Inch) for face image that should be returned.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#getFullDocumentImageDpi--">getFullDocumentImageDpi</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#getFullDocumentImageExtensionFactors--">getFullDocumentImageExtensionFactors</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the extension factors for full document image.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#serializeNativeSettings--">serializeNativeSettings</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#serializeNativeSettings--">serializeNativeSettings</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setAnonymizeNetherlandsMrz-boolean-">setAnonymizeNetherlandsMrz</a></span>(boolean&nbsp;anonymizeNetherlandsMrz)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Defines whether the Netherlands MRZ should be anonymized.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setDetectGlare-boolean-">setDetectGlare</a></span>(boolean&nbsp;detectGlare)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Defines whether glare detector will be used during recognition process.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setEncodeFaceImage-boolean-">setEncodeFaceImage</a></span>(boolean&nbsp;encodeFaceImage)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets whether face image from document should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
@@ -314,6 +334,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setEncodeFullDocumentImage-boolean-">setEncodeFullDocumentImage</a></span>(boolean&nbsp;encodeFullDocumentImage)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets whether full document image should be encoded in JPEG format and written into the corresponding
  recognition result.</div>
 </td>
@@ -321,30 +342,35 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setFaceImageDpi-int-">setFaceImageDpi</a></span>(int&nbsp;desiredDPI)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.</div>
 </td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setFullDocumentImageDpi-int-">setFullDocumentImageDpi</a></span>(int&nbsp;desiredDPI)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setFullDocumentImageExtensionFactors-com.microblink.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors-">setFullDocumentImageExtensionFactors</a></span>(<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets extension factors for full document image.</div>
 </td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setReturnFaceImage-boolean-">setReturnFaceImage</a></span>(boolean&nbsp;returnFaceImage)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets whether face image from document should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setReturnFullDocumentImage-boolean-">setReturnFullDocumentImage</a></span>(boolean&nbsp;returnFullDocumentImage)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets whether full document image should be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
@@ -352,42 +378,49 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#setSignResult-boolean-">setSignResult</a></span>(boolean&nbsp;signResult)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Whether or not recognition result should be signed.</div>
 </td>
 </tr>
 <tr id="i17" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldAnonymizeNetherlandsMrz--">shouldAnonymizeNetherlandsMrz</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Defines whether the Netherlands MRZ should be anonymized.</div>
 </td>
 </tr>
 <tr id="i18" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldDetectGlare--">shouldDetectGlare</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether glare detector is enabled.</div>
 </td>
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldEncodeFaceImage--">shouldEncodeFaceImage</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldEncodeFullDocumentImage--">shouldEncodeFullDocumentImage</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </td>
 </tr>
 <tr id="i21" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldReturnFaceImage--">shouldReturnFaceImage</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether face image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
 <tr id="i22" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldReturnFullDocumentImage--">shouldReturnFullDocumentImage</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether full document image will be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
@@ -395,12 +428,15 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#shouldSignResult--">shouldSignResult</a></span>()</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns whether or not recognition result should be signed.</div>
 </td>
 </tr>
 <tr id="i24" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html#terminateNative-long-">terminateNative</a></span>(long&nbsp;nativeContext)</code>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
+&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -445,6 +481,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>CREATOR</h4>
 <pre>public static final&nbsp;android.os.Parcelable.Creator CREATOR</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -462,6 +499,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>PassportRecognizer</h4>
 <pre>public&nbsp;PassportRecognizer()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 </li>
 </ul>
 </li>
@@ -479,6 +517,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setReturnFaceImage</h4>
 <pre>public&nbsp;void&nbsp;setReturnFaceImage(boolean&nbsp;returnFaceImage)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#setReturnFaceImage-boolean-">FaceImageOptions</a></code></span></div>
 <div class="block">Sets whether face image from document should be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.
  If enabled, get image using <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html#getFaceImage--"><code>FaceImageResult.getFaceImage()</code></a>
@@ -507,6 +546,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldReturnFaceImage</h4>
 <pre>public&nbsp;boolean&nbsp;shouldReturnFaceImage()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FaceImageOptions.html#shouldReturnFaceImage--">FaceImageOptions</a></code></span></div>
 <div class="block">Returns whether face image will be available in <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FaceImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.
  By default, this is set to 'false'.</div>
@@ -525,6 +565,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setDetectGlare</h4>
 <pre>public&nbsp;void&nbsp;setDetectGlare(boolean&nbsp;detectGlare)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html#setDetectGlare-boolean-">GlareDetectorOptions</a></code></span></div>
 <div class="block">Defines whether glare detector will be used during recognition process. By default this
  option is set to <code>true</code> and glare detector is used. If the glare detector is used and
@@ -547,6 +588,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldDetectGlare</h4>
 <pre>public&nbsp;boolean&nbsp;shouldDetectGlare()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/settings/GlareDetectorOptions.html#shouldDetectGlare--">GlareDetectorOptions</a></code></span></div>
 <div class="block">Returns whether glare detector is enabled.
  By default, this is set to 'true'.</div>
@@ -565,6 +607,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setSignResult</h4>
 <pre>public&nbsp;void&nbsp;setSignResult(boolean&nbsp;signResult)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#setSignResult-boolean-">DigitalSignatureOptions</a></code></span></div>
 <div class="block">Whether or not recognition result should be signed.
  By default, this is set to 'false'</div>
@@ -583,6 +626,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldSignResult</h4>
 <pre>public&nbsp;boolean&nbsp;shouldSignResult()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/digitalsignature/DigitalSignatureOptions.html#shouldSignResult--">DigitalSignatureOptions</a></code></span></div>
 <div class="block">Returns whether or not recognition result should be signed.
  By default, this is set to 'false'</div>
@@ -601,6 +645,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setAnonymizeNetherlandsMrz</h4>
 <pre>public&nbsp;void&nbsp;setAnonymizeNetherlandsMrz(boolean&nbsp;anonymizeNetherlandsMrz)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Defines whether the Netherlands MRZ should be anonymized.
   By default, this is set to 'true'</div>
 </li>
@@ -612,6 +657,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldAnonymizeNetherlandsMrz</h4>
 <pre>public&nbsp;boolean&nbsp;shouldAnonymizeNetherlandsMrz()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Defines whether the Netherlands MRZ should be anonymized.
   By default, this is set to 'true'</div>
 </li>
@@ -623,6 +669,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setReturnFullDocumentImage</h4>
 <pre>public&nbsp;void&nbsp;setReturnFullDocumentImage(boolean&nbsp;returnFullDocumentImage)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#setReturnFullDocumentImage-boolean-">FullDocumentImageOptions</a></code></span></div>
 <div class="block">Sets whether full document image should be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
@@ -657,6 +704,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldReturnFullDocumentImage</h4>
 <pre>public&nbsp;boolean&nbsp;shouldReturnFullDocumentImage()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/FullDocumentImageOptions.html#shouldReturnFullDocumentImage--">FullDocumentImageOptions</a></code></span></div>
 <div class="block">Returns whether full document image will be available in
  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageresult/FullDocumentImageResult.html" title="interface in com.microblink.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.
@@ -679,6 +727,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setEncodeFullDocumentImage</h4>
 <pre>public&nbsp;void&nbsp;setEncodeFullDocumentImage(boolean&nbsp;encodeFullDocumentImage)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#setEncodeFullDocumentImage-boolean-">EncodeFullDocumentImagesOptions</a></code></span></div>
 <div class="block">Sets whether full document image should be encoded in JPEG format and written into the corresponding
  recognition result. By default, this is set to 'false'.<br/>
@@ -707,6 +756,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldEncodeFullDocumentImage</h4>
 <pre>public&nbsp;boolean&nbsp;shouldEncodeFullDocumentImage()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFullDocumentImagesOptions.html#shouldEncodeFullDocumentImage--">EncodeFullDocumentImagesOptions</a></code></span></div>
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.
  By default, this is set to 'false'.</div>
@@ -725,6 +775,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setEncodeFaceImage</h4>
 <pre>public&nbsp;void&nbsp;setEncodeFaceImage(boolean&nbsp;encodeFaceImage)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html#setEncodeFaceImage-boolean-">EncodeFaceImageOptions</a></code></span></div>
 <div class="block">Sets whether face image from document should be encoded in JPEG format and written into the corresponding
  recognition result. By default, this is set to 'false'.<br/>
@@ -753,6 +804,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>shouldEncodeFaceImage</h4>
 <pre>public&nbsp;boolean&nbsp;shouldEncodeFaceImage()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/encode/EncodeFaceImageOptions.html#shouldEncodeFaceImage--">EncodeFaceImageOptions</a></code></span></div>
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.
  By default, this is set to 'false'.</div>
@@ -771,6 +823,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>getFaceImageDpi</h4>
 <pre>public&nbsp;int&nbsp;getFaceImageDpi()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the DPI (Dots Per Inch) for face image that should be returned.
  By default, this is set to '250'.</div>
 <dl>
@@ -788,6 +841,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setFaceImageDpi</h4>
 <pre>public&nbsp;void&nbsp;setFaceImageDpi(int&nbsp;desiredDPI)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.
  By default, this is set to '250'.</div>
 <dl>
@@ -805,6 +859,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>getFullDocumentImageDpi</h4>
 <pre>public&nbsp;int&nbsp;getFullDocumentImageDpi()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>
 <dl>
@@ -822,6 +877,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <li class="blockList">
 <h4>setFullDocumentImageDpi</h4>
 <pre>public&nbsp;void&nbsp;setFullDocumentImageDpi(int&nbsp;desiredDPI)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>
 <dl>
@@ -840,6 +896,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <h4>setFullDocumentImageExtensionFactors</h4>
 <pre>public&nbsp;void&nbsp;setFullDocumentImageExtensionFactors(@NonNull
                                                  <a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Sets extension factors for full document image.
  By default, this is set to '[0.0, 0.0, 0.0, 0.0]'.</div>
 <dl>
@@ -858,6 +915,7 @@ implements <a href="../../../../../../com/microblink/entities/settings/GlareDete
 <h4>getFullDocumentImageExtensionFactors</h4>
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;getFullDocumentImageExtensionFactors()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block">Returns the extension factors for full document image.
  By default, this is set to '[0.0, 0.0, 0.0, 0.0]'.</div>
 <dl>
@@ -875,6 +933,7 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <li class="blockList">
 <h4>terminateNative</h4>
 <pre>protected&nbsp;void&nbsp;terminateNative(long&nbsp;nativeContext)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/Entity.html#terminateNative-long-">terminateNative</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
@@ -889,6 +948,7 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <h4>serializeNativeSettings</h4>
 <pre>@Nullable
 protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/Entity.html#serializeNativeSettings--">serializeNativeSettings</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
@@ -903,6 +963,7 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <h4>deserializeNativeSettings</h4>
 <pre>protected&nbsp;void&nbsp;deserializeNativeSettings(@NonNull
                                          byte[]&nbsp;serializedSettings)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/entities/Entity.html#deserializeNativeSettings-byte:A-">deserializeNativeSettings</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a></code></dd>
@@ -916,6 +977,7 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <li class="blockList">
 <h4>clone</h4>
 <pre>public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/passport/PassportRecognizer.html" title="class in com.microblink.entities.recognizers.blinkid.passport">PassportRecognizer</a>&nbsp;clone()</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html#clone--">Entity</a></code></span></div>
 <div class="block">Create a copy of the entity.
  This is required if properties of the entity must be modified while background thread
@@ -939,6 +1001,7 @@ protected&nbsp;byte[]&nbsp;serializeNativeSettings()</pre>
 <h4>consumeResultFrom</h4>
 <pre>public&nbsp;void&nbsp;consumeResultFrom(@NonNull
                               <a href="../../../../../../com/microblink/entities/Entity.html" title="class in com.microblink.entities">Entity</a>&nbsp;other)</pre>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>&nbsp;</div>
 <div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../../../../com/microblink/entities/Entity.html#consumeResultFrom-com.microblink.entities.Entity-">Entity</a></code></span></div>
 <div class="block">Consume result from other entity. The result from other will be put instead current result
  of this entity.

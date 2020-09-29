@@ -1,10 +1,23 @@
+/*
+ * Copyright (c)2020 Microblink Ltd. All rights reserved.
+ *
+ * ANY UNAUTHORIZED USE OR SALE, DUPLICATION, OR DISTRIBUTION
+ * OF THIS PROGRAM OR ANY OF ITS PARTS, IN SOURCE OR BINARY FORMS,
+ * WITH OR WITHOUT MODIFICATION, WITH THE PURPOSE OF ACQUIRING
+ * UNLAWFUL MATERIAL OR ANY OTHER BENEFIT IS PROHIBITED!
+ * THIS PROGRAM IS PROTECTED BY COPYRIGHT LAWS AND YOU MAY NOT
+ * REVERSE ENGINEER, DECOMPILE, OR DISASSEMBLE IT.
+ */
+
 package com.microblink.result.extract.blinkid;
 
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.FullDocumentImageResult;
+import com.microblink.entities.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrtdDocumentType;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.libutils.R;
@@ -57,8 +70,8 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
     }
 
     protected void extractCommonData(Recognizer.Result result,
-                                         List<RecognitionResultEntry> extractedData,
-                                         RecognitionResultEntry.Builder builder) {
+                                     List<RecognitionResultEntry> extractedData,
+                                     RecognitionResultEntry.Builder builder) {
         if(result instanceof FaceImageResult) {
             extractedData.add(builder.build(R.string.MBFaceImage, ((FaceImageResult) result).getFaceImage()));
         }
@@ -82,6 +95,18 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         }
 
         CombinedFullDocumentImagesExtractUtil.extractCombinedFullDocumentImages(result, extractedData, builder);
+
+        if(result instanceof SignatureImageResult) {
+            extractedData.add(builder.build(R.string.MBSignatureImage, ((SignatureImageResult) result).getSignatureImage()));
+        }
+
+        if (result instanceof EncodedSignatureImageResult) {
+            byte[] encodedSignatureImage = ((EncodedSignatureImageResult) result).getEncodedSignatureImage();
+            if (shouldShowEncodedImageEntry(encodedSignatureImage)) {
+                extractedData.add(builder.build(R.string.MBEncodedSignatureImage, encodedSignatureImage));
+            }
+        }
+
         DigitalSignatureExtractUtil.extractDigitalSignature(result, extractedData, builder);
     }
 

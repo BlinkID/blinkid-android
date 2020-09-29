@@ -40,12 +40,12 @@ com.microblink.fragment.overlay.blinkid
 com.microblink.fragment.overlay.blinkid.document
 com.microblink.fragment.overlay.blinkid.documentverification
 com.microblink.fragment.overlay.blinkid.reticleui
+com.microblink.fragment.overlay.blinkid.reticleui.snackbar
 com.microblink.fragment.overlay.components
 com.microblink.fragment.overlay.components.feedback
 com.microblink.fragment.overlay.components.feedback.view
 com.microblink.fragment.overlay.components.settings
 com.microblink.fragment.overlay.components.statusmsg
-com.microblink.fragment.overlay.fieldbyfield
 com.microblink.fragment.overlay.verification
 com.microblink.geometry
 com.microblink.hardware
@@ -55,6 +55,8 @@ com.microblink.hardware.orientation
 com.microblink.image
 com.microblink.image.highres
 com.microblink.intent
+com.microblink.licence
+com.microblink.licence.exception
 com.microblink.locale
 com.microblink.metadata
 com.microblink.metadata.detection

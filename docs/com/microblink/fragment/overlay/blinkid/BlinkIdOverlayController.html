@@ -135,7 +135,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayContr
 <!--   -->
 </a>
 <h3>Fields inherited from class&nbsp;com.microblink.fragment.overlay.<a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#errorDialog">errorDialog</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#handler">handler</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#overlayState">overlayState</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#recognizerRunnerFragment">recognizerRunnerFragment</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#recognizerRunnerView">recognizerRunnerView</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#scanSoundPlayer">scanSoundPlayer</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#torchController">torchController</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#errorDialog">errorDialog</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#handler">handler</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#overlayState">overlayState</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#recognizerRunnerFragment">recognizerRunnerFragment</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#recognizerRunnerView">recognizerRunnerView</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#scanResultListener">scanResultListener</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#scanSoundPlayer">scanSoundPlayer</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#torchController">torchController</a></code></li>
 </ul>
 </li>
 </ul>
@@ -216,7 +216,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayContr
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></span>(RecognitionSuccessType&nbsp;successType)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">onScanningDone</a></span>(<a href="../../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;successType)</code>
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
@@ -230,7 +230,7 @@ extends <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayContr
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.<a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></h3>
-<code><a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#getContext--">getContext</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onCameraAutofocusFailed--">onCameraAutofocusFailed</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentCreated-android.os.Bundle-">onFragmentCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentStarted--">onFragmentStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentStopped--">onFragmentStopped</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#resumeScanning--">resumeScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#setMeteringAreas--">setMeteringAreas</a></code></li>
+<code><a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#getContext--">getContext</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onCameraAutofocusFailed--">onCameraAutofocusFailed</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentCreated-android.os.Bundle-">onFragmentCreated</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentStarted--">onFragmentStarted</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFragmentStopped--">onFragmentStopped</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#pauseScanning--">pauseScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#resumeScanning--">resumeScanning</a>, <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayController.html#setMeteringAreas--">setMeteringAreas</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -296,16 +296,17 @@ extends <a href="../../../../../com/microblink/fragment/overlay/BaseOverlayContr
 public&nbsp;<a href="../../../../../com/microblink/entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a>&nbsp;getHighResImagesBundle()</pre>
 </li>
 </ul>
-<a name="onScanningDone-RecognitionSuccessType-">
+<a name="onScanningDone-com.microblink.recognition.RecognitionSuccessType-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onScanningDone</h4>
 <pre>public&nbsp;void&nbsp;onScanningDone(@NonNull
-                           RecognitionSuccessType&nbsp;successType)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">ScanResultListener</a></code></span></div>
-<div class="block">This method is called when recognition is done.</div>
+                           <a href="../../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;successType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when recognition is done.
+ This method might be called on background thread or main thread, depending on the type of scan.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>successType</code> - indicates the success type of recognition</dd>

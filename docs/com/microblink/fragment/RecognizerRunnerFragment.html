@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -293,7 +293,7 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 </tr>
 <tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></span>(RecognitionSuccessType&nbsp;recognitionSuccessType)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">onScanningDone</a></span>(<a href="../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code>
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
@@ -307,26 +307,32 @@ implements <a href="../../../com/microblink/view/CameraEventsListener.html" titl
 </tr>
 <tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></span>(java.lang.Throwable&nbsp;throwable)</code>
+<div class="block">This method is called when the scanning cannot be performed because of an error.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#recreateRecognizerRunnerView--">recreateRecognizerRunnerView</a></span>()</code>
 <div class="block">Recreates contained <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> which causes that
  <a href="../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-"><code>ScanningOverlay.onRecognizerRunnerViewCreated(RecognizerRunnerFragment)</code></a> is called
  again when new <a href="../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> is created.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#registerLifecycleObserver-com.microblink.fragment.LifecycleObserver-">registerLifecycleObserver</a></span>(<a href="../../../com/microblink/fragment/LifecycleObserver.html" title="interface in com.microblink.fragment">LifecycleObserver</a>&nbsp;lifecycleObserver)</code>
 <div class="block">Registers the <a href="../../../com/microblink/fragment/LifecycleObserver.html" title="interface in com.microblink.fragment"><code>LifecycleObserver</code></a> that will be notified about all lifecycle events of
  this <a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a></div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#setCameraEventsListener-com.microblink.view.BaseCameraEventsListener-">setCameraEventsListener</a></span>(<a href="../../../com/microblink/view/BaseCameraEventsListener.html" title="interface in com.microblink.view">BaseCameraEventsListener</a>&nbsp;cameraEventsListener)</code>
 <div class="block">Sets the camera events listener that will be additionally notified about camera events.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/fragment/RecognizerRunnerFragment.html#setSplashScreenResourceId-int-">setSplashScreenResourceId</a></span>(int&nbsp;resourceId)</code>
 <div class="block">Sets the resource layout identifier for camera splash screen.</div>
@@ -721,21 +727,40 @@ public&nbsp;android.view.View&nbsp;onCreateView(@Nullable
 </dl>
 </li>
 </ul>
-<a name="onScanningDone-RecognitionSuccessType-">
+<a name="onScanningDone-com.microblink.recognition.RecognitionSuccessType-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onScanningDone</h4>
 <pre>public&nbsp;void&nbsp;onScanningDone(@NonNull
-                           RecognitionSuccessType&nbsp;recognitionSuccessType)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">ScanResultListener</a></code></span></div>
-<div class="block">This method is called when recognition is done.</div>
+                           <a href="../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when recognition is done.
+ This method might be called on background thread or main thread, depending on the type of scan.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-">onScanningDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
+<dd><code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onScanningDone-com.microblink.recognition.RecognitionSuccessType-">onScanningDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>recognitionSuccessType</code> - indicates the success type of recognition</dd>
+</dl>
+</li>
+</ul>
+<a name="onUnrecoverableError-java.lang.Throwable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onUnrecoverableError</h4>
+<pre>public&nbsp;void&nbsp;onUnrecoverableError(@NonNull
+                                 java.lang.Throwable&nbsp;throwable)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onUnrecoverableError-java.lang.Throwable-">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when the scanning cannot be performed because of an error.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../com/microblink/view/recognition/ScanResultListener.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></code>&nbsp;in interface&nbsp;<code><a href="../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>throwable</code> - type of error</dd>
 </dl>
 </li>
 </ul>
