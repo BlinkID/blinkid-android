@@ -24,6 +24,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.microblink.blinkid.managers.DocumentViewfinderManager;
 import com.microblink.entities.recognizers.Recognizer;
@@ -668,6 +669,12 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                 onScanDoneWithSuccess();
             }
         });
+    }
+
+    @Override
+    public void onUnrecoverableError(@NonNull Throwable throwable) {
+        Toast.makeText(this, throwable.toString(), Toast.LENGTH_LONG).show();
+        finish();
     }
 
     private void onScanDoneWithSuccess() {

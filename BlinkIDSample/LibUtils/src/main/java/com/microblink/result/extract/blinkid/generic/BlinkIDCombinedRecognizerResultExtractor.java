@@ -159,6 +159,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         addIfNotEmpty(R.string.PPFirstName, result.getFirstName());
         addIfNotEmpty(R.string.PPLastName, result.getLastName());
         addIfNotEmpty(R.string.PPFullName, result.getFullName());
+        addIfNotEmpty(R.string.PPMiddleName, result.getMiddleName());
         addIfNotEmpty(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
         addIfNotEmpty(R.string.PPSex, result.getSex());
 

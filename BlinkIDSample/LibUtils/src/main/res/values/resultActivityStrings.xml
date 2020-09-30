@@ -141,6 +141,8 @@
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
     <string name="PPFullName">Full name</string>
+    <string name="PPMiddleName">Middle name</string>
+    <string name="PPNameSuffix">Name suffix</string>
     <string name="PPLocalizedName">Localized name</string>
     <string name="PPAdditionalNameInformation">Additional name information</string>
     <string name="PPCommercialCode">Commercial Code</string>

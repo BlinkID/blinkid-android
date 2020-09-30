@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -132,7 +132,8 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#ReticleOverlayView-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">ReticleOverlayView</a></span>(boolean&nbsp;shouldShowControlButtons,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#ReticleOverlayView-boolean-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">ReticleOverlayView</a></span>(boolean&nbsp;shouldShowControlButtons,
+                  boolean&nbsp;shouldShowFlashlightWarning,
                   <a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
                   int&nbsp;style)</code>&nbsp;</td>
 </tr>
@@ -232,12 +233,18 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></span>(boolean&nbsp;torchOn)</code>
+<div class="block">Called when torch (flashlight) state is updated.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -266,13 +273,14 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ReticleOverlayView-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">
+<a name="ReticleOverlayView-boolean-boolean-com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings-int-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ReticleOverlayView</h4>
 <pre>public&nbsp;ReticleOverlayView(boolean&nbsp;shouldShowControlButtons,
+                          boolean&nbsp;shouldShowFlashlightWarning,
                           @Nullable
                           <a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
                           @StyleRes
@@ -456,6 +464,23 @@ public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/component
 <dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onGlare-boolean-">onGlare</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>hasGlare</code> - true if glare detected</dd>
+</dl>
+</li>
+</ul>
+<a name="onTorchStateChanged-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onTorchStateChanged</h4>
+<pre>public&nbsp;void&nbsp;onTorchStateChanged(boolean&nbsp;torchOn)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onTorchStateChanged-boolean-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Called when torch (flashlight) state is updated.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>torchOn</code> - <code>true</code> if torch is turned on, <code>false</code> otherwise.</dd>
 </dl>
 </li>
 </ul>

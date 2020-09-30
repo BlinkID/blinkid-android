@@ -14,6 +14,7 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         add(R.string.PPFirstName, result.getFirstName());
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPFullName, result.getFullName());
+        add(R.string.PPMiddleName, result.getMiddleName());
         add(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
         add(R.string.PPSex, result.getSex());
         add(R.string.PPAddress, result.getAddress());

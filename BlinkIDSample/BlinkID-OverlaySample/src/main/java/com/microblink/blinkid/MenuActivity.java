@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
@@ -174,6 +175,11 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
 
                 finishScanning();
             }
+        }
+
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
+            Toast.makeText(MenuActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
         }
     };
 

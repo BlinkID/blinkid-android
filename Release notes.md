@@ -1,13 +1,173 @@
 # Release notes
+
+## 5.8.0
+
+### New features:
+
+* We added user feedback when turning ON the flashlight on `BlinkIdOverlayController`:
+	* It warns the user to watch out for flashlight glare.
+	* It can be disabled by using `BlinkIdUISettings.setShowFlashlightWarning(false)` option.
+
+### New additions to our supported documents list
+
+#### Plastic page passports
+
+We added support for scanning the visual inspection zone - VIZ includes everything except MRZ or barcode. Keep in mind that BlinkID scans and extracts data only from the VIZ that is on the first **plastic page** found in the passport list below:
+
+* **Chile** Passport (BETA)
+* **Colombia** Passport
+* **Croatia** Passport
+* **Denmark** Passport
+* **Finland** Passport (BETA)
+* **Germany** Passport
+* **Hong Kong** Passport (BETA)
+* **Ireland** Passport (BETA)
+* **Malaysia** Passport
+* **Netherlands** Passport
+* **New Zealand** Passport
+* **Norway** Passport
+* **Singapore** Passport
+* **South Africa** Passport
+* **Sweden** Passport
+* **Turkey** Passport (BETA)
+
+If you need to scan the MRZ only, you can always set the "MRZ Passport" [recognition mode](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableMrzPassport).
+​
+#### Vertical US documents
+
+* **California** ID
+* **Illinois** ID
+* **New York** ID
+* **North Carolina** ID
+* **Texas** ID
+
+#### Other documents
+
+* **Canada** Newfoundland and Labrador DL
+* **Croatia** Residence Permit (BETA)
+* **Guatemala** Consular ID
+* **Malaysia** MyKAS (BETA)
+* **Mexico** Jalisco DL / front side only
+* **Mexico** Nuevo Leon DL (BETA)
+* **Peru** ID (BETA)
+* **Singapore** S Pass (BETA)
+* **Uruguay** ID / front side only
+* **USA** Missouri ID
+* **USA** Texas ID
+
+#### European DLs with a single line MRZ
+
+BlinkID extracts data from driver’s licenses that contain single line MRZ:
+
+* **Croatia** DL
+* **Estonia** DL
+* **France** DL
+* **Ireland** DL
+* **Netherlands** DL
+* **Slovakia** DL
+
+#### Back side supported on:
+* **Azerbaijan** ID
+* **Singapore** DL
+* **Singapore** Employment Pass
+
+#### No longer BETA
+* **Slovakia** DL
+
+### New features and updates in BlinkId(Combined)Recognizer
+
+* We added `signatureImage` to the result. Extract signature image from the documents below:
+	* Australia Victoria DL
+	* Austria ID
+	* Austria DL
+	* Brunei Military ID
+	* Colombia ID
+	* Croatia ID (on 2013 and 2015 versions)
+	* Cyrus ID
+	* Czechia ID (on the 2012 version)
+	* Germany ID (2010 version)
+	* Germany DL (2013 version)
+	* Indonesia ID
+	* Ireland DL
+	* Italy DL
+	* Mexico Voter ID
+	* New Zealand DL
+	* Slovenia ID
+	* Spain DL
+	* Sweden DL
+	* Switzerland ID
+	* UAE ID
+	* UAE Resident ID
+
+* We enabled extraction of the **date of birth** from the **NRIC** from Malaysian documents:
+	* MyKad
+	* MyKas
+	* MyKid
+	* MyPR
+	* MyTentera
+
+* We added anonymization support for:
+	* MRZ (OPT2 containing the ID number) on China Mainland Travel Permit Hong Kong
+	* MRZ (Document number) on Germany Alien Passport
+	* Document number, MRZ (Document number) on Germany ID
+	* MRZ (Document number) on Germany Minors Passport
+	* MRZ (Document number) on Germany Passport
+	* Document number on Hong Kong ID
+	* MRZ (Document number, OPT1 containing the passport or ID number) on Hong Kong Passport
+	* Personal ID number on Netherlands DL
+	* Personal ID number, MRZ (OPT1 containing the BSN) on Netherlands ID
+	* MRZ (OPT1 containing the BSN) on Netherlands Passport
+	* Document number on Singapore DL
+	* Personal ID number on Singapore Employment Pass
+	* Document number on Singapore FIN Card
+	* Document number on Singapore ID
+	* MRZ (Document number, OPT1 containing the NRIC) on Singapore Passport
+	* Document number on Singapore Resident ID
+	* Document number on Singapore S Pass
+	* Personal ID number on Singapore Work Permit
+	* MRZ (OPT1 containing the resident registration number) on South Korea Diplomatic Passport 
+	* MRZ (OPT1 containing the resident registration number) on South Korea Passport
+	* MRZ (OPT1 containing the resident registration number) on South Korea Residence Passport
+	* MRZ (OPT1 containing the resident registration number) on South Korea Service Passport
+	* MRZ (OPT1 containing the resident registration number) on South Korea Temporary Passport
+* We improved MRZ data extraction on:
+	* **Russia Passport**
+
+### Other features and updates
+
+* We added the field `middleName` to `BlinkId(Combined)Recognizer`, `IdBarcodeRecognizer` and `Usdl(Combined)Recognizer` results. This field is extracted from AAMVA standard compliant barcodes, whenever available.
+
+### Deprecated recognizers
+
+We have deprecated the following recognizers:
+
+- `PassportRecognizer`, `VisaRecognizer` - **use `BlinkIdCombinedRecognizer` or `BlinkIdRecognizer` instead**
+
+- `DocumentFaceRecognizer`, `MrtdRecognizer` - **use `BlinkIdRecognizer` instead**
+
+- `MrtdCombinedRecognizer` - **use `BlinkIdCombinedRecognizer` instead**
+
+- `UsdlRecognizer` - **use `IdBarcodeRecognizer` instead**
+
+### Major API change
+
+`ScanResultListener` interface now has an additional method called when the scanning cannot continue because of an unrecoverable error. You have to implement `onUnrecoverableError` method.
+If you’re using built-in activities, when `onActivityResult` is called with `RESULT_CANCELED` result code, the exception will be available via `ActivityRunner.EXTRA_SCAN_EXCEPTION` intent extra. If the user canceled the scan, the exception would be `null`.
+
+### Fixes
+
+* We improved the data match logic for **Guatemala Consular ID** in BlinkId(Combined)Recognizer.
+* We fixed race conditions in camera management, which in some cases caused that the camera was unable to resume after it has been paused.
+
 ## 5.7.0
 
 ## New features
-- We translated complete SDK to the following additional languages: **Malay**, **Dutch**, **Hungarian**, **Slovenian**, **Indonesian**, **Arabic(UAE)**, **Romanian**, **Chinese traditional**, **Chinese simplified**, **Thai**, **Hewbrew**, **Vietnamese**, **Filipino**.
+- We translated complete SDK to the following additional languages: **Malay**, **Dutch**, **Hungarian**, **Slovenian**, **Indonesian**, **Arabic(UAE)**, **Romanian**, **Chinese traditional**, **Chinese simplified**, **Thai**, **Hebrew**, **Vietnamese**, **Filipino**.
 
 ## Improvements to existing features:
 
 - We have improved parsing of **MRZ** formats deviating from the ISO/IEC 7501 standard:
-	- Document discriminator was in place of the document number on driver licenses and IDs from from:
+	- Document discriminator was in place of the document number on driver licenses and IDs from:
 		- **New York** 
 		- **Michigan** 
 		- **Canada**

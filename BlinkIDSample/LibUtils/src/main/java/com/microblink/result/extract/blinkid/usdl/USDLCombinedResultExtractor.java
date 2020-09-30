@@ -11,6 +11,8 @@ public class USDLCombinedResultExtractor extends BlinkIdExtractor<UsdlCombinedRe
         add(R.string.PPFirstName, result.getFirstName());
         add(R.string.PPLastName, result.getLastName());
         add(R.string.PPFullName, result.getFullName());
+        add(R.string.PPMiddleName, result.getMiddleName());
+        add(R.string.PPNameSuffix, result.getNameSuffix());
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPSex, result.getSex());

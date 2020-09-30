@@ -182,6 +182,11 @@ public class ScanImageActivity extends Activity {
                     });
                 }
             }
+
+            @Override
+            public void onUnrecoverableError(@NonNull Throwable throwable) {
+                Toast.makeText(ScanImageActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
+            }
         });
     }
 
