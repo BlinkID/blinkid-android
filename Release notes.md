@@ -139,7 +139,7 @@ BlinkID extracts data from driver’s licenses that contain single line MRZ:
 
 ### Deprecated recognizers
 
-We have deprecated following recognizers:
+We have deprecated the following recognizers:
 
 - `PassportRecognizer`, `VisaRecognizer` - **use `BlinkIdCombinedRecognizer` or `BlinkIdRecognizer` instead**
 
@@ -151,8 +151,8 @@ We have deprecated following recognizers:
 
 ### Major API change
 
-`ScanResultListener` interface now has an additional method you’ll need to implement, `onUnrecoverableError`, called when the scanning cannot continue because of an unrecoverable error.
-If you’re using built-in activities, when `onActivityResult` is called with `RESULT_CANCELED` result code, exception will be available via `ActivityRunner.EXTRA_SCAN_EXCEPTION` intent extra. If the scan was canceled by the user, exception will be null.
+`ScanResultListener` interface now has an additional method called when the scanning cannot continue because of an unrecoverable error. You have to implement `onUnrecoverableError` method.
+If you’re using built-in activities, when `onActivityResult` is called with `RESULT_CANCELED` result code, the exception will be available via `ActivityRunner.EXTRA_SCAN_EXCEPTION` intent extra. If the user canceled the scan, the exception would be `null`.
 
 ### Fixes
 
