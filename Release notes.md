@@ -83,7 +83,7 @@ BlinkID extracts data from driver’s licenses that contain single line MRZ:
 	* Brunei Military ID
 	* Colombia ID
 	* Croatia ID (on 2013 and 2015 versions)
-	* Cyrus ID
+	* Cyprus ID
 	* Czechia ID (on the 2012 version)
 	* Germany ID (2010 version)
 	* Germany DL (2013 version)
