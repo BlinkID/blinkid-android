@@ -199,7 +199,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Philippines | Multipurpose ID\* |  |
 | Philippines | Professional ID\* |  |
 | Singapore | Driving Licence |  |
-| Singapore | Employment Pass |  |
+| Singapore | Employment Pass\* |  |
 | Singapore | Fin Card\* |  |
 | Singapore | ID Card | NRIC (Pink) |
 | Singapore | Passport\* |  |
