@@ -3349,17 +3349,6 @@ Protected fields are:
 <tr> <td>Personal ID number</td> <td>Sometimes</td><tr>
 <tr> <td>Profession</td> <td>Sometimes</td><tr>
 
-<th colspan=2>SINGAPORE EMPLOYMENT PASS - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of birth</td> <td>Always</td><tr>
-
-<tr> <td>Full name</td> <td>Always</td><tr>
-
-<tr> <td>Nationality</td> <td>Always</td><tr>
-
-<tr> <td>Personal ID number</td> <td>Always</td><tr>
-
-<tr> <td>Sex</td> <td>Always</td><tr>
-
 
 <th colspan=2>SINGAPORE FIN CARD - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
