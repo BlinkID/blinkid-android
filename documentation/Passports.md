@@ -55,6 +55,7 @@ Below is a list of passports on which we support the extraction of information f
 - Estonia
 - Eswatini (Swaziland)
 - Ethiopia
+- Equatorial Guinea
 - Faroe Islands
 - Finland
 - France
@@ -85,6 +86,7 @@ Below is a list of passports on which we support the extraction of information f
 - Jordan
 - Kazakhstan
 - Kenya
+- Kiribati
 - Kosovo
 - Kuwait
 - Kyrgyzstan
@@ -104,6 +106,7 @@ Below is a list of passports on which we support the extraction of information f
 - Maldives
 - Mali
 - Malta
+- Marshall Islands
 - Mauritania
 - Mauritius
 - Mexico
@@ -135,6 +138,8 @@ Below is a list of passports on which we support the extraction of information f
 - Romania
 - Russia
 - Rwanda
+- Saint Kitts and Nevis
+- Samoa
 - Saudi Arabia
 - Senegal
 - Serbia
