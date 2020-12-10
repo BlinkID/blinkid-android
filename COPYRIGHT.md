@@ -1,1 +1,1 @@
-Copyright (c) 2016. Microblink LLC
+Copyright (c) 2020 Microblink LLC
