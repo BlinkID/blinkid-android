@@ -26,13 +26,13 @@ public abstract class BaseMenuActivity extends AppCompatActivity {
         titleTxt.setText(getTitleText());
 
         mListItems = createMenuListItems();
-        ListView lv = findViewById(R.id.detectorList);
+        final ListView lv = findViewById(R.id.detectorList);
         ArrayAdapter<MenuListItem> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mListItems);
         lv.setAdapter(listAdapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mListItems.get(position).getOnClickAction().run();
+                mListItems.get(position - lv.getHeaderViewsCount()).getOnClickAction().run();
             }
         });
     }

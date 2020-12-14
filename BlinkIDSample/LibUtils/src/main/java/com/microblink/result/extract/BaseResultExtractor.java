@@ -3,6 +3,7 @@ package com.microblink.result.extract;
 import android.content.Context;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.image.Image;
 import com.microblink.result.ResultSource;
 import com.microblink.results.date.Date;
 import com.microblink.results.date.DateResult;
@@ -85,6 +86,10 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
 
     protected void add(int key, byte[] value) {
         mExtractedData.add(mBuilder.build(key, value));
+    }
+
+    protected void add(int key, Image image) {
+        mExtractedData.add(mBuilder.build(key, image));
     }
 
 

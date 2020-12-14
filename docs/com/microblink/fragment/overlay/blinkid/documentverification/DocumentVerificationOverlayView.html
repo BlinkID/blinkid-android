@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -120,6 +120,21 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="nested.classes.inherited.from.class.com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView">
+<!--   -->
+</a>
+<h3>Nested classes/interfaces inherited from interface&nbsp;com.microblink.fragment.overlay.blinkid.<a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></h3>
+<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -220,31 +235,37 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">onProcessingError</a></span>(<a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a>&nbsp;processingError)</code>
+<div class="block">Called when processing error, which should be displayed to the user, occurs.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></span>(boolean&nbsp;torchOn)</code>
 <div class="block">Called when torch (flashlight) state is updated.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/documentverification/DocumentVerificationOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -429,6 +450,24 @@ public&nbsp;<a href="../../../../../../com/microblink/fragment/overlay/component
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onCardDetectionUpdate-com.microblink.view.recognition.DetectionStatus-">onCardDetectionUpdate</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onProcessingError</h4>
+<pre>public&nbsp;void&nbsp;onProcessingError(@NonNull
+                              <a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a>&nbsp;processingError)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Called when processing error, which should be displayed to the user, occurs.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">onProcessingError</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>processingError</code> - processing error type.</dd>
 </dl>
 </li>
 </ul>

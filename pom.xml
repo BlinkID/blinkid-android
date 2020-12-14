@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.microblink</groupId>
   <artifactId>blinkid</artifactId>
-  <version>5.8.0</version>
+  <version>5.9.0</version>
   <packaging>aar</packaging>
   <name>BlinkID SDK for Android</name>
   <description>SDK that enables scanning of ID documents and passports in your Android application</description>
@@ -25,7 +25,7 @@
     <dependency>
       <groupId>androidx.appcompat</groupId>
       <artifactId>appcompat</artifactId>
-      <version>1.1.0</version>
+      <version>1.2.0</version>
       <scope>compile</scope>
       <type>aar</type>
     </dependency>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6};
+var methods = {"i0":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -143,12 +143,6 @@ var activeTableTab = "activeTableTab";
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code><a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#getDocumentDataMatch--">getDocumentDataMatch</a></span>()</code>
-<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/entities/recognizers/blinkid/CombinedResult.html#isScanningFirstSideDone--">isScanningFirstSideDone</a></span>()</code>&nbsp;</td>
 </tr>
@@ -189,26 +183,6 @@ static final&nbsp;java.lang.String CLASS_NAME</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="getDocumentDataMatch--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getDocumentDataMatch</h4>
-<pre>@NonNull
-<a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html" title="class in com.microblink.entities.recognizers.blinkid">DataMatchResult</a>&nbsp;getDocumentDataMatch()</pre>
-<div class="block">Returns result of the data matching algorithm for scanned parts/sides of the document.
- For example if date of expiry is scanned from the front and back side
- of the document and values do not match, this method will return <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Failed"><code>DataMatchResult.Failed</code></a>.
- Result will be <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#Success"><code>DataMatchResult.Success</code></a> only if scanned values for all fields that are
- compared are the same. If data matching has not been performed, result will be
- <a href="../../../../../com/microblink/entities/recognizers/blinkid/DataMatchResult.html#NotPerformed"><code>DataMatchResult.NotPerformed</code></a>.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>result of the data matching algorithm for scanned parts/sides of the document.</dd>
-</dl>
-</li>
-</ul>
 <a name="isScanningFirstSideDone--">
 <!--   -->
 </a>

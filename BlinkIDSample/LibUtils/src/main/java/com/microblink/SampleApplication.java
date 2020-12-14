@@ -25,8 +25,8 @@ public abstract class SampleApplication extends Application {
         if (supportStatus == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
             Log.i(this, "Recognition is supported!");
         } else if (supportStatus == RecognizerCompatibilityStatus.NO_CAMERA) {
-            Toast.makeText(this, "Recognition is supported only in DirectAPI mode!", Toast.LENGTH_SHORT).show();
-            Log.w(this, "Recognition is supported only in DirectAPI mode!");
+            Toast.makeText(this, "Recognition is supported only in Direct API mode!", Toast.LENGTH_SHORT).show();
+            Log.w(this, "Recognition is supported only in Direct API mode!");
         } else {
             isRecognitionSupported = false;
             Toast.makeText(this, "Recognition is not supported! Reason: " + supportStatus.name(), Toast.LENGTH_LONG).show();

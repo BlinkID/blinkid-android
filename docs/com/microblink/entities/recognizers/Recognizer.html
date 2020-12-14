@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -215,18 +215,24 @@ extends <a href="../../../../com/microblink/entities/Entity.html" title="class i
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/recognizers/Recognizer.html#getName--">getName</a></span>()</code>
+<div class="block">Returns unique name of this recognizer type.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/recognizers/Recognizer.html#isExcludedFromPing--">isExcludedFromPing</a></span>()</code>
 <div class="block">Returns true if this recognizer should be excluded from reporting its scan success to ping server.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/recognizers/Recognizer.html#requiresAutofocus--">requiresAutofocus</a></span>()</code>
 <div class="block">Returns true if this recognizer requires camera with autofocus.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/entities/recognizers/Recognizer.html#requiresLandscapeMode--">requiresLandscapeMode</a></span>()</code>
 <div class="block">Returns true if this recognizer works only in landscape mode.</div>
@@ -344,7 +350,7 @@ public abstract&nbsp;<a href="../../../../com/microblink/entities/recognizers/Re
 <a name="isExcludedFromPing--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>isExcludedFromPing</h4>
 <pre>public&nbsp;boolean&nbsp;isExcludedFromPing()</pre>
@@ -352,6 +358,20 @@ public abstract&nbsp;<a href="../../../../com/microblink/entities/recognizers/Re
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if this recognizer should be excluded from reporting its scan success to ping server.</dd>
+</dl>
+</li>
+</ul>
+<a name="getName--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getName</h4>
+<pre>public&nbsp;java.lang.String&nbsp;getName()</pre>
+<div class="block">Returns unique name of this recognizer type.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unique name of this recognizer type.</dd>
 </dl>
 </li>
 </ul>

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" target="_top">Frames</a></li>
@@ -72,7 +72,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -110,6 +110,27 @@ var activeTableTab = "activeTableTab";
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Interface and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static class&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a></span></code>
+<div class="block">Supported processing errors.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -190,31 +211,37 @@ var activeTableTab = "activeTableTab";
 </td>
 </tr>
 <tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">onProcessingError</a></span>(<a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a>&nbsp;processingError)</code>
+<div class="block">Called when processing error, which should be displayed to the user, occurs.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onScanSuccess--">onScanSuccess</a></span>()</code>
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onSecondSideScanStarted--">onSecondSideScanStarted</a></span>()</code>
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onTorchStateChanged-boolean-">onTorchStateChanged</a></span>(boolean&nbsp;torchOn)</code>
 <div class="block">Called when torch (flashlight) state is updated.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setRecognizerSupportsClassification-boolean-">setRecognizerSupportsClassification</a></span>(boolean&nbsp;isClassificationSupported)</code>
 <div class="block">If true, this means that recognizer supports classification and <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#onDocumentClassified--"><code>BlinkIdOverlayView.onDocumentClassified()</code></a>
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#setShowBackSideBarcodeInstructions-boolean-">setShowBackSideBarcodeInstructions</a></span>(boolean&nbsp;shouldShow)</code>
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
@@ -336,6 +363,21 @@ var activeTableTab = "activeTableTab";
 <pre>void&nbsp;onCardDetectionUpdate(@NonNull
                            <a href="../../../../../com/microblink/view/recognition/DetectionStatus.html" title="class in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</pre>
 <div class="block">Called on any update to card detection process.</div>
+</li>
+</ul>
+<a name="onProcessingError-com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onProcessingError</h4>
+<pre>void&nbsp;onProcessingError(@NonNull
+                       <a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a>&nbsp;processingError)</pre>
+<div class="block">Called when processing error, which should be displayed to the user, occurs.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>processingError</code> - processing error type.</dd>
+</dl>
 </li>
 </ul>
 <a name="onScanSuccess--">
@@ -488,7 +530,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlaySettings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../com/microblink/fragment/overlay/blinkid/RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.ProcessingError.html" title="class in com.microblink.fragment.overlay.blinkid"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html" target="_top">Frames</a></li>
@@ -512,7 +554,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

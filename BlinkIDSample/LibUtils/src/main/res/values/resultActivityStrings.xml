@@ -56,6 +56,7 @@
     <string name="PPWithdraw">Withdrawal</string>
     <string name="PPDueDate">Due date</string>
     <string name="PPPaymentStatus">Payment status</string>
+    <string name="PPPaymentSituationId">Payment situation ID</string>
     <string name="PPPayerAccount">Payer account</string>
     <string name="PPPayerReference">Payer Reference No</string>
     <string name="PPPayerReferenceModel">Payer Model</string>
@@ -103,6 +104,8 @@
     <string name="PPDocumentCode">Document code</string>
     <string name="PPDocumentNumber">Document number</string>
     <string name="PPDocumentAdditionalNumber">Document additional number</string>
+    <string name="PPDocumentOptionalAdditionalNumber">Document optional additional number</string>
+    <string name="PPPersonalAdditionalNumber">Personal additional number</string>
     <string name="PPNationalNumber">National number</string>
     <string name="PPOpt1">Optional field 1</string>
     <string name="PPOpt2">Optional field 2</string>
@@ -123,6 +126,9 @@
     <string name="PPIssuedBy">Issued by</string>
     <string name="PPIssuingAgency">Issuing agency</string>
     <string name="PPAddress">Address</string>
+    <string name="PPStreet">Street</string>
+    <string name="PPPostalCode">Postal Code</string>
+    <string name="PPJurisdiction">Jurisdiction</string>
     <string name="PPAdditionalAddressInformation">Additional Address Information</string>
     <string name="PPResidence">Residence</string>
     <string name="PPAddressChangeDate">Date of address change</string>
@@ -170,6 +176,7 @@
     <string name="PPPaymentOptions">Payment options</string>
     <string name="PPEyeColour">Eye colour</string>
     <string name="PPPrincipalResidenceAtIssuance">Principal residence at issuance</string>
+    <string name="PPRemittanceInformation">Remittance information</string>
     <string name="PPHeight">Height</string>
     <string name="PPAlienNumber">ALien number</string>
     <string name="PPApplicationReceiptNumber">Application receipt number</string>
@@ -180,6 +187,9 @@
     <string name="PPValidFrom">Valid from</string>
     <string name="PPValidUntil">Valid until</string>
     <string name="PPValidThru">Valid thru</string>
+    <string name="PPShopId">Shop ID</string>
+    <string name="PPMerchantDeviceId">Merchant device ID</string>
+    <string name="PPValidityPeriod">Validity period</string>
     <string name="PPPassportNumber">Passport number</string>
     <string name="PPEmployer">Employer</string>
     <string name="PPSector">Sector</string>
@@ -193,6 +203,9 @@
     <string name="PPIdentityCardNumber">Identity card number</string>
     <string name="PPDistrictCode">District code</string>
     <string name="PPCustomerID">Customer ID</string>
+    <string name="PPRecipientInternalId">Recipient internal ID</string>
+    <string name="PPLoyaltyID">Loyalty ID</string>
+    <string name="PPNavVerificationCode">NAV verification code</string>
     <string name="PPLicenceNumber">Licence Number</string>
     <string name="PPLicenceType">Licence Type</string>
     <string name="PPLicenceCategories">Licence Categories</string>
@@ -226,6 +239,8 @@
     <string name="PPCivilIdNumber">Civil Id Number</string>
     <string name="PPSerialNo">Serial No</string>
     <string name="PPPaymentCardNumber">Card number</string>
+    <string name="PPPaymentCardNumberValid">Card number valid</string>
+    <string name="PPPaymentCardNumberPrefix">Card number prefix</string>
     <string name="PaymentCardType">Type</string>
     <string name="PPCVV">CVV</string>
     <string name="PPInventoryNumber">Inventory number</string>
@@ -261,6 +276,10 @@
     <string name="MBEncodedFullDocumentImageFront">Encoded full document image front</string>
     <string name="MBFullDocumentImageBack">Full document image back</string>
     <string name="MBEncodedFullDocumentImageBack">Encoded full document image back</string>
+    <string name="MBFullDocumentImageFirstSide">Full document image first side</string>
+    <string name="MBEncodedFullDocumentImageFirstSide">Encoded full document image first side</string>
+    <string name="MBFullDocumentImageSecondSide">Full document image second side</string>
+    <string name="MBEncodedFullDocumentImageSecondSide">Encoded full document image second side</string>
     <string name="MBMRZImage">MRZ image</string>
     <string name="MBFaceImage">Face image</string>
     <string name="MBEncodedFaceImage">Encoded face image</string>
@@ -291,6 +310,8 @@
     <string name="MBDocumentImageBlurred">Image blurred</string>
     <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
     <string name="MBDocumentBackImageBlurred">Back image blurred</string>
+    <string name="MBDocumentFirstSideImageBlurred">First side image blurred</string>
+    <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
 
     <string name="MBProcessingStatus">Processing status</string>
     <string name="MBRecognitionMode">Recognition mode</string>
