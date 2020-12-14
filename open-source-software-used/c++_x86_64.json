@@ -9,7 +9,7 @@
       "url" : "https://github.com/microblink/concurrentqueue",
       "description" : "A fast multi-producer, multi-consumer lock-free concurrent queue for C++11",
       "license" : "Dual licensed under Simplified BSD License and Boost Software License - Version 1.0",
-      "package" : "ConcurrentQueue/1.0.4@microblink/stable"
+      "package" : "ConcurrentQueue/3.0.0@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/config_ex",
@@ -33,7 +33,7 @@
       "url" : "https://github.com/microblink/functionoid",
       "description" : "a complete C++17 rewrite of boost/std::function",
       "license" : "Boost Software License, Version 1.0",
-      "package" : "Functionoid/1.1.7@microblink/stable"
+      "package" : "Functionoid/3.0.1@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/hash-library",
@@ -63,27 +63,27 @@
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "description" : "Microblink's fork of OpenCV",
       "license" : "MIT",
-      "package" : "OpenCV/3.2.0.9@microblink/stable"
+      "package" : "OpenCV/3.2.0.11@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVAnalysis/3.2.0.9@microblink/stable"
+      "package" : "OpenCVAnalysis/3.2.0.11@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVCore/3.2.0.9@microblink/stable"
+      "package" : "OpenCVCore/3.2.0.11@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVImageIO/3.2.0.9@microblink/stable"
+      "package" : "OpenCVImageIO/3.2.0.11@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVProcessing/3.2.0.9@microblink/stable"
+      "package" : "OpenCVProcessing/3.2.0.11@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/pimpl",
@@ -99,9 +99,9 @@
    },
    {
       "url" : "https://github.com/microblink/sweater",
-      "description" : "Humble Outed Dispatch",
+      "description" : "Humble Outer Dispatch",
       "license" : "MIT",
-      "package" : "Sweater/3.2.6@microblink/stable"
+      "package" : "Sweater/8.0.1@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/utfcpp",
@@ -118,7 +118,7 @@
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "Zlib/1.2.8.9@microblink/stable"
+      "package" : "Zlib/1.2.8.11@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/cpuinfo",

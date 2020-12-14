@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":6};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -155,14 +155,18 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/OverlayResources.html#getColor-int-">getColor</a></span>(int&nbsp;id)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>protected float</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/OverlayResources.html#getDimension-int-">getDimension</a></span>(int&nbsp;id)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected android.graphics.drawable.Drawable</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/OverlayResources.html#getDrawable-int-">getDrawable</a></span>(int&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected int</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/OverlayResources.html#getStyle-int-">getStyle</a></span>(int&nbsp;id)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected abstract int[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/OverlayResources.html#getStyleable--">getStyleable</a></span>()</code>&nbsp;</td>
 </tr>
@@ -250,6 +254,17 @@ protected&nbsp;int&nbsp;getStyle(@StyleableRes
 <h4>getColor</h4>
 <pre>protected&nbsp;int&nbsp;getColor(@StyleableRes
                        int&nbsp;id)</pre>
+</li>
+</ul>
+<a name="getDimension-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDimension</h4>
+<pre>@Dimension
+protected&nbsp;float&nbsp;getDimension(@StyleableRes
+                                        int&nbsp;id)</pre>
 </li>
 </ul>
 <a name="cleanup--">

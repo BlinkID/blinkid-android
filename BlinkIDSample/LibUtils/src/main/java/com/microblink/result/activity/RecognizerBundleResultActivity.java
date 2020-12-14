@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -19,8 +20,18 @@ import java.util.List;
 public class RecognizerBundleResultActivity extends BaseResultActivity implements
         ResultFragment.ResultFragmentActivity {
 
+    private static final String SHOULD_SHOW_RESULT_DIALOG_EXTRA = "SHOULD_SHOW_RESULT_DIALOG_EXTRA";
+
     protected RecognizerBundle mRecognizerBundle;
     private List<Recognizer> mRecognizersWithResult;
+
+    public static void putShouldShowResultDialogExtra(Intent data, boolean shouldShowResultDialog) {
+        data.putExtra(SHOULD_SHOW_RESULT_DIALOG_EXTRA, shouldShowResultDialog);
+    }
+
+    private static boolean getShouldShowResultDialogExtra(Intent data) {
+        return data.getBooleanExtra(SHOULD_SHOW_RESULT_DIALOG_EXTRA, false);
+    }
 
     @CallSuper
     @Override
@@ -41,6 +52,8 @@ public class RecognizerBundleResultActivity extends BaseResultActivity implement
     }
 
     protected List<Recognizer> obtainRecognizersWithResult(Intent intent) {
+        StringBuilder resultDialogMessageBuilder = new StringBuilder();
+
         List<Recognizer> recognizersWithResult = new ArrayList<>();
         mRecognizerBundle = new RecognizerBundle();
         mRecognizerBundle.loadFromIntent(intent);
@@ -48,8 +61,28 @@ public class RecognizerBundleResultActivity extends BaseResultActivity implement
             if ( r.getResult().getResultState() != Recognizer.Result.State.Empty ) {
                 recognizersWithResult.add( r );
             }
+
+            resultDialogMessageBuilder.append(String.format("%s: %s\n",
+                    r.getName(),
+                    r.getResult().getResultState().name()));
         }
+
+        showResultDialogIfEligible(resultDialogMessageBuilder.toString());
+
         return recognizersWithResult;
+    }
+
+    private void showResultDialogIfEligible(String resultDialogMessage) {
+        boolean shouldShowResultDialog = getShouldShowResultDialogExtra(getIntent());
+
+        if (shouldShowResultDialog) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Recognizer Result States")
+                    .setMessage(resultDialogMessage)
+                    .setPositiveButton("OK", null)
+                    .create()
+                    .show();
+        }
     }
 
     @CallSuper

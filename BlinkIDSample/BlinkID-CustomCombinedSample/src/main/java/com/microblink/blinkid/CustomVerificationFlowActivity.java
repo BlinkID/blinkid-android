@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.microblink.blinkid.managers.DocumentViewfinderManager;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.CombinedDataMatchResult;
 import com.microblink.entities.recognizers.blinkid.CombinedRecognizer;
 import com.microblink.entities.recognizers.blinkid.DataMatchResult;
 import com.microblink.geometry.Rectangle;
@@ -678,10 +679,10 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     }
 
     private void onScanDoneWithSuccess() {
-        Recognizer recognizer = mRecognizerBundle.getRecognizers()[0];
-        if (recognizer instanceof CombinedRecognizer) {
-            CombinedRecognizer combinedRecognizer = (CombinedRecognizer) recognizer;
-            if (combinedRecognizer.getCombinedResult().getDocumentDataMatch() != DataMatchResult.Failed) {
+        Recognizer.Result recognizerResult = mRecognizerBundle.getRecognizers()[0].getResult();
+        if (recognizerResult instanceof CombinedDataMatchResult) {
+            CombinedDataMatchResult combinedDataMatchResult = (CombinedDataMatchResult) recognizerResult;
+            if (combinedDataMatchResult.getDocumentDataMatch() != DataMatchResult.Failed) {
                 finishWithResults();
             } else {
                 // handle case when scanned sides were from different documents

@@ -43,7 +43,7 @@ Feeling ready to crack on with the integration? First make sure we support your 
         * [Using Direct API for recognition of Android Bitmaps and custom camera frames](#directAPI_images)
         * [Using Direct API for `String` recognition (parsing)](#directAPI_strings)
         * [Understanding DirectAPI's state machine](#directAPIStateMachine)
-        * [Using DirectAPI while RecognizerRunnerView is active](#directAPIWithRecognizer)
+        * [Using Direct API while RecognizerRunnerView is active](#directAPIWithRecognizer)
         * [Using Direct API with combined recognizers ](#directAPI_combined_recognizers)
 * [Available activities and overlays](#builtInUIComponents)
     * [New: `BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent)
@@ -115,7 +115,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.8.0@aar') {
+    implementation('com.microblink:blinkid:5.9.0@aar') {
         transitive = true
     }
 }
@@ -127,7 +127,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.8.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.9.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -276,7 +276,7 @@ You can integrate _BlinkID_ into your app in four different ways, depending on y
 1. Built-in activities (`UISettings`) - SDK handles everything and you just need to start our built-in activity and handle result, customisation options are limited
 2. Built-in fragment (`RecognizerRunnerFragment`) - reuse scanning UX from our built-in activities in your own activity
 3. Custom UX (`RecognizerRunnerView`) - SDK handles camera management while you have to implement completely custom scanning UX
-4. DirectApi (`RecognizerRunner`) - SKD only handles recognition while you have to provide it with the images, either from camera or from a file
+4. Direct Api (`RecognizerRunner`) - SKD only handles recognition while you have to provide it with the images, either from camera or from a file
 
 ## <a name="runBuiltinActivity"></a> Built-in activities (`UISettings`)
 
@@ -377,6 +377,8 @@ public class MyScanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         // create BlinkIdCombinedRecognizer
         mRecognizer = new BlinkIdCombinedRecognizer();
 
@@ -396,7 +398,6 @@ public class MyScanActivity extends AppCompatActivity {
         // camera events listener will be notified about camera lifecycle and errors
         mRecognizerRunnerView.setCameraEventsListener(mCameraEventsListener);
 
-        mRecognizerRunnerView.create();
         setContentView(mRecognizerRunnerView);
     }
 
@@ -629,7 +630,7 @@ The only difference is that one of the [RecognizerRunner singleton](https://blin
 
 ### <a name="directAPIStateMachine"></a> Understanding DirectAPI's state machine
 
-DirectAPI's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`. 
+Direct API's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`.
 
 - When you obtain the reference to `RecognizerRunner` singleton, it will be in `OFFLINE` state. 
 - You can initialize `RecognizerRunner` by calling [initialize](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-) method. If you call `initialize` method while `RecognizerRunner` is not in `OFFLINE` state, you will get `IllegalStateException`.
@@ -642,7 +643,7 @@ DirectAPI's `RecognizerRunner` singleton is a state machine that can be in one o
 - `terminate` method can be called from any `RecognizerRunner` singleton's state
 - You can observe `RecognizerRunner` singleton's state with method [`getCurrentState`](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#getCurrentState--)
 
-### <a name="directAPIWithRecognizer"></a> Using DirectAPI while RecognizerRunnerView is active
+### <a name="directAPIWithRecognizer"></a> Using Direct API while RecognizerRunnerView is active
 Both [RecognizerRunnerView](#recognizerRunnerView) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
 
 
@@ -664,6 +665,55 @@ When you are using combined recognizer and images of both document sides are req
 The new UI allows the user to scan the document at an any angle, in any orientation. We recommend forcing landscape orientation if you scan barcodes on the back side, because in that orientation success rate will be higher. 
 
 To launch a built-in activity that uses `BlinkIdOverlayController` use [`BlinkIdUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/BlinkIdUISettings.html).
+
+### Scan overlay theming
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/reticle_overlay_customisation_1.png" alt="BlinkID SDK">
+</p>
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/reticle_overlay_customisation_2.png" alt="BlinkID SDK">
+</p>
+
+To customise overlay, provide your custom style resource via [`BlinkIdUISettings.setOverlayViewStyle()`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/BlinkIdUISettings.html#setOverlayViewStyle-int-) method or via [`ReticleOverlayView `](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html) constructor. You can customise elements labeled on screenshots above by providing the following attributes in your style:
+
+**exit**
+
+* `mb_exitScanDrawable` - icon drawable
+
+**torch**
+
+* `mb_torchOnDrawable` - icon drawable that is shown when the torch is enabled
+* `mb_torchOffDrawable` - icon drawable that is show when the torch is disabled
+
+**instructions**
+
+* `mb_instructionsTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_instructionsBackgroundDrawable` - drawable used for background
+
+**flashlight warning**
+
+* `mb_flashlightWarningTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_flashlightWarningBackgroundDrawable` - drawable used for background
+* note that you can disable this element by using [`BlinkIdUISettings.setShowFlashlightWarning(false)`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/BlinkIdUISettings.html#setShowFlashlightWarning-boolean-)
+
+**card icon**
+
+* `mb_cardFrontDrawable` - icon drawable shown during card flip animation, representing front side of the card
+* `mb_cardBackDrawable` - icon drawable shown during card flip animation, representing back side of the card
+
+**reticle**
+
+* `mb_reticleDefaultDrawable` - drawable shown when reticle is in neutral state
+* `mb_reticleSuccessDrawable` - drawable shown when reticle is in success state (scanning was successful)
+* `mb_reticleErrorDrawable` - drawable shown when reticle is in error state
+
+**pulse**
+
+* `mb_pulseColor` - color of the pulse animation that is active before a card is detected
+
+**progress**
+
+* `mb_progressDrawable` - drawable used as indeterminate drawable for progress bar, shown inside reticle while recognition is in progress
 
 ## <a name="documentUiComponent"></a> `DocumentUISettings`
 
@@ -731,11 +781,11 @@ List of all available `Recognizer` objects, with a brief description of each `Re
 
 The [Recognizer](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.html) is the basic unit of processing within the _BlinkID_ SDK. Its main purpose is to process the image and extract meaningful information from it. As you will see [later](#recognizerList), the _BlinkID_ SDK has lots of different `Recognizer` objects that have various purposes.
 
-Each `Recognizer` has a `Result` object, which contains the data that was extracted from the image. The `Result` object is a member of corresponding `Recognizer` object its lifetime is bound to the lifetime of its parent `Recognizer` object. If you need your `Result` object to outlive its parent `Recognizer` object, you must make a copy of it by calling its method [`clone()`](https://blinkid.github.io/blinkid-android/com/microblink/entities/Entity.Result.html#clone--).
+Each `Recognizer` has a `Result` object, which contains the data that was extracted from the image. The `Result` object is a member of corresponding `Recognizer` object and its lifetime is bound to the lifetime of its parent `Recognizer` object. If you need your `Result` object to outlive its parent `Recognizer` object, you must make a copy of it by calling its method [`clone()`](https://blinkid.github.io/blinkid-android/com/microblink/entities/Entity.Result.html#clone--).
 
 Every `Recognizer` is a stateful object, that can be in two states: _idle state_ and _working state_. While in _idle state_, you can tweak `Recognizer` object's properties via its getters and setters. After you bundle it into a `RecognizerBundle` and use either [RecognizerRunner](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html) or [RecognizerRunnerView](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerRunnerView.html) to _run_ the processing with all `Recognizer` objects bundled within `RecognizerBundle`, it will change to _working state_ where the `Recognizer` object is being used for processing. While being in _working state_, you cannot tweak `Recognizer` object's properties. If you need to, you have to create a copy of the `Recognizer` object by calling its [`clone()`](https://blinkid.github.io/blinkid-android/com/microblink/entities/Entity.html#clone--), then tweak that copy, bundle it into a new `RecognizerBundle` and use [`reconfigureRecognizers`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerRunnerView.html#reconfigureRecognizers-com.microblink.entities.recognizers.RecognizerBundle-) to ensure new bundle gets used on processing thread.
 
-While `Recognizer` object works, it changes its internal state and its result. The `Recognizer` object's `Result` always starts in [Empty state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Empty). When corresponding `Recognizer` object performs the recognition of given image, its `Result` can either stay in `Empty` state (in case `Recognizer` failed to perform recognition), move to [Uncertain state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Uncertain) (in case `Recognizer` performed the recognition, but not all mandatory information was extracted) or move to [Valid state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Valid) (in case `Recognizer` performed recognition and all mandatory information was successfully extracted from the image).
+While `Recognizer` object works, it changes its internal state and its result. The `Recognizer` object's `Result` always starts in [Empty state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Empty). When corresponding `Recognizer` object performs the recognition of given image, its `Result` can either stay in `Empty` state (in case `Recognizer` failed to perform recognition), move to [Uncertain state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Uncertain) (in case `Recognizer` performed the recognition, but not all mandatory information was extracted), move to [StageValid state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#StageValid) (in case `Recognizer` successfully scanned one part/side of the document and there are more fields to extract) or move to [Valid state](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/Recognizer.Result.State.html#Valid) (in case `Recognizer` performed recognition and all mandatory information was successfully extracted from the image).
 
 As soon as one `Recognizer` object's `Result` within `RecognizerBundle` given to `RecognizerRunner` or `RecognizerRunnerView` changes to `Valid` state, the [`onScanningDone`](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) callback will be invoked on same thread that performs the background processing and you will have the opportunity to inspect each of your `Recognizer` objects' `Results` to see which one has moved to `Valid` state.
 
@@ -1036,13 +1086,9 @@ Whenever you construct any `Recognizer` object or any other object that derives 
 
 This usually happens when you perform integration into [Eclipse project](#eclipseIntegration) and you forget to add resources or native libraries into the project. You must alway take care that same versions of both resources, assets, java library and native libraries are used in combination. Combining different versions of resources, assets, java and native libraries will trigger crash in SDK. This problem can also occur when you have performed improper integration of _BlinkID_ SDK into your SDK. Please read how to [embed _BlinkID_ inside another SDK](#embedAAR).
 
-#### <a name="multipleMicroblinkSDKs"></a> When trying to build app, I get error "Unable to merge dex" and "Multiple dex files define XXX"
-
-This error happens when you try to integrate multiple Microblink SDKs into the same application. Multiple Microblink SDKs cannot be integrated into the same application, and there is no need for that because SDKs are organized in the way that each SDK is feature superset of the smaller SDK, except the `PDF417` SDK which is the smallest SDK.
-
 #### <a name="unsatisfiedLinkError"></a> When my app starts, I get `UnsatisfiedLinkError`
 
-This error happens when JVM fails to load some native method from native library. If performing integration into [Eclipse project](#eclipseIntegration) make sure you have the same version of all native libraries and java wrapper. If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries). If this error also happens in our integration demo apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
+This error happens when JVM fails to load some native method from native library If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
 
 #### <a name="lateMetadata1"></a> I've added my callback to `MetadataCallbacks` object, but it is not being called
 

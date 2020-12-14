@@ -77,6 +77,7 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         add(R.string.PPDocumentNumber, result.getDocumentNumber());
         add(R.string.PPPersonalNumber, result.getPersonalIdNumber());
         add(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
+        add(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
@@ -117,6 +118,7 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
 
         addIfNotEmpty(R.string.PPIssueDate, result.getDateOfIssue());
         addIfNotEmpty(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
 
         addIfNotEmpty(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         addIfNotEmpty(R.string.PPNationality, result.getNationality());
@@ -131,6 +133,8 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         addIfNotEmpty(R.string.PPDocumentNumber, result.getDocumentNumber());
         addIfNotEmpty(R.string.PPPersonalNumber, result.getPersonalIdNumber());
         addIfNotEmpty(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
+        addIfNotEmpty(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
+        addIfNotEmpty(R.string.PPPersonalAdditionalNumber, result.getAdditionalPersonalIdNumber());
         addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
 
@@ -157,6 +161,10 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         addIfNotEmpty(R.string.PPSex, result.getSex());
 
         addIfNotEmpty(R.string.PPAddress, result.getAddress());
+        addIfNotEmpty(R.string.PPCity, result.getCity());
+        addIfNotEmpty(R.string.PPStreet, result.getStreet());
+        addIfNotEmpty(R.string.PPPostalCode, result.getPostalCode());
+        addIfNotEmpty(R.string.PPJurisdiction, result.getJurisdiction());
         addIfNotEmpty(R.string.PPDateOfBirth, result.getDateOfBirth());
 
         addIfNotEmpty(R.string.PPIssueDate, result.getDateOfIssue());
@@ -164,7 +172,7 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
 
         addIfNotEmpty(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         addIfNotEmpty(R.string.PPNationality, result.getNationality());
-
+        
         addIfNotEmpty(R.string.PPRace, result.getRace());
         addIfNotEmpty(R.string.PPReligion, result.getReligion());
         addIfNotEmpty(R.string.PPProfession, result.getProfession());
@@ -182,7 +190,10 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
             addIfNotEmpty(R.string.PPRestrictions, driverLicenseInfo.getRestrictions());
             addIfNotEmpty(R.string.PPEndorsements, driverLicenseInfo.getEndorsements());
             addIfNotEmpty(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
+            addIfNotEmpty(R.string.PPConditions, driverLicenseInfo.getConditions());
         }
+
+        addIfNotEmpty(R.string.PPBarcodeType, result.getBarcodeType().name());
     }
 
     @Override

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -163,35 +163,46 @@ extends java.lang.Object</pre>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getActivityTheme--">getActivityTheme</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getFilterTouchesWhenObscured--">getFilterTouchesWhenObscured</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>abstract java.lang.Class</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getTargetActivity--">getTargetActivity</a></span>()</code>
 <div class="block">Returns target activity.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#getUsingFlagSecure--">getUsingFlagSecure</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#saveToIntent-android.content.Intent-">saveToIntent</a></span>(android.content.Intent&nbsp;intent)</code>
 <div class="block">Saves this scan activity settings to <code>Intent</code> so it can be passed to the
  corresponding scan activity.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setActivityTheme-int-">setActivityTheme</a></span>(int&nbsp;themeId)</code>
 <div class="block">Sets theme that will be used by activity launched from these UiSettings.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setCameraSettings-com.microblink.uisettings.CameraSettings-">setCameraSettings</a></span>(<a href="../../../com/microblink/uisettings/CameraSettings.html" title="class in com.microblink.uisettings">CameraSettings</a>&nbsp;cameraSettings)</code>
 <div class="block">Sets camera settings that will be used for scanning</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setFilterTouchesWhenObscured-boolean-">setFilterTouchesWhenObscured</a></span>(boolean&nbsp;filterTouchesWhenObscured)</code>
+<div class="block">Defines whether the framework should discard touches when the activity's window is obscured
+ by another visible window.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/uisettings/UISettings.html#setUsingFlagSecure-boolean-">setUsingFlagSecure</a></span>(boolean&nbsp;usingFlagSecure)</code>
 <div class="block">Defines whether FLAG_SECURE on activity window, which indicates that the display has a secure
@@ -260,6 +271,33 @@ extends java.lang.Object</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>usingFlagSecure</code> - <code>true</code> to request using of FLAG_SECURE, <code>false</code> otherwise.</dd>
+</dl>
+</li>
+</ul>
+<a name="getFilterTouchesWhenObscured--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFilterTouchesWhenObscured</h4>
+<pre>public final&nbsp;boolean&nbsp;getFilterTouchesWhenObscured()</pre>
+</li>
+</ul>
+<a name="setFilterTouchesWhenObscured-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFilterTouchesWhenObscured</h4>
+<pre>public final&nbsp;void&nbsp;setFilterTouchesWhenObscured(boolean&nbsp;filterTouchesWhenObscured)</pre>
+<div class="block">Defines whether the framework should discard touches when the activity's window is obscured
+ by another visible window. Default is <code>false</code>.
+ Use this to prevent malicious attacks where user could be tricked into tapping on something
+ different from what the user perceives. This is commonly known as tapjacking.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filterTouchesWhenObscured</code> - <code>true</code> to fully filter out touch events when activites
+                                  are obscured, <code>false</code> otherwise.</dd>
 </dl>
 </li>
 </ul>

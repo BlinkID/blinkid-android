@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,26 +131,32 @@ extends <a href="../../../../com/microblink/view/recognition/ScanResultListener.
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></span>(<a href="../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></span>(<a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
                                   android.app.Activity&nbsp;activity)</code>
 <div class="block">Called after <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a></span>(<a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code>
 <div class="block">Called when <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
  <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#pauseScanning--">pauseScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
  loop by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#resumeScanning--">resumeScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
@@ -247,7 +253,7 @@ void&nbsp;pauseScanning()</pre>
 <a name="onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onRecognizerRunnerFragmentAttached</h4>
 <pre>void&nbsp;onRecognizerRunnerFragmentAttached(@NonNull
@@ -265,6 +271,21 @@ void&nbsp;pauseScanning()</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>recognizerRunnerFragment</code> - <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> that has been attached to host activity.</dd>
 <dd><code>activity</code> - <code>Activity</code> to which <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> has been attached.</dd>
+</dl>
+</li>
+</ul>
+<a name="onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onFrameRecognitionDone</h4>
+<pre>@WorkerThread
+void&nbsp;onFrameRecognitionDone(<a href="../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</pre>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognitionSuccessType</code> - frame recognition status.</dd>
 </dl>
 </li>
 </ul>

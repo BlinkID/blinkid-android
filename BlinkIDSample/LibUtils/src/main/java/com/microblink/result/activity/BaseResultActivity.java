@@ -6,9 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.media.MediaScannerConnection;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,16 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.microblink.entities.recognizers.HighResImagesBundle;
 import com.microblink.image.Image;
 import com.microblink.image.highres.HighResImageWrapper;
 import com.microblink.libutils.R;
-
-import java.io.File;
-import java.io.IOException;
+import com.microblink.util.ImageUtils;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -182,24 +177,11 @@ public abstract class BaseResultActivity extends AppCompatActivity {
     }
 
     private void saveHighResImages() {
-        final String imagesFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "MbHighRes";
-        File imagesDir = new File(imagesFolderPath);
-        if (!imagesDir.exists()) {
-            imagesDir.mkdirs();
-        }
-
         for(HighResImageWrapper image : highResImagesBundle.getImages()) {
             String currentTime = String.valueOf(System.currentTimeMillis());
-            String imagePath = imagesFolderPath + "/" + currentTime + ".jpeg";
-            File file = new File(imagePath);
-            try {
-                image.saveToFile(file);
-                MediaScannerConnection.scanFile(getApplicationContext(), new String[]{imagePath}, null, null);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String imageName = currentTime + ".jpeg";
+            ImageUtils.storeHighResImage(this.getApplicationContext(), imageName, image);
         }
-        Toast.makeText(this, "Saved to MbHighRes folder", Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":6};
+var methods = {"i0":6,"i1":10,"i2":6,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -252,43 +252,49 @@ implements <a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></span>(<a href="../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onRecognizerRunnerFragmentAttached-com.microblink.fragment.RecognizerRunnerFragment-android.app.Activity-">onRecognizerRunnerFragmentAttached</a></span>(<a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment,
                                   android.app.Activity&nbsp;activity)</code>
 <div class="block">Called after <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a> gets attached to its host activity.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onRecognizerRunnerViewCreated-com.microblink.fragment.RecognizerRunnerFragment-">onRecognizerRunnerViewCreated</a></span>(<a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code>
 <div class="block">Called when <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
  <a href="../../../../com/microblink/fragment/RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></span>(java.lang.Throwable&nbsp;throwable)</code>
 <div class="block">This method is called when the scanning cannot be performed because of an error.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#pauseScanning--">pauseScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
  loop by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#pauseScanning--"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#resumeScanning--">resumeScanning</a></span>()</code>
 <div class="block">If the <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
  loop (that has been paused) by calling <a href="../../../../com/microblink/view/recognition/RecognizerRunnerView.html#resumeScanning-boolean-"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#setMeteringAreas--">setMeteringAreas</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>protected abstract boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../com/microblink/fragment/overlay/BaseOverlayController.html#shouldResetStateOnRecognizerResume--">shouldResetStateOnRecognizerResume</a></span>()</code>&nbsp;</td>
 </tr>
@@ -664,7 +670,7 @@ protected abstract&nbsp;int&nbsp;getSplashScreenLayoutId()</pre>
 <a name="onUnrecoverableError-java.lang.Throwable-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onUnrecoverableError</h4>
 <pre>public&nbsp;void&nbsp;onUnrecoverableError(@NonNull
@@ -676,6 +682,23 @@ protected abstract&nbsp;int&nbsp;getSplashScreenLayoutId()</pre>
 <dd><code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html#onUnrecoverableError-java.lang.Throwable-">onUnrecoverableError</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>throwable</code> - type of error</dd>
+</dl>
+</li>
+</ul>
+<a name="onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>onFrameRecognitionDone</h4>
+<pre>public&nbsp;void&nbsp;onFrameRecognitionDone(<a href="../../../../com/microblink/recognition/RecognitionSuccessType.html" title="class in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">ScanningOverlay</a></code></span></div>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html#onFrameRecognitionDone-com.microblink.recognition.RecognitionSuccessType-">onFrameRecognitionDone</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/microblink/fragment/overlay/ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognitionSuccessType</code> - frame recognition status.</dd>
 </dl>
 </li>
 </ul>
