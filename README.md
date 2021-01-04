@@ -1054,6 +1054,11 @@ When you have to determine what is the license-relate problem or you simply do n
 * please stress out that you are reporting problem related to Android version of _BlinkID_ SDK
 * if unsure about the problem, you should also provide excerpt from ADB logcat containing license error
 
+**Keep in mind:** Versions 5.8.0 and above require an internet connection to work under our new License Management Program.
+
+We’re only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
+Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
+
 ### Other problems
 
 If you are having problems with scanning certain items, undesired behaviour on specific device(s), crashes inside _BlinkID_ or anything unmentioned, please do as follows:
@@ -1113,6 +1118,10 @@ This usually happens when you attempt to transfer standalone `Result` that conta
 #### <a name="directApiBadPerformance"></a> Scanning with a camera works better than a recognition of images by using the `Direct API`
 
 When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
+
+#### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network
+
+Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
 
 #### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
 
