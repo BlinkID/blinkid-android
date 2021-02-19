@@ -2880,6 +2880,8 @@ Protected fields are:
 
 
 <th colspan=2>ITALY RESIDENCE PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 
@@ -4601,6 +4603,18 @@ Protected fields are:
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 
+<th colspan=2>SAUDI ARABIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+
 <th colspan=2>SAUDI ARABIA ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -4613,6 +4627,14 @@ Protected fields are:
 
 <th colspan=2>SAUDI ARABIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>MRZ</td> <td>Always</td><tr>
+
+
+<th colspan=2>SAUDI ARABIA RESIDENT ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
 
 
 <th colspan=2>SERBIA DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>

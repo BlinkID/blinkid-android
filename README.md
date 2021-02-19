@@ -115,7 +115,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.9.0@aar') {
+    implementation('com.microblink:blinkid:5.10.0@aar') {
         transitive = true
     }
 }
@@ -127,7 +127,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.9.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.10.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -296,26 +296,26 @@ The `ScanningOverlayBinder` is responsible for returning `non-null` implementati
 Here is the minimum example for activity that hosts the `RecognizerRunnerFragment`:
 
 ```java
-public class MyActivity extends Activity implements RecognizerRunnerFragment.ScanningOverlayBinder {
+public class MyActivity extends AppCompatActivity implements RecognizerRunnerFragment.ScanningOverlayBinder {
     private BlinkIdCombinedRecognizer mRecognizer;
     private RecognizerBundle mRecognizerBundle;
-    private BlinkIdOverlayController mScanOverlay = createOverlay();
+    private BlinkIdOverlayController mScanOverlay;
     private RecognizerRunnerFragment mRecognizerRunnerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate();
         setContentView(R.layout.activity_my_activity);
-
+        mScanOverlay = createOverlay();
         if (null == savedInstanceState) {
             // create fragment transaction to replace R.id.recognizer_runner_view_container with RecognizerRunnerFragment
             mRecognizerRunnerFragment = new RecognizerRunnerFragment();
-            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.recognizer_runner_view_container, mRecognizerRunnerFragment);
             fragmentTransaction.commit();
         } else {
             // obtain reference to fragment restored by Android within super.onCreate() call
-            mRecognizerRunnerFragment = (RecognizerRunnerFragment) getFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
+            mRecognizerRunnerFragment = (RecognizerRunnerFragment) getSupportFragmentManager().findFragmentById(R.id.recognizer_runner_view_container);
         }
     }
 
@@ -351,6 +351,9 @@ public class MyActivity extends Activity implements RecognizerRunnerFragment.Sca
             // removal of RecognizerRunnerFragment - in the time between end of this method
             // and beginning of execution of the transaction. So to ensure result within mRecognizer
             // does not get mutated, ensure calling pauseScanning() as shown above.
+        }
+        @Override
+        public void onUnrecoverableError(@NonNull Throwable throwable) {
         }
     };
     

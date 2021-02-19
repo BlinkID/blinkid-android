@@ -195,7 +195,10 @@ boolean&nbsp;classFilter(@NonNull
 <div class="block">Determines whether document should be processed or it is filtered out.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>classInfo</code> - <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/classinfo/ClassInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic.classinfo"><code>ClassInfo</code></a> for document currently being evaluated</dd>
+<dd><code>classInfo</code> - <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/classinfo/ClassInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic.classinfo"><code>ClassInfo</code></a> for document currently being evaluated. This object cannot
+                  be used outside of this method, it will be invalidated as
+                  soon as this filter method finishes. Please don't keep
+                  reference to classInfo parameter outside of this method.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>true</code> if the document with the given <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/classinfo/ClassInfo.html" title="class in com.microblink.entities.recognizers.blinkid.generic.classinfo"><code>ClassInfo</code></a> should be processed,
  <code>false</code> if the document should be filtered out.</dd>

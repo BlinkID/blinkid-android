@@ -3,7 +3,7 @@
       "url" : "https://bitbucket.org/microblink/boost",
       "description" : "Free peer-reviewed portable C++ source libraries.",
       "license" : "Boost Software license",
-      "package" : "Boost/1.72.0@microblink/stable"
+      "package" : "Boost/1.75.0@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/concurrentqueue",
@@ -33,13 +33,13 @@
       "url" : "https://github.com/microblink/functionoid",
       "description" : "a complete C++17 rewrite of boost/std::function",
       "license" : "Boost Software License, Version 1.0",
-      "package" : "Functionoid/3.0.1@microblink/stable"
+      "package" : "Functionoid/3.0.2@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/hash-library",
       "description" : "Portable C++ Hashing Library",
       "license" : "zlib",
-      "package" : "Hash/8.0.0@microblink/stable"
+      "package" : "Hash/8.0.1@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/mmap",
@@ -51,7 +51,7 @@
       "url" : "https://github.com/microblink/micro-ecc",
       "description" : "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors.",
       "license" : "BSD 2-Clause \"Simplified\" License",
-      "package" : "MicroECC/2.0.0@microblink/stable"
+      "package" : "MicroECC/2.0.1@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/ADVobfuscator",
@@ -63,27 +63,27 @@
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "description" : "Microblink's fork of OpenCV",
       "license" : "MIT",
-      "package" : "OpenCV/3.2.0.11@microblink/stable"
+      "package" : "OpenCV/3.2.0.14@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVAnalysis/3.2.0.11@microblink/stable"
+      "package" : "OpenCVAnalysis/3.2.0.14@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVCore/3.2.0.11@microblink/stable"
+      "package" : "OpenCVCore/3.2.0.14@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVImageIO/3.2.0.11@microblink/stable"
+      "package" : "OpenCVImageIO/3.2.0.14@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "OpenCVProcessing/3.2.0.11@microblink/stable"
+      "package" : "OpenCVProcessing/3.2.0.14@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/pimpl",
@@ -101,7 +101,7 @@
       "url" : "https://github.com/microblink/sweater",
       "description" : "Humble Outer Dispatch",
       "license" : "MIT",
-      "package" : "Sweater/8.0.1@microblink/stable"
+      "package" : "Sweater/8.0.4@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/utfcpp",
@@ -113,18 +113,18 @@
       "url" : "https://github.com/microblink/zxing",
       "description" : "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android",
       "license" : "Apache License 2.0",
-      "package" : "ZXing/2.2.3@microblink/stable"
+      "package" : "ZXing/2.2.5@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/opencvfork/src",
       "license" : "MIT",
-      "package" : "Zlib/1.2.8.11@microblink/stable"
+      "package" : "Zlib/1.2.8.14@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/cpuinfo",
       "description" : "cpuinfo is a library to detect essential for performance optimization information about host CPU",
       "license" : "BSD 2-Clause \"Simplified\" License",
-      "package" : "cpuinfo/2.1.0@microblink/stable"
+      "package" : "cpuinfo/3.0.0@microblink/stable"
    },
    {
       "url" : "https://github.com/ericniebler/range-v3",
@@ -136,7 +136,7 @@
       "url" : "https://github.com/microblink/tinyxml2",
       "description" : "a simple, small, efficient, C++ XML parser",
       "license" : "Zlib",
-      "package" : "tinyxml2/2.2.0@microblink/stable"
+      "package" : "tinyxml2/2.2.1@microblink/stable"
    }
 ]
 

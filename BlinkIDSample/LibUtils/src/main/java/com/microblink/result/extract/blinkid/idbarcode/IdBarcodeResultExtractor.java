@@ -1,5 +1,7 @@
 package com.microblink.result.extract.blinkid.idbarcode;
 
+import com.microblink.entities.recognizers.blinkid.idbarcode.BarcodeElementKey;
+import com.microblink.entities.recognizers.blinkid.idbarcode.BarcodeElements;
 import com.microblink.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
 import com.microblink.libutils.R;
 import com.microblink.result.extract.BaseResultExtractor;
@@ -50,6 +52,16 @@ public class IdBarcodeResultExtractor extends BaseResultExtractor<IdBarcodeRecog
         add(R.string.PPBarcodeData, result.getStringData());
         byte[] rawDataBytes = result.getRawData();
         add(R.string.PPBarcodeRawData, Arrays.toString(rawDataBytes));
+
+        BarcodeElements extendedElements = result.getExtendedElements();
+        if (!extendedElements.isEmpty()) {
+            for (BarcodeElementKey key: BarcodeElementKey.values()) {
+                String barcodeElement = extendedElements.getValue(key);
+                if (!barcodeElement.isEmpty()) {
+                    add(R.string.PPExtendedBarcodeData, key.name() + ": " + barcodeElement);
+                }
+            }
+        }
     }
 
 }

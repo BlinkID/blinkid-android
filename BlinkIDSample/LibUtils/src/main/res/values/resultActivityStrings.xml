@@ -267,6 +267,10 @@
     <string name="PPClassInfoCountry">Country</string>
     <string name="PPClassInfoRegion">Region</string>
     <string name="PPClassInfoType">Type</string>
+    <string name="PPClassInfoCountryName">Country name</string>
+    <string name="PPClassInfoIsoNumericCountryCode">ISO numeric country code</string>
+    <string name="PPClassInfoIsoAlpha2CountryCode">ISO two letter country code</string>
+    <string name="PPClassInfoIsoAlpha3CountryCode">ISO three letter country code</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>

@@ -174,7 +174,7 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>android.view.ViewGroup</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">createLayout</a></span>(android.app.Activity&nbsp;activity,
             <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code>
 <div class="block">Inflate your custom layout here and add it to the parent view</div>
@@ -322,10 +322,10 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <ul class="blockList">
 <li class="blockList">
 <h4>createLayout</h4>
-<pre>public&nbsp;void&nbsp;createLayout(@NonNull
-                         android.app.Activity&nbsp;activity,
-                         @NonNull
-                         <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
+<pre>public&nbsp;android.view.ViewGroup&nbsp;createLayout(@NonNull
+                                           android.app.Activity&nbsp;activity,
+                                           @NonNull
+                                           <a href="../../../../../../com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../../com/microblink/fragment/overlay/blinkid/BlinkIdOverlayView.html#createLayout-android.app.Activity-com.microblink.view.recognition.RecognizerRunnerView-">BlinkIdOverlayView</a></code></span></div>
 <div class="block">Inflate your custom layout here and add it to the parent view</div>
 <dl>
@@ -334,6 +334,8 @@ implements <a href="../../../../../../com/microblink/fragment/overlay/blinkid/Bl
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>activity</code> - current activity</dd>
 <dd><code>recognizerRunnerView</code> - root view to be used as inflation parent</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>root view group of your layout</dd>
 </dl>
 </li>
 </ul>

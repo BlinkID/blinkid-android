@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -243,16 +243,22 @@ extends java.lang.Object</pre>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#resetRecognitionState--">resetRecognitionState</a></span>()</code>
-<div class="block">Resets the recognizer state, i.e.</div>
+<div class="block">Resets the recognition state, i.e.</div>
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#resetRecognitionState-boolean-">resetRecognitionState</a></span>(boolean&nbsp;hardReset)</code>
+<div class="block">Resets the recognition state.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#setMetadataCallbacks-com.microblink.metadata.MetadataCallbacks-">setMetadataCallbacks</a></span>(<a href="../../../com/microblink/metadata/MetadataCallbacks.html" title="class in com.microblink.metadata">MetadataCallbacks</a>&nbsp;metadataCallbacks)</code>
 <div class="block">Sets the metadata callbacks that will obtain metadata during processing.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../com/microblink/directApi/RecognizerRunner.html#terminate--">terminate</a></span>()</code>
 <div class="block">Terminates the native library.</div>
@@ -475,7 +481,26 @@ public final&nbsp;<a href="../../../com/microblink/directApi/RecognizerRunner.St
 <h4>resetRecognitionState</h4>
 <pre>@AnyThread
 public final&nbsp;void&nbsp;resetRecognitionState()</pre>
-<div class="block">Resets the recognizer state, i.e. deletes the cached data from multiple recognitions.</div>
+<div class="block">Resets the recognition state, i.e. clears the cached data and all scanning results.
+ Recognition starts from the beginning.</div>
+</li>
+</ul>
+<a name="resetRecognitionState-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resetRecognitionState</h4>
+<pre>@AnyThread
+public final&nbsp;void&nbsp;resetRecognitionState(boolean&nbsp;hardReset)</pre>
+<div class="block">Resets the recognition state. If hard reset is requested, clears the cached data and all
+ scanning results and recognition starts from the beginning. Otherwise, if soft reset is
+ requested and the recognition is consisted of multiple steps, clears the scanning cache and
+ results only for the current step.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>hardReset</code> - <code>true</code> to request hard reset, <code>false</code> for the soft reset.</dd>
+</dl>
 </li>
 </ul>
 <a name="recognizeImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-">

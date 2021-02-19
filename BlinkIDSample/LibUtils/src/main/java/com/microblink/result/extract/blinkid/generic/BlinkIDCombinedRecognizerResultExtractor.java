@@ -5,6 +5,8 @@ import com.microblink.entities.recognizers.blinkid.generic.DriverLicenseDetailed
 import com.microblink.entities.recognizers.blinkid.generic.barcode.BarcodeResult;
 import com.microblink.entities.recognizers.blinkid.generic.classinfo.ClassInfo;
 import com.microblink.entities.recognizers.blinkid.generic.viz.VizResult;
+import com.microblink.entities.recognizers.blinkid.idbarcode.BarcodeElementKey;
+import com.microblink.entities.recognizers.blinkid.idbarcode.BarcodeElements;
 import com.microblink.entities.recognizers.blinkid.mrtd.MrzResult;
 import com.microblink.libutils.R;
 import com.microblink.result.ResultSource;
@@ -92,6 +94,10 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.PPClassInfoCountry, classInfo.getCountry().name());
         add(R.string.PPClassInfoRegion, classInfo.getRegion().name());
         add(R.string.PPClassInfoType, classInfo.getType().name());
+        add(R.string.PPClassInfoCountryName, classInfo.getCountryName());
+        add(R.string.PPClassInfoIsoNumericCountryCode, classInfo.getIsoNumericCountryCode());
+        add(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
+        add(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
 
         add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurred());
         add(R.string.MBDocumentFrontImageColorStatus, result.getFrontImageAnalysisResult().getDocumentImageColorStatus().name());
@@ -200,6 +206,16 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
             addIfNotEmpty(R.string.PPEndorsements, driverLicenseInfo.getEndorsements());
             addIfNotEmpty(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
             addIfNotEmpty(R.string.PPConditions, driverLicenseInfo.getConditions());
+        }
+
+        BarcodeElements extendedElements = result.getExtendedElements();
+        if (!extendedElements.isEmpty()) {
+            for (BarcodeElementKey key: BarcodeElementKey.values()) {
+                String barcodeElement = extendedElements.getValue(key);
+                if (!barcodeElement.isEmpty()) {
+                    add(R.string.PPExtendedBarcodeData, key.name() + ": " + barcodeElement);
+                }
+            }
         }
 
         addIfNotEmpty(R.string.PPBarcodeType, result.getBarcodeType().name());
