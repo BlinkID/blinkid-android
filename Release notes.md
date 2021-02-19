@@ -1,5 +1,60 @@
 # Release notes
 
+## 5.10.0
+
+### Improvements
+
+- **Newly supported identity documents**
+
+    - Saudi Arabia - DL (front)
+    - Saudi Arabia - Resident ID (front)
+
+- We've introduced another variant of `resetRecognitionState` method that lets you reset the scanning process in different recognition stages: 
+- If you’re using our Direct API, call `RecognizerRunner.resetRecognitionState(false)` to clear the scanning cache as well as results gathered in a specific recognition step, i.e. after scanning the back side of a document.  
+- If you’re using our built-in UI to scan IDs from the camera stream, call `RecognizerRunnerView.resetRecognitionState(false)` to do the same. 
+
+### Changes to the BlinkId(Combined)Recognizer:
+
+- We're now able to extract the additional address on Hungary Address Cards
+- We've improved data extraction through the MRZ:
+    - We now return the document type through `ClassInfo`, regardless of the `RecognitionMode` you're using (`MrzId`, `MrzPassport` or `MrzVisa`). 
+    - This means you can now use `ClassFilter` to filter these documents by their type.
+    - We now return the document number on Nigeria IDs complete with its check digit.
+    - We now support Italy Residence Permits with a *CR* document code.
+- We've extended the `ClassInfo` structure with helper methods so you can filter documents by country more easily:
+    - Use `countryName`, `isoNumericCountryCode`, `isoAlpha2CountryCode` and `isoAlpha3CountryCode` to get the full country names or their representative codes defined by [ISO](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes).
+- We've extended the `BarcodeResult` structure with `extendedElements` 
+    - You can find all data from AAMVA-compliant barcodes under their respective `BarcodeElementKey` in the `BarcodeElements` structure
+    - For a full list of keys please see `BarcodeElementKey` enum
+- We've added another `ProcessingStatus` called `AwaitingOtherSide`
+    - This status is triggered once BlinkID has finished with the first side of a document and expects the other side, too.
+- We're now able to extract the date of birth from the CURP field on Mexico Voter IDs
+- Direct API:
+	- We've added a new recognition mode for recognizing still images of documents that have already been cropped:
+		- Set the `scanCroppedDocumentImage` to true when you're feeding BlinkID images of documents that have already been cropped and don't require detection.
+		- Keep in mind that this setting won't work on document images that haven't been properly cropped.
+
+
+### Changes to the IdBarcodeRecognizer:
+
+- We've extended the results with `extendedElements` 
+    - You can find all data from AAMVA-compliant barcodes under their respective `BarcodeElementKey` in the `BarcodeElements` structure
+    - For a full list of keys please see `BarcodeElementKey` enum
+
+### Deprecated recognizers:
+
+-  We've deprecated `UsdlRecognizer`. Please use `IdBarcodeRecognizer` instead.
+
+### Minor API changes
+
+- We've replaced `Using time-limited license!` warning with `Using trial license!` warning. The warning message is displayed when using a trial license key. To disable it, use `MicroblinkSDK.setShowTrialLicenseWarning(false)`.
+- We’ve renamed `MrtdDocumentType.MRTD_TYPE_IDENITY_CARD` enum member to `MrtdDocumentType.MRTD_TYPE_IDENTITY_CARD`.
+
+### Fixes:
+
+- We've fixed the front-facing camera error on `Oukitel WP8 Pro`.
+- We've fixed a rare crash in `BlinkIdOverlayController`, which happened as a result of rapidly launching the scanning process multiple times in a row. 
+
 ## 5.9.0
 
 ### New features:

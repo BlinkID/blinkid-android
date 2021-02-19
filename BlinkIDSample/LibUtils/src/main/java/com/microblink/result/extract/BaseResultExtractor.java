@@ -67,8 +67,8 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
 
     protected void addIfNotEmpty(int key, DateResult dateResult) {
         Date date = dateResult.getDate();
-        if (date != null && date.getDay() > 0) {
-            mExtractedData.add(mBuilder.build(key, date));
+        if (date != null) {
+            add(key, dateResult);
         }
     }
 

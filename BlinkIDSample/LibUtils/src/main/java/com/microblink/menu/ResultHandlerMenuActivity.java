@@ -5,6 +5,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.microblink.menu.BaseMenuActivity;
+
 public abstract class ResultHandlerMenuActivity extends BaseMenuActivity {
 
     @Override

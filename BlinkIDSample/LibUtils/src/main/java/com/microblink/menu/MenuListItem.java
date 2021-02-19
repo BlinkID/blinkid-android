@@ -13,7 +13,7 @@ public class MenuListItem {
     }
 
     @NonNull
-    Runnable getOnClickAction() {
+    public Runnable getOnClickAction() {
         return mOnClickAction;
     }
 
