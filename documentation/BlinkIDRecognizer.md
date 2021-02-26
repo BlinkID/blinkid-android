@@ -205,7 +205,6 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Mexico | Voter ID |  |
 | Mexico - Baja California | Driving Licence<sup>\*, BETA</sup> |  |
 | Mexico - Chihuahua | Driving Licence<sup>\*, BETA</sup> |  |
-| Mexico - Ciudad De Mexico | Driving Licence<sup>\*, BETA</sup> |  |
 | Mexico - Guanajuato | Driving Licence<sup>\*, BETA</sup> |  |
 | Mexico - Jalisco | Driving Licence\* |  |
 | Mexico - Michoacan | Driving Licence<sup>\*, BETA</sup> |  |
