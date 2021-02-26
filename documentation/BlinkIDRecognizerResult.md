@@ -3552,22 +3552,6 @@ Protected fields are:
 <tr> <td>Restrictions</td> <td>Sometimes</td><tr>
 <tr> <td>Vehicle class</td> <td>Sometimes</td><tr>
 
-<th colspan=2>MEXICO CIUDAD DE MEXICO DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of expiry</td> <td>Always</td><tr>
-
-<tr> <td>Date of issue</td> <td>Always</td><tr>
-
-<tr> <td>Document number</td> <td>Always</td><tr>
-
-<tr> <td>Nationality</td> <td>Always</td><tr>
-
-<tr> <td>Vehicle class</td> <td>Always</td><tr>
-
-<tr> <td>First name</td> <td>Sometimes</td><tr>
-<tr> <td>Full name</td> <td>Sometimes</td><tr>
-<tr> <td>Last name</td> <td>Sometimes</td><tr>
-<tr> <td>Personal ID number</td> <td>Sometimes</td><tr>
-
 <th colspan=2>MEXICO GUANAJUATO DL - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
