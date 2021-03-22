@@ -66,7 +66,6 @@ Feeling ready to crack on with the integration? First make sure we support your 
         * [Passport recognizer](#passportRecognizer)
         * [Visa recognizer](#visaRecognizer)
         * [ID barcode recognizer](#idBarcodeRecognizer)
-        * [AAMVA standard barcode recognizer (USA, Canada, Nigeria)](#us_dl_recognizer)
         * [AAMVA standard combined recognizer (USA, Canada, Nigeria)](#us_dl_combined_recognizer)
         * [Document face recognizer](#documentFaceRecognizer)
 * [Embedding _BlinkID_ inside another SDK](#embedAAR)
@@ -888,11 +887,6 @@ You can find information about usage context at the beginning of [this section](
 
 ### <a name="idBarcodeRecognizer"></a> ID barcode recognizer
 The [`IdBarcodeRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.html) is used for scanning barcodes from various ID cards. Check [this document](https://github.com/BlinkID/blinkid-android/blob/master/documentation/IdBarcodeRecognizer.md) to see the list of supported document types.
-
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-
-### <a name="us_dl_recognizer"></a> AAMVA standard barcode recognizer (USA, Canada, Nigeria)
-The [`UsdlRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkbarcode/usdl/UsdlRecognizer.html) is used for scanning PDF417 barcode from USA ID cards and driver’s licence, Canadian ID cards and driving licence, and Nigerian driving licence.
 
 You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
 
