@@ -735,7 +735,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <pre>public&nbsp;void&nbsp;setScanCroppedDocumentImage(boolean&nbsp;scanCroppedDocumentImage)</pre>
 <div class="block">Configure the recognizer to only work on already cropped and dewarped images.
  This only works for still images - video feeds will ignore this setting.
- By default, this is set to 'true'.</div>
+ By default, this is set to 'false'.</div>
 </li>
 </ul>
 <a name="shouldScanCroppedDocumentImage--">
@@ -747,7 +747,7 @@ implements <a href="../../../../../../com/microblink/entities/recognizers/blinki
 <pre>public&nbsp;boolean&nbsp;shouldScanCroppedDocumentImage()</pre>
 <div class="block">Configure the recognizer to only work on already cropped and dewarped images.
  This only works for still images - video feeds will ignore this setting.
- By default, this is set to 'true'.</div>
+ By default, this is set to 'false'.</div>
 </li>
 </ul>
 <a name="setEncodeFullDocumentImage-boolean-">
@@ -1314,7 +1314,7 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <pre>public&nbsp;void&nbsp;setRecognitionModeFilter(@NonNull
                                      <a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html" title="class in com.microblink.entities.recognizers.blinkid.generic">RecognitionModeFilter</a>&nbsp;recognitionModeFilter)</pre>
 <div class="block">Enable or disable recognition of specific document groups supported by the current license.
- By default, this is set to '[true, true, true, true, true]'.</div>
+ By default, this is set to '[true, true, true, true, true, true]'.</div>
 </li>
 </ul>
 <a name="getRecognitionModeFilter--">
@@ -1326,7 +1326,7 @@ public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blink
 <pre>@NonNull
 public&nbsp;<a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html" title="class in com.microblink.entities.recognizers.blinkid.generic">RecognitionModeFilter</a>&nbsp;getRecognitionModeFilter()</pre>
 <div class="block">Returns currently set recognition mode filter.
- By default, this is set to '[true, true, true, true, true]'.</div>
+ By default, this is set to '[true, true, true, true, true, true]'.</div>
 </li>
 </ul>
 <a name="setDewarpedImageCallback-com.microblink.entities.recognizers.blinkid.generic.DewarpedImageCallback-">
