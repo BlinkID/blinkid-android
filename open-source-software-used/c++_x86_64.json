@@ -33,7 +33,7 @@
       "url" : "https://github.com/microblink/functionoid",
       "description" : "a complete C++17 rewrite of boost/std::function",
       "license" : "Boost Software License, Version 1.0",
-      "package" : "Functionoid/3.0.2@microblink/stable"
+      "package" : "Functionoid/3.0.3@microblink/stable"
    },
    {
       "url" : "https://github.com/microblink/hash-library",
@@ -89,7 +89,7 @@
       "url" : "https://github.com/microblink/pimpl",
       "description" : "Proving pimpls do not require heap, exceptions or runtime polymorphism.",
       "license" : "BSD 2-Clause \"Simplified\" License",
-      "package" : "Pimpl/1.0.2@microblink/stable"
+      "package" : "Pimpl/1.0.3@microblink/stable"
    },
    {
       "url" : "https://bitbucket.org/microblink/core-rapidjson",
@@ -124,7 +124,7 @@
       "url" : "https://github.com/microblink/cpuinfo",
       "description" : "cpuinfo is a library to detect essential for performance optimization information about host CPU",
       "license" : "BSD 2-Clause \"Simplified\" License",
-      "package" : "cpuinfo/3.0.0@microblink/stable"
+      "package" : "cpuinfo/3.0.1@microblink/stable"
    },
    {
       "url" : "https://github.com/ericniebler/range-v3",

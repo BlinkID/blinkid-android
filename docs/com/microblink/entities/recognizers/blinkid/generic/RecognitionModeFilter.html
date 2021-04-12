@@ -155,29 +155,35 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableBarcodeId">enableBarcodeId</a></span></code>
+<div class="block">Enable scanning of barcode IDs.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableFullDocumentRecognition">enableFullDocumentRecognition</a></span></code>
 <div class="block">Enable full document recognition.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableMrzId">enableMrzId</a></span></code>
 <div class="block">Enable scanning of MRZ IDs.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableMrzPassport">enableMrzPassport</a></span></code>
 <div class="block">Enable scanning of Passport MRZ.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enableMrzVisa">enableMrzVisa</a></span></code>
 <div class="block">Enable scanning of visa MRZ.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#enablePhotoId">enablePhotoId</a></span></code>
 <div class="block">Enable scanning of Photo ID.</div>
@@ -211,10 +217,11 @@ implements android.os.Parcelable</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#RecognitionModeFilter-boolean-boolean-boolean-boolean-boolean-">RecognitionModeFilter</a></span>(boolean&nbsp;enableMrzId,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../com/microblink/entities/recognizers/blinkid/generic/RecognitionModeFilter.html#RecognitionModeFilter-boolean-boolean-boolean-boolean-boolean-boolean-">RecognitionModeFilter</a></span>(boolean&nbsp;enableMrzId,
                      boolean&nbsp;enableMrzVisa,
                      boolean&nbsp;enableMrzPassport,
                      boolean&nbsp;enablePhotoId,
+                     boolean&nbsp;enableBarcodeId,
                      boolean&nbsp;enableFullDocumentRecognition)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -307,6 +314,16 @@ implements android.os.Parcelable</pre>
 <div class="block">Enable scanning of Photo ID. Setting is taken into account only if the photo_id right is purchased.</div>
 </li>
 </ul>
+<a name="enableBarcodeId">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>enableBarcodeId</h4>
+<pre>public final&nbsp;boolean enableBarcodeId</pre>
+<div class="block">Enable scanning of barcode IDs. Setting is taken into account only if the barcode right to scan that barcode is purchased.</div>
+</li>
+</ul>
 <a name="enableFullDocumentRecognition">
 <!--   -->
 </a>
@@ -343,7 +360,7 @@ implements android.os.Parcelable</pre>
 <pre>public&nbsp;RecognitionModeFilter()</pre>
 </li>
 </ul>
-<a name="RecognitionModeFilter-boolean-boolean-boolean-boolean-boolean-">
+<a name="RecognitionModeFilter-boolean-boolean-boolean-boolean-boolean-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -353,6 +370,7 @@ implements android.os.Parcelable</pre>
                              boolean&nbsp;enableMrzVisa,
                              boolean&nbsp;enableMrzPassport,
                              boolean&nbsp;enablePhotoId,
+                             boolean&nbsp;enableBarcodeId,
                              boolean&nbsp;enableFullDocumentRecognition)</pre>
 </li>
 </ul>
