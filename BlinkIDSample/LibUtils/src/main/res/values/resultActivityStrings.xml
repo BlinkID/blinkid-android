@@ -318,6 +318,8 @@
     <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
 
     <string name="MBProcessingStatus">Processing status</string>
+    <string name="MBFrontProcessingStatus">Front processing status</string>
+    <string name="MBBackProcessingStatus">Back processing status</string>
     <string name="MBRecognitionMode">Recognition mode</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
