@@ -114,6 +114,8 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.MBDocumentBackImageBarcodeStatus, result.getBackImageAnalysisResult().getBarcodeDetectionStatus().name());
 
         add(R.string.MBProcessingStatus, result.getProcessingStatus().name());
+        add(R.string.MBFrontProcessingStatus, result.getFrontProcessingStatus().name());
+        add(R.string.MBBackProcessingStatus, result.getBackProcessingStatus().name());
         add(R.string.MBRecognitionMode, result.getRecognitionMode().name());
 
         add(R.string.PPDocumentBothSidesMatch, result.getDocumentDataMatch().name());

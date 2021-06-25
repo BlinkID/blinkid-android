@@ -1,5 +1,118 @@
 # Release notes
 
+## 5.12.0.
+### We've added 15 new documents to our list of supported documents:
+
+#### Europe
+- North Macedonia - Polycarbonate Passport 
+
+#### Middle East and Africa
+- Botswana - ID Card
+- Sudan - Polycarbonate Passport
+
+#### Mexico
+- Baja California Sur - Driving License (beta)
+- Campeche - Driving License (beta)
+- Colima - Driving License (beta)
+
+#### Oceania
+- Australia - Health Insurance Card (front only, beta)
+
+#### Asia
+- Azerbaijan - Polycarbonate Passport (beta)
+- Tajikistan - Polycarbonate Passport (beta)
+
+#### Northern America
+- Canada - Citizenship Certificate (front only, beta)
+- Canada - Ontario - Health Insurance Card (front only)
+- Canada - Quebec - Health Insurance Card (front only, beta)
+- USA - Military ID Card 
+- USA - Rhode Island - ID Card
+- USA - South Carolina - ID Card
+
+#### Back side support added:
+- Ireland - Passport Card
+- Mexico - Puebla - Driving License 
+- Singapore - S PASS 
+
+#### No longer BETA:
+- Finland - Polycarbonate Passport
+- Ireland - Passport Card 
+- Ireland - Polycarbonate Passport
+- Kosovo - Driving License 
+- Latvia - Polycarbonate Alien Passport
+- Latvia - Polycarbonate Passport 
+- Poland - Polycarbonate Passport 
+- Cameroon - ID Card 
+- Ghana - ID Card 
+- Iraq - ID Card 
+- Tanzania - Driving License
+- Turkey - Polycarbonate Passport
+- Uganda - Driving License
+- Bolivia - Minors ID
+- Chile - Driving License
+- Ecuador - Driving License
+- Haiti - Driving License
+- India - Karnataka - Driving License
+- India - Maharashtra - Driving License
+- Pakistan - Punjab - Driving License
+- USA - Global Entry Card
+- USA - New Mexico - ID Card
+- USA - Wisconsin - ID Card
+
+### Changes to BlinkID(Combined) Recognizer
+
+- We've added the parameter `maxAllowedMismatchesPerField` to settings. When this is set to a non-zero value, DataMatch will be successful as long as the number of mismatched characters doesn't exceed the specified value.
+- We've added the parameter `allowUncertainFrontSideScan` to settings. When this parameter is set to true, the Recognizer will proceed scanning the back side of the document even if the front side scanning result `State` is `Uncertain`.
+- We've enabled the return of image and back side data results, even when the `State` is `Uncertain`. Keep in mind that returned images, in this case, might be blurry or low quality.
+	- This applies to all image types: full document image, face and signature image.
+- We've added two separate fields for the processing status in the Recognizer Result: `frontProcessingStatus` and `backProcessingStatus`. They indicate the status of the last recognition process for each side.
+ 
+### Improvements
+- We added support for the Malaysian NRIC numbers that hold an asterisk (*) character.
+- While using `FullRecognitionMode` for scanning unsupported Passports, we are now extracting `ClassInfo` from MRZ 
+- Improved quality of fully cropped vertical images
+- Better parsing of Bermuda Driving License AAMVA-compliant barcode dates
+- Fix for correct calculation of check digit for Saudi Arabia ID Card MRZ
+- We are splitting first and last name from the additional name information (e.g., Nom d’ usage, Epouse, Geb. etc.)  into two different results. The additional name info will be a part of the `name_additional_info` field. This applies to the following documents:
+
+	- France
+		- ID Card
+		- Residence Permit
+	- Germany	
+		- ID Card
+	- Luxembourg
+		- ID Card
+	- Netherlands
+		- Driving License
+		- Polycarbonate Passport
+		
+- We are removing title prefixes (e.g., Mrs., Mr., Ing., etc.) from `full_name`, `first_name` and `last_name` for these documents:
+	- Austria
+		- Driving License
+		- ID Card
+	- Czechia 
+		- Driving License
+	- Germany
+		- ID Card
+	- Thailand 
+		- ID Card
+	- UK 
+		- Driving License
+
+
+#### Anonymization
+- We've added anonymization for new documents:
+	- Document number on Germany Polycarbonate Passport
+	- Document number on Hong Kong Polycarbonate Passport
+	- Document number and personal ID number on Singapore Polycarbonate Passport
+
+### Breaking change
+
+To optimize our scanning process, we decided to remove support for processors which don't have VFPv4 support because it blocked us from implementing those optimizations.
+This affects only a small number of older devices with armeabi_v7 CPUs. Those devices are rarely used.
+
+
 ## 5.11.0
 
 ### Newly supported identity documents:
