@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.microblink</groupId>
   <artifactId>blinkid</artifactId>
-  <version>5.12.0</version>
+  <version>5.13.0</version>
   <packaging>aar</packaging>
   <name>BlinkID SDK for Android</name>
   <description>SDK that enables scanning of ID documents and passports in your Android application</description>
