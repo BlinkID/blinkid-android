@@ -1,5 +1,124 @@
 # Release notes
 
+## 5.13.0
+### New additions to our supported document list
+
+We’ve added 61 new documents:
+
+#### Europe
+- Austria - Paper Passport
+- Belarus - Paper Passport
+- Belgium - Paper Passport (beta)
+- Bulgaria - Paper Passport
+- Estonia - Paper Passport
+- France - Paper Passport (beta)
+- Georgia - Paper Passport (beta)
+- Germany - Paper Passport
+- Greece - Paper Passport
+- Hungary- Paper Passport
+- Italy - Paper Passport (beta)
+- Kosovo - Paper Passport
+- Moldova - Paper Passport (beta)
+- Poland - Paper Passport
+- Portugal - Paper Passport
+- Spain - Paper Passport
+- Switzerland - Paper Passport
+- UK - Paper Passport
+
+#### Middle East and Africa
+- Algeria - Paper Passport (beta)
+- Egypt - Paper Passport (beta)
+- Eswatini - Paper Passport
+- Ghana - Paper Passport
+- Iran - Paper Passport (beta)
+- Iraq - Paper Passport (beta)
+- Israel - Paper Passport (beta)
+- Jordan - Paper Passport (beta)
+- Kenya - Polycarbonate Passport
+- Libya - Polycarbonate Passport (beta)
+- Morocco - Paper Passport (beta)
+- Nigeria - Paper Passport
+- Nigeria - Polycarbonate Passport (beta)
+- Qatar - ID Card (front only, beta)
+- Saudi Arabia - Paper Passport
+- Syria - Paper Passport
+- Tanzania - ID Card (beta)
+- Tanzania - Voter ID (front only, beta)
+- Tunisia - Paper Passport
+- Turkey - Paper Passport
+- Zimbabwe - Paper Passport
+
+#### Latin America and the Caribbean
+- Argentina - Paper Passport
+- Brazil - Paper Passport (beta)
+- Guatemala - Paper Passport
+- Haiti - Paper Passport
+- Honduras - Paper Passport (beta)
+- Mexico - Paper Passport (beta)
+- Mexico - Nayarit - Driving Licence (beta)
+
+#### Asia
+- Bangladesh - Paper Passport
+- China - Paper Passport (beta)
+- India - Paper Passport
+- Indonesia - Paper Passport
+- Japan - Paper Passport
+- Nepal - Paper Passport
+- Pakistan - Paper Passport
+- Philippines - Paper Passport
+- South Korea - Paper Passport (beta)
+- Sri Lanka - Paper Passport
+- Uzbekistan - Paper Passport
+
+#### Oceania
+- Australia - Paper Passport
+
+#### Northern America
+- Canada - Paper Passport
+- Canada - Weapon Permit (front only, beta)
+- USA - Paper Passport (beta)
+
+#### Back side support added:
+- Greece - ID Card
+- Burkina Faso - ID Card
+- Democratic Republic of the Congo - Driving Licence
+- Mexico - Veracruz - Driving Licence
+- Canada - Citizenship Certificate
+
+#### No longer BETA:
+- Belarus - Driving Licence
+- UK - Polycarbonate Passport
+- Argentina - Alien ID
+- Bahamas - Driving Licence
+- Mexico - Durango - Driving Licence
+- Venezuela - ID Card
+- USA - Kansas - ID Card
+
+### Changes to BlinkID(Combined) Recognizer
+- We’ve renamed the Swaziland country to Eswatini in results and ClassInfo
+- Improved result validation
+    - `FieldIdentificationFailed` processing status is used to indicate if unexpected fields are present on the document. Those fields are then deleted from the result
+- We are filling out COUNTRY and REGION fields in ClassInfo, without the field TYPE of document, when using BarcodeID mode for scanning documents where the Front side is not supported, and back side results are extracted from AAMVA compliant barcodes
+    - This applies only if `ClassInfo` isn’t already prepopulated in some other way and when you’re not in `FullRecognition` mode
+	
+### Improvements
+- We can now extract the date of birth from the document number on the South Korean identity card and from the personal identification number on the driving licence
+
+### Anonymization
+- We’ve added anonymization support for new documents:
+    - Document number on Germany paper bio-data page Passport
+    - Document number on South Korea Identity Card
+    - Personal identification number on South Korea driving licence
+    - Personal identification number on South Korea paper bio-data page Passport
+
+### Fixes
+We’ve fixed camera issues for the following devices: 
+	- Motorola Moto G100 - Camera 2 API wasn’t working
+	- Realme X50 5G - Problem with Camera 2 API in legacy mode
+	- LG K4 - Camera 2 API wasn’t working
+	- Galaxy Tab Active 2 - Aspect ratio was broken
+
+
 ## 5.12.0.
 ### We've added 15 new documents to our list of supported documents:
 
