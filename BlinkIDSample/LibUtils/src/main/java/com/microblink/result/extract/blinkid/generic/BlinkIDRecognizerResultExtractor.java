@@ -52,6 +52,8 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         add(R.string.PPFullName, result.getFullName());
         add(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
         add(R.string.PPLocalizedName, result.getLocalizedName());
+        add(R.string.PPFatherName, result.getFathersName());
+        add(R.string.PPMotherName, result.getMothersName());
         add(R.string.PPSex, result.getSex());
 
         add(R.string.PPAddress, result.getAddress());
@@ -116,6 +118,8 @@ public class BlinkIDRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdRe
         addIfNotEmpty(R.string.PPFullName, result.getFullName());
         addIfNotEmpty(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
         addIfNotEmpty(R.string.PPLocalizedName, result.getLocalizedName());
+        addIfNotEmpty(R.string.PPFatherName, result.getFathersName());
+        addIfNotEmpty(R.string.PPMotherName, result.getMothersName());
         addIfNotEmpty(R.string.PPSex, result.getSex());
 
         addIfNotEmpty(R.string.PPAddress, result.getAddress());

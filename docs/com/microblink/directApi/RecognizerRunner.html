@@ -249,7 +249,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">recognizeImage</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImage(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener)">recognizeImage</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+              boolean&nbsp;treatAsVideoFrame,
               <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
 <td class="colLast">
 <div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
@@ -257,7 +258,8 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImageWithRecognizers(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                             boolean&nbsp;treatAsVideoFrame,
                              <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                              <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
 <td class="colLast">
@@ -550,7 +552,7 @@ public final&nbsp;void&nbsp;resetRecognitionState&#8203;(boolean&nbsp;hardReset)
 </dl>
 </li>
 </ul>
-<a id="recognizeImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">
+<a id="recognizeImage(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -559,6 +561,7 @@ public final&nbsp;void&nbsp;resetRecognitionState&#8203;(boolean&nbsp;hardReset)
 <pre class="methodSignature">@UiThread
 public final&nbsp;void&nbsp;recognizeImage&#8203;(@NonNull
                                  <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                 boolean&nbsp;treatAsVideoFrame,
                                  @NonNull
                                  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
 <div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.
@@ -571,11 +574,17 @@ public final&nbsp;void&nbsp;recognizeImage&#8203;(@NonNull
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image to be processed (usually obtained from DebugImageListener)</dd>
+<dd><code>treatAsVideoFrame</code> - If set to true, image will be processed as part of video stream. This means that
+                          recognition will be optimized for speed and will rely on time-redundancy
+                          between consecutive video frames in order to yield best possible recognition
+                          result. If set to false, recognition will be optimized for processing
+                          single image - the processing may be slower but will not rely on
+                          time-redundant information between consecutive video frames.</dd>
 <dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
 </dl>
 </li>
 </ul>
-<a id="recognizeImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">
+<a id="recognizeImageWithRecognizers(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -584,6 +593,7 @@ public final&nbsp;void&nbsp;recognizeImage&#8203;(@NonNull
 <pre class="methodSignature">@UiThread
 public final&nbsp;void&nbsp;recognizeImageWithRecognizers&#8203;(@NonNull
                                                 <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                                boolean&nbsp;treatAsVideoFrame,
                                                 @NonNull
                                                 <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                                                 @NonNull
@@ -599,6 +609,12 @@ public final&nbsp;void&nbsp;recognizeImageWithRecognizers&#8203;(@NonNull
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image to be processed (usually obtained from MetadataListener).</dd>
 <dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
+<dd><code>treatAsVideoFrame</code> - If set to true, image will be processed as part of video stream. This means that
+                            recognition will be optimized for speed and will rely on time-redundancy
+                            between consecutive video frames in order to yield best possible recognition
+                            result. If set to false, recognition will be optimized for processing
+                            single image - the processing may be slower but will not rely on
+                            time-redundant information between consecutive video frames.</dd>
 <dd><code>recognizerBundle</code> - Recognizer bundle that will be used to perform this recognition.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is not initialized or is currently working or Image object is already disposed</dd>
