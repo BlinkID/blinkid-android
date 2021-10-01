@@ -185,7 +185,7 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
         if (mRecognizerRunner.getCurrentState() == RecognizerRunner.State.READY) {
             // create image
             Image img = ImageBuilder.buildImageFromCamera1NV21Frame(data, mFrameWidth, mFrameHeight, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
-            mRecognizerRunner.recognizeImage(img, this);
+            mRecognizerRunner.recognizeImage(img, true, this);
         } else {
             // just ask for another frame
             camera.addCallbackBuffer(data);

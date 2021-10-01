@@ -5639,6 +5639,8 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 <tr> <td>Date of birth</td> <td>Sometimes</td><tr>
+<tr> <td>Fathers name</td> <td>Sometimes</td><tr>
+<tr> <td>Mothers name</td> <td>Sometimes</td><tr>
 <tr> <td>Personal ID number</td> <td>Sometimes</td><tr>
 
 <th colspan=2>MEXICO VOTER ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -8955,6 +8957,10 @@ Protected fields are:
 <tr> <td>First name</td> <td>Always</td><tr>
 
 <tr> <td>Last name</td> <td>Always</td><tr>
+
+
+<th colspan=2>THAILAND ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document additional number</td> <td>Always</td><tr>
 
 
 <th colspan=2>THAILAND Polycarbonate Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>

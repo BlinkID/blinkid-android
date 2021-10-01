@@ -26,8 +26,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":10,"i2":10,"i3":10,"i4":10};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":6,"i1":10,"i2":10,"i3":9,"i4":10,"i5":10,"i6":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -136,7 +136,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code>android.os.Parcelable</code></dd>
+<dd><code>android.os.Parcelable</code>, <code><a href="../util/JsonizableEntity.html" title="interface in com.microblink.entities.util">JsonizableEntity</a></code></dd>
 </dl>
 <dl>
 <dt>Direct Known Subclasses:</dt>
@@ -144,7 +144,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">Recognizer&lt;T extends <a href="Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a>&gt;</span>
-extends <a href="../Entity.html" title="class in com.microblink.entities">Entity</a>&lt;T&gt;</pre>
+extends <a href="../Entity.html" title="class in com.microblink.entities">Entity</a>&lt;T&gt;
+implements <a href="../util/JsonizableEntity.html" title="interface in com.microblink.entities.util">JsonizableEntity</a></pre>
 <div class="block">Base recognizer that is used to perform recognition of images.</div>
 </li>
 </ul>
@@ -238,7 +239,7 @@ extends <a href="../Entity.html" title="class in com.microblink.entities">Entity
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
@@ -266,17 +267,29 @@ extends <a href="../Entity.html" title="class in com.microblink.entities">Entity
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected static java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#jsonNativeGet(long)">jsonNativeGet</a></span>&#8203;(long&nbsp;nativePtr)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#requiresAutofocus()">requiresAutofocus</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns true if this recognizer requires camera with autofocus.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#requiresLandscapeMode()">requiresLandscapeMode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns true if this recognizer works only in landscape mode.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toJson()">toJson</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the JSON representation of this entity's current state.</div>
 </td>
 </tr>
 </table>
@@ -357,6 +370,32 @@ extends <a href="../Entity.html" title="class in com.microblink.entities">Entity
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if this recognizer requires camera with autofocus.</dd>
 </dl>
+</li>
+</ul>
+<a id="toJson()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toJson</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toJson()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../util/JsonizableEntity.html#toJson()">JsonizableEntity</a></code></span></div>
+<div class="block">Returns the JSON representation of this entity's current state.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../util/JsonizableEntity.html#toJson()">toJson</a></code>&nbsp;in interface&nbsp;<code><a href="../util/JsonizableEntity.html" title="interface in com.microblink.entities.util">JsonizableEntity</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>JSON representation of this entity's current state.</dd>
+</dl>
+</li>
+</ul>
+<a id="jsonNativeGet(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>jsonNativeGet</h4>
+<pre class="methodSignature">protected static&nbsp;java.lang.String&nbsp;jsonNativeGet&#8203;(long&nbsp;nativePtr)</pre>
 </li>
 </ul>
 <a id="clone()">

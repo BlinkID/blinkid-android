@@ -10,8 +10,8 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | :---------------|:------------------|:------------------|
 | Croatia | Health Insurance Card<sup>\*, BETA</sup> | Zdravstvena iskaznica |
 | Australia | Health Insurance Card<sup>\*, BETA</sup> | Medicare card |
-| Canada - Ontario | Health Insurance Card\* |  |
-| Canada - Quebec | Health Insurance Card<sup>\*, BETA</sup> |  |
+| Canada - Ontario | Health Insurance Card\* | Ontario Health card (OHIP) / Carte Santé de l’Ontario |
+| Canada - Quebec | Health Insurance Card<sup>\*, BETA</sup> | Régie de l'assurance maladie du Québec (RAMQ) |
 
 
 
@@ -306,34 +306,34 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Mexico | Professional DL<sup>\*, BETA</sup> | Licencia Federal de Conductor |
 | Mexico | Residence Permit<sup>BETA</sup> | Tarjeta de Residencia Temporal y Residencia Permanente |
 | Mexico | Voter ID | Credencial para votar |
-| Mexico - Baja California | Driving Licence<sup>BETA</sup> |  |
+| Mexico - Baja California | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
 | Mexico - Baja California Sur | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Campeche | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Chiapas | Driving Licence\* |  |
-| Mexico - Chihuahua | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Coahuila | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Colima | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Durango | Driving Licence\* |  |
-| Mexico - Guanajuato | Driving Licence<sup>BETA</sup> |  |
+| Mexico - Campeche | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Chiapas | Driving Licence\* | Licencia de Conducir |
+| Mexico - Chihuahua | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Coahuila | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Colima | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Durango | Driving Licence\* | Licencia de Conducir |
+| Mexico - Guanajuato | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
 | Mexico - Guerrero Cocula | Driving Licence<sup>BETA</sup> |  |
 | Mexico - Guerrero Juchitan | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Hidalgo | Driving Licence |  |
-| Mexico - Jalisco | Driving Licence\* |  |
-| Mexico - Mexico | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Michoacan | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Morelos | Driving Licence\* |  |
+| Mexico - Hidalgo | Driving Licence | Licencia de Conducir |
+| Mexico - Jalisco | Driving Licence\* | Licencia de Conducir |
+| Mexico - Mexico | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Michoacan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Morelos | Driving Licence\* | Licencia de Conducir |
 | Mexico - Nayarit | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Nuevo Leon | Driving Licence |  |
-| Mexico - Oaxaca | Driving Licence |  |
-| Mexico - Puebla | Driving Licence<sup>BETA</sup> |  |
-| Mexico - San Luis Potosi | Driving Licence\* |  |
-| Mexico - Sinaloa | Driving Licence<sup>\*, BETA</sup> |  |
-| Mexico - Sonora | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Tabasco | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Tamaulipas | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Veracruz | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Yucatan | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Zacatecas | Driving Licence<sup>BETA</sup> |  |
+| Mexico - Nuevo Leon | Driving Licence | Licencia de Conducir |
+| Mexico - Oaxaca | Driving Licence | Licencia de Conducir |
+| Mexico - Puebla | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - San Luis Potosi | Driving Licence\* | Licencia de Conducir |
+| Mexico - Sinaloa | Driving Licence<sup>\*, BETA</sup> | Licencia de Conducir |
+| Mexico - Sonora | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Tabasco | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Tamaulipas | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Veracruz | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Yucatan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Zacatecas | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
 | Nicaragua | ID Card | Cédula de Identidad Ciudadana |
 | Panama | Driving Licence\* | Licencia de Conducir |
 | Panama | ID Card\* | Cédula de Identidad |
@@ -377,13 +377,13 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | India | PAN Card\* | स्थायी खाता संख्या कार्ड |
 | India | Paper Passport\* |  |
 | India | Voter ID\* |  |
-| India - Gujarat | Driving Licence<sup>\*, BETA</sup> |  |
-| India - Karnataka | Driving Licence\* |  |
-| India - Kerala | Driving Licence<sup>BETA</sup> |  |
-| India - Madhya Pradesh | Driving Licence<sup>\*, BETA</sup> |  |
-| India - Maharashtra | Driving Licence\* |  |
-| India - Punjab | Driving Licence<sup>\*, BETA</sup> |  |
-| India - Tamil Nadu | Driving Licence<sup>BETA</sup> |  |
+| India - Gujarat | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
+| India - Karnataka | Driving Licence\* | ड्राइविंग लाइसेंस |
+| India - Kerala | Driving Licence<sup>BETA</sup> | ड्राइविंग लाइसेंस |
+| India - Madhya Pradesh | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
+| India - Maharashtra | Driving Licence\* | ड्राइविंग लाइसेंस |
+| India - Punjab | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
+| India - Tamil Nadu | Driving Licence<sup>BETA</sup> | ड्राइविंग लाइसेंस |
 | Indonesia | Driving Licence\* | Surat Izin Mengemudi (SIM) |
 | Indonesia | ID Card\* | Kartu Tanda Penduduk (KTP) |
 | Indonesia | Paper Passport\* | Paspor |
@@ -434,7 +434,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Tajikistan | Polycarbonate Passport<sup>\*, BETA</sup> | шиноснома |
 | Thailand | Alien ID\* | บัตรประจำตัวคนซึ่งไม่มีสัญชาติไทย (บัตรสีชมพู) |
 | Thailand | Driving Licence<sup>BETA</sup> | ใบอนุญาตขับรถ |
-| Thailand | ID Card\* | บัตรประจำตัวประชาชน |
+| Thailand | ID Card | บัตรประจำตัวประชาชน |
 | Thailand | Polycarbonate Passport\* | หนังสือเดินทาง |
 | Uzbekistan | Driving Licence<sup>\*, BETA</sup> | Haydovchilik guvohnomasi |
 | Uzbekistan | Paper Passport\* | Pasport |
@@ -477,16 +477,16 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Canada - British Columbia | Public Services Card |  |
 | Canada - Manitoba | Driving Licence |  |
 | Canada - Manitoba | ID Card |  |
-| Canada - New Brunswick | Driving Licence |  |
+| Canada - New Brunswick | Driving Licence | Permis de conduire |
 | Canada - Newfoundland And Labrador | Driving Licence |  |
 | Canada - Nova Scotia | Driving Licence |  |
 | Canada - Nova Scotia | ID Card<sup>BETA</sup> |  |
 | Canada - Ontario | Driving Licence |  |
-| Canada - Ontario | ID Card |  |
-| Canada - Quebec | Driving Licence\* |  |
+| Canada - Ontario | ID Card | Photo card |
+| Canada - Quebec | Driving Licence\* | Permis de conduire |
 | Canada - Saskatchewan | Driving Licence |  |
 | Canada - Saskatchewan | ID Card<sup>BETA</sup> |  |
-| Canada - Yukon | Driving Licence |  |
+| Canada - Yukon | Driving Licence | Permis de conduire |
 | USA | Border Crossing Card\* | BCC |
 | USA | Global Entry Card |  |
 | USA | Green Card | Permanent resident card |
@@ -575,7 +575,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | USA - Tennessee | Driving Licence |  |
 | USA - Texas | Driving Licence |  |
 | USA - Texas | ID Card |  |
-| USA - Texas | Weapon Permit\* |  |
+| USA - Texas | Weapon Permit\* | License to Carry a Handgun (LTC) |
 | USA - Utah | Driving Licence |  |
 | USA - Utah | ID Card |  |
 | USA - Vermont | Driving Licence |  |
