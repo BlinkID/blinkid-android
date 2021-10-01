@@ -106,7 +106,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
                         com.microblink.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
                         Log.i(TAG, "Starting recognition");
                         mTimestamp = System.currentTimeMillis();
-                        mRecognizer.recognizeImage(image, false, Camera2Fragment.this);
+                        mRecognizer.recognizeImage(image, true, Camera2Fragment.this);
                     } else {
                         Log.v(TAG, "Recognizer is busy. Dropping current frame");
                         img.close();
