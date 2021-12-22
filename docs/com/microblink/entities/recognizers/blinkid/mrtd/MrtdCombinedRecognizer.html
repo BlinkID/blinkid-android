@@ -915,7 +915,8 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <ul class="blockList">
 <li class="blockList">
 <h4>setNumStableDetectionsThreshold</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setNumStableDetectionsThreshold&#8203;(int&nbsp;numStableDetectionsThreshold)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setNumStableDetectionsThreshold&#8203;(@IntRange(from=1L,to=255L)
+                                            int&nbsp;numStableDetectionsThreshold)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Minimum number of stable detections required for detection to be successful.
  By default, this is set to '6'.</div>
@@ -927,7 +928,9 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <ul class="blockList">
 <li class="blockList">
 <h4>getNumStableDetectionsThreshold</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getNumStableDetectionsThreshold()</pre>
+<pre class="methodSignature">@IntRange(from=1L,
+          to=255L)
+public&nbsp;int&nbsp;getNumStableDetectionsThreshold()</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Minimum number of stable detections required for detection to be successful.
  By default, this is set to '6'.</div>
@@ -1029,7 +1032,8 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <ul class="blockList">
 <li class="blockList">
 <h4>setFaceImageDpi</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFaceImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFaceImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                            int&nbsp;desiredDPI)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.
  By default, this is set to '250'.</div>
@@ -1065,7 +1069,8 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <ul class="blockList">
 <li class="blockList">
 <h4>setFullDocumentImageDpi</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                                    int&nbsp;desiredDPI)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>

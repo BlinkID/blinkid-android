@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -135,12 +135,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
+<dl>
 <dt>Enclosing class:</dt>
 <dd><a href="ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a></dd>
 </dl>
 <hr>
 <pre>public static class <span class="typeNameLabel">ReticleOverlayStrings.Builder</span>
-extends <a href="../../OverlayStringsBuilder.html" title="class in com.microblink.fragment.overlay">OverlayStringsBuilder</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>,&#8203;com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings.Builder.Key&gt;</pre>
+extends <a href="../../OverlayStringsBuilder.html" title="class in com.microblink.fragment.overlay">OverlayStringsBuilder</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>,&#8203;com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings.Builder.Key&gt;
+implements <a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</pre>
 </li>
 </ul>
 </div>
@@ -199,70 +204,85 @@ extends <a href="../../OverlayStringsBuilder.html" title="class in com.microblin
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorDocumentNotFullyVisible(java.lang.String)">setErrorDocumentNotFullyVisible</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBackSideInstructions(java.lang.String)">setBackSideInstructions</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorDocumentTooCloseToEdge(java.lang.String)">setErrorDocumentTooCloseToEdge</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDataMismatchMessage(java.lang.String)">setDataMismatchMessage</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorMoveCloser(java.lang.String)">setErrorMoveCloser</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDataMismatchTitle(java.lang.String)">setDataMismatchTitle</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorMoveFarther(java.lang.String)">setErrorMoveFarther</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorDocumentNotFullyVisible(java.lang.String)">setErrorDocumentNotFullyVisible</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFirstSideInstructionsText(java.lang.String)">setFirstSideInstructionsText</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorDocumentTooCloseToEdge(java.lang.String)">setErrorDocumentTooCloseToEdge</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFlashlightWarningMessage(java.lang.String)">setFlashlightWarningMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorMoveCloser(java.lang.String)">setErrorMoveCloser</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFlipInstructions(java.lang.String)">setFlipInstructions</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setErrorMoveFarther(java.lang.String)">setErrorMoveFarther</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognitionTimeoutMessage(java.lang.String)">setRecognitionTimeoutMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFirstSideInstructionsText(java.lang.String)">setFirstSideInstructionsText</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognitionTimeoutTitle(java.lang.String)">setRecognitionTimeoutTitle</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFlashlightWarningMessage(java.lang.String)">setFlashlightWarningMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRetryButtonText(java.lang.String)">setRetryButtonText</a></span>&#8203;(java.lang.String&nbsp;buttonText)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFlipInstructions(java.lang.String)">setFlipInstructions</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSidesNotMatchingMessage(java.lang.String)">setSidesNotMatchingMessage</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognitionTimeoutMessage(java.lang.String)">setRecognitionTimeoutMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSidesNotMatchingTitle(java.lang.String)">setSidesNotMatchingTitle</a></span>&#8203;(java.lang.String&nbsp;title)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognitionTimeoutTitle(java.lang.String)">setRecognitionTimeoutTitle</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnsupportedDocumentMessage(java.lang.String)">setUnsupportedDocumentMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRetryButtonText(java.lang.String)">setRetryButtonText</a></span>&#8203;(java.lang.String&nbsp;buttonText)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i16" class="altColor">
+<td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSidesNotMatchingMessage(java.lang.String)">setSidesNotMatchingMessage</a></span>&#8203;(java.lang.String&nbsp;message)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSidesNotMatchingTitle(java.lang.String)">setSidesNotMatchingTitle</a></span>&#8203;(java.lang.String&nbsp;title)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnsupportedDocumentMessage(java.lang.String)">setUnsupportedDocumentMessage</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnsupportedDocumentTitle(java.lang.String)">setUnsupportedDocumentTitle</a></span>&#8203;(java.lang.String&nbsp;text)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -341,6 +361,10 @@ protected&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setSidesNotMatchingTitle&#8203;(@Nullable
                                                               java.lang.String&nbsp;title)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setSidesNotMatchingTitle(java.lang.String)">setSidesNotMatchingTitle</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setSidesNotMatchingMessage(java.lang.String)">
@@ -352,6 +376,32 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setSidesNotMatchingMessage&#8203;(@Nullable
                                                                 java.lang.String&nbsp;message)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setSidesNotMatchingMessage(java.lang.String)">setSidesNotMatchingMessage</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="setDataMismatchTitle(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDataMismatchTitle</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setDataMismatchTitle&#8203;(@Nullable
+                                                          java.lang.String&nbsp;message)</pre>
+</li>
+</ul>
+<a id="setDataMismatchMessage(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDataMismatchMessage</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setDataMismatchMessage&#8203;(@Nullable
+                                                            java.lang.String&nbsp;message)</pre>
 </li>
 </ul>
 <a id="setRetryButtonText(java.lang.String)">
@@ -363,6 +413,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setRetryButtonText&#8203;(@Nullable
                                                         java.lang.String&nbsp;buttonText)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setRetryButtonText(java.lang.String)">setRetryButtonText</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setFirstSideInstructionsText(java.lang.String)">
@@ -374,6 +428,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setFirstSideInstructionsText&#8203;(@Nullable
                                                                   java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setFirstSideInstructionsText(java.lang.String)">setFirstSideInstructionsText</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setFlipInstructions(java.lang.String)">
@@ -385,6 +443,25 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setFlipInstructions&#8203;(@Nullable
                                                          java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setFlipInstructions(java.lang.String)">setFlipInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
+</li>
+</ul>
+<a id="setBackSideInstructions(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setBackSideInstructions</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setBackSideInstructions&#8203;(@Nullable
+                                                             java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setBackSideInstructions(java.lang.String)">setBackSideInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setBackSideBarcodeInstructions(java.lang.String)">
@@ -396,6 +473,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setBackSideBarcodeInstructions&#8203;(@Nullable
                                                                     java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setBackSideBarcodeInstructions(java.lang.String)">setBackSideBarcodeInstructions</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setErrorMoveCloser(java.lang.String)">
@@ -407,6 +488,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setErrorMoveCloser&#8203;(@Nullable
                                                         java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setErrorMoveCloser(java.lang.String)">setErrorMoveCloser</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setErrorMoveFarther(java.lang.String)">
@@ -418,6 +503,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setErrorMoveFarther&#8203;(@Nullable
                                                          java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setErrorMoveFarther(java.lang.String)">setErrorMoveFarther</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setErrorDocumentTooCloseToEdge(java.lang.String)">
@@ -429,6 +518,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setErrorDocumentTooCloseToEdge&#8203;(@Nullable
                                                                     java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setErrorDocumentTooCloseToEdge(java.lang.String)">setErrorDocumentTooCloseToEdge</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setErrorDocumentNotFullyVisible(java.lang.String)">
@@ -440,6 +533,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setErrorDocumentNotFullyVisible&#8203;(@Nullable
                                                                      java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setErrorDocumentNotFullyVisible(java.lang.String)">setErrorDocumentNotFullyVisible</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setUnsupportedDocumentTitle(java.lang.String)">
@@ -451,6 +548,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setUnsupportedDocumentTitle&#8203;(@Nullable
                                                                  java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setUnsupportedDocumentTitle(java.lang.String)">setUnsupportedDocumentTitle</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setUnsupportedDocumentMessage(java.lang.String)">
@@ -462,6 +563,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setUnsupportedDocumentMessage&#8203;(@Nullable
                                                                    java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setUnsupportedDocumentMessage(java.lang.String)">setUnsupportedDocumentMessage</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setRecognitionTimeoutTitle(java.lang.String)">
@@ -473,6 +578,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setRecognitionTimeoutTitle&#8203;(@Nullable
                                                                 java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setRecognitionTimeoutTitle(java.lang.String)">setRecognitionTimeoutTitle</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setRecognitionTimeoutMessage(java.lang.String)">
@@ -484,6 +593,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setRecognitionTimeoutMessage&#8203;(@Nullable
                                                                   java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setRecognitionTimeoutMessage(java.lang.String)">setRecognitionTimeoutMessage</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="setFlashlightWarningMessage(java.lang.String)">
@@ -495,6 +608,10 @@ public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&nbsp;setFlashlightWarningMessage&#8203;(@Nullable
                                                                  java.lang.String&nbsp;text)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="strings/options/ReticleOverlayStringsOptions.html#setFlashlightWarningMessage(java.lang.String)">setFlashlightWarningMessage</a></code>&nbsp;in interface&nbsp;<code><a href="strings/options/ReticleOverlayStringsOptions.html" title="interface in com.microblink.fragment.overlay.blinkid.reticleui.strings.options">ReticleOverlayStringsOptions</a>&lt;<a href="ReticleOverlayStrings.Builder.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings.Builder</a>&gt;</code></dd>
+</dl>
 </li>
 </ul>
 <a id="build()">

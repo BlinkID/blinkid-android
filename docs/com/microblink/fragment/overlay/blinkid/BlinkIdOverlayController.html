@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -94,7 +94,7 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -154,6 +154,19 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <!--   -->
 </a>
 <h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../DocumentRecognizerManager.html" title="class in com.microblink.fragment.overlay">DocumentRecognizerManager</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#documentRecognizerManager">documentRecognizerManager</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
 <ul class="blockList">
 <li class="blockList"><a id="fields.inherited.from.class.com.microblink.fragment.overlay.BaseOverlayController">
 <!--   -->
@@ -184,7 +197,6 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <td class="colLast">
 <div class="block">Pass in your own implementation of <a href="BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid"><code>BlinkIdOverlayView</code></a> to customise the UI, or use one of
  our overlay views, <a href="reticleui/ReticleOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><code>ReticleOverlayView</code></a>,
- <a href="documentverification/DocumentVerificationOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.documentverification"><code>DocumentVerificationOverlayView</code></a>,
  <a href="document/DocumentOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.document"><code>DocumentOverlayView</code></a></div>
 </td>
 </tr>
@@ -217,43 +229,63 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="../../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognizerBundle()">getRecognizerBundle</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>protected int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSplashScreenLayoutId()">getSplashScreenLayoutId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentConfigurationChanged(android.content.res.Configuration)">onFragmentConfigurationChanged</a></span>&#8203;(android.content.res.Configuration&nbsp;newConfig)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentDestroyed()">onFragmentDestroyed</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onCameraAutofocusFailed()">onCameraAutofocusFailed</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentPaused()">onFragmentPaused</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onDocumentSideChanged(long)">onDocumentSideChanged</a></span>&#8203;(long&nbsp;firstSideDelay)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentResumed()">onFragmentResumed</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFirstSideScanStarted()">onFirstSideScanStarted</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentSaveInstanceState(android.os.Bundle)">onFragmentSaveInstanceState</a></span>&#8203;(android.os.Bundle&nbsp;outState)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentConfigurationChanged(android.content.res.Configuration)">onFragmentConfigurationChanged</a></span>&#8203;(android.content.res.Configuration&nbsp;newConfig)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i8" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentDestroyed()">onFragmentDestroyed</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentPaused()">onFragmentPaused</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentResumed()">onFragmentResumed</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFragmentSaveInstanceState(android.os.Bundle)">onFragmentSaveInstanceState</a></span>&#8203;(android.os.Bundle&nbsp;outState)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFrameRecognitionDone(com.microblink.recognition.RecognitionSuccessType)">onFrameRecognitionDone</a></span>&#8203;(<a href="../../../recognition/RecognitionSuccessType.html" title="enum in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code></th>
 <td class="colLast">
 <div class="block">Called for each camera frame, after the recognition has been completed.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onRecognizerRunnerViewCreated(com.microblink.fragment.RecognizerRunnerFragment)">onRecognizerRunnerViewCreated</a></span>&#8203;(<a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code></th>
 <td class="colLast">
@@ -261,14 +293,30 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
  <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onScanningDone(com.microblink.recognition.RecognitionSuccessType)">onScanningDone</a></span>&#8203;(<a href="../../../recognition/RecognitionSuccessType.html" title="enum in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;successType)</code></th>
 <td class="colLast">
 <div class="block">This method is called when recognition is done.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pauseScanning()">pauseScanning</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resumeScanning()">resumeScanning</a></span>()</code></th>
+<td class="colLast">
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldResetStateOnRecognizerResume()">shouldResetStateOnRecognizerResume</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -279,7 +327,7 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;com.microblink.fragment.overlay.<a href="../BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></h3>
-<code><a href="../BaseOverlayController.html#getContext()">getContext</a>, <a href="../BaseOverlayController.html#onCameraAutofocusFailed()">onCameraAutofocusFailed</a>, <a href="../BaseOverlayController.html#onFragmentCreated(android.os.Bundle)">onFragmentCreated</a>, <a href="../BaseOverlayController.html#onFragmentStarted()">onFragmentStarted</a>, <a href="../BaseOverlayController.html#onFragmentStopped()">onFragmentStopped</a>, <a href="../BaseOverlayController.html#onRecognizerRunnerFragmentAttached(com.microblink.fragment.RecognizerRunnerFragment,android.app.Activity)">onRecognizerRunnerFragmentAttached</a>, <a href="../BaseOverlayController.html#onUnrecoverableError(java.lang.Throwable)">onUnrecoverableError</a>, <a href="../BaseOverlayController.html#pauseScanning()">pauseScanning</a>, <a href="../BaseOverlayController.html#resumeScanning()">resumeScanning</a>, <a href="../BaseOverlayController.html#setMeteringAreas()">setMeteringAreas</a></code></li>
+<code><a href="../BaseOverlayController.html#getContext()">getContext</a>, <a href="../BaseOverlayController.html#onFragmentCreated(android.os.Bundle)">onFragmentCreated</a>, <a href="../BaseOverlayController.html#onFragmentStarted()">onFragmentStarted</a>, <a href="../BaseOverlayController.html#onFragmentStopped()">onFragmentStopped</a>, <a href="../BaseOverlayController.html#onRecognizerRunnerFragmentAttached(com.microblink.fragment.RecognizerRunnerFragment,android.app.Activity)">onRecognizerRunnerFragmentAttached</a>, <a href="../BaseOverlayController.html#onUnrecoverableError(java.lang.Throwable)">onUnrecoverableError</a>, <a href="../BaseOverlayController.html#setMeteringAreas()">setMeteringAreas</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -297,6 +345,26 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="documentRecognizerManager">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>documentRecognizerManager</h4>
+<pre>@NonNull
+protected final&nbsp;<a href="../DocumentRecognizerManager.html" title="class in com.microblink.fragment.overlay">DocumentRecognizerManager</a> documentRecognizerManager</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -318,7 +386,6 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
                                 <a href="BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a>&nbsp;overlayView)</pre>
 <div class="block">Pass in your own implementation of <a href="BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid"><code>BlinkIdOverlayView</code></a> to customise the UI, or use one of
  our overlay views, <a href="reticleui/ReticleOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui"><code>ReticleOverlayView</code></a>,
- <a href="documentverification/DocumentVerificationOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.documentverification"><code>DocumentVerificationOverlayView</code></a>,
  <a href="document/DocumentOverlayView.html" title="class in com.microblink.fragment.overlay.blinkid.document"><code>DocumentOverlayView</code></a></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -347,6 +414,17 @@ extends <a href="../BaseOverlayController.html" title="class in com.microblink.f
 <pre class="methodSignature">@AnyThread
 @NonNull
 public&nbsp;<a href="../../../entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.entities.recognizers">HighResImagesBundle</a>&nbsp;getHighResImagesBundle()</pre>
+</li>
+</ul>
+<a id="getRecognizerBundle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRecognizerBundle</h4>
+<pre class="methodSignature">@AnyThread
+@NonNull
+public&nbsp;<a href="../../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;getRecognizerBundle()</pre>
 </li>
 </ul>
 <a id="onScanningDone(com.microblink.recognition.RecognitionSuccessType)">
@@ -418,6 +496,51 @@ public&nbsp;<a href="../../../entities/recognizers/HighResImagesBundle.html" tit
 </dl>
 </li>
 </ul>
+<a id="pauseScanning()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>pauseScanning</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;pauseScanning()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#pauseScanning()">ScanningOverlay</a></code></span></div>
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a>. But keeps camera active.
+ If the  <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.
+ <p>
+ You can resume scanning by calling <a href="../ScanningOverlay.html#resumeScanning()"><code>ScanningOverlay.resumeScanning()</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../ScanningOverlay.html#pauseScanning()">pauseScanning</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../BaseOverlayController.html#pauseScanning()">pauseScanning</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a></dd>
+</dl>
+</li>
+</ul>
+<a id="resumeScanning()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resumeScanning</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;resumeScanning()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#resumeScanning()">ScanningOverlay</a></code></span></div>
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.
+ <p>
+ If the  <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../ScanningOverlay.html#resumeScanning()">resumeScanning</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../BaseOverlayController.html#resumeScanning()">resumeScanning</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></dd>
+</dl>
+</li>
+</ul>
 <a id="shouldResetStateOnRecognizerResume()">
 <!--   -->
 </a>
@@ -455,6 +578,39 @@ public&nbsp;<a href="../../../entities/recognizers/HighResImagesBundle.html" tit
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../BaseOverlayController.html#getSplashScreenLayoutId()">getSplashScreenLayoutId</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></code></dd>
 </dl>
+</li>
+</ul>
+<a id="onCameraAutofocusFailed()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onCameraAutofocusFailed</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;onCameraAutofocusFailed()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../BaseOverlayController.html#onCameraAutofocusFailed()">onCameraAutofocusFailed</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="onDocumentSideChanged(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onDocumentSideChanged</h4>
+<pre class="methodSignature">@CallSuper
+protected&nbsp;void&nbsp;onDocumentSideChanged&#8203;(long&nbsp;firstSideDelay)</pre>
+</li>
+</ul>
+<a id="onFirstSideScanStarted()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onFirstSideScanStarted</h4>
+<pre class="methodSignature">@CallSuper
+protected&nbsp;void&nbsp;onFirstSideScanStarted()</pre>
 </li>
 </ul>
 <a id="onFragmentResumed()">
@@ -582,7 +738,7 @@ public&nbsp;<a href="../../../entities/recognizers/HighResImagesBundle.html" tit
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

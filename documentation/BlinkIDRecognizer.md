@@ -6,7 +6,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 ## Supported medical documents
 
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Croatia | Health Insurance Card<sup>\*, BETA</sup> | Zdravstvena iskaznica |
 | Australia | Health Insurance Card<sup>\*, BETA</sup> | Medicare card |
@@ -19,7 +19,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 
 ### Europe
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Albania | Driving Licence\* | Leje drejtimi |
 | Albania | Driver Card\* | Karta e drejtuesit të mjetit |
@@ -36,7 +36,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Belgium | Minors ID<sup>BETA</sup> | Kids-ID |
 | Belgium | Paper Passport<sup>\*, BETA</sup> | Paspoort / Passeport / Reisepass |
 | Belgium | Residence Permit | Verblijfstitel / Titre de Sejour |
-| Belgium | Resident ID | E Kaart / Carte E / E Karte </br> E+ Kaart / Carte E+ / E+ Karte </br> F Kaart / Carte F / F Karte </br> F+ Kaart / Carte F+ / F+ Karte </br> |
+| Belgium | Resident ID | E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte  |
 | Bosnia And Herzegovina | Driving Licence\* | Vozačka dozvola |
 | Bosnia And Herzegovina | ID Card | Lična karta / Osobna iskaznica |
 | Bosnia And Herzegovina | Polycarbonate Passport\* | Pasoš / Пасош / Putovnica |
@@ -94,14 +94,14 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Ireland | Polycarbonate Passport\* | Pas |
 | Italy | Driving Licence\* | Patente di guida |
 | Italy | ID Card | Carta d'identità |
-| Italy | Paper Passport<sup>\*, BETA</sup> | Passaporto  |
-| Italy | Residence Permit | Permesso di soggiorno  |
+| Italy | Paper Passport<sup>\*, BETA</sup> | Passaporto |
+| Italy | Residence Permit | Permesso di soggiorno |
 | Kosovo | Driving Licence\* | Patentë shoferi / возачка дозвола |
 | Kosovo | ID Card | Letёrnjoftim / Лична карта |
 | Kosovo | Paper Passport\* | Pasaportë / Пасош |
 | Latvia | Alien ID | Nepilsoņa personas apliecība |
 | Latvia | Driving Licence\* | Vadītāja apliecība |
-| Latvia | ID Card | Personas apliecība  |
+| Latvia | ID Card | Personas apliecība |
 | Latvia | Residence Permit<sup>BETA</sup> | Uzturēšanās atļauja |
 | Latvia | Polycarbonate Alien Passport\* | Nepilsoņa pase |
 | Latvia | Polycarbonate Passport\* | Pase |
@@ -166,7 +166,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Sweden | Social Security Card\* | Identitetskort / Skatteverkets id-kort |
 | Switzerland | Driving Licence\* | Führerausweis / Permis de conduire / Licenza di condurre / Permiss da manischar |
 | Switzerland | ID Card | Identitätskarte / Carte d’identité  / Carta d’identità / Carta d’identitad |
-| Switzerland | Paper Passport\* | Pass / Passeport / Passaporto / Passaport  |
+| Switzerland | Paper Passport\* | Pass / Passeport / Passaporto / Passaport |
 | Switzerland | Residence Permit | Aufenthaltstitel / Titre de séjour |
 | UK | Driving Licence\* | Trwydded yrru |
 | UK | Paper Passport\* |  |
@@ -178,7 +178,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 
 ### Middle East and Africa
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Algeria | Driving Licence | رخصة القيادة |
 | Algeria | ID Card | Carte nationale d’identité / بطاقة الهوية الوطني |
@@ -207,7 +207,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Jordan | ID Card | بطاقة شخصية |
 | Jordan | Paper Passport<sup>\*, BETA</sup> | جواز سفر |
 | Kenya | ID Card | Kitambulisho |
-| Kenya | Polycarbonate Passport\* | Passport / Pasi  |
+| Kenya | Polycarbonate Passport\* | Passport / Pasi |
 | Kuwait | Driving Licence | رخصة القيادة |
 | Kuwait | ID Card | بطاقة المدنية |
 | Kuwait | Resident ID | بطاقة المدنية |
@@ -231,7 +231,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Qatar | Residence Permit | تصريح الإقامة |
 | Rwanda | ID Card\* | Indangamuntu |
 | Saudi Arabia | Driving Licence\* | رخصة قيادة |
-| Saudi Arabia | ID Card | بطاقة الأحوال المدنية  |
+| Saudi Arabia | ID Card | بطاقة الأحوال المدنية |
 | Saudi Arabia | Paper Passport\* | جواز سفر |
 | Saudi Arabia | Resident ID\* | Iqama / هوية المقيم |
 | Senegal | ID Card | Carte nationale d'identité / Carte d'identité biométrique CEDEAO |
@@ -253,14 +253,14 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Turkey | Polycarbonate Passport\* | Pasaport |
 | UAE | Driving Licence | رخصة القيادة |
 | UAE | ID Card | بطاقة الهوية |
-| UAE | Resident ID | بطاقة الهوية الوطنية  |
+| UAE | Resident ID | بطاقة الهوية الوطنية |
 | Uganda | Driving Licence\* |  |
 | Uganda | ID Card |  |
 | Zimbabwe | Paper Passport\* |  |
 
 
 ### Latin America and the Caribbean
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Argentina | Alien ID | DNI para extranjeros |
 | Argentina | Driving Licence<sup>\*, BETA</sup> | Licencia de Conducir |
@@ -287,7 +287,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Dominican Republic | Driving Licence<sup>BETA</sup> | Licencia de conducir |
 | Dominican Republic | ID Card | Cédula de Identidad y Electoral (CIE) |
 | Ecuador | Driving Licence\* | Licencia de conducir |
-| Ecuador | ID Card | Cédula de Identidad  |
+| Ecuador | ID Card | Cédula de Identidad |
 | El Salvador | Driving Licence<sup>BETA</sup> | Licencia de conducir |
 | El Salvador | ID Card | Documento Único de Identidad (DUI) |
 | Guatemala | Consular ID | Tarjeta de Identificación Consular (TICG) |
@@ -298,7 +298,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Haiti | ID Card | Carte d'identification nationale (CIN) / Kat Idantifikasyon Nasyonal |
 | Haiti | Paper Passport\* | Passeport / Paspò |
 | Honduras | Driving Licence<sup>BETA</sup> | Licencia de conducir |
-| Honduras | ID Card<sup>BETA</sup> | Tarjeta de identidad  |
+| Honduras | ID Card<sup>BETA</sup> | Tarjeta de identidad |
 | Honduras | Paper Passport<sup>\*, BETA</sup> | Pasaporte |
 | Jamaica | Driving Licence | Motor vehicle license / MV license |
 | Mexico | Consular ID<sup>BETA</sup> | Matrícula consular |
@@ -315,8 +315,8 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Mexico - Colima | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
 | Mexico - Durango | Driving Licence\* | Licencia de Conducir |
 | Mexico - Guanajuato | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Guerrero Cocula | Driving Licence<sup>BETA</sup> |  |
-| Mexico - Guerrero Juchitan | Driving Licence<sup>BETA</sup> |  |
+| Mexico - Guerrero Cocula | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
+| Mexico - Guerrero Juchitan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
 | Mexico - Hidalgo | Driving Licence | Licencia de Conducir |
 | Mexico - Jalisco | Driving Licence\* | Licencia de Conducir |
 | Mexico - Mexico | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
@@ -354,7 +354,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 
 ### Asia
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Armenia | ID Card | նույնականացման քարտը |
 | Azerbaijan | ID Card | Şəxsiyyət vəsiqəsi |
@@ -365,12 +365,12 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | Brunei | ID Card | Kad Pengenalan (Kuning) |
 | Brunei | Military ID<sup>BETA</sup> | Kad Pengenalan Tentera (ABDB) |
 | Brunei | Residence Permit<sup>BETA</sup> | ​Kad Pengenalan (Ungu) |
-| Brunei | Temporary Residence Permit<sup>BETA</sup> | Kad Pengenalan (Hijau)  |
+| Brunei | Temporary Residence Permit<sup>BETA</sup> | Kad Pengenalan (Hijau) |
 | Cambodia | Driving Licence<sup>\*, BETA</sup> | ប័ណ្ណបើកបរ |
 | Cambodia | ID Card\* | អត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ |
 | Cambodia | Polycarbonate Passport\* | លិខិតឆ្លងដែន |
 | China | ID Card | 中华人民共和国居民身份证 |
-| China | Paper Passport<sup>\*, BETA</sup> | 中华人民共和国护照  |
+| China | Paper Passport<sup>\*, BETA</sup> | 中华人民共和国护照 |
 | Hong Kong | ID Card\* | 香港身份證 |
 | Hong Kong | Polycarbonate Passport<sup>\*, BETA</sup> | 護照 |
 | India | ID Card<sup>BETA</sup> | Aadhaar card / आधार कार्ड |
@@ -427,7 +427,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | South Korea | ID Card<sup>\*, BETA</sup> | 주민등록증 |
 | South Korea | Paper Passport<sup>\*, BETA</sup> | 여권 |
 | Sri Lanka | Driving Licence\* | රියදුරු බලපත්රය |
-| Sri Lanka | ID Card | ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை  |
+| Sri Lanka | ID Card | ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை |
 | Sri Lanka | Paper Passport\* | ගමන් බලපත්‍රය / கடவுச்சீட்டு |
 | Taiwan | ID Card<sup>\*, BETA</sup> | 中華民國國民身分證 |
 | Taiwan | Temporary Residence Permit<sup>\*, BETA</sup> | 中華民國居留證 |
@@ -443,7 +443,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 
 ### Oceania
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Australia | Paper Passport\* |  |
 | Australia - Australian Capital Territory | Driving Licence\* |  |
@@ -461,14 +461,14 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 
 
 ### Northern America
-| Country/Region        | Document Type | Localized Document Name |
+| Country/Region        | Document Type | Localised Document Name |
 | :---------------|:------------------|:------------------|
 | Bermuda | Driving Licence<sup>\*, BETA</sup> |  |
 | Canada | Citizenship Certificate<sup>BETA</sup> | Certificate of Canadian Citizenship / Certificat de citoyenneté canadienne |
 | Canada | Paper Passport\* | Passport / Passeport |
 | Canada | Residence Permit | Permanent residence (PR) card / Carte de résident permanent |
 | Canada | Tribal ID<sup>BETA</sup> | Certificate of Indian Status / Certificat de statut Indien |
-| Canada | Weapon Permit<sup>\*, BETA</sup> | Possesion and Aquisition License (PAL) / Permis de possession et d'acquisition   |
+| Canada | Weapon Permit<sup>\*, BETA</sup> | Possesion and Aquisition License (PAL) / Permis de possession et d'acquisition |
 | Canada - Alberta | Driving Licence |  |
 | Canada - Alberta | ID Card |  |
 | Canada - British Columbia | Driving Licence |  |
@@ -495,7 +495,7 @@ Other than documents listed here, BlinkID(Combined)Recognizer also scans the <st
 | USA | Paper Passport<sup>\*, BETA</sup> |  |
 | USA | Social Security Card<sup>\*, BETA</sup> |  |
 | USA | Veteran ID\* | VIC |
-| USA | Work Permit | Employment authorization document / EAD Card  |
+| USA | Work Permit | Employment authorization document / EAD Card |
 | USA - Alabama | Driving Licence |  |
 | USA - Alabama | ID Card |  |
 | USA - Alaska | Driving Licence |  |

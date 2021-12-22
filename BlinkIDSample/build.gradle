@@ -5,7 +5,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath 'com.android.tools.build:gradle:7.0.4'
     }
 }
 
@@ -21,8 +21,8 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '5.14.0'
-    compileSdkVersion = 30
-    targetSdkVersion = 30
-    appCompatVersion = '1.2.0'
+    blinkIdVersion = '5.15.0'
+    compileSdkVersion = 31
+    targetSdkVersion = 31
+    appCompatVersion = '1.4.0'
 }

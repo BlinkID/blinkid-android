@@ -22,7 +22,7 @@ import com.microblink.result.activity.RecognizerBundleResultActivity;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.BlinkIdUISettings;
 import com.microblink.uisettings.DocumentUISettings;
-import com.microblink.uisettings.DocumentVerificationUISettings;
+import com.microblink.uisettings.LegacyDocumentVerificationUISettings;
 import com.microblink.uisettings.UISettings;
 import com.microblink.uisettings.options.BeepSoundUIOptions;
 import com.microblink.uisettings.options.OcrResultDisplayMode;
@@ -115,11 +115,11 @@ public class MenuActivity extends ResultHandlerMenuActivity {
     }
 
     /**
-     * Starts {@link com.microblink.activity.DocumentVerificationActivity} with given recognizer.
+     * Starts {@link com.microblink.activity.LegacyDocumentVerificationActivity} with given recognizer.
      * @param combinedRecognizer recognizer that will be used.
      */
     private void combinedRecognitionAction(Recognizer combinedRecognizer) {
-        DocumentVerificationUISettings uiSettings = new DocumentVerificationUISettings(new RecognizerBundle(combinedRecognizer));
+        LegacyDocumentVerificationUISettings uiSettings = new LegacyDocumentVerificationUISettings(new RecognizerBundle(combinedRecognizer));
         uiSettings.setBeepSoundResourceID(R.raw.beep);
 
         ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);

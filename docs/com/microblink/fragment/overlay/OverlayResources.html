@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":6};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -197,10 +197,15 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStyle(int)">getStyle</a></span>&#8203;(int&nbsp;id)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getResourceId(int)">getResourceId</a></span>&#8203;(int&nbsp;id)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStyle(int)">getStyle</a></span>&#8203;(int&nbsp;id)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>protected abstract int[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStyleable()">getStyleable</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -274,6 +279,16 @@ protected&nbsp;android.graphics.drawable.Drawable&nbsp;getDrawable&#8203;(@Style
                                                          int&nbsp;id)</pre>
 </li>
 </ul>
+<a id="getResourceId(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getResourceId</h4>
+<pre class="methodSignature">protected&nbsp;int&nbsp;getResourceId&#8203;(@StyleableRes
+                            int&nbsp;id)</pre>
+</li>
+</ul>
 <a id="getStyle(int)">
 <!--   -->
 </a>
@@ -291,7 +306,8 @@ protected&nbsp;int&nbsp;getStyle&#8203;(@StyleableRes
 <ul class="blockList">
 <li class="blockList">
 <h4>getColor</h4>
-<pre class="methodSignature">protected&nbsp;int&nbsp;getColor&#8203;(@StyleableRes
+<pre class="methodSignature">@ColorInt
+protected&nbsp;int&nbsp;getColor&#8203;(@StyleableRes
                        int&nbsp;id)</pre>
 </li>
 </ul>

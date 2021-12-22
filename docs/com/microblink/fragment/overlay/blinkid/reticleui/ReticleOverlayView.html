@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -88,13 +88,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -160,6 +160,34 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 </li>
 </ul>
 </section>
+<!-- =========== FIELD SUMMARY =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentState">currentState</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#strings">strings</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -200,12 +228,24 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeState(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState,java.lang.String)">changeState</a></span>&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState,
+           java.lang.String&nbsp;statusMessage)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#changeStateIfRequired(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState,java.lang.String)">changeStateIfRequired</a></span>&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState,
+                     java.lang.String&nbsp;statusMessage)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#cleanup()">cleanup</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Clean up your resources here.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>android.view.ViewGroup</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createLayout(android.app.Activity,com.microblink.view.recognition.RecognizerRunnerView)">createLayout</a></span>&#8203;(android.app.Activity&nbsp;activity,
             <a href="../../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code></th>
@@ -213,99 +253,121 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <div class="block">Inflate your custom layout here and add it to the parent view</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="../../components/TorchController.html" title="class in com.microblink.fragment.overlay.components">TorchController</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createTorchController(com.microblink.view.recognition.RecognizerRunnerView)">createTorchController</a></span>&#8203;(<a href="../../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a>&nbsp;recognizerRunnerView)</code></th>
 <td class="colLast">
 <div class="block">Return properly set-up torch controller or null if torch is handled by the activity.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>protected long</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#currentStateDuration()">currentStateDuration</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>protected android.util.Pair&lt;<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>,&#8203;java.lang.String&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#detectionStatusToReticleState(com.microblink.view.recognition.DetectionStatus)">detectionStatusToReticleState</a></span>&#8203;(<a href="../../../../view/recognition/DetectionStatus.html" title="enum in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="../RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDataMismatchStrings()">getDataMismatchStrings</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="../RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDocumentNotSupportedDialogStrings()">getDocumentNotSupportedDialogStrings</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="../RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognitionTimeoutDialogStrings()">getRecognitionTimeoutDialogStrings</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="../RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSidesNotMatchingDialogStrings()">getSidesNotMatchingDialogStrings</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onCardDetectionUpdate(com.microblink.view.recognition.DetectionStatus)">onCardDetectionUpdate</a></span>&#8203;(<a href="../../../../view/recognition/DetectionStatus.html" title="enum in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</code></th>
 <td class="colLast">
 <div class="block">Called on any update to card detection process.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onConfigurationChanged(int)">onConfigurationChanged</a></span>&#8203;(int&nbsp;newHostScreenOrientation)</code></th>
+<td class="colLast">
+<div class="block">Called when host's screen orientation is changed.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onDocumentClassified()">onDocumentClassified</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when document is successfully classified and recognition starts.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onErrorDialogShown()">onErrorDialogShown</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when error dialog is shown.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onFirstSideScanStarted()">onFirstSideScanStarted</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when scanning of the first side starts.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onGlare(boolean)">onGlare</a></span>&#8203;(boolean&nbsp;hasGlare)</code></th>
 <td class="colLast">
 <div class="block">Called on glare detection update.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onMovingCloserToBarcodeRequired()">onMovingCloserToBarcodeRequired</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when user should be instructed to move closer to barcode.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onProcessingError(com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError)">onProcessingError</a></span>&#8203;(<a href="../BlinkIdOverlayView.ProcessingError.html" title="enum in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView.ProcessingError</a>&nbsp;processingError)</code></th>
 <td class="colLast">
 <div class="block">Called when processing error, which should be displayed to the user, occurs.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onScanSuccess()">onScanSuccess</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when both sides are scanned.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onSecondSideScanStarted()">onSecondSideScanStarted</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Called when scanning of the second side starts.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onTorchStateChanged(boolean)">onTorchStateChanged</a></span>&#8203;(boolean&nbsp;torchOn)</code></th>
 <td class="colLast">
 <div class="block">Called when torch (flashlight) state is updated.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognizerSupportsClassification(boolean)">setRecognizerSupportsClassification</a></span>&#8203;(boolean&nbsp;isClassificationSupported)</code></th>
 <td class="colLast">
@@ -313,13 +375,18 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowBackSideBarcodeInstructions(boolean)">setShowBackSideBarcodeInstructions</a></span>&#8203;(boolean&nbsp;shouldShow)</code></th>
 <td class="colLast">
 <div class="block">Set whether to show additional instructions when scanning back side of the document instructing
  user to scan the barcode.</div>
 </td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>protected boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldStayInCurrentState(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState)">shouldStayInCurrentState</a></span>&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState)</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -338,6 +405,34 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="strings">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>strings</h4>
+<pre>protected&nbsp;<a href="ReticleOverlayStrings.html" title="class in com.microblink.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a> strings</pre>
+</li>
+</ul>
+<a id="currentState">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>currentState</h4>
+<pre>protected&nbsp;<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a> currentState</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -392,6 +487,27 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 </dl>
 </li>
 </ul>
+<a id="onConfigurationChanged(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>onConfigurationChanged</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;onConfigurationChanged&#8203;(int&nbsp;newHostScreenOrientation)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../BlinkIdOverlayView.html#onConfigurationChanged(int)">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Called when host's screen orientation is changed.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../BlinkIdOverlayView.html#onConfigurationChanged(int)">onConfigurationChanged</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>newHostScreenOrientation</code> - orientation code, possible values are:
+                                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT,
+                                 ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT,
+                                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE and
+                                 ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE</dd>
+</dl>
+</li>
+</ul>
 <a id="createTorchController(com.microblink.view.recognition.RecognizerRunnerView)">
 <!--   -->
 </a>
@@ -419,7 +535,8 @@ public&nbsp;<a href="../../components/TorchController.html" title="class in com.
 <ul class="blockList">
 <li class="blockList">
 <h4>onFirstSideScanStarted</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onFirstSideScanStarted()</pre>
+<pre class="methodSignature">@CallSuper
+public&nbsp;void&nbsp;onFirstSideScanStarted()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../BlinkIdOverlayView.html#onFirstSideScanStarted()">BlinkIdOverlayView</a></code></span></div>
 <div class="block">Called when scanning of the first side starts.</div>
 <dl>
@@ -509,6 +626,15 @@ public&nbsp;<a href="../../components/TorchController.html" title="class in com.
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../BlinkIdOverlayView.html#onCardDetectionUpdate(com.microblink.view.recognition.DetectionStatus)">onCardDetectionUpdate</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
 </dl>
+</li>
+</ul>
+<a id="detectionStatusToReticleState(com.microblink.view.recognition.DetectionStatus)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>detectionStatusToReticleState</h4>
+<pre class="methodSignature">protected&nbsp;android.util.Pair&lt;<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>,&#8203;java.lang.String&gt;&nbsp;detectionStatusToReticleState&#8203;(<a href="../../../../view/recognition/DetectionStatus.html" title="enum in com.microblink.view.recognition">DetectionStatus</a>&nbsp;detectionStatus)</pre>
 </li>
 </ul>
 <a id="onProcessingError(com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView.ProcessingError)">
@@ -642,6 +768,22 @@ public&nbsp;<a href="../RetryDialogStrings.html" title="class in com.microblink.
 </dl>
 </li>
 </ul>
+<a id="getDataMismatchStrings()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDataMismatchStrings</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="../RetryDialogStrings.html" title="class in com.microblink.fragment.overlay.blinkid">RetryDialogStrings</a>&nbsp;getDataMismatchStrings()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../BlinkIdOverlayView.html#getDataMismatchStrings()">getDataMismatchStrings</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>strings to be used for error dialog shown when scanned document has data mismatch</dd>
+</dl>
+</li>
+</ul>
 <a id="setShowBackSideBarcodeInstructions(boolean)">
 <!--   -->
 </a>
@@ -663,7 +805,7 @@ public&nbsp;<a href="../RetryDialogStrings.html" title="class in com.microblink.
 <a id="onDocumentClassified()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>onDocumentClassified</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;onDocumentClassified()</pre>
@@ -673,6 +815,46 @@ public&nbsp;<a href="../RetryDialogStrings.html" title="class in com.microblink.
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../BlinkIdOverlayView.html#onDocumentClassified()">onDocumentClassified</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
 </dl>
+</li>
+</ul>
+<a id="changeStateIfRequired(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>changeStateIfRequired</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;changeStateIfRequired&#8203;(@NonNull
+                                  <a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState,
+                                  java.lang.String&nbsp;statusMessage)</pre>
+</li>
+</ul>
+<a id="changeState(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState,java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>changeState</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;changeState&#8203;(@NonNull
+                        <a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState,
+                        java.lang.String&nbsp;statusMessage)</pre>
+</li>
+</ul>
+<a id="shouldStayInCurrentState(com.microblink.fragment.overlay.blinkid.reticleui.ReticleUiState)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>shouldStayInCurrentState</h4>
+<pre class="methodSignature">protected&nbsp;boolean&nbsp;shouldStayInCurrentState&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState)</pre>
+</li>
+</ul>
+<a id="currentStateDuration()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>currentStateDuration</h4>
+<pre class="methodSignature">protected&nbsp;long&nbsp;currentStateDuration()</pre>
 </li>
 </ul>
 </li>
@@ -727,13 +909,13 @@ public&nbsp;<a href="../RetryDialogStrings.html" title="class in com.microblink.
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

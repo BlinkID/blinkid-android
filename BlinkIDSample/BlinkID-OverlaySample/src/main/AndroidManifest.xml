@@ -21,7 +21,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTheme.FullScreen">
-        <activity android:name=".MenuActivity">
+        <activity android:name=".MenuActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

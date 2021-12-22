@@ -201,7 +201,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setFullDocumentImageDpi</h4>
-<pre class="methodSignature">void&nbsp;setFullDocumentImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">void&nbsp;setFullDocumentImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                             int&nbsp;desiredDPI)</pre>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>
 <dl>

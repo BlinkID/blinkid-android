@@ -46,9 +46,9 @@ Feeling ready to crack on with the integration? First make sure we support your 
         * [Using Direct API while RecognizerRunnerView is active](#directAPIWithRecognizer)
         * [Using Direct API with combined recognizers ](#directAPI_combined_recognizers)
 * [Available activities and overlays](#builtInUIComponents)
-    * [New: `BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent)
+    * [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent)
     * [`DocumentUISettings`](#documentUiComponent)
-    * [`DocumentVerificationUISettings`](#documentVerifyUiComponent)
+    * [`LegacyDocumentVerificationUISettings`](#legacyDocumentVerifyUiComponent)
     * [Translation and localization](#translation)
 * [Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`](#processingEvents)
 * [`Recognizer` concept and `RecognizerBundle`](#availableRecognizers)
@@ -113,7 +113,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.14.0@aar') {
+    implementation('com.microblink:blinkid:5.15.0@aar') {
         transitive = true
     }
 }
@@ -125,7 +125,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.14.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.15.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -219,11 +219,11 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 ### Android Version
 
-_BlinkID_ requires **Android 4.1** (API level **16**) or newer. For best performance and compatibility, we recommend at least Android 5.0.
+_BlinkID_ requires Android API level **16** or newer. For best performance and compatibility, we recommend at least Android 5.0.
 
 ### Camera
 
-Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution. For example, [Sony Xperia Go](http://www.gsmarena.com/sony_xperia_go-4782.php) supports 720p video recording but preview resolution is only 320p - _BlinkID_ won't work on that device.
+Camera video preview resolution also matters. In order to perform successful scans, camera preview resolution must be at least 720p. Note that camera preview resolution is not the same as video recording resolution.
 
 ### Processor architecture
 
@@ -359,6 +359,7 @@ public class MyActivity extends AppCompatActivity implements RecognizerRunnerFra
 ```
 
 Please refer to sample apps provided with the SDK for more detailed example and make sure your host activity's orientation is set to `nosensor` or has configuration changing enabled (i.e. is not restarted when configuration change happens). For more information, check [scan orientation section](#scanOrientation).
+
 ## <a name="recognizerRunnerView"></a> Custom UX with `RecognizerRunnerView`
 This section discusses how to embed [RecognizerRunnerView](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/RecognizerRunnerView.html) into your scan activity and perform scan.
 
@@ -535,7 +536,7 @@ For that matter, we recommend setting your scan activity to either `portrait` or
 However, if you really want to set `screenOrientation` property to `sensor` or similar and want Android to handle orientation changes of your scan activity, then we recommend to set `configChanges` property of your activity to `orientation|screenSize`. This will tell Android not to restart your activity when device orientation changes. Instead, activity's `onConfigurationChanged` method will be called so that activity can be notified of the configuration change. In your implementation of this method, you should call `changeConfiguration` method of `RecognizerView` so it can adapt its camera surface and child views to new configuration.
 ## <a name="directAPI"></a> Direct API
 
-This section will describe how to use direct API to recognize android Bitmaps and java `Strings` without the need for camera. You can use direct API anywhere from your application, not just from activities.
+This section will describe how to use direct API to recognize android Bitmaps without the need for camera. You can use direct API anywhere from your application, not just from activities.
 
 Image recognition performance highly depends on the quality of the input images. When our camera management is used (scanning from a camera), we do our best to get camera frames with the best possible quality for the used device. On the other hand, when Direct API is used, you need to provide high-quality images without blur and glare for successful recognition.
 
@@ -653,7 +654,7 @@ Both [RecognizerRunnerView](#recognizerRunnerView) and `RecognizerRunner` use th
 When you are using combined recognizer and images of both document sides are required, you need to call `RecognizerRunner.recognize*` multiple times. Call it first with the images of the first side of the document, until it is read, and then with the images of the second side. The combined recognizer automatically switches to second side scanning, after it has successfully read the first side. To be notified when the first side scanning is completed, you have to set the [FirstSideRecognitionCallback](https://blinkid.github.io/blinkid-android/com/microblink/metadata/recognition/FirstSideRecognitionCallback.html) through [MetadataCallbacks](https://blinkid.github.io/blinkid-android/com/microblink/metadata/MetadataCallbacks.html). If you don't need that information, e.g. when you have only one image for each document side, don't set the `FirstSideRecognitionCallback` and check the [RecognitionSuccessType](https://blinkid.github.io/blinkid-android/com/microblink/recognition/RecognitionSuccessType.html) in [ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-), after the second side image has been processed.
 
 # <a name="builtInUIComponents"></a> Available activities and overlays
-## <a name="blinkidUiComponent"></a> New: `BlinkIdUISettings` and `BlinkIdOverlayController`
+## <a name="blinkidUiComponent"></a> `BlinkIdUISettings` and `BlinkIdOverlayController`
 
 [`BlinkIdOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/fragment/overlay/blinkid/BlinkIdOverlayController.html) implements new UI for scanning identity documents, which is optimally designed to be used with new [`BlinkIdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdCombinedRecognizer.html) and [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html). It implements several new features:
 
@@ -718,11 +719,11 @@ To customise overlay, provide your custom style resource via [`BlinkIdUISettings
 
 ## <a name="documentUiComponent"></a> `DocumentUISettings`
 
-[`DocumentUISettings `](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/DocumentUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for scanning single document side of various card documents and it shouldn't be used with combined recognizers as it provides no user instructions on when to switch to the back side.
+[`DocumentUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/DocumentUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for scanning single document side of various card documents and it shouldn't be used with combined recognizers as it provides no user instructions on when to switch to the back side.
 
-## <a name="documentVerifyUiComponent"></a> `DocumentVerificationUISettings`
+## <a name="legacyDocumentVerifyUiComponent"></a> `LegacyDocumentVerificationUISettings`
 
-[`DocumentVerificationUISettings `](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/DocumentVerificationUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for **combined recognizers** because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It can also be used for single side scanning of ID cards, passports, driver's licenses, etc.
+[`LegacyDocumentVerificationUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/LegacyDocumentVerificationUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for **combined recognizers** because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It can also be used for single side scanning of ID cards, passports, driver's licenses, etc.
 ## <a name="translation"></a> Translation and localization
 
 Strings used within built-in activities and overlays can be localized to any language. If you are using `RecognizerRunnerView` ([see this chapter for more information](#recognizerRunnerView)) in your custom scan activity or fragment, you should handle localization as in any other Android app. `RecognizerRunnerView` does not use strings nor drawables, it only uses assets from `assets/microblink` folder. Those assets must not be touched as they are required for recognition to work correctly.
@@ -845,7 +846,7 @@ This recognizer is best for use cases when you need to capture the exact image t
 
 Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkidUiComponent) and [`DocumentScanUISettings`](#documentUiComponent), with UIs best suited for document scanning. 
 
-**Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent) or [`DocumentVerificationUISettings`](#documentVerifyUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
+**Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
 ### <a name="blinkidRecognizer"></a> BlinkID recognizer
 The [`BlinkIdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/blinkid/generic/BlinkIdRecognizer.html) scans and extracts data from the single side of the supported document. 

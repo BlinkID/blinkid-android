@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -138,6 +138,29 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Class</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <section role="region">
 <ul class="blockList">
@@ -174,51 +197,67 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addConcreteRecognizerExtractor(com.microblink.fragment.overlay.DocumentRecognizerManager.ConcreteRecognizerExtractor)">addConcreteRecognizerExtractor</a></span>&#8203;(<a href="DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a>&nbsp;extractor)</code></th>
+<td class="colLast">
+<div class="block">Adds additional extractor for the recognizer wrapper class, which unwraps and returns concrete
+ recognizer if it is wrapped inside other recognizer, e.g.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#buildRecognizerBundle(com.microblink.fragment.overlay.DocumentSide)">buildRecognizerBundle</a></span>&#8203;(<a href="DocumentSide.html" title="enum in com.microblink.fragment.overlay">DocumentSide</a>&nbsp;documentSide)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#canScanDocument()">canScanDocument</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#clearBundleState()">clearBundleState</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="../../entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>&lt;?&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getConcreteRecognizer(com.microblink.entities.recognizers.Recognizer)">getConcreteRecognizer</a></span>&#8203;(<a href="../../entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>&nbsp;recognizer)</code></th>
+<td class="colLast">
+<div class="block">Unwraps and returns concrete recognizer if it is wrapped inside given
+ recognizer, e.g.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="../../entities/recognizers/RecognizerBundle.RecognitionDebugMode.html" title="enum in com.microblink.entities.recognizers">RecognizerBundle.RecognitionDebugMode</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognitionDebugMode()">getRecognitionDebugMode</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="../../entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognizersFor(com.microblink.fragment.overlay.DocumentSide)">getRecognizersFor</a></span>&#8203;(<a href="DocumentSide.html" title="enum in com.microblink.fragment.overlay">DocumentSide</a>&nbsp;documentSide)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../../recognition/RecognitionSuccessType.html" title="enum in com.microblink.recognition">RecognitionSuccessType</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScanSuccessType()">getScanSuccessType</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeoutMs()">getTimeoutMs</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasInvalidDocumentDataMatch()">hasInvalidDocumentDataMatch</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#saveBundleState()">saveBundleState</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setup(com.microblink.entities.recognizers.RecognizerBundle,com.microblink.image.CurrentImageListener)">setup</a></span>&#8203;(<a href="../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle,
      <a href="../../image/CurrentImageListener.html" title="interface in com.microblink.image">CurrentImageListener</a>&nbsp;currentImageListener)</code></th>
@@ -358,11 +397,46 @@ public&nbsp;<a href="../../entities/recognizers/RecognizerBundle.html" title="cl
 <a id="getScanSuccessType()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getScanSuccessType</h4>
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="../../recognition/RecognitionSuccessType.html" title="enum in com.microblink.recognition">RecognitionSuccessType</a>&nbsp;getScanSuccessType()</pre>
+</li>
+</ul>
+<a id="addConcreteRecognizerExtractor(com.microblink.fragment.overlay.DocumentRecognizerManager.ConcreteRecognizerExtractor)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addConcreteRecognizerExtractor</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;addConcreteRecognizerExtractor&#8203;(@NonNull
+                                           <a href="DocumentRecognizerManager.ConcreteRecognizerExtractor.html" title="interface in com.microblink.fragment.overlay">DocumentRecognizerManager.ConcreteRecognizerExtractor</a>&nbsp;extractor)</pre>
+<div class="block">Adds additional extractor for the recognizer wrapper class, which unwraps and returns concrete
+ recognizer if it is wrapped inside other recognizer, e.g. <a href="../../entities/recognizers/successframe/SuccessFrameGrabberRecognizer.html" title="class in com.microblink.entities.recognizers.successframe"><code>SuccessFrameGrabberRecognizer</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>extractor</code> - extracts concrete recognizer from the wrapper</dd>
+</dl>
+</li>
+</ul>
+<a id="getConcreteRecognizer(com.microblink.entities.recognizers.Recognizer)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getConcreteRecognizer</h4>
+<pre class="methodSignature">@AnyThread
+public&nbsp;<a href="../../entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>&lt;?&gt;&nbsp;getConcreteRecognizer&#8203;(<a href="../../entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers">Recognizer</a>&nbsp;recognizer)</pre>
+<div class="block">Unwraps and returns concrete recognizer if it is wrapped inside given
+ recognizer, e.g. <a href="../../entities/recognizers/successframe/SuccessFrameGrabberRecognizer.html" title="class in com.microblink.entities.recognizers.successframe"><code>SuccessFrameGrabberRecognizer</code></a>, or returns given recognizer if it
+ is not wrapper.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>recognizer</code> - recognizer which contains concrete recognizer, or concrete recognizer</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>unwrapped recognizer or simply returns given recognizer if it is not wrapped</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -416,7 +490,7 @@ public&nbsp;<a href="../../recognition/RecognitionSuccessType.html" title="enum 
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

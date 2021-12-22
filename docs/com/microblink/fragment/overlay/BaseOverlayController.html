@@ -248,9 +248,11 @@ implements <a href="ScanningOverlay.html" title="interface in com.microblink.fra
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>protected android.content.Context</code></td>
+<td class="colFirst"><code>android.content.Context</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getContext()">getContext</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns context of the parent activity, after the RecognizerRunnerFragment is attached.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>protected abstract int</code></td>
@@ -538,6 +540,7 @@ public&nbsp;void&nbsp;onRecognizerRunnerViewCreated&#8203;(@NonNull
 <li class="blockList">
 <h4>resumeScanning</h4>
 <pre class="methodSignature">@AnyThread
+@CallSuper
 public&nbsp;void&nbsp;resumeScanning()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ScanningOverlay.html#resumeScanning()">ScanningOverlay</a></code></span></div>
 <div class="block">If the <a href="../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
@@ -568,6 +571,7 @@ public&nbsp;void&nbsp;resumeScanning()</pre>
 <li class="blockList">
 <h4>pauseScanning</h4>
 <pre class="methodSignature">@AnyThread
+@CallSuper
 public&nbsp;void&nbsp;pauseScanning()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="ScanningOverlay.html#pauseScanning()">ScanningOverlay</a></code></span></div>
 <div class="block">If the <a href="../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
@@ -626,8 +630,14 @@ public&nbsp;void&nbsp;onRecognizerRunnerFragmentAttached&#8203;(@NonNull
 <ul class="blockList">
 <li class="blockList">
 <h4>getContext</h4>
-<pre class="methodSignature">@NonNull
-protected&nbsp;android.content.Context&nbsp;getContext()</pre>
+<pre class="methodSignature">@Nullable
+public&nbsp;android.content.Context&nbsp;getContext()</pre>
+<div class="block">Returns context of the parent activity, after the RecognizerRunnerFragment is attached.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>context of the parent activity or <code>null</code> if the recognizer runner fragment
+ has not been attached yet.</dd>
+</dl>
 </li>
 </ul>
 <a id="getSplashScreenLayoutId()">
