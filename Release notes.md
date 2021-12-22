@@ -1,5 +1,57 @@
 # Release notes
 
+## 5.15.0
+
+### Newly added versions of documents for already supported documents
+We’ve added 24 new  documents to our list:
+
+### Europe
+- Belgium - Driving License (front only)
+- Croatia - ID Card
+- France - ID Card
+- France - Residence Permit (beta)
+- Spain - ID Card
+- Switzerland - Residence Permit
+- UK - Residence Permit
+
+### Oceania
+- Australia - Northern Territory - Driving License (front only, beta)
+
+### Middle East and Africa
+- UAE - ID Card
+- UAE - Resident ID
+
+### Northern America
+- Honduras - ID Card (beta)
+- USA - Colorado - ID Card 
+- USA - Minnesota - Driving License
+- USA - Nevada - Driving License
+- USA - Oklahoma - Driving License
+- USA - Wyoming - Driving License
+
+
+### Improvements
+- `DataMatch` functionality is now enabled for single side documents (Passports)
+	- Added a special case to support `DataMatch` for UAE ID Card and Resident ID Card documents for the field `personalIdNumber`
+- We can now extract `additionalPersonalIdNumber` on Ecuador ID Card
+- Improvements for reading NRIC number on Malaysian documents that have an asterisk (*) character present 
+- Improved document detection and cropping of the document image
+ 
+### Changes to USDLRecognizer
+- Fixed magneticStripeParser crashing
+- Calling originalString on dates coming from USDLRecognizer will now return exact actual strings dates were parsed from instead of custom reformatted strings
+
+### Changes to IDBarcodeRecognizer
+- Added document type ArgentinaAlienID and parser for ArgentinaAlienID2012BarcodeParser
+
+### Changes to MRTDRecognizer
+- Added support for parsing Dominican Republic ID Card, Senegal ID Card and Ecuador ID Card
+- Renamed MRTDDocTypeSmallIDPakistan to MRTDDocTypeSmallIDPakistanConsular
+- Bugfixes for parsing:
+	- Mexico Professional ID
+	- Croatia Driving License
+
+
 ## 5.14.0
 ### Back side support added:
 - Thailand - ID Card

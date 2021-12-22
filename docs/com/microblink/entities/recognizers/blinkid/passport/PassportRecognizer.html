@@ -908,7 +908,8 @@ implements <a href="../../../settings/GlareDetectorOptions.html" title="interfac
 <ul class="blockList">
 <li class="blockList">
 <h4>setFaceImageDpi</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFaceImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFaceImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                            int&nbsp;desiredDPI)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.
  By default, this is set to '250'.</div>
@@ -944,7 +945,8 @@ implements <a href="../../../settings/GlareDetectorOptions.html" title="interfac
 <ul class="blockList">
 <li class="blockList">
 <h4>setFullDocumentImageDpi</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFullDocumentImageDpi&#8203;(@IntRange(from=100L,to=400L)
+                                    int&nbsp;desiredDPI)</pre>
 <div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.
  By default, this is set to '250'.</div>

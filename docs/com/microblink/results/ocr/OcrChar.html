@@ -397,7 +397,9 @@ public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="OcrChar.html"
 <ul class="blockList">
 <li class="blockList">
 <h4>getQuality</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getQuality()</pre>
+<pre class="methodSignature">@IntRange(from=0L,
+          to=100L)
+public&nbsp;int&nbsp;getQuality()</pre>
 <div class="block">Returns the recognition quality of the char. Max quality is 100 and min quality is 0.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

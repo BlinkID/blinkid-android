@@ -229,7 +229,8 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>checkDpiRange</h4>
-<pre class="methodSignature">public static&nbsp;void&nbsp;checkDpiRange&#8203;(int&nbsp;desiredDPI)</pre>
+<pre class="methodSignature">public static&nbsp;void&nbsp;checkDpiRange&#8203;(@IntRange(from=100L,to=400L)
+                                 int&nbsp;desiredDPI)</pre>
 <div class="block">Util method for checking <code>desiredDPI</code> value which must be in interval [100, 400].</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

@@ -255,9 +255,13 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ImageExtensionFactors</h4>
-<pre>public&nbsp;ImageExtensionFactors&#8203;(float&nbsp;upFactor,
+<pre>public&nbsp;ImageExtensionFactors&#8203;(@FloatRange(from=0.0,to=1.0)
+                             float&nbsp;upFactor,
+                             @FloatRange(from=0.0,to=1.0)
                              float&nbsp;downFactor,
+                             @FloatRange(from=0.0,to=1.0)
                              float&nbsp;leftFactor,
+                             @FloatRange(from=0.0,to=1.0)
                              float&nbsp;rightFactor)</pre>
 <div class="block">Constructor which accepts image extension factors which must be in range [0.0f, 1.0f].</div>
 <dl>
@@ -285,7 +289,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getUpFactor</h4>
-<pre class="methodSignature">public&nbsp;float&nbsp;getUpFactor()</pre>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getUpFactor()</pre>
 <div class="block">Returns currently used image extension factor relative to full image height in UP direction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -299,7 +305,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getDownFactor</h4>
-<pre class="methodSignature">public&nbsp;float&nbsp;getDownFactor()</pre>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getDownFactor()</pre>
 <div class="block">Returns currently used image extension factor relative to full image height in DOWN direction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -313,7 +321,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getRightFactor</h4>
-<pre class="methodSignature">public&nbsp;float&nbsp;getRightFactor()</pre>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getRightFactor()</pre>
 <div class="block">Returns currently used image extension factor relative to full image width in RIGHT direction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -327,7 +337,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getLeftFactor</h4>
-<pre class="methodSignature">public&nbsp;float&nbsp;getLeftFactor()</pre>
+<pre class="methodSignature">@FloatRange(from=0.0,
+            to=1.0)
+public&nbsp;float&nbsp;getLeftFactor()</pre>
 <div class="block">Returns currently used image extension factor relative to full image width in LEFT direction.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -342,6 +354,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>serializeToArray</h4>
 <pre class="methodSignature">@NonNull
+@Size(4L)
 public&nbsp;float[]&nbsp;serializeToArray()</pre>
 <div class="block">Serializes factors to array, factors are placed in resulting array in the following order
  [upFactor, rightFactor, downFactor, leftFactor].</div>
@@ -359,7 +372,7 @@ public&nbsp;float[]&nbsp;serializeToArray()</pre>
 <li class="blockList">
 <h4>createFromArray</h4>
 <pre class="methodSignature">@NonNull
-public static final&nbsp;<a href="ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;createFromArray&#8203;(@NonNull
+public static final&nbsp;<a href="ImageExtensionFactors.html" title="class in com.microblink.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;createFromArray&#8203;(@Size(4L) @NonNull
                                                           float[]&nbsp;factors)</pre>
 <div class="block">Creates factors object from float array. Expected factors order in array is:
  [upFactor, rightFactor, downFactor, leftFactor].</div>

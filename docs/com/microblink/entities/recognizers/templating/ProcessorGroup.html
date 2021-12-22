@@ -310,7 +310,7 @@ public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="ProcessorGrou
                       <a href="../../../geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;processingLocation,
                       @NonNull
                       <a href="DewarpPolicy.html" title="class in com.microblink.entities.recognizers.templating">DewarpPolicy</a>&nbsp;dewarpPolicy,
-                      @NonNull
+                      @NonNull @Size(min=1L)
                       <a href="../../processors/Processor.html" title="class in com.microblink.entities.processors">Processor</a>...&nbsp;processors)</pre>
 <div class="block">Constructor for ProcessorGroup.</div>
 <dl>
@@ -348,6 +348,7 @@ public static final&nbsp;android.os.Parcelable.Creator&lt;<a href="ProcessorGrou
 <li class="blockList">
 <h4>getProcessors</h4>
 <pre class="methodSignature">@NonNull
+@Size(min=1L)
 public&nbsp;<a href="../../processors/Processor.html" title="class in com.microblink.entities.processors">Processor</a>[]&nbsp;getProcessors()</pre>
 </li>
 </ul>

@@ -7,6 +7,7 @@
 
     <!-- RecognitionResult strings -->
     <string name="PPAmount">Amount</string>
+    <string name="PPParsedAmount">Parsed Amount</string>
     <string name="PPCurrency">Currency</string>
     <string name="PPCurrencyCode">Currency code</string>
     <string name="PPAccount">Account</string>
@@ -60,6 +61,7 @@
     <string name="PPPayerAccount">Payer account</string>
     <string name="PPPayerReference">Payer Reference No</string>
     <string name="PPPayerReferenceModel">Payer Model</string>
+    <string name="PPPayerReferenceStatus">Payer Reference Model Status</string>
     <string name="PPPayerBankCode">Payer Bank</string>
     <string name="PPPayerBankName">Payer Bank Name</string>
     <string name="PPPayerIBAN">Payer IBAN</string>
@@ -271,6 +273,11 @@
     <string name="PPClassInfoIsoNumericCountryCode">ISO numeric country code</string>
     <string name="PPClassInfoIsoAlpha2CountryCode">ISO two letter country code</string>
     <string name="PPClassInfoIsoAlpha3CountryCode">ISO three letter country code</string>
+    <string name="PPPaymentSituation">Payment situation</string>
+    <string name="PPOrderFrequency">Order frequency</string>
+    <string name="PPIdCode">ID Code</string>
+    <string name="PPVersionNumber">Version number</string>
+    <string name="PPCharacterSet">Character set</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
@@ -321,6 +328,20 @@
     <string name="MBFrontProcessingStatus">Front processing status</string>
     <string name="MBBackProcessingStatus">Back processing status</string>
     <string name="MBRecognitionMode">Recognition mode</string>
+    <string name="MBDocumentLivenessAnalysisStatus">Document liveness analysis status</string>
+    <string name="MBDocumentLivenessAnalysisScore">Document liveness analysis score</string>
+    <string name="MBDocumentVerificationConsistencyScore">Consistency score</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisResultStatus">Static security feature analysis status</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisResultScore">Static security feature analysis score</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisResultFullImage">Static security feature analysis full image</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentImage">Static security feature segment image</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentRelativeBox">Static security feature segment relative box</string>
+    <string name="MBDocumentStaticSecurityFeatureAnalysisSegmentStatus">Static security feature segment verified</string>
+    <string name="MBVerificationTiltNeutralStepImage">Verification tilt neutral step image</string>
+    <string name="MBVerificationTiltLeftStepImage">Verification tilt left step image</string>
+    <string name="MBVerificationTiltRightStepImage">Verification tilt right step image</string>
+    <string name="MBVerificationTiltUpStepImage">Verification tilt up step image</string>
+    <string name="MBVerificationTiltDownStepImage">Verification tilt down step image</string>
 
     <string name="MBDigitalSignature">Digital signature</string>
     <string name="MBDigitalSignatureVersion">Digital signature version</string>
