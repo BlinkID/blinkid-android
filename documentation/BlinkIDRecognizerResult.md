@@ -34,25 +34,25 @@ Protected fields are:
 
 | Country and document type  | Anonymised fields |
 | :---------------|:------------------|
- <tr> <td>GERMANY ID Card | Anonymized line, Document additional number, Document number, MRZ (Document number)
- <tr> <td>GERMANY Paper Passport | Document number, MRZ (Document number)
- <tr> <td>GERMANY Polycarbonate Passport | Document number, MRZ (Document number)
- <tr> <td>HONG KONG ID Card | Anonymized line, Document number
- <tr> <td>HONG KONG Polycarbonate Passport | Anonymized line, Anonymized vertical line, Document number, MRZ (Document number, Opt1)
- <tr> <td>NETHERLANDS Driving Licence | Personal ID number
- <tr> <td>NETHERLANDS ID Card | MRZ (Opt1), Personal ID number
- <tr> <td>NETHERLANDS Polycarbonate Passport | MRZ (Opt1)
- <tr> <td>SINGAPORE Driving Licence | Anonymized line, Document number
- <tr> <td>SINGAPORE Employment Pass | Anonymized line, Personal ID number
- <tr> <td>SINGAPORE Fin Card | Anonymized line, Document number
- <tr> <td>SINGAPORE ID Card | Anonymized line, Document number
- <tr> <td>SINGAPORE Resident ID | Anonymized line, Document number
- <tr> <td>SINGAPORE Polycarbonate Passport | Anonymized line, Document number, MRZ (Document number, Opt1), Personal ID number
- <tr> <td>SINGAPORE S Pass | Anonymized line, Document number, Personal ID number
- <tr> <td>SINGAPORE Work Permit | Anonymized line, Document number, Personal ID number
- <tr> <td>SOUTH KOREA Driving Licence | Personal ID number
- <tr> <td>SOUTH KOREA ID Card | Document number
- <tr> <td>SOUTH KOREA Paper Passport | MRZ (Opt1), Personal ID number
+| GERMANY ID Card | Anonymized line, Document additional number, Document number, MRZ (Document number) |
+| GERMANY Paper Passport | Document number, MRZ (Document number) |
+| GERMANY Polycarbonate Passport | Document number, MRZ (Document number) |
+| HONG KONG ID Card | Anonymized line, Document number |
+| HONG KONG Polycarbonate Passport | Anonymized line, Anonymized vertical line, Document number, MRZ (Document number, Opt1) |
+| NETHERLANDS Driving Licence | Personal ID number |
+| NETHERLANDS ID Card | MRZ (Opt1), Personal ID number |
+| NETHERLANDS Polycarbonate Passport | MRZ (Opt1) |
+| SINGAPORE Driving Licence | Anonymized line, Document number |
+| SINGAPORE Employment Pass | Anonymized line, Personal ID number |
+| SINGAPORE Fin Card | Anonymized line, Document number |
+| SINGAPORE ID Card | Anonymized line, Document number |
+| SINGAPORE Resident ID | Anonymized line, Document number |
+| SINGAPORE Polycarbonate Passport | Anonymized line, Document number, MRZ (Document number, Opt1), Personal ID number |
+| SINGAPORE S Pass | Anonymized line, Document number, Personal ID number |
+| SINGAPORE Work Permit | Anonymized line, Document number, Personal ID number |
+| SOUTH KOREA Driving Licence | Personal ID number |
+| SOUTH KOREA ID Card | Document number |
+| SOUTH KOREA Paper Passport | MRZ (Opt1), Personal ID number |
 
 
 <h2>AAMVA Barcode Fields</h2>
