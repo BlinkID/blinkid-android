@@ -24,8 +24,6 @@ import com.microblink.libutils.R;
 import com.microblink.result.extract.BaseResultExtractor;
 import com.microblink.result.extract.RecognitionResultEntry;
 import com.microblink.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;
-import com.microblink.result.extract.util.signature.DigitalSignatureExtractUtil;
-
 import java.util.List;
 
 public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, RecognizerType extends Recognizer<ResultType>> extends BaseResultExtractor<ResultType, RecognizerType> {
@@ -106,8 +104,6 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
                 extractedData.add(builder.build(R.string.MBEncodedSignatureImage, encodedSignatureImage));
             }
         }
-
-        DigitalSignatureExtractUtil.extractDigitalSignature(result, extractedData, builder);
     }
 
     protected static boolean shouldShowEncodedImageEntry(byte[] encodedImage) {
