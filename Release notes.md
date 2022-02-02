@@ -1,5 +1,14 @@
 # Release notes
 
+## 5.15.2
+
+### Visual identity update
+- We’ve updated Microblink logo and colors
+
+### Fixes
+- Fixed crash on some devices when opening camera
+
+
 ## 5.15.0
 
 ### Newly added versions of documents for already supported documents
