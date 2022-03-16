@@ -27,7 +27,7 @@ To see all of these features at work download our free demo app:
 
 [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/playstore.png)](https://showcase.page.link/githubAndroid) [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/appgallery.png)](https://appgallery7.huawei.com/#/app/C101961459)
 
-Feeling ready to crack on with the integration? First make sure we support your document type ➡️ [full list](https://microblink.com/blog/full-list-of-identity-documents-you-can-scan-with-blinkid). And then follow the guidelines below.
+Feeling ready to crack on with the integration? First make sure we support your document type ➡️ [full list](https://microblink.com/full-list-of-supported-identity-documents/). And then follow the guidelines below.
 
 # Table of contents
 
