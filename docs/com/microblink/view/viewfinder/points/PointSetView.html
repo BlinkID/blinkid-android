@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -277,12 +277,20 @@ implements <a href="IDisplayablePointsView.html" title="interface in com.microbl
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDetectionRelativeDestination(android.graphics.RectF)">setDetectionRelativeDestination</a></span>&#8203;(android.graphics.RectF&nbsp;detectionRelativeDestination)</code></th>
+<td class="colLast">
+<div class="block">Sets position of the destination view in which the detection will be shown, relative to
+ processed frame.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDisplayablePointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection)">setDisplayablePointsDetection</a></span>&#8203;(<a href="../../../metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;displayablePoints)</code></th>
 <td class="colLast">
 <div class="block">Displays given points detection and clears previously displayed content.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHostActivityOrientation(int)">setHostActivityOrientation</a></span>&#8203;(int&nbsp;hostActivityOrientation)</code></th>
 <td class="colLast">
@@ -413,6 +421,30 @@ public&nbsp;android.view.View&nbsp;getView()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>clearDisplayedContent</code>&nbsp;in interface&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></dd>
+</dl>
+</li>
+</ul>
+<a id="setDetectionRelativeDestination(android.graphics.RectF)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetectionRelativeDestination</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setDetectionRelativeDestination&#8203;(@Nullable
+                                            android.graphics.RectF&nbsp;detectionRelativeDestination)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></span></div>
+<div class="block">Sets position of the destination view in which the detection will be shown, relative to
+ processed frame. View position is required for performing further transformation of
+ detection coordinates in order to display detection correctly on the destination view.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>setDetectionRelativeDestination</code>&nbsp;in interface&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>detectionRelativeDestination</code> - position of the destination view where detection will
+                                     be shown, relative to processed frame. Set to
+                                     <code>null</code> if no further transformation is needed in
+                                     cases when destination view matches the processed
+                                     part of the recognized frame.</dd>
 </dl>
 </li>
 </ul>

@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -256,12 +256,20 @@ implements <a href="IOcrResultView.html" title="interface in com.microblink.view
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDetectionRelativeDestination(android.graphics.RectF)">setDetectionRelativeDestination</a></span>&#8203;(android.graphics.RectF&nbsp;detectionRelativeDestination)</code></th>
+<td class="colLast">
+<div class="block">Sets position of the destination view in which the detection will be shown, relative to
+ processed frame.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHostActivityOrientation(int)">setHostActivityOrientation</a></span>&#8203;(int&nbsp;hostActivityOrientation)</code></th>
 <td class="colLast">
 <div class="block">Sets the host activity orientation code.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setOcrResult(com.microblink.metadata.ocr.DisplayableOcrResult)">setOcrResult</a></span>&#8203;(<a href="../../metadata/ocr/DisplayableOcrResult.html" title="class in com.microblink.metadata.ocr">DisplayableOcrResult</a>&nbsp;result)</code></th>
 <td class="colLast">
@@ -376,6 +384,30 @@ public&nbsp;android.view.View&nbsp;getView()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code>clearDisplayedContent</code>&nbsp;in interface&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></dd>
+</dl>
+</li>
+</ul>
+<a id="setDetectionRelativeDestination(android.graphics.RectF)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setDetectionRelativeDestination</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setDetectionRelativeDestination&#8203;(@Nullable
+                                            android.graphics.RectF&nbsp;detectionRelativeDestination)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></span></div>
+<div class="block">Sets position of the destination view in which the detection will be shown, relative to
+ processed frame. View position is required for performing further transformation of
+ detection coordinates in order to display detection correctly on the destination view.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>setDetectionRelativeDestination</code>&nbsp;in interface&nbsp;<code>com.microblink.view.viewfinder.IDetectionView</code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>detectionRelativeDestination</code> - position of the destination view where detection will
+                                     be shown, relative to processed frame. Set to
+                                     <code>null</code> if no further transformation is needed in
+                                     cases when destination view matches the processed
+                                     part of the recognized frame.</dd>
 </dl>
 </li>
 </ul>

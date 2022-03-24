@@ -20,7 +20,7 @@
     <style name="TextResultLabel">
         <item name="android:textSize">12sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/mb_blue</item>
+        <item name="android:textColor">@color/mb_blue_cobalt</item>
     </style>
 
 </resources>

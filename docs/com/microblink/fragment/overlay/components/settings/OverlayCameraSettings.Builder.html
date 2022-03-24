@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -204,15 +204,20 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code><a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSurface(com.microblink.view.surface.CameraSurface)">setSurface</a></span>&#8203;(com.microblink.view.surface.CameraSurface&nbsp;cameraSurface)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPreviewZoomScale(float)">setPreviewZoomScale</a></span>&#8203;(float&nbsp;previewZoomScale)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code><a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setType(com.microblink.hardware.camera.CameraType)">setType</a></span>&#8203;(<a href="../../../../hardware/camera/CameraType.html" title="enum in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSurface(com.microblink.view.surface.CameraSurface)">setSurface</a></span>&#8203;(com.microblink.view.surface.CameraSurface&nbsp;cameraSurface)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code><a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setType(com.microblink.hardware.camera.CameraType)">setType</a></span>&#8203;(<a href="../../../../hardware/camera/CameraType.html" title="enum in com.microblink.hardware.camera">CameraType</a>&nbsp;cameraType)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVideoResolutionPreset(com.microblink.hardware.camera.VideoResolutionPreset)">setVideoResolutionPreset</a></span>&#8203;(<a href="../../../../hardware/camera/VideoResolutionPreset.html" title="enum in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;videoResolutionPreset)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -290,6 +295,16 @@ public&nbsp;<a href="OverlayCameraSettings.Builder.html" title="class in com.mic
 <pre class="methodSignature">@NonNull
 public&nbsp;<a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a>&nbsp;setAspectMode&#8203;(@NonNull
                                                    <a href="../../../../view/CameraAspectMode.html" title="enum in com.microblink.view">CameraAspectMode</a>&nbsp;cameraAspectMode)</pre>
+</li>
+</ul>
+<a id="setPreviewZoomScale(float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPreviewZoomScale</h4>
+<pre class="methodSignature">public&nbsp;<a href="OverlayCameraSettings.Builder.html" title="class in com.microblink.fragment.overlay.components.settings">OverlayCameraSettings.Builder</a>&nbsp;setPreviewZoomScale&#8203;(@FloatRange(from=1.0,to=2.0)
+                                                         float&nbsp;previewZoomScale)</pre>
 </li>
 </ul>
 <a id="setSurface(com.microblink.view.surface.CameraSurface)">

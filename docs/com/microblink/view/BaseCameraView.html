@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":9,"i39":10,"i40":10,"i41":6,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":6,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":6,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":9,"i39":10,"i40":10,"i41":6,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":6,"i50":10,"i51":10,"i52":10,"i53":10,"i54":10,"i55":10,"i56":10,"i57":10,"i58":10,"i59":10,"i60":10,"i61":10,"i62":10,"i63":10,"i64":10,"i65":10,"i66":10,"i67":10,"i68":10,"i69":10,"i70":10,"i71":10,"i72":10,"i73":10,"i74":10,"i75":10,"i76":10,"i77":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -307,11 +307,16 @@ extends android.view.ViewGroup</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected float</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mPreviewZoomScale">mPreviewZoomScale</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mRotateMeteringAreas">mRotateMeteringAreas</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>protected java.util.concurrent.ConcurrentLinkedQueue&lt;com.microblink.hardware.orientation.OrientationChangeListener&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mSlaveOrientationChangeListeners">mSlaveOrientationChangeListeners</a></span></code></th>
 <td class="colLast">
@@ -813,13 +818,20 @@ extends android.view.ViewGroup</pre>
 </tr>
 <tr id="i67" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPreviewZoomScale(float)">setPreviewZoomScale</a></span>&#8203;(float&nbsp;previewZoomScale)</code></th>
+<td class="colLast">
+<div class="block">Sets the preview zoom scale that will be used to draw the camera preview.</div>
+</td>
+</tr>
+<tr id="i68" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRequestAutofocusOnShakingStopInContinousAutofocusMode(boolean)">setRequestAutofocusOnShakingStopInContinousAutofocusMode</a></span>&#8203;(boolean&nbsp;requestAutofocusOnShakingStopInContinousAutofocusMode)</code></th>
 <td class="colLast">
 <div class="block">If device supports continous autofocus mode, enabling this feature will request normal autofocus every time device shaking
  stops.</div>
 </td>
 </tr>
-<tr id="i68" class="altColor">
+<tr id="i69" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRequestedSurfaceViewForCameraDisplay(com.microblink.view.surface.CameraSurface)">setRequestedSurfaceViewForCameraDisplay</a></span>&#8203;(com.microblink.view.surface.CameraSurface&nbsp;requestedSurface)</code></th>
 <td class="colLast">
@@ -828,14 +840,14 @@ extends android.view.ViewGroup</pre>
  <code>TextureView</code>.</div>
 </td>
 </tr>
-<tr id="i69" class="rowColor">
+<tr id="i70" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShakeListener(com.microblink.hardware.accelerometer.ShakeCallback)">setShakeListener</a></span>&#8203;(<a href="../hardware/accelerometer/ShakeCallback.html" title="interface in com.microblink.hardware.accelerometer">ShakeCallback</a>&nbsp;shakeCallback)</code></th>
 <td class="colLast">
 <div class="block">Sets the shake callback that will be notified about device shake events.</div>
 </td>
 </tr>
-<tr id="i70" class="altColor">
+<tr id="i71" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTapToFocusAllowed(boolean)">setTapToFocusAllowed</a></span>&#8203;(boolean&nbsp;allowTapToFocus)</code></th>
 <td class="colLast">
@@ -843,7 +855,7 @@ extends android.view.ViewGroup</pre>
  on tapped area.</div>
 </td>
 </tr>
-<tr id="i71" class="rowColor">
+<tr id="i72" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTorchState(boolean,com.microblink.hardware.SuccessCallback)">setTorchState</a></span>&#8203;(boolean&nbsp;on,
              <a href="../hardware/SuccessCallback.html" title="interface in com.microblink.hardware">SuccessCallback</a>&nbsp;successCallback)</code></th>
@@ -851,29 +863,29 @@ extends android.view.ViewGroup</pre>
 <div class="block">Turns the torch on the camera on or off.</div>
 </td>
 </tr>
-<tr id="i72" class="altColor">
+<tr id="i73" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setVideoResolutionPreset(com.microblink.hardware.camera.VideoResolutionPreset)">setVideoResolutionPreset</a></span>&#8203;(<a href="../hardware/camera/VideoResolutionPreset.html" title="enum in com.microblink.hardware.camera">VideoResolutionPreset</a>&nbsp;preset)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i73" class="rowColor">
+<tr id="i74" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setZoomLevel(float)">setZoomLevel</a></span>&#8203;(float&nbsp;zoomLevel)</code></th>
 <td class="colLast">
 <div class="block">Sets the camera zoom level.</div>
 </td>
 </tr>
-<tr id="i74" class="altColor">
+<tr id="i75" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldStartCamera()">shouldStartCamera</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i75" class="rowColor">
+<tr id="i76" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start()">start</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i76" class="altColor">
+<tr id="i77" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -1016,6 +1028,15 @@ protected&nbsp;<a href="OnActivityFlipListener.html" title="interface in com.mic
 <pre>@NonNull
 protected&nbsp;<a href="CameraAspectMode.html" title="enum in com.microblink.view">CameraAspectMode</a> mAspectMode</pre>
 <div class="block">Defines the way camera preview will be layouted inside view</div>
+</li>
+</ul>
+<a id="mPreviewZoomScale">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mPreviewZoomScale</h4>
+<pre>protected&nbsp;float mPreviewZoomScale</pre>
 </li>
 </ul>
 <a id="mIsRequestedOrientationSensor">
@@ -1795,6 +1816,23 @@ public&nbsp;<a href="CameraAspectMode.html" title="enum in com.microblink.view">
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>aspectMode</code> - desired aspect mode</dd>
+</dl>
+</li>
+</ul>
+<a id="setPreviewZoomScale(float)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setPreviewZoomScale</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setPreviewZoomScale&#8203;(@FloatRange(from=1.0,to=2.0)
+                                float&nbsp;previewZoomScale)</pre>
+<div class="block">Sets the preview zoom scale that will be used to draw the camera preview. If the preview is
+ upscaled, the visible part will be centered, and marginal parts of the camera preview will be
+ invisible.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>previewZoomScale</code> - zoom scale in range [1, 2]</dd>
 </dl>
 </li>
 </ul>

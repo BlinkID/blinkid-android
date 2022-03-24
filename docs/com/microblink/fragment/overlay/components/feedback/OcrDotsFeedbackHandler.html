@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -131,12 +131,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></code>, <code><a href="../../../../metadata/ocr/OcrCallback.html" title="interface in com.microblink.metadata.ocr">OcrCallback</a></code></dd>
+<dd><code><a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></code></dd>
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">OcrDotsFeedbackHandler</span>
 extends java.lang.Object
-implements <a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a>, <a href="../../../../metadata/ocr/OcrCallback.html" title="interface in com.microblink.metadata.ocr">OcrCallback</a></pre>
+implements <a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></pre>
 </li>
 </ul>
 </div>
@@ -208,19 +208,13 @@ implements <a href="RecognitionFeedbackHandler.html" title="interface in com.mic
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onOcrResult(com.microblink.metadata.ocr.DisplayableOcrResult)">onOcrResult</a></span>&#8203;(<a href="../../../../metadata/ocr/DisplayableOcrResult.html" title="class in com.microblink.metadata.ocr">DisplayableOcrResult</a>&nbsp;ocrResult)</code></th>
-<td class="colLast">
-<div class="block">Called when OCR result should be displayed on screen.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onOrientationChange(int)">onOrientationChange</a></span>&#8203;(int&nbsp;newOrientation)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection)">onPointsDetection</a></span>&#8203;(<a href="../../../../metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;pointsDetection)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection,android.graphics.RectF)">onPointsDetection</a></span>&#8203;(<a href="../../../../metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;pointsDetection,
+                 android.graphics.RectF&nbsp;detectionRelativeDestination)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -283,36 +277,19 @@ public&nbsp;android.view.View&nbsp;createView&#8203;(@NonNull
 </dl>
 </li>
 </ul>
-<a id="onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection)">
+<a id="onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection,android.graphics.RectF)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>onPointsDetection</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;onPointsDetection&#8203;(@NonNull
-                              <a href="../../../../metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;pointsDetection)</pre>
+                              <a href="../../../../metadata/detection/points/DisplayablePointsDetection.html" title="class in com.microblink.metadata.detection.points">DisplayablePointsDetection</a>&nbsp;pointsDetection,
+                              @Nullable
+                              android.graphics.RectF&nbsp;detectionRelativeDestination)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="RecognitionFeedbackHandler.html#onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection)">onPointsDetection</a></code>&nbsp;in interface&nbsp;<code><a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></code></dd>
-</dl>
-</li>
-</ul>
-<a id="onOcrResult(com.microblink.metadata.ocr.DisplayableOcrResult)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onOcrResult</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;onOcrResult&#8203;(@NonNull
-                        <a href="../../../../metadata/ocr/DisplayableOcrResult.html" title="class in com.microblink.metadata.ocr">DisplayableOcrResult</a>&nbsp;ocrResult)</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../metadata/ocr/OcrCallback.html#onOcrResult(com.microblink.metadata.ocr.DisplayableOcrResult)">OcrCallback</a></code></span></div>
-<div class="block">Called when OCR result should be displayed on screen.
- NOTE: this method will only be called if license allows returning OCR results to public API.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../metadata/ocr/OcrCallback.html#onOcrResult(com.microblink.metadata.ocr.DisplayableOcrResult)">onOcrResult</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../metadata/ocr/OcrCallback.html" title="interface in com.microblink.metadata.ocr">OcrCallback</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>ocrResult</code> - OCR result to be displayed</dd>
+<dd><code><a href="RecognitionFeedbackHandler.html#onPointsDetection(com.microblink.metadata.detection.points.DisplayablePointsDetection,android.graphics.RectF)">onPointsDetection</a></code>&nbsp;in interface&nbsp;<code><a href="RecognitionFeedbackHandler.html" title="interface in com.microblink.fragment.overlay.components.feedback">RecognitionFeedbackHandler</a></code></dd>
 </dl>
 </li>
 </ul>

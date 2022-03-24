@@ -58,6 +58,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
 
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
+        add(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         int age = result.getAge();
         if (age != -1) {
@@ -90,6 +91,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
             add(R.string.PPEndorsements, driverLicenseInfo.getEndorsements());
             add(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
             add(R.string.PPConditions, driverLicenseInfo.getConditions());
+            add(R.string.PPVehicleClassesInfo, extractVehicleClassesInfo(driverLicenseInfo));
         }
 
         ClassInfo classInfo = result.getClassInfo();
@@ -121,6 +123,10 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.MBRecognitionMode, result.getRecognitionMode().name());
 
         add(R.string.PPDocumentBothSidesMatch, result.getDocumentDataMatch().name());
+
+        add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
+        add(R.string.MBBackCameraFrame, result.getBackCameraFrame());
+        add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
     }
 
     private void extractVisualResults(VizResult result) {
@@ -135,6 +141,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
 
         addIfNotEmpty(R.string.PPAddress, result.getAddress());
         addIfNotEmpty(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
+        addIfNotEmpty(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
         addIfNotEmpty(R.string.PPDateOfBirth, result.getDateOfBirth());
 
         addIfNotEmpty(R.string.PPIssueDate, result.getDateOfIssue());
@@ -164,6 +171,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
             addIfNotEmpty(R.string.PPEndorsements, driverLicenseInfo.getEndorsements());
             addIfNotEmpty(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
             addIfNotEmpty(R.string.PPConditions, driverLicenseInfo.getConditions());
+            addIfNotEmpty(R.string.PPVehicleClassesInfo, extractVehicleClassesInfo(driverLicenseInfo));
         }
     }
 
@@ -212,11 +220,12 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
             addIfNotEmpty(R.string.PPEndorsements, driverLicenseInfo.getEndorsements());
             addIfNotEmpty(R.string.PPVehicleClass, driverLicenseInfo.getVehicleClass());
             addIfNotEmpty(R.string.PPConditions, driverLicenseInfo.getConditions());
+            addIfNotEmpty(R.string.PPVehicleClassesInfo, extractVehicleClassesInfo(driverLicenseInfo));
         }
 
         BarcodeElements extendedElements = result.getExtendedElements();
         if (!extendedElements.isEmpty()) {
-            for (BarcodeElementKey key: BarcodeElementKey.values()) {
+            for (BarcodeElementKey key : BarcodeElementKey.values()) {
                 String barcodeElement = extendedElements.getValue(key);
                 if (!barcodeElement.isEmpty()) {
                     add(R.string.PPExtendedBarcodeData, key.name() + ": " + barcodeElement);
