@@ -12,6 +12,8 @@
 package com.microblink.result.extract.blinkid;
 
 import com.microblink.entities.recognizers.Recognizer;
+import com.microblink.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
+import com.microblink.entities.recognizers.blinkid.generic.VehicleClassInfo;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFaceImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedFullDocumentImageResult;
 import com.microblink.entities.recognizers.blinkid.imageresult.EncodedSignatureImageResult;
@@ -108,6 +110,18 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
 
     protected static boolean shouldShowEncodedImageEntry(byte[] encodedImage) {
         return encodedImage != null && encodedImage.length > 0;
+    }
+
+    protected String extractVehicleClassesInfo(DriverLicenseDetailedInfo driverLicenseInfo) {
+        StringBuilder vehicleClassInfoResult = new StringBuilder();
+        for (VehicleClassInfo vehicleClassInfo : driverLicenseInfo.getVehicleClassesInfo()) {
+            vehicleClassInfoResult.append(vehicleClassInfo.getVehicleClass()).append(" ")
+                    .append(vehicleClassInfo.getLicenceType()).append(" ")
+                    .append(vehicleClassInfo.getEffectiveDate().getOriginalDateString()).append(" ")
+                    .append(vehicleClassInfo.getExpiryDate().getOriginalDateString())
+                    .append("\n");
+        }
+        return vehicleClassInfoResult.toString();
     }
 
 }

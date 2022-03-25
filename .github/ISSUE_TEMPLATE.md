@@ -1,6 +1,6 @@
 Before opening an issue, check that you are using the latest version of the BlinkID SDK.
 
-Also, make sure your issue isn't on [the list of common problems.](https://github.com/BlinkID/blinkid-android#-frequently-asked-questions-and-known-problems)
+Also, make sure your issue isn't on [the list of common problems.](https://github.com/BlinkID/blinkid-android#-faq-and-known-issues)
 
 ---
 

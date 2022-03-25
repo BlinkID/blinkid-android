@@ -6,7 +6,7 @@
         "description": "Free peer-reviewed portable C++ source libraries."
     },
     {
-        "package": "ConcurrentQueue/3.0.2@microblink/stable",
+        "package": "ConcurrentQueue/4.0.0@microblink/stable",
         "url": "https://github.com/microblink/concurrentqueue",
         "license": "Dual licensed under Simplified BSD License and Boost Software License - Version 1.0",
         "description": "A fast multi-producer, multi-consumer lock-free concurrent queue for C++11"
@@ -18,13 +18,13 @@
         "description": "Additions to boost/config for additional compiler-specific codegen tweaking macros"
     },
     {
-        "package": "Eigen/3.3.9.1@microblink/stable",
+        "package": "Eigen/3.4.0@microblink/stable",
         "url": "https://github.com/microblink/eigen-git-mirror",
         "license": "Mozilla Public License Version 2.0",
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
     },
     {
-        "package": "Err/1.1.4@microblink/stable",
+        "package": "Err/1.1.5@microblink/stable",
         "url": "https://github.com/microblink/err",
         "license": "Boost Software License",
         "description": "err - yet another take on C++ error handling"
@@ -42,7 +42,7 @@
         "description": "Portable C++ Hashing Library"
     },
     {
-        "package": "MMap/0.2.1@microblink/stable",
+        "package": "MMap/0.3.3@microblink/stable",
         "url": "https://github.com/microblink/mmap",
         "license": "Boost Software License",
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
@@ -60,7 +60,7 @@
         "description": "Obfuscation library based on C++11/14 and metaprogramming"
     },
     {
-        "package": "OpenCV/4.5.3@microblink/stable",
+        "package": "OpenCV/4.5.5@microblink/stable",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
@@ -72,13 +72,19 @@
         "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
     },
     {
+        "package": "Protobuf/3.19.1@microblink/stable",
+        "url": "https://bitbucket.org/microblink/protobuffork/",
+        "license": "BSD",
+        "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
+    },
+    {
         "package": "RapidJSON/1.1.5@microblink/stable",
         "url": "https://bitbucket.org/microblink/core-rapidjson",
         "license": "BSD",
         "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
     },
     {
-        "package": "Sweater/10.1.1@microblink/stable",
+        "package": "Sweater/11.0.2@microblink/stable",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
@@ -90,7 +96,7 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "XNNPACK/20210616.1@microblink/stable",
+        "package": "XNNPACK/20220113.0@microblink/stable",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
@@ -114,7 +120,7 @@
         "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
     },
     {
-        "package": "icu/69.1.4@microblink/stable",
+        "package": "icu/69.1.6@microblink/stable",
         "url": "https://github.com/microblink/icu",
         "license": "Unicode",
         "description": "A mature, widely used set of libraries providing Unicode and Globalization support"
@@ -132,7 +138,7 @@
         "description": "An Open, Extensible Image Format with Lossless Compression"
     },
     {
-        "package": "range-v3/0.10.0@microblink/stable",
+        "package": "range-v3/0.10.2@microblink/stable",
         "url": "https://github.com/ericniebler/range-v3",
         "license": "Boost Software License - Version 1.0 - August 17th, 2003",
         "description": "Experimental range library for C++11/14/17"

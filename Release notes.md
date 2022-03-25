@@ -1,5 +1,78 @@
 # Release notes
 
+## 5.16.0.
+
+### We've added new documents to our list of supported documents:
+
+#### Europe
+- Austria - ID Card (front only)
+- Germany - ID Card
+
+#### Latin America and the Caribbean
+- Brazil - ID Card (beta)
+- Colombia - ID Card (front only)
+- Ecuador - ID Card
+
+#### Mexico
+- Baja California Sur - Driving Licence (beta)
+- Ciudad De Mexico - Driving Licence (front only)
+- Colima - Driving Licence (front only, beta)
+- Michoacan - Driving Licence (beta)
+- Nayarit - Driving Licence (beta)
+- Quintana Roo Solidaridad - Driving Licence (front only)
+- Tlaxcala - Driving Licence
+- Veracruz - Driving Licence (beta)
+
+#### Oceania
+- Australia - Northern Territory (beta)
+
+#### Asia
+- Japan - My Number Card (front only)
+- Singapore - Resident ID
+
+#### Northern America
+- USA - Missouri - ID Card
+- USA - Nevada - Driving Licence
+- USA - New York City - ID Card
+- USA - Oklahoma - ID Card
+
+#### Back side support added:
+- Mexico - Chiapas - Driving License 
+
+#### No longer BETA:
+- Mexico - Baja California - Driving Licence
+- Mexico - Chihuahua - Driving Licence
+- Mexico - Coahuila - Driving Licence
+- Mexico - Guanajuato - Driving Licence
+- Mexico - Mexico - Driving Licence
+
+
+### Changes to BlinkID(Combined) Recognizer
+
+- Added the setting `saveCameraFrames` for saving camera frames with the default value being `false`. Note that the memory consumption is a bit bigger if this setting is set to `true`.
+	- New result members are available for: 
+		- BlinkIDRecognizer:`cameraFrame` and `barcodeCameraFrame`.
+		- BlinkIDCombinedRecognizer:`frontCameraFrame`, `backCameraFrame`, and `barcodeCameraFrame`.
+- We've added new result members when scanning Australian Driving Licences: `vehicleClass`, `licenceType`, `effectiveDate` and `expiryDate`.
+	- Result members are displayed under the `VehicleClassInfo` field; we can also extract data from multiple rows when this vehicle class info data is present on the document (e.g. multiple expiry dates for different vehicle classes).
+- We've added new enum values:
+	- Region: `QUINTANA_ROO`, `QUINTANA_ROO_SOLIDARIDAD`, `TLAXCALA` which are available when scanning Mexican Driving Licences.
+	- Type: `MY_NUMBER_CARD` which is available when scanning Japanese My Number Card documents.
+- We've added new result member `additionalOptionalAddressInformation` which gives additional address information about the document owner.
+	- This result member can be present when scanning the Pakistani ID Card for the field `Country of Stay`.
+- We've removed 2 recognizers: `GermanyDLBack Recognizer` and `SingaporeChangiEmployeeId Recognizer`.
+
+	
+#### Changes to IDBarcodeRecognizer
+- For barcodes in countries: Argentina, Colombia, Nigeria, Panama, and South Africa, we now also extract data from the field `Sex` when it's populated with the character "X".
+
+ 
+### Improvements
+- We've added support for Brazil ID Card when the cardholder's face image is rotated for 90 degrees on the document.
+	- We will return face image and document image + data from VIZ part present on the back side.
+- `SuccessFrameGrabber` setting is now called `saveCameraFrames` and it can return the full frame from the front side now when using BlinkIdCombinedRecognizer, whereas before it returned the full frame only for the back side.
+
+
 ## 5.15.2
 
 ### Visual identity update
