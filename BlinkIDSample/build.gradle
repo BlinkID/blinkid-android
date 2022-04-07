@@ -13,7 +13,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://maven.microblink.com' }
-//        mavenLocal()
+        //mavenLocal()
         google()
     }
 }
@@ -21,7 +21,7 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '5.16.0'
+    blinkIdVersion = '5.16.1'
     compileSdkVersion = 31
     targetSdkVersion = 31
     appCompatVersion = '1.4.0'
