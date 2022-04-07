@@ -12,7 +12,7 @@ import com.microblink.util.RecognizerCompatibilityStatus;
 
 public abstract class SampleApplication extends Application {
 
-    private static boolean isRecognitionSupported = true;
+    protected static boolean isRecognitionSupported = true;
 
     public static boolean isRecognitionSupported() {
         return isRecognitionSupported;
@@ -34,7 +34,10 @@ public abstract class SampleApplication extends Application {
         }
 
         if (isRecognitionSupported) {
-            MicroblinkSDK.setLicenseFile(getLicenceFilePath(), this);
+            String licenseFilePath = getLicenceFilePath();
+            if (licenseFilePath != null) {
+                MicroblinkSDK.setLicenseFile(licenseFilePath, this);
+            }
             MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode.PERSISTED_OPTIMISED);
         }
 

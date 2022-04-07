@@ -1,6 +1,11 @@
 # Release notes
 
-## 5.16.0.
+## 5.16.1
+
+### Fixes
+- Bugfix for extracting data from the USA Minnesota DL barcode
+
+## 5.16.0
 
 ### We've added new documents to our list of supported documents:
 
