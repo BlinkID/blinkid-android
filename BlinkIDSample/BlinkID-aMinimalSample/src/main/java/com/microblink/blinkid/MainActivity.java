@@ -1,21 +1,21 @@
 package com.microblink.blinkid;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.BlinkIdUISettings;
-
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.microblink.activity.result.ScanResult;
+import com.microblink.activity.result.contract.MbScan;
+import com.microblink.entities.recognizers.RecognizerBundle;
+import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
+import com.microblink.uisettings.BlinkIdUISettings;
+import com.microblink.uisettings.UISettings;
 
-    public static final int MY_BLINKID_REQUEST_CODE = 123;
+public class MainActivity extends AppCompatActivity {
 
     private BlinkIdCombinedRecognizer recognizer;
     private RecognizerBundle recognizerBundle;
@@ -37,27 +37,24 @@ public class MainActivity extends AppCompatActivity {
         BlinkIdUISettings uiSettings = new BlinkIdUISettings(recognizerBundle);
 
         // start scan activity based on UI settings
-        ActivityRunner.startActivityForResult(this, MY_BLINKID_REQUEST_CODE, uiSettings);
+        blinkIdScanLauncher.launch(uiSettings);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private final ActivityResultLauncher<UISettings> blinkIdScanLauncher = registerForActivityResult(
+            new MbScan(),
+            result -> {
+                if (result.getResultStatus() == ScanResult.ResultStatus.FINISHED) {
+                    // OK result code means scan was successful
+                    onScanSuccess(result.getData());
+                } else if (result.getResultStatus() == ScanResult.ResultStatus.EXCEPTION) {
+                    Toast.makeText(this, result.getException().toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    // user probably pressed Back button and cancelled scanning
+                    onScanCanceled();
+                }
+            }
 
-        // onActivityResult is called whenever we returned from activity started with startActivityForResult
-        // We need to check request code to determine that we have really returned from BlinkID activity
-        if (requestCode != MY_BLINKID_REQUEST_CODE) {
-            return;
-        }
-
-        if (resultCode == Activity.RESULT_OK) {
-            // OK result code means scan was successful
-            onScanSuccess(data);
-        } else {
-            // user probably pressed Back button and cancelled scanning
-            onScanCanceled();
-        }
-    }
+    );
 
     private void onScanSuccess(Intent data) {
         // update recognizer results with scanned data
