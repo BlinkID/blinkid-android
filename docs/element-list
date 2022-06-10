@@ -1,5 +1,7 @@
 com.microblink
 com.microblink.activity
+com.microblink.activity.result
+com.microblink.activity.result.contract
 com.microblink.directApi
 com.microblink.entities
 com.microblink.entities.detectors.quad
