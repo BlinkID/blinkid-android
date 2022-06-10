@@ -18,7 +18,7 @@
         "description": "Additions to boost/config for additional compiler-specific codegen tweaking macros"
     },
     {
-        "package": "Eigen/3.4.0@microblink/stable",
+        "package": "Eigen/3.4.0.1@microblink/stable",
         "url": "https://github.com/microblink/eigen-git-mirror",
         "license": "Mozilla Public License Version 2.0",
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
@@ -42,7 +42,7 @@
         "description": "Portable C++ Hashing Library"
     },
     {
-        "package": "MMap/0.3.3@microblink/stable",
+        "package": "MMap/0.3.4@microblink/stable",
         "url": "https://github.com/microblink/mmap",
         "license": "Boost Software License",
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
@@ -60,7 +60,7 @@
         "description": "Obfuscation library based on C++11/14 and metaprogramming"
     },
     {
-        "package": "OpenCV/4.5.5@microblink/stable",
+        "package": "OpenCV/4.5.5.3@microblink/stable",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
@@ -72,7 +72,7 @@
         "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
     },
     {
-        "package": "Protobuf/3.19.1@microblink/stable",
+        "package": "Protobuf/3.19.2@microblink/stable",
         "url": "https://bitbucket.org/microblink/protobuffork/",
         "license": "BSD",
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
@@ -84,25 +84,25 @@
         "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
     },
     {
-        "package": "Sweater/11.0.2@microblink/stable",
+        "package": "Sweater/11.0.3@microblink/stable",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
     },
     {
-        "package": "UTFCpp/3.1.1@microblink/stable",
+        "package": "UTFCpp/3.2.1@microblink/stable",
         "url": "https://github.com/microblink/utfcpp",
         "license": "Boost Software License 1.0",
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "XNNPACK/20220113.0@microblink/stable",
+        "package": "XNNPACK/20220113.1@microblink/stable",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
     },
     {
-        "package": "ZXing/3.0.1@microblink/stable",
+        "package": "ZXing/3.0.2@microblink/stable",
         "url": "https://github.com/microblink/zxing",
         "license": "Apache License 2.0",
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
@@ -120,13 +120,13 @@
         "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
     },
     {
-        "package": "icu/69.1.6@microblink/stable",
+        "package": "icu/69.1.8@microblink/stable",
         "url": "https://github.com/microblink/icu",
         "license": "Unicode",
         "description": "A mature, widely used set of libraries providing Unicode and Globalization support"
     },
     {
-        "package": "libjpeg-turbo/2.1.1@microblink/stable",
+        "package": "libjpeg-turbo/2.1.3.1@microblink/stable",
         "url": "https://github.com/microblink/libjpeg-turbo",
         "license": "BSD-3-Clause, Zlib",
         "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"

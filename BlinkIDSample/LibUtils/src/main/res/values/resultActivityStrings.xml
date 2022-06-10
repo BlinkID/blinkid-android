@@ -99,6 +99,10 @@
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
+    <string name="PPDataMatchDetailedInfo">Data match detailed info</string>
+    <string name="PPDocumentNumberMatch">Document number data match</string>
+    <string name="PPDDateOfBirthMatch">Date of birth data match</string>
+    <string name="PPDDateOfExpiryMatch">Date of expiry data match</string>
     <string name="PPPrimaryId">Primary ID</string>
     <string name="PPSecondaryId">Secondary ID</string>
     <string name="PPDateOfBirth">Date of birth</string>

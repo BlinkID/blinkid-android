@@ -1,6 +1,7 @@
 package com.microblink.result.extract.blinkid.generic;
 
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
+import com.microblink.entities.recognizers.blinkid.generic.DataMatchDetailedInfo;
 import com.microblink.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
 import com.microblink.entities.recognizers.blinkid.generic.barcode.BarcodeResult;
 import com.microblink.entities.recognizers.blinkid.generic.classinfo.ClassInfo;
@@ -123,6 +124,7 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         add(R.string.MBRecognitionMode, result.getRecognitionMode().name());
 
         add(R.string.PPDocumentBothSidesMatch, result.getDocumentDataMatch().name());
+        add(R.string.PPDataMatchDetailedInfo, extractDataMatchDetailedInfo(result.getDataMatchDetailedInfo()));
 
         add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
         add(R.string.MBBackCameraFrame, result.getBackCameraFrame());
@@ -241,6 +243,13 @@ public class BlinkIDCombinedRecognizerResultExtractor extends BlinkIdExtractor<B
         if (resultSource == ResultSource.MIXED) {
             extractCommonData(result, mExtractedData, mBuilder);
         }
+    }
+
+    private String extractDataMatchDetailedInfo(DataMatchDetailedInfo dataMatchDetailedInfo) {
+        return mContext.getString(R.string.PPDocumentBothSidesMatch) + ": " + dataMatchDetailedInfo.getDataMatchResult().name() + "\n"
+                + mContext.getString(R.string.PPDocumentNumberMatch) + ": " + dataMatchDetailedInfo.getDocumentNumber().name() + "\n"
+                + mContext.getString(R.string.PPDDateOfBirthMatch) + ": " + dataMatchDetailedInfo.getDateOfBirth().name() + "\n"
+                + mContext.getString(R.string.PPDDateOfExpiryMatch) + ": " + dataMatchDetailedInfo.getDateOfExpiry().name() + "\n";
     }
 
 }

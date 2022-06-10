@@ -1,5 +1,18 @@
 # Release notes
 
+## 5.17.0
+
+### New features:
+- We've added support for launching the scan activity via the new Activity Result API. Check out our sample to see how to implement it.
+
+### Changes to BlinkID(Combined) Recognizer
+- Introduced the expanded DataMatch functionality for the BlinkID with the new result member called `dataMatchDetailedInfo`
+	- This result member will enable you to see for which field has been performed, or it did not, the DataMatch functionality. This is enabled for `dateOfBirth`, `documentNumber` and `dateOfExpiry`.
+	- For example, if the date of expiry is scanned from the front and back side of the document and values do not match, this method will return DataMatchResult: `Failed`.
+Result will be DataMatchResult: `Success` only if scanned values for all fields that are compared are the same. If data matching has not been performed, the result will be DataMatchResult: `NotPerformed`. This information is available for every of the three mentioned field values above.
+
+- Fixed issues with scanning Argentina AlienID, where there were confusions with the regular ID. `ClassInfo` now correctly returns which ID type is present based on the barcode data.
+
 ## 5.16.1
 
 ### Fixes

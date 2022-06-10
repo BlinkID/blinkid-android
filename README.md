@@ -113,7 +113,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.16.1@aar') {
+    implementation('com.microblink:blinkid:5.17.0@aar') {
         transitive = true
     }
 }
@@ -125,7 +125,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.16.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.17.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -134,7 +134,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 
 #### Performing your first scan
-1. First you'll need to create an account at [Microblink dashboard](https://microblink.com/login) where you can generate a free trial license key for your app. License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
+1. A valid license key is required to initialize scanning. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://account.microblink.com/signin). License is bound to [package name](http://tools.android.com/tech-docs/new-build-system/applicationid-vs-packagename) of your app, so please make sure you enter the correct package name when asked. 
 
     Download your licence file and put it in your application's _assets_ folder. Make sure to set the license key before using any other classes from the SDK, otherwise you will get a runtime exception. 
     
@@ -151,7 +151,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 2. In your main activity, create recognizer objects that will perform image recognition, configure them and put them into [RecognizerBundle object](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and `RecognizerBundle` [here](#availableRecognizers). 
 
-	For example, to scan supported document, configure your recognizer like this:
+    For example, to scan supported document, configure your recognizer like this:
 
     ```java
     public class MyActivity extends Activity {
@@ -174,10 +174,10 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
     ```
 
 3. Start recognition process by creating `BlinkIdUISettings` and calling [`ActivityRunner.startActivityForResult`](https://blinkid.github.io/blinkid-android/com/microblink/uisettings/ActivityRunner.html#startActivityForResult-android.app.Activity-int-com.microblink.uisettings.UISettings-):
-	
-	```java
-	// method within MyActivity from previous step
-	public void startScanning() {
+    
+    ```java
+    // method within MyActivity from previous step
+    public void startScanning() {
         // Settings for BlinkIdActivity
         BlinkIdUISettings settings = new BlinkIdUISettings(mRecognizerBundle);
         
@@ -185,12 +185,12 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
         
         // Start activity
         ActivityRunner.startActivityForResult(this, MY_REQUEST_CODE, settings);
-	}
-	```
-	
+    }
+    ```
+    
 4. `onActivityResult` will be called in your activity after scanning is finished, here you can get the scanning results.
 
-	```java
+    ```java
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -211,9 +211,9 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
             }
         }
     }
-	```
-	
-	For more information about available recognizers and `RecognizerBundle`, see [RecognizerBundle and available recognizers](#availableRecognizers).
+    ```
+    
+    For more information about available recognizers and `RecognizerBundle`, see [RecognizerBundle and available recognizers](#availableRecognizers).
 
 # <a name="supportCheck"></a> Device requirements
 
@@ -242,7 +242,7 @@ For more information, see [Processor architecture considerations](#archConsider)
 ### Compatibility check
 
 Here's how you can check whether the _BlinkID_ is supported on the device:
-	
+
 ```java
 // check if BlinkID is supported on the device,
 RecognizerCompatibilityStatus status = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
@@ -253,7 +253,7 @@ if (status == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
 } else if (status == RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED) {
     Toast.makeText(this, "BlinkID is not supported on current processor architecture!", Toast.LENGTH_LONG).show();
 } else {
-	Toast.makeText(this, "BlinkID is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
+    Toast.makeText(this, "BlinkID is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
 }
 ```
 
@@ -264,7 +264,7 @@ If you already have an array of recognizers, you can easily filter out recognize
 ```java
 Recognizer[] recArray = ...;
 if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)) {
-	recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray);
+    recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray);
 }
 ```
 # <a name="uiCustomizations"></a> _BlinkID_ SDK integration levels
@@ -367,7 +367,7 @@ This section discusses how to embed [RecognizerRunnerView](https://blinkid.githu
 2. It is recommended to keep your scan activity in one orientation, such as `portrait` or `landscape`. Setting `sensor` as scan activity's orientation will trigger full restart of activity whenever device orientation changes. This will provide very poor user experience because both camera and _BlinkID_ native library will have to be restarted every time. There are measures against this behaviour that are discussed [later](#scanOrientation).
 3. In your activity's `onCreate` method, create a new `RecognizerRunnerView`, set [RecognizerBundle](https://blinkid.github.io/blinkid-android/com/microblink/entities/recognizers/RecognizerBundle.html) containing recognizers that will be used by the view, define [CameraEventsListener](https://blinkid.github.io/blinkid-android/com/microblink/view/CameraEventsListener.html) that will handle mandatory camera events, define [ScanResultListener](https://blinkid.github.io/blinkid-android/com/microblink/view/recognition/ScanResultListener.html) that will receive call when recognition has been completed and then call its `create` method. After that, add your views that should be layouted on top of camera view.
 4. Pass in your activity's lifecycle using `setLifecycle` method to enable automatic handling of lifeceycle events.
-
+ 
 Here is the minimum example of integration of `RecognizerRunnerView` as the only view in your activity:
 
 ```java
@@ -731,20 +731,20 @@ Strings used within built-in activities and overlays can be localized to any lan
 However, if you use our built-in activities or overlays, they will use resources packed within `LibBlinkID.aar` to display strings and images on top of the camera view. We have already prepared strings for several languages which you can use out of the box. You can also [modify those strings](#stringChanging), or you can [add your own language](#addLanguage).
 
 To use a language, you have to enable it from the code:
-		
+        
 * To use a certain language, on application startup, before opening any UI component from the SDK, you should call method `LanguageUtils.setLanguageAndCountry(language, country, context)`. For example, you can set language to Croatian like this:
-	
-	```java
-	// define BlinkID language
-	LanguageUtils.setLanguageAndCountry("hr", "", this);
-	```
+    
+    ```java
+    // define BlinkID language
+    LanguageUtils.setLanguageAndCountry("hr", "", this);
+    ```
 
 #### <a name="addLanguage"></a> Adding new language
 
 _BlinkID_ can easily be translated to other languages. The `res` folder in `LibBlinkID.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibBlinkID.aar` archive to access those files). Then, open that file and translate the strings from English into Croatian.
 
 #### <a name="stringChanging"></a> Changing strings in the existing language
-	
+    
 To modify an existing string, the best approach would be to:
 
 1. Choose a language you want to modify. For example Croatian ('hr').
@@ -996,10 +996,10 @@ To remove support for a certain CPU architecture only for _BlinkID_, add the fol
 
 ```
 android {
-	...
-	packagingOptions {
-		exclude 'lib/<ABI>/libBlinkID.so'
-	}
+    ...
+    packagingOptions {
+        exclude 'lib/<ABI>/libBlinkID.so'
+    }
 }
 ```
 
@@ -1055,17 +1055,17 @@ If you are having problems with scanning certain items, undesired behaviour on s
 
 * enable logging to get the ability to see what is library doing. To enable logging, put this line in your application:
 
-	```java
-	com.microblink.util.Log.setLogLevel(com.microblink.util.Log.LogLevel.LOG_VERBOSE);
-	```
+    ```java
+    com.microblink.util.Log.setLogLevel(com.microblink.util.Log.LogLevel.LOG_VERBOSE);
+    ```
 
-	After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
-	
+    After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
+    
 * Contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide following information:
-	* log file obtained in previous step
-	* high resolution scan/photo of the item that you are trying to scan
-	* information about device that you are using - we need exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
-	* please stress out that you are reporting problem related to Android version of _BlinkID_ SDK
+    * log file obtained in previous step
+    * high resolution scan/photo of the item that you are trying to scan
+    * information about device that you are using - we need exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
+    * please stress out that you are reporting problem related to Android version of _BlinkID_ SDK
 
 
 # <a name="faq"></a> FAQ and known issues
