@@ -35,6 +35,7 @@ Protected fields are:
 <table><tr>
 <th colspan=1>Country and document type</th><th>Anonymised fields</th> </tr>
  <tr> <td>GERMANY ID Card</td> <td>Anonymized line, Document additional number, Document number, MRZ (Document number)</td><tr>
+ <tr> <td>GERMANY Minors Passport</td> <td>Document number, MRZ (Document number)</td><tr>
  <tr> <td>GERMANY Paper Passport</td> <td>Document number, MRZ (Document number)</td><tr>
  <tr> <td>GERMANY Polycarbonate Passport</td> <td>Document number, MRZ (Document number)</td><tr>
  <tr> <td>HONG KONG ID Card</td> <td>Anonymized line, Document number</td><tr>
@@ -75,6 +76,50 @@ Protected fields are:
 <br>
 <h2>All Fields</h2>
 <table><tr>
+<th colspan=2>AFGHANISTAN ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Empty document side</td> <td></td><tr>
+
+
+<th colspan=2>AFGHANISTAN ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>AFGHANISTAN Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>ALBANIA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -490,6 +535,22 @@ Protected fields are:
 <tr> <td>Date of birth</td> <td>Always if present</td><tr>
 
 
+<th colspan=2>AUSTRALIA NORTHERN TERRITORY Proof Of Age Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+
+<th colspan=2>AUSTRALIA NORTHERN TERRITORY PROOF OF AGE CARD - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+
 <th colspan=2>AUSTRALIA QUEENSLAND Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Class effective date</td> <td>Always</td><tr>
 
@@ -537,6 +598,10 @@ Protected fields are:
 
 <tr> <td>Conditions</td> <td>Always if present</td><tr>
 
+<th colspan=2>AUSTRALIA SOUTH AUSTRALIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document additional number</td> <td>Always</td><tr>
+
+
 <th colspan=2>AUSTRALIA SOUTH AUSTRALIA Proof Of Age Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -563,6 +628,12 @@ Protected fields are:
 <tr> <td>Licence type</td> <td>Always</td><tr>
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+
+<th colspan=2>AUSTRALIA TASMANIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document additional number</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
 
 
 <th colspan=2>AUSTRALIA VICTORIA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -656,11 +727,7 @@ Protected fields are:
 <tr> <td>Nationality</td> <td>Always if present</td><tr>
 
 <th colspan=2>AUSTRIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of expiry</td> <td>Always</td><tr>
-
 <tr> <td>Date of issue</td> <td>Always</td><tr>
-
-<tr> <td>Document number</td> <td>Always</td><tr>
 
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
 
@@ -669,6 +736,10 @@ Protected fields are:
 <tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always if present</td><tr>
+
+<tr> <td>Document number</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>AUSTRIA Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -795,6 +866,8 @@ Protected fields are:
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>BANGLADESH Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -1243,6 +1316,30 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
+<th colspan=2>BRAZIL Consular Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>BRAZIL Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -1266,7 +1363,7 @@ Protected fields are:
 
 
 <th colspan=2>BRAZIL ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Face rotated 90</td> <td>Always</td><tr>
+<tr> <td>Empty document side</td> <td></td><tr>
 
 
 <th colspan=2>BRAZIL ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -1657,6 +1754,12 @@ Protected fields are:
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 
+<th colspan=2>CANADA Social Security Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+
 <th colspan=2>CANADA Tribal ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -1797,6 +1900,24 @@ Protected fields are:
 <tr> <td>First name</td> <td>Always if present</td><tr>
 
 <th colspan=2>CANADA BRITISH COLUMBIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
+<th colspan=2>CANADA BRITISH COLUMBIA Minors Public Services Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Address</td> <td>Always if present</td><tr>
+
+<th colspan=2>CANADA BRITISH COLUMBIA MINORS PUBLIC SERVICES CARD - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>CANADA BRITISH COLUMBIA Public Services Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -2034,6 +2155,9 @@ Protected fields are:
 
 <tr> <td>Endorsements</td> <td>Always if present</td><tr>
 
+<th colspan=2>CANADA QUEBEC DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
 <th colspan=2>CANADA SASKATCHEWAN Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -2228,18 +2352,18 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
-<tr> <td>Full name</td> <td>Always</td><tr>
-
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
-
-<tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
 
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Full name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
 
 <th colspan=2>COLOMBIA Alien ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -2503,6 +2627,31 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
+<th colspan=2>CUBA Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
+
 <th colspan=2>CYPRUS Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -2552,6 +2701,30 @@ Protected fields are:
 <tr> <td>MRZ</td> <td>Always if present</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always if present</td><tr>
+
+
+<th colspan=2>CYPRUS Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
 
 
 <th colspan=2>CYPRUS Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -2847,6 +3020,32 @@ Protected fields are:
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
 
+<th colspan=2>DOMINICAN REPUBLIC Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>ECUADOR Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -2880,6 +3079,8 @@ Protected fields are:
 
 <tr> <td>Nationality</td> <td>Always</td><tr>
 
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
@@ -2888,7 +3089,6 @@ Protected fields are:
 <tr> <td>Document additional number</td> <td>Always if present</td><tr>
 <tr> <td>Document number</td> <td>Always if present</td><tr>
 <tr> <td>Marital status</td> <td>Always if present</td><tr>
-<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
 
 <th colspan=2>ECUADOR ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Additional personal id number</td> <td>Always</td><tr>
@@ -3516,6 +3716,30 @@ Protected fields are:
 <tr> <td>MRZ</td> <td>Always if present</td><tr>
 
 
+<th colspan=2>GERMANY Minors Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>GERMANY Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -4133,26 +4357,31 @@ Protected fields are:
 <th colspan=2>HUNGARY Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
-<tr> <td>Date of issue</td> <td>Always</td><tr>
-
 <tr> <td>Document number</td> <td>Always</td><tr>
 
 <tr> <td>Full name</td> <td>Always</td><tr>
 
-<tr> <td>Issuing authority</td> <td>Always</td><tr>
-
+<tr> <td>Date of birth</td> <td>Always if present</td><tr>
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
 <tr> <td>Document additional number</td> <td>Always if present</td><tr>
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 <th colspan=2>HUNGARY RESIDENCE PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of birth</td> <td>Always</td><tr>
-
 <tr> <td>MRZ</td> <td>Always</td><tr>
-
-<tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
-<tr> <td>Sex</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always if present</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
+
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
+
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>ICELAND Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -4175,6 +4404,32 @@ Protected fields are:
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+
+<th colspan=2>ICELAND Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
 
 
 <th colspan=2>INDIA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -5920,11 +6175,11 @@ Protected fields are:
 <tr> <td>Vehicle class</td> <td>Always if present</td><tr>
 
 <th colspan=2>MEXICO BAJA CALIFORNIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Issuing authority</td> <td>Always</td><tr>
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
 
-<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
-<tr> <td>Sex</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>MEXICO BAJA CALIFORNIA SUR Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -6060,11 +6315,11 @@ Protected fields are:
 <tr> <td>Vehicle class</td> <td>Always if present</td><tr>
 
 <th colspan=2>MEXICO COAHUILA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Issuing authority</td> <td>Always</td><tr>
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
 
-<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
-<tr> <td>Sex</td> <td>Always</td><tr>
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>MEXICO COLIMA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -6133,6 +6388,8 @@ Protected fields are:
 
 
 <th colspan=2>MEXICO GUERRERO-COCULA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Empty document side</td> <td></td><tr>
+
 
 <th colspan=2>MEXICO GUERRERO-COCULA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 
@@ -6370,6 +6627,32 @@ Protected fields are:
 <tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
 
+<th colspan=2>MEXICO QUINTANA ROO-COZUMEL Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+
+<th colspan=2>MEXICO QUINTANA ROO-COZUMEL DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>MEXICO QUINTANA ROO-SOLIDARIDAD Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
@@ -6382,6 +6665,12 @@ Protected fields are:
 <tr> <td>Last name</td> <td>Always</td><tr>
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+
+<th colspan=2>MEXICO QUINTANA ROO-SOLIDARIDAD DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>MEXICO SAN LUIS POTOSI Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -7479,6 +7768,26 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
+<th colspan=2>PANAMA Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>PANAMA Temporary Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
@@ -7610,6 +7919,29 @@ Protected fields are:
 <tr> <td>Address</td> <td>Always</td><tr>
 
 
+<th colspan=2>PERU Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
+
 <th colspan=2>PHILIPPINES Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -7668,11 +8000,7 @@ Protected fields are:
 
 
 <th colspan=2>PHILIPPINES Professional ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>Date of birth</td> <td>Always</td><tr>
-
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
-
-<tr> <td>Date of issue</td> <td>Always</td><tr>
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
@@ -7682,6 +8010,8 @@ Protected fields are:
 
 <tr> <td>Profession</td> <td>Always</td><tr>
 
+<tr> <td>Date of birth</td> <td>Always if present</td><tr>
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
 
 <th colspan=2>PHILIPPINES Social Security Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
@@ -8013,6 +8343,26 @@ Protected fields are:
 <tr> <td>Nationality</td> <td>Always</td><tr>
 
 
+<th colspan=2>QATAR Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document additional number</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>QATAR Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -8052,7 +8402,11 @@ Protected fields are:
 <th colspan=2>ROMANIA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
 <tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
 
 <tr> <td>First name</td> <td>Always</td><tr>
 
@@ -8062,8 +8416,15 @@ Protected fields are:
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Fathers name</td> <td>Always if present</td><tr>
+<tr> <td>Mothers name</td> <td>Always if present</td><tr>
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
 
 <th colspan=2>ROMANIA Polycarbonate Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -8501,29 +8862,36 @@ Protected fields are:
 <th colspan=2>SLOVAKIA Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
-<tr> <td>Date of issue</td> <td>Always</td><tr>
-
 <tr> <td>Document number</td> <td>Always</td><tr>
 
 <tr> <td>Full name</td> <td>Always</td><tr>
 
-<tr> <td>Issuing authority</td> <td>Always</td><tr>
-
-<tr> <td>Personal ID number</td> <td>Always</td><tr>
-
+<tr> <td>Date of birth</td> <td>Always if present</td><tr>
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
+<tr> <td>Document additional number</td> <td>Always if present</td><tr>
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 <th colspan=2>SLOVAKIA RESIDENCE PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
-<tr> <td>Date of birth</td> <td>Always</td><tr>
-
 <tr> <td>MRZ</td> <td>Always</td><tr>
-
-<tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
-<tr> <td>Sex</td> <td>Always</td><tr>
+<tr> <td>Date of birth</td> <td>Always if present</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
+
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
+
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>SLOVAKIA Polycarbonate Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -8686,20 +9054,20 @@ Protected fields are:
 
 <tr> <td>Last name</td> <td>Always</td><tr>
 
-<tr> <td>Nationality</td> <td>Always</td><tr>
-
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
-<tr> <td>Sex</td> <td>Always</td><tr>
-
+<tr> <td>Date of issue</td> <td>Always if present</td><tr>
+<tr> <td>Nationality</td> <td>Always if present</td><tr>
+<tr> <td>Sex</td> <td>Always if present</td><tr>
 
 <th colspan=2>SOUTH AFRICA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>SOUTH AFRICA Polycarbonate Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -9196,6 +9564,8 @@ Protected fields are:
 
 <tr> <td>Date of issue</td> <td>Always if present</td><tr>
 
+<tr> <td>Document optional additional number</td> <td>Always if present</td><tr>
+
 <tr> <td>Issuing authority</td> <td>Always if present</td><tr>
 
 <tr> <td>Nationality</td> <td>Always if present</td><tr>
@@ -9433,6 +9803,8 @@ Protected fields are:
 
 <tr> <td>Document additional number</td> <td>Always if present</td><tr>
 
+<tr> <td>Document optional additional number</td> <td>Always if present</td><tr>
+
 
 <th colspan=2>TUNISIA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -9636,6 +10008,28 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always if present</td><tr>
 
 
+<th colspan=2>UAE Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
 <th colspan=2>UAE Resident ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Full name</td> <td>Always</td><tr>
 
@@ -9652,6 +10046,8 @@ Protected fields are:
 <tr> <td>Document number</td> <td>Always</td><tr>
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Additional name information</td> <td>Always if present</td><tr>
 
 <tr> <td>Date of birth</td> <td>Always if present</td><tr>
 
@@ -9755,6 +10151,14 @@ Protected fields are:
 
 <tr> <td>Last name</td> <td>Always if present</td><tr>
 
+<th colspan=2>UK Proof Of Age Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
+
+
 <th colspan=2>UK Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
@@ -9808,8 +10212,6 @@ Protected fields are:
 
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 
-<tr> <td>Document number</td> <td>Always</td><tr>
-
 <tr> <td>First name</td> <td>Always</td><tr>
 
 <tr> <td>Last name</td> <td>Always</td><tr>
@@ -9817,6 +10219,7 @@ Protected fields are:
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
 <tr> <td>Date of expiry</td> <td>Always if present</td><tr>
+<tr> <td>Document number</td> <td>Always if present</td><tr>
 <tr> <td>Issuing authority</td> <td>Always if present</td><tr>
 <tr> <td>Place of birth</td> <td>Always if present</td><tr>
 
@@ -9850,6 +10253,31 @@ Protected fields are:
 <tr> <td>Document additional number</td> <td>Always if present</td><tr>
 
 
+<th colspan=2>UKRAINE Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always if present</td><tr>
+
+<th colspan=2>UKRAINE RESIDENCE PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+
 <th colspan=2>UKRAINE Polycarbonate Passport - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -9874,6 +10302,33 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always if present</td><tr>
+
+<th colspan=2>UKRAINE Temporary Residence Permit - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always if present</td><tr>
+
+<th colspan=2>UKRAINE TEMPORARY RESIDENCE PERMIT - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
 
 <th colspan=2>URUGUAY ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Document number</td> <td>Always</td><tr>
@@ -10030,6 +10485,32 @@ Protected fields are:
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA Passport Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA PASSPORT CARD - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
 
 
 <th colspan=2>USA Social Security Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -10223,10 +10704,9 @@ Protected fields are:
 
 <tr> <td>Sex</td> <td>Always</td><tr>
 
-<tr> <td>Vehicle class</td> <td>Always</td><tr>
-
 <tr> <td>Endorsements</td> <td>Always if present</td><tr>
 <tr> <td>Restrictions</td> <td>Always if present</td><tr>
+<tr> <td>Vehicle class</td> <td>Always if present</td><tr>
 
 <th colspan=2>USA ARKANSAS DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
@@ -10444,6 +10924,27 @@ Protected fields are:
 
 
 <th colspan=2>USA DISTRICT OF COLUMBIA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
+<th colspan=2>USA DISTRICT OF COLUMBIA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA DISTRICT OF COLUMBIA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>USA FLORIDA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -10742,6 +11243,33 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA IOWA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
+<th colspan=2>USA IOWA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
 <tr> <td>First name</td> <td>Always</td><tr>
 
 <tr> <td>Last name</td> <td>Always</td><tr>
@@ -10750,10 +11278,8 @@ Protected fields are:
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
-<tr> <td>Endorsements</td> <td>Always if present</td><tr>
-<tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
-<th colspan=2>USA IOWA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<th colspan=2>USA IOWA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>USA KANSAS Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -10904,6 +11430,27 @@ Protected fields are:
 <th colspan=2>USA MAINE DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
+<th colspan=2>USA MAINE ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA MAINE ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
 <th colspan=2>USA MARYLAND Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -10917,12 +11464,13 @@ Protected fields are:
 
 <tr> <td>Sex</td> <td>Always</td><tr>
 
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+
 <tr> <td>Endorsements</td> <td>Always if present</td><tr>
 <tr> <td>First name</td> <td>Always if present</td><tr>
 <tr> <td>Full name</td> <td>Always if present</td><tr>
 <tr> <td>Last name</td> <td>Always if present</td><tr>
 <tr> <td>Restrictions</td> <td>Always if present</td><tr>
-<tr> <td>Vehicle class</td> <td>Always if present</td><tr>
 
 <th colspan=2>USA MARYLAND DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
@@ -11121,12 +11669,11 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
-<tr> <td>First name</td> <td>Always</td><tr>
-
-<tr> <td>Last name</td> <td>Always</td><tr>
-
 <tr> <td>Sex</td> <td>Always</td><tr>
 
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Full name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
 
 <th colspan=2>USA MISSISSIPPI ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
@@ -11244,13 +11791,17 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
-<tr> <td>Full name</td> <td>Always</td><tr>
+<tr> <td>Endorsements</td> <td>Always</td><tr>
+
+<tr> <td>Restrictions</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
 
-<tr> <td>Endorsements</td> <td>Always if present</td><tr>
-<tr> <td>Restrictions</td> <td>Always if present</td><tr>
-<tr> <td>Vehicle class</td> <td>Always if present</td><tr>
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Full name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
 
 <th colspan=2>USA NEBRASKA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
@@ -11538,12 +12089,11 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
-<tr> <td>First name</td> <td>Always</td><tr>
-
-<tr> <td>Last name</td> <td>Always</td><tr>
-
 <tr> <td>Sex</td> <td>Always</td><tr>
 
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Full name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
 
 <th colspan=2>USA NORTH CAROLINA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
@@ -11573,6 +12123,27 @@ Protected fields are:
 
 
 <th colspan=2>USA NORTH DAKOTA DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
+<th colspan=2>USA NORTH DAKOTA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA NORTH DAKOTA ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>USA OHIO Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -11906,6 +12477,29 @@ Protected fields are:
 <th colspan=2>USA TENNESSEE DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
 
+<th colspan=2>USA TENNESSEE ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>USA TENNESSEE ID - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
+
 <th colspan=2>USA TEXAS Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
 
@@ -12105,15 +12699,17 @@ Protected fields are:
 
 <tr> <td>Endorsements</td> <td>Always</td><tr>
 
-<tr> <td>First name</td> <td>Always</td><tr>
-
 <tr> <td>Last name</td> <td>Always</td><tr>
 
 <tr> <td>Restrictions</td> <td>Always</td><tr>
 
 <tr> <td>Sex</td> <td>Always</td><tr>
 
+<tr> <td>First name</td> <td>Always if present</td><tr>
 <tr> <td>Vehicle class</td> <td>Always if present</td><tr>
+
+<th colspan=2>USA WASHINGTON DL - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Barcode data</td> <td>Pending</td><tr>
 
 <th colspan=2>USA WASHINGTON ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Address</td> <td>Always</td><tr>
@@ -12253,12 +12849,11 @@ Protected fields are:
 
 <tr> <td>Last name</td> <td>Always</td><tr>
 
-<tr> <td>Personal ID number</td> <td>Always</td><tr>
-
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
+<tr> <td>Personal ID number</td> <td>Always if present</td><tr>
 
 <th colspan=2>UZBEKISTAN Paper Passport</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -12369,11 +12964,11 @@ Protected fields are:
 
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
-<tr> <td>Document number</td> <td>Always</td><tr>
-
 <tr> <td>Full name</td> <td>Always</td><tr>
 
 <tr> <td>Nationality</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
 
 <tr> <td>Place of birth</td> <td>Always</td><tr>
 
