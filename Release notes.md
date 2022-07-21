@@ -1,6 +1,93 @@
 # Release notes
 
 ## 5.18.0
+### New additions to our supported document list:
+We've added 24 new documents.
+
+#### Europe
+- Cyprus - Paper Passport 
+- Germany - Minors Passport 
+- Iceland - Paper Passport (beta)
+- UK - Proof of Age Card (front only)
+- Ukraine - Residence Permit
+- Ukraine - Temporary Residence Permit
+
+#### Middle East and Africa
+- Qatar - Paper Passport 
+- South Africa - ID Card (front only, beta)
+- UAE - Paper Passport
+
+#### Latin America and the Caribbean
+- Brazil - Consular Passport (beta)
+- Cuba - Paper Passport (front only)
+- Dominican Republic - Paper Passport
+- Panama - Residence Permit (front only)
+- Peru - Paper Passport
+
+#### Mexico
+- Quintana Roo Cozumel - Driving Licence (beta)
+
+#### Oceania
+- Australia - Northern Territory - Proof of Age Card
+
+#### Northern America
+- Canada - Social Security Card (front only, beta)
+- Canada - British Columbia - Minor Public Services Card (beta)
+- USA - Passport Card
+- USA - District of Columbia - ID Card
+- USA - Iowa - ID Card
+- USA - Maine - ID Card (beta)
+- USA - North Dakota - ID Card (beta)
+- USA - Tennessee - ID Card
+
+#### Back side support added:
+- Austria - ID Card
+- Australia - South Australia - Driving Licence
+- Australia - Tasmania - Driving Licence
+- Canada - Quebec - Driving Licence
+- Mexico - Quintana Roo Solidaridad - Driving Licence
+- USA - Washington - Driving Licence
+
+#### No longer BETA:
+- Algeria - Paper Passport
+- Slovakia - Residence Permit
+- USA - Mississippi - ID Card
+
+#### New document version for already supported documents:
+We've added 25 new versions of already supported documents.
+
+- Afghanistan - ID Card
+- Bahrain - ID Card
+- Hungary - Residence Permit
+- India - ID Card
+- Mexico - Tabasco - Driving Licence
+- New Zealand - Driving Licence (front only)
+- Philippines - Professional ID (front only)
+- Slovakia - Residence Permit
+- South Africa - ID Card
+- Switzerland - Residence Permit
+- UK - Driving Licence (front only)
+- USA - Colorado - Driving Licence (front only)
+- USA - Idaho - Driving Licence (front only)
+- USA - Kansas - ID Card (front only)
+- USA - Kentucky - Driving Licence (front only)
+- USA - Maine - Driving Licence (front only)
+- USA - Massachusetts - ID Card (front only)
+- USA - Nebraska - Driving Licence (front only)
+- USA - New Hampshire - Driving licence (front only)
+- USA - New Jersey - ID Card (front only)
+- USA - New Mexico - ID Card (front only)
+- USA - North Carolina - ID Card (front only)
+- USA - Utah - Driving Licence (front only)
+- USA - Vermont Driving Licence (front only)
+- USA - West Virginia - Driving Licence (front only)
+
+
+### Changes to BlinkID(Combined) Recognizer
+
+- Added new enums:
+	- Region: `QUINTANA_ROO_COZUMEL` 
+	- Type: `CONSULAR_PASSPORT`, `MINORS_PASSPORT`, and `MINORS_PUBLIC_SERVICES_CARD` 
 
 ## 5.17.0
 
