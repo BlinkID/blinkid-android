@@ -54,7 +54,7 @@ Protected fields are:
  <tr> <td>SOUTH KOREA Driving Licence</td> <td>Personal ID number</td><tr>
  <tr> <td>SOUTH KOREA ID Card</td> <td>Document number</td><tr>
  <tr> <td>SOUTH KOREA Paper Passport</td> <td>MRZ (Opt1), Personal ID number</td><tr>
-
+</table>
 
 <h2>AAMVA Barcode Fields</h2>
 <p>AAMVA standard compliant barcodes (US, Canada documents) contain these fields:</p>
