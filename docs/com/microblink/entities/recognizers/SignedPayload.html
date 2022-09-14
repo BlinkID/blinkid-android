@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -152,7 +152,8 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)">SignedPayload</a></span>&#8203;(java.lang.String&nbsp;payload,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">SignedPayload</a></span>&#8203;(java.lang.String&nbsp;payload,
+             java.lang.String&nbsp;base64EncodedPayload,
              java.lang.String&nbsp;signature,
              java.lang.String&nbsp;signatureVersion)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -177,24 +178,36 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getBase64EncodedPayload()">getBase64EncodedPayload</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the base64 encoded payload.</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPayload()">getPayload</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the payload.</div>
 </td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSignature()">getSignature</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns digital signature of the payload.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSignatureVersion()">getSignatureVersion</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns digital signature version.</div>
 </td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -220,13 +233,14 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
+<a id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SignedPayload</h4>
 <pre>public&nbsp;SignedPayload&#8203;(java.lang.String&nbsp;payload,
+                     java.lang.String&nbsp;base64EncodedPayload,
                      java.lang.String&nbsp;signature,
                      java.lang.String&nbsp;signatureVersion)</pre>
 </li>
@@ -255,6 +269,20 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
+<a id="getBase64EncodedPayload()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getBase64EncodedPayload</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getBase64EncodedPayload()</pre>
+<div class="block">Returns the base64 encoded payload.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>payload</dd>
+</dl>
+</li>
+</ul>
 <a id="getSignature()">
 <!--   -->
 </a>
@@ -272,7 +300,7 @@ extends java.lang.Object</pre>
 <a id="getSignatureVersion()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getSignatureVersion</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getSignatureVersion()</pre>
@@ -281,6 +309,15 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>digital signature version</dd>
 </dl>
+</li>
+</ul>
+<a id="isEmpty()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isEmpty</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isEmpty()</pre>
 </li>
 </ul>
 </li>

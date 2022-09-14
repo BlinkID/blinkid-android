@@ -1,6 +1,25 @@
 # Release notes
 
+## 5.19.0
+
+### Changes to BlinkID(Combined) Recognizer
+- We can now successfully extract data from non-ICAO compliant MRZ fields on the Vietnam Passports when the filler arrow is facing the other way (>) instead of the standard way (<).
+
+### Anonymization
+- We've added additional anonymization support for:
+	- Religion field on all supported Malaysian documents (MyKad, MyKas, MyKid, MyPR, MyTentera)
+
+### Bugfixes
+- Resolved issues with RGB color overlay while extracting document image, which was present on some devices
+
+### Minor API breaking change
+- We have changed the DirectAPI recognize methods to make it easier to understand which one you should be using. If you want to process:
+ - **Still** Android `Bitmaps` (for example, obtained from the gallery), use `recognizeBitmap` or `recognizeBitmapWithRecognizers`.
+ - **Video** `Images` that are built from custom camera video frames (for example, when you use your own or third-party camera management), use `recognizeVideoImage` or `recognizeVideoImageWithRecognizers`. Recognition will be optimized for speed and will rely on time-redundancy between consecutive video frames in order to yield the best possible recognition result.
+ - **Still** `Images` which are not part of a video stream and you want to get the best possible results from the single `Image` use `recognizeStillImage` or `recognizeStillImageWithRecognizers`. Image type comes from our SDK or it can be created by using ImageBuilder.
+
 ## 5.18.0
+
 ### New feature:
 - Updated machine learning models resulting in a 41% reduced error rate.
 
