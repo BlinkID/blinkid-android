@@ -49,7 +49,6 @@ import com.microblink.directApi.RecognizerRunner;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.ImageBuilder;
-import com.microblink.recognition.FeatureNotSupportedException;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.view.recognition.ScanResultListener;
 
@@ -106,7 +105,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
                         com.microblink.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
                         Log.i(TAG, "Starting recognition");
                         mTimestamp = System.currentTimeMillis();
-                        mRecognizer.recognizeImage(image, true, Camera2Fragment.this);
+                        mRecognizer.recognizeVideoImage(image, Camera2Fragment.this);
                     } else {
                         Log.v(TAG, "Recognizer is busy. Dropping current frame");
                         img.close();
