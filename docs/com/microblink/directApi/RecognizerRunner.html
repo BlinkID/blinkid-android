@@ -26,7 +26,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+var data = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -214,7 +214,8 @@ extends java.lang.Object</pre>
                <a href="../geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanRegion,
                <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
 <td class="colLast">
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -223,7 +224,7 @@ extends java.lang.Object</pre>
                <a href="../hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
 <td class="colLast">
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
@@ -234,7 +235,7 @@ extends java.lang.Object</pre>
                               <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                               <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
 <td class="colLast">
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
@@ -244,26 +245,24 @@ extends java.lang.Object</pre>
                               <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                               <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
 <td class="colLast">
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImage(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener)">recognizeImage</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
-              boolean&nbsp;treatAsVideoFrame,
-              <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeStillImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">recognizeStillImage</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                   <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
 <td class="colLast">
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
+<div class="block">Use this method to directly recognize still Image.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeImageWithRecognizers(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
-                             boolean&nbsp;treatAsVideoFrame,
-                             <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
-                             <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeStillImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeStillImageWithRecognizers</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+                                  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
 <td class="colLast">
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
+<div class="block">Use this method to directly recognize still Image, with given recognition settings.</div>
 </td>
 </tr>
 <tr id="i10" class="altColor">
@@ -285,26 +284,43 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeVideoImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">recognizeVideoImage</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                   <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></th>
+<td class="colLast">
+<div class="block">Use this method to directly recognize Image from the video stream.</div>
+</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#recognizeVideoImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeVideoImageWithRecognizers</a></span>&#8203;(<a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+                                  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></th>
+<td class="colLast">
+<div class="block">Use this method to directly recognize Image from the video stream, with given recognition settings.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetRecognitionState()">resetRecognitionState</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Resets the recognition state, i.e.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetRecognitionState(boolean)">resetRecognitionState</a></span>&#8203;(boolean&nbsp;hardReset)</code></th>
 <td class="colLast">
 <div class="block">Resets the recognition state.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMetadataCallbacks(com.microblink.metadata.MetadataCallbacks)">setMetadataCallbacks</a></span>&#8203;(<a href="../metadata/MetadataCallbacks.html" title="class in com.microblink.metadata">MetadataCallbacks</a>&nbsp;metadataCallbacks)</code></th>
 <td class="colLast">
 <div class="block">Sets the metadata callbacks that will obtain metadata during processing.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#terminate()">terminate</a></span>()</code></th>
 <td class="colLast">
@@ -412,7 +428,10 @@ public final&nbsp;<a href="RecognizerRunner.State.html" title="enum in com.micro
                                   <a href="../hardware/orientation/Orientation.html" title="enum in com.microblink.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
                                   @NonNull
                                   <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap. Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.
+ If you want to recognize more consecutive images that come from the camera video stream,
+ use <a href="#recognizeVideoImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)"><code>recognizeVideoImage(Image, ScanResultListener)</code></a> instead.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image that needs to be recognized.</dd>
@@ -420,7 +439,7 @@ public final&nbsp;<a href="RecognizerRunner.State.html" title="enum in com.micro
 <dd><code>resultListener</code> - Result listener that will handle recognition done event.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is not initialized or is currently working</dd>
-<dd><code>java.lang.NullPointerException</code> - if given null scan result listener</dd>
+<dd><code>java.lang.NullPointerException</code> - if given scan result listener is <code>null</code></dd>
 </dl>
 </li>
 </ul>
@@ -438,7 +457,10 @@ public final&nbsp;<a href="RecognizerRunner.State.html" title="enum in com.micro
                                   <a href="../geometry/Rectangle.html" title="class in com.microblink.geometry">Rectangle</a>&nbsp;scanRegion,
                                   @NonNull
                                   <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.
+ If you want to recognize more consecutive images that come from the camera video stream,
+ use <a href="#recognizeVideoImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)"><code>recognizeVideoImage(Image, ScanResultListener)</code></a> instead.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image that needs to be recognized.</dd>
@@ -469,10 +491,13 @@ public final&nbsp;<a href="RecognizerRunner.State.html" title="enum in com.micro
                                                  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                                                  @NonNull
                                                  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
-<div class="block">Perform recognition of image represented as Android Bitmap.
+<div class="block">Perform recognition of still image represented as Android Bitmap. Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.
+ If you want to recognize more consecutive images that come from the camera video stream, use
+ <a href="#recognizeVideoImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)"><code>recognizeVideoImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</code></a> instead.
  <p/>
- Unlike method recognize, this method will apply given settings for recognition of current image. This may be much
- slower than using method recognize, but it is the only option if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
+ Unlike method recognizeBitmap, this method will apply given settings for recognition of current image. This may be much
+ slower than using method recognizeBitmap, but it is the only option if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image that needs to be recognized.</dd>
@@ -501,10 +526,13 @@ public final&nbsp;<a href="RecognizerRunner.State.html" title="enum in com.micro
                                                  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
                                                  @NonNull
                                                  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
-<div class="block">Perform recognition of image represented as Android Bitmap.
+<div class="block">Perform recognition of still image represented as Android Bitmap. Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.
+ If you want to recognize more consecutive images that come from the camera video stream, use
+ <a href="#recognizeVideoImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)"><code>recognizeVideoImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</code></a> instead.
  <p/>
- Unlike method recognize, this method will apply given settings for recognition of current image. This may be much
- slower than using method recognize, but it is the only option if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
+ Unlike method recognizeBitmap, this method will apply given settings for recognition of current image. This may be much
+ slower than using method recognizeBitmap, but it is the only option if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image that needs to be recognized.</dd>
@@ -552,69 +580,132 @@ public final&nbsp;void&nbsp;resetRecognitionState&#8203;(boolean&nbsp;hardReset)
 </dl>
 </li>
 </ul>
-<a id="recognizeImage(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener)">
+<a id="recognizeVideoImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>recognizeImage</h4>
+<h4>recognizeVideoImage</h4>
 <pre class="methodSignature">@UiThread
-public final&nbsp;void&nbsp;recognizeImage&#8203;(@NonNull
-                                 <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
-                                 boolean&nbsp;treatAsVideoFrame,
-                                 @NonNull
-                                 <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.
- <p>
+public final&nbsp;void&nbsp;recognizeVideoImage&#8203;(@NonNull
+                                      <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                      @NonNull
+                                      <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
+<div class="block">Use this method to directly recognize Image from the video stream. Mainly for the
+ use cases when you need to recognize multiple consecutive frames that come from the camera
+ video stream, for example, when you use your own or third party camera management. You should
+ use <a href="../image/ImageBuilder.html" title="class in com.microblink.image"><code>ImageBuilder</code></a> methods to create <a href="../image/Image.html" title="class in com.microblink.image"><code>Image</code></a> from the raw
+ camera frame.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
  Recognition will be performed with same settings that were used for initialization
  of recognizer singleton.
- <p>
- Please note that Image object will be disposed as soon as onMetadataAvailable method ends. You must clone
+ <p/>
+ Please note that, in cases when you are not the owner of the Image object, you must clone
  the Image object by calling its clone() method to ensure Image lives long enough to be processed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image to be processed (usually obtained from DebugImageListener)</dd>
-<dd><code>treatAsVideoFrame</code> - If set to true, image will be processed as part of video stream. This means that
-                          recognition will be optimized for speed and will rely on time-redundancy
-                          between consecutive video frames in order to yield best possible recognition
-                          result. If set to false, recognition will be optimized for processing
-                          single image - the processing may be slower but will not rely on
-                          time-redundant information between consecutive video frames.</dd>
 <dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
 </dl>
 </li>
 </ul>
-<a id="recognizeImageWithRecognizers(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">
+<a id="recognizeVideoImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>recognizeImageWithRecognizers</h4>
+<h4>recognizeVideoImageWithRecognizers</h4>
 <pre class="methodSignature">@UiThread
-public final&nbsp;void&nbsp;recognizeImageWithRecognizers&#8203;(@NonNull
-                                                <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
-                                                boolean&nbsp;treatAsVideoFrame,
-                                                @NonNull
-                                                <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
-                                                @NonNull
-                                                <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.
- Please note that Image object will be disposed as soon as onMetadataAvailable method ends. You must clone
+public final&nbsp;void&nbsp;recognizeVideoImageWithRecognizers&#8203;(@NonNull
+                                                     <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                                     @NonNull
+                                                     <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+                                                     @NonNull
+                                                     <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
+<div class="block">Use this method to directly recognize Image from the video stream, with given recognition settings.
+ Mainly for the use cases when you need to recognize multiple consecutive frames that come from the camera
+ video stream, for example, when you use your own or third party camera management. You should
+ use <a href="../image/ImageBuilder.html" title="class in com.microblink.image"><code>ImageBuilder</code></a> methods to create <a href="../image/Image.html" title="class in com.microblink.image"><code>Image</code></a> from the raw
+ camera frame.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
+ Please note that, in cases when you are not the owner of the Image object, you must clone
  the Image object by calling its clone() method to ensure Image lives long enough to be processed.
- Recognition will be performed with given recognition settings.
- <p>
+ <p/>
  If error happens due to illegal settings, onError will be invoked of the
  DirectApiErrorListener that was set in initialize method.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>image</code> - Image to be processed (usually obtained from MetadataListener).</dd>
 <dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
-<dd><code>treatAsVideoFrame</code> - If set to true, image will be processed as part of video stream. This means that
-                            recognition will be optimized for speed and will rely on time-redundancy
-                            between consecutive video frames in order to yield best possible recognition
-                            result. If set to false, recognition will be optimized for processing
-                            single image - the processing may be slower but will not rely on
-                            time-redundant information between consecutive video frames.</dd>
+<dd><code>recognizerBundle</code> - Recognizer bundle that will be used to perform this recognition.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalStateException</code> - if recognizer is not initialized or is currently working or Image object is already disposed</dd>
+<dd><code>java.lang.NullPointerException</code> - if given null scan result listener</dd>
+</dl>
+</li>
+</ul>
+<a id="recognizeStillImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>recognizeStillImage</h4>
+<pre class="methodSignature">@UiThread
+public final&nbsp;void&nbsp;recognizeStillImage&#8203;(@NonNull
+                                      <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                      @NonNull
+                                      <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
+<div class="block">Use this method to directly recognize still Image. Mainly for the use cases when you need
+ thorough scanning of single or few images which are not part of the video stream and you
+ want to get best possible results from the single image.
+ <p/>
+ Recognition will be optimized for processing single image - the processing may be slower but will not rely on
+ time-redundant information between consecutive video frames.
+ <p/>
+ Recognition will be performed with same settings that were used for initialization
+ of recognizer singleton.
+ <p/>
+ Please note that, in cases when you are not the owner of the Image object, you must clone
+ the Image object by calling its clone() method to ensure Image lives long enough to be processed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>image</code> - Image to be processed (usually obtained from DebugImageListener)</dd>
+<dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
+</dl>
+</li>
+</ul>
+<a id="recognizeStillImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>recognizeStillImageWithRecognizers</h4>
+<pre class="methodSignature">@UiThread
+public final&nbsp;void&nbsp;recognizeStillImageWithRecognizers&#8203;(@NonNull
+                                                     <a href="../image/Image.html" title="class in com.microblink.image">Image</a>&nbsp;image,
+                                                     @NonNull
+                                                     <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+                                                     @NonNull
+                                                     <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
+<div class="block">Use this method to directly recognize still Image, with given recognition settings.
+ Mainly for the use cases when you need thorough scanning of single or few images which
+ are not part of the video stream and you want to get best possible results from the single image.
+ <p/>
+ Recognition will be optimized for processing single image - the processing may be slower but will not rely on
+ time-redundant information between consecutive video frames.
+ <p/>
+ Please note that, in cases when you are not the owner of the Image object, you must clone
+ the Image object by calling its clone() method to ensure Image lives long enough to be processed.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>image</code> - Image to be processed (usually obtained from MetadataListener).</dd>
+<dd><code>resultListener</code> - Listener that will be invoked with recognition result.</dd>
 <dd><code>recognizerBundle</code> - Recognizer bundle that will be used to perform this recognition.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.IllegalStateException</code> - if recognizer is not initialized or is currently working or Image object is already disposed</dd>
@@ -634,10 +725,10 @@ public final&nbsp;void&nbsp;recognizeString&#8203;(@NonNull
                                   @NonNull
                                   <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.view.recognition">ScanResultListener</a>&nbsp;resultListener)</pre>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.
- <p>
+ <p/>
  Recognition will be performed with same settings that were used for initialization
  of recognizer singleton.
- <p></div>
+ <p/></div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>stringData</code> - String to be processed.</dd>
@@ -663,7 +754,7 @@ public final&nbsp;void&nbsp;recognizeStringWithRecognizers&#8203;(@NonNull
                                                  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</pre>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.
  Recognition will be performed with given recognition settings.
- <p>
+ <p/>
  If error happens due to illegal settings, onError will be invoked of the
  DirectApiErrorListener that was set in initialize method.</div>
 <dl>

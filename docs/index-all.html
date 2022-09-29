@@ -3028,6 +3028,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">The format of the scanned barcode.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/SignedPayload.html#getBase64EncodedPayload()">getBase64EncodedPayload()</a></span> - Method in class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/SignedPayload.html" title="class in com.microblink.entities.recognizers">SignedPayload</a></dt>
+<dd>
+<div class="block">Returns the base64 encoded payload.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/fragment/overlay/BaseOverlayController.html#getBeepSoundResourceId()">getBeepSoundResourceId()</a></span> - Method in class com.microblink.fragment.overlay.<a href="com/microblink/fragment/overlay/BaseOverlayController.html" title="class in com.microblink.fragment.overlay">BaseOverlayController</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/fragment/overlay/blinkid/BaseBlinkIdOverlayController.html#getBeepSoundResourceId()">getBeepSoundResourceId()</a></span> - Method in class com.microblink.fragment.overlay.blinkid.<a href="com/microblink/fragment/overlay/blinkid/BaseBlinkIdOverlayController.html" title="class in com.microblink.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></dt>
@@ -5526,6 +5530,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/Recognizer.Result.html#isEmpty()">isEmpty()</a></span> - Method in class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/SignedPayload.html#isEmpty()">isEmpty()</a></span> - Method in class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/SignedPayload.html" title="class in com.microblink.entities.recognizers">SignedPayload</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/geometry/Quadrilateral.html#isEmpty()">isEmpty()</a></span> - Method in class com.microblink.geometry.<a href="com/microblink/geometry/Quadrilateral.html" title="class in com.microblink.geometry">Quadrilateral</a></dt>
 <dd>
 <div class="block">Returns true if quadrilateral is empty, i.e.</div>
@@ -7766,27 +7772,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeBitmap(android.graphics.Bitmap,com.microblink.hardware.orientation.Orientation,com.microblink.geometry.Rectangle,com.microblink.view.recognition.ScanResultListener)">recognizeBitmap(Bitmap, Orientation, Rectangle, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
+ when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeBitmap(android.graphics.Bitmap,com.microblink.hardware.orientation.Orientation,com.microblink.view.recognition.ScanResultListener)">recognizeBitmap(Bitmap, Orientation, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.hardware.orientation.Orientation,com.microblink.geometry.Rectangle,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeBitmapWithRecognizers(Bitmap, Orientation, Rectangle, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.hardware.orientation.Orientation,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeBitmapWithRecognizers(Bitmap, Orientation, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
-<div class="block">Perform recognition of image represented as Android Bitmap.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeImage(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener)">recognizeImage(Image, boolean, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
-<dd>
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeImageWithRecognizers(com.microblink.image.Image,boolean,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeImageWithRecognizers(Image, boolean, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
-<dd>
-<div class="block">Use this method to directly recognize Image object obtained via MetadataListener while recognizer is active.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </dd>
 <dt><a href="com/microblink/entities/recognizers/Recognizer.html" title="class in com.microblink.entities.recognizers"><span class="typeNameLink">Recognizer</span></a>&lt;<a href="com/microblink/entities/recognizers/Recognizer.html" title="type parameter in Recognizer">T</a> extends <a href="com/microblink/entities/recognizers/Recognizer.Result.html" title="class in com.microblink.entities.recognizers">Recognizer.Result</a>&gt; - Class in <a href="com/microblink/entities/recognizers/package-summary.html">com.microblink.entities.recognizers</a></dt>
 <dd>
@@ -7859,6 +7858,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/RecognizerUtils.html#%3Cinit%3E()">RecognizerUtils()</a></span> - Constructor for class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/RecognizerUtils.html" title="class in com.microblink.entities.recognizers">RecognizerUtils</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeStillImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">recognizeStillImage(Image, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize still Image.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeStillImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeStillImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize still Image, with given recognition settings.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeString(java.lang.String,com.microblink.view.recognition.ScanResultListener)">recognizeString(String, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.</div>
@@ -7866,6 +7873,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeStringWithRecognizers(java.lang.String,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeStringWithRecognizers(String, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
 <dd>
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeVideoImage(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener)">recognizeVideoImage(Image, ScanResultListener)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/microblink/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers(com.microblink.image.Image,com.microblink.view.recognition.ScanResultListener,com.microblink.entities.recognizers.RecognizerBundle)">recognizeVideoImageWithRecognizers(Image, ScanResultListener, RecognizerBundle)</a></span> - Method in class com.microblink.directApi.<a href="com/microblink/directApi/RecognizerRunner.html" title="class in com.microblink.directApi">RecognizerRunner</a></dt>
+<dd>
+<div class="block">Use this method to directly recognize Image from the video stream, with given recognition settings.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/microblink/view/recognition/RecognizerRunnerView.html#reconfigureRecognizers(com.microblink.entities.recognizers.RecognizerBundle)">reconfigureRecognizers(RecognizerBundle)</a></span> - Method in class com.microblink.view.recognition.<a href="com/microblink/view/recognition/RecognizerRunnerView.html" title="class in com.microblink.view.recognition">RecognizerRunnerView</a></dt>
 <dd>
@@ -9952,7 +9967,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><a href="com/microblink/entities/recognizers/SignedPayload.html" title="class in com.microblink.entities.recognizers"><span class="typeNameLink">SignedPayload</span></a> - Class in <a href="com/microblink/entities/recognizers/package-summary.html">com.microblink.entities.recognizers</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/SignedPayload.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)">SignedPayload(String, String, String)</a></span> - Constructor for class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/SignedPayload.html" title="class in com.microblink.entities.recognizers">SignedPayload</a></dt>
+<dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/SignedPayload.html#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">SignedPayload(String, String, String, String)</a></span> - Constructor for class com.microblink.entities.recognizers.<a href="com/microblink/entities/recognizers/SignedPayload.html" title="class in com.microblink.entities.recognizers">SignedPayload</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/microblink/entities/recognizers/blinkid/generic/classinfo/Region.html#SINALOA">SINALOA</a></span> - com.microblink.entities.recognizers.blinkid.generic.classinfo.<a href="com/microblink/entities/recognizers/blinkid/generic/classinfo/Region.html" title="enum in com.microblink.entities.recognizers.blinkid.generic.classinfo">Region</a></dt>
 <dd>&nbsp;</dd>
