@@ -113,7 +113,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:5.18.0@aar') {
+    implementation('com.microblink:blinkid:5.19.0@aar') {
         transitive = true
     }
 }
@@ -125,7 +125,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-5.18.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-5.19.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -544,7 +544,11 @@ Image recognition performance highly depends on the quality of the input images.
 
 1. First, you need to obtain reference to [RecognizerRunner singleton](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html) using [getSingletonInstance](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#getSingletonInstance--).
 2. Second, you need to [initialize the recognizer runner](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-).
-3. After initialization, you can use singleton to [process Android bitmaps](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeBitmap-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-) or [images](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) that are [built from custom camera frames](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageBuilder.html#buildImageFromCamera1NV21Frame-byte:A-int-int-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-). Currently, it is not possible to process multiple images in parallel.
+3. After initialization, you can use singleton to process:
+ - **Still** Android `Bitmaps` obtained, for example, from the gallery. Use [recognizeBitmap](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeBitmap-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-) or [recognizeBitmapWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
+ - **Video** `Images` that are [built from custom camera video frames](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageBuilder.html), for example, when you use your own or third party camera management. Recognition will be optimized for speed and will rely on time-redundancy between consecutive video frames in order to yield best possible recognition result. Use [recognizeVideoImage](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeVideoImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeVideoImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
+ - **Still** `Images` when you need thorough scanning of single or few images which are not part of the video stream and you want to get best possible results from the single `Image`. [Image](https://blinkid.github.io/blinkid-android/com/microblink/image/Image.html) type comes from our SDK or it can be created by using [ImageBuilder](https://blinkid.github.io/blinkid-android/com/microblink/image/ImageBuilder.html). Use [recognizeStillImage](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeStillImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-). 
+
 4. When you want to delete all cached data from multiple recognitions, for example when you want to scan other document and/or restart scanning, you need to [reset the recognition state](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#resetRecognitionState--).
 5. Do not forget to [terminate](https://blinkid.github.io/blinkid-android/com/microblink/directApi/RecognizerRunner.html#terminate--) the recognizer runner singleton after usage (it is a shared resource).
 

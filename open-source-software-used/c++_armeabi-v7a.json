@@ -108,7 +108,7 @@
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
     },
     {
-        "package": "Zlib/1.2.11@microblink/stable",
+        "package": "Zlib/1.2.12@microblink/stable",
         "url": "https://github.com/microblink/zlib",
         "license": "Zlib",
         "description": "A massively spiffy yet delicately unobtrusive compression library."

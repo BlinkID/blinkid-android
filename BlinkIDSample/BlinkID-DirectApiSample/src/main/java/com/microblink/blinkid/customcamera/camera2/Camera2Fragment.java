@@ -43,13 +43,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
 import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.ImageBuilder;
-import com.microblink.recognition.FeatureNotSupportedException;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.view.recognition.ScanResultListener;
 
@@ -60,9 +62,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 
 /**
  * Created by dodo on 11/02/16.
@@ -106,7 +105,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
                         com.microblink.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
                         Log.i(TAG, "Starting recognition");
                         mTimestamp = System.currentTimeMillis();
-                        mRecognizer.recognizeImage(image, true, Camera2Fragment.this);
+                        mRecognizer.recognizeVideoImage(image, Camera2Fragment.this);
                     } else {
                         Log.v(TAG, "Recognizer is busy. Dropping current frame");
                         img.close();

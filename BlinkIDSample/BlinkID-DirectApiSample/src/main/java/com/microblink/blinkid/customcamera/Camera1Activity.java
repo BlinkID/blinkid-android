@@ -9,6 +9,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.microblink.blinkid.demo.R;
 import com.microblink.directApi.DirectApiErrorListener;
 import com.microblink.directApi.RecognizerRunner;
@@ -16,15 +18,12 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.hardware.orientation.Orientation;
 import com.microblink.image.Image;
 import com.microblink.image.ImageBuilder;
-import com.microblink.recognition.FeatureNotSupportedException;
 import com.microblink.recognition.RecognitionSuccessType;
 import com.microblink.util.Log;
 import com.microblink.view.recognition.ScanResultListener;
 
 import java.io.IOException;
 import java.util.List;
-
-import androidx.annotation.NonNull;
 
 @SuppressWarnings("deprecation")
 public class Camera1Activity extends Activity implements ScanResultListener, SurfaceHolder.Callback, Camera.PreviewCallback {
@@ -185,7 +184,7 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
         if (mRecognizerRunner.getCurrentState() == RecognizerRunner.State.READY) {
             // create image
             Image img = ImageBuilder.buildImageFromCamera1NV21Frame(data, mFrameWidth, mFrameHeight, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
-            mRecognizerRunner.recognizeImage(img, true, this);
+            mRecognizerRunner.recognizeVideoImage(img, this);
         } else {
             // just ask for another frame
             camera.addCallbackBuffer(data);
