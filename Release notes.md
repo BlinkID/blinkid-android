@@ -1,5 +1,85 @@
 # Release notes
 
+## 5.20.0
+
+### New feature:
+- ML models with new architecture that result in further 8% decrease in error rate
+
+### Support for 8 new document types:
+#### Northern America
+- USA - Polycarbonate Passport 
+- USA - Nebraska - ID Card
+- USA - New York - ID Card
+- USA - Utah - ID Card
+
+#### Latin America and the Caribbean
+- Mexico - Polycarbonate Passport
+- Brazil - Sao Paolo - ID Card
+
+#### Europe 
+- Austria - Residence Permit
+
+#### Asia
+- Philippines - ID Card
+
+### Back side support added:
+- Australia - South Australia - Driving license
+
+### Added support for 29 new versions of already supported documents:
+- Australia - Northern Territory - Proof of Age Card
+- Belgium - Minors ID Card
+- Belgium - Residence Permit
+- Bolivia - ID Card
+- Croatia - Residence Permit
+- Cyprus - ID Card
+- Czechia - ID card
+- Czechia - Residence Permit
+- Dominican Republic - Paper Passport
+- Greece - Residence Permit
+- Italy - Residence Permit
+- Ivory Coast - Driving license
+- Kuwait - Driving license
+- Mexico - Jalisco - Driving license
+- Mexico - Nuevo Leon - Driving license
+- Peru - ID Card
+- Poland - Driving license
+- Slovenia - ID Card
+- Sweden - ID Card
+- Sweden - Polycarbonate Passport
+- USA - Georgia - ID Card 
+- USA - Iowa - ID Card
+- USA - Kansas - Driving license
+- USA - Maryland - ID Card
+- USA - Nebraska - ID Card
+- USA - New York - Driving license
+- USA - New York - ID Card
+- USA - Oklahoma - Driving license
+- Vietnam - ID Card
+
+### These documents are no longer BETA:
+- Finland - Residence Permit
+- Guatemala - Driving license
+
+### Added support for 2 new ID types in BETA:
+- Antigua and Barbuda - Driving license
+- Mexico - Professional ID Card
+
+### Changes to BlinkID(Combined) Recognizer
+- ClassInfo:
+	- Added to JSON serialization:
+		- `isoNumericCountryCode`
+		- `isoAlpha2CountryCode`
+		- `isoAlpha3CountryCode`
+
+- BarcodeData:
+	- JSON serialization update: `stringData` member is now in Base64 format
+
+- Added new item to enums:
+	- Region: 
+		- Sao Paulo, when scanning Brazilian Driving licenses
+
+- Fixed scanning for Argentina ID - there were confusions for Veteran ID, now we enabled successful extraction on Veteran ID as well
+
 ## 5.19.0
 
 What's new in the BlinkID(Combined) Recognizer?
