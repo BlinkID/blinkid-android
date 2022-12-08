@@ -24,7 +24,7 @@
 - Renamed `BlinkIdRecognier` to **BlinkIdSingleSideRecognizer**
 - Renamed `BlinkIdCombinedRecognizer` to **BlinkIdMultiSideRecognizer**
 - We introduced new classes: `StringResult`, `DateResult`, and `Date` in order to support multiple alphabets. If a recognizer supports multiple alphabets, its result class (e.g., `BlinkIdMultiSideRecognizer.Result`) will return `StringResult` for results that previously returned `String`.
-- Added new result properties of an `AdditionalProcessingInfo` type that provides information about `missingMandatoryFields`, `invalidCharacterFields`, and `extraPresentFields`
+- Added new result property of an `AdditionalProcessingInfo` type that provides information about `missingMandatoryFields`, `invalidCharacterFields`, and `extraPresentFields`
 - Unified `DataMatchResult` and `DataMatchDetailedInfo` into a single structure `DataMatchResult` (removed `dataMatchDetailedInfo` result member)
 - Added new result member `cardOrientation` to `ImageAnalysisResult` structure
 - More info about transitioning to **BlinkID v6.0.0** can be found in [`Transition guide.md`](Transition guide.md) 
