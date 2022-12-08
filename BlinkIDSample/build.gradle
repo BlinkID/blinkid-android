@@ -22,7 +22,7 @@ allprojects {
 
 project.ext {
     blinkIdVersion = '5.20.0'
-    compileSdkVersion = 31
-    targetSdkVersion = 31
+    compileSdkVersion = 33
+    targetSdkVersion = 33
     appCompatVersion = '1.4.0'
 }

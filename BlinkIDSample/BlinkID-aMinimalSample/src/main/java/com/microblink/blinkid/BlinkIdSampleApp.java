@@ -2,8 +2,7 @@ package com.microblink.blinkid;
 
 import android.app.Application;
 
-import com.microblink.MicroblinkSDK;
-import com.microblink.intent.IntentDataTransferMode;
+import com.microblink.blinkid.intent.IntentDataTransferMode;
 
 public final class BlinkIdSampleApp extends Application {
 
