@@ -1,8 +1,8 @@
 package com.microblink.util;
 
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.blinkid.imageoptions.FaceImageOptions;
-import com.microblink.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.imageoptions.FaceImageOptions;
+import com.microblink.blinkid.entities.recognizers.blinkid.imageoptions.FullDocumentImageOptions;
 
 public class ImageSettings {
 

@@ -2,8 +2,8 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name="com.microblink.help.HelpActivity"/>
-        <activity android:name="com.microblink.result.activity.RecognizerBundleResultActivity"/>
+        <activity android:name="com.microblink.blinkid.help.HelpActivity"/>
+        <activity android:name="com.microblink.blinkid.result.activity.RecognizerBundleResultActivity"/>
     </application>
 
 </manifest>

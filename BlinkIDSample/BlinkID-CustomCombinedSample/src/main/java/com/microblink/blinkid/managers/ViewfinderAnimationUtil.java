@@ -6,7 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.view.View;
 
-import com.microblink.view.viewfinder.ViewfinderShapeView;
+import com.microblink.blinkid.view.viewfinder.ViewfinderShapeView;
 
 import java.util.ArrayList;
 import java.util.List;

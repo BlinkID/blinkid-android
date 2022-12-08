@@ -18,35 +18,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
-import com.microblink.hardware.SuccessCallback;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.metadata.MetadataCallbacks;
-import com.microblink.metadata.detection.FailedDetectionCallback;
-import com.microblink.metadata.detection.points.DisplayablePointsDetection;
-import com.microblink.metadata.detection.points.PointsDetectionCallback;
-import com.microblink.metadata.detection.points.PointsType;
-import com.microblink.metadata.detection.quad.DisplayableQuadDetection;
-import com.microblink.metadata.detection.quad.QuadDetectionCallback;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.util.CameraPermissionManager;
-import com.microblink.util.Log;
-import com.microblink.view.CameraAspectMode;
-import com.microblink.view.CameraEventsListener;
-import com.microblink.view.OnActivityFlipListener;
-import com.microblink.view.OnSizeChangedListener;
-import com.microblink.view.OrientationAllowedListener;
-import com.microblink.view.ocrResult.OcrResultDotsView;
-import com.microblink.view.recognition.DetectionStatus;
-import com.microblink.view.recognition.RecognizerRunnerView;
-import com.microblink.view.recognition.ScanResultListener;
-import com.microblink.view.viewfinder.points.PointSetView;
-import com.microblink.view.viewfinder.quadview.QuadViewManager;
-import com.microblink.view.viewfinder.quadview.QuadViewManagerFactory;
-import com.microblink.view.viewfinder.quadview.QuadViewPreset;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.blinkid.hardware.SuccessCallback;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.metadata.MetadataCallbacks;
+import com.microblink.blinkid.metadata.detection.FailedDetectionCallback;
+import com.microblink.blinkid.metadata.detection.points.DisplayablePointsDetection;
+import com.microblink.blinkid.metadata.detection.points.PointsDetectionCallback;
+import com.microblink.blinkid.metadata.detection.points.PointsType;
+import com.microblink.blinkid.metadata.detection.quad.DisplayableQuadDetection;
+import com.microblink.blinkid.metadata.detection.quad.QuadDetectionCallback;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.util.CameraPermissionManager;
+import com.microblink.blinkid.util.Log;
+import com.microblink.blinkid.view.CameraAspectMode;
+import com.microblink.blinkid.view.CameraEventsListener;
+import com.microblink.blinkid.view.OnActivityFlipListener;
+import com.microblink.blinkid.view.OnSizeChangedListener;
+import com.microblink.blinkid.view.OrientationAllowedListener;
+import com.microblink.blinkid.view.ocrResult.OcrResultDotsView;
+import com.microblink.blinkid.view.recognition.DetectionStatus;
+import com.microblink.blinkid.view.recognition.RecognizerRunnerView;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
+import com.microblink.blinkid.view.viewfinder.points.PointSetView;
+import com.microblink.blinkid.view.viewfinder.quadview.QuadViewManager;
+import com.microblink.blinkid.view.viewfinder.quadview.QuadViewManagerFactory;
+import com.microblink.blinkid.view.viewfinder.quadview.QuadViewPreset;
 
 import androidx.annotation.NonNull;
 
@@ -385,7 +385,7 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
         // This method will be called when opening of camera resulted in exception or
         // recognition process encountered an error.
         // The error details will be given in ex parameter.
-        com.microblink.util.Log.e(this, ex, "Error");
+        com.microblink.blinkid.util.Log.e(this, ex, "Error");
         handleError();
     }
 

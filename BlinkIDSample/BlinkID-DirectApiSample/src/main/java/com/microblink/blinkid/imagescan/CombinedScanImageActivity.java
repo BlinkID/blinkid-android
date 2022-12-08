@@ -15,15 +15,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.directApi.DirectApiErrorListener;
-import com.microblink.directApi.RecognizerRunner;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.metadata.MetadataCallbacks;
-import com.microblink.metadata.recognition.FirstSideRecognitionCallback;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.directApi.DirectApiErrorListener;
+import com.microblink.blinkid.directApi.RecognizerRunner;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.metadata.MetadataCallbacks;
+import com.microblink.blinkid.metadata.recognition.FirstSideRecognitionCallback;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +51,7 @@ public class CombinedScanImageActivity extends Activity {
     private ProgressDialog mProgress;
 
     /** Recognizer for scanning front and back side of a document */
-    private BlinkIdCombinedRecognizer mBlinkIdCombinedRecognizer = new BlinkIdCombinedRecognizer();
+    private BlinkIdMultiSideRecognizer mBlinkIdMultiSideRecognizer = new BlinkIdMultiSideRecognizer();
 
     /** RecognizerRunner that will run recognizers on given image */
     private RecognizerRunner mRecognizerRunner;
@@ -115,7 +115,7 @@ public class CombinedScanImageActivity extends Activity {
         mRecognizerRunner.setMetadataCallbacks(metadataCallbacks);
 
         // initialize recognizer runner singleton
-        mRecognizerRunner.initialize(this, new RecognizerBundle(mBlinkIdCombinedRecognizer), new DirectApiErrorListener() {
+        mRecognizerRunner.initialize(this, new RecognizerBundle(mBlinkIdMultiSideRecognizer), new DirectApiErrorListener() {
             @Override
             public void onRecognizerError(@NonNull Throwable t) {
                 Log.e(TAG, "Failed to initialize recognizer.", t);
@@ -196,7 +196,7 @@ public class CombinedScanImageActivity extends Activity {
         public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
             prepareForNextCombinedRecognition();
             if (recognitionSuccessType != RecognitionSuccessType.UNSUCCESSFUL) {
-                showResultsDialog(mBlinkIdCombinedRecognizer.getResult());
+                showResultsDialog(mBlinkIdMultiSideRecognizer.getResult());
             } else {
                 showFailureMessage();
             }
@@ -208,7 +208,7 @@ public class CombinedScanImageActivity extends Activity {
         }
     };
 
-    private void showResultsDialog(BlinkIdCombinedRecognizer.Result result) {
+    private void showResultsDialog(BlinkIdMultiSideRecognizer.Result result) {
         StringBuilder sbResults = new StringBuilder();
         String newline = String.format("%n");
         sbResults.append("First name: ").append(result.getFirstName()).append(newline);

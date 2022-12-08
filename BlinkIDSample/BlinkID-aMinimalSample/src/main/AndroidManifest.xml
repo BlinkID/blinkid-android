@@ -35,7 +35,7 @@
         </activity>
 
         <!-- You can provide custom theme for scan activity -->
-        <activity android:name="com.microblink.activity.DocumentScanActivity" android:theme="@style/FullScreen"/>
+        <activity android:name="com.microblink.blinkid.activity.DocumentScanActivity" android:theme="@style/FullScreen"/>
 
     </application>
 

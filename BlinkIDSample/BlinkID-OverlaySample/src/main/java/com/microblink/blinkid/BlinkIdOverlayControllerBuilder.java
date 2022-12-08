@@ -2,13 +2,13 @@ package com.microblink.blinkid;
 
 import android.content.Context;
 
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
-import com.microblink.fragment.overlay.blinkid.BlinkIdOverlaySettings;
-import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayView;
-import com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings;
-import com.microblink.fragment.overlay.blinkid.reticleui.ReticleOverlayView;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlayController;
+import com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlaySettings;
+import com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlayView;
+import com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings;
+import com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayView;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 class BlinkIdOverlayControllerBuilder {
 
@@ -27,7 +27,7 @@ class BlinkIdOverlayControllerBuilder {
         // for ReticleOverlayView check attributes in R.styleable.BlinkIdReticleOverlay
         int customStyle = R.style.BluePulseStyle;
 
-        BlinkIdOverlayView overlayView = new ReticleOverlayView(true, true, overlayStrings, customStyle);
+        BlinkIdOverlayView overlayView = new ReticleOverlayView(true, true, true, true, overlayStrings, customStyle);
         return new BlinkIdOverlayController(overlaySettings, scanResultListener, overlayView);
     }
 

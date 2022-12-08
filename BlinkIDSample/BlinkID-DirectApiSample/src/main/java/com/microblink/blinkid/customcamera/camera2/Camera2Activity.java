@@ -1,12 +1,10 @@
 package com.microblink.blinkid.customcamera.camera2;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Bundle;
 
 import com.microblink.blinkid.demo.R;
 
-@TargetApi(21)
 public class Camera2Activity extends Activity {
 
     @Override

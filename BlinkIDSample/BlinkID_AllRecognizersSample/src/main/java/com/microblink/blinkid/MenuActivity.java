@@ -5,31 +5,31 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
-import com.microblink.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
-import com.microblink.entities.recognizers.blinkid.passport.PassportRecognizer;
-import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.visa.VisaRecognizer;
-import com.microblink.menu.MenuListItem;
-import com.microblink.menu.ResultHandlerMenuActivity;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
-import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.BlinkIdUISettings;
-import com.microblink.uisettings.DocumentUISettings;
-import com.microblink.uisettings.LegacyDocumentVerificationUISettings;
-import com.microblink.uisettings.UISettings;
-import com.microblink.uisettings.options.BeepSoundUIOptions;
-import com.microblink.uisettings.options.OcrResultDisplayMode;
-import com.microblink.uisettings.options.OcrResultDisplayUIOptions;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.passport.PassportRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.visa.VisaRecognizer;
+import com.microblink.blinkid.menu.MenuListItem;
+import com.microblink.blinkid.menu.ResultHandlerMenuActivity;
+import com.microblink.blinkid.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkid.uisettings.ActivityRunner;
+import com.microblink.blinkid.uisettings.BlinkIdUISettings;
+import com.microblink.blinkid.uisettings.DocumentUISettings;
+import com.microblink.blinkid.uisettings.LegacyDocumentVerificationUISettings;
+import com.microblink.blinkid.uisettings.UISettings;
+import com.microblink.blinkid.uisettings.options.BeepSoundUIOptions;
+import com.microblink.blinkid.uisettings.options.OcrResultDisplayMode;
+import com.microblink.blinkid.uisettings.options.OcrResultDisplayUIOptions;
 import com.microblink.util.ImageSettings;
-import com.microblink.util.RecognizerCompatibility;
-import com.microblink.util.RecognizerCompatibilityStatus;
+import com.microblink.blinkid.util.RecognizerCompatibility;
+import com.microblink.blinkid.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +77,7 @@ public class MenuActivity extends ResultHandlerMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(buildBlinkIdCombinedElement());
+        items.add(buildBlinkIdMultiSideElement());
         items.add(buildPassportElement());
         items.add(buildVisaElement());
 
@@ -115,7 +115,7 @@ public class MenuActivity extends ResultHandlerMenuActivity {
     }
 
     /**
-     * Starts {@link com.microblink.activity.LegacyDocumentVerificationActivity} with given recognizer.
+     * Starts {@link com.microblink.blinkid.activity.LegacyDocumentVerificationActivity} with given recognizer.
      * @param combinedRecognizer recognizer that will be used.
      */
     private void combinedRecognitionAction(Recognizer combinedRecognizer) {
@@ -143,11 +143,11 @@ public class MenuActivity extends ResultHandlerMenuActivity {
         }
     }
 
-    private MenuListItem buildBlinkIdCombinedElement() {
-        return new MenuListItem("BlinkId Combined", new Runnable() {
+    private MenuListItem buildBlinkIdMultiSideElement() {
+        return new MenuListItem("BlinkId Multi Side", new Runnable() {
             @Override
             public void run() {
-                BlinkIdCombinedRecognizer blinkIdCombined = new BlinkIdCombinedRecognizer();
+                BlinkIdMultiSideRecognizer blinkIdCombined = new BlinkIdMultiSideRecognizer();
                 ImageSettings.enableAllImages(blinkIdCombined);
                 scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkIdCombined)));
             }

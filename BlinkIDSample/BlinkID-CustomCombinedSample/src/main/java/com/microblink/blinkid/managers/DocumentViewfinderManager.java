@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.microblink.view.viewfinder.ViewfinderShapeView;
+import com.microblink.blinkid.view.viewfinder.ViewfinderShapeView;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;

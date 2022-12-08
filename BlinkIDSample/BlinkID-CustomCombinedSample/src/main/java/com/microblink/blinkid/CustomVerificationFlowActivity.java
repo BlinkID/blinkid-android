@@ -26,40 +26,40 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.microblink.blinkid.entities.recognizers.blinkid.DataMatchState;
 import com.microblink.blinkid.managers.DocumentViewfinderManager;
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.CombinedDataMatchResult;
-import com.microblink.entities.recognizers.blinkid.CombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.DataMatchResult;
-import com.microblink.geometry.Rectangle;
-import com.microblink.hardware.SuccessCallback;
-import com.microblink.hardware.camera.AutoFocusRequiredButNotSupportedException;
-import com.microblink.hardware.camera.CameraResolutionTooSmallException;
-import com.microblink.hardware.camera.CameraType;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.metadata.MetadataCallbacks;
-import com.microblink.metadata.detection.FailedDetectionCallback;
-import com.microblink.metadata.detection.points.DisplayablePointsDetection;
-import com.microblink.metadata.detection.points.PointsDetectionCallback;
-import com.microblink.metadata.glare.GlareCallback;
-import com.microblink.metadata.recognition.FirstSideRecognitionCallback;
-import com.microblink.recognition.FeatureNotSupportedException;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.recognition.RecognizerError;
-import com.microblink.util.CameraPermissionManager;
-import com.microblink.util.Log;
-import com.microblink.view.CameraAspectMode;
-import com.microblink.view.CameraEventsListener;
-import com.microblink.view.NotSupportedReason;
-import com.microblink.view.OnActivityFlipListener;
-import com.microblink.view.OrientationAllowedListener;
-import com.microblink.view.exception.NonLandscapeOrientationNotSupportedException;
-import com.microblink.view.ocrResult.OcrResultDotsView;
-import com.microblink.view.recognition.RecognizerRunnerView;
-import com.microblink.view.recognition.ScanResultListener;
-import com.microblink.view.viewfinder.ViewfinderShapeView;
-import com.microblink.view.viewfinder.points.PointSetView;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.CombinedDataMatchResult;
+import com.microblink.blinkid.entities.recognizers.blinkid.CombinedRecognizer;
+import com.microblink.blinkid.geometry.Rectangle;
+import com.microblink.blinkid.hardware.SuccessCallback;
+import com.microblink.blinkid.hardware.camera.AutoFocusRequiredButNotSupportedException;
+import com.microblink.blinkid.hardware.camera.CameraResolutionTooSmallException;
+import com.microblink.blinkid.hardware.camera.CameraType;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.metadata.MetadataCallbacks;
+import com.microblink.blinkid.metadata.detection.FailedDetectionCallback;
+import com.microblink.blinkid.metadata.detection.points.DisplayablePointsDetection;
+import com.microblink.blinkid.metadata.detection.points.PointsDetectionCallback;
+import com.microblink.blinkid.metadata.glare.GlareCallback;
+import com.microblink.blinkid.metadata.recognition.FirstSideRecognitionCallback;
+import com.microblink.blinkid.recognition.FeatureNotSupportedException;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.recognition.RecognizerError;
+import com.microblink.blinkid.util.CameraPermissionManager;
+import com.microblink.blinkid.util.Log;
+import com.microblink.blinkid.view.CameraAspectMode;
+import com.microblink.blinkid.view.CameraEventsListener;
+import com.microblink.blinkid.view.NotSupportedReason;
+import com.microblink.blinkid.view.OnActivityFlipListener;
+import com.microblink.blinkid.view.OrientationAllowedListener;
+import com.microblink.blinkid.view.exception.NonLandscapeOrientationNotSupportedException;
+import com.microblink.blinkid.view.ocrResult.OcrResultDotsView;
+import com.microblink.blinkid.view.recognition.RecognizerRunnerView;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
+import com.microblink.blinkid.view.viewfinder.ViewfinderShapeView;
+import com.microblink.blinkid.view.viewfinder.points.PointSetView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -682,7 +682,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
         Recognizer.Result recognizerResult = mRecognizerBundle.getRecognizers()[0].getResult();
         if (recognizerResult instanceof CombinedDataMatchResult) {
             CombinedDataMatchResult combinedDataMatchResult = (CombinedDataMatchResult) recognizerResult;
-            if (combinedDataMatchResult.getDocumentDataMatch() != DataMatchResult.Failed) {
+            if (combinedDataMatchResult.getDocumentDataMatch() != DataMatchState.Failed) {
                 finishWithResults();
             } else {
                 // handle case when scanned sides were from different documents

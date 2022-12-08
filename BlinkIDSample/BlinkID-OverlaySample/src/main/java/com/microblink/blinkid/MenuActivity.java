@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.fragment.RecognizerRunnerFragment;
-import com.microblink.fragment.overlay.ScanningOverlay;
-import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
-import com.microblink.menu.BaseMenuActivity;
-import com.microblink.menu.MenuListItem;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.fragment.RecognizerRunnerFragment;
+import com.microblink.blinkid.fragment.overlay.ScanningOverlay;
+import com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlayController;
+import com.microblink.blinkid.menu.BaseMenuActivity;
+import com.microblink.blinkid.menu.MenuListItem;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +43,7 @@ public class MenuActivity extends BaseMenuActivity implements RecognizerRunnerFr
         parent = findViewById(android.R.id.content);
 
         // setup recognizer and put it into recognizer bundle
-        BlinkIdCombinedRecognizer recognizer = new BlinkIdCombinedRecognizer();
+        BlinkIdMultiSideRecognizer recognizer = new BlinkIdMultiSideRecognizer();
         recognizer.setReturnFullDocumentImage(true);
         recognizer.setReturnFaceImage(true);
         recognizerBundle = new RecognizerBundle(recognizer);

@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.microblink.activity.DocumentVerificationActivity"
+            android:name="com.microblink.blinkid.activity.LegacyDocumentVerificationActivity"
             android:theme="@style/VerificationFlowTheme" />
     </application>
 
