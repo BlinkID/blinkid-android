@@ -1,6 +1,6 @@
 [
     {
-        "package": "Boost/1.75.1@microblink/stable",
+        "package": "Boost/1.80.0@microblink/stable",
         "url": "https://bitbucket.org/microblink/boost",
         "license": "Boost Software license",
         "description": "Free peer-reviewed portable C++ source libraries."
@@ -18,7 +18,7 @@
         "description": "Additions to boost/config for additional compiler-specific codegen tweaking macros"
     },
     {
-        "package": "Eigen/3.4.0.2@microblink/stable",
+        "package": "Eigen/3.4.0.3@microblink/stable",
         "url": "https://github.com/microblink/eigen-git-mirror",
         "license": "Mozilla Public License Version 2.0",
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
@@ -36,19 +36,19 @@
         "description": "a complete C++17 rewrite of boost/std::function"
     },
     {
-        "package": "Hash/8.0.3@microblink/stable",
+        "package": "Hash/8.0.4@microblink/stable",
         "url": "https://github.com/microblink/hash-library",
         "license": "zlib",
         "description": "Portable C++ Hashing Library"
     },
     {
-        "package": "MMap/0.3.4@microblink/stable",
+        "package": "MMap/0.3.5@microblink/stable",
         "url": "https://github.com/microblink/mmap",
         "license": "Boost Software License",
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
     },
     {
-        "package": "MicroECC/2.0.1@microblink/stable",
+        "package": "MicroECC/2.0.2@microblink/stable",
         "url": "https://github.com/microblink/micro-ecc",
         "license": "BSD 2-Clause \"Simplified\" License",
         "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
@@ -66,14 +66,14 @@
         "description": "Microblink's fork of OpenCV"
     },
     {
-        "package": "Pimpl/1.0.3@microblink/stable",
+        "package": "Pimpl/1.0.4@microblink/stable",
         "url": "https://github.com/microblink/pimpl",
         "license": "BSD 2-Clause \"Simplified\" License",
         "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
     },
     {
-        "package": "Protobuf/3.19.3@microblink/stable",
-        "url": "https://bitbucket.org/microblink/protobuffork/",
+        "package": "Protobuf/21.7@microblink/stable",
+        "url": "https://github.com/microblink/protobuf",
         "license": "BSD",
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
     },
@@ -108,7 +108,7 @@
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
     },
     {
-        "package": "Zlib/1.2.12@microblink/stable",
+        "package": "Zlib/1.2.13@microblink/stable",
         "url": "https://github.com/microblink/zlib",
         "license": "Zlib",
         "description": "A massively spiffy yet delicately unobtrusive compression library."
@@ -124,6 +124,18 @@
         "url": "https://github.com/microblink/icu",
         "license": "Unicode",
         "description": "A mature, widely used set of libraries providing Unicode and Globalization support"
+    },
+    {
+        "package": "kiwaku/20221004.0@microblink/stable",
+        "url": "https://github.com/microblink/kiwaku",
+        "license": "BSL-1.0",
+        "description": "C++20 and onward collection of high performance data containers and related tools"
+    },
+    {
+        "package": "libbacktrace/cci.20210118",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "BSD-3-Clause",
+        "description": "A C library that may be linked into a C/C++ program to produce symbolic backtraces."
     },
     {
         "package": "libjpeg-turbo/2.1.4@microblink/stable",

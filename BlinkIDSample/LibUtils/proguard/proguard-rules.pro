@@ -1,59 +1,59 @@
 -renamesourcefileattribute line
 
 # HelpActivity is public
--keep public class com.microblink.help.** {
+-keep public class com.microblink.blinkid.help.** {
     *;
 }
 
 # ResultActivity is public
--keep public class com.microblink.result.ResultActivity {
+-keep public class com.microblink.blinkid.result.ResultActivity {
     *;
 }
 
 # ResultActivityBeta is public
--keep public class com.microblink.result.ResultActivityBeta {
+-keep public class com.microblink.blinkid.result.ResultActivityBeta {
     *;
 }
 
 # StatisticsActivity is public
--keep public class com.microblink.statistics.StatisticsActivity {
+-keep public class com.microblink.blinkid.statistics.StatisticsActivity {
     *;
 }
 
 # DefaultImageListener is public
--keep public class com.microblink.result.DefaultImageListener {
+-keep public class com.microblink.blinkid.result.DefaultImageListener {
     *;
 }
 
--keep class com.microblink.fullscreen.** {
+-keep class com.microblink.blinkid.fullscreen.** {
     *;
 }
 
--keep class com.microblink.customcamera.** {
+-keep class com.microblink.blinkid.customcamera.** {
     *;
 }
 
--keep class com.microblink.util.templating.** {
+-keep class com.microblink.blinkid.util.templating.** {
     public *;
 }
 
--keep class com.microblink.detector.DetectorActivity {
+-keep class com.microblink.blinkid.detector.DetectorActivity {
     *;
 }
 
--keep class com.microblink.result.extract.RecognitionResultExtractorFactory {
+-keep class com.microblink.blinkid.result.extract.RecognitionResultExtractorFactory {
     public *;
 }
 
--keep interface com.microblink.result.extract.IBaseRecognitionResultExtractor {
+-keep interface com.microblink.blinkid.result.extract.IBaseRecognitionResultExtractor {
     public *;
 }
 
--keep class com.microblink.result.extract.RecognitionResultEntry {
+-keep class com.microblink.blinkid.result.extract.RecognitionResultEntry {
     public *;
 }
 
--keep class com.microblink.util.BlinkOcrConfigurator {
+-keep class com.microblink.blinkid.util.BlinkOcrConfigurator {
     public *;
 }
 

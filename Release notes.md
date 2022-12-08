@@ -1,5 +1,101 @@
 # Release notes
 
+## v6.0.0
+### New features:
+#### Extracting ID data from Arabic and Cyrillic IDs
+- When we say you can scan IDs across the globe, we really mean it. Our [list of supported](https://microblink.com/full-list-of-supported-identity-documents/) documents got richer now that we can scan IDs including Arabic and Cyrillic scripts. This fantastic new feature also covers multiscript IDs meaning that we extract data written in both Latin and Arabic data fields.
+
+#### Better barcode scanning and data extraction
+
+- We’ve improved scanning accuracy for all IDs that hold a PDF417 or other barcode types. This means that the error rate is now 20% lower, which brings even cleaner and more reliable data with every scan of an identity document. 
+
+#### New user instructions that lead to successful scans
+- More detailed instructions on how to scan identity documents, via an intro tutorial or tooltip during scanning, leading to improved success rates in ID scanning and data extraction.
+
+#### In-depth error messaging for developers
+- You asked, we listened! With v6, you’ll get more detailed error messages regarding end-user activity, to better understand if scans should be repeated or accepted.
+
+#### Easier implementation
+- Less code, less headaches! You can now implement basic Identity Document Scanning in a single line of code.
+
+
+### What's new in the BlinkId(Combined) Recognizer?
+
+- Renamed `BlinkIdRecognier` to **BlinkIdSingleSideRecognizer**
+- Renamed `BlinkIdCombinedRecognizer` to **BlinkIdMultiSideRecognizer**
+- We introduced new classes: `StringResult`, `DateResult`, and `Date` in order to support multiple alphabets. If a recognizer supports multiple alphabets, its result class (e.g., `BlinkIdMultiSideRecognizer.Result`) will return `StringResult` for results that previously returned `String`.
+- Added new result properties of an `AdditionalProcessingInfo` type that provides information about `missingMandatoryFields`, `invalidCharacterFields`, and `extraPresentFields`
+- Unified `DataMatchResult` and `DataMatchDetailedInfo` into a single structure `DataMatchResult` (removed `dataMatchDetailedInfo` result member)
+- Added new result member `cardOrientation` to `ImageAnalysisResult` structure
+- More info about transitioning to **BlinkID v6.0.0** can be found in [`Transition guide.md`](Transition guide.md) 
+
+### Added support for 50 new versions of already supported documents:
+- Mexico - Aguascalientes - Driving license
+- Mexico - Baja California - Driving license 
+- Mexico - Hidalgo - Driving license
+- USA - Delaware - Driving license
+- USA - Florida - ID card
+- USA - Hawaii - Driving license
+- USA - Kentucky - ID card
+- USA - Maryland - ID card
+- USA - Michigan - ID card
+- USA - Mississippi - Driving license
+- USA - Mississippi - ID card
+- USA - Missouri - ID card
+- USA - Ohio - ID card
+- USA - Oklahoma - ID card
+- USA - Rhode Island - Driving license 
+
+### These documents are no longer BETA:
+- Australia - New South Wales - ID card
+- Australia - South Australia - Proof of Age Card 
+- Belgium - Minors ID card
+- Belgium - Passport
+- Canada - Tribal ID card
+- Canada - Weapon Permit
+- Canada - British Columbia - Minors Public Services Card
+- Ireland - Public Services Card
+- Israel - ID card
+- Ivory Coast - Driving License
+- Lebanon - ID card
+- Libya - Polycarbonate Passport 
+- Mexico - Colima - Driving license
+- Mexico - Michoacan - Driving license
+- Mexico - Tamaulipas - Driving license 
+- Mexico - Zacatecas - Driving license
+- Myanmar - Driving license
+- Panama - Temporary Residence Permit
+- Slovenia - Residence Permit
+- Trinidad and Tobago - Driving license
+- USA - Passport
+- USA - Maine - ID card
+
+### Added support for 2 new ID types in BETA:
+#### Latin America and the Caribbean
+- Cuba - ID card
+- Cayman Islands - Drivers License
+
+### Already supported documents but now with option to enable extraction for new scripts
+#### Arabic - 5 ID types
+- Egypt - ID card
+- Jordan - ID card
+- UAE - ID card
+- UAE - Passport
+- UAE - Resident ID
+
+#### Cyrillic - 10 ID types
+- Bosnia and Herzegovina - ID card
+- Bulgaria - Drivers License
+- Bulgaria - ID card
+- North Macedonia - Drivers License
+- North Macedonia - ID card
+- Serbia - ID card
+- Ukraine - Drivers License
+- Ukraine - ID card
+- Ukraine - Residence Permit
+- Ukraine - Temporary Residence Permit
+
+
 ## 5.20.0
 
 ### New feature:

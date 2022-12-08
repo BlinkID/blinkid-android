@@ -1,9 +1,19 @@
-<p align="justify">
-The tables below represent scanning results for each document in each country supported in BlinkID v5. The fields marked as "Always" are mandatory on all document versions and will always be a part of the result set. The ones marked as "Always if present" will be returned only if they exist on the specific document being scanned. "Pending" stands for those fields for which it's not certain whether or not they're present on all document versions. For US documents, all information concerns both horizontal and vertical supported documents.
-<br>
-<br>
+
+# BlinkID Single Side and Multi Side Recognizer Result
+
+
+## Table of contents
+
+* [MRZ Fields](#mrz-fields)
+* [Anonymised Fields](#anonymised-fields)
+* [AAMVA Barcode Fields](#aamva-barcode-fields)
+* [All Fields](#all-fields)
+<br><br><br>
+
+
 <h2>MRZ Fields</h2>
-Other than documents listed here, BlinkID(Combined)Recognizer also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
+Other than documents listed here, BlinkID Recognizer, both Single Side and Multi Side, also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) 
+<strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> aand other identification documents.
 <br>
 <br>
 The MRZ is parsed to produce a structure with fields:
@@ -27,11 +37,13 @@ The MRZ is parsed to produce a structure with fields:
 <li>Verified flag (check digits are verified)</li>
 </ul>
 <br>
+
 <h2>Anonymised Fields</h2>
-With the <strong>result anonymization option</strong> enabled, results are not returned for protected fields on documents listed here. The full document image will also have this data blacked out.
+With the <strong>result anonymization option</strong> enabled, results are not returned for protected fields on documents listed here. 
+The full document image will also have this data blacked out.
 <br>
 Protected fields are:
-
+<br><br>
 <table><tr>
 <th colspan=1>Country and document type</th><th>Anonymised fields</th> </tr>
  <tr> <td>GERMANY ID Card</td> <td>Anonymized line, Document additional number, Document number, MRZ (Document number)</td><tr>
@@ -60,7 +72,7 @@ Protected fields are:
  <tr> <td>SOUTH KOREA ID Card</td> <td>Document number</td><tr>
  <tr> <td>SOUTH KOREA Paper Passport</td> <td>MRZ (Opt1), Personal ID number</td><tr>
 </table>
-
+<br><br>
 
 <h2>AAMVA Barcode Fields</h2>
 <p>AAMVA standard compliant barcodes (US, Canada documents) contain these fields:</p>
@@ -81,6 +93,18 @@ Protected fields are:
 
 <br>
 <h2>All Fields</h2>
+
+<p align="justify">
+The tables below represent scanning results for each document in each country supported in BlinkID v6. The fields marked as "Always" are mandatory on all document versions and 
+will always be a part of the result set. The ones marked as "Always if present" will be returned only if they exist on the specific document being scanned. 
+"Pending" stands for those fields for which it's not certain whether or not they're present on all document versions. For US documents, all information concerns both horizontal 
+and vertical supported documents.
+
+Currently, in BlinkID v6 we support the extraction of fields in Latin, Cyrillic, and Arabic scipts. Information about supported scripts for each document is listed 
+in the tables in [BlinkIDRecognizer.md](BlinkIDRecognizer.md) file in this repository.
+<br>
+<br>
+
 <table><tr>
 <th colspan=2>AFGHANISTAN ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Empty document side</td> <td></td><tr>
@@ -1641,6 +1665,8 @@ Protected fields are:
 
 <tr> <td>Issuing authority</td> <td>Always if present</td><tr>
 
+<tr> <td>Last name</td> <td>Always if present</td><tr>
+
 
 <th colspan=2>BULGARIA Paper Passport - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -2718,6 +2744,28 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
+<th colspan=2>CUBA ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+
+<th colspan=2>CUBA ID Card - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>MRZ</td> <td>Always</td><tr>
+
+
 <th colspan=2>CUBA Paper Passport - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
@@ -3225,17 +3273,29 @@ Protected fields are:
 
 
 <th colspan=2>EGYPT ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
 <tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Full name</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
 
 <th colspan=2>EGYPT ID Card - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Additional name information</td> <td>Always</td><tr>
+
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
+<tr> <td>Sex</td> <td>Always</td><tr>
+
 <tr> <td>Date of expiry</td> <td>Always if present</td><tr>
+
+<tr> <td>Marital status</td> <td>Always if present</td><tr>
+
+<tr> <td>Profession</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>EGYPT Paper Passport - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -4892,7 +4952,7 @@ Protected fields are:
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
 
-<th colspan=2>IRELAND Passport Card - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<th colspan=2>IRELAND Passport Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
@@ -5268,13 +5328,19 @@ Protected fields are:
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
 <th colspan=2>JORDAN ID Card - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
 <tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
 
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
@@ -6341,7 +6407,9 @@ Protected fields are:
 <tr> <td>MRZ</td> <td>Always if present</td><tr>
 
 
-<th colspan=2>MEXICO BAJA CALIFORNIA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<th colspan=2>MEXICO AGUASCALIENTES Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
 
 <tr> <td>Date of issue</td> <td>Always</td><tr>
@@ -6352,8 +6420,30 @@ Protected fields are:
 
 <tr> <td>Last name</td> <td>Always</td><tr>
 
+<tr> <td>Vehicle class</td> <td>Always if present</td><tr>
+
+<th colspan=2>MEXICO AGUASCALIENTES Driving Licence - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Restrictions</td> <td>Always</td><tr>
+
+
+<th colspan=2>MEXICO BAJA CALIFORNIA Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
 <tr> <td>Address</td> <td>Always if present</td><tr>
 <tr> <td>Date of birth</td> <td>Always if present</td><tr>
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Full name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
 <tr> <td>Personal ID number</td> <td>Always if present</td><tr>
 <tr> <td>Vehicle class</td> <td>Always if present</td><tr>
 
@@ -6614,11 +6704,12 @@ Protected fields are:
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
+<tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
 <th colspan=2>MEXICO HIDALGO Driving Licence - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
-<tr> <td>Restrictions</td> <td>Always</td><tr>
+<tr> <td>Restrictions</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>MEXICO JALISCO Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -8826,11 +8917,21 @@ Protected fields are:
 
 <tr> <td>Document number</td> <td>Always</td><tr>
 
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always if present</td><tr>
+<tr> <td>Last name</td> <td>Always if present</td><tr>
 
 <th colspan=2>SERBIA ID Card - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>MRZ</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
+
+<tr> <td>Address</td> <td>Always if present</td><tr>
 
 
 <th colspan=2>SERBIA Polycarbonate Passport - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
@@ -10437,16 +10538,19 @@ Protected fields are:
 
 <tr> <td>Date of issue</td> <td>Always</td><tr>
 
+<tr> <td>Document number</td> <td>Always</td><tr>
+
 <tr> <td>First name</td> <td>Always</td><tr>
 
+<tr> <td>Issuing authority</td> <td>Always</td><tr>
+
 <tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Place of birth</td> <td>Always</td><tr>
 
 <tr> <td>Vehicle class</td> <td>Always</td><tr>
 
 <tr> <td>Date of expiry</td> <td>Always if present</td><tr>
-<tr> <td>Document number</td> <td>Always if present</td><tr>
-<tr> <td>Issuing authority</td> <td>Always if present</td><tr>
-<tr> <td>Place of birth</td> <td>Always if present</td><tr>
 
 <th colspan=2>UKRAINE ID Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -10488,6 +10592,8 @@ Protected fields are:
 <tr> <td>First name</td> <td>Always</td><tr>
 
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
@@ -10538,6 +10644,8 @@ Protected fields are:
 <tr> <td>First name</td> <td>Always</td><tr>
 
 <tr> <td>Issuing authority</td> <td>Always</td><tr>
+
+<tr> <td>Nationality</td> <td>Always</td><tr>
 
 <tr> <td>Personal ID number</td> <td>Always</td><tr>
 
@@ -10596,8 +10704,7 @@ Protected fields are:
 
 
 <th colspan=2>USA Border Crossing Card - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
-<tr> <td>MRZ</td> <td>Always</td><tr>
-
+<tr> <td>MRZ</td> <td>Pending</td><tr>
 
 <th colspan=2>USA Global Entry Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
@@ -10714,7 +10821,7 @@ Protected fields are:
 <tr> <td>Sex</td> <td>Always</td><tr>
 
 
-<th colspan=2>USA Passport Card - Bio-data page </th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<th colspan=2>USA Passport Card - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>
 
 <tr> <td>Date of expiry</td> <td>Always</td><tr>
