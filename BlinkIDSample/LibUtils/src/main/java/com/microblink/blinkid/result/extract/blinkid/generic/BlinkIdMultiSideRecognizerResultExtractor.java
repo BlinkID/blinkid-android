@@ -5,13 +5,14 @@ import com.microblink.blinkid.entities.recognizers.blinkid.generic.DriverLicense
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.barcode.BarcodeDriverLicenseDetailedInfo;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.barcode.BarcodeResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.ClassInfo;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.datamatch.DataMatchResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.viz.VizResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElementKey;
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElements;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrzResult;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.ResultSource;
 import com.microblink.blinkid.result.extract.blinkid.BlinkIdExtractor;
-import com.microblink.libutils.R;
 
 public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdMultiSideRecognizer.Result, BlinkIdMultiSideRecognizer> {
 

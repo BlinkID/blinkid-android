@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ListView;
 
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.locale.LanguageUtils;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 

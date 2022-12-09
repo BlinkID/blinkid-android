@@ -1,28 +1,30 @@
 package com.microblink.blinkid.result.activity.fragment;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
-import com.microblink.libutils.R;
 
 import java.util.List;
 
 public class ResultEntryAdapter extends ArrayAdapter<RecognitionResultEntry> {
 
-    private final LayoutInflater mInflater;
+    private LayoutInflater mInflater;
 
     public ResultEntryAdapter(Context context, int resource, List<RecognitionResultEntry> entries) {
         super(context, resource, entries);
         mInflater = LayoutInflater.from(context);
     }
 
-    static class ImageTag {};
+    class ImageTag {};
 
     private void setupTitle( View view, String title ) {
         TextView keyText = view.findViewById(R.id.resultLabel);

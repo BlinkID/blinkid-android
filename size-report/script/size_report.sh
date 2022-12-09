@@ -23,7 +23,7 @@ echo "Project path: $PROJECT_PATH"
 echo "App name: $APP_NAME"
 echo "Output file: $OUTPUT_MARKDOWN_FILE"
 
-ABIS=(armeabi-v7a arm64-v8a)
+ABIS=(armeabi-v7a arm64-v8a x86 x86_64)
 
 pushd $PROJECT_PATH > /dev/null
 ./gradlew clean :$APP_NAME:assembleRelease || exit 1
