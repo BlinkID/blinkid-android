@@ -31,57 +31,57 @@ Feeling ready to crack on with the integration? First make sure we support your 
 
 # Table of contents
 
-* [Quick Start](#quickStart)
-    * [Quick start with the sample app](#quickDemo)
-    * [SDK integration](#androidStudioIntegration)
-* [Device requirements](#supportCheck)
-* [_BlinkID_ SDK integration levels](#uiCustomizations)
-    * [Built-in activities (`UISettings`)](#runBuiltinActivity)
-    * [Built-in fragment (`RecognizerRunnerFragment`)](#recognizerRunnerFragment)
-    * [Custom UX with `RecognizerRunnerView`](#recognizerRunnerView)
-    * [Direct API](#directAPI)
-        * [Using Direct API for recognition of Android Bitmaps and custom camera frames](#directAPI_images)
-        * [Using Direct API for `String` recognition (parsing)](#directAPI_strings)
-        * [Understanding DirectAPI's state machine](#directAPIStateMachine)
-        * [Using Direct API while RecognizerRunnerView is active](#directAPIWithRecognizer)
-        * [Using Direct API with combined recognizers ](#directAPI_combined_recognizers)
-* [Available activities and overlays](#builtInUIComponents)
-    * [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent)
-    * [`DocumentUISettings`](#documentUiComponent)
-    * [`LegacyDocumentVerificationUISettings`](#legacyDocumentVerifyUiComponent)
+* [Quick Start](#quick-start)
+    * [Quick start with the sample app](#quick-demo)
+    * [SDK integration](#android-studio-integration)
+* [Device requirements](#support-check)
+* [_BlinkID_ SDK integration levels](#ui-customizations)
+    * [Built-in activities (`UISettings`)](#run-builtin-activity)
+    * [Built-in fragment (`RecognizerRunnerFragment`)](#recognizer-runner-fragment)
+    * [Custom UX with `RecognizerRunnerView`](#recognizer-runner-view)
+    * [Direct API](#direct-api)
+        * [Using Direct API for recognition of Android Bitmaps and custom camera frames](#direct-api-images)
+        * [Using Direct API for `String` recognition (parsing)](#direct-api-strings)
+        * [Understanding DirectAPI's state machine](#direct-api-state-machine)
+        * [Using Direct API while RecognizerRunnerView is active](#direct-api-with-recognizer)
+        * [Using Direct API with combined recognizers ](#direct-api-combined-recognizers)
+* [Available activities and overlays](#built-in-ui-components)
+    * [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component)
+    * [`DocumentUISettings`](#document-ui-component)
+    * [`LegacyDocumentVerificationUISettings`](#legacy-document-verify-ui-component)
     * [Translation and localization](#translation)
-* [Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`](#processingEvents)
-* [`Recognizer` concept and `RecognizerBundle`](#availableRecognizers)
-    * [The `Recognizer` concept](#recognizerConcept)
-    * [`RecognizerBundle`](#recognizerBundle)
-        * [Passing `Recognizer` objects between activities](#intentOptimization)
-* [List of available recognizers](#recognizerList)
-    * [Frame Grabber Recognizer](#frameGrabberRecognizer)
-    * [Success Frame Grabber Recognizer](#successFrameGrabberRecognizer)
-    * [BlinkID recognizers](#blinkid_recognizers)
-        * [BlinkID single side recognizer](#blinkidSingleSideRecognizer)
-        * [BlinkID multi side recognizer](#blinkidMultiSideRecognizer)
-        * [Machine Readable Travel Document recognizer](#mrtdRecognizer)
-        * [Machine Readable Travel Document combined recognizer](#mrtd_combined_recognizer)
-        * [Passport recognizer](#passportRecognizer)
-        * [Visa recognizer](#visaRecognizer)
-        * [ID barcode recognizer](#idBarcodeRecognizer)
-        * [Document face recognizer](#documentFaceRecognizer)
-* [Embedding _BlinkID_ inside another SDK](#embedAAR)
-* [Processor architecture considerations](#archConsider)
-    * [Reducing the final size of your app](#reduceSize)
-        * [Consequences of removing processor architecture](#archConsequences)
-    * [Combining _BlinkID_ with other native libraries](#combineNativeLibraries)
+* [Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`](#processing-events)
+* [`Recognizer` concept and `RecognizerBundle`](#available-recognizers)
+    * [The `Recognizer` concept](#recognizer-concept)
+    * [`RecognizerBundle`](#recognizer-bundle)
+        * [Passing `Recognizer` objects between activities](#intent-optimization)
+* [List of available recognizers](#recognizer-list)
+    * [Frame Grabber Recognizer](#frame-grabber-recognizer)
+    * [Success Frame Grabber Recognizer](#success-frame-grabber-recognizer)
+    * [BlinkID recognizers](#blinkid-recognizers)
+        * [BlinkID single side recognizer](#blinkid-single-side-recognizer)
+        * [BlinkID multi side recognizer](#blinkid-multi-side-recognizer)
+        * [Machine Readable Travel Document recognizer](#mrtd-recognizer)
+        * [Machine Readable Travel Document combined recognizer](#mrtd-combined-recognizer)
+        * [Passport recognizer](#passport-recognizer)
+        * [Visa recognizer](#visa-recognizer)
+        * [ID barcode recognizer](#id-barcode-recognizer)
+        * [Document face recognizer](#document-face-recognizer)
+* [Embedding _BlinkID_ inside another SDK](#embed-aar)
+* [Processor architecture considerations](#arch-consider)
+    * [Reducing the final size of your app](#reduce-size)
+        * [Consequences of removing processor architecture](#arch-consequences)
+    * [Combining _BlinkID_ with other native libraries](#combine-native-libraries)
 * [Troubleshooting](#troubleshoot)
 * [FAQ and known issues](#faq)
 * [Additional info](#info)
-    * [BlinkID SDK size](#size_report)
-    * [API reference](#api_reference)
+    * [BlinkID SDK size](#size-report)
+    * [API reference](#api-reference)
     * [Contact](#contact)
 
-# <a name="quickStart"></a> Quick Start
+# <a name="quick-start"></a> Quick Start
 
-## <a name="quickDemo"></a> Quick start with the sample app
+## <a name="quick-demo"></a> Quick start with the sample app
 
 1. Open Android Studio.
 2. In Quick Start dialog choose _Import project (Eclipse ADT, Gradle, etc.)_.
@@ -98,7 +98,7 @@ Feeling ready to crack on with the integration? First make sure we support your 
 - _BlinkID-ImagesSample_ demonstrates how to obtain document images
 - _BlinkID-OverlaySample_ demonstrates how to use `RecognizerRunnerFragment` and built in camera overlay controller within your activity
 
-## <a name="androidStudioIntegration"></a> SDK integration
+## <a name="android-studio-integration"></a> SDK integration
 #### Adding _BlinkID_ dependency
 
 In your `build.gradle`, add _BlinkID_ maven repository to repositories list
@@ -224,7 +224,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
     ```
 
    The results are going to be available in a callbacks, which are defined in the `ActivityResultObject` which was defined in the previous step.
-# <a name="supportCheck"></a> Device requirements
+# <a name="support-check"></a> Device requirements
 
 ### Android Version
 
@@ -244,7 +244,7 @@ Even before setting the license key, you should check if the _BlinkID_ is suppor
 
 If you are combining _BlinkID_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries.
 
-For more information, see [Processor architecture considerations](#archConsider) section.
+For more information, see [Processor architecture considerations](#arch-consider) section.
 
 ### Compatibility check
 
@@ -304,7 +304,7 @@ if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)
 }
 ```
 
-# <a name="uiCustomizations"></a> _BlinkID_ SDK integration levels
+# <a name="ui-customizations"></a> _BlinkID_ SDK integration levels
 
 You can integrate _BlinkID_ into your app in five different ways, depending on your use case and customisation needs:
 
@@ -320,16 +320,16 @@ You can integrate _BlinkID_ into your app in five different ways, depending on y
 
 As shown in the [Performing your first scan](#firstScan) requires just the definition of a result listener, to define what is going to happen with the scan results, and calling the actual scanning function.
 
-## <a name="runBuiltinActivity"></a> Built-in activities (`UISettings`)
+## <a name="run-builtin-activity"></a> Built-in activities (`UISettings`)
 
 `UISettings` is a class that contains all the necessary settings for SDK's built-in scan activities. It configures scanning activity behaviour, strings, icons and other UI elements.
 You should use [`ActivityRunner`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/ActivityRunner.html) to start the scan activity configured by `UISettings`, shown in the example below.
 
 We provide multiple `UISettings` classes specialised for different scanning scenarios. Each `UISettings` object has properties which can be changed via appropriate setter methods. For example, you can customise camera settings with `setCameraSettings` metod.
 
-All available `UISettings` classes are listed [here](#builtInUIComponents).
+All available `UISettings` classes are listed [here](#built-in-ui-components).
 
-1. In your main activity, create recognizer objects that will perform image recognition, configure them and put them into [RecognizerBundle object](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and `RecognizerBundle` [here](#availableRecognizers).
+1. In your main activity, create recognizer objects that will perform image recognition, configure them and put them into [RecognizerBundle object](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html). You can see more information about available recognizers and `RecognizerBundle` [here](#available-recognizers).
 
    For example, to scan supported document, configure your recognizer like this:
 
@@ -452,12 +452,12 @@ All available `UISettings` classes are listed [here](#builtInUIComponents).
     }
     ```
 
-   For more information about available recognizers and `RecognizerBundle`, see [RecognizerBundle and available recognizers](#availableRecognizers).
-## <a name="recognizerRunnerFragment"></a> Built-in fragment (`RecognizerRunnerFragment`)
+   For more information about available recognizers and `RecognizerBundle`, see [RecognizerBundle and available recognizers](#available-recognizers).
+## <a name="recognizer-runner-fragment"></a> Built-in fragment (`RecognizerRunnerFragment`)
 
 If you want to reuse our built-in activity UX inside your own activity, use [`RecognizerRunnerFragment`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/RecognizerRunnerFragment.html). Activity that will host `RecognizerRunnerFragment` must implement [`ScanningOverlayBinder`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/RecognizerRunnerFragment.ScanningOverlayBinder.html) interface. Attempting to add `RecognizerRunnerFragment` to activity that does not implement that interface will result in `ClassCastException`.
 
-The `ScanningOverlayBinder` is responsible for returning `non-null` implementation of [`ScanningOverlay`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/overlay/ScanningOverlay.html) - class that will manage UI on top of `RecognizerRunnerFragment`. It is not recommended to create your own `ScanningOverlay` implementation, use one of our implementations listed [here](#builtInUIComponents) instead.
+The `ScanningOverlayBinder` is responsible for returning `non-null` implementation of [`ScanningOverlay`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/overlay/ScanningOverlay.html) - class that will manage UI on top of `RecognizerRunnerFragment`. It is not recommended to create your own `ScanningOverlay` implementation, use one of our implementations listed [here](#built-in-ui-components) instead.
 
 Here is the minimum example for activity that hosts the `RecognizerRunnerFragment`:
 
@@ -527,7 +527,7 @@ public class MyActivity extends AppCompatActivity implements RecognizerRunnerFra
 ```
 Please refer to sample apps provided with the SDK for more detailed example and make sure your host activity's orientation is set to `nosensor` or has configuration changing enabled (i.e. is not restarted when configuration change happens). For more information, check [scan orientation section](#scanOrientation).
 
-## <a name="recognizerRunnerView"></a> Custom UX with `RecognizerRunnerView`
+## <a name="recognizer-runner-view"></a> Custom UX with `RecognizerRunnerView`
 This section discusses how to embed [RecognizerRunnerView](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html) into your scan activity and perform scan.
 
 1. First make sure that `RecognizerRunnerView` is a member field in your activity. This is required because you will need to pass all activity's lifecycle events to `RecognizerRunnerView`.
@@ -693,20 +693,20 @@ public class MyScanActivity extends AppCompatActivity {
     
 }
 ```
-#### <a name="scanOrientation"></a> Scan activity's orientation
+#### <a name="scan-orientation"></a> Scan activity's orientation
 
 If activity's `screenOrientation` property in `AndroidManifest.xml` is set to `sensor`, `fullSensor` or similar, activity will be restarted every time device changes orientation from portrait to landscape and vice versa. While restarting activity, its `onPause`, `onStop` and `onDestroy` methods will be called and then new activity will be created anew. This is a potential problem for scan activity because in its lifecycle it controls both camera and native library - restarting the activity will trigger both restart of the camera and native library. This is a problem because changing orientation from landscape to portrait and vice versa will be very slow, thus degrading a user experience. **We do not recommend such setting.**
 
 For that matter, we recommend setting your scan activity to either `portrait` or `landscape` mode and handle device orientation changes manually. To help you with this, `RecognizerRunnerView` supports adding child views to it that will be rotated regardless of activity's `screenOrientation`. You add a view you wish to be rotated (such as view that contains buttons, status messages, etc.) to `RecognizerRunnerView` with [addChildView](#{javadocUrl}(com/microblink/blinkid/view/CameraViewGroup.html#addChildView-android.view.View-boolean-)) method. The second parameter of the method is a boolean that defines whether the view you are adding will be rotated with device. To define allowed orientations, implement [OrientationAllowedListener](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/OrientationAllowedListener.html) interface and add it to `RecognizerRunnerView` with method `setOrientationAllowedListener`. **This is the recommended way of rotating camera overlay.**
 
 However, if you really want to set `screenOrientation` property to `sensor` or similar and want Android to handle orientation changes of your scan activity, then we recommend to set `configChanges` property of your activity to `orientation|screenSize`. This will tell Android not to restart your activity when device orientation changes. Instead, activity's `onConfigurationChanged` method will be called so that activity can be notified of the configuration change. In your implementation of this method, you should call `changeConfiguration` method of `RecognizerView` so it can adapt its camera surface and child views to new configuration.
-## <a name="directAPI"></a> Direct API
+## <a name="direct-api"></a> Direct API
 
 This section will describe how to use direct API to recognize android Bitmaps without the need for camera. You can use direct API anywhere from your application, not just from activities.
 
 Image recognition performance highly depends on the quality of the input images. When our camera management is used (scanning from a camera), we do our best to get camera frames with the best possible quality for the used device. On the other hand, when Direct API is used, you need to provide high-quality images without blur and glare for successful recognition.
 
-### <a name="directAPI_images"></a> Using Direct API for recognition of Android Bitmaps and custom camera frames
+### <a name="direct-api-images"></a> Using Direct API for recognition of Android Bitmaps and custom camera frames
 
 1. First, you need to obtain reference to [RecognizerRunner singleton](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html) using [getSingletonInstance](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#getSingletonInstance--).
 2. Second, you need to [initialize the recognizer runner](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-).
@@ -788,11 +788,11 @@ public class DirectAPIActivity extends Activity {
 
 [ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) method is called for each input image that you send to the recognition. You can call `RecognizerRunner.recognize*` method multiple times with different images of the same document for better reading accuracy until you get a successful result in the listener's `onScanningDone` method. This is useful when you are using your own or third-party camera management.
 
-### <a name="directAPI_strings"></a> Using Direct API for `String` recognition (parsing)
+### <a name="direct-api-strings"></a> Using Direct API for `String` recognition (parsing)
 
 Some recognizers support recognition from `String`. They can be used through Direct API to parse given `String` and return data just like when they are used on an input image. When recognition is performed on `String`, there is no need for the OCR. Input `String` is used in the same way as the OCR output is used when image is being recognized. 
 
-Recognition from `String` can be performed in the same way as recognition from image, described in the [previous section](#directAPI_images). 
+Recognition from `String` can be performed in the same way as recognition from image, described in the [previous section](direct-api-images). 
 
 The only difference is that one of the [RecognizerRunner singleton](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html) methods for recognition from string should be called:
 
@@ -800,7 +800,7 @@ The only difference is that one of the [RecognizerRunner singleton](https://blin
 - [recognizeStringWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeStringWithRecognizers-java.lang.String-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-)
 
 
-### <a name="directAPIStateMachine"></a> Understanding DirectAPI's state machine
+### <a name="direct-api-state-machine"></a> Understanding DirectAPI's state machine
 
 Direct API's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`.
 
@@ -815,16 +815,16 @@ Direct API's `RecognizerRunner` singleton is a state machine that can be in one 
 - `terminate` method can be called from any `RecognizerRunner` singleton's state
 - You can observe `RecognizerRunner` singleton's state with method [`getCurrentState`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#getCurrentState--)
 
-### <a name="directAPIWithRecognizer"></a> Using Direct API while RecognizerRunnerView is active
-Both [RecognizerRunnerView](#recognizerRunnerView) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
+### <a name="direct-api-with-recognizer"></a> Using Direct API while RecognizerRunnerView is active
+Both [RecognizerRunnerView](#recognizer-runner-view) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
 
 
-### <a name="directAPI_combined_recognizers"></a> Using Direct API with combined recognizers 
+### <a name="direct-api-combined-recognizers"></a> Using Direct API with combined recognizers 
 
 When you are using combined recognizer and images of both document sides are required, you need to call `RecognizerRunner.recognize*` multiple times. Call it first with the images of the first side of the document, until it is read, and then with the images of the second side. The combined recognizer automatically switches to second side scanning, after it has successfully read the first side. To be notified when the first side scanning is completed, you have to set the [FirstSideRecognitionCallback](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/metadata/recognition/FirstSideRecognitionCallback.html) through [MetadataCallbacks](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/metadata/MetadataCallbacks.html). If you don't need that information, e.g. when you have only one image for each document side, don't set the `FirstSideRecognitionCallback` and check the [RecognitionSuccessType](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/recognition/RecognitionSuccessType.html) in [ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-), after the second side image has been processed.
 
-# <a name="builtInUIComponents"></a> Available activities and overlays
-## <a name="blinkidUiComponent"></a> `BlinkIdUISettings` and `BlinkIdOverlayController`
+# <a name="built-in-ui-components"></a> Available activities and overlays
+## <a name="blinkid-ui-component"></a> `BlinkIdUISettings` and `BlinkIdOverlayController`
 
 [`BlinkIdOverlayController`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/overlay/blinkid/BlinkIdOverlayController.html) implements new UI for scanning identity documents, which is optimally designed to be used with new [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) and [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html). It implements several new features:
 
@@ -908,16 +908,16 @@ The method for controlling the visibility of the **onboarding dialog** is [`Blin
 There is also a method for controlling the delay of the **"Show help?" tooltip** that is shown above the help button. The button itself will be shown if the previous method for showing onboarding is true.
 The method for setting the delay length of the tooltip is [`BlinkIdUISettings.setShowTooltipTimeIntervalMs(boolean showTooltipTimeIntervalMs)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BaseBlinkIdUiSettings.html#setShowIntroductionDialog(long)). Time parameter is set in milliseconds.
 The default setting of the delay is 12 seconds (12000 milliseconds).
-## <a name="documentUiComponent"></a> `DocumentUISettings`
+## <a name="document-ui-component"></a> `DocumentUISettings`
 
 [`DocumentUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/DocumentUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for scanning single document side of various card documents and it shouldn't be used with combined recognizers as it provides no user instructions on when to switch to the back side.
 
-## <a name="legacyDocumentVerifyUiComponent"></a> `LegacyDocumentVerificationUISettings`
+## <a name="legacy-document-verify-ui-component"></a> `LegacyDocumentVerificationUISettings`
 
 [`LegacyDocumentVerificationUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/LegacyDocumentVerificationUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for **combined recognizers** because it manages scanning of multiple document sides in the single camera opening and guides the user through the scanning process. It can also be used for single side scanning of ID cards, passports, driver's licenses, etc.
 ## <a name="translation"></a> Translation and localization
 
-Strings used within built-in activities and overlays can be localized to any language. If you are using `RecognizerRunnerView` ([see this chapter for more information](#recognizerRunnerView)) in your custom scan activity or fragment, you should handle localization as in any other Android app. `RecognizerRunnerView` does not use strings nor drawables, it only uses assets from `assets/microblink` folder. Those assets must not be touched as they are required for recognition to work correctly.
+Strings used within built-in activities and overlays can be localized to any language. If you are using `RecognizerRunnerView` ([see this chapter for more information](#recognizer-runner-view)) in your custom scan activity or fragment, you should handle localization as in any other Android app. `RecognizerRunnerView` does not use strings nor drawables, it only uses assets from `assets/microblink` folder. Those assets must not be touched as they are required for recognition to work correctly.
 
 However, if you use our built-in activities or overlays, they will use resources packed within `LibBlinkID.aar` to display strings and images on top of the camera view. We have already prepared strings for several languages which you can use out of the box. You can also [modify those strings](#stringChanging), or you can [add your own language](#addLanguage).
 
@@ -930,11 +930,11 @@ To use a language, you have to enable it from the code:
     LanguageUtils.setLanguageAndCountry("hr", "", this);
     ```
 
-#### <a name="addLanguage"></a> Adding new language
+#### <a name="add-language"></a> Adding new language
 
 _BlinkID_ can easily be translated to other languages. The `res` folder in `LibBlinkID.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibBlinkID.aar` archive to access those files). Then, open that file and translate the strings from English into Croatian.
 
-#### <a name="stringChanging"></a> Changing strings in the existing language
+#### <a name="string-changing"></a> Changing strings in the existing language
     
 To modify an existing string, the best approach would be to:
 
@@ -945,9 +945,9 @@ To modify an existing string, the best approach would be to:
 5. Create an entry in the file with the value for the string which you want. For example: ```<string name="MBBack">Natrag</string>```
 6. Repeat for all the string you wish to change
 
-# <a name="processingEvents"></a> Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`
+# <a name="processing-events"></a> Handling processing events with `RecognizerRunner` and `RecognizerRunnerView`
 
-Processing events, also known as _Metadata callbacks_ are purely intended for giving processing feedback on UI or to capture some debug information during development of your app using _BlinkID_ SDK. For that reason, built-in activities and fragments handle those events internally. If you need to handle those events yourself, you need to use either [RecognizerRunnerView](#recognizerRunnerView) or [RecognizerRunner](#directAPI).
+Processing events, also known as _Metadata callbacks_ are purely intended for giving processing feedback on UI or to capture some debug information during development of your app using _BlinkID_ SDK. For that reason, built-in activities and fragments handle those events internally. If you need to handle those events yourself, you need to use either [RecognizerRunnerView](#recognizer-runner-view) or [RecognizerRunner](#directAPI).
 
 Callbacks for all events are bundled into the [MetadataCallbacks](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/metadata/MetadataCallbacks.html) object. Both [RecognizerRunner](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#setMetadataCallbacks-com.microblink.metadata.MetadataCallbacks-) and [RecognizerRunnerView](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html#setMetadataCallbacks-com.microblink.metadata.MetadataCallbacks-) have methods which allow you to set all your callbacks.
 
@@ -962,17 +962,17 @@ Similarly, if you, for example, remove the `QuadDetectionCallback` from `Metadat
 
 **Remember**, each time you make some changes to `MetadataCallbacks` object, you need to apply those changes to to your `RecognizerRunner` or `RecognizerRunnerView` by calling its `setMetadataCallbacks` method.
 
-# <a name="availableRecognizers"></a> `Recognizer` concept and `RecognizerBundle`
+# <a name="available-recognizers"></a> `Recognizer` concept and `RecognizerBundle`
 
-This section will first describe [what is a `Recognizer`](#recognizerConcept) and how it should be used to perform recognition of the images, videos and camera stream. Next, [we will describe how `RecognizerBundle`](#recognizerBundle) can be used to tweak the recognition procedure and to transfer `Recognizer` objects between activities.
+This section will first describe [what is a `Recognizer`](#recognizer-concept) and how it should be used to perform recognition of the images, videos and camera stream. Next, [we will describe how `RecognizerBundle`](#recognizer-bundle) can be used to tweak the recognition procedure and to transfer `Recognizer` objects between activities.
 
 [RecognizerBundle](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html) is an object which wraps the [Recognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/Recognizer.html) and defines settings about how recognition should be performed. Besides that, `RecognizerBundle` makes it possible to transfer `Recognizer` objects between different activities, which is required when using built-in activities to perform scanning, as described in first scan section, but is also handy when you need to pass `Recognizer` objects between your activities.
 
-List of all available `Recognizer` objects, with a brief description of each `Recognizer`, its purpose and recommendations how it should be used to get best performance and user experience, can be found [here](#recognizerList) .
+List of all available `Recognizer` objects, with a brief description of each `Recognizer`, its purpose and recommendations how it should be used to get best performance and user experience, can be found [here](#recognizer-list) .
 
-## <a name="recognizerConcept"></a> The `Recognizer` concept
+## <a name="recognizer-concept"></a> The `Recognizer` concept
 
-The [Recognizer](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/Recognizer.html) is the basic unit of processing within the _BlinkID_ SDK. Its main purpose is to process the image and extract meaningful information from it. As you will see [later](#recognizerList), the _BlinkID_ SDK has lots of different `Recognizer` objects that have various purposes.
+The [Recognizer](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/Recognizer.html) is the basic unit of processing within the _BlinkID_ SDK. Its main purpose is to process the image and extract meaningful information from it. As you will see [later](#recognizer-list), the _BlinkID_ SDK has lots of different `Recognizer` objects that have various purposes.
 
 Each `Recognizer` has a `Result` object, which contains the data that was extracted from the image. The `Result` object is a member of corresponding `Recognizer` object and its lifetime is bound to the lifetime of its parent `Recognizer` object. If you need your `Result` object to outlive its parent `Recognizer` object, you must make a copy of it by calling its method [`clone()`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/Entity.Result.html#clone--).
 
@@ -982,20 +982,20 @@ While `Recognizer` object works, it changes its internal state and its result. T
 
 As soon as one `Recognizer` object's `Result` within `RecognizerBundle` given to `RecognizerRunner` or `RecognizerRunnerView` changes to `Valid` state, the [`onScanningDone`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) callback will be invoked on same thread that performs the background processing and you will have the opportunity to inspect each of your `Recognizer` objects' `Results` to see which one has moved to `Valid` state.
 
-As already stated in [section about `RecognizerRunnerView`](#recognizerRunnerView), as soon as `onScanningDone` method ends, the `RecognizerRunnerView` will continue processing new camera frames with same `Recognizer` objects, unless [paused](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html#pauseScanning--). Continuation of processing or [resetting recognition](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html#resetRecognitionState--) will modify or reset all `Recognizer` objects's `Results`. When using built-in activities, as soon as `onScanningDone` is invoked, built-in activity pauses the `RecognizerRunnerView` and starts finishing the activity, while saving the `RecognizerBundle` with active `Recognizer` objects into `Intent` so they can be transferred back to the calling activities.
+As already stated in [section about `RecognizerRunnerView`](#recognizer-runner-view), as soon as `onScanningDone` method ends, the `RecognizerRunnerView` will continue processing new camera frames with same `Recognizer` objects, unless [paused](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html#pauseScanning--). Continuation of processing or [resetting recognition](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/RecognizerRunnerView.html#resetRecognitionState--) will modify or reset all `Recognizer` objects's `Results`. When using built-in activities, as soon as `onScanningDone` is invoked, built-in activity pauses the `RecognizerRunnerView` and starts finishing the activity, while saving the `RecognizerBundle` with active `Recognizer` objects into `Intent` so they can be transferred back to the calling activities.
 
 
-## <a name="recognizerBundle"></a> `RecognizerBundle`
+## <a name="recognizer-bundle"></a> `RecognizerBundle`
 
 The [RecognizerBundle](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html) is wrapper around [Recognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/Recognizer.html) objects that can be used to transfer `Recognizer` objects between activities and to give `Recognizer` objects to `RecognizerRunner` or `RecognizerRunnerView` for processing.
 
-The `RecognizerBundle` is always [constructed with array](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#RecognizerBundle-com.microblink.entities.recognizers.Recognizer:A-) of `Recognizer` objects that need to be prepared for recognition (i.e. their properties must be tweaked already). The _varargs_ constructor makes it easier to pass `Recognizer` objects to it, without the need of creating a temporary array.
+The `RecognizerBundle` is always [constructed with array](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#recognizer-bundle-com.microblink.entities.recognizers.Recognizer:A-) of `Recognizer` objects that need to be prepared for recognition (i.e. their properties must be tweaked already). The _varargs_ constructor makes it easier to pass `Recognizer` objects to it, without the need of creating a temporary array.
 
 The `RecognizerBundle` manages a chain of `Recognizer` objects within the recognition process. When a new image arrives, it is processed by the first `Recognizer` in chain, then by the second and so on, iterating until a `Recognizer` object's `Result` changes its state to `Valid` or all of the `Recognizer` objects in chain were invoked (none getting a `Valid` result state). If you want to invoke all `Recognizers` in the chain, regardless of whether some `Recognizer` object's `Result` in chain has changed its state to `Valid` or not, you can [allow returning of multiple results on a single image](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#setAllowMultipleScanResultsOnSingleImage-boolean-).
 
 You cannot change the order of the `Recognizer` objects within the chain - no matter the order in which you give `Recognizer` objects to `RecognizerBundle`, they are internally ordered in a way that provides best possible performance and accuracy. Also, in order for _BlinkID_ SDK to be able to order `Recognizer` objects in recognition chain in the best way possible, it is not allowed to have multiple instances of `Recognizer` objects of the same type within the chain. Attempting to do so will crash your application.
 
-### <a name="intentOptimization"></a> Passing `Recognizer` objects between activities
+### <a name="intent-optimization"></a> Passing `Recognizer` objects between activities
 
 Besides managing the chain of `Recognizer` objects, `RecognizerBundle` also manages transferring bundled `Recognizer` objects between different activities within your app. Although each `Recognizer` object, and each its `Result` object implements [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), it is not so straightforward to put those objects into [Intent](https://developer.android.com/reference/android/content/Intent.html) and pass them around between your activities and services for two main reasons:
 
@@ -1011,21 +1011,21 @@ Although the first problem can be easily worked around by making a [copy](https:
     - If your app gets restarted multiple times, only after first restart will reading succeed and will delete the file after reading. If multiple restarts take place, you must implement [`onSaveInstanceState`](https://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)) and save bundle back to file by calling its [`saveState`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#saveState--) method. Also, after saving state, you should ensure that you [clear saved state](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#clearSavedState--) in your [`onResume`](https://developer.android.com/reference/android/app/Activity.html#onResume()), as [`onCreate`](https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)) may not be called if activity is not restarted, while `onSaveInstanceState` may be called as soon as your activity goes to background (before `onStop`), even though activity may not be killed at later time. 
     - If saving data to file in private storage is a concern to you, you should use either `OPTIMISED` mode to transfer large data and image between activities or create your own mechanism for data transfer. Note that your application's private folder is only accessible by your application and your application alone, unless the end-user's device is rooted.
 
-# <a name="recognizerList"></a> List of available recognizers
+# <a name="recognizer-list"></a> List of available recognizers
 
 This section will give a list of all `Recognizer` objects that are available within _BlinkID_ SDK, their purpose and recommendations how they should be used to get best performance and user experience.
 
-## <a name="frameGrabberRecognizer"></a> Frame Grabber Recognizer
+## <a name="frame-grabber-recognizer"></a> Frame Grabber Recognizer
 
 The [`FrameGrabberRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameGrabberRecognizer.html) is the simplest recognizer in _BlinkID_ SDK, as it does not perform any processing on the given image, instead it just returns that image back to its [`FrameCallback`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html). Its [Result](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameGrabberRecognizer.Result.html) never changes state from [Empty](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/Recognizer.Result.State.html#Empty).
 
-This recognizer is best for easy capturing of camera frames with [`RecognizerRunnerView`](#recognizerRunnerView). Note that [`Image`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html) sent to [`onFrameAvailable`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html#onFrameAvailable-com.microblink.image.Image-boolean-double-) are temporary and their internal buffers all valid only until the `onFrameAvailable` method is executing - as soon as method ends, all internal buffers of `Image` object are disposed. If you need to store `Image` object for later use, you must create a copy of it by calling [`clone`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html#clone--).
+This recognizer is best for easy capturing of camera frames with [`RecognizerRunnerView`](#recognizer-runner-view). Note that [`Image`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html) sent to [`onFrameAvailable`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html#onFrameAvailable-com.microblink.image.Image-boolean-double-) are temporary and their internal buffers all valid only until the `onFrameAvailable` method is executing - as soon as method ends, all internal buffers of `Image` object are disposed. If you need to store `Image` object for later use, you must create a copy of it by calling [`clone`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html#clone--).
 
 Also note that [`FrameCallback`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html) interface extends [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), which means that when implementing `FrameCallback` interface, you must also implement `Parcelable` interface. 
 
 This is especially important if you plan to transfer `FrameGrabberRecognizer` between activities - in that case, keep in mind that the instance of your object may not be the same as the instance on which `onFrameAvailable` method gets called - the instance that receives `onFrameAvailable` calls is the one that is created within activity that is performing the scan.
 
-## <a name="successFrameGrabberRecognizer"></a> Success Frame Grabber Recognizer
+## <a name="success-frame-grabber-recognizer"></a> Success Frame Grabber Recognizer
 
 The [`SuccessFrameGrabberRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.html) is a special `Recognizer` that wraps some other `Recognizer` and impersonates it while processing the image. However, when the `Recognizer` being impersonated changes its `Result` into `Valid` state, the `SuccessFrameGrabberRecognizer` captures the image and saves it into its own `Result` object.
 
@@ -1033,70 +1033,70 @@ Since `SuccessFrameGrabberRecognizer` impersonates its slave `Recognizer` object
 
 This recognizer is best for use cases when you need to capture the exact image that was being processed by some other `Recognizer` object at the time its `Result` became `Valid`. When that happens, `SuccessFrameGrabber's` [`Result`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.Result.html) will also become `Valid` and will contain described image. That image can then be retrieved with [`getSuccessFrame()`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/successframe/SuccessFrameGrabberRecognizer.Result.html#getSuccessFrame--) method.
 
-## <a name="blinkid_recognizers"></a> BlinkID recognizers
+## <a name="blinkid-recognizers"></a> BlinkID recognizers
 
-Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkidUiComponent) and [`DocumentScanUISettings`](#documentUiComponent), with UIs best suited for document scanning. 
+Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkid-ui-component) and [`DocumentScanUISettings`](#document-ui-component), with UIs best suited for document scanning. 
 
-**Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkidUiComponent). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
+**Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkid-ui-component). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
-### <a name="blinkidSingleSideRecognizer"></a> BlinkID single side recognizer
+### <a name="blinkid-single-side-recognizer"></a> BlinkID single side recognizer
 The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) scans and extracts data from the single side of the supported document. 
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
-The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent). 
+The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component). 
 
-### <a name="blinkidMultiSideRecognizer"></a> BlinkID multi side recognizer
+### <a name="blinkid-multi-side-recognizer"></a> BlinkID multi side recognizer
 Use [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) for scanning both sides of the supported document. First, it scans and extracts data from the front, then scans and extracts data from the back, and finally, combines results from both sides. The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) also performs data matching and returns a flag if the extracted data captured from the front side matches the data from the back.
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
-The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkidUiComponent). 
+The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component). 
 
-### <a name="mrtdRecognizer"></a> Machine Readable Travel Document recognizer
+### <a name="mrtd-recognizer"></a> Machine Readable Travel Document recognizer
 The [`MrtdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various Machine Readable Travel Documents (MRTDs) like ID cards and passports. This recognizer is not bound to the specific country, but it can be configured to only return data that match some criteria defined by the [`MrzFilter`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrzFilter.html).
 
 
 
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 
-### <a name="mrtd_combined_recognizer"></a> Machine Readable Travel Document combined recognizer
-The [`MrtdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.html) scans Machine Readable Zone (MRZ) after scanning the full document image and face image (usually MRZ is on the back side and face image is on the front side of the document). Internally, it uses [DocumentFaceRecognizer](#documentFaceRecognizer) for obtaining full document image and face image as the first step and then [MrtdRecognizer](#mrtdRecognizer) for scanning the MRZ.
+### <a name="mrtd-combined-recognizer"></a> Machine Readable Travel Document combined recognizer
+The [`MrtdCombinedRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrtdCombinedRecognizer.html) scans Machine Readable Zone (MRZ) after scanning the full document image and face image (usually MRZ is on the back side and face image is on the front side of the document). Internally, it uses [DocumentFaceRecognizer](#document-face-recognizer) for obtaining full document image and face image as the first step and then [MrtdRecognizer](#mrtd-recognizer) for scanning the MRZ.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 
-### <a name="passportRecognizer"></a> Passport recognizer
+### <a name="passport-recognizer"></a> Passport recognizer
 The [`PassportRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/passport/PassportRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various passport documents. This recognizer also returns face image from the passport.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 
-### <a name="visaRecognizer"></a> Visa recognizer
+### <a name="visa-recognizer"></a> Visa recognizer
 The [`VisaRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/visa/VisaRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various visa documents. This recognizer also returns face image from the visa document.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 
-### <a name="idBarcodeRecognizer"></a> ID barcode recognizer
+### <a name="id-barcode-recognizer"></a> ID barcode recognizer
 The [`IdBarcodeRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/idbarcode/IdBarcodeRecognizer.html) is used for scanning barcodes from various ID cards. Check [this document](https://github.com/BlinkID/blinkid-android/blob/master/documentation/IdBarcodeRecognizer.md) to see the list of supported document types.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 
-### <a name="documentFaceRecognizer"></a> Document face recognizer
+### <a name="document-face-recognizer"></a> Document face recognizer
 The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/documentface/DocumentFaceRecognizer.html) is a special type of recognizer that only returns face image and full document image of the scanned document. It does not extract document fields like first name, last name, etc. This generic recognizer can be used to obtain document images in cases when specific support for some document type is not available.
 
-You can find information about usage context at the beginning of [this section](#blinkid_recognizers).
-# <a name="embedAAR"></a> Embedding _BlinkID_ inside another SDK
+You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
+# <a name="embed-aar"></a> Embedding _BlinkID_ inside another SDK
 	
 You need to ensure that the final app gets all resources required by _BlinkID_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
 
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizerRunnerView) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its `classes.jar` to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizer-runner-view) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR’s assets folder, its `classes.jar` to your AAR’s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR’s src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk and report issues to [its developers](https://github.com/adwiv/android-fat-aar/issues) - we do not offer support for using that script.
 - There is also a [3rd party unofficial gradle plugin](https://github.com/Vigi0303/fat-aar-plugin) which aims to do the same, but is more up to date with latest updates to Android gradle plugin. Use this plugin at your own risk and report all issues with using to [its developers](https://github.com/Vigi0303/fat-aar-plugin/issues) - we do not offer support for using that plugin.
 
-# <a name="archConsider"></a> Processor architecture considerations
+# <a name="arch-consider"></a> Processor architecture considerations
 
 _BlinkID_ is distributed with **ARMv7** and **ARM64** native library binaries.
 
@@ -1109,12 +1109,12 @@ There are some issues to be considered:
 - ARMv7 build of the native library cannot be run on devices that do not have ARMv7 compatible processor
 - ARMv7 processors do not understand x86 instruction set
 - ARM64 processors understand ARMv7 instruction set, but ARMv7 processors do not understand ARM64 instructions. 
-    - <a name="64bitNotice"></a> **NOTE:** as of the year 2018, some android devices that ship with ARM64 processors do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google decided that as of August 2019 all apps on PlayStore that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
+    - <a name="64-bit-notice"></a> **NOTE:** as of the year 2018, some android devices that ship with ARM64 processors do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google decided that as of August 2019 all apps on PlayStore that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
 - if ARM64 processor executes ARMv7 code, it does not take advantage of modern NEON64 SIMD operations and does not take advantage of 64-bit registers it has - it runs in emulation mode
 
 `LibBlinkID.aar` archive contains ARMv7 and ARM64 builds of the native library. By default, when you integrate _BlinkID_ into your app, your app will contain native builds for all these processor architectures. Thus, _BlinkID_ will work on ARMv7 and ARM64 devices and will use ARMv7 features on ARMv7 devices and ARM64 features on ARM64 devices. However, the size of your application will be rather large.
 
-## <a name="reduceSize"></a> Reducing the final size of your app
+## <a name="reduce-size"></a> Reducing the final size of your app
 
 We recommend that you distribute your app using [App Bundle](https://developer.android.com/platform/technology/app-bundle). This will defer apk generation to Google Play, allowing it to generate minimal APK for each specific device that downloads your app, including only required processor architecture support.
 
@@ -1161,7 +1161,7 @@ After generating multiple APK's, you need to upload them to Google Play. For tut
 
 ### Removing processor architecture support
 
-If you won't be distributing your app via Google Play or for some other reasons want to have single APK of smaller size, you can completely remove support for certain CPU architecture from your APK. **This is not recommended due to [consequences](#archConsequences)**.
+If you won't be distributing your app via Google Play or for some other reasons want to have single APK of smaller size, you can completely remove support for certain CPU architecture from your APK. **This is not recommended due to [consequences](#arch-consequences)**.
 
 To keep only some CPU architectures, for example `armeabi-v7a` and `arm64-v8a`, add the following statement to your `android` block inside `build.gradle`:
 
@@ -1194,9 +1194,9 @@ where `<ABI>` represents the CPU architecture you want to remove:
 - to remove ARM64 support, use `exclude 'lib/arm64-v8a/libBlinkID.so'`
     - **NOTE**: this is **not recommended**. See [this notice](#64bitNotice).
 
-You can also remove multiple processor architectures by specifying `exclude` directive multiple times. Just bear in mind that removing processor architecture will have side effects on performance and stability of your app. Please read [this](#archConsequences) for more information.
+You can also remove multiple processor architectures by specifying `exclude` directive multiple times. Just bear in mind that removing processor architecture will have side effects on performance and stability of your app. Please read [this](#arch-consequences) for more information.
 
-### <a name="archConsequences"></a> Consequences of removing processor architecture
+### <a name="arch-consequences"></a> Consequences of removing processor architecture
 
 - Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
 
@@ -1204,7 +1204,7 @@ You can also remove multiple processor architectures by specifying `exclude` dir
 - By removing ARM64 support, _BlinkID_ will not use ARM64 features on ARM64 device
     - also, some future devices may ship with ARM64 processors that will not support ARMv7 instruction set. Please see [this note](#64bitNotice) for more information.
 
-## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries
+## <a name="combine-native-libraries"></a> Combining _BlinkID_ with other native libraries
 
 If you are combining _BlinkID_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries. For example, if third party library has got only ARMv7 version, you must use exactly ARMv7 version of _BlinkID_ with that library, but not ARM64. Using this architectures will crash your app at initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
 # <a name="troubleshoot"></a> Troubleshooting
@@ -1253,55 +1253,55 @@ If you are having problems with scanning certain items, undesired behaviour on s
 
 Each license key contains information about which features are allowed to use and which are not. This exception indicates that your production license does not allow using of specific `Recognizer` object. You should contact [support](http://help.microblink.com) to check if provided license is OK and that it really contains all features that you have purchased.
 
-#### <a name="invalidLicenseKey"></a> I get `InvalidLicenseKeyException` with trial license key
+#### <a name="invalid-license-key"></a> I get `InvalidLicenseKeyException` with trial license key
 
 Whenever you construct any `Recognizer` object or any other object that derives from [`Entity`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/Entity.html), a check whether license allows using that object will be performed. If license is not set prior constructing that object, you will get `InvalidLicenseKeyException`. We recommend setting license as early as possible in your app, ideally in `onCreate` callback of your [Application singleton](https://developer.android.com/reference/android/app/Application.html).
 
-#### <a name="missingResources"></a> When my app starts, I get exception telling me that some resource/class cannot be found or I get `ClassNotFoundException`
+#### <a name="missing-resources"></a> When my app starts, I get exception telling me that some resource/class cannot be found or I get `ClassNotFoundException`
 
-This usually happens when you perform integration into [Eclipse project](#eclipseIntegration) and you forget to add resources or native libraries into the project. You must alway take care that same versions of both resources, assets, java library and native libraries are used in combination. Combining different versions of resources, assets, java and native libraries will trigger crash in SDK. This problem can also occur when you have performed improper integration of _BlinkID_ SDK into your SDK. Please read how to [embed _BlinkID_ inside another SDK](#embedAAR).
+This usually happens when you perform integration into [Eclipse project](#eclipseIntegration) and you forget to add resources or native libraries into the project. You must alway take care that same versions of both resources, assets, java library and native libraries are used in combination. Combining different versions of resources, assets, java and native libraries will trigger crash in SDK. This problem can also occur when you have performed improper integration of _BlinkID_ SDK into your SDK. Please read how to [embed _BlinkID_ inside another SDK](#embed-aar).
 
-#### <a name="unsatisfiedLinkError"></a> When my app starts, I get `UnsatisfiedLinkError`
+#### <a name="unsatisfied-link-error"></a> When my app starts, I get `UnsatisfiedLinkError`
 
-This error happens when JVM fails to load some native method from native library If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
+This error happens when JVM fails to load some native method from native library If performing integration [into Android studio](quickIntegration) and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combine-native-libraries). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
 
-#### <a name="lateMetadata1"></a> I've added my callback to `MetadataCallbacks` object, but it is not being called
+#### <a name="late-metadata1"></a> I've added my callback to `MetadataCallbacks` object, but it is not being called
 
-Make sure that after adding your callback to `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processingEventsImportantNote).
+Make sure that after adding your callback to `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processing-eventsImportantNote).
 
-#### <a name="lateMetadata2"></a> I've removed my callback to `MetadataCallbacks` object, and now app is crashing with `NullPointerException`
+#### <a name="late-metadata2"></a> I've removed my callback to `MetadataCallbacks` object, and now app is crashing with `NullPointerException`
 
-Make sure that after removing your callback from `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processingEventsImportantNote).
+Make sure that after removing your callback from `MetadataCallbacks` you have applied changes to `RecognizerRunnerView` or `RecognizerRunner` as described in [this section](#processing-eventsImportantNote).
 
-#### <a name="statefulRecognizer"></a> In my `onScanningDone` callback I have the result inside my `Recognizer`, but when scanning activity finishes, the result is gone
+#### <a name="stateful-recognizer"></a> In my `onScanningDone` callback I have the result inside my `Recognizer`, but when scanning activity finishes, the result is gone
 
-This usually happens when using `RecognizerRunnerView` and forgetting to pause the `RecognizerRunnerView` in your `onScanningDone` callback. Then, as soon as `onScanningDone` happens, the result is mutated or reset by additional processing that `Recognizer` performs in the time between end of your `onScanningDone` callback and actual finishing of the scanning activity. For more information about statefulness of the `Recognizer` objects, check [this section](#recognizerConcept).
+This usually happens when using `RecognizerRunnerView` and forgetting to pause the `RecognizerRunnerView` in your `onScanningDone` callback. Then, as soon as `onScanningDone` happens, the result is mutated or reset by additional processing that `Recognizer` performs in the time between end of your `onScanningDone` callback and actual finishing of the scanning activity. For more information about statefulness of the `Recognizer` objects, check [this section](#recognizer-concept).
 
-#### <a name="transactionTooLarge"></a> I am using built-in activity to perform scanning and after scanning finishes, my app crashes with `IllegalStateException` stating `Data cannot be saved to intent because its size exceeds intent limit`.
+#### <a name="transaction-too-large"></a> I am using built-in activity to perform scanning and after scanning finishes, my app crashes with `IllegalStateException` stating `Data cannot be saved to intent because its size exceeds intent limit`.
 
-This usually happens when you use `Recognizer` that produces image or similar large object inside its `Result` and that object exceeds the Android intent transaction limit. You should enable different intent data transfer mode. For more information about this, [check this section](#intentOptimization). Also, instead of using built-in activity, you can use [`RecognizerRunnerFragment` with built-in scanning overlay](#recognizerRunnerFragment).
+This usually happens when you use `Recognizer` that produces image or similar large object inside its `Result` and that object exceeds the Android intent transaction limit. You should enable different intent data transfer mode. For more information about this, [check this section](#intent-optimization). Also, instead of using built-in activity, you can use [`RecognizerRunnerFragment` with built-in scanning overlay](#recognizer-runner-fragment).
 
-#### <a name="transactionTooLarge2"></a> After scanning finishes, my app freezes
+#### <a name="transaction-too-large2"></a> After scanning finishes, my app freezes
 
-This usually happens when you attempt to transfer standalone `Result` that contains images or similar large objects via Intent and the size of the object exceeds Android intent transaction limit. Depending on the device, you will get either [TransactionTooLargeException](https://developer.android.com/reference/android/os/TransactionTooLargeException.html), a simple message `BINDER TRANSACTION FAILED` in log and your app will freeze or your app will get into restart loop. We recommend that you use `RecognizerBundle` and its API for sending `Recognizer` objects via Intent in a more safe manner ([check this section](#intentOptimization) for more information). However, if you really need to transfer standalone `Result` object (e.g. `Result` object obtained by cloning `Result` object owned by specific `Recognizer` object), you need to do that using global variables or singletons within your application. Sending large objects via Intent is not supported by Android.
+This usually happens when you attempt to transfer standalone `Result` that contains images or similar large objects via Intent and the size of the object exceeds Android intent transaction limit. Depending on the device, you will get either [TransactionTooLargeException](https://developer.android.com/reference/android/os/TransactionTooLargeException.html), a simple message `BINDER TRANSACTION FAILED` in log and your app will freeze or your app will get into restart loop. We recommend that you use `RecognizerBundle` and its API for sending `Recognizer` objects via Intent in a more safe manner ([check this section](#intent-optimization) for more information). However, if you really need to transfer standalone `Result` object (e.g. `Result` object obtained by cloning `Result` object owned by specific `Recognizer` object), you need to do that using global variables or singletons within your application. Sending large objects via Intent is not supported by Android.
 
-#### <a name="directApiBadPerformance"></a> Scanning with a camera works better than a recognition of images by using the `Direct API`
+#### <a name="direct-api-bad-performance"></a> Scanning with a camera works better than a recognition of images by using the `Direct API`
 
 When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
 
-#### <a name="networkRequiredError"></a> I am getting a ‘Network required’ error when I'm on a private network
+#### <a name="network-required-error"></a> I am getting a ‘Network required’ error when I'm on a private network
 
 Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
 
-#### <a name="ocrResultForbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
+#### <a name="ocr-result-forbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
 
 In order to be able to obtain raw OCR result, which contains locations of each character, its value and its alternatives, you need to have a license that allows that. By default, licenses do not allow exposing raw OCR results in public API. If you really need that, please [contact us](https://help.microblink.com) and explain your use case.
 # <a name="info"></a> Additional info
 
-## <a name="size_report"></a> BlinkID SDK size
+## <a name="size-report"></a> BlinkID SDK size
 You can find BlinkID SDK size report for all supported ABIs [here](https://github.com/BlinkID/blinkid-android/blob/master/size-report/sdk_size_report.md).
 
-## <a name="api_reference"></a> API reference
+## <a name="api-reference"></a> API reference
 Complete API reference can be found in [Javadoc](https://blinkid.github.io/blinkid-android).
 
 ## <a name="contact"></a> Contact
