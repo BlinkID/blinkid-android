@@ -3,7 +3,7 @@ package com.microblink.blinkid.help;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.locale.LanguageUtils;
 
 public class HelpActivity extends FragmentActivity {
