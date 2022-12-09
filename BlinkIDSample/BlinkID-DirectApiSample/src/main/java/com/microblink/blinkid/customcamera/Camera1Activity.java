@@ -12,15 +12,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.directApi.DirectApiErrorListener;
-import com.microblink.directApi.RecognizerRunner;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.image.Image;
-import com.microblink.image.ImageBuilder;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.util.Log;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.directApi.DirectApiErrorListener;
+import com.microblink.blinkid.directApi.RecognizerRunner;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.image.Image;
+import com.microblink.blinkid.image.ImageBuilder;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.util.Log;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import java.io.IOException;
 import java.util.List;

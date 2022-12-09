@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.menu.MenuListItem;
-import com.microblink.menu.ResultHandlerMenuActivity;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
-import com.microblink.util.RecognizerCompatibility;
-import com.microblink.util.RecognizerCompatibilityStatus;
+import com.microblink.blinkid.menu.MenuListItem;
+import com.microblink.blinkid.menu.ResultHandlerMenuActivity;
+import com.microblink.blinkid.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkid.util.RecognizerCompatibility;
+import com.microblink.blinkid.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
 import java.util.List;

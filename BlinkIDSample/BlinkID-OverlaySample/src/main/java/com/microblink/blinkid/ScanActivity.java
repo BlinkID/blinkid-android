@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.fragment.RecognizerRunnerFragment;
-import com.microblink.fragment.overlay.ScanningOverlay;
-import com.microblink.fragment.overlay.blinkid.BlinkIdOverlayController;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.fragment.RecognizerRunnerFragment;
+import com.microblink.blinkid.fragment.overlay.ScanningOverlay;
+import com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlayController;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -61,7 +61,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         // setup recognizer and put it into recognizer bundle
-        BlinkIdCombinedRecognizer recognizer = new BlinkIdCombinedRecognizer();
+        BlinkIdMultiSideRecognizer recognizer = new BlinkIdMultiSideRecognizer();
         recognizer.setReturnFullDocumentImage(true);
         recognizer.setReturnFaceImage(true);
         recognizerBundle = new RecognizerBundle(recognizer);
@@ -76,7 +76,7 @@ public class ScanActivity extends AppCompatActivity implements RecognizerRunnerF
             // create fragment transaction to replace R.id.recognizer_runner_view_container with RecognizerRunnerFragment
             recognizerRunnerFragment = new RecognizerRunnerFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(com.microblink.library.R.id.recognizer_runner_view_container, recognizerRunnerFragment);
+            fragmentTransaction.replace(com.microblink.blinkid.library.R.id.recognizer_runner_view_container, recognizerRunnerFragment);
             fragmentTransaction.commit();
         } else {
             // obtain reference to fragment restored by Android within super.onCreate() call

@@ -5,18 +5,18 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Toast;
 
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
-import com.microblink.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
-import com.microblink.hardware.camera.CameraType;
-import com.microblink.menu.MenuListItem;
-import com.microblink.menu.ResultHandlerMenuActivity;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
+import com.microblink.blinkid.hardware.camera.CameraType;
+import com.microblink.blinkid.menu.MenuListItem;
+import com.microblink.blinkid.menu.ResultHandlerMenuActivity;
+import com.microblink.blinkid.result.activity.RecognizerBundleResultActivity;
 import com.microblink.util.ImageSettings;
-import com.microblink.util.RecognizerCompatibility;
-import com.microblink.util.RecognizerCompatibilityStatus;
+import com.microblink.blinkid.util.RecognizerCompatibility;
+import com.microblink.blinkid.util.RecognizerCompatibilityStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class MainActivity extends ResultHandlerMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
-        items.add(createMenuListItem("BlinkID combined", ImageSettings.enableAllImages(new BlinkIdCombinedRecognizer())));
+        items.add(createMenuListItem("BlinkID Multi Side", ImageSettings.enableAllImages(new BlinkIdMultiSideRecognizer())));
         items.add(createMenuListItem("MRTD combined", ImageSettings.enableAllImages(new MrtdCombinedRecognizer())));
         items.add(createMenuListItem("US / Canada DL combined", ImageSettings.enableAllImages(new UsdlCombinedRecognizer())));
 

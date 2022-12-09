@@ -18,12 +18,12 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.directApi.DirectApiErrorListener;
-import com.microblink.directApi.RecognizerRunner;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.directApi.DirectApiErrorListener;
+import com.microblink.blinkid.directApi.RecognizerRunner;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import java.io.File;
 import java.io.IOException;

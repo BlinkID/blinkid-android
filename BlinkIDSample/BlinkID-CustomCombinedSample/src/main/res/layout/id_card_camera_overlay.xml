@@ -58,7 +58,7 @@
                     app:layout_aspectRatio="158.577251%"
                     app:layout_widthPercent="90%">
 
-                    <com.microblink.view.viewfinder.ViewfinderShapeView
+                    <com.microblink.blinkid.view.viewfinder.ViewfinderShapeView
                         android:id="@+id/viewfinderRectangle"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

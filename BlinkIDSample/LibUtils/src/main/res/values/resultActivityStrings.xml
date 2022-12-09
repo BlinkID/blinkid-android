@@ -99,7 +99,7 @@
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
-    <string name="PPDataMatchDetailedInfo">Data match detailed info</string>
+    <string name="PPDataMatch">Data match</string>
     <string name="PPDocumentNumberMatch">Document number data match</string>
     <string name="PPDDateOfBirthMatch">Date of birth data match</string>
     <string name="PPDDateOfExpiryMatch">Date of expiry data match</string>
@@ -130,7 +130,6 @@
     <string name="PPFamilyName">Family Name</string>
     <string name="PPSurnameAtBirth">Surname at birth</string>
     <string name="PPIssuingAuthority">Issuing Authority</string>
-    <string name="PPConditions">Conditions</string>
     <string name="PPAdministrativeUnit">Administrative Unit</string>
     <string name="PPIssuedBy">Issued by</string>
     <string name="PPIssuingAgency">Issuing agency</string>
@@ -221,7 +220,7 @@
     <string name="PPLicenceCategories">Licence Categories</string>
     <string name="PPVehicleCategories">Vehicle Categories</string>
     <string name="PPVehicleClass">Vehicle Class</string>
-    <string name="PPVehicleClassesInfo">Vehicle Classes info</string>
+    <string name="PPDriverLicenseDetailedInfo">Driver license detailed info</string>
     <string name="PPLicencingAuthority">Licencing Authority</string>
     <string name="PPAlternativeSchemeParameters">Alternative scheme parameters</string>
     <string name="PPAdditionalInformation">Additional information</string>
@@ -331,12 +330,19 @@
     <string name="MBDocumentFrontImageBarcodeStatus">Front image barcode detection status</string>
     <string name="MBDocumentBackImageBarcodeStatus">Back image barcode detection status</string>
 
+    <string name="MBDocumentImageCardOrientation">Card orientation</string>
+    <string name="MBDocumentFrontImageCardOrientation">Front image card orientation</string>
+    <string name="MBDocumentBackImageCardOrientation">Back image card orientation</string>
+
     <string name="MBDocumentImageBlurred">Image blurred</string>
     <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
     <string name="MBDocumentBackImageBlurred">Back image blurred</string>
     <string name="MBDocumentFirstSideImageBlurred">First side image blurred</string>
     <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
 
+    <string name="MBAdditionalProcessingInfo">Additional processing info</string>
+    <string name="MBFrontAdditionalProcessingInfo">Front additional processing info</string>
+    <string name="MBBackAdditionalProcessingInfo">Back additional processing info</string>
     <string name="MBProcessingStatus">Processing status</string>
     <string name="MBFrontProcessingStatus">Front processing status</string>
     <string name="MBBackProcessingStatus">Back processing status</string>
@@ -355,9 +361,6 @@
     <string name="MBVerificationTiltRightStepImage">Verification tilt right step image</string>
     <string name="MBVerificationTiltUpStepImage">Verification tilt up step image</string>
     <string name="MBVerificationTiltDownStepImage">Verification tilt down step image</string>
-
-    <string name="MBDigitalSignature">Digital signature</string>
-    <string name="MBDigitalSignatureVersion">Digital signature version</string>
 
     <string name="MBDocumentLocation">Document location</string>
     <string name="MBFaceLocation">Face location</string>

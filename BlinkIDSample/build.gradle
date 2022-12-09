@@ -1,17 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        kotlin_version = '1.7.20'
+    }
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         maven { url 'https://maven.microblink.com' }
         //mavenLocal()
         google()
@@ -21,8 +25,8 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '5.20.0'
-    compileSdkVersion = 31
-    targetSdkVersion = 31
+    blinkIdVersion = '6.0.0'
+    compileSdkVersion = 33
+    targetSdkVersion = 33
     appCompatVersion = '1.4.0'
 }

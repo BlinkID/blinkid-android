@@ -47,13 +47,13 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.microblink.blinkid.demo.R;
-import com.microblink.directApi.DirectApiErrorListener;
-import com.microblink.directApi.RecognizerRunner;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.hardware.orientation.Orientation;
-import com.microblink.image.ImageBuilder;
-import com.microblink.recognition.RecognitionSuccessType;
-import com.microblink.view.recognition.ScanResultListener;
+import com.microblink.blinkid.directApi.DirectApiErrorListener;
+import com.microblink.blinkid.directApi.RecognizerRunner;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.hardware.orientation.Orientation;
+import com.microblink.blinkid.image.ImageBuilder;
+import com.microblink.blinkid.recognition.RecognitionSuccessType;
+import com.microblink.blinkid.view.recognition.ScanResultListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -102,7 +102,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
                 if (img != null) {
                     if (mRecognizer.getCurrentState() == RecognizerRunner.State.READY) {
                         mImageBeingRecognized = img;
-                        com.microblink.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
+                        com.microblink.blinkid.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
                         Log.i(TAG, "Starting recognition");
                         mTimestamp = System.currentTimeMillis();
                         mRecognizer.recognizeVideoImage(image, Camera2Fragment.this);

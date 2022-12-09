@@ -6,20 +6,20 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.microblink.activity.DocumentScanActivity;
-import com.microblink.entities.recognizers.HighResImagesBundle;
-import com.microblink.entities.recognizers.Recognizer;
-import com.microblink.entities.recognizers.RecognizerBundle;
-import com.microblink.entities.recognizers.blinkid.generic.BlinkIdCombinedRecognizer;
-import com.microblink.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
-import com.microblink.image.Image;
-import com.microblink.image.highres.HighResImageWrapper;
-import com.microblink.menu.BaseMenuActivity;
-import com.microblink.menu.MenuListItem;
-import com.microblink.result.activity.RecognizerBundleResultActivity;
-import com.microblink.uisettings.ActivityRunner;
-import com.microblink.uisettings.BlinkIdUISettings;
-import com.microblink.util.ImageUtils;
+import com.microblink.blinkid.activity.DocumentScanActivity;
+import com.microblink.blinkid.entities.recognizers.HighResImagesBundle;
+import com.microblink.blinkid.entities.recognizers.Recognizer;
+import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
+import com.microblink.blinkid.image.Image;
+import com.microblink.blinkid.image.highres.HighResImageWrapper;
+import com.microblink.blinkid.menu.BaseMenuActivity;
+import com.microblink.blinkid.menu.MenuListItem;
+import com.microblink.blinkid.result.activity.RecognizerBundleResultActivity;
+import com.microblink.blinkid.uisettings.ActivityRunner;
+import com.microblink.blinkid.uisettings.BlinkIdUISettings;
+import com.microblink.blinkid.util.ImageUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +42,7 @@ public class MainActivity extends BaseMenuActivity {
         super.onCreate(savedInstanceState);
 
         // create recognizer
-        BlinkIdCombinedRecognizer blinkIdRecognizer = new BlinkIdCombinedRecognizer();
+        BlinkIdMultiSideRecognizer blinkIdRecognizer = new BlinkIdMultiSideRecognizer();
         // set to true to obtain images containing full document
         blinkIdRecognizer.setReturnFullDocumentImage(true);
         blinkIdRecognizer.setReturnFaceImage(true);
@@ -106,7 +106,7 @@ public class MainActivity extends BaseMenuActivity {
         Recognizer firstRecognizer = recognizerBundle.getRecognizers()[0];
         SuccessFrameGrabberRecognizer successFrameGrabberRecognizer = (SuccessFrameGrabberRecognizer) firstRecognizer;
         //get wrapped recognizer
-        BlinkIdCombinedRecognizer blinkIdRecognizer = (BlinkIdCombinedRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
+        BlinkIdMultiSideRecognizer blinkIdRecognizer = (BlinkIdMultiSideRecognizer) successFrameGrabberRecognizer.getSlaveRecognizer();
 
         storeImage("successImage", successFrameGrabberRecognizer.getResult().getSuccessFrame());
         storeImage("fullDocumentImageFront", blinkIdRecognizer.getResult().getFullDocumentFrontImage());

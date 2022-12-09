@@ -16,7 +16,6 @@ package com.microblink.blinkid.customcamera.camera2;
  * limitations under the License.
  */
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;
@@ -24,7 +23,6 @@ import android.view.TextureView;
 /**
  * A {@link TextureView} that can be adjusted to a specified aspect ratio.
  */
-@TargetApi(21)
 public class AutoFitTextureView extends TextureView {
 
     private int mRatioWidth = 0;

@@ -1,665 +1,958 @@
 
-# BlinkID recognizer and BlinkID Combined recognizer
+# BlinkID Single Side Recognizer and BlinkID Multi Side Recognizer
 
-Other than documents listed here, BlinkID(Combined)Recognizer also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) <strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
+## Table of contents
 
+[Supported documents](#supported-documents)
+
+* [Supported medical documents](#supported-medical-documents)
+
+
+    + [Croatia](#croatia)<br>
+    + [Canada, Ontario](#canada-ontario)<br>
+    + [Canada, Quebec](#canada-quebec)<br>
+    + [Australia](#australia)<br>
+
+
+
+* [Supported identity documents](#supported-identity-documents)
+
+
+    + [Asia](#asia)
+
+    + [Europe](#europe)
+
+    + [Latin America and the Caribbean](#latin-america-and-the-caribbean)
+
+    + [Middle East and Africa](#middle-east-and-africa)
+
+    + [Northern America](#northern-america)
+
+    + [Oceania](#oceania)
+
+
+
+<br><br><br>
+
+# Supported documents
+
+BlinkID can be used to scan both Identity documents (ID, DL, Passports, etc.) and Medical documents. Each document type has been issued in 
+multiple versions throughout the years and document design is usually significantly changed in different versions. Some document changes that we observed are: 
+change in orientation (horizontal vs vertical), addition or replacement of the script of the document (Latin, Cyrillic, Arabic), security features changes, 
+and other similar updates. Key document features on supported documents are noted below (e.g. document orientation, script) as well as supported document sides (front, back, bio-data-page, etc.)
+
+All information is listed in tables below in different columns: Document Type, Localised Document Name, Supported side and orientation,
+Supported scripts, respectively.
+
+Some documents which are supported by BlinkID are still in the research and knowledge gathering phase and they will be noted with the BETA tag (xx <sup> BETA</sup>). 
+That means scanning them is possible but some scanning and/or extraction challenges are possible.
+
+
+Other than documents listed here, BlinkID Recognizers also scan the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) 
+<strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
+
+
+<br><br>
 
 ## Supported medical documents
 
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Croatia | Health Insurance Card<sup>\*, BETA</sup> | Zdravstvena iskaznica |
-| Australia | Health Insurance Card<sup>\*, BETA</sup> | Medicare card |
-| Canada - Ontario | Health Insurance Card\* | Ontario Health card (OHIP) / Carte Santé de l’Ontario |
-| Canada - Quebec | Health Insurance Card<sup>\*, BETA</sup> | Régie de l'assurance maladie du Québec (RAMQ) |
+<table>
+<tr><th>Document Type</th><th>Localised Document Name</th><th>Supported side and orientation</th><th>Supported scripts</th></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>CROATIA</h3></b></th></tr>
+<tr><td width=35%>Health Insurance Card<sup> BETA</sup></td><td width=35%>Zdravstvena iskaznica</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, ONTARIO</h3></b></th></tr>
+<tr><td width=35%>Health Insurance Card</td><td width=35%>Ontario Health card (OHIP) / Carte Santé de l’Ontario</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, QUEBEC</h3></b></th></tr>
+<tr><td width=35%>Health Insurance Card<sup> BETA</sup></td><td width=35%>Régie de l'assurance maladie du Québec (RAMQ)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA</h3></b></th></tr>
+<tr><td width=35%>Health Insurance Card<sup> BETA</sup></td><td width=35%>Medicare card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 
+</table>
 
+<br><br>
 
 ## Supported identity documents
 
 
-### Asia
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Afghanistan | ID Card | تذکره الکترونیک‎ |
-| Afghanistan | Paper Passport<sup>\*, BETA</sup> | پاسپورټ |
-| Armenia | ID Card | նույնականացման քարտը |
-| Azerbaijan | ID Card | Şəxsiyyət vəsiqəsi |
-| Azerbaijan | Polycarbonate Passport<sup>\*, BETA</sup> | Pasport |
-| Bangladesh | Driving Licence<sup>BETA</sup> | মোটর ড্রাইভিং লাইসেন্স |
-| Bangladesh | ID Card | জাতীয় পরিচয় পত্র |
-| Bangladesh | Paper Passport\* | পাসপোর্ট |
-| Brunei | ID Card | Kad Pengenalan (Kuning) |
-| Brunei | Military ID<sup>BETA</sup> | Kad Pengenalan Tentera (ABDB) |
-| Brunei | Residence Permit<sup>BETA</sup> | ​Kad Pengenalan (Ungu) |
-| Brunei | Temporary Residence Permit<sup>BETA</sup> | Kad Pengenalan (Hijau) |
-| Cambodia | Driving Licence<sup>\*, BETA</sup> | ប័ណ្ណបើកបរ |
-| Cambodia | ID Card\* | អត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ |
-| Cambodia | Polycarbonate Passport\* | លិខិតឆ្លងដែន |
-| China | ID Card | 中华人民共和国居民身份证 |
-| China | Paper Passport\* | 中华人民共和国护照 |
-| Hong Kong | ID Card\* | 香港身份證 |
-| Hong Kong | Polycarbonate Passport<sup>\*, BETA</sup> | 護照 |
-| India | ID Card<sup>BETA</sup> | Aadhaar card / आधार कार्ड |
-| India | PAN Card\* | स्थायी खाता संख्या कार्ड |
-| India | Paper Passport\* |  |
-| India | Voter ID\* | भारतीय मतदाता पहचान पत्र |
-| India - Gujarat | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
-| India - Karnataka | Driving Licence\* | ड्राइविंग लाइसेंस |
-| India - Kerala | Driving Licence<sup>BETA</sup> | ड्राइविंग लाइसेंस |
-| India - Madhya Pradesh | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
-| India - Maharashtra | Driving Licence\* | ड्राइविंग लाइसेंस |
-| India - Punjab | Driving Licence<sup>\*, BETA</sup> | ड्राइविंग लाइसेंस |
-| India - Tamil Nadu | Driving Licence<sup>BETA</sup> | ड्राइविंग लाइसेंस |
-| Indonesia | Driving Licence\* | Surat Izin Mengemudi (SIM) |
-| Indonesia | ID Card\* | Kartu Tanda Penduduk (KTP) |
-| Indonesia | Paper Passport\* | Paspor |
-| Japan | Driving Licence<sup>\*, BETA</sup> | 運転免許 |
-| Japan | My Number Card\* | マイナンバーカード |
-| Japan | Paper Passport\* | 旅券 |
-| Kazakhstan | ID Card | Жеке қуәлік / Yдостоверение личности |
-| Kyrgyzstan | ID Card | идентификациялык карта / идентификационная карта |
-| Malaysia | Driving Licence\* | Lesen Memandu |
-| Malaysia | MyKAS |  |
-| Malaysia | MyKad |  |
-| Malaysia | MyKid |  |
-| Malaysia | MyPR |  |
-| Malaysia | MyPolis<sup>BETA</sup> |  |
-| Malaysia | MyTentera |  |
-| Malaysia | Refugee ID\* | UNHCR Card |
-| Malaysia | Polycarbonate Passport\* | Pasport |
-| Malaysia | i-Kad\* |  |
-| Maldives | ID Card | ދިވެހި ރައްޔިތެއްކަން އަންގައިދޭ ކާޑު |
-| Myanmar | Driving Licence<sup>BETA</sup> | ယာဉ်မောင်းလိုင်စင် |
-| Nepal | Paper Passport\* | राहदानी |
-| Pakistan | Consular ID | National Identity Card for Overseas Pakistanis (NICOP) |
-| Pakistan | ID Card | Computerized National Identity Card (CNIC), Smart National Identity Card (SNIC) |
-| Pakistan | Paper Passport\* |  |
-| Pakistan - Punjab | Driving Licence\* |  |
-| Philippines | Driving Licence\* |  |
-| Philippines | ID Card | PhilSys ID / PhilID |
-| Philippines | Multipurpose ID\* | Unified Multi-Purpose ID |
-| Philippines | Paper Passport\* |  |
-| Philippines | Professional ID\* | PRC License |
-| Philippines | Social Security Card\* | SSS ID |
-| Philippines | Tax ID<sup>\*, BETA</sup> | TIN ID card |
-| Philippines | Voter ID<sup>\*, BETA</sup> |  |
-| Singapore | Driving Licence |  |
-| Singapore | Employment Pass\* |  |
-| Singapore | Fin Card\* |  |
-| Singapore | ID Card | NRIC (Pink) |
-| Singapore | Resident ID | NRIC (Blue) |
-| Singapore | Polycarbonate Passport\* |  |
-| Singapore | S Pass |  |
-| Singapore | Work Permit |  |
-| South Korea | Driving Licence\* | 자동차운전면허증 |
-| South Korea | ID Card<sup>\*, BETA</sup> | 주민등록증 |
-| South Korea | Paper Passport<sup>\*, BETA</sup> | 여권 |
-| Sri Lanka | Driving Licence\* | රියදුරු බලපත්රය |
-| Sri Lanka | ID Card | ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை |
-| Sri Lanka | Paper Passport\* | ගමන් බලපත්‍රය / கடவுச்சீட்டு |
-| Taiwan | ID Card<sup>\*, BETA</sup> | 中華民國國民身分證 |
-| Taiwan | Temporary Residence Permit<sup>\*, BETA</sup> | 中華民國居留證 (ARC) |
-| Tajikistan | Polycarbonate Passport<sup>\*, BETA</sup> | шиноснома |
-| Thailand | Alien ID\* | บัตรประจำตัวคนซึ่งไม่มีสัญชาติไทย (บัตรสีชมพู) |
-| Thailand | Driving Licence<sup>BETA</sup> | ใบอนุญาตขับรถ |
-| Thailand | ID Card | บัตรประจำตัวประชาชน |
-| Thailand | Polycarbonate Passport\* | หนังสือเดินทาง |
-| Uzbekistan | Driving Licence<sup>\*, BETA</sup> | Haydovchilik guvohnomasi |
-| Uzbekistan | Paper Passport\* | Pasport |
-| Vietnam | Driving Licence<sup>\*, BETA</sup> | Giấy phép lái xe |
-| Vietnam | ID Card<sup>BETA</sup> | Căn cước công dân, Giấy chứng minh nhân dân |
+## Asia
 
-
-### Europe
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Albania | Driving Licence\* | Leje drejtimi |
-| Albania | Driver Card\* | Karta e drejtuesit të mjetit |
-| Albania | ID Card | Letёrnjoftim |
-| Albania | Professional DL\* | Certifikatë aftëstimi profesionale |
-| Albania | Polycarbonate Passport\* | Pasaportë |
-| Austria | Driving Licence\* | Führerschein |
-| Austria | ID Card | Personalausweis |
-| Austria | Paper Passport\* | Reisepass |
-| Austria | Residence Permit<sup>BETA</sup> | Aufenthaltstitel |
-| Belarus | Driving Licence\* | BАДЗІЦЕЛЬСКАЕ ПАСВЕДЧАННЕ / ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ |
-| Belarus | Paper Passport\* | Пашпарт / Паспорт |
-| Belgium | Driving Licence\* | Rijbewijs / Permis de conduire / Führerschein |
-| Belgium | ID Card | Identiteitskaart / Carte d'identité / Personalausweis |
-| Belgium | Minors ID<sup>BETA</sup> | Kids-ID |
-| Belgium | Paper Passport<sup>\*, BETA</sup> | Paspoort / Passeport / Reisepass |
-| Belgium | Residence Permit | Verblijfstitel / Titre de Sejour |
-| Belgium | Resident ID | E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte  |
-| Bosnia And Herzegovina | Driving Licence\* | Vozačka dozvola |
-| Bosnia And Herzegovina | ID Card | Lična karta / Osobna iskaznica |
-| Bosnia And Herzegovina | Polycarbonate Passport\* | Pasoš / Пасош / Putovnica |
-| Bulgaria | Driving Licence\* | Свидетелство за управление на МПС |
-| Bulgaria | ID Card | Лична карта |
-| Bulgaria | Paper Passport\* | Паспорт |
-| Croatia | Driving Licence\* | Vozačka dozvola |
-| Croatia | ID Card | Osobna iskaznica |
-| Croatia | Residence Permit<sup>BETA</sup> | Boravišna iskaznica / Dozvola boravka |
-| Croatia | Polycarbonate Passport\* | Putovnica |
-| Cyprus | Driving Licence\* | Sürüş ruhsati / Aάδεια οδήγησης |
-| Cyprus | ID Card | Kimlik kartı / Δελτίο Ταυτότητας |
-| Cyprus | Paper Passport\* | Pasaport / Διαβατήριο |
-| Cyprus | Residence Permit | ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ |
-| Czechia | Driving Licence\* | Řidičský průkaz |
-| Czechia | ID Card | Občanský průkaz |
-| Czechia | Residence Permit | Povolení k pobytu |
-| Czechia | Polycarbonate Passport\* | Cestovní pas |
-| Denmark | Driving Licence\* | Kørekort |
-| Denmark | Residence Permit<sup>BETA</sup> | Opholdstilladelse / Opholdskort |
-| Denmark | Polycarbonate Passport\* | Pas |
-| Estonia | Driving Licence\* | Juhiluba |
-| Estonia | ID Card | Isikutunnistus |
-| Estonia | Paper Passport\* | Pass |
-| Estonia | Residence Permit<sup>BETA</sup> | Elamisluba |
-| Finland | Alien ID | Ulkomaalaisen henkilökortti / Identitetskort för utlänning |
-| Finland | Driving Licence\* | Ajokortti / Körkort |
-| Finland | ID Card | Henkilökortti / Identitetskort |
-| Finland | Residence Permit | Oleskelulupa / Uppehållstillstånd |
-| Finland | Polycarbonate Passport\* | Passi / Pass |
-| France | Driving Licence\* | Permis de conduire |
-| France | ID Card | Carte d'identité |
-| France | Paper Passport<sup>\*, BETA</sup> | Passeport |
-| France | Residence Permit<sup>BETA</sup> | Titre de séjour |
-| Georgia | Driving Licence\* | მართვის მოწმობა |
-| Georgia | ID Card | მოქალაქის პირადობის მოწმობა |
-| Georgia | Paper Passport<sup>\*, BETA</sup> | პასპორტი |
-| Germany | Driving Licence\* | Führerschein |
-| Germany | ID Card | Personalausweis |
-| Germany | Minors Passport\* | Kinderreisepass |
-| Germany | Paper Passport\* | Reisepass |
-| Germany | Residence Permit | Aufenthaltstitel |
-| Germany | Polycarbonate Passport\* | Reisepass |
-| Greece | Driving Licence\* | Aάδεια οδήγησης |
-| Greece | ID Card | ΔΕΛΤΙΟ ΤΑΥΤΟΤΗΤΑΣ |
-| Greece | Paper Passport\* | Διαβατήριο |
-| Greece | Residence Permit | ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ |
-| Hungary | Address Card<sup>BETA</sup> | Lakcímkártya / Lakcímigazolvány |
-| Hungary | Driving Licence\* | Vezetői engedély |
-| Hungary | ID Card | Személyazonosító igazolvány |
-| Hungary | Paper Passport\* | Útlevél |
-| Hungary | Residence Permit<sup>BETA</sup> | Tartózkodási engedély |
-| Iceland | Driving Licence<sup>\*, BETA</sup> | Ökuskírteini |
-| Iceland | Paper Passport<sup>\*, BETA</sup> | Vegabréf |
-| Ireland | Driving Licence\* | Ceadúnas tiomána |
-| Ireland | Passport Card | Cárta Pas |
-| Ireland | Public Services Card<sup>BETA</sup> | Cárta Seirbhísí Poiblí |
-| Ireland | Polycarbonate Passport\* | Pas |
-| Italy | Driving Licence\* | Patente di guida |
-| Italy | ID Card | Carta d'identità |
-| Italy | Paper Passport<sup>\*, BETA</sup> | Passaporto |
-| Italy | Residence Permit | Permesso di soggiorno |
-| Kosovo | Driving Licence\* | Patentë shoferi / возачка дозвола |
-| Kosovo | ID Card | Letёrnjoftim / Лична карта |
-| Kosovo | Paper Passport\* | Pasaportë / Пасош |
-| Latvia | Alien ID | Nepilsoņa personas apliecība |
-| Latvia | Driving Licence\* | Vadītāja apliecība |
-| Latvia | ID Card | Personas apliecība |
-| Latvia | Residence Permit<sup>BETA</sup> | Uzturēšanās atļauja |
-| Latvia | Polycarbonate Alien Passport\* | Nepilsoņa pase |
-| Latvia | Polycarbonate Passport\* | Pase |
-| Lithuania | Driving Licence\* | Vairuotojo pažymėjimai |
-| Lithuania | ID Card | Asmens tapatybės kortelė |
-| Lithuania | Polycarbonate Passport\* | Pasas |
-| Luxembourg | Driving Licence\* | Permis de conduire |
-| Luxembourg | ID Card | Carte d'Identité / Personalausweis |
-| Luxembourg | Residence Permit | Titre de sejour |
-| Malta | Driving Licence\* | Liċenzja tas-Sewqan |
-| Malta | ID Card | Karta tal-Identità |
-| Malta | Residence Permit | Permess ta' residenza / Residence documentation |
-| Moldova | ID Card<sup>BETA</sup> | Buletin de identitate |
-| Moldova | Paper Passport<sup>\*, BETA</sup> | Paşaport |
-| Montenegro | Driving Licence\* | Vozačka dozvola / Возачка дозвола |
-| Montenegro | ID Card | Lična karta / Лична карта |
-| Montenegro | Polycarbonate Passport\* | Pasoš / Пасош |
-| Netherlands | Driving Licence | Rijebewijs |
-| Netherlands | ID Card | Identiteitskaart (ID-kaart) |
-| Netherlands | Residence Permit | Verblijfstitel / Verblijfskaart |
-| Netherlands | Polycarbonate Passport\* | Paspoort |
-| North Macedonia | Driving Licence\* | возачка дозвола / Patentë shoferi |
-| North Macedonia | ID Card | лична карта / Letёrnjoftim |
-| North Macedonia | Polycarbonate Passport\* | Пасош / Pasaportë |
-| Norway | Driving Licence\* | Førerkort / Førarkort |
-| Norway | Residence Permit | Oppholdstillatelse / Opphaldsløyve |
-| Norway | Polycarbonate Passport\* | Pass |
-| Poland | Driving Licence\* | Prawo jazdy |
-| Poland | ID Card | Dowód osobisty |
-| Poland | Paper Passport\* | Paszport |
-| Poland | Residence Permit<sup>BETA</sup> | Karta pobytu |
-| Poland | Polycarbonate Passport\* | Paszport |
-| Portugal | Driving Licence\* | Carta de Condução |
-| Portugal | ID Card | Cartão de Cidadão (CC) |
-| Portugal | Paper Passport\* | Passaporte |
-| Portugal | Residence Permit<sup>BETA</sup> | Título de Residência / Cartão de Residência |
-| Romania | Driving Licence\* | Permis de conducere |
-| Romania | ID Card\* | Carte de identitate |
-| Romania | Polycarbonate Passport\* | Pasaport / Pașaport |
-| Russia | Driving Licence\* | Водительское удостоверение |
-| Russia | Polycarbonate Passport\* | (Заграничный) Паспорт |
-| Serbia | Driving Licence\* | Возачка дозвола / Vozačka dozvola |
-| Serbia | ID Card | Лична карта / Lična karta |
-| Serbia | Polycarbonate Passport\* | Пасош / Pasoš |
-| Slovakia | Driving Licence\* | Vodičský preukaz |
-| Slovakia | ID Card | Občiansky preukaz |
-| Slovakia | Residence Permit | Povolenie na pobyt / Pobytový preukaz občana EÚ / Pobytový preukaz rodinného príslušníka občana EÚ |
-| Slovakia | Polycarbonate Passport\* | Cestovný pas |
-| Slovenia | Driving Licence\* | Vozniško dovoljenje |
-| Slovenia | ID Card | Osebna izkaznica |
-| Slovenia | Residence Permit<sup>BETA</sup> | Dovoljenje za prebivanje |
-| Slovenia | Polycarbonate Passport\* | Potni list |
-| Spain | Alien ID | Tarjeta de Identidad de Extranjero (TIE) |
-| Spain | Driving Licence\* | Permiso de Conducción |
-| Spain | ID Card | Documento Nacional de Identidad (DNI) |
-| Spain | Paper Passport\* | Pasaporte |
-| Spain | Residence Permit | Permiso de residencia |
-| Sweden | Driving Licence\* | Körkort |
-| Sweden | ID Card | Nationellt identitetskort |
-| Sweden | Residence Permit | Uppehållstillstånd / Uppehållskort |
-| Sweden | Polycarbonate Passport\* | Pass |
-| Sweden | Social Security Card\* | Identitetskort / Skatteverkets id-kort |
-| Switzerland | Driving Licence\* | Führerausweis / Permis de conduire / Licenza di condurre / Permiss da manischar |
-| Switzerland | ID Card | Identitätskarte / Carte d’identité  / Carta d’identità / Carta d’identitad |
-| Switzerland | Paper Passport\* | Pass / Passeport / Passaporto / Passaport |
-| Switzerland | Residence Permit | Aufenthaltstitel / Titre de séjour / Permesso di soggiorno / Permissiun da dimora |
-| UK | Driving Licence\* | Trwydded yrru |
-| UK | Paper Passport\* |  |
-| UK | Proof Of Age Card\* | CitizenCard |
-| UK | Residence Permit |  |
-| UK | Polycarbonate Passport\* |  |
-| Ukraine | Driving Licence\* | Посвідчення водія / Водительское удостоверение |
-| Ukraine | ID Card | Паспорт громадянина України |
-| Ukraine | Residence Permit | Посвідка на постійне проживання (ППП) |
-| Ukraine | Polycarbonate Passport\* | Паспорт |
-| Ukraine | Temporary Residence Permit | Посвідка на тимчасове проживання |
-
-
-### Middle East and Africa
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Algeria | Driving Licence | رخصة القيادة |
-| Algeria | ID Card | Carte nationale d’identité / بطاقة الهوية الوطني |
-| Algeria | Paper Passport\* | جواز السفر / Passeport |
-| Bahrain | ID Card | بطاقة الهوية / CPR Card |
-| Botswana | ID Card | Omang |
-| Burkina Faso | ID Card | Carte Nationale d'Identité Burkinabè (CNIB) |
-| Cameroon | ID Card | Carte Nationale d'Identité (CNI) |
-| Democratic Republic Of The Congo | Driving Licence<sup>BETA</sup> | Permis de conduire (CONADEP) |
-| Egypt | Driving Licence<sup>BETA</sup> | رخصة القيادة |
-| Egypt | ID Card | بطاقة تحقيق الشخصية |
-| Egypt | Paper Passport<sup>\*, BETA</sup> | جواز سفر |
-| Eswatini | Paper Passport\* |  |
-| Ghana | Driving Licence\* |  |
-| Ghana | ID Card | Ghana Card |
-| Ghana | Paper Passport\* |  |
-| Iran | Paper Passport<sup>\*, BETA</sup> | گذرنامه |
-| Iraq | ID Card | البطاقة الوطنية / كارتى نيشتمانى |
-| Iraq | Paper Passport<sup>\*, BETA</sup> | پاسپورت / جواز سفر |
-| Israel | Driving Licence\* | רשיון נהיגה |
-| Israel | ID Card<sup>BETA</sup> | Tehudat Zehut / بطاقة هوية‎ / תעודת זהות |
-| Israel | Paper Passport<sup>\*, BETA</sup> | דרכון |
-| Ivory Coast | Driving Licence<sup>\*, BETA</sup> | Permis de conduire |
-| Ivory Coast | ID Card | Carte Nationale d'Identité (CNI) |
-| Jordan | Driving Licence<sup>\*, BETA</sup> | رخصة القيادة |
-| Jordan | ID Card | بطاقة شخصية |
-| Jordan | Paper Passport<sup>\*, BETA</sup> | جواز سفر |
-| Kenya | ID Card | Kitambulisho |
-| Kenya | Polycarbonate Passport\* | Passport / Pasi |
-| Kuwait | Driving Licence | رخصة القيادة |
-| Kuwait | ID Card | بطاقة المدنية |
-| Kuwait | Resident ID | بطاقة المدنية |
-| Lebanon | ID Card<sup>BETA</sup> | بطاقة الهوية |
-| Libya | Polycarbonate Passport<sup>\*, BETA</sup> | جواز سفر |
-| Mauritius | ID Card |  |
-| Morocco | Driving Licence | Permis de conduire / رخصة القيادة |
-| Morocco | ID Card | Carte nationale d'identité /  بطاقة التعريف الوطنية |
-| Morocco | Paper Passport<sup>\*, BETA</sup> | Passeport / جواز سفر |
-| Mozambique | Driving Licence<sup>\*, BETA</sup> | Carta de Condução |
-| Nigeria | Driving Licence |  |
-| Nigeria | ID Card | e-ID card |
-| Nigeria | Paper Passport\* |  |
-| Nigeria | Polycarbonate Passport<sup>\*, BETA</sup> |  |
-| Nigeria | Voter ID | Permanent Voter Card (PVC) |
-| Oman | Driving Licence<sup>BETA</sup> | رخصة قيادة مركبة |
-| Oman | ID Card | بطاقة الهوية |
-| Oman | Resident ID | بطاقة مقيم |
-| Qatar | Driving Licence\* | رخصة القيادة |
-| Qatar | ID Card<sup>\*, BETA</sup> | بطاقة إثبات شخصية |
-| Qatar | Paper Passport\* | جواز سفر |
-| Qatar | Residence Permit | تصريح الإقامة |
-| Rwanda | ID Card\* | Indangamuntu |
-| Saudi Arabia | Driving Licence\* | رخصة قيادة |
-| Saudi Arabia | ID Card | بطاقة الأحوال المدنية |
-| Saudi Arabia | Paper Passport\* | جواز سفر |
-| Saudi Arabia | Resident ID\* | Iqama / هوية المقيم |
-| Senegal | ID Card | Carte d'identité biométrique CEDEAO, Carte nationale d'identité |
-| South Africa | Driving Licence\* | Bestuurslisensie |
-| South Africa | ID Card | Smart ID card |
-| South Africa | ID Card<sup>\*, BETA</sup>  | Green barcoded ID book |
-| South Africa | Polycarbonate Passport\* | Passeport |
-| Sudan | Polycarbonate Passport\* | جواز سفر |
-| Syria | Paper Passport\* | جواز سفر |
-| Tanzania | Driving Licence\* | Leseni ya udereva |
-| Tanzania | ID Card<sup>BETA</sup> | Kitambulisho cha Taifa / NIDA |
-| Tanzania | Voter ID<sup>\*, BETA</sup> | Kadi ya mpiga kura / Voter Card |
-| Tunisia | Driving Licence\* | رخصة قيادة |
-| Tunisia | ID Card\* | بطاقة التعريف الوطنية |
-| Tunisia | Paper Passport\* | جواز سفر |
-| Turkey | Driving Licence\* | Sürücü belgesi |
-| Turkey | ID Card | Kimlik Kartı |
-| Turkey | Paper Passport\* | Pasaport |
-| Turkey | Residence Permit<sup>BETA</sup> | İkamet İzni |
-| Turkey | Polycarbonate Passport\* | Pasaport |
-| UAE | Driving Licence | رخصة القيادة |
-| UAE | ID Card | بطاقة الهوية |
-| UAE | Paper Passport\* | جواز سفر |
-| UAE | Resident ID | بطاقة الهوية الوطنية |
-| Uganda | Driving Licence\* |  |
-| Uganda | ID Card |  |
-| Zimbabwe | Paper Passport\* |  |
-
-
-### Latin America and the Caribbean
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Antigua And Barbuda | Driving Licence<sup>\*, BETA</sup> |  |
-| Argentina | Alien ID | DNI para extranjeros |
-| Argentina | Driving Licence<sup>\*, BETA</sup> | Licencia de Conducir |
-| Argentina | ID Card | Documento Nacional de Identidad (DNI) |
-| Argentina | Paper Passport\* | Pasaporte |
-| Bahamas | Driving Licence\* |  |
-| Bahamas | ID Card<sup>\*, BETA</sup> | NIB Smart Card |
-| Bolivia | Driving Licence\* | Licencia para conducir |
-| Bolivia | ID Card | Cédula de identidad |
-| Bolivia | Minors ID | Cédula de identidad para menores |
-| Brazil | Consular Passport<sup>\*, BETA</sup> | Passaporte |
-| Brazil | Driving Licence | Carteira Nacional de Habilitação (CNH) |
-| Brazil | ID Card<sup>BETA</sup> | Cédula de identidade |
-| Brazil | Paper Passport<sup>\*, BETA</sup> | Passaporte |
-| Brazil - Sao Paolo | ID Card | Cédula de identidade |
-| Chile | Alien ID | Cédula de identidad para extranjeros |
-| Chile | Driving Licence\* | Licencia de conducir |
-| Chile | ID Card | Cédula de Identidad |
-| Chile | Polycarbonate Passport\* | Pasaporte |
-| Colombia | Alien ID | Cédula de Extranjería (CE) |
-| Colombia | Driving Licence | Licencia de Conducción |
-| Colombia | ID Card | Cédula de Ciudadanía (CC), Cédula Digital Colombiana |
-| Colombia | Minors ID | Tarjeta de identidad Biométrica (Azul) |
-| Colombia | Polycarbonate Passport\* | Pasaporte |
-| Costa Rica | Driving Licence<sup>\*, BETA</sup> | Licencia de conducir |
-| Costa Rica | ID Card | Cédula de identidad |
-| Cuba | Paper Passport\* | Pasaporte |
-| Dominican Republic | Driving Licence<sup>BETA</sup> | Licencia de conducir |
-| Dominican Republic | ID Card | Cédula de Identidad y Electoral (CIE) |
-| Dominican Republic | Paper Passport\* | Pasaporte |
-| Ecuador | Driving Licence\* | Licencia de conducir |
-| Ecuador | ID Card | Cédula de Identidad Electrónica, Cédula de Identidad |
-| El Salvador | Driving Licence<sup>BETA</sup> | Licencia de conducir |
-| El Salvador | ID Card | Documento Único de Identidad (DUI) |
-| Guatemala | Consular ID | Tarjeta de Identificación Consular (TICG) |
-| Guatemala | Driving Licence | Licencia de conducir |
-| Guatemala | ID Card | Documento Personal de Identificación (DPI) |
-| Guatemala | Paper Passport\* | Pasaporte |
-| Haiti | Driving Licence\* | Permis de conduire |
-| Haiti | ID Card | Carte d'identification nationale (CIN) / Kat Idantifikasyon Nasyonal |
-| Haiti | Paper Passport\* | Passeport / Paspò |
-| Honduras | Driving Licence<sup>BETA</sup> | Licencia de conducir |
-| Honduras | ID Card<sup>BETA</sup> | Tarjeta de identidad |
-| Honduras | Paper Passport<sup>\*, BETA</sup> | Pasaporte |
-| Jamaica | Driving Licence | Motor vehicle license / MV license |
-| Mexico | Consular ID<sup>BETA</sup> | Matrícula consular |
-| Mexico | Paper Passport<sup>\*, BETA</sup> | Pasaporte |
-| Mexico | Professional DL<sup>\*, BETA</sup> | Licencia Federal de Conductor |
-| Mexico | Professional ID<sup>BETA</sup> | Cédula Profesional |
-| Mexico | Residence Permit<sup>BETA</sup> | Tarjeta de Residencia Temporal y Residencia Permanente |
-| Mexico | Polycarbonate Passport\* | Pasaporte |
-| Mexico | Voter ID | Credencial para votar |
-| Mexico - Baja California | Driving Licence | Licencia de Conducir |
-| Mexico - Baja California Sur | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Campeche | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Chiapas | Driving Licence | Licencia de Conducir |
-| Mexico - Chihuahua | Driving Licence | Licencia de Conducir |
-| Mexico - Ciudad De Mexico | Driving Licence\* | Licencia de Conducir |
-| Mexico - Coahuila | Driving Licence | Licencia de Conducir |
-| Mexico - Colima | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Durango | Driving Licence\* | Licencia de Conducir |
-| Mexico - Guanajuato | Driving Licence | Licencia de Conducir |
-| Mexico - Guerrero Cocula | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Guerrero Juchitan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Hidalgo | Driving Licence | Licencia de Conducir |
-| Mexico - Jalisco | Driving Licence\* | Licencia de Conducir |
-| Mexico - Mexico | Driving Licence | Licencia de Conducir |
-| Mexico - Michoacan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Morelos | Driving Licence\* | Licencia de Conducir |
-| Mexico - Nayarit | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Nuevo Leon | Driving Licence | Licencia de Conducir |
-| Mexico - Oaxaca | Driving Licence | Licencia de Conducir |
-| Mexico - Puebla | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Quintana Roo Cozumel | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Quintana Roo Solidaridad | Driving Licence | Licencia de Conducir |
-| Mexico - San Luis Potosi | Driving Licence\* | Licencia de Conducir |
-| Mexico - Sinaloa | Driving Licence<sup>\*, BETA</sup> | Licencia de Conducir |
-| Mexico - Sonora | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Tabasco | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Tamaulipas | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Tlaxcala | Driving Licence | Licencia de Conducir |
-| Mexico - Veracruz | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Yucatan | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Mexico - Zacatecas | Driving Licence<sup>BETA</sup> | Licencia de Conducir |
-| Nicaragua | ID Card | Cédula de Identidad Ciudadana |
-| Panama | Driving Licence\* | Licencia de Conducir |
-| Panama | ID Card\* | Cédula de Identidad |
-| Panama | Residence Permit\* | Carné de Residente Permanente |
-| Panama | Temporary Residence Permit<sup>BETA</sup> | Carné de Residencia Provisional |
-| Paraguay | Driving Licence | Licencia de Conducir |
-| Paraguay | ID Card | Cédula de Identidad Civil |
-| Peru | Driving Licence | Licencia de conducir |
-| Peru | ID Card | Documento Nacional de Identidad (DNI) |
-| Peru | Minors ID<sup>BETA</sup> | Documento Nacional de Identidad (DNI) para menores |
-| Peru | Paper Passport\* | Pasaporte |
-| Puerto Rico | Driving Licence\* | Licencia de Conducir |
-| Puerto Rico | Voter ID<sup>\*, BETA</sup> | Tarjeta de Identificación Electoral (TIE) / Electoral Identification Card |
-| Trinidad And Tobago | Driving Licence<sup>\*, BETA</sup> |  |
-| Trinidad And Tobago | ID Card |  |
-| Uruguay | ID Card | Cédula de Identidad |
-| Venezuela | Driving Licence\* | Licencia para conducir |
-| Venezuela | ID Card\* | Cédula de Identidad |
-| Venezuela | Polycarbonate Passport\* | Pasaporte |
-
-
-### Oceania
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Australia | Paper Passport\* |  |
-| Australia - Australian Capital Territory | Driving Licence\* |  |
-| Australia - New South Wales | Driving Licence\* |  |
-| Australia - New South Wales | ID Card<sup>\*, BETA</sup> |  |
-| Australia - Northern Territory | Driving Licence<sup>BETA</sup> |  |
-| Australia - Northern Territory | Proof Of Age Card | NT Evidence of age card |
-| Australia - Queensland | Driving Licence |  |
-| Australia - South Australia | Driving Licence |  |
-| Australia - South Australia | Proof Of Age Card<sup>\*, BETA</sup> |  |
-| Australia - Tasmania | Driving Licence |  |
-| Australia - Victoria | Driving Licence |  |
-| Australia - Western Australia | Driving Licence |  |
-| New Zealand | Driving Licence\* |  |
-| New Zealand | Polycarbonate Passport\* | Uruwhenua |
-
-
-### Northern America
-| Country/Region        | Document Type | Localised Document Name |
-| :---------------|:------------------|:------------------|
-| Bermuda | Driving Licence<sup>\*, BETA</sup> |  |
-| Canada | Citizenship Certificate<sup>BETA</sup> | Canada citizenship card / Carte de citoyenneté canadienne  |
-| Canada | Paper Passport\* | Passport / Passeport |
-| Canada | Residence Permit | Permanent residence (PR) card / Carte de résident permanent |
-| Canada | Social Security Card<sup>\*, BETA</sup> | Social insurance card (SIN card) / Carte d'assurance sociale (Carte de NAS)  |
-| Canada | Tribal ID<sup>BETA</sup> | Certificate of Indian Status / Certificat de statut Indien |
-| Canada | Weapon Permit<sup>\*, BETA</sup> | Possesion and Aquisition License (PAL) / Permis de possession et d'acquisition |
-| Canada - Alberta | Driving Licence |  |
-| Canada - Alberta | ID Card |  |
-| Canada - British Columbia | Driving Licence |  |
-| Canada - British Columbia | Driver License/Public Services Card (Combined) |  |
-| Canada - British Columbia | ID Card |  |
-| Canada - British Columbia | Minors Public Services Card<sup>BETA</sup> |  |
-| Canada - British Columbia | Public Services Card |  |
-| Canada - Manitoba | Driving Licence |  |
-| Canada - Manitoba | ID Card |  |
-| Canada - New Brunswick | Driving Licence | Permis de conduire |
-| Canada - Newfoundland And Labrador | Driving Licence |  |
-| Canada - Nova Scotia | Driving Licence |  |
-| Canada - Nova Scotia | ID Card<sup>BETA</sup> |  |
-| Canada - Ontario | Driving Licence |  |
-| Canada - Ontario | ID Card | Photo card |
-| Canada - Quebec | Driving Licence | Permis de conduire |
-| Canada - Saskatchewan | Driving Licence |  |
-| Canada - Saskatchewan | ID Card<sup>BETA</sup> |  |
-| Canada - Yukon | Driving Licence | Permis de conduire |
-| USA | Border Crossing Card | BCC |
-| USA | Global Entry Card |  |
-| USA | Green Card | Permanent resident card |
-| USA | Military ID | Common Access Card (CAC) |
-| USA | Nexus Card<sup>BETA</sup> |  |
-| USA | Paper Passport<sup>\*, BETA</sup> |  |
-| USA | Passport Card |  |
-| USA | Polycarbonate Passport\* |  |
-| USA | Social Security Card<sup>\*, BETA</sup> |  |
-| USA | Veteran ID\* | VIC |
-| USA | Work Permit | Employment authorization document / EAD Card |
-| USA - Alabama | Driving Licence |  |
-| USA - Alabama | ID Card |  |
-| USA - Alaska | Driving Licence |  |
-| USA - Alaska | ID Card |  |
-| USA - Arizona | Driving Licence |  |
-| USA - Arizona | ID Card |  |
-| USA - Arkansas | Driving Licence |  |
-| USA - Arkansas | ID Card |  |
-| USA - California | Driving Licence |  |
-| USA - California | ID Card |  |
-| USA - Colorado | Driving Licence |  |
-| USA - Colorado | ID Card |  |
-| USA - Connecticut | Driving Licence |  |
-| USA - Connecticut | ID Card |  |
-| USA - Delaware | Driving Licence |  |
-| USA - District Of Columbia | Driving Licence |  |
-| USA - District Of Columbia | ID Card |  |
-| USA - Florida | Driving Licence |  |
-| USA - Florida | ID Card |  |
-| USA - Georgia | Driving Licence |  |
-| USA - Georgia | ID Card |  |
-| USA - Hawaii | Driving Licence |  |
-| USA - Hawaii | ID Card |  |
-| USA - Idaho | Driving Licence |  |
-| USA - Idaho | ID Card |  |
-| USA - Illinois | Driving Licence |  |
-| USA - Illinois | ID Card |  |
-| USA - Indiana | Driving Licence |  |
-| USA - Indiana | ID Card |  |
-| USA - Iowa | Driving Licence |  |
-| USA - Iowa | ID Card |  |
-| USA - Kansas | Driving Licence |  |
-| USA - Kansas | ID Card |  |
-| USA - Kentucky | Driving Licence |  |
-| USA - Kentucky | ID Card |  |
-| USA - Louisiana | Driving Licence |  |
-| USA - Maine | Driving Licence |  |
-| USA - Maine | ID Card<sup>BETA</sup> |  |
-| USA - Maryland | Driving Licence |  |
-| USA - Maryland | ID Card |  |
-| USA - Massachusetts | Driving Licence |  |
-| USA - Massachusetts | ID Card |  |
-| USA - Michigan | Driving Licence |  |
-| USA - Michigan | ID Card |  |
-| USA - Minnesota | Driving Licence |  |
-| USA - Minnesota | ID Card |  |
-| USA - Mississippi | Driving Licence |  |
-| USA - Mississippi | ID Card |  |
-| USA - Missouri | Driving Licence |  |
-| USA - Missouri | ID Card |  |
-| USA - Montana | Driving Licence |  |
-| USA - Montana | ID Card |  |
-| USA - Nebraska | Driving Licence |  |
-| USA - Nebraska | ID Card |  |
-| USA - Nevada | Driving Licence |  |
-| USA - Nevada | ID Card |  |
-| USA - New Hampshire | Driving Licence |  |
-| USA - New Jersey | Driving Licence |  |
-| USA - New Jersey | ID Card |  |
-| USA - New Mexico | Driving Licence |  |
-| USA - New Mexico | ID Card |  |
-| USA - New York | Driving Licence |  |
-| USA - New York | ID Card |  |
-| USA - New York City | ID Card |  |
-| USA - North Carolina | Driving Licence |  |
-| USA - North Carolina | ID Card |  |
-| USA - North Dakota | Driving Licence |  |
-| USA - North Dakota | ID Card<sup>BETA</sup> |  |
-| USA - Ohio | Driving Licence |  |
-| USA - Ohio | ID Card |  |
-| USA - Oklahoma | Driving Licence |  |
-| USA - Oklahoma | ID Card |  |
-| USA - Oregon | Driving Licence |  |
-| USA - Oregon | ID Card |  |
-| USA - Pennsylvania | Driving Licence |  |
-| USA - Pennsylvania | ID Card |  |
-| USA - Rhode Island | Driving Licence |  |
-| USA - Rhode Island | ID Card |  |
-| USA - South Carolina | Driving Licence |  |
-| USA - South Carolina | ID Card |  |
-| USA - South Dakota | Driving Licence |  |
-| USA - Tennessee | Driving Licence |  |
-| USA - Tennessee | ID Card |  |
-| USA - Texas | Driving Licence |  |
-| USA - Texas | ID Card |  |
-| USA - Texas | Weapon Permit\* | License to Carry a Handgun (LTC) |
-| USA - Utah | Driving Licence |  |
-| USA - Utah | ID Card |  |
-| USA - Vermont | Driving Licence |  |
-| USA - Virginia | Driving Licence |  |
-| USA - Virginia | ID Card |  |
-| USA - Washington | Driving Licence |  |
-| USA - Washington | ID Card |  |
-| USA - West Virginia | Driving Licence |  |
-| USA - Wisconsin | Driving Licence |  |
-| USA - Wisconsin | ID Card |  |
-| USA - Wyoming | Driving Licence |  |
+<table>
 
 
 
-\* Front side only, or for passports - only the bio-data page.
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AFGHANISTAN</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>تذکره الکترونیک‎</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>پاسپورټ</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ARMENIA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>նույնականացման քարտը</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AZERBAIJAN</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Şəxsiyyət vəsiqəsi</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport<sup> BETA</sup></td><td width=35%>Pasport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BANGLADESH</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>মোটর ড্রাইভিং লাইসেন্স</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>জাতীয় পরিচয় পত্র</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>পাসপোর্ট</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRUNEI</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Kad Pengenalan (Kuning)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Military ID<sup> BETA</sup></td><td width=35%>Kad Pengenalan Tentera (ABDB)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>​Kad Pengenalan (Ungu)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Temporary Residence Permit<sup> BETA</sup></td><td width=35%>Kad Pengenalan (Hijau)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CAMBODIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ប័ណ្ណបើកបរ</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>អត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>លិខិតឆ្លងដែន</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CHINA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>中华人民共和国居民身份证</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>中华人民共和国护照</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HONG KONG</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>香港身份證</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport<sup> BETA</sup></td><td width=35%>護照</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA</h3></b></th></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Aadhaar card / आधार कार्ड</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>PAN Card</td><td width=35%>स्थायी खाता संख्या कार्ड</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%>भारतीय मतदाता पहचान पत्र</td><td align="center" width=15%><sub>FRONT,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, GUJARAT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, KARNATAKA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, KERALA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, MADHYA PRADESH</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, MAHARASHTRA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, PUNJAB</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDIA, TAMIL NADU</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ड्राइविंग लाइसेंस</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>INDONESIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Surat Izin Mengemudi (SIM)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Kartu Tanda Penduduk (KTP)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Paspor</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>JAPAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>運転免許</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>My Number Card</td><td width=35%>マイナンバーカード</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>旅券</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KAZAKHSTAN</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Жеке қуәлік / Yдостоверение личности</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KYRGYZSTAN</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>идентификациялык карта / идентификационная карта</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALAYSIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Lesen Memandu</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyKAS</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyKad</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyKid</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyPR</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyPolis<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>MyTentera</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Refugee ID</td><td width=35%>UNHCR Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>i-Kad</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALDIVES</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>ދިވެހި ރައްޔިތެއްކަން އަންގައިދޭ ކާޑު</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MYANMAR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>ယာဉ်မောင်းလိုင်စင်</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NEPAL</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>राहदानी</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PAKISTAN</h3></b></th></tr>
+<tr><td width=35%>Consular ID</td><td width=35%>National Identity Card for Overseas Pakistanis (NICOP)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Computerized National Identity Card (CNIC), Smart National Identity Card (SNIC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PAKISTAN, PUNJAB</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PHILIPPINES</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>PhilSys ID / PhilID</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Multipurpose ID</td><td width=35%>Unified Multi-Purpose ID</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Professional ID</td><td width=35%>PRC License</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%>SSS ID</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Tax ID<sup> BETA</sup></td><td width=35%>TIN ID card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SINGAPORE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Employment Pass</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Fin Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>NRIC (Pink)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>NRIC (Blue)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>S Pass</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Work Permit</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH KOREA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>자동차운전면허증</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>주민등록증</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>여권</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SRI LANKA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>රියදුරු බලපත්රය</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>ජාතික හැඳුනුම්පත / தேசிய அடையாள அட்டை</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>ගමන් බලපත්‍රය / கடவுச்சீட்டு</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TAIWAN</h3></b></th></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>中華民國國民身分證</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Temporary Residence Permit<sup> BETA</sup></td><td width=35%>中華民國居留證 (ARC)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TAJIKISTAN</h3></b></th></tr>
+<tr><td width=35%>Polycarbonate Passport<sup> BETA</sup></td><td width=35%>шиноснома</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>THAILAND</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>บัตรประจำตัวคนซึ่งไม่มีสัญชาติไทย (บัตรสีชมพู)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>ใบอนุญาตขับรถ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>บัตรประจำตัวประชาชน</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>หนังสือเดินทาง</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UZBEKISTAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Haydovchilik guvohnomasi</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>VIETNAM</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Giấy phép lái xe</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Căn cước công dân, Giấy chứng minh nhân dân</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table>
+<br><br><br>
 
-#### Supported vertical US documents:
+## Europe
 
-| State        | Document Type |
-| :-------------|:------------------|
-| Alabama | Driver License |
-| Arizona | Driver License |
-| California | Driver License |
-| California | ID |
-| Colorado | Driver License |
-| Connecticut | Driver License |
-| Georgia | Driver License |
-| Illinois | Driver License |
-| Illinois | ID |
-| Iowa | Driver License |
-| Kansas | Driver License |
-| Kentucky | Driver License |
-| Maryland | Driver License |
-| Massachusetts | Driver License |
-| Minnesota | Driver License |
-| Missouri | Driver License |
-| New Jersey | Driver License |
-| New York | ID |
-| North Carolina | ID |
-| Ohio | Driver License |
-| Pennsylvania | Driver License |
-| South Carolina | Driver License |
-| Tennessee | Driver License |
-| Texas | Driver License |
-| Texas | ID |
-| Utah | Driver License |
-| Washington | Driver License |
-| Wisconsin | Driver License |
+<table>
+
+
+
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ALBANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Leje drejtimi</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver Card</td><td width=35%>Karta e drejtuesit të mjetit</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Letёrnjoftim</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Professional DL</td><td width=35%>Certifikatë aftëstimi profesionale</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaportë</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Führerschein</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Personalausweis</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Aufenthaltstitel</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BELARUS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>BАДЗІЦЕЛЬСКАЕ ПАСВЕДЧАННЕ / ВОДИТЕЛЬСКОЕ УДОСТОВЕРЕНИЕ</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Пашпарт / Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BELGIUM</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Rijbewijs / Permis de conduire / Führerschein</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Identiteitskaart / Carte d'identité / Personalausweis</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors ID</td><td width=35%>Kids-ID</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Paspoort / Passeport / Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Verblijfstitel / Titre de Sejour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>E Kaart / Carte E / E Karte; E+ Kaart / Carte E+ / E+ Karte; F Kaart / Carte F / F Karte; F+ Kaart / Carte F+ / F+ Karte </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOSNIA AND HERZEGOVINA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vozačka dozvola</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Lična karta / Osobna iskaznica</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasoš / Пасош / Putovnica</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BULGARIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Свидетелство за управление на МПС</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Лична карта</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CROATIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vozačka dozvola</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Osobna iskaznica</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Boravišna iskaznica / Dozvola boravka</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Putovnica</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CYPRUS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Sürüş ruhsati / Aάδεια οδήγησης</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Kimlik kartı / Δελτίο Ταυτότητας</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaport / Διαβατήριο</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CZECHIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Řidičský průkaz</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Občanský průkaz</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Povolení k pobytu</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Cestovní pas</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>DENMARK</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Kørekort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Opholdstilladelse / Opholdskort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pas</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ESTONIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Juhiluba</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Isikutunnistus</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Elamisluba</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>FINLAND</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>Ulkomaalaisen henkilökortti / Identitetskort för utlänning</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Ajokortti / Körkort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Henkilökortti / Identitetskort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Oleskelulupa / Uppehållstillstånd</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passi / Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>FRANCE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Titre de séjour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GEORGIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>მართვის მოწმობა</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>მოქალაქის პირადობის მოწმობა</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>პასპორტი</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GERMANY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Führerschein</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Personalausweis</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors Passport</td><td width=35%>Kinderreisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Aufenthaltstitel</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Reisepass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GREECE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Aάδεια οδήγησης</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>ΔΕΛΤΙΟ ΤΑΥΤΟΤΗΤΑΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Διαβατήριο</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>ΑΔΕΙΑ ΔΙΑΜΟΝΗΣ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HUNGARY</h3></b></th></tr>
+<tr><td width=35%>Address Card<sup> BETA</sup></td><td width=35%>Lakcímkártya / Lakcímigazolvány</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vezetői engedély</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Személyazonosító igazolvány</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Útlevél</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Tartózkodási engedély</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ICELAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Ökuskírteini</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Vegabréf</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRELAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Ceadúnas tiomána</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Passport Card</td><td width=35%>Cárta Pas</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Public Services Card</td><td width=35%>Cárta Seirbhísí Poiblí</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pas</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ITALY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Patente di guida</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carta d'identità</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passaporto</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Permesso di soggiorno</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KOSOVO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Patentë shoferi / возачка дозвола</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Letёrnjoftim / Лична карта</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaportë / Пасош</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LATVIA</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>Nepilsoņa personas apliecība</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vadītāja apliecība</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Personas apliecība</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Uzturēšanās atļauja</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Alien Passport</td><td width=35%>Nepilsoņa pase</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pase</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LITHUANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vairuotojo pažymėjimai</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Asmens tapatybės kortelė</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasas</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LUXEMBOURG</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte d'Identité / Personalausweis</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Titre de sejour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MALTA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Liċenzja tas-Sewqan</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Karta tal-Identità</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Permess ta' residenza / Residence documentation</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MOLDOVA</h3></b></th></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Buletin de identitate</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Paşaport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MONTENEGRO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vozačka dozvola / Возачка дозвола</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Lična karta / Лична карта</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasoš / Пасош</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NETHERLANDS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Rijebewijs</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Identiteitskaart (ID-kaart)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Verblijfstitel / Verblijfskaart</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Paspoort</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NORTH MACEDONIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>возачка дозвола / Patentë shoferi</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>лична карта / Letёrnjoftim</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Пасош / Pasaportë</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NORWAY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Førerkort / Førarkort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Oppholdstillatelse / Opphaldsløyve</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>POLAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Prawo jazdy</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Dowód osobisty</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Paszport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Karta pobytu</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Paszport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PORTUGAL</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Carta de Condução</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cartão de Cidadão (CC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Título de Residência / Cartão de Residência</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ROMANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conducere</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte de identitate</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaport / Pașaport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>RUSSIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Водительское удостоверение</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>(Заграничный) Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SERBIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Возачка дозвола / Vozačka dozvola</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Лична карта / Lična karta</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Пасош / Pasoš</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SLOVAKIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vodičský preukaz</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Občiansky preukaz</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Povolenie na pobyt / Pobytový preukaz občana EÚ / Pobytový preukaz rodinného príslušníka občana EÚ</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Cestovný pas</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SLOVENIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Vozniško dovoljenje</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Osebna izkaznica</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Dovoljenje za prebivanje</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Potni list</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SPAIN</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>Tarjeta de Identidad de Extranjero (TIE)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permiso de Conducción</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Documento Nacional de Identidad (DNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Permiso de residencia</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SWEDEN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Körkort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Nationellt identitetskort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Uppehållstillstånd / Uppehållskort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%>Identitetskort / Skatteverkets id-kort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SWITZERLAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Führerausweis / Permis de conduire / Licenza di condurre / Permiss da manischar</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Identitätskarte / Carte d’identité  / Carta d’identità / Carta d’identitad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pass / Passeport / Passaporto / Passaport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Aufenthaltstitel / Titre de séjour / Permesso di soggiorno / Permissiun da dimora</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UK</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Trwydded yrru</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Proof Of Age Card</td><td width=35%>CitizenCard</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UKRAINE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Посвідчення водія / Водительское удостоверение</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Паспорт громадянина України</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Посвідка на постійне проживання (ППП)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Паспорт</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Temporary Residence Permit</td><td width=35%>Посвідка на тимчасове проживання</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Cyrillic, Latin</sub></td></tr>
+</table>
+<br><br><br>
+
+## Latin America and the Caribbean
+
+<table>
+
+
+
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ANTIGUA AND BARBUDA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ARGENTINA</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>DNI para extranjeros</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Documento Nacional de Identidad (DNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BAHAMAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>NIB Smart Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOLIVIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia para conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors ID</td><td width=35%>Cédula de identidad para menores</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL</h3></b></th></tr>
+<tr><td width=35%>Consular Passport<sup> BETA</sup></td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Carteira Nacional de Habilitação (CNH)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SAO PAOLO</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CHILE</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>Cédula de identidad para extranjeros</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>COLOMBIA</h3></b></th></tr>
+<tr><td width=35%>Alien ID</td><td width=35%>Cédula de Extranjería (CE)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducción</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula Digital Colombiana, Cédula de Ciudadanía (CC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors ID</td><td width=35%>Tarjeta de identidad Biométrica (Azul)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>COSTA RICA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CUBA</h3></b></th></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Carné de Identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>DOMINICAN REPUBLIC</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad y Electoral (CIE)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ECUADOR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad, Cédula de Identidad Electrónica</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EL SALVADOR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Documento Único de Identidad (DUI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GUATEMALA</h3></b></th></tr>
+<tr><td width=35%>Consular ID</td><td width=35%>Tarjeta de Identificación Consular (TICG)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Documento Personal de Identificación (DPI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HAITI</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte d'identification nationale (CIN) / Kat Idantifikasyon Nasyonal</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passeport / Paspò</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>HONDURAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Tarjeta de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>JAMAICA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Motor vehicle license / MV license</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO</h3></b></th></tr>
+<tr><td width=35%>Consular ID<sup> BETA</sup></td><td width=35%>Matrícula consular</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Professional DL<sup> BETA</sup></td><td width=35%>Licencia Federal de Conductor</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Professional ID<sup> BETA</sup></td><td width=35%>Cédula Profesional</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Tarjeta de Residencia Temporal y Residencia Permanente</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%>Credencial para votar</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, AGUASCALIENTES</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, BAJA CALIFORNIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, BAJA CALIFORNIA SUR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, CAMPECHE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, CHIAPAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, CHIHUAHUA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, CIUDAD DE MEXICO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, COAHUILA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, COLIMA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, DURANGO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, GUANAJUATO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, GUERRERO COCULA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub></sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, GUERRERO JUCHITAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, HIDALGO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, JALISCO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, MEXICO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, MICHOACAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, MORELOS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, NAYARIT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, NUEVO LEON</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, OAXACA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, PUEBLA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, QUINTANA ROO COZUMEL</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, QUINTANA ROO SOLIDARIDAD</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, SAN LUIS POTOSI</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, SINALOA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, SONORA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, TABASCO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, TAMAULIPAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, TLAXCALA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, VERACRUZ</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, YUCATAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, ZACATECAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NICARAGUA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad Ciudadana</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PANAMA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Carné de Residente Permanente</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Temporary Residence Permit</td><td width=35%>Carné de Residencia Provisional</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PARAGUAY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad Civil</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PERU</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Documento Nacional de Identidad (DNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors ID<sup> BETA</sup></td><td width=35%>Documento Nacional de Identidad (DNI) para menores</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PUERTO RICO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID<sup> BETA</sup></td><td width=35%>Tarjeta de Identificación Electoral (TIE) / Electoral Identification Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TRINIDAD AND TOBAGO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>URUGUAY</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>VENEZUELA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Licencia para conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Cédula de Identidad</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table>
+<br><br><br>
+
+## Middle East and Africa
+
+<table>
+
+
+
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ALGERIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte nationale d’identité / بطاقة الهوية الوطني</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز السفر / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BAHRAIN</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة الهوية / CPR Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOTSWANA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Omang</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BURKINA FASO</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte Nationale d'Identité Burkinabè (CNIB)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CAMEROON</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte Nationale d'Identité (CNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>DEMOCRATIC REPUBLIC OF THE CONGO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Permis de conduire (CONADEP)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>EGYPT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة تحقيق الشخصية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ESWATINI</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GHANA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Ghana Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRAN</h3></b></th></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>گذرنامه</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IRAQ</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>البطاقة الوطنية / كارتى نيشتمانى</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>پاسپورت / جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ISRAEL</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>רשיון נהיגה</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Tehudat Zehut / بطاقة هوية‎ / תעודת זהות</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>דרכון</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>IVORY COAST</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte Nationale d'Identité (CNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>JORDAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة شخصية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KENYA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Kitambulisho</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passport / Pasi</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>KUWAIT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة المدنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>بطاقة المدنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LEBANON</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة الهوية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>LIBYA</h3></b></th></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MAURITIUS</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MOROCCO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire / رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte nationale d'identité /  بطاقة التعريف الوطنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passeport / جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MOZAMBIQUE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Carta de Condução</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NIGERIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>e-ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID</td><td width=35%>Permanent Voter Card (PVC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>OMAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>رخصة قيادة مركبة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة الهوية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>بطاقة مقيم</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>QATAR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>بطاقة إثبات شخصية</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>تصريح الإقامة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>RWANDA</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Indangamuntu</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SAUDI ARABIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة قيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة الأحوال المدنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>Iqama / هوية المقيم</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SENEGAL</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Carte d'identité biométrique CEDEAO, Carte nationale d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH AFRICA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Bestuurslisensie</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Green barcoded ID	book</td><td align="center" width=15%><sub>FRONT<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SUDAN</h3></b></th></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SYRIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TANZANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Leseni ya udereva</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Kitambulisho cha Taifa / NIDA</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Voter ID<sup> BETA</sup></td><td width=35%>Kadi ya mpiga kura / Voter Card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TUNISIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة قيادة</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة التعريف الوطنية</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>TURKEY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Sürücü belgesi</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Kimlik Kartı</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Pasaport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>İkamet İzni</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UAE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>رخصة القيادة</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>بطاقة الهوية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+<tr><td width=35%>Resident ID</td><td width=35%>بطاقة الهوية الوطنية</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Arabic, Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>UGANDA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>ZIMBABWE</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table>
+<br><br><br>
+
+## Northern America
+
+<table>
+
+
+
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BERMUDA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA</h3></b></th></tr>
+<tr><td width=35%>Citizenship Certificate<sup> BETA</sup></td><td width=35%>Canada citizenship card / Carte de citoyenneté canadienne </td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%>Passport / Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Residence Permit</td><td width=35%>Permanent residence (PR) card / Carte de résident permanent</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card<sup> BETA</sup></td><td width=35%>Social insurance card (SIN card) / Carte d'assurance sociale (Carte de NAS) </td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Tribal ID</td><td width=35%>Certificate of Indian Status / Certificat de statut Indien</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Weapon Permit</td><td width=35%>Possesion and Aquisition License (PAL) / Permis de possession et d'acquisition</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, ALBERTA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, BRITISH COLUMBIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver License/Public Services Card (Combined)</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Minors Public Services Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Public Services Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, MANITOBA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, NEW BRUNSWICK</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, NEWFOUNDLAND AND LABRADOR</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, NOVA SCOTIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, ONTARIO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%>Photo card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, QUEBEC</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, SASKATCHEWAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CANADA, YUKON</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA</h3></b></th></tr>
+<tr><td width=35%>Border Crossing Card</td><td width=35%>BCC</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Global Entry Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Green Card</td><td width=35%>Permanent resident card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Military ID</td><td width=35%>Common Access Card (CAC)</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Nexus Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Passport Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Veteran ID</td><td width=35%>VIC</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Work Permit</td><td width=35%>Employment authorization document / EAD Card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, ALABAMA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, ALASKA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, ARIZONA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, ARKANSAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, CALIFORNIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, COLORADO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, CONNECTICUT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, DELAWARE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, DISTRICT OF COLUMBIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, FLORIDA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, GEORGIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, HAWAII</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, IDAHO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, ILLINOIS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, INDIANA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, IOWA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, KANSAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, KENTUCKY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, LOUISIANA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MAINE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MARYLAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MASSACHUSETTS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MICHIGAN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MINNESOTA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MISSISSIPPI</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MISSOURI</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, MONTANA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEBRASKA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEVADA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW HAMPSHIRE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW JERSEY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW MEXICO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW YORK</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NEW YORK CITY</h3></b></th></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NORTH CAROLINA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, NORTH DAKOTA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, OHIO</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, OKLAHOMA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, OREGON</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, PENNSYLVANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, RHODE ISLAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, SOUTH CAROLINA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, SOUTH DAKOTA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, TENNESSEE</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, TEXAS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Weapon Permit</td><td width=35%>License to Carry a Handgun (LTC)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, UTAH</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, VERMONT</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, VIRGINIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, WASHINGTON</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, WEST VIRGINIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, WISCONSIN</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>USA, WYOMING</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table>
+<br><br><br>
+
+## Oceania
+
+<table>
+
+
+
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA</h3></b></th></tr>
+<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, AUSTRALIAN CAPITAL TERRITORY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, NEW SOUTH WALES</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, NORTHERN TERRITORY</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Proof Of Age Card</td><td width=35%>NT Evidence of age card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, QUEENSLAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, SOUTH AUSTRALIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Proof Of Age Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, TASMANIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, VICTORIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>AUSTRALIA, WESTERN AUSTRALIA</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>NEW ZEALAND</h3></b></th></tr>
+<tr><td width=35%>Driving Licence</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Polycarbonate Passport</td><td width=35%>Uruwhenua</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table>
+<br><br><br>
