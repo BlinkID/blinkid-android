@@ -27,7 +27,7 @@
 - Added new result property of an `AdditionalProcessingInfo` type that provides information about `missingMandatoryFields`, `invalidCharacterFields`, and `extraPresentFields`
 - Unified `DataMatchResult` and `DataMatchDetailedInfo` into a single structure `DataMatchResult` (removed `dataMatchDetailedInfo` result member)
 - Added new result member `cardOrientation` to `ImageAnalysisResult` structure
-- More info about transitioning to **BlinkID v6.0.0** can be found in [`Transition guide.md`](Transition guide.md) 
+- More info about transitioning to **BlinkID v6.0.0** can be found in [`Transition-guide.md`](Transition-guide.md) 
 
 ### Added support for 50 new versions of already supported documents:
 - Mexico - Aguascalientes - Driving license
