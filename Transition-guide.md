@@ -8,7 +8,13 @@
 	- Basic single-sided recognizer, which used to be named `BlinkIdRecognizer`, is now called __BlinkIdSingleSideRecognizer__, and should be used for scanning one-sided documents or if you wish to capture only the front side of it
 	- More advanced recognizer, which used to be named `BlinkIdCombinedRecognizer`, is now called __BlinkIdMultiSideRecognizer__, and should be used for scanning the documents which have information that you want to extract on more than one side
 
-### API changes
+### Minimum supported SDK version
+- Minimum supported SDK version has been updated from 16 to 21. This means that the devices that have an Android version lower than Android 5.0 (Lollipop) will no longer support BlinkID SDK - all of the devices with Android 5.0 and above are still supported.
+
+### Removed support for x86 architecture
+- Devices that are based on the Intel x86 architecture, rather than ARMv7, are no longer supported. x86 and x86_64 architectures are used on very few devices today with most of them being manufactured before 2015, and only a few after that (e.g. Asus Zenfone 4). According to the Device catalog on Google Play Console, these devices make up about 1% of all Android devices (223 out of 22074 devices that have an API level of 21 and above support this architecture).
+
+## API changes
 #### `StringResult`
 
 - `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer` results now return nullable `StringResult` instead of `String` for the text fields, supporting multiple scripts. If we don't expect the `StringResult` on the document, that result will be `null`. If the text field is expected on the document, but we did't manage to read it, the `StringResult` will contain empty `String`.  
@@ -20,12 +26,6 @@
 - We have added `CardOrientation` result that can help you distinguish between `Vertical` and `Horizontal` documents. It is a part of the `ImageAnalysisResult` result.
 - We have added new result property of an `AdditionalProcessingInfo` type that provides information about `missingMandatoryFields`, `invalidCharacterFields`, and `extraPresentFields`
 - We have unified `DataMatchResult` and `DataMatchDetailedInfo` into a single structure `DataMatchResult` (removed `dataMatchDetailedInfo` result member)
-
-### Minimum supported SDK version
-- Minimum supported SDK version has been updated from 16 to 21. This means that the devices that have an Android version lower than Android 5.0 (Lollipop) will no longer support BlinkID SDK - all of the devices with Android 5.0 and above are still supported.
-
-### Removed support for x86 architecture
-- Devices that are based on the Intel x86 architecture, rather than ARMv7, are no longer supported. x86 and x86_64 architectures are used on very few devices today with most of them being manufactured before 2015, and only a few after that (e.g. Asus Zenfone 4). According to the Device catalog on Google Play Console, these devices make up about 1% of all Android devices (223 out of 22074 devices that have an API level of 21 and above support this architecture).
 
 ## Improvements
 
@@ -53,17 +53,15 @@ private val resultLauncher =
         }
     }
 ```
-- It is recommended to check the result status as shown in order to avoid crashes before doing something with the result itself.
-Launching the scanning is then done by a simple function call:
-- 
+- It is recommended to check the result status as shown in order to avoid crashes before doing something with the result itself. Launching the scanning is then done by a simple function call:
+ 
 ```kotlin
 twoSideScanResult.launch() 
 ```
 
 - This will launch a scanning activity which will return the scanning result through callbacks and specific scan results can be obtained through result variable which is an instance of `OneSideScanResult` or `TwoScanSideResult`.
 
-
-###Added onboarding screens
+### Added onboarding screens
 - New onboarding screens have been added to the SDK, providing the users with a small tutorial on how to scan properly; this will potentially improve the successful scan rate.
 - Onboarding consists of two parts:
 	- Introduction dialog - appears as soon as the user starts the scanning process in the shape of an overlay dialog with an instruction image and an instruction text, which can be dismissed by a press of a button
