@@ -1,7 +1,7 @@
 # Transition to BlinkID v6.0.0
 ## Breaking changes
 ### Repackaging of all classes
-- The root package has been renamed from `com.microblink` to `com.microblink.blinkid`. To implement this change, you should simply replace all occurrences of `com.microblink` with `com.microblink.blinkid`. Most of these changes should be on imports of BlinkID SDK Java classes.
+- The root package has been renamed from `com.microblink` to `com.microblink.blinkid`. To implement this change, you should simply replace all occurrences of `com.microblink` with `com.microblink.blinkid`. Most of these changes should be on imports of BlinkID SDK Java classes. Also, all of the resources have `mb_blinkid_` prefix instead of `mb_`.
 
 ### Renaming of recognizers
 - One very important change came when it comes to using BlinkID recognizers - they have been renamed to make them more understandable for new developers and users:
