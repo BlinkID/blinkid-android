@@ -33,7 +33,8 @@
 - In *BlinkID v6.0.0* we added support for one-line scanning which will make it easier to test the SDK and to do simple scans without any additional configuration. Two new classes that extend `ActivityResultContract` class have been added and that can be called in a similar way to `MbScan`.
 
 - Classes `OneSideDocumentScan` and `TwoSideDocumentScan` can be instantiated and launched without instantiating additional `Recognizers` and `UISettings`. If you wish to just launch the scanning with default settings, it can be done with only a few lines: define an instance of a class `OneSideScanResult` or `TwoSideScanResult`  by using a function `registerForActivityResult` and passing one of the document scanners as an argument
-#####Example for two-sided scan in Kotlin:
+
+##### Example for two-sided scan in Kotlin:
 ```kotlin
 private val resultLauncher =
     registerForActivityResult(TwoSideDocumentScan()) { twoSideScanResult: TwoSideScanResult ->
