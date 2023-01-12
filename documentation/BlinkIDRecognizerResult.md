@@ -13,7 +13,7 @@
 
 <h2>MRZ Fields</h2>
 Other than documents listed here, BlinkID Recognizer, both Single Side and Multi Side, also scans the <strong>Machine Readable Zone (MRZ)</strong> on standard (ISO/IEC 7501 compliant) 
-<strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> aand other identification documents.
+<strong>Machine Readable Travel Documents (MRTD)</strong>. This includes <strong>passports, visas</strong> and other identification documents.
 <br>
 <br>
 The MRZ is parsed to produce a structure with fields:
@@ -2343,6 +2343,28 @@ in the tables in [BlinkIDRecognizer.md](BlinkIDRecognizer.md) file in this repos
 
 <th colspan=2>CANADA YUKON Driving Licence - Back</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Barcode data</td> <td>Pending</td><tr>
+
+<th colspan=2>CAYMAN ISLANDS Driving Licence - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
+<tr> <td>Address</td> <td>Always</td><tr>
+
+<tr> <td>Date of birth</td> <td>Always</td><tr>
+
+<tr> <td>Date of expiry</td> <td>Always</td><tr>
+
+<tr> <td>Date of issue</td> <td>Always</td><tr>
+
+<tr> <td>Document number</td> <td>Always</td><tr>
+
+<tr> <td>First name</td> <td>Always</td><tr>
+
+<tr> <td>Last name</td> <td>Always</td><tr>
+
+<tr> <td>Licence type</td> <td>Always</td><tr>
+
+<tr> <td>Sex</td> <td>Always</td><tr>
+
+<tr> <td>Vehicle class</td> <td>Always</td><tr>
+
 
 <th colspan=2>CHILE Alien ID - Front</th> </tr> <tr><th>Field</th><th>Presence</th> </tr>
 <tr> <td>Date of birth</td> <td>Always</td><tr>

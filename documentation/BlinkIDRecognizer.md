@@ -445,6 +445,8 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SAO PAOLO</h3></b></th></tr>
 <tr><td width=35%>ID Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+</table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CAYMAN ISLANDS</h3></b></th></tr>
+<tr><td width=35%>Driving Licence<sup> BETA</sup></td><td width=35%>Driver's licence</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>CHILE</h3></b></th></tr>
 <tr><td width=35%>Alien ID</td><td width=35%>Cédula de identidad para extranjeros</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driving Licence</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -683,7 +685,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH AFRICA</h3></b></th></tr>
 <tr><td width=35%>Driving Licence</td><td width=35%>Bestuurslisensie</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>ID Card</td><td width=35%>Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Green barcoded ID	book</td><td align="center" width=15%><sub>FRONT<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Green barcoded ID   book</td><td align="center" width=15%><sub>FRONT<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SUDAN</h3></b></th></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
