@@ -10,6 +10,7 @@ import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
 import com.microblink.blinkid.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdSingleSideRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.IdBarcodeRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdCombinedRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdRecognizer;
@@ -77,6 +78,7 @@ public class MenuActivity extends ResultHandlerMenuActivity {
     protected List<MenuListItem> createMenuListItems() {
         List<MenuListItem> items = new ArrayList<>();
 
+        items.add(buildBlinkIdSingleSideElement());
         items.add(buildBlinkIdMultiSideElement());
         items.add(buildPassportElement());
         items.add(buildVisaElement());
@@ -143,102 +145,83 @@ public class MenuActivity extends ResultHandlerMenuActivity {
         }
     }
 
+    private MenuListItem buildBlinkIdSingleSideElement() {
+        return new MenuListItem("BlinkId Single Side", () -> {
+            BlinkIdSingleSideRecognizer blinkIdSingle = new BlinkIdSingleSideRecognizer();
+            ImageSettings.enableAllImages(blinkIdSingle);
+            scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkIdSingle)));
+        });
+    }
+
     private MenuListItem buildBlinkIdMultiSideElement() {
-        return new MenuListItem("BlinkId Multi Side", new Runnable() {
-            @Override
-            public void run() {
-                BlinkIdMultiSideRecognizer blinkIdCombined = new BlinkIdMultiSideRecognizer();
-                ImageSettings.enableAllImages(blinkIdCombined);
-                scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkIdCombined)));
-            }
+        return new MenuListItem("BlinkId Multi Side", () -> {
+            BlinkIdMultiSideRecognizer blinkIdMulti = new BlinkIdMultiSideRecognizer();
+            ImageSettings.enableAllImages(blinkIdMulti);
+            scanAction(new BlinkIdUISettings(prepareRecognizerBundle(blinkIdMulti)));
         });
     }
 
     private MenuListItem buildPassportElement() {
-        return new MenuListItem("Passport", new Runnable() {
-            @Override
-            public void run() {
-                PassportRecognizer passportRecognizer = new PassportRecognizer();
-                ImageSettings.enableAllImages(passportRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecognizer)));
-            }
+        return new MenuListItem("Passport", () -> {
+            PassportRecognizer passportRecognizer = new PassportRecognizer();
+            ImageSettings.enableAllImages(passportRecognizer);
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(passportRecognizer)));
         });
     }
 
     private MenuListItem buildVisaElement() {
-        return new MenuListItem("Visa", new Runnable() {
-            @Override
-            public void run() {
-                VisaRecognizer visaRecognizer = new VisaRecognizer();
-                ImageSettings.enableAllImages(visaRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(visaRecognizer)));
-            }
+        return new MenuListItem("Visa", () -> {
+            VisaRecognizer visaRecognizer = new VisaRecognizer();
+            ImageSettings.enableAllImages(visaRecognizer);
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(visaRecognizer)));
         });
     }
 
     private MenuListItem buildMrtdElement() {
-        return new MenuListItem("Passport and ID", new Runnable() {
-            @Override
-            public void run() {
-                MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
-                mrtdRecognizer.setAllowUnverifiedResults(true);
-                ImageSettings.enableAllImages(mrtdRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecognizer)));
-            }
+        return new MenuListItem("Passport and ID", () -> {
+            MrtdRecognizer mrtdRecognizer = new MrtdRecognizer();
+            mrtdRecognizer.setAllowUnverifiedResults(true);
+            ImageSettings.enableAllImages(mrtdRecognizer);
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(mrtdRecognizer)));
         });
     }
 
     private MenuListItem buildMrtdCombinedElement() {
-        return new MenuListItem("Passport and ID Combined", new Runnable() {
-            @Override
-            public void run() {
-                MrtdCombinedRecognizer mrtdCombinedRecognizer = new MrtdCombinedRecognizer();
-                ImageSettings.enableAllImages(mrtdCombinedRecognizer);
-                combinedRecognitionAction(mrtdCombinedRecognizer);
-            }
+        return new MenuListItem("Passport and ID Combined", () -> {
+            MrtdCombinedRecognizer mrtdCombinedRecognizer = new MrtdCombinedRecognizer();
+            ImageSettings.enableAllImages(mrtdCombinedRecognizer);
+            combinedRecognitionAction(mrtdCombinedRecognizer);
         });
     }
 
     private MenuListItem buildDocumentFaceElement() {
-        return new MenuListItem("Document Face", new Runnable() {
-            @Override
-            public void run() {
-                DocumentFaceRecognizer documentFaceRecognizer = new DocumentFaceRecognizer();
-                ImageSettings.enableAllImages(documentFaceRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(documentFaceRecognizer)));
-            }
+        return new MenuListItem("Document Face", () -> {
+            DocumentFaceRecognizer documentFaceRecognizer = new DocumentFaceRecognizer();
+            ImageSettings.enableAllImages(documentFaceRecognizer);
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(documentFaceRecognizer)));
         });
     }
 
     private MenuListItem buildIdBarcodeElement() {
-        return new MenuListItem("ID barcode", new Runnable() {
-            @Override
-            public void run() {
-                IdBarcodeRecognizer idBarcodeRecognizer = new IdBarcodeRecognizer();
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(idBarcodeRecognizer)));
-            }
+        return new MenuListItem("ID barcode", () -> {
+            IdBarcodeRecognizer idBarcodeRecognizer = new IdBarcodeRecognizer();
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(idBarcodeRecognizer)));
         });
     }
 
     private MenuListItem buildUsdlElement() {
-        return new MenuListItem("USDL", new Runnable() {
-            @Override
-            public void run() {
-                UsdlRecognizer usdlRecognizer = new UsdlRecognizer();
-                ImageSettings.enableAllImages(usdlRecognizer);
-                scanAction(new DocumentUISettings(prepareRecognizerBundle(usdlRecognizer)));
-            }
+        return new MenuListItem("USDL", () -> {
+            UsdlRecognizer usdlRecognizer = new UsdlRecognizer();
+            ImageSettings.enableAllImages(usdlRecognizer);
+            scanAction(new DocumentUISettings(prepareRecognizerBundle(usdlRecognizer)));
         });
     }
 
     private MenuListItem buildUsdlCombinedElement() {
-        return new MenuListItem("USDL Combined", new Runnable() {
-            @Override
-            public void run() {
-                UsdlCombinedRecognizer usdlCombinedRecognizer = new UsdlCombinedRecognizer();
-                ImageSettings.enableAllImages(usdlCombinedRecognizer);
-                combinedRecognitionAction(usdlCombinedRecognizer);
-            }
+        return new MenuListItem("USDL Combined", () -> {
+            UsdlCombinedRecognizer usdlCombinedRecognizer = new UsdlCombinedRecognizer();
+            ImageSettings.enableAllImages(usdlCombinedRecognizer);
+            combinedRecognitionAction(usdlCombinedRecognizer);
         });
     }
 
