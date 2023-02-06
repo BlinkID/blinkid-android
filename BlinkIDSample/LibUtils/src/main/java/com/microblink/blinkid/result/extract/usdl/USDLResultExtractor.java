@@ -1,7 +1,7 @@
 package com.microblink.blinkid.result.extract.usdl;
 
 import com.microblink.blinkid.entities.recognizers.blinkbarcode.usdl.UsdlRecognizer;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.extract.BaseResultExtractor;
 
 public class USDLResultExtractor extends BaseResultExtractor<UsdlRecognizer.Result, UsdlRecognizer> {

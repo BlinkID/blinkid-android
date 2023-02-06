@@ -6,15 +6,16 @@
 <title>BarcodeElementKey (LibBlinkID API)</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
-<link rel="stylesheet" type="text/css" href="../../../../../../../jquery/jquery-ui.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../../jquery/jquery-ui.min.css" title="Style">
+<link rel="stylesheet" type="text/css" href="../../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../../script.js"></script>
 <script type="text/javascript" src="../../../../../../../jquery/jszip/dist/jszip.min.js"></script>
 <script type="text/javascript" src="../../../../../../../jquery/jszip-utils/dist/jszip-utils.min.js"></script>
 <!--[if IE]>
 <script type="text/javascript" src="../../../../../../../jquery/jszip-utils/dist/jszip-utils-ie.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="../../../../../../../jquery/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="../../../../../../../jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../../../../../jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../../../jquery/jquery-ui.min.js"></script>
 </head>
 <body>
 <script type="text/javascript"><!--
@@ -150,7 +151,7 @@ extends java.lang.Enum&lt;<a href="BarcodeElementKey.html" title="enum in com.mi
 <ul class="blockList">
 <li class="blockList">
 <!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="enum.constant.summary">
 <!--   -->
@@ -683,7 +684,7 @@ extends java.lang.Enum&lt;<a href="BarcodeElementKey.html" title="enum in com.mi
 </ul>
 </section>
 <!-- ========== METHOD SUMMARY =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.summary">
 <!--   -->
@@ -736,7 +737,7 @@ the order they are declared.</div>
 <ul class="blockList">
 <li class="blockList">
 <!-- ============ ENUM CONSTANT DETAIL =========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="enum.constant.detail">
 <!--   -->
@@ -1174,14 +1175,14 @@ the order they are declared.</div>
 
      Indicates the approximate weight range of the cardholder:
      0 = up to 31 kg (up to 70 lbs)
-     1 = 32 – 45 kg (71 – 100 lbs)
-     2 = 46 - 59 kg (101 – 130 lbs)
-     3 = 60 - 70 kg (131 – 160 lbs)
-     4 = 71 - 86 kg (161 – 190 lbs)
-     5 = 87 - 100 kg (191 – 220 lbs)
-     6 = 101 - 113 kg (221 – 250 lbs)
-     7 = 114 - 127 kg (251 – 280 lbs)
-     8 = 128 – 145 kg (281 – 320 lbs)
+     1 = 32 ??? 45 kg (71 ??? 100 lbs)
+     2 = 46 - 59 kg (101 ??? 130 lbs)
+     3 = 60 - 70 kg (131 ??? 160 lbs)
+     4 = 71 - 86 kg (161 ??? 190 lbs)
+     5 = 87 - 100 kg (191 ??? 220 lbs)
+     6 = 101 - 113 kg (221 ??? 250 lbs)
+     7 = 114 - 127 kg (251 ??? 280 lbs)
+     8 = 128 ??? 145 kg (281 ??? 320 lbs)
      9 = 146+ kg (321+ lbs)</div>
 </li>
 </ul>
@@ -1234,7 +1235,7 @@ the order they are declared.</div>
      Optional on Compact barcodes.
 
      A code that indicates whether a field has been truncated (T), has not been
-     truncated (N), or – unknown whether truncated (U).</div>
+     truncated (N), or ??? unknown whether truncated (U).</div>
 </li>
 </ul>
 <a id="FirstNameTruncation">
@@ -1248,7 +1249,7 @@ the order they are declared.</div>
      Optional on Compact barcodes.
 
      A code that indicates whether a field has been truncated (T), has not been
-     truncated (N), or – unknown whether truncated (U).</div>
+     truncated (N), or ??? unknown whether truncated (U).</div>
 </li>
 </ul>
 <a id="MiddleNameTruncation">
@@ -1261,7 +1262,7 @@ the order they are declared.</div>
 <div class="block">Mandatory on AAMVA 04, 05, 06, 07, 08 barcodes.
 
      A code that indicates whether a field has been truncated (T), has not been
-     truncated (N), or – unknown whether truncated (U).</div>
+     truncated (N), or ??? unknown whether truncated (U).</div>
 </li>
 </ul>
 <a id="PlaceOfBirth">
@@ -1675,7 +1676,7 @@ the order they are declared.</div>
      Mandatory on Compact barcodes.
 
      Jurisdictions may define a subfile to contain jurisdiction-specific information.
-     These subfiles are designated with the first character of “Z” and the second
+     These subfiles are designated with the first character of ???Z??? and the second
      character is the first letter of the jurisdiction's name. For example, "ZC" would
      be the designator for a California or Colorado jurisdiction-defined subfile, "ZQ"
      would be the designator for a Quebec jurisdiction-defined subfile. In the case of
@@ -1726,7 +1727,7 @@ the order they are declared.</div>
      H      Hazardous Material - This endorsement is required for the operation of any vehicle
      transporting hazardous materials requiring placarding, as defined by U.S.
      Department of Transportation regulations.
-     L      Motorcycles – Including Mopeds/Motorized Bicycles.
+     L      Motorcycles ??? Including Mopeds/Motorized Bicycles.
      N      Tank - This endorsement is required for the operation of any vehicle transporting,
      as its primary cargo, any liquid or gaseous material within a tank attached to the vehicle.
      O      Other Jurisdiction Specific Endorsement(s) - This code indicates one or more
@@ -2056,7 +2057,7 @@ the order they are declared.</div>
 </ul>
 </section>
 <!-- ============ METHOD DETAIL ========== -->
-<section role="region">
+<section>
 <ul class="blockList">
 <li class="blockList"><a id="method.detail">
 <!--   -->
