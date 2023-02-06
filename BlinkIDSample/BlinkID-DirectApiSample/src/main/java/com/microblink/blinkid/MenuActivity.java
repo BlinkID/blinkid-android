@@ -52,9 +52,6 @@ public class MenuActivity extends BaseMenuActivity {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             requiredPermissions.add(Manifest.permission.CAMERA);
         }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requiredPermissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        }
         if (requiredPermissions.size() > 0) {
             String[] permArray = new String[requiredPermissions.size()];
             permArray = requiredPermissions.toArray(permArray);
