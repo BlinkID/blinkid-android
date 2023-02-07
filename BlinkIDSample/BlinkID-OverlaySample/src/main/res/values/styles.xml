@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BluePulseStyle">
-        <item name="mb_pulseColor">#48B2E8</item>
+    <style name="CustomStyle">
     </style>
 
 </resources>

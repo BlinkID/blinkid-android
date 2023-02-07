@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ $# < 4 ]]
+if [[ $# < 5 ]]
 then
-  echo "Usage: $(basename "$0") <sdk_name> <path_to_project> <application_module_name> <output_markdown_file_path>"
+  echo "Usage: $(basename "$0") <sdk_name> <path_to_project> <application_module_name> <output_markdown_file_path> <abis_to_check>"
   exit 1
 fi
 
@@ -18,12 +18,11 @@ SDK_NAME=$1
 PROJECT_PATH=$2
 APP_NAME=$3
 OUTPUT_MARKDOWN_FILE=$4
+ABIS=($5)
 
 echo "Project path: $PROJECT_PATH"
 echo "App name: $APP_NAME"
 echo "Output file: $OUTPUT_MARKDOWN_FILE"
-
-ABIS=(armeabi-v7a arm64-v8a)
 
 pushd $PROJECT_PATH > /dev/null
 ./gradlew clean :$APP_NAME:assembleRelease || exit 1

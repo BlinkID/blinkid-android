@@ -25,7 +25,7 @@ class BlinkIdOverlayControllerBuilder {
         // you can override icons, colors and text appearances by setting your custom style
         // supported attributes depend on overlay view you're using,
         // for ReticleOverlayView check attributes in R.styleable.BlinkIdReticleOverlay
-        int customStyle = R.style.BluePulseStyle;
+        int customStyle = R.style.CustomStyle;
 
         BlinkIdOverlayView overlayView = new ReticleOverlayView(true, true, true, true, overlayStrings, customStyle);
         return new BlinkIdOverlayController(overlaySettings, scanResultListener, overlayView);
