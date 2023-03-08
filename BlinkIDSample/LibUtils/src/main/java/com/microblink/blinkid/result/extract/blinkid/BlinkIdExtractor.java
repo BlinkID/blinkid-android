@@ -22,7 +22,7 @@ import com.microblink.blinkid.entities.recognizers.blinkid.imageresult.FullDocum
 import com.microblink.blinkid.entities.recognizers.blinkid.imageresult.SignatureImageResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrtdDocumentType;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrzResult;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.extract.BaseResultExtractor;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 import com.microblink.blinkid.result.extract.util.images.CombinedFullDocumentImagesExtractUtil;

@@ -126,7 +126,7 @@
         "description": "A mature, widely used set of libraries providing Unicode and Globalization support"
     },
     {
-        "package": "kiwaku/20221004.0@microblink/stable",
+        "package": "kiwaku/20221125.0@microblink/stable",
         "url": "https://github.com/microblink/kiwaku",
         "license": "BSL-1.0",
         "description": "C++20 and onward collection of high performance data containers and related tools"
@@ -144,16 +144,28 @@
         "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"
     },
     {
-        "package": "libpng/1.6.37.1@microblink/stable",
+        "package": "libpng/1.6.38@microblink/stable",
         "url": "https://github.com/microblink/libpng",
         "license": "libpng-2.0",
         "description": "An Open, Extensible Image Format with Lossless Compression"
+    },
+    {
+        "package": "nlohmann_json/3.10.4",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "MIT",
+        "description": "JSON for Modern C++ parser and generator."
     },
     {
         "package": "range-v3/0.10.2@microblink/stable",
         "url": "https://github.com/ericniebler/range-v3",
         "license": "Boost Software License - Version 1.0 - August 17th, 2003",
         "description": "Experimental range library for C++11/14/17"
+    },
+    {
+        "package": "std_fix/0.1.1@microblink/stable",
+        "url": "https://github.com/microblink/std_fix",
+        "license": "BSL-1.0",
+        "description": "Patches for deficient C++ runtime implementations"
     },
     {
         "package": "tinyxml2/2.2.1@microblink/stable",
