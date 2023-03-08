@@ -13,10 +13,10 @@ With one quick scan, your users will be able to extract information from their i
 BlinkID is:
 
 - **Fast**. Real-time data extraction in less than 400ms. Way better than minutes-long form-filling.
-- **Secure**. Privacy first, always. Scanning works even if the user?s phone is in airplane mode, meaning personal information never touches a third-party server.
+- **Secure**. Privacy first, always. Scanning works even if the user's phone is in airplane mode, meaning personal information never touches a third-party server.
 - **Intelligent**. Machine learning models, optimized to read and parse identity documents from more than 180 countries worldwide, automatically, no need to preselect any of them.
-- **Lightweight**. Designed to increase your app?s usability, not weight.
-- **What you make of it**. Customize and rebrand the default UI or leave it as it is. It?s up to you.
+- **Lightweight**. Designed to increase your app's usability, not weight.
+- **What you make of it**. Customize and rebrand the default UI or leave it as it is. It's up to you.
 - **More than just a powerful ID scanner**. Powerful data extraction, coupled with powerful perks. Get a cropped document image back, spot printed documents or data match both sides of the ID for parity. 
 
 <p align="center" >
@@ -27,7 +27,7 @@ To see all of these features at work download our free demo app:
 
 [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/playstore.png)](https://showcase.page.link/githubAndroid) [![Vision App](https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/appgallery.png)](https://appgallery7.huawei.com/#/app/C101961459)
 
-Feeling ready to crack on with the integration? First make sure we support your document type ?? [full list](https://microblink.com/full-list-of-supported-identity-documents/). And then follow the guidelines below.
+Feeling ready to crack on with the integration? First make sure we support your document type ➡️ [full list](https://microblink.com/full-list-of-supported-identity-documents/). And then follow the guidelines below.
 
 # Table of contents
 
@@ -113,7 +113,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:6.1.0@aar') {
+    implementation('com.microblink:blinkid:6.1.1@aar') {
         transitive = true
     }
 }
@@ -125,7 +125,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-6.1.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-6.1.1` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -1081,7 +1081,7 @@ You need to ensure that the final app gets all resources required by _BlinkID_. 
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
 
 - you can ask your clients to reference _BlinkID_ in their app when integrating your SDK
-- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizer-runner-view) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its `classes.jar` to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR?s src/main/jniLibs folder.
+- since the problem lies in resource merging part you can try avoiding this step by ensuring your library will not use any component from _BlinkID_ that uses resources (i.e. built-in activities, fragments and views, except `RecognizerRunnerView`). You can perform [custom UI integration](#recognizer-runner-view) while taking care that all resources (strings, layouts, images, ...) used are solely from your AAR, not from _BlinkID_. Then, in your AAR you should not reference `LibBlinkID.aar` as gradle dependency, instead you should unzip it and copy its assets to your AAR?s assets folder, its `classes.jar` to your AAR?s lib folder (which should be referenced by gradle as jar dependency) and contents of its jni folder to your AAR's src/main/jniLibs folder.
 - Another approach is to use [3rd party unofficial gradle script](https://github.com/adwiv/android-fat-aar) that aim to combine multiple AARs into single fat AAR. Use this script at your own risk and report issues to [its developers](https://github.com/adwiv/android-fat-aar/issues) - we do not offer support for using that script.
 - There is also a [3rd party unofficial gradle plugin](https://github.com/Vigi0303/fat-aar-plugin) which aims to do the same, but is more up to date with latest updates to Android gradle plugin. Use this plugin at your own risk and report all issues with using to [its developers](https://github.com/Vigi0303/fat-aar-plugin/issues) - we do not offer support for using that plugin.
 
@@ -1215,7 +1215,7 @@ When you have to determine what is the license-relate problem or you simply do n
 
 **Keep in mind:** Versions 5.8.0 and above require an internet connection to work under our new License Management Program.
 
-We?re only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
+We're only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
 Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
 
 ### Other problems
@@ -1278,7 +1278,7 @@ This usually happens when you attempt to transfer standalone `Result` that conta
 
 When automatic scanning of camera frames with our camera management is used (provided camera overlays or direct usage of `RecognizerRunnerView`), we use a stream of video frames and send multiple images to the recognition to boost reading accuracy. Also, we perform frame quality analysis and combine scanning results from multiple camera frames. On the other hand, when you are using the Direct API with a single image per document side, we cannot combine multiple images. We do our best to extract as much information as possible from that image. In some cases, when the quality of the input image is not good enough, for example, when the image is blurred or when glare is present, we are not able to successfully read the document.
 
-#### <a name="network-required-error"></a> I am getting a ???Network required??? error when I'm on a private network
+#### <a name="network-required-error"></a> I am getting a 'Network required' error when I'm on a private network
 
 Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
 

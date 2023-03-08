@@ -1,5 +1,8 @@
 # Release notes
 
+## v6.1.1
+- Internal improvements
+
 ## v6.1.0
 ### New features
 - new and improved machine learning models for data extraction
