@@ -2,7 +2,7 @@ package com.microblink.blinkid.result.extract;
 
 import com.microblink.blinkid.entities.recognizers.Recognizer;
 import com.microblink.blinkid.entities.recognizers.successframe.SuccessFrameGrabberRecognizer;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.result.ResultSource;
 
 public class SuccessFrameGrabberResultExtractor extends BaseResultExtractor<SuccessFrameGrabberRecognizer.Result, SuccessFrameGrabberRecognizer> {
