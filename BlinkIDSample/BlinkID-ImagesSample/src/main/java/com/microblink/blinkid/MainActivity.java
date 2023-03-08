@@ -3,6 +3,7 @@ package com.microblink.blinkid;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -58,13 +59,17 @@ public class MainActivity extends BaseMenuActivity {
                 new MenuListItem("Scan document", new Runnable() {
                     @Override
                     public void run() {
-                        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                            // request write permission
-                            ActivityCompat.requestPermissions(MainActivity.this,
-                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
-                        } else {
+                        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                             startScanning();
+                        } else {
+                            if (ContextCompat.checkSelfPermission(MainActivity.this,
+                                    Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                // request write permission
+                                ActivityCompat.requestPermissions(MainActivity.this,
+                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
+                            } else {
+                                startScanning();
+                            }
                         }
                     }
                 })
@@ -142,7 +147,8 @@ public class MainActivity extends BaseMenuActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         if (requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
             // If request is cancelled, the result arrays are empty.
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
