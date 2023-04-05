@@ -28,10 +28,10 @@ public class FileUtils {
             return buffer.toByteArray();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(context, R.string.toast_error_open_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, com.microblink.libutils.R.string.toast_error_open_file, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(context, R.string.toast_error_read_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, com.microblink.libutils.R.string.toast_error_read_file, Toast.LENGTH_SHORT).show();
         } finally {
             try {
                 fileStream.close();

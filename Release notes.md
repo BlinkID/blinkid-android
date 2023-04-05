@@ -1,5 +1,9 @@
 # Release notes
 
+## v6.1.2
+- Fixed flash icon on orientation change while scanning - the behavior of the icon is now consistent with the behavior of the torch
+- Fixed ImageDpi setting when setting the processed image quality through recognizer settings
+
 ## v6.1.1
 - Internal improvements
 
