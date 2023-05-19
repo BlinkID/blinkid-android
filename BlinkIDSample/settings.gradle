@@ -5,6 +5,8 @@ include ':BlinkID_AllRecognizersSample',
 ':BlinkID-CustomCombinedSample',
 ':BlinkID-aMinimalSample',
 ':BlinkID-OverlaySample',
-':LibUtils'
+':BlinkID-DynamicFeatureSample',
+':LibUtils',
+':BlinkIdDynamic'
 // uncomment this line if you have customised build of LibBLinkID
 //include ':LibBlinkID'

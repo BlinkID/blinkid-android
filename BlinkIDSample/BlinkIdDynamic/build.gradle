@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk rootProject.ext.compileSdkVersion
+    namespace 'com.microblink.blinkid'
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+dependencies {
+
+    implementation project(':BlinkID-DynamicFeatureSample')
+
+    api("com.microblink:blinkid:${rootProject.ext.blinkIdVersion}@aar") {
+        transitive = true
+    }
+
+}

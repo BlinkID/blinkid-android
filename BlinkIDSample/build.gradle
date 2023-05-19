@@ -29,4 +29,5 @@ project.ext {
     compileSdkVersion = 33
     targetSdkVersion = 33
     appCompatVersion = '1.4.0'
+    playcore = '1.10.3'
 }

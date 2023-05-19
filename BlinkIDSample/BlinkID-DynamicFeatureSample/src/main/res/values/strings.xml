@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BlinkID Dynamic Feature Sample</string>
+    <string name="dynamic_feature_name">BlinkIdDynamic</string>
+    <string name="dynamic_feature_classname">com.microblink.blinkid</string>
+    <string name="dynamic_feature_activity_name">TestDynamicActivity</string>
+    <string name="download_module">Download dynamic module</string>
+    <string name="start_module">Start dynamic module</string>
+    <string name="uninstall_module">Uninstall dynamic module</string>
+    <string name="app_name_dynamic">On Demand Sample</string>
+</resources>

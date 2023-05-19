@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.microblink.blinkid.dynamic'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.microblink.blinkid.dynamic"
+        minSdk 21
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+        distribute {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard/proguard-rules.pro'
+            matchingFallbacks = ['release']
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+    dynamicFeatures = [ ':BlinkIdDynamic']
+}
+
+dependencies {
+
+    implementation "com.google.android.play:core:${rootProject.ext.playcore}"
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+    // this is set to api so that the launch function is visible and available in the dynamic module
+    api 'androidx.activity:activity-ktx:1.7.0-alpha02'
+}

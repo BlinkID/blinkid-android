@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.microblink.blinkid">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="false" />
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/app_name_dynamic">
+        <dist:delivery>
+            <dist:on-demand/>
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+    <application>
+    <activity
+        android:name="com.microblink.blinkid.TestDynamicActivity"
+        android:label="@string/app_name_dynamic"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:screenOrientation="sensor"
+        android:exported="true">
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <!--    If you want to directly start from this activity once the module -->
+            <!--    has been has been downloaded, uncomment the following lines-->
+            <!--    <action android:name="android.intent.action.MAIN" />-->
+            <!--    <category android:name="android.intent.category.LAUNCHER" />-->
+        </intent-filter>
+
+    </activity>
+    </application>
+
+
+
+</manifest>
