@@ -3,7 +3,7 @@ package com.microblink.blinkid.result.extract.util.images;
 import com.microblink.blinkid.entities.recognizers.Recognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.imageresult.CombinedFullDocumentImageResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.imageresult.EncodedCombinedFullDocumentImageResult;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 
 import java.util.List;
