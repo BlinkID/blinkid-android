@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 
 import java.util.List;
 

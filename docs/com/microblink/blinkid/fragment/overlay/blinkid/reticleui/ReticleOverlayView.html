@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -181,6 +181,11 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>protected java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#mandatoryFieldsMissingTooltipText">mandatoryFieldsMissingTooltipText</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected <a href="ReticleOverlayStrings.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#strings">strings</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -203,10 +208,12 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(boolean,boolean,boolean,boolean,com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings,int)">ReticleOverlayView</a></span>&#8203;(boolean&nbsp;shouldShowControlButtons,
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(boolean,boolean,boolean,boolean,boolean,boolean,com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings,int)">ReticleOverlayView</a></span>&#8203;(boolean&nbsp;shouldShowControlButtons,
                   boolean&nbsp;shouldShowFlashlightWarning,
                   boolean&nbsp;shouldShowIntroductionDialog,
                   boolean&nbsp;shouldShowOnboardingInfo,
+                  boolean&nbsp;shouldShowMandatoryFieldsMissing,
+                  boolean&nbsp;shouldAllowHapticFeedback,
                   <a href="ReticleOverlayStrings.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
                   int&nbsp;style)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -376,6 +383,17 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 </td>
 </tr>
 <tr id="i23" class="rowColor">
+<td class="colFirst"><code>protected void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reticleOverlayStringsSetup(android.app.Activity)">reticleOverlayStringsSetup</a></span>&#8203;(android.app.Activity&nbsp;activity)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMandatoryFieldsMissingTooltipText(int%5B%5D,android.app.Activity)">setMandatoryFieldsMissingTooltipText</a></span>&#8203;(int[]&nbsp;stringRes,
+                                    android.app.Activity&nbsp;activity)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognizerSupportsClassification(boolean)">setRecognizerSupportsClassification</a></span>&#8203;(boolean&nbsp;isClassificationSupported)</code></th>
 <td class="colLast">
@@ -383,7 +401,14 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">setScanRecognitionModeOverlay</a></span>&#8203;(<a href="ScanRecognitionMode.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a>&nbsp;scanRecognitionMode)</code></th>
+<td class="colLast">
+<div class="block">Sets recognition mode used for onboarding overlay resources selection.</div>
+</td>
+</tr>
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowBackSideBarcodeInstructions(boolean)">setShowBackSideBarcodeInstructions</a></span>&#8203;(boolean&nbsp;shouldShow)</code></th>
 <td class="colLast">
@@ -391,7 +416,7 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
  user to scan the barcode.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldStayInCurrentState(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleUiState)">shouldStayInCurrentState</a></span>&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -429,6 +454,15 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <pre>protected&nbsp;<a href="ReticleOverlayStrings.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a> strings</pre>
 </li>
 </ul>
+<a id="mandatoryFieldsMissingTooltipText">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>mandatoryFieldsMissingTooltipText</h4>
+<pre>protected&nbsp;java.lang.String mandatoryFieldsMissingTooltipText</pre>
+</li>
+</ul>
 <a id="currentState">
 <!--   -->
 </a>
@@ -448,7 +482,7 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(boolean,boolean,boolean,boolean,com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings,int)">
+<a id="&lt;init&gt;(boolean,boolean,boolean,boolean,boolean,boolean,com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ReticleOverlayStrings,int)">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -458,6 +492,8 @@ implements <a href="../BlinkIdOverlayView.html" title="interface in com.microbli
                           boolean&nbsp;shouldShowFlashlightWarning,
                           boolean&nbsp;shouldShowIntroductionDialog,
                           boolean&nbsp;shouldShowOnboardingInfo,
+                          boolean&nbsp;shouldShowMandatoryFieldsMissing,
+                          boolean&nbsp;shouldAllowHapticFeedback,
                           @Nullable
                           <a href="ReticleOverlayStrings.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleOverlayStrings</a>&nbsp;strings,
                           @StyleRes
@@ -652,6 +688,15 @@ public&nbsp;void&nbsp;onFirstSideScanStarted()</pre>
 </dl>
 </li>
 </ul>
+<a id="reticleOverlayStringsSetup(android.app.Activity)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>reticleOverlayStringsSetup</h4>
+<pre class="methodSignature">protected&nbsp;void&nbsp;reticleOverlayStringsSetup&#8203;(android.app.Activity&nbsp;activity)</pre>
+</li>
+</ul>
 <a id="detectionStatusToReticleState(com.microblink.blinkid.view.recognition.DetectionStatus)">
 <!--   -->
 </a>
@@ -740,6 +785,23 @@ public&nbsp;void&nbsp;onFirstSideScanStarted()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../BlinkIdOverlayView.html#cleanup()">cleanup</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScanRecognitionModeOverlay</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setScanRecognitionModeOverlay&#8203;(<a href="ScanRecognitionMode.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a>&nbsp;scanRecognitionMode)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../BlinkIdOverlayView.html#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Sets recognition mode used for onboarding overlay resources selection.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../BlinkIdOverlayView.html#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">setScanRecognitionModeOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scanRecognitionMode</code> - required for onboarding overlay resources selection</dd>
 </dl>
 </li>
 </ul>
@@ -870,6 +932,20 @@ public&nbsp;<a href="../../reticle/RetryDialogStrings.html" title="class in com.
 <li class="blockList">
 <h4>shouldStayInCurrentState</h4>
 <pre class="methodSignature">protected&nbsp;boolean&nbsp;shouldStayInCurrentState&#8203;(<a href="ReticleUiState.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ReticleUiState</a>&nbsp;newState)</pre>
+</li>
+</ul>
+<a id="setMandatoryFieldsMissingTooltipText(int[],android.app.Activity)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMandatoryFieldsMissingTooltipText</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setMandatoryFieldsMissingTooltipText&#8203;(int[]&nbsp;stringRes,
+                                                 android.app.Activity&nbsp;activity)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../BlinkIdOverlayView.html#setMandatoryFieldsMissingTooltipText(int%5B%5D,android.app.Activity)">setMandatoryFieldsMissingTooltipText</a></code>&nbsp;in interface&nbsp;<code><a href="../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
 </li>
 </ul>
 <a id="currentStateDuration()">

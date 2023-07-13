@@ -62,7 +62,7 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
     }
 
     protected void add(int key, Date date) {
-        mExtractedData.add(mBuilder.build(key, date != null ? date.getDate() : null));
+        mExtractedData.add(mBuilder.build(key, date != null ? date.getDate() : null, date.isFilledByDomainKnowledge()));
     }
 
     protected void addIfNotEmpty(int key, Date dateResult) {
@@ -75,8 +75,8 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
         }
     }
 
-    protected void add(int key, SimpleDate date) {
-        mExtractedData.add(mBuilder.build(key, date));
+    protected void add(int key, SimpleDate date, boolean isFilledByDomainKnowledge) {
+        mExtractedData.add(mBuilder.build(key, date, isFilledByDomainKnowledge));
     }
 
     protected void add(int key, boolean value) {

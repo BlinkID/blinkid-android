@@ -18,6 +18,7 @@
     <string name="result_type">Showing results extracted from: </string>
     <string-array name="result_types">
         <item>Mixed (best)</item>
+        <item>Mixed (non empty)</item>
         <item>Front side OCR</item>
         <item>Back side OCR</item>
         <item>MRZ</item>

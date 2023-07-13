@@ -1,7 +1,7 @@
 package com.microblink.blinkid.result.extract.blinkid.usdl;
 
 import com.microblink.blinkid.entities.recognizers.blinkid.usdl.UsdlCombinedRecognizer;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.extract.blinkid.BlinkIdExtractor;
 
 public class USDLCombinedResultExtractor extends BlinkIdExtractor<UsdlCombinedRecognizer.Result, UsdlCombinedRecognizer> {

@@ -47,6 +47,7 @@ com.microblink.blinkid.fragment.overlay.blinkid.settings.options
 com.microblink.blinkid.fragment.overlay.components
 com.microblink.blinkid.fragment.overlay.components.debug
 com.microblink.blinkid.fragment.overlay.components.feedback
+com.microblink.blinkid.fragment.overlay.components.feedback.view
 com.microblink.blinkid.fragment.overlay.components.onboarding
 com.microblink.blinkid.fragment.overlay.components.settings
 com.microblink.blinkid.fragment.overlay.components.snackbar

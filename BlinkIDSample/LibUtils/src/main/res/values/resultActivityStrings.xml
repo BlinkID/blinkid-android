@@ -106,8 +106,10 @@
     <string name="PPPrimaryId">Primary ID</string>
     <string name="PPSecondaryId">Secondary ID</string>
     <string name="PPDateOfBirth">Date of birth</string>
+    <string name="PPDateOfBirthOriginal">Date of birth (original format)</string>
     <string name="PPAge">Age</string>
     <string name="PPDateOfExpiry">Date of Expiry</string>
+    <string name="PPDateOfExpiryOriginal">Date of Expiry (original format)</string>
     <string name="PPDateOfExpiryPermanent">Date of Expiry Permanent</string>
     <string name="PPExpired">Expired</string>
     <string name="PPDocumentCode">Document code</string>
@@ -153,6 +155,7 @@
     <string name="PPPlaceOfOrigin">Place of origin</string>
     <string name="PPPlaceOfIssue">Place of issue</string>
     <string name="PPIssueDate">Date of issuance</string>
+    <string name="PPIssueDateOriginal">Date of issuance (original format)</string>
     <string name="PPDriverNumber">Driver number</string>
     <string name="PPDetectorResult">Detector result</string>
     <string name="PPFullName">Full name</string>
@@ -377,4 +380,6 @@
 
     <string name="PPDateOfIssueDlCategoryB">Date of issue B category</string>
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
+
+    <string name="filled_by_domain_knowledge">Filled by domain knowledge</string>
 </resources>

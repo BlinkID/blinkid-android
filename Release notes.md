@@ -1,5 +1,108 @@
 # Release notes
 
+## v6.2.0
+### New features
+- new and improved machine learning models for data extraction
+- expanded support for arabic documents
+- added `isFilledByDomainKnowledge` flag to `Date` and `DateResult`
+	- indicates that date is not extracted from image but filled based on our internal document knowledge
+- added new setting `additionalAnonymization`
+	- enables custom anonymization for any field per country, region and type of document
+- added new items to enums:
+	- Region:
+		- NORTHWEST_TERRITORIES (added item to enum, no document support for NORTHWEST_TERRITORIES yet)
+		- NUNAVUT (added item to enum, no document support for NUNAVUT yet)
+		- PRINCE_EDWARD_ISLAND
+	- Type:
+		- ASYLUM_REQUEST
+		- DRIVER_QUALIFICATION_CARD
+		- PROVISIONAL_DL
+		- REFUGEE_PASSPORT
+		- SPECIAL_ID
+		- UNIFORMED_SERVICES_ID
+	- FieldType:
+		- BloodType
+		- Sponsor
+- added more UI customization options
+  - For more information, see [README](README.md) in the **Scan overlay theming** section
+- added haptic effect feedback to the scanning process
+  - error, first side success, and overall scan success actions provide different haptic feedback. This option is enabled by default, it can be disabled by using `BlinkIdUISettings.setAllowHapticFeedback(false)`
+- added missing mandatory fields feedback during scanning
+  - specific missing fields are shown if there are less than two, otherwise a general message is presented. This option is enabled by default, it can be disabled by using `BlinkIdUISettings.setShowMandatoryFieldsMissing(false)` which always shows a general message
+- new onboarding screens based on recognizer type (Viz, MRZ, Barcode)
+- improved scanning reticle animations and transitions
+
+### Added support for 9 new documents
+- Belarus - ID Card
+- Guyana - ID Card
+- Jamaica - Paper Passport
+- Myanmar - Paper Passport
+- Palestine - Paper Passport
+- Saint Kitts and Nevis - Driving License
+- Syria - ID Card
+- Trinidad and Tobago - Paper Passport
+- USA - Uniformed Services ID Card
+
+### Added support for 23 new documents in BETA
+- Barbados - Driving License
+- Belarus - Polycarbonate Passport
+- Belarus - Residence Permit
+- Belgium - Provisional Driving License
+- Belgium - Special ID Card
+- Bulgaria - Alien ID Card
+- Bulgaria - Residence Permit
+- Canada - New Brunswick - ID Card
+- Canada - Prince Edward Island - Driving License
+- Estonia - Polycarbonate Passport
+- Germany - Driver Qualification Card
+- Guyana - Driving License
+- Kuwait - Paper Passport
+- Lebanon - Paper Passport
+- Liechtenstein - Driving License
+- Malta - Paper Passport
+- Malta - Polycarbonate Passport
+- Moldova - Driving License
+- Netherlands - Alien ID Card
+- Oman - Paper Passport
+- Peru - Alien ID Card
+- Romania - Residence Permit
+- UK - Asylum Request
+
+### Added support for 28 new versions of already supported documents
+- Canada - British Columbia - Public Services Card
+- Canada - British Columbia - Driving License
+- Cyprus - Residence Permit
+- Denmark - Polycarbonate Passport
+- Germany - ID Card
+- Italy - ID Card
+- Ireland - Passport Card
+- Malta - ID Card
+- Montenegro - ID Card
+- Montenegro - Polycarbonate Passport
+- North Macedonia - ID Card
+- North Macedonia - Polycarbonate Passport
+- Norway - Driving License
+- Norway - Residence Permit
+- Norway - Polycarbonate Passport
+- Philippines - Driving License
+- Sweden - Polycarbonate Refugee Passport
+- Sweden - Social Security Card
+- UAE - Resident ID Card
+- UK - Proof of Age Card
+- USA - Arkansas - ID Card
+- USA - Colorado - ID Card
+- USA - Idaho - ID Card
+- USA - Illinois - ID Card
+- USA - New York - Driving License
+- USA - New York - ID card
+- USA - Pennsylvania - Driving License
+- USA - Washington - Driving License
+
+### Added support for 3 new versions of already supported documents in BETA
+- Denmark - Residence Permit
+- Estonia - Residence Permit
+- Latvia - Residence Permit
+
 ## v6.1.2
 - Fixed flash icon on orientation change while scanning - the behavior of the icon is now consistent with the behavior of the torch
 - Fixed ImageDpi setting when setting the processed image quality through recognizer settings

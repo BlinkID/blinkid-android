@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":42,"i1":42,"i2":42,"i3":42,"i4":42,"i5":42,"i6":42,"i7":42,"i8":42,"i9":42,"i10":42,"i11":42,"i12":42,"i13":42,"i14":42,"i15":42,"i16":42,"i17":42,"i18":42,"i19":42,"i20":42};
+var data = {"i0":42,"i1":42,"i2":42,"i3":42,"i4":42,"i5":42,"i6":42,"i7":42,"i8":42,"i9":42,"i10":42,"i11":42,"i12":42,"i13":42,"i14":42,"i15":42,"i16":42,"i17":42,"i18":42,"i19":42,"i20":42,"i21":42,"i22":42};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"],32:["t6","Deprecated Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -353,6 +353,14 @@ implements <a href="../../BlinkIdOverlayView.html" title="interface in com.micro
 </tr>
 <tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMandatoryFieldsMissingTooltipText(int%5B%5D,android.app.Activity)">setMandatoryFieldsMissingTooltipText</a></span>&#8203;(int[]&nbsp;stringRes,
+                                    android.app.Activity&nbsp;activity)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+&nbsp;</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognizerSupportsClassification(boolean)">setRecognizerSupportsClassification</a></span>&#8203;(boolean&nbsp;isClassificationSupported)</code></th>
 <td class="colLast">
 <div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
@@ -360,7 +368,15 @@ implements <a href="../../BlinkIdOverlayView.html" title="interface in com.micro
  will be called when the document is classified.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">setScanRecognitionModeOverlay</a></span>&#8203;(<a href="../../reticleui/ScanRecognitionMode.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a>&nbsp;scanRecognitionMode)</code></th>
+<td class="colLast">
+<div class="block"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block">Sets recognition mode used for onboarding overlay resources selection.</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShowBackSideBarcodeInstructions(boolean)">setShowBackSideBarcodeInstructions</a></span>&#8203;(boolean&nbsp;shouldShow)</code></th>
 <td class="colLast">
@@ -779,6 +795,39 @@ public&nbsp;<a href="../../../reticle/RetryDialogStrings.html" title="class in c
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../BlinkIdOverlayView.html#cleanup()">cleanup</a></code>&nbsp;in interface&nbsp;<code><a href="../../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setMandatoryFieldsMissingTooltipText(int[],android.app.Activity)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setMandatoryFieldsMissingTooltipText</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setMandatoryFieldsMissingTooltipText&#8203;(int[]&nbsp;stringRes,
+                                                 android.app.Activity&nbsp;activity)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../BlinkIdOverlayView.html#setMandatoryFieldsMissingTooltipText(int%5B%5D,android.app.Activity)">setMandatoryFieldsMissingTooltipText</a></code>&nbsp;in interface&nbsp;<code><a href="../../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+</dl>
+</li>
+</ul>
+<a id="setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScanRecognitionModeOverlay</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setScanRecognitionModeOverlay&#8203;(<a href="../../reticleui/ScanRecognitionMode.html" title="enum in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a>&nbsp;scanRecognitionMode)</pre>
+<div class="deprecationBlock"><span class="deprecatedLabel">Deprecated.</span></div>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../BlinkIdOverlayView.html#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">BlinkIdOverlayView</a></code></span></div>
+<div class="block">Sets recognition mode used for onboarding overlay resources selection.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../BlinkIdOverlayView.html#setScanRecognitionModeOverlay(com.microblink.blinkid.fragment.overlay.blinkid.reticleui.ScanRecognitionMode)">setScanRecognitionModeOverlay</a></code>&nbsp;in interface&nbsp;<code><a href="../../BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scanRecognitionMode</code> - required for onboarding overlay resources selection</dd>
 </dl>
 </li>
 </ul>
