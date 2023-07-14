@@ -85,11 +85,11 @@ public class RecognitionResultEntry {
             if (value == null) {
                 return new RecognitionResultEntry(createKey(key), "");
             } else {
-                return build(key, value.getDate());
+                return build(key, value.getDate(), value.isFilledByDomainKnowledge());
             }
         }
 
-        public RecognitionResultEntry build(@StringRes int key, SimpleDate value) {
+        public RecognitionResultEntry build(@StringRes int key, SimpleDate value, boolean isFilledByDomainKnowledge) {
             String strVal = "";
             if (value != null) {
                 Calendar cal = GregorianCalendar.getInstance();
@@ -111,6 +111,9 @@ public class RecognitionResultEntry {
                 dateFormat.append("yyyy");
                 SimpleDateFormat df = new SimpleDateFormat(dateFormat.toString());
                 strVal = df.format(cal.getTime());
+            }
+            if(isFilledByDomainKnowledge) {
+                strVal += " (domain knowledge)";
             }
             return new RecognitionResultEntry(createKey(key), strVal);
         }

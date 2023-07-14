@@ -46,7 +46,7 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         add(R.string.PPMRZVerified, mrzResult.isMrzVerified());
         add(R.string.PPPrimaryId, mrzResult.getPrimaryId());
         add(R.string.PPSecondaryId, mrzResult.getSecondaryId());
-        add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate());
+        add(R.string.PPDateOfBirth, mrzResult.getDateOfBirth().getDate(), mrzResult.getDateOfBirth().isFilledByDomainKnowledge());
         int age = mrzResult.getAge();
         if (age != -1) {
             add(R.string.PPAge, age);
@@ -57,7 +57,7 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         add(R.string.PPDocumentCode, mrzResult.getSanitizedDocumentCode());
         add(R.string.PPIssuerCode, mrzResult.getSanitizedIssuer());
         add(R.string.PPIssuer, mrzResult.getIssuerName());
-        add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate());
+        add(R.string.PPDateOfExpiry, mrzResult.getDateOfExpiry().getDate(), mrzResult.getDateOfExpiry().isFilledByDomainKnowledge());
         add(R.string.PPOpt2, mrzResult.getSanitizedOpt2());
         add(R.string.PPMRZText, mrzResult.getMrzText());
 
@@ -128,14 +128,14 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         if (dateResult == null) return;
         SimpleDate date = dateResult.getDate();
         if (date != null) {
-            add(key, dateResult);
+            add(key, date, dateResult.isFilledByDomainKnowledge());
         } else {
             addIfNotEmpty(key, dateResult.getOriginalDateString());
         }
     }
 
     protected void add(int key, DateResult date) {
-        mExtractedData.add(mBuilder.build(key, date != null ? date.getDate() : null));
+        mExtractedData.add(mBuilder.build(key, date != null ? date.getDate() : null, date != null ? date.isFilledByDomainKnowledge() : false));
     }
 
 }

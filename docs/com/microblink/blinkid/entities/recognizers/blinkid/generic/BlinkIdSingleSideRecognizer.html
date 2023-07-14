@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10,"i19":10,"i20":10,"i21":10,"i22":10,"i23":10,"i24":10,"i25":10,"i26":10,"i27":10,"i28":10,"i29":10,"i30":10,"i31":10,"i32":10,"i33":10,"i34":10,"i35":10,"i36":10,"i37":10,"i38":10,"i39":10,"i40":10,"i41":10,"i42":10,"i43":10,"i44":10,"i45":10,"i46":10,"i47":10,"i48":10,"i49":10,"i50":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -326,79 +326,93 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAdditionalAnonymization()">getAdditionalAnonymization</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns additional anonymization settings.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code><a href="AnonymizationMode.html" title="enum in com.microblink.blinkid.entities.recognizers.blinkid.generic">AnonymizationMode</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAnonymizationMode()">getAnonymizationMode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Redact specific fields based on requirements or laws regarding a specific document.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFaceImageDpi()">getFaceImageDpi</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the DPI (Dots Per Inch) for face image that should be returned.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFullDocumentImageDpi()">getFullDocumentImageDpi</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="../imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFullDocumentImageExtensionFactors()">getFullDocumentImageExtensionFactors</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the extension factors for full document image.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>float</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPaddingEdge()">getPaddingEdge</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="RecognitionModeFilter.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">RecognitionModeFilter</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRecognitionModeFilter()">getRecognitionModeFilter</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns currently set recognition mode filter.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSignatureImageDpi()">getSignatureImageDpi</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the DPI (Dots Per Inch) for signature image that should be returned.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#readFromParcel(android.os.Parcel)">readFromParcel</a></span>&#8203;(android.os.Parcel&nbsp;in)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>protected byte[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#serializeNativeSettings()">serializeNativeSettings</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAdditionalAnonymization(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassAnonymizationSettings%5B%5D)">setAdditionalAnonymization</a></span>&#8203;(<a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a>[]&nbsp;additionalAnonymization)</code></th>
+<td class="colLast">
+<div class="block">Enable or disable recognition of specific document groups supported by the current license.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAllowBlurFilter(boolean)">setAllowBlurFilter</a></span>&#8203;(boolean&nbsp;allowBlurFilter)</code></th>
 <td class="colLast">
 <div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAllowUnparsedMrzResults(boolean)">setAllowUnparsedMrzResults</a></span>&#8203;(boolean&nbsp;allowUnparsedMrzResults)</code></th>
 <td class="colLast">
 <div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAllowUnverifiedMrzResults(boolean)">setAllowUnverifiedMrzResults</a></span>&#8203;(boolean&nbsp;allowUnverifiedMrzResults)</code></th>
 <td class="colLast">
@@ -406,28 +420,28 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  but check digits are incorrect (do not comply with the ICAO standard).</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAnonymizationMode(com.microblink.blinkid.entities.recognizers.blinkid.generic.AnonymizationMode)">setAnonymizationMode</a></span>&#8203;(<a href="AnonymizationMode.html" title="enum in com.microblink.blinkid.entities.recognizers.blinkid.generic">AnonymizationMode</a>&nbsp;anonymizationMode)</code></th>
 <td class="colLast">
 <div class="block">Redact specific fields based on requirements or laws regarding a specific document.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setBarcodeScanningStartedCallback(com.microblink.blinkid.entities.recognizers.blinkid.generic.BarcodeScanningStartedCallback)">setBarcodeScanningStartedCallback</a></span>&#8203;(<a href="BarcodeScanningStartedCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">BarcodeScanningStartedCallback</a>&nbsp;barcodeScanningStartedCallback)</code></th>
 <td class="colLast">
 <div class="block">Sets the <a href="BarcodeScanningStartedCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>BarcodeScanningStartedCallback</code></a> that will be invoked from the recognizer when barcode scanning step starts.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setClassFilter(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassFilter)">setClassFilter</a></span>&#8203;(<a href="ClassFilter.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassFilter</a>&nbsp;classFilter)</code></th>
 <td class="colLast">
 <div class="block">Sets the <a href="ClassFilter.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassFilter</code></a> that can determine whether document should be processed or filtered out.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setClassifierCallback(com.microblink.blinkid.entities.recognizers.classifier.ClassifierCallback)">setClassifierCallback</a></span>&#8203;(<a href="../../classifier/ClassifierCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.classifier">ClassifierCallback</a>&nbsp;classifierCallback)</code></th>
 <td class="colLast">
@@ -435,14 +449,14 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  is classified.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDewarpedImageCallback(com.microblink.blinkid.entities.recognizers.blinkid.generic.DewarpedImageCallback)">setDewarpedImageCallback</a></span>&#8203;(<a href="DewarpedImageCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">DewarpedImageCallback</a>&nbsp;dewarpedImageCallback)</code></th>
 <td class="colLast">
 <div class="block">Sets the <a href="DewarpedImageCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>DewarpedImageCallback</code></a> that will receive dewarped document images.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEncodeFaceImage(boolean)">setEncodeFaceImage</a></span>&#8203;(boolean&nbsp;encodeFaceImage)</code></th>
 <td class="colLast">
@@ -450,7 +464,7 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  recognition result.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEncodeFullDocumentImage(boolean)">setEncodeFullDocumentImage</a></span>&#8203;(boolean&nbsp;encodeFullDocumentImage)</code></th>
 <td class="colLast">
@@ -458,7 +472,7 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  recognition result.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEncodeSignatureImage(boolean)">setEncodeSignatureImage</a></span>&#8203;(boolean&nbsp;encodeSignatureImage)</code></th>
 <td class="colLast">
@@ -466,49 +480,49 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  recognition result.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFaceImageDpi(int)">setFaceImageDpi</a></span>&#8203;(int&nbsp;desiredDPI)</code></th>
 <td class="colLast">
 <div class="block">Sets desired DPI (Dots Per Inch) for face image that should be returned.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFullDocumentImageDpi(int)">setFullDocumentImageDpi</a></span>&#8203;(int&nbsp;desiredDPI)</code></th>
 <td class="colLast">
 <div class="block">Sets desired DPI (Dots Per Inch) for full document image that should be returned.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i27" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFullDocumentImageExtensionFactors(com.microblink.blinkid.entities.recognizers.blinkid.imageoptions.extension.ImageExtensionFactors)">setFullDocumentImageExtensionFactors</a></span>&#8203;(<a href="../imageoptions/extension/ImageExtensionFactors.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.imageoptions.extension">ImageExtensionFactors</a>&nbsp;fullDocumentImageExtensionFactors)</code></th>
 <td class="colLast">
 <div class="block">Sets extension factors for full document image.</div>
 </td>
 </tr>
-<tr id="i26" class="altColor">
+<tr id="i28" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPaddingEdge(float)">setPaddingEdge</a></span>&#8203;(float&nbsp;paddingEdge)</code></th>
 <td class="colLast">
 <div class="block">Minimum required distance between the edge of the scanning frame and the document.</div>
 </td>
 </tr>
-<tr id="i27" class="rowColor">
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setRecognitionModeFilter(com.microblink.blinkid.entities.recognizers.blinkid.generic.RecognitionModeFilter)">setRecognitionModeFilter</a></span>&#8203;(<a href="RecognitionModeFilter.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">RecognitionModeFilter</a>&nbsp;recognitionModeFilter)</code></th>
 <td class="colLast">
 <div class="block">Enable or disable recognition of specific document groups supported by the current license.</div>
 </td>
 </tr>
-<tr id="i28" class="altColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReturnFaceImage(boolean)">setReturnFaceImage</a></span>&#8203;(boolean&nbsp;returnFaceImage)</code></th>
 <td class="colLast">
 <div class="block">Sets whether face image from document should be available in <a href="../imageresult/FaceImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReturnFullDocumentImage(boolean)">setReturnFullDocumentImage</a></span>&#8203;(boolean&nbsp;returnFullDocumentImage)</code></th>
 <td class="colLast">
@@ -516,56 +530,56 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  <a href="../imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setReturnSignatureImage(boolean)">setReturnSignatureImage</a></span>&#8203;(boolean&nbsp;returnSignatureImage)</code></th>
 <td class="colLast">
 <div class="block">Sets whether signature image should be available in <a href="../imageresult/SignatureImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>SignatureImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSaveCameraFrames(boolean)">setSaveCameraFrames</a></span>&#8203;(boolean&nbsp;saveCameraFrames)</code></th>
 <td class="colLast">
 <div class="block">Save the raw camera frames at the moment of the data extraction or timeout.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setScanCroppedDocumentImage(boolean)">setScanCroppedDocumentImage</a></span>&#8203;(boolean&nbsp;scanCroppedDocumentImage)</code></th>
 <td class="colLast">
 <div class="block">Process only cropped document images with corrected perspective (frontal images of a document).</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSignatureImageDpi(int)">setSignatureImageDpi</a></span>&#8203;(int&nbsp;desiredDPI)</code></th>
 <td class="colLast">
 <div class="block">Sets desired DPI (Dots Per Inch) for signature image that should be returned.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setValidateResultCharacters(boolean)">setValidateResultCharacters</a></span>&#8203;(boolean&nbsp;validateResultCharacters)</code></th>
 <td class="colLast">
 <div class="block">Allow only results containing expected characters for a given field.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowBlurFilter()">shouldAllowBlurFilter</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Skip processing of the blurred frames.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowUnparsedMrzResults()">shouldAllowUnparsedMrzResults</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldAllowUnverifiedMrzResults()">shouldAllowUnverifiedMrzResults</a></span>()</code></th>
 <td class="colLast">
@@ -573,35 +587,35 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  but check digits are incorrect (do not comply with the ICAO standard).</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i40" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldEncodeFaceImage()">shouldEncodeFaceImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i39" class="rowColor">
+<tr id="i41" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldEncodeFullDocumentImage()">shouldEncodeFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i40" class="altColor">
+<tr id="i42" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldEncodeSignatureImage()">shouldEncodeSignatureImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether encoding of signature image and writing it into the recognition result is enabled.</div>
 </td>
 </tr>
-<tr id="i41" class="rowColor">
+<tr id="i43" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldReturnFaceImage()">shouldReturnFaceImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether face image will be available in <a href="../imageresult/FaceImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i42" class="altColor">
+<tr id="i44" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldReturnFullDocumentImage()">shouldReturnFullDocumentImage</a></span>()</code></th>
 <td class="colLast">
@@ -609,40 +623,40 @@ implements <a href="../imageoptions/FaceImageOptions.html" title="interface in c
  <a href="../imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i43" class="rowColor">
+<tr id="i45" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldReturnSignatureImage()">shouldReturnSignatureImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns whether signature image will be available in <a href="../imageresult/SignatureImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>SignatureImageResult</code></a>.</div>
 </td>
 </tr>
-<tr id="i44" class="altColor">
+<tr id="i46" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldSaveCameraFrames()">shouldSaveCameraFrames</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Save the raw camera frames at the moment of the data extraction or timeout.</div>
 </td>
 </tr>
-<tr id="i45" class="rowColor">
+<tr id="i47" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldScanCroppedDocumentImage()">shouldScanCroppedDocumentImage</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Process only cropped document images with corrected perspective (frontal images of a document).</div>
 </td>
 </tr>
-<tr id="i46" class="altColor">
+<tr id="i48" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#shouldValidateResultCharacters()">shouldValidateResultCharacters</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Allow only results containing expected characters for a given field.</div>
 </td>
 </tr>
-<tr id="i47" class="rowColor">
+<tr id="i49" class="rowColor">
 <td class="colFirst"><code>protected void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#terminateNative(long)">terminateNative</a></span>&#8203;(long&nbsp;nativeContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i48" class="altColor">
+<tr id="i50" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#writeToParcel(android.os.Parcel,int)">writeToParcel</a></span>&#8203;(android.os.Parcel&nbsp;dest,
              int&nbsp;flags)</code></th>
@@ -1377,6 +1391,30 @@ public&nbsp;<a href="../imageoptions/extension/ImageExtensionFactors.html" title
 public&nbsp;<a href="RecognitionModeFilter.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">RecognitionModeFilter</a>&nbsp;getRecognitionModeFilter()</pre>
 <div class="block">Returns currently set recognition mode filter.
  By default, this is set to 'all modes are enabled'.</div>
+</li>
+</ul>
+<a id="setAdditionalAnonymization(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassAnonymizationSettings[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setAdditionalAnonymization</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setAdditionalAnonymization&#8203;(@NonNull
+                                       <a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a>[]&nbsp;additionalAnonymization)</pre>
+<div class="block">Enable or disable recognition of specific document groups supported by the current license.
+ By default, this is set to '[-1, -1, -1]'.</div>
+</li>
+</ul>
+<a id="getAdditionalAnonymization()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAdditionalAnonymization</h4>
+<pre class="methodSignature">@NonNull
+public&nbsp;<a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a>&nbsp;getAdditionalAnonymization()</pre>
+<div class="block">Returns additional anonymization settings.
+ By default, this is set to '[null, null, null, null]'.</div>
 </li>
 </ul>
 <a id="setDewarpedImageCallback(com.microblink.blinkid.entities.recognizers.blinkid.generic.DewarpedImageCallback)">

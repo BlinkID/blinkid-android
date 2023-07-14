@@ -29,6 +29,9 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
     @Override
     protected void extractData(BlinkIdMultiSideRecognizer.Result result, ResultSource resultSource) {
         switch (resultSource) {
+            case NONEMPTY:
+                extractMixedNonEmptyResults(result);
+                break;
             case FRONT:
                 extractVisualResults(result.getFrontVizResult());
                 break;
@@ -62,12 +65,21 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
         add(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
+        if (result.getDateOfBirth() != null) {
+            add(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getStringResult());
+        }
         int age = result.getAge();
         if (age != -1) {
             add(R.string.PPAge, age);
         }
         add(R.string.PPIssueDate, result.getDateOfIssue());
+        if (result.getDateOfIssue() != null) {
+            add(R.string.PPIssueDateOriginal, result.getDateOfIssue().getStringResult());
+        }
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        if (result.getDateOfExpiry() != null) {
+            add(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getStringResult());
+        }
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
         add(R.string.PPExpired, result.isExpired());
 
@@ -126,6 +138,99 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.MBBackAdditionalProcessingInfo, result.getBackAdditionalProcessingInfo().toString());
 
         add(R.string.PPDataMatch, result.getDataMatch().toString());
+
+        add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
+        add(R.string.MBBackCameraFrame, result.getBackCameraFrame());
+        add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
+    }
+
+    private void extractMixedNonEmptyResults(BlinkIdMultiSideRecognizer.Result result) {
+        addIfNotEmpty(R.string.PPFirstName, result.getFirstName());
+        addIfNotEmpty(R.string.PPLastName, result.getLastName());
+        addIfNotEmpty(R.string.PPFullName, result.getFullName());
+        addIfNotEmpty(R.string.PPAdditionalNameInformation, result.getAdditionalNameInformation());
+        addIfNotEmpty(R.string.PPLocalizedName, result.getLocalizedName());
+        addIfNotEmpty(R.string.PPFatherName, result.getFathersName());
+        addIfNotEmpty(R.string.PPMotherName, result.getMothersName());
+        addIfNotEmpty(R.string.PPSex, result.getSex());
+
+        addIfNotEmpty(R.string.PPAddress, result.getAddress());
+        addIfNotEmpty(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
+        addIfNotEmpty(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
+        addIfNotEmpty(R.string.PPDateOfBirth, result.getDateOfBirth());
+        if (result.getDateOfBirth() != null) {
+            addIfNotEmpty(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getStringResult());
+        }
+        int age = result.getAge();
+        if (age != -1) {
+            add(R.string.PPAge, age);
+        }
+        addIfNotEmpty(R.string.PPIssueDate, result.getDateOfIssue());
+        if (result.getDateOfIssue() != null) {
+            addIfNotEmpty(R.string.PPIssueDateOriginal, result.getDateOfIssue().getStringResult());
+        }
+        addIfNotEmpty(R.string.PPDateOfExpiry, result.getDateOfExpiry());
+        if (result.getDateOfExpiry() != null) {
+            addIfNotEmpty(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getStringResult());
+        }
+        add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
+
+        add(R.string.PPExpired, result.isExpired());
+        addIfNotEmpty(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
+        addIfNotEmpty(R.string.PPNationality, result.getNationality());
+
+        addIfNotEmpty(R.string.PPRace, result.getRace());
+        addIfNotEmpty(R.string.PPReligion, result.getReligion());
+        addIfNotEmpty(R.string.PPProfession, result.getProfession());
+        addIfNotEmpty(R.string.PPMaritalStatus, result.getMaritalStatus());
+        addIfNotEmpty(R.string.PPResidentialStatus, result.getResidentialStatus());
+        addIfNotEmpty(R.string.PPEmployer, result.getEmployer());
+
+        addIfNotEmpty(R.string.PPDocumentNumber, result.getDocumentNumber());
+        addIfNotEmpty(R.string.PPPersonalNumber, result.getPersonalIdNumber());
+        addIfNotEmpty(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
+        addIfNotEmpty(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
+        addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+
+        DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
+        if (!driverLicenseInfo.isEmpty()) {
+            addIfNotEmpty(R.string.PPDriverLicenseDetailedInfo, driverLicenseInfo.toString());
+        }
+
+        ClassInfo classInfo = result.getClassInfo();
+        addIfNotEmpty(R.string.PPClassInfoCountry, classInfo.getCountry().name());
+        addIfNotEmpty(R.string.PPClassInfoRegion, classInfo.getRegion().name());
+        addIfNotEmpty(R.string.PPClassInfoType, classInfo.getType().name());
+        addIfNotEmpty(R.string.PPClassInfoCountryName, classInfo.getCountryName());
+        addIfNotEmpty(R.string.PPClassInfoIsoNumericCountryCode, classInfo.getIsoNumericCountryCode());
+        addIfNotEmpty(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
+        addIfNotEmpty(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
+
+        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurred());
+        addIfNotEmpty(R.string.MBDocumentFrontImageColorStatus, result.getFrontImageAnalysisResult().getDocumentImageColorStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageMoireStatus, result.getFrontImageAnalysisResult().getDocumentImageMoireStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageFaceStatus, result.getFrontImageAnalysisResult().getFaceDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageMrzStatus, result.getFrontImageAnalysisResult().getMrzDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageBarcodeStatus, result.getFrontImageAnalysisResult().getBarcodeDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageCardOrientation, result.getFrontImageAnalysisResult().getCardOrientation().name());
+
+        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurred());
+        addIfNotEmpty(R.string.MBDocumentBackImageColorStatus, result.getBackImageAnalysisResult().getDocumentImageColorStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageMoireStatus, result.getBackImageAnalysisResult().getDocumentImageMoireStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageFaceStatus, result.getBackImageAnalysisResult().getFaceDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageMrzStatus, result.getBackImageAnalysisResult().getMrzDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageBarcodeStatus, result.getBackImageAnalysisResult().getBarcodeDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageCardOrientation, result.getBackImageAnalysisResult().getCardOrientation().name());
+
+        addIfNotEmpty(R.string.MBProcessingStatus, result.getProcessingStatus().name());
+        addIfNotEmpty(R.string.MBFrontProcessingStatus, result.getFrontProcessingStatus().name());
+        addIfNotEmpty(R.string.MBBackProcessingStatus, result.getBackProcessingStatus().name());
+        addIfNotEmpty(R.string.MBRecognitionMode, result.getRecognitionMode().name());
+
+        addIfNotEmpty(R.string.MBFrontAdditionalProcessingInfo, result.getFrontAdditionalProcessingInfo().toString());
+        addIfNotEmpty(R.string.MBBackAdditionalProcessingInfo, result.getBackAdditionalProcessingInfo().toString());
+
+        addIfNotEmpty(R.string.PPDataMatch, result.getDataMatch().toString());
 
         add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
         add(R.string.MBBackCameraFrame, result.getBackCameraFrame());
