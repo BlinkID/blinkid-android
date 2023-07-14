@@ -17,7 +17,7 @@ BlinkID is:
 - **Intelligent**. Machine learning models, optimized to read and parse identity documents from more than 180 countries worldwide, automatically, no need to preselect any of them.
 - **Lightweight**. Designed to increase your app’s usability, not weight.
 - **What you make of it**. Customize and rebrand the default UI or leave it as it is. It’s up to you.
-- **More than just a powerful ID scanner**. Powerful data extraction, coupled with powerful perks. Get a cropped document image back, spot printed documents or data match both sides of the ID for parity. 
+- **More than just a powerful ID scanner**. Powerful data extraction, coupled with powerful perks. Get a cropped document image back, spot printed documents or data match both sides of the ID for parity.
 
 <p align="center" >
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid-v5.gif" alt="BlinkID SDK">
@@ -254,15 +254,15 @@ Here's how you can check whether the _BlinkID_ is supported on the device:
 ```java
 // check if BlinkID is supported on the device,
 RecognizerCompatibilityStatus status = RecognizerCompatibility.getRecognizerCompatibilityStatus(this);
-if (status == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
-    Toast.makeText(this, "BlinkID is supported!", Toast.LENGTH_LONG).show();
-} else if (status == RecognizerCompatibilityStatus.NO_CAMERA) {
-    Toast.makeText(this, "BlinkID is supported only via Direct API!", Toast.LENGTH_LONG).show();
-} else if (status == RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED) {
-    Toast.makeText(this, "BlinkID is not supported on current processor architecture!", Toast.LENGTH_LONG).show();
-} else {
-    Toast.makeText(this, "BlinkID is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
-}
+        if (status == RecognizerCompatibilityStatus.RECOGNIZER_SUPPORTED) {
+        Toast.makeText(this, "BlinkID is supported!", Toast.LENGTH_LONG).show();
+        } else if (status == RecognizerCompatibilityStatus.NO_CAMERA) {
+        Toast.makeText(this, "BlinkID is supported only via Direct API!", Toast.LENGTH_LONG).show();
+        } else if (status == RecognizerCompatibilityStatus.PROCESSOR_ARCHITECTURE_NOT_SUPPORTED) {
+        Toast.makeText(this, "BlinkID is not supported on current processor architecture!", Toast.LENGTH_LONG).show();
+        } else {
+        Toast.makeText(this, "BlinkID is not supported! Reason: " + status.name(), Toast.LENGTH_LONG).show();
+        }
 ```
 
 ##### Kotlin
@@ -291,9 +291,9 @@ If you already have an array of recognizers, you can easily filter out recognize
 
 ```java
 Recognizer[] recArray = ...;
-if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)) {
-    recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray);
-}
+        if(!RecognizerCompatibility.cameraHasAutofocus(CameraType.CAMERA_BACKFACE, this)) {
+        recArray = RecognizerUtils.filterOutRecognizersThatRequireAutofocus(recArray);
+        }
 ```
 
 ##### Kotlin
@@ -522,7 +522,7 @@ public class MyActivity extends AppCompatActivity implements RecognizerRunnerFra
         public void onUnrecoverableError(@NonNull Throwable throwable) {
         }
     };
-    
+
 }
 ```
 Please refer to sample apps provided with the SDK for more detailed example and make sure your host activity's orientation is set to `nosensor` or has configuration changing enabled (i.e. is not restarted when configuration change happens). For more information, check [scan orientation section](#scan-orientation).
@@ -534,7 +534,7 @@ This section discusses how to embed [RecognizerRunnerView](https://blinkid.githu
 2. It is recommended to keep your scan activity in one orientation, such as `portrait` or `landscape`. Setting `sensor` as scan activity's orientation will trigger full restart of activity whenever device orientation changes. This will provide very poor user experience because both camera and _BlinkID_ native library will have to be restarted every time. There are measures against this behaviour that are discussed [later](#scan-orientation).
 3. In your activity's `onCreate` method, create a new `RecognizerRunnerView`, set [RecognizerBundle](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html) containing recognizers that will be used by the view, define [CameraEventsListener](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/CameraEventsListener.html) that will handle mandatory camera events, define [ScanResultListener](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html) that will receive call when recognition has been completed and then call its `create` method. After that, add your views that should be layouted on top of camera view.
 4. Pass in your activity's lifecycle using `setLifecycle` method to enable automatic handling of lifeceycle events.
- 
+
 Here is the minimum example of integration of `RecognizerRunnerView` as the only view in your activity:
 
 ```java
@@ -555,7 +555,7 @@ public class MyScanActivity extends AppCompatActivity {
         mRecognizerBundle = new RecognizerBundle(mRecognizer);
         // create RecognizerRunnerView
         mRecognizerRunnerView = new RecognizerRunnerView(this);
-        
+
         // set lifecycle to automatically call recognizer runner view lifecycle methods
         mRecognizerRunnerView.setLifecycle(getLifecycle());
 
@@ -646,7 +646,7 @@ public class MyScanActivity extends AppCompatActivity {
              */
         }
     };
-    
+
     private final ScanResultListener mScanResultListener = new ScanResultListener() {
         @Override
         public void onScanningDone(@NonNull RecognitionSuccessType recognitionSuccessType) {
@@ -690,7 +690,7 @@ public class MyScanActivity extends AppCompatActivity {
             // includes clearing result of mRecognizer
         }
     };
-    
+
 }
 ```
 #### <a name="scan-orientation"></a> Scan activity's orientation
@@ -711,9 +711,9 @@ Image recognition performance highly depends on the quality of the input images.
 1. First, you need to obtain reference to [RecognizerRunner singleton](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html) using [getSingletonInstance](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#getSingletonInstance--).
 2. Second, you need to [initialize the recognizer runner](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-).
 3. After initialization, you can use singleton to process:
- - **Still** Android `Bitmaps` obtained, for example, from the gallery. Use [recognizeBitmap](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeBitmap-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-) or [recognizeBitmapWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
- - **Video** `Images` that are [built from custom camera video frames](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/ImageBuilder.html), for example, when you use your own or third party camera management. Recognition will be optimized for speed and will rely on time-redundancy between consecutive video frames in order to yield best possible recognition result. Use [recognizeVideoImage](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeVideoImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeVideoImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
- - **Still** `Images` when you need thorough scanning of single or few images which are not part of the video stream and you want to get best possible results from the single `Image`. [Image](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html) type comes from our SDK or it can be created by using [ImageBuilder](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/ImageBuilder.html). Use [recognizeStillImage](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeStillImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-). 
+- **Still** Android `Bitmaps` obtained, for example, from the gallery. Use [recognizeBitmap](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeBitmap-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-) or [recognizeBitmapWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeBitmapWithRecognizers-android.graphics.Bitmap-com.microblink.hardware.orientation.Orientation-com.microblink.geometry.Rectangle-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
+- **Video** `Images` that are [built from custom camera video frames](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/ImageBuilder.html), for example, when you use your own or third party camera management. Recognition will be optimized for speed and will rely on time-redundancy between consecutive video frames in order to yield best possible recognition result. Use [recognizeVideoImage](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeVideoImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeVideoImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeVideoImageWithRecognizers-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
+- **Still** `Images` when you need thorough scanning of single or few images which are not part of the video stream and you want to get best possible results from the single `Image`. [Image](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html) type comes from our SDK or it can be created by using [ImageBuilder](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/ImageBuilder.html). Use [recognizeStillImage](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-) or [recognizeStillImageWithRecognizers](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#recognizeStillImage-com.microblink.image.Image-com.microblink.view.recognition.ScanResultListener-com.microblink.entities.recognizers.RecognizerBundle-).
 
 4. When you want to delete all cached data from multiple recognitions, for example when you want to scan other document and/or restart scanning, you need to [reset the recognition state](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#resetRecognitionState--).
 5. Do not forget to [terminate](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#terminate--) the recognizer runner singleton after usage (it is a shared resource).
@@ -790,7 +790,7 @@ public class DirectAPIActivity extends Activity {
 
 ### <a name="direct-api-strings"></a> Using Direct API for `String` recognition (parsing)
 
-Some recognizers support recognition from `String`. They can be used through Direct API to parse given `String` and return data just like when they are used on an input image. When recognition is performed on `String`, there is no need for the OCR. Input `String` is used in the same way as the OCR output is used when image is being recognized. 
+Some recognizers support recognition from `String`. They can be used through Direct API to parse given `String` and return data just like when they are used on an input image. When recognition is performed on `String`, there is no need for the OCR. Input `String` is used in the same way as the OCR output is used when image is being recognized.
 
 Recognition from `String` can be performed in the same way as recognition from image, described in the [previous section](direct-api-images).
 
@@ -804,12 +804,12 @@ The only difference is that one of the [RecognizerRunner singleton](https://blin
 
 Direct API's `RecognizerRunner` singleton is a state machine that can be in one of 3 states: `OFFLINE`, `READY` and `WORKING`.
 
-- When you obtain the reference to `RecognizerRunner` singleton, it will be in `OFFLINE` state. 
+- When you obtain the reference to `RecognizerRunner` singleton, it will be in `OFFLINE` state.
 - You can initialize `RecognizerRunner` by calling [initialize](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#initialize-android.content.Context-com.microblink.entities.recognizers.RecognizerBundle-com.microblink.directApi.DirectApiErrorListener-) method. If you call `initialize` method while `RecognizerRunner` is not in `OFFLINE` state, you will get `IllegalStateException`.
 - After successful initialization, `RecognizerRunner` will move to `READY` state. Now you can call any of the `recognize*` methods.
 - When starting recognition with any of the `recognize*` methods, `RecognizerRunner` will move to `WORKING` state. If you attempt to call these methods while `RecognizerRunner` is not in `READY` state, you will get `IllegalStateException`
 - Recognition is performed on background thread so it is safe to call all `RecognizerRunner's` methods from UI thread
-- When recognition is finished, `RecognizerRunner` first moves back to `READY` state and then calls the [onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) method of the provided [`ScanResultListener`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html). 
+- When recognition is finished, `RecognizerRunner` first moves back to `READY` state and then calls the [onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) method of the provided [`ScanResultListener`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html).
 - Please note that `ScanResultListener`'s [`onScanningDone`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-) method will be called on background processing thread, so make sure you do not perform UI operations in this callback. Also note that until the `onScanningDone` method completes, `RecognizerRunner` will not perform recognition of another image or string, even if any of the `recognize*` methods have been called just after transitioning to `READY` state. This is to ensure that results of the recognizers bundled within `RecognizerBundle` associated with `RecognizerRunner` are not modified while possibly being used within `onScanningDone` method.
 - By calling [`terminate`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/directApi/RecognizerRunner.html#terminate--) method, `RecognizerRunner` singleton will release all its internal resources. Note that even after calling `terminate` you might receive `onScanningDone` event if there was work in progress when `terminate` was called.
 - `terminate` method can be called from any `RecognizerRunner` singleton's state
@@ -819,7 +819,7 @@ Direct API's `RecognizerRunner` singleton is a state machine that can be in one 
 Both [RecognizerRunnerView](#recognizer-runner-view) and `RecognizerRunner` use the same internal singleton that manages native code. This singleton handles initialization and termination of native library and propagating recognizers to native library. It is possible to use `RecognizerRunnerView` and `RecognizerRunner` together, as internal singleton will make sure correct synchronization and correct recognition settings are used. If you run into problems while using `RecognizerRunner` in combination with `RecognizerRunnerView`, [let us know](http://help.microblink.com)!
 
 
-### <a name="direct-api-combined-recognizers"></a> Using Direct API with combined recognizers 
+### <a name="direct-api-combined-recognizers"></a> Using Direct API with combined recognizers
 
 When you are using combined recognizer and images of both document sides are required, you need to call `RecognizerRunner.recognize*` multiple times. Call it first with the images of the first side of the document, until it is read, and then with the images of the second side. The combined recognizer automatically switches to second side scanning, after it has successfully read the first side. To be notified when the first side scanning is completed, you have to set the [FirstSideRecognitionCallback](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/metadata/recognition/FirstSideRecognitionCallback.html) through [MetadataCallbacks](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/metadata/MetadataCallbacks.html). If you don't need that information, e.g. when you have only one image for each document side, don't set the `FirstSideRecognitionCallback` and check the [RecognitionSuccessType](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/recognition/RecognitionSuccessType.html) in [ScanResultListener.onScanningDone](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/view/recognition/ScanResultListener.html#onScanningDone-RecognitionSuccessType-), after the second side image has been processed.
 
@@ -834,7 +834,7 @@ When you are using combined recognizer and images of both document sides are req
 * visual indications when the user needs to place the document closer to the camera
 * when BlinkIdMultiSideRecognizer is used, visual indication that the data from the front side of the document doesn't match the data on the back side of the document.
 
-The new UI allows the user to scan the document at an any angle, in any orientation. We recommend forcing landscape orientation if you scan barcodes on the back side, because in that orientation success rate will be higher. 
+The new UI allows the user to scan the document at an any angle, in any orientation. We recommend forcing landscape orientation if you scan barcodes on the back side, because in that orientation success rate will be higher.
 
 To launch a built-in activity that uses `BlinkIdOverlayController` use [`BlinkIdUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BlinkIdUISettings.html).
 
@@ -861,6 +861,7 @@ To customise overlay, provide your custom style resource via [`BlinkIdUISettings
 
 * `mb_instructionsTextAppearance` - style that will be used as `android:textAppearance`
 * `mb_instructionsBackgroundDrawable` - drawable used for background
+* `mb_instructionsBackgroundColor` - color used for background
 
 **flashlight warning**
 
@@ -878,13 +879,14 @@ To customise overlay, provide your custom style resource via [`BlinkIdUISettings
 * `mb_reticleDefaultDrawable` - drawable shown when reticle is in neutral state
 * `mb_reticleSuccessDrawable` - drawable shown when reticle is in success state (scanning was successful)
 * `mb_reticleErrorDrawable` - drawable shown when reticle is in error state
+* `mb_reticleColor` - color used for rotating reticle element
+* `mb_reticleDefaultColor` - color used for reticle in neutral state
+* `mb_reticleErrorColor` - color used for reticle in error state
+* `mb_successFlashColor` - color used for flash effect on successful scan
 
-**inner reticle**
-
-* `mb_reticleColor` - color of the reticle animation that is active before a card is detected
 
 ### Introduction dialog and onboarding dialog
-To customize the visibility of these two dialogs, use methods provided in `BlinkIdUISettings`.
+To customize the visibility and style of these two dialogs, use methods provided in `BlinkIdUISettings`.
 
 <p align="center" >
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/introduction_onboarding_overlay.png" alt="BlinkId SDK">
@@ -895,8 +897,38 @@ The method for controlling the visibility of the **introduction dialog** is [`Bl
 The method for controlling the visibility of the **onboarding dialog** is [`BlinkIdUISettings.setShowOnboardingInfo(boolean showOnboardingInfo)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BlinkIdUISettings.html#setShowOnboardingInfo(boolean)) and it is set to true by default, meaning the introduction dialog will be shown.
 
 There is also a method for controlling the delay of the **"Show help?" tooltip** that is shown above the help button. The button itself will be shown if the previous method for showing onboarding is true.
-The method for setting the delay length of the tooltip is [`BlinkIdUISettings.setShowTooltipTimeIntervalMs(boolean showTooltipTimeIntervalMs)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BaseBlinkIdUiSettings.html#setShowIntroductionDialog(long)). Time parameter is set in milliseconds.
+The method for setting the delay length of the tooltip is [`BlinkIdUISettings.setShowTooltipTimeIntervalMs(long showTooltipTimeIntervalMs)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BaseBlinkIdUiSettings.html#setShowIntroductionDialog(long)). Time parameter is set in milliseconds.
+
 The default setting of the delay is 12 seconds (12000 milliseconds).
+
+Customizing and theming these introduction and onboarding elements can be done in the same way as explained in the previous chapter, by providing the following attributes:
+
+**help button**
+* `mb_helpButtonDrawable` - drawable that is shown when help button is enabled
+* `mb_helpButtonBackgroundColor` - color used for help button background
+* `mb_helpButtonQuestionmarkColor` - color used for help button foreground
+* note that this element is disabled if onboarding screens are disabled
+
+**help tooltip**
+* `mb_helpTooltipBackground` - drawable that is shown as a background when help tooltip pops up
+* `mb_helpTooltipColor` - color used for help tooltip background
+* `mb_helpTooltipTextAppearance` - style that will be used as `android:textAppearance`
+
+**introduction dialog**
+* `mb_introductionBackgroundColor` - color used for introduction screen background
+* `mb_introductionTitleTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_introductionMessageTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_introductionButtonTextAppearance` - style that will be used as `android:textAppearance`
+* note that you can disable this element by using [`BlinkIdUISettings.setShowIntroductionDialog(false)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BlinkIdUISettings.html#setShowIntroductionDialog(boolean))
+
+**onboarding dialog**
+*  `mb_onboardingBackgroundColor` - color used for onboarding screens background
+* `mb_onboardingPageIndicatorColor` - color used for circular page indicators in onboarding screens
+* `mb_onboardingTitleTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_onboardingMessageTextAppearance` - style that will be used as `android:textAppearance`
+* `mb_onboardingButtonTextAppearance` - style that will be used as `android:textAppearance`
+* note that you can disable this element by using [`BlinkIdUISettings.setShowOnboardingInfo(false)`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BlinkIdUISettings.html#setShowOnboardingInfo(boolean))
+
 ## <a name="document-ui-component"></a> `DocumentUISettings`
 
 [`DocumentUISettings`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/DocumentUISettings.html) launches activity that uses `BlinkIdOverlayController` with alternative UI. It is best suited for scanning single document side of various card documents and it shouldn't be used with combined recognizers as it provides no user instructions on when to switch to the back side.
@@ -911,9 +943,9 @@ Strings used within built-in activities and overlays can be localized to any lan
 However, if you use our built-in activities or overlays, they will use resources packed within `LibBlinkID.aar` to display strings and images on top of the camera view. We have already prepared strings for several languages which you can use out of the box. You can also [modify those strings](#string-changing), or you can [add your own language](#add-language).
 
 To use a language, you have to enable it from the code:
-        
+
 * To use a certain language, on application startup, before opening any UI component from the SDK, you should call method `LanguageUtils.setLanguageAndCountry(language, country, context)`. For example, you can set language to Croatian like this:
-    
+
     ```java
     // define BlinkID language
     LanguageUtils.setLanguageAndCountry("hr", "", this);
@@ -924,7 +956,7 @@ To use a language, you have to enable it from the code:
 _BlinkID_ can easily be translated to other languages. The `res` folder in `LibBlinkID.aar` archive has folder `values` which contains `strings.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings.xml` inside it (you might need to extract `LibBlinkID.aar` archive to access those files). Then, open that file and translate the strings from English into Croatian.
 
 #### <a name="stringChanging"></a> Changing strings in the existing language
-    
+
 To modify an existing string, the best approach would be to:
 
 1. Choose a language you want to modify. For example Croatian ('hr').
@@ -995,9 +1027,9 @@ Although the first problem can be easily worked around by making a [copy](https:
 
 - if set to [`STANDARD`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/intent/IntentDataTransferMode.html#STANDARD), the `Recognizer` objects will be passed via `Intent` using normal _Intent transaction mechanism_, which is limited by [Android's Intent transaction data limit](https://developer.android.com/reference/android/os/TransactionTooLargeException.html). This is same as manually putting `Recognizer` objects into `Intent` and is OK as long as you do not use `Recognizer` objects that produce images or other large objects in their `Results`.
 - if set to [`OPTIMISED`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/intent/IntentDataTransferMode.html#OPTIMISED), the `Recognizer` objects will be passed via internal singleton object and no serialization will take place. This means that there is no limit to the size of data that is being passed. This is also the fastest transfer method, but it has a serious drawback - if Android kills your app to save memory for other apps and then later restarts it and redelivers `Intent` that should contain `Recognizer` objects, the internal singleton that should contain saved `Recognizer` objects will be empty and data that was being sent will be lost. You can easily provoke that condition by choosing _No background processes_ under _Limit background processes_ in your device's _Developer options_, and then switch from your app to another app and then back to your app.
-- if set to [`PERSISTED_OPTIMISED`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED), the `Recognizer` objects will be passed via internal singleton object (just like in `OPTIMISED` mode) and will additionaly be serialized into a file in your application's private folder. In case Android restarts your app and internal singleton is empty after re-delivery of the `Intent`, the data will be loaded from file and nothing will be lost. The files will be automatically cleaned up when data reading takes place. Just like `OPTIMISED`, this mode does not have limit to the size of data that is being passed and does not have a drawback that `OPTIMISED` mode has, but some users might be concerned about files to which data is being written. 
-    - These files **will** contain end-user's private data, such as image of the object that was scanned and the extracted data. Also these files **may** remain saved in your application's private folder until the next successful reading of data from the file. 
-    - If your app gets restarted multiple times, only after first restart will reading succeed and will delete the file after reading. If multiple restarts take place, you must implement [`onSaveInstanceState`](https://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)) and save bundle back to file by calling its [`saveState`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#saveState--) method. Also, after saving state, you should ensure that you [clear saved state](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#clearSavedState--) in your [`onResume`](https://developer.android.com/reference/android/app/Activity.html#onResume()), as [`onCreate`](https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)) may not be called if activity is not restarted, while `onSaveInstanceState` may be called as soon as your activity goes to background (before `onStop`), even though activity may not be killed at later time. 
+- if set to [`PERSISTED_OPTIMISED`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/intent/IntentDataTransferMode.html#PERSISTED_OPTIMISED), the `Recognizer` objects will be passed via internal singleton object (just like in `OPTIMISED` mode) and will additionaly be serialized into a file in your application's private folder. In case Android restarts your app and internal singleton is empty after re-delivery of the `Intent`, the data will be loaded from file and nothing will be lost. The files will be automatically cleaned up when data reading takes place. Just like `OPTIMISED`, this mode does not have limit to the size of data that is being passed and does not have a drawback that `OPTIMISED` mode has, but some users might be concerned about files to which data is being written.
+    - These files **will** contain end-user's private data, such as image of the object that was scanned and the extracted data. Also these files **may** remain saved in your application's private folder until the next successful reading of data from the file.
+    - If your app gets restarted multiple times, only after first restart will reading succeed and will delete the file after reading. If multiple restarts take place, you must implement [`onSaveInstanceState`](https://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)) and save bundle back to file by calling its [`saveState`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#saveState--) method. Also, after saving state, you should ensure that you [clear saved state](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/RecognizerBundle.html#clearSavedState--) in your [`onResume`](https://developer.android.com/reference/android/app/Activity.html#onResume()), as [`onCreate`](https://developer.android.com/reference/android/app/Activity.html#onCreate(android.os.Bundle)) may not be called if activity is not restarted, while `onSaveInstanceState` may be called as soon as your activity goes to background (before `onStop`), even though activity may not be killed at later time.
     - If saving data to file in private storage is a concern to you, you should use either `OPTIMISED` mode to transfer large data and image between activities or create your own mechanism for data transfer. Note that your application's private folder is only accessible by your application and your application alone, unless the end-user's device is rooted.
 
 # <a name="recognizer-list"></a> List of available recognizers
@@ -1010,7 +1042,7 @@ The [`FrameGrabberRecognizer`](https://blinkid.github.io/blinkid-android/com/mic
 
 This recognizer is best for easy capturing of camera frames with [`RecognizerRunnerView`](#recognizerRunnerView). Note that [`Image`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html) sent to [`onFrameAvailable`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html#onFrameAvailable-com.microblink.image.Image-boolean-double-) are temporary and their internal buffers all valid only until the `onFrameAvailable` method is executing - as soon as method ends, all internal buffers of `Image` object are disposed. If you need to store `Image` object for later use, you must create a copy of it by calling [`clone`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/image/Image.html#clone--).
 
-Also note that [`FrameCallback`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html) interface extends [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), which means that when implementing `FrameCallback` interface, you must also implement `Parcelable` interface. 
+Also note that [`FrameCallback`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/framegrabber/FrameCallback.html) interface extends [Parcelable interface](https://developer.android.com/reference/android/os/Parcelable.html), which means that when implementing `FrameCallback` interface, you must also implement `Parcelable` interface.
 
 This is especially important if you plan to transfer `FrameGrabberRecognizer` between activities - in that case, keep in mind that the instance of your object may not be the same as the instance on which `onFrameAvailable` method gets called - the instance that receives `onFrameAvailable` calls is the one that is created within activity that is performing the scan.
 
@@ -1024,23 +1056,23 @@ This recognizer is best for use cases when you need to capture the exact image t
 
 ## <a name="blinkid-recognizers"></a> BlinkID recognizers
 
-Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkid-ui-component) and [`DocumentScanUISettings`](#document-ui-component), with UIs best suited for document scanning. 
+Unless stated otherwise for concrete recognizer, **single side BlinkID recognizers** from this list can be used in any context, but they work best with [`BlinkIdUISettings`](#blinkid-ui-component) and [`DocumentScanUISettings`](#document-ui-component), with UIs best suited for document scanning.
 
 **Combined recognizers** should be used with [`BlinkIdUISettings`](#blinkid-ui-component). They manage scanning of multiple document sides in the single camera opening and guide the user through the scanning process. Some combined recognizers support scanning of multiple document types, but only one document type can be scanned at a time.
 
 ### <a name="blinkid-single-side-recognizer"></a> BlinkID single side recognizer
-The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) scans and extracts data from the single side of the supported document. 
+The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) scans and extracts data from the single side of the supported document.
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
-The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component). 
+The [`BlinkIdSingleSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdSingleSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component).
 
 ### <a name="blinkidMultiSideRecognizer"></a> BlinkID multi side recognizer
 Use [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) for scanning both sides of the supported document. First, it scans and extracts data from the front, then scans and extracts data from the back, and finally, combines results from both sides. The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) also performs data matching and returns a flag if the extracted data captured from the front side matches the data from the back.
 You can find the list of the currently supported documents [here](https://github.com/BlinkID/blinkid-android/blob/master/documentation/BlinkIDRecognizer.md).
 We will continue expanding this recognizer by adding support for new document types in the future. Star this repo to stay updated.
 
-The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component). 
+The [`BlinkIdMultiSideRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/generic/BlinkIdMultiSideRecognizer.html) works best with the [`BlinkIdUISettings` and `BlinkIdOverlayController`](#blinkid-ui-component).
 
 ### <a name="mrtd-recognizer"></a> Machine Readable Travel Document recognizer
 The [`MrtdRecognizer`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrtdRecognizer.html) is used for scanning and data extraction from the Machine Readable Zone (MRZ) of the various Machine Readable Travel Documents (MRTDs) like ID cards and passports. This recognizer is not bound to the specific country, but it can be configured to only return data that match some criteria defined by the [`MrzFilter`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/entities/recognizers/blinkid/mrtd/MrzFilter.html).
@@ -1075,7 +1107,7 @@ The [`DocumentFaceRecognizer`](https://blinkid.github.io/blinkid-android/com/mic
 
 You can find information about usage context at the beginning of [this section](#blinkid-recognizers).
 # <a name="embed-aar"></a> Embedding _BlinkID_ inside another SDK
-	
+
 You need to ensure that the final app gets all resources required by _BlinkID_. At the time of writing this documentation, [Android does not have support for combining multiple AAR libraries into single fat AAR](https://stackoverflow.com/questions/20700581/android-studio-how-to-package-single-aar-from-multiple-library-projects/20715155#20715155). The problem is that resource merging is done while building application, not while building AAR, so application must be aware of all its dependencies. **There is no official Android way of "hiding" third party AAR within your AAR.**
 
 This problem is usually solved with transitive Maven dependencies, i.e. when publishing your AAR to Maven you specify dependencies of your AAR so they are automatically referenced by app using your AAR. Besides this, there are also several other approaches you can try:
@@ -1097,7 +1129,7 @@ There are some issues to be considered:
 
 - ARMv7 build of the native library cannot be run on devices that do not have ARMv7 compatible processor
 - ARMv7 processors do not understand x86 instruction set
-- ARM64 processors understand ARMv7 instruction set, but ARMv7 processors do not understand ARM64 instructions. 
+- ARM64 processors understand ARMv7 instruction set, but ARMv7 processors do not understand ARM64 instructions.
     - <a name="64bitNotice"></a> **NOTE:** as of the year 2018, some android devices that ship with ARM64 processors do not have full compatibility with ARMv7. This is mostly due to incorrect configuration of Android's 32-bit subsystem by the vendor, however Google decided that as of August 2019 all apps on PlayStore that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64) - this is in anticipation of future Android devices that will support 64-bit code **only**, i.e. that will have ARM64 processors that do not understand ARMv7 instruction set.
 - if ARM64 processor executes ARMv7 code, it does not take advantage of modern NEON64 SIMD operations and does not take advantage of 64-bit registers it has - it runs in emulation mode
 
@@ -1189,7 +1221,7 @@ You can also remove multiple processor architectures by specifying `exclude` dir
 
 - Google decided that as of August 2019 all apps on Google Play that contain native code need to have native support for 64-bit processors (this includes ARM64 and x86_64). This means that you cannot upload application to Google Play Console that supports only 32-bit ABI and does not support corresponding 64-bit ABI.
 
-- By removing ARMv7 support, _BlinkID_ will not work on devices that have ARMv7 processors. 
+- By removing ARMv7 support, _BlinkID_ will not work on devices that have ARMv7 processors.
 - By removing ARM64 support, _BlinkID_ will not use ARM64 features on ARM64 device
     - also, some future devices may ship with ARM64 processors that will not support ARMv7 instruction set. Please see [this note](#64bit-notice) for more information.
 
@@ -1216,7 +1248,7 @@ When you have to determine what is the license-relate problem or you simply do n
 **Keep in mind:** Versions 5.8.0 and above require an internet connection to work under our new License Management Program.
 
 We’re only asking you to do this so we can validate your trial license key. Data extraction still happens offline, on the device itself.
-Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check. 
+Once the validation is complete, you can continue using the SDK in offline mode (or over a private network) until the next check.
 
 ### Other problems
 
@@ -1228,8 +1260,8 @@ If you are having problems with scanning certain items, undesired behaviour on s
     com.microblink.blinkid.util.Log.setLogLevel(com.microblink.blinkid.util.Log.LogLevel.LOG_VERBOSE);
     ```
 
-    After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
-    
+  After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
+
 * Contact us at [help.microblink.com](http://help.microblink.com) describing your problem and provide following information:
     * log file obtained in previous step
     * high resolution scan/photo of the item that you are trying to scan
