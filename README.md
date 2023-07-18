@@ -840,10 +840,7 @@ To launch a built-in activity that uses `BlinkIdOverlayController` use [`BlinkId
 
 ### Scan overlay theming
 <p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/reticle_overlay_customisation_1.png" alt="BlinkID SDK">
-</p>
-<p align="center" >
-  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/reticle_overlay_customisation_2.png" alt="BlinkID SDK">
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/reticle_overlay_customisation.png" alt="BlinkID SDK">
 </p>
 
 To customise overlay, provide your custom style resource via [`BlinkIdUISettings.setOverlayViewStyle()`](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/uisettings/BlinkIdUISettings.html#setOverlayViewStyle-int-) method or via [`ReticleOverlayView `](https://blinkid.github.io/blinkid-android/com/microblink/blinkid/fragment/overlay/blinkid/reticleui/ReticleOverlayView.html) constructor. You can customise elements labeled on screenshots above by providing the following attributes in your style:
