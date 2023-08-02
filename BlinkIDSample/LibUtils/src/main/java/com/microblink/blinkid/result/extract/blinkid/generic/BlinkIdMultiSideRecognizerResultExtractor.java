@@ -10,7 +10,7 @@ import com.microblink.blinkid.entities.recognizers.blinkid.generic.viz.VizResult
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElementKey;
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElements;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrzResult;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.ResultSource;
 import com.microblink.blinkid.result.extract.blinkid.BlinkIdExtractor;
 
