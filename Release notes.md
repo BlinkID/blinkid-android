@@ -1,5 +1,9 @@
 # Release notes
 
+## v6.2.1
+- Fixed setting license key with dynamic licensee
+- Bugfixes
+
 ## v6.2.0
 ### New features
 - new and improved machine learning models for data extraction
