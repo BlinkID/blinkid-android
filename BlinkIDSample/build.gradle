@@ -16,8 +16,8 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven { url 'https://maven.microblink.com' }
-        // mavenLocal()
+        // maven { url 'https://maven.microblink.com' }
+        mavenLocal()
         google()
     }
 }
@@ -25,7 +25,7 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '6.2.0'
+    blinkIdVersion = '6.2.1'
     compileSdkVersion = 33
     targetSdkVersion = 33
     appCompatVersion = '1.4.0'
