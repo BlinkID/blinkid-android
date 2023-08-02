@@ -34,11 +34,10 @@ public abstract class SampleApplication extends Application {
         }
 
         if (isRecognitionSupported) {
-            /*String licenseFilePath = getLicenceFilePath();
+            String licenseFilePath = getLicenceFilePath();
             if (licenseFilePath != null) {
                 MicroblinkSDK.setLicenseFile(licenseFilePath, this);
-            }*/
-            MicroblinkSDK.setLicenseKey("sRwCABZjb20ubWljcm9ibGluay5ibGlua2lkABZjb20ubWljcm9ibGluay5ibGlua2lk0cklP0ZfiqnRH6mhvSDHcfpzxGS1dwnBLmsQyM6MeHGPRqdsRIo2bUw4jPH9hMgUzgWrnXOnTMBk2ByL6VWjb+EHYqNTdsFfTZzDKPGCnK/QSI6pdo9wvFqb2RzbB/kq7qyJKBsyk870mTWxAEHL59bCpDeNC6M1v+cUjTJYunSFDasB/P9Jby6U", "com.microblink.blinkid" ,this);
+            }
             MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode.PERSISTED_OPTIMISED);
         }
 
