@@ -1,5 +1,8 @@
 # Release notes
 
+## v6.2.2
+- Fixed the issue with reading the back side of the USA/Washington driving license and ID documents.
+
 ## v6.2.1
 - Fixed setting license key with dynamic licensee
 - Bugfixes
