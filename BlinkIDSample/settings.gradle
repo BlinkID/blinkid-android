@@ -1,10 +1,11 @@
 include ':BlinkID_AllRecognizersSample',
-':BlinkID-CustomUISample',
-':BlinkID-DirectApiSample',
-':BlinkID-ImagesSample',
-':BlinkID-CustomCombinedSample',
-':BlinkID-aMinimalSample',
-':BlinkID-OverlaySample',
-':LibUtils'
+        ':BlinkID-CustomUISample',
+        ':BlinkID-DirectApiSample',
+        ':BlinkID-ImagesSample',
+        ':BlinkID-CustomCombinedSample',
+        ':BlinkID-aMinimalSample',
+        ':BlinkID-MinimalSampleAdvanced',
+        ':BlinkID-OverlaySample',
+        ':LibUtils'
 // uncomment this line if you have customised build of LibBLinkID
 //include ':LibBlinkID'
