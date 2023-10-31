@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BlinkID Minimal Sample Advanced</string>
+    <string name="scan">Scan</string>
+</resources>
