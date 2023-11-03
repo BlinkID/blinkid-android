@@ -91,6 +91,7 @@ Feeling ready to crack on with the integration? First make sure we support your 
 #### Included sample apps
 
 - _BlinkID-aMinimalSample_ demonstrates quick and simple integration of _BlinkID_ library
+- _BlinkID-MinimalSampleAdvanced_ demonstrates simple integration of _BlinkID_ library where both recognizer and UI settings can be customized
 - _BlinkID-AllRecognizersSample_ demonstrates integration of almost all available features. This sample application is best for performing a quick test of supported features
 - _BlinkID-CustomCombinedSample_ demonstrates advanced custom UI integration and usage of the combined recognizers within a custom scan activity
 - _BlinkID-CustomUISample_ demonstrates advanced integration within custom scan activity
@@ -113,7 +114,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:6.2.2@aar') {
+    implementation('com.microblink:blinkid:6.3.0@aar') {
         transitive = true
     }
 }
@@ -125,7 +126,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-6.2.2` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-6.3.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear

@@ -2,6 +2,7 @@ package com.microblink.blinkid
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.microblink.blinkid.activity.result.ResultStatus
@@ -28,11 +29,11 @@ class MainActivity : AppCompatActivity() {
         recognizerBundle = RecognizerBundle(recognizer)
     }
 
-    fun onScanButtonClick() {
+    fun onScanButtonClick(view: View) {
         // use default UI for scanning documents
         val uiSettings = BlinkIdUISettings(recognizerBundle)
 
-        // start scan activity based on UI settings
+        // start scan activity based on UI setting
         blinkIdScanLauncher.launch(uiSettings)
     }
 

@@ -1,7 +1,16 @@
 package com.microblink.blinkid.result.extract.blinkid.generic;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdSingleSideRecognizer;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.Side;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.StringResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.barcode.BarcodeDriverLicenseDetailedInfo;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.barcode.BarcodeResult;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.ClassInfo;
@@ -9,9 +18,17 @@ import com.microblink.blinkid.entities.recognizers.blinkid.generic.viz.VizResult
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElementKey;
 import com.microblink.blinkid.entities.recognizers.blinkid.idbarcode.BarcodeElements;
 import com.microblink.blinkid.entities.recognizers.blinkid.mrtd.MrzResult;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.result.ResultSource;
+import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 import com.microblink.blinkid.result.extract.blinkid.BlinkIdExtractor;
+import com.microblink.blinkid.util.ImageUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdSingleSideRecognizer.Result, BlinkIdSingleSideRecognizer> {
 
@@ -26,10 +43,31 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
     }
 
     @Override
-    protected void extractData(BlinkIdSingleSideRecognizer.Result result, ResultSource resultSource) {
+    public List<RecognitionResultEntry> extractData(Context context, BlinkIdSingleSideRecognizer recognizer, ResultSource resultSource) {
+        mContext = context;
+        mBuilder = new RecognitionResultEntry.Builder(context);
+        mExtractedData = new ArrayList<>();
+        mRecognizer = recognizer;
+
+        BlinkIdSingleSideRecognizer.Result result = recognizer.getResult();
+        String jsonResult = recognizer.toSignedJson().getPayload();
+        try {
+            JSONObject json = new JSONObject(jsonResult);
+            jsonResult = json.toString(4);
+        } catch(JSONException e) {
+            // can be ignored
+        }
+        extractData(result, resultSource, jsonResult);
+        onDataExtractionDone(result, resultSource);
+
+        return mExtractedData;
+    }
+
+    @Override
+    protected void extractData(BlinkIdSingleSideRecognizer.Result result, ResultSource resultSource, String jsonResult) {
         switch (resultSource) {
             case NONEMPTY:
-                extractMixedNonEmptyResults(result);
+                extractMixedNonEmptyResults(result, jsonResult);
                 break;
             case FRONT:
                 extractVisualResults(result.getVizResult());
@@ -43,10 +81,37 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
             case BARCODE:
                 extractBarcodeResults(result.getBarcodeResult());
                 break;
+            case LOCATIONS:
+                addAllLocationResults(result);
+                break;
             case MIXED:
             default:
                 extractMixedResults(result);
                 break;
+        }
+    }
+
+    private void addAllLocationResults(BlinkIdSingleSideRecognizer.Result result) {
+        extractLocationsResultsFromVizResult(result.getVizResult());
+        add(R.string.PPFaceImageSide, result.getFaceImageSide() != null ? result.getFaceImageSide().toString() : "null");
+        add(R.string.PPFaceImageLocation, result.getFaceImageLocation() != null ? result.getFaceImageLocation().toString() : "null");
+
+        List<StringResult> stringResults = getAllStringResultsFromVizResult(result.getVizResult());
+
+        if(result.getFullDocumentImage() != null){
+            Bitmap image = ImageUtils.transformImage(result.getFullDocumentImage());
+            Bitmap bmOverlay = Bitmap.createBitmap(image.getWidth(), image.getHeight(), image.getConfig()); ;
+            Canvas canvas = new Canvas(bmOverlay);
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(2f);
+            canvas.drawBitmap(image, new Matrix(), null);
+            drawLocationsOnBitmap(canvas, paint, stringResults, Side.Front);
+            if (result.getFaceImageLocation() != null) {
+                paint.setColor(Color.BLACK);
+                canvas.drawRect(result.getFaceImageLocation().toRectF(), paint);
+            }
+            add(R.string.MBFullDocumentImage, bmOverlay);
         }
     }
 
@@ -65,7 +130,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         add(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
         add(R.string.PPDateOfBirth, result.getDateOfBirth());
         if (result.getDateOfBirth() != null) {
-            add(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getStringResult());
+            add(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getOriginalDateString());
         }
         int age = result.getAge();
         if (age != -1) {
@@ -73,11 +138,11 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         }
         add(R.string.PPIssueDate, result.getDateOfIssue());
         if (result.getDateOfIssue() != null) {
-            add(R.string.PPIssueDateOriginal, result.getDateOfIssue().getStringResult());
+            add(R.string.PPIssueDateOriginal, result.getDateOfIssue().getOriginalDateString());
         }
         add(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         if (result.getDateOfExpiry() != null) {
-            add(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getStringResult());
+            add(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getOriginalDateString());
         }
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
         add(R.string.PPExpired, result.isExpired());
@@ -129,7 +194,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
     }
 
-    private void extractMixedNonEmptyResults(BlinkIdSingleSideRecognizer.Result result) {
+    private void extractMixedNonEmptyResults(BlinkIdSingleSideRecognizer.Result result, String jsonResult) {
         addIfNotEmpty(R.string.PPFirstName, result.getFirstName());
         addIfNotEmpty(R.string.PPLastName, result.getLastName());
         addIfNotEmpty(R.string.PPFullName, result.getFullName());
@@ -144,7 +209,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         addIfNotEmpty(R.string.PPAdditionalOptionalAddressInformation, result.getAdditionalOptionalAddressInformation());
         addIfNotEmpty(R.string.PPDateOfBirth, result.getDateOfBirth());
         if (result.getDateOfBirth() != null) {
-            addIfNotEmpty(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getStringResult());
+            addIfNotEmpty(R.string.PPDateOfBirthOriginal, result.getDateOfBirth().getOriginalDateString());
         }
         int age = result.getAge();
         if (age != -1) {
@@ -152,11 +217,11 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         }
         addIfNotEmpty(R.string.PPIssueDate, result.getDateOfIssue());
         if (result.getDateOfIssue() != null) {
-            addIfNotEmpty(R.string.PPIssueDateOriginal, result.getDateOfIssue().getStringResult());
+            addIfNotEmpty(R.string.PPIssueDateOriginal, result.getDateOfIssue().getOriginalDateString());
         }
         addIfNotEmpty(R.string.PPDateOfExpiry, result.getDateOfExpiry());
         if (result.getDateOfExpiry() != null) {
-            addIfNotEmpty(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getStringResult());
+            addIfNotEmpty(R.string.PPDateOfExpiryOriginal, result.getDateOfExpiry().getOriginalDateString());
         }
         add(R.string.PPDateOfExpiryPermanent, result.isDateOfExpiryPermanent());
         add(R.string.PPExpired, result.isExpired());
@@ -206,6 +271,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
 
         add(R.string.MBCameraFrame, result.getCameraFrame());
         add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
+        add(R.string.MBJsonResult, jsonResult);
     }
 
     private void extractVisualResults(VizResult result) {

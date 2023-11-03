@@ -60,7 +60,7 @@
         "description": "Obfuscation library based on C++11/14 and metaprogramming"
     },
     {
-        "package": "OpenCV/4.6.0.1@microblink/stable",
+        "package": "OpenCV/4.6.0.2@microblink/stable",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
@@ -84,7 +84,7 @@
         "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
     },
     {
-        "package": "Sweater/13.0.3@microblink/stable",
+        "package": "Sweater/14.0.0@microblink/stable",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
@@ -96,13 +96,13 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "XNNPACK/20230525.0@microblink/stable",
+        "package": "XNNPACK/20230525.1@microblink/stable",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
     },
     {
-        "package": "ZXing/3.0.2@microblink/stable",
+        "package": "ZXing/3.1.0@microblink/stable",
         "url": "https://github.com/microblink/zxing",
         "license": "Apache License 2.0",
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
@@ -120,7 +120,7 @@
         "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
     },
     {
-        "package": "kiwaku/20230522.0@microblink/stable",
+        "package": "kiwaku/20230809.0@microblink/stable",
         "url": "https://github.com/microblink/kiwaku",
         "license": "BSL-1.0",
         "description": "C++20 and onward collection of high performance data containers and related tools"
@@ -156,7 +156,7 @@
         "description": "Experimental range library for C++11/14/17"
     },
     {
-        "package": "std_fix/0.2.1@microblink/stable",
+        "package": "std_fix/0.3.0@microblink/stable",
         "url": "https://github.com/microblink/std_fix",
         "license": "BSL-1.0",
         "description": "Patches for deficient C++ runtime implementations"

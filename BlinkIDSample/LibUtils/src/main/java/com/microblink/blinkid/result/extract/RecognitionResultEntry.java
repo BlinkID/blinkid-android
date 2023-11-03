@@ -9,7 +9,7 @@ import androidx.annotation.StringRes;
 import android.text.TextUtils;
 
 import com.microblink.blinkid.image.Image;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.results.date.Date;
 import com.microblink.blinkid.results.date.SimpleDate;
 import com.microblink.blinkid.util.ImageUtils;
@@ -151,6 +151,14 @@ public class RecognitionResultEntry {
                 return build( key, "" );
             } else {
                 return new RecognitionResultEntry(createKey(key), ImageUtils.transformImage(value));
+            }
+        }
+
+        public RecognitionResultEntry build(@StringRes int key, Bitmap value) {
+            if ( value == null ) {
+                return build( key, "" );
+            } else {
+                return new RecognitionResultEntry(createKey(key), value);
             }
         }
     }

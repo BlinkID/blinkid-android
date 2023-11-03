@@ -18,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.locale.LanguageUtils;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 
@@ -53,11 +53,11 @@ public abstract class BaseResultFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_results, container, false);
         mListView = view.findViewById(R.id.list_view);
         if (getActivity() != null) {
-            ClipboardManager clipboard = (ClipboardManager)
+            final ClipboardManager clipboard = (ClipboardManager)
                     getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
             mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

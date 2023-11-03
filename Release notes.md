@@ -1,7 +1,26 @@
 # Release notes
 
+## v6.3.0
+### New features
+- Changes to the `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer`:
+  - add new methods inside `StringResult`:
+    - `location(AlphabetType)` - location coordinates of every non-empty result are available
+    - `side (AlphabetType)` - document side of every non-empty result is available
+  - new results in `Recognizer.Result`:
+    - `faceImageLocation`
+    - `faceImageSide`
+- Add new `Country` enum value - `SCHENGEN_AREA`
+- And new `Type` enum value - `IMMIGRANT_VISA`
+- Add Builder pattern to `ClassAnonymizationSettings` class for easier Anonymization settings setup
+
+### Bugfixes
+- Fix for Anonymization settings being set to default (all) when null values for arguments are selected
+- Fix crashing after device rotation when using `OneSideDocumentScan` and `TwoSideDocumentScan` implementations
+- Remove autofill on `Russian` passport `DateOfExpiry` when present on a document
+- Improved scanning success rate and stability when using `BlinkIdMultiSideRecognizer`
+
 ## v6.2.2
-- Fixed the issue with reading the back side of the USA/Washington and USA/Vermont driving license documents.
+- Fixed the issue with reading the back side of the USA/Washington driving license and ID documents.
 
 ## v6.2.1
 - Fixed setting license key with dynamic licensee
