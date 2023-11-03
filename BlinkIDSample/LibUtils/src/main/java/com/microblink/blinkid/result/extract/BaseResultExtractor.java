@@ -1,6 +1,7 @@
 package com.microblink.blinkid.result.extract;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import com.microblink.blinkid.entities.recognizers.Recognizer;
 import com.microblink.blinkid.image.Image;
@@ -44,6 +45,9 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
 
     protected abstract void extractData(ResultType result);
     protected void extractData(ResultType result, ResultSource resultSource) {
+        extractData(result);
+    }
+    protected void extractData(ResultType result, ResultSource resultSource, String jsonResult) {
         extractData(result);
     }
 
@@ -93,6 +97,10 @@ public abstract class BaseResultExtractor<ResultType extends Recognizer.Result, 
 
     protected void add(int key, Image image) {
         mExtractedData.add(mBuilder.build(key, image));
+    }
+
+    protected void add(int key, Bitmap bitmap) {
+        mExtractedData.add(mBuilder.build(key, bitmap));
     }
 
 

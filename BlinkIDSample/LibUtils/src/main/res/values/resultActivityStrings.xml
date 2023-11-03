@@ -59,6 +59,7 @@
     <string name="PPDeposit">Deposit</string>
     <string name="PPWithdraw">Withdrawal</string>
     <string name="PPDueDate">Due date</string>
+    <string name="PPLastDateOfTheStandingOrder">Last date of the standing order</string>
     <string name="PPPaymentStatus">Payment status</string>
     <string name="PPPaymentSituationId">Payment situation ID</string>
     <string name="PPPayerAccount">Payer account</string>
@@ -218,8 +219,10 @@
     <string name="PPRecipientInternalId">Recipient internal ID</string>
     <string name="PPLoyaltyID">Loyalty ID</string>
     <string name="PPNavVerificationCode">NAV verification code</string>
+    <string name="PPURL">URL</string>
     <string name="PPLicenceNumber">Licence Number</string>
     <string name="PPLicenceType">Licence Type</string>
+    <string name="PPEffectiveDate">Effective date</string>
     <string name="PPLicenceCategories">Licence Categories</string>
     <string name="PPVehicleCategories">Vehicle Categories</string>
     <string name="PPVehicleClass">Vehicle Class</string>
@@ -276,6 +279,8 @@
     <string name="PPPostingKey">Posting key</string>
     <string name="PPRestrictions">Restrictions</string>
     <string name="PPEndorsements">Endorsements</string>
+    <string name="PPConditions">Conditions</string>
+    <string name="PPVehicleClassInfo">Vehicle class info</string>
     <string name="PPRank">Rank</string>
     <string name="PPClassInfoCountry">Country</string>
     <string name="PPClassInfoRegion">Region</string>
@@ -304,6 +309,8 @@
     <string name="MBEncodedFullDocumentImageSecondSide">Encoded full document image second side</string>
     <string name="MBMRZImage">MRZ image</string>
     <string name="MBFaceImage">Face image</string>
+    <string name="PPFaceImageSide">Face image side</string>
+    <string name="PPFaceImageLocation">Face image location</string>
     <string name="MBEncodedFaceImage">Encoded face image</string>
     <string name="MBSignatureImage">Signature image</string>
     <string name="MBEncodedSignatureImage">Encoded signature image</string>
@@ -312,6 +319,7 @@
     <string name="MBFrontCameraFrame">Front raw camera frame</string>
     <string name="MBBackCameraFrame">Back raw camera frame</string>
     <string name="MBBarcodeCameraFrame">Barcode raw camera frame</string>
+    <string name="MBJsonResult">JSON result</string>
 
     <string name="MBDocumentImageColorStatus">Image color status</string>
     <string name="MBDocumentFrontImageColorStatus">Front image color status</string>
@@ -336,6 +344,10 @@
     <string name="MBDocumentImageCardOrientation">Card orientation</string>
     <string name="MBDocumentFrontImageCardOrientation">Front image card orientation</string>
     <string name="MBDocumentBackImageCardOrientation">Back image card orientation</string>
+
+    <string name="MBDocumentImageCardRotation">Card rotation</string>
+    <string name="MBDocumentFrontImageCardRotation">Front image card rotation</string>
+    <string name="MBDocumentBackImageCardRotation">Back image card rotation</string>
 
     <string name="MBDocumentImageBlurred">Image blurred</string>
     <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
@@ -382,4 +394,7 @@
     <string name="PPDateOfIssueDlCategoryBNotSpecified">Date of issue B category not specified</string>
 
     <string name="filled_by_domain_knowledge">Filled by domain knowledge</string>
+    <string name="first_side_anonymized">First side anonymized</string>
+    <string name="second_side_anonymized">Second side anonymized</string>
+    <string name="document_liveness_check">Document liveness check</string>
 </resources>

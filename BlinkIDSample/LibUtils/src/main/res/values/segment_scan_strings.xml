@@ -16,6 +16,9 @@
     <string name="raw_title">Raw text</string>
     <string name="raw_msg">Position text in this frame</string>
 
+    <string name="regex_title">Regex text</string>
+    <string name="regex_msg">[2–9]|[12]\d|3[0–6]	contains an integer in the range 2..36 inclusive</string>
+
     <string name="payment_description_title">Payment description</string>
     <string name="payment_description_msg">Position payment description in this frame</string>
 

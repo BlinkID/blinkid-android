@@ -153,5 +153,13 @@ public class RecognitionResultEntry {
                 return new RecognitionResultEntry(createKey(key), ImageUtils.transformImage(value));
             }
         }
+
+        public RecognitionResultEntry build(@StringRes int key, Bitmap value) {
+            if ( value == null ) {
+                return build( key, "" );
+            } else {
+                return new RecognitionResultEntry(createKey(key), value);
+            }
+        }
     }
 }

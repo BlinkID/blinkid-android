@@ -7,6 +7,6 @@ public enum ResultSource {
     FRONT,
     BACK,
     MRZ,
-    BARCODE
-
+    BARCODE,
+    LOCATIONS
 }

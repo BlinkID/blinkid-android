@@ -23,5 +23,6 @@
         <item>Back side OCR</item>
         <item>MRZ</item>
         <item>Barcode</item>
+        <item>Locations</item>
     </string-array>
 </resources>
