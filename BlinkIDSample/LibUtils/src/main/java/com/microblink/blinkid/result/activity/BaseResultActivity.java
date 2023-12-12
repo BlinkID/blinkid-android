@@ -19,7 +19,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.microblink.blinkid.entities.recognizers.HighResImagesBundle;
 import com.microblink.blinkid.image.Image;
 import com.microblink.blinkid.image.highres.HighResImageWrapper;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.util.ImageUtils;
 
 import androidx.annotation.NonNull;

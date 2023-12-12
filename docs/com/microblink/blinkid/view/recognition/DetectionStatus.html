@@ -105,37 +105,37 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Enum Constant</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="#CAMERA_AT_ANGLE" class="member-name-link">CAMERA_AT_ANGLE</a></code></div>
+<div class="col-first even-row-color"><code><a href="#CAMERA_ANGLE_TOO_STEEP" class="member-name-link">CAMERA_ANGLE_TOO_STEEP</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Object is detected, but camera is at too large angle to read it</div>
+<div class="block">Document has been detected but the camera’s angle is too steep.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#CAMERA_TOO_HIGH" class="member-name-link">CAMERA_TOO_HIGH</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#CAMERA_TOO_CLOSE" class="member-name-link">CAMERA_TOO_CLOSE</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Object detected, but the camera is too far above to read it</div>
+<div class="block">Document has been detected but the camera is too close to the document.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#CAMERA_TOO_NEAR" class="member-name-link">CAMERA_TOO_NEAR</a></code></div>
+<div class="col-first even-row-color"><code><a href="#CAMERA_TOO_FAR" class="member-name-link">CAMERA_TOO_FAR</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Object detected, but the camera is too close to read it</div>
+<div class="block">Document has been detected but the camera is too far from the document.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#DOCUMENT_TOO_CLOSE_TO_EDGE" class="member-name-link">DOCUMENT_TOO_CLOSE_TO_EDGE</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#DOCUMENT_PARTIALLY_VISIBLE" class="member-name-link">DOCUMENT_PARTIALLY_VISIBLE</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Document detected, but document is too close to the edge of the frame</div>
+<div class="block">Only part of the document is visible.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#FAIL" class="member-name-link">FAIL</a></code></div>
+<div class="col-first even-row-color"><code><a href="#DOCUMENT_TOO_CLOSE_TO_CAMERA_EDGE" class="member-name-link">DOCUMENT_TOO_CLOSE_TO_CAMERA_EDGE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Detection failed, nothing detected</div>
+<div class="block">Document has been detected but the document is too close to the camera edge.</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#FALLBACK_SUCCESS" class="member-name-link">FALLBACK_SUCCESS</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#FAILED" class="member-name-link">FAILED</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Object successfully detected in fallback mode</div>
+<div class="block">Detection has failed.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#PARTIAL_OBJECT" class="member-name-link">PARTIAL_OBJECT</a></code></div>
+<div class="col-first even-row-color"><code><a href="#FALLBACK_SUCCESS" class="member-name-link">FALLBACK_SUCCESS</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Object is detected, but parts of it are not visible</div>
+<div class="block">Fallback detection was successful (PhotoPay specific).</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="#SUCCESS" class="member-name-link">SUCCESS</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Object successfully detected</div>
+<div class="block">Document has been detected.</div>
 </div>
 </div>
 </section>
@@ -183,59 +183,59 @@ the order they are declared.</div>
 <h2>Enum Constant Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="FAIL">
-<h3>FAIL</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">FAIL</span></div>
-<div class="block">Detection failed, nothing detected</div>
+<section class="detail" id="FAILED">
+<h3>FAILED</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">FAILED</span></div>
+<div class="block">Detection has failed.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="SUCCESS">
 <h3>SUCCESS</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">SUCCESS</span></div>
-<div class="block">Object successfully detected</div>
+<div class="block">Document has been detected.</div>
 </section>
 </li>
 <li>
-<section class="detail" id="CAMERA_TOO_HIGH">
-<h3>CAMERA_TOO_HIGH</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_TOO_HIGH</span></div>
-<div class="block">Object detected, but the camera is too far above to read it</div>
+<section class="detail" id="CAMERA_TOO_FAR">
+<h3>CAMERA_TOO_FAR</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_TOO_FAR</span></div>
+<div class="block">Document has been detected but the camera is too far from the document.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CAMERA_TOO_CLOSE">
+<h3>CAMERA_TOO_CLOSE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_TOO_CLOSE</span></div>
+<div class="block">Document has been detected but the camera is too close to the document.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CAMERA_ANGLE_TOO_STEEP">
+<h3>CAMERA_ANGLE_TOO_STEEP</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_ANGLE_TOO_STEEP</span></div>
+<div class="block">Document has been detected but the camera’s angle is too steep.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DOCUMENT_TOO_CLOSE_TO_CAMERA_EDGE">
+<h3>DOCUMENT_TOO_CLOSE_TO_CAMERA_EDGE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">DOCUMENT_TOO_CLOSE_TO_CAMERA_EDGE</span></div>
+<div class="block">Document has been detected but the document is too close to the camera edge.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DOCUMENT_PARTIALLY_VISIBLE">
+<h3>DOCUMENT_PARTIALLY_VISIBLE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">DOCUMENT_PARTIALLY_VISIBLE</span></div>
+<div class="block">Only part of the document is visible.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="FALLBACK_SUCCESS">
 <h3>FALLBACK_SUCCESS</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">FALLBACK_SUCCESS</span></div>
-<div class="block">Object successfully detected in fallback mode</div>
-</section>
-</li>
-<li>
-<section class="detail" id="PARTIAL_OBJECT">
-<h3>PARTIAL_OBJECT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">PARTIAL_OBJECT</span></div>
-<div class="block">Object is detected, but parts of it are not visible</div>
-</section>
-</li>
-<li>
-<section class="detail" id="CAMERA_AT_ANGLE">
-<h3>CAMERA_AT_ANGLE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_AT_ANGLE</span></div>
-<div class="block">Object is detected, but camera is at too large angle to read it</div>
-</section>
-</li>
-<li>
-<section class="detail" id="CAMERA_TOO_NEAR">
-<h3>CAMERA_TOO_NEAR</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">CAMERA_TOO_NEAR</span></div>
-<div class="block">Object detected, but the camera is too close to read it</div>
-</section>
-</li>
-<li>
-<section class="detail" id="DOCUMENT_TOO_CLOSE_TO_EDGE">
-<h3>DOCUMENT_TOO_CLOSE_TO_EDGE</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="DetectionStatus.html" title="enum class in com.microblink.blinkid.view.recognition">DetectionStatus</a></span>&nbsp;<span class="element-name">DOCUMENT_TOO_CLOSE_TO_EDGE</span></div>
-<div class="block">Document detected, but document is too close to the edge of the frame</div>
+<div class="block">Fallback detection was successful (PhotoPay specific).</div>
 </section>
 </li>
 </ul>
