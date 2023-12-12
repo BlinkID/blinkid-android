@@ -1,170 +1,188 @@
 [
     {
-        "package": "Boost/1.80.0@microblink/stable",
-        "url": "https://bitbucket.org/microblink/boost",
-        "license": "Boost Software license",
-        "description": "Free peer-reviewed portable C++ source libraries."
-    },
-    {
-        "package": "ConcurrentQueue/4.0.0@microblink/stable",
-        "url": "https://github.com/microblink/concurrentqueue",
-        "license": "Dual licensed under Simplified BSD License and Boost Software License - Version 1.0",
-        "description": "A fast multi-producer, multi-consumer lock-free concurrent queue for C++11"
-    },
-    {
-        "package": "ConfigEx/2.0.0@microblink/stable",
-        "url": "https://github.com/microblink/config_ex",
-        "license": "MIT",
-        "description": "Additions to boost/config for additional compiler-specific codegen tweaking macros"
-    },
-    {
-        "package": "Eigen/3.4.0.3@microblink/stable",
-        "url": "https://github.com/microblink/eigen-git-mirror",
-        "license": "Mozilla Public License Version 2.0",
-        "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
-    },
-    {
-        "package": "Err/1.1.5@microblink/stable",
-        "url": "https://github.com/microblink/err",
-        "license": "Boost Software License",
-        "description": "err - yet another take on C++ error handling"
-    },
-    {
-        "package": "Functionoid/3.0.5@microblink/stable",
-        "url": "https://github.com/microblink/functionoid",
-        "license": "Boost Software License, Version 1.0",
-        "description": "a complete C++17 rewrite of boost/std::function"
-    },
-    {
-        "package": "Hash/8.0.5@microblink/stable",
-        "url": "https://github.com/microblink/hash-library",
-        "license": "zlib",
-        "description": "Portable C++ Hashing Library"
-    },
-    {
-        "package": "MMap/0.3.5@microblink/stable",
-        "url": "https://github.com/microblink/mmap",
-        "license": "Boost Software License",
-        "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
-    },
-    {
-        "package": "MicroECC/2.0.2@microblink/stable",
-        "url": "https://github.com/microblink/micro-ecc",
-        "license": "BSD 2-Clause \"Simplified\" License",
-        "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
-    },
-    {
-        "package": "Obfuscation/0.1.1@microblink/stable",
-        "url": "https://github.com/microblink/ADVobfuscator",
-        "license": "https://github.com/microblink/ADVobfuscator#copyright-and-license",
-        "description": "Obfuscation library based on C++11/14 and metaprogramming"
-    },
-    {
-        "package": "OpenCV/4.6.0.2@microblink/stable",
-        "url": "https://github.com/microblink/opencv",
-        "license": "MIT",
-        "description": "Microblink's fork of OpenCV"
-    },
-    {
-        "package": "Pimpl/1.0.4@microblink/stable",
-        "url": "https://github.com/microblink/pimpl",
-        "license": "BSD 2-Clause \"Simplified\" License",
-        "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
-    },
-    {
-        "package": "Protobuf/21.7@microblink/stable",
-        "url": "https://github.com/microblink/protobuf",
-        "license": "BSD",
-        "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
-    },
-    {
-        "package": "RapidJSON/1.1.5@microblink/stable",
-        "url": "https://bitbucket.org/microblink/core-rapidjson",
-        "license": "BSD",
-        "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
-    },
-    {
-        "package": "Sweater/14.0.0@microblink/stable",
-        "url": "https://github.com/microblink/sweater",
-        "license": "MIT",
-        "description": "Humble Outer Dispatch"
-    },
-    {
-        "package": "UTFCpp/3.2.1@microblink/stable",
-        "url": "https://github.com/microblink/utfcpp",
-        "license": "Boost Software License 1.0",
-        "description": "UTF-8 with C++ in a Portable Way"
-    },
-    {
-        "package": "XNNPACK/20230525.1@microblink/stable",
-        "url": "https://github.com/microblink/XNNPACK",
-        "license": "BSD",
-        "description": "XNNPACK library"
-    },
-    {
-        "package": "ZXing/3.1.0@microblink/stable",
-        "url": "https://github.com/microblink/zxing",
-        "license": "Apache License 2.0",
-        "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
-    },
-    {
-        "package": "Zlib/1.2.13@microblink/stable",
-        "url": "https://github.com/microblink/zlib",
-        "license": "Zlib",
-        "description": "A massively spiffy yet delicately unobtrusive compression library."
-    },
-    {
-        "package": "cpuinfo/20230428.0@microblink/stable",
-        "url": "https://github.com/microblink/cpuinfo",
-        "license": "BSD 2-Clause \"Simplified\" License",
-        "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
-    },
-    {
-        "package": "kiwaku/20230809.0@microblink/stable",
-        "url": "https://github.com/microblink/kiwaku",
-        "license": "BSL-1.0",
-        "description": "C++20 and onward collection of high performance data containers and related tools"
-    },
-    {
-        "package": "libbacktrace/cci.20210118",
-        "url": "https://github.com/conan-io/conan-center-index",
-        "license": "BSD-3-Clause",
-        "description": "A C library that may be linked into a C/C++ program to produce symbolic backtraces."
-    },
-    {
-        "package": "libjpeg-turbo/2.1.4@microblink/stable",
-        "url": "https://github.com/microblink/libjpeg-turbo",
-        "license": "BSD-3-Clause, Zlib",
-        "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"
-    },
-    {
-        "package": "libpng/1.6.38@microblink/stable",
-        "url": "https://github.com/microblink/libpng",
-        "license": "libpng-2.0",
-        "description": "An Open, Extensible Image Format with Lossless Compression"
-    },
-    {
-        "package": "nlohmann_json/3.10.4",
-        "url": "https://github.com/conan-io/conan-center-index",
-        "license": "MIT",
-        "description": "JSON for Modern C++ parser and generator."
-    },
-    {
-        "package": "range-v3/0.10.2@microblink/stable",
-        "url": "https://github.com/ericniebler/range-v3",
-        "license": "Boost Software License - Version 1.0 - August 17th, 2003",
-        "description": "Experimental range library for C++11/14/17"
-    },
-    {
-        "package": "std_fix/0.3.0@microblink/stable",
+        "package": "std_fix/1.0.0@microblink/main#7d3d4573b7c84d6112b0d0d5d408b252",
         "url": "https://github.com/microblink/std_fix",
         "license": "BSL-1.0",
         "description": "Patches for deficient C++ runtime implementations"
     },
     {
-        "package": "tinyxml2/2.2.1@microblink/stable",
+        "package": "gtest/1.11.5@microblink/main#537bcbe0e631a4cb9173b620cbe989ab",
+        "url": "https://bitbucket.org/microblink/core-google-test/src",
+        "license": "BSD 3-Clause",
+        "description": "Google's C++ test framework"
+    },
+    {
+        "package": "boost/1.80.1@microblink/main#188cc2b6afa32444687af1fc841162a8",
+        "url": "https://bitbucket.org/microblink/boost",
+        "license": "Boost Software license",
+        "description": "Free peer-reviewed portable C++ source libraries."
+    },
+    {
+        "package": "functionoid/1.0.0@microblink/main#54584311a0753c68a574639aec9d6f26",
+        "url": "https://github.com/microblink/functionoid",
+        "license": "Boost Software License, Version 1.0",
+        "description": "a complete C++17 rewrite of boost/std::function"
+    },
+    {
+        "package": "config_ex/1.0.0@microblink/main#f56a27fb87bfc6a0bc72d61c8de1a9b3",
+        "url": "https://github.com/microblink/config_ex",
+        "license": "MIT",
+        "description": "Additions to boost/config for additional compiler-specific codegen tweaking macros"
+    },
+    {
+        "package": "libbacktrace/cci.20210118#ec1aa63bbc10145c6a299e68e711670c",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "BSD-3-Clause",
+        "description": "A C library that may be linked into a C/C++ program to produce symbolic backtraces."
+    },
+    {
+        "package": "rapidjson/1.1.5@microblink/main#53bd7175c4d0514821f12331923907b5",
+        "url": "https://bitbucket.org/microblink/core-rapidjson",
+        "license": "BSD",
+        "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
+    },
+    {
+        "package": "utfcpp/3.2.1@microblink/main#870b2bfbe0724836d16ded5d1c009a5b",
+        "url": "https://github.com/microblink/utfcpp",
+        "license": "Boost Software License 1.0",
+        "description": "UTF-8 with C++ in a Portable Way"
+    },
+    {
+        "package": "sweater/1.1.0@microblink/main#2705780764c14cd10a33c6e7c21cccdb",
+        "url": "https://github.com/microblink/sweater",
+        "license": "MIT",
+        "description": "Humble Outer Dispatch"
+    },
+    {
+        "package": "cpuinfo/20230428.1@microblink/main#942ee4a968eeb96a20618cf5d1795a74",
+        "url": "https://github.com/microblink/cpuinfo",
+        "license": "BSD 2-Clause \"Simplified\" License",
+        "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
+    },
+    {
+        "package": "concurrent_queue/1.0.0@microblink/main#4cadadff804a27e0b08148f95d7d1d28",
+        "url": "https://github.com/microblink/concurrentqueue",
+        "license": "Dual licensed under Simplified BSD License and Boost Software License - Version 1.0",
+        "description": "A fast multi-producer, multi-consumer lock-free concurrent queue for C++11"
+    },
+    {
+        "package": "nlohmann_json/3.10.4#2d3ba0c641692cca9fb4514e05154688",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "MIT",
+        "description": "JSON for Modern C++ parser and generator."
+    },
+    {
+        "package": "err/1.0.0@microblink/main#2b2d7aa6db566ef4de04e808923d6136",
+        "url": "https://github.com/microblink/err",
+        "license": "Boost Software License",
+        "description": "err - yet another take on C++ error handling"
+    },
+    {
+        "package": "mmap/1.0.0@microblink/main#b1bfbadd616f62ad26d1efba99748646",
+        "url": "https://github.com/microblink/mmap",
+        "license": "Boost Software License",
+        "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
+    },
+    {
+        "package": "zlib/1.2.13@microblink/main#1ea6a312b6212fd1d3788a43633c96b8",
+        "url": "https://github.com/microblink/zlib",
+        "license": "Zlib",
+        "description": "A massively spiffy yet delicately unobtrusive compression library."
+    },
+    {
+        "package": "opencv/4.6.0.2@microblink/main#293a1d14fb06592e9f015f6d80485d1b",
+        "url": "https://github.com/microblink/opencv",
+        "license": "MIT",
+        "description": "Microblink's fork of OpenCV"
+    },
+    {
+        "package": "libjpeg_turbo/2.1.4.1@microblink/main#9474f28b915a6ffc1986378a649c012f",
+        "url": "https://github.com/microblink/libjpeg-turbo",
+        "license": "BSD-3-Clause, Zlib",
+        "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"
+    },
+    {
+        "package": "libpng/1.6.38.1@microblink/main#b11dae0f84db4d66c89a4e7cef1261a6",
+        "url": "https://github.com/microblink/libpng",
+        "license": "libpng-2.0",
+        "description": "An Open, Extensible Image Format with Lossless Compression"
+    },
+    {
+        "package": "protobuf/3.21.7@microblink/main#5d4e10422a03d7d36b80d34e7f215dd9",
+        "url": "https://github.com/microblink/protobuf",
+        "license": "BSD",
+        "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
+    },
+    {
+        "package": "eigen/3.4.0@microblink/main#17132634895ed55c812317c46f8ace22",
+        "url": "https://github.com/microblink/eigen-git-mirror",
+        "license": "Mozilla Public License Version 2.0",
+        "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
+    },
+    {
+        "package": "hash/2.0.1@microblink/main#ef32600ec6041d7fe92ced82745d8798",
+        "url": "https://github.com/microblink/hash-library",
+        "license": "zlib",
+        "description": "Portable C++ Hashing Library"
+    },
+    {
+        "package": "adv_obfuscator/20170904.0@microblink/main#2fc3ff7bc343b093deadb9ff1ee6f0f9",
+        "url": "https://github.com/microblink/ADVobfuscator",
+        "license": "https://github.com/microblink/ADVobfuscator#copyright-and-license",
+        "description": "Obfuscation library based on C++11/14 and metaprogramming"
+    },
+    {
+        "package": "micro_ecc/1.0.0@microblink/main#1c323460f6536c0b0f5baaed9de6bcf5",
+        "url": "https://github.com/microblink/micro-ecc",
+        "license": "BSD 2-Clause \"Simplified\" License",
+        "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
+    },
+    {
+        "package": "xnnpack/20230525.1.1@microblink/main#22044aca134e02377781123d8391a961",
+        "url": "https://github.com/microblink/XNNPACK",
+        "license": "BSD",
+        "description": "XNNPACK library"
+    },
+    {
+        "package": "kiwaku/20230809.0@microblink/main#372bf07fc24da8a136c2cc93929c7f4e",
+        "url": "https://github.com/microblink/kiwaku",
+        "license": "BSL-1.0",
+        "description": "C++20 and onward collection of high performance data containers and related tools"
+    },
+    {
+        "package": "range-v3/0.12.0#abb9932b80d96eaf8fc992debe3870ed",
+        "url": "https://github.com/conan-io/conan-center-index",
+        "license": "BSL-1.0",
+        "description": "Experimental range library for C++11/14/17"
+    },
+    {
+        "package": "tf_messages/1.0.0@microblink/main#aa1df97e2194f9838f73d071640ee9f6",
+        "url": "https://bitbucket.org/microblink/core-tensorflow/",
+        "license": "Apache License 2.0",
+        "description": "Computation using data flow graphs for scalable machine learning"
+    },
+    {
+        "package": "tinyxml2/2.2.3@microblink/main#98d2d30c9f2f87e390d2ab6874d78574",
         "url": "https://github.com/microblink/tinyxml2",
         "license": "Zlib",
         "description": "a simple, small, efficient, C++ XML parser"
+    },
+    {
+        "package": "pimpl/1.0.0@microblink/main#2b4abddcd2c84a38b21c7ccc46e185df",
+        "url": "https://github.com/microblink/pimpl",
+        "license": "BSD 2-Clause \"Simplified\" License",
+        "description": "Proving pimpls do not require heap, exceptions or runtime polymorphism."
+    },
+    {
+        "package": "tqdm/1.0.0@microblink/main#9f84ad8bec3a73f9635d64c0f49aea96",
+        "url": "https://bitbucket.org/microblink/core-tqdm",
+        "license": "MIT",
+        "description": "tqdm-like single header c++ pretty progress bar"
+    },
+    {
+        "package": "zxing-cpp/1.0.1@microblink/main#0a11b650a09888f82a4c848304eac1b8",
+        "url": "https://github.com/microblink/zxing",
+        "license": "Apache License 2.0",
+        "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
     }
 ]

@@ -184,6 +184,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         add(R.string.MBDocumentImageMrzStatus, result.getImageAnalysisResult().getMrzDetectionStatus().name());
         add(R.string.MBDocumentImageBarcodeStatus, result.getImageAnalysisResult().getBarcodeDetectionStatus().name());
         add(R.string.MBDocumentImageCardOrientation, result.getImageAnalysisResult().getCardOrientation().name());
+        add(R.string.MBDocumentImageCardRotation, result.getImageAnalysisResult().getCardRotation().name());
 
         add(R.string.MBProcessingStatus, result.getProcessingStatus().name());
         add(R.string.MBRecognitionMode, result.getRecognitionMode().name());
@@ -263,6 +264,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         addIfNotEmpty(R.string.MBDocumentImageMrzStatus, result.getImageAnalysisResult().getMrzDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentImageBarcodeStatus, result.getImageAnalysisResult().getBarcodeDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentImageCardOrientation, result.getImageAnalysisResult().getCardOrientation().name());
+        addIfNotEmpty(R.string.MBDocumentImageCardRotation, result.getImageAnalysisResult().getCardRotation().name());
 
         addIfNotEmpty(R.string.MBProcessingStatus, result.getProcessingStatus().name());
         addIfNotEmpty(R.string.MBRecognitionMode, result.getRecognitionMode().name());
@@ -341,7 +343,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
 
         addIfNotEmpty(R.string.PPPlaceOfBirth, result.getPlaceOfBirth());
         addIfNotEmpty(R.string.PPNationality, result.getNationality());
-        
+
         addIfNotEmpty(R.string.PPRace, result.getRace());
         addIfNotEmpty(R.string.PPReligion, result.getReligion());
         addIfNotEmpty(R.string.PPProfession, result.getProfession());
