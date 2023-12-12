@@ -205,11 +205,11 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                 // displays message about detection status to the user
                 if (detectionStatus == DetectionStatus.SUCCESS) {
                     displayText(R.string.msg_processing);
-                } else if (detectionStatus == DetectionStatus.FAIL) {
+                } else if (detectionStatus == DetectionStatus.FAILED) {
                     displayText(R.string.msg_align);
-                } else if (detectionStatus == DetectionStatus.CAMERA_TOO_HIGH) {
-                    displayText(R.string.msg_camera_too_high);
-                } else if (detectionStatus == DetectionStatus.PARTIAL_OBJECT) {
+                } else if (detectionStatus == DetectionStatus.CAMERA_TOO_FAR) {
+                    displayText(R.string.msg_camera_too_far);
+                } else if (detectionStatus == DetectionStatus.DOCUMENT_PARTIALLY_VISIBLE) {
                     displayText(R.string.msg_partial_detected);
                 }
             }
