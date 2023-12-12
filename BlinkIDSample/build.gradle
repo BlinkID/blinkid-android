@@ -16,8 +16,8 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        // maven { url 'https://maven.microblink.com' }
-        mavenLocal()
+        maven { url 'https://maven.microblink.com' }
+//        mavenLocal()
         google()
     }
 }
