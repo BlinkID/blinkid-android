@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
 
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -28,10 +28,10 @@ public class FileUtils {
             return buffer.toByteArray();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(context, R.string.toast_error_open_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, com.microblink.blinkid.libutils.R.string.toast_error_open_file, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(context, R.string.toast_error_read_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, com.microblink.blinkid.libutils.R.string.toast_error_read_file, Toast.LENGTH_SHORT).show();
         } finally {
             try {
                 fileStream.close();

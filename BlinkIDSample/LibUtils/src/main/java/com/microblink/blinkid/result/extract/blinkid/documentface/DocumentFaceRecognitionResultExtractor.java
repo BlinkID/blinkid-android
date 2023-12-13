@@ -1,7 +1,7 @@
 package com.microblink.blinkid.result.extract.blinkid.documentface;
 
 import com.microblink.blinkid.entities.recognizers.blinkid.documentface.DocumentFaceRecognizer;
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 import com.microblink.blinkid.result.extract.blinkid.BlinkIdExtractor;
 
 public class DocumentFaceRecognitionResultExtractor extends BlinkIdExtractor<DocumentFaceRecognizer.Result, DocumentFaceRecognizer> {

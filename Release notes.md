@@ -3,7 +3,7 @@
 ## v6.4.0
 ### New features
 - Added new result member `cardRotation` to `ImageAnalysisResult` structure
-- New `CardOrientation` status - `NotAvailable`
+- New `CardOrientation` status - `NotAvailable` 
 - New `Region` enum values:
 		- `DISTRITO_FEDERAL`
 		- `MARANHAO`
