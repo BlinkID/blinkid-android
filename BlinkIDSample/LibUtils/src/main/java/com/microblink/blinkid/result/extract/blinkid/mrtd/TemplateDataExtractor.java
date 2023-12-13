@@ -8,7 +8,7 @@ import com.microblink.blinkid.entities.recognizers.templating.ProcessorGroup;
 import com.microblink.blinkid.entities.recognizers.templating.TemplatingClass;
 import com.microblink.blinkid.entities.recognizers.templating.TemplatingRecognizer;
 import com.microblink.blinkid.image.Image;
-import com.microblink.blinkid.libutils.R;
+import com.microblink.libutils.R;
 import com.microblink.blinkid.result.extract.RecognitionResultEntry;
 
 import java.util.ArrayList;
