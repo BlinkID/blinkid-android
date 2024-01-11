@@ -1,4 +1,4 @@
-<manifest package="com.microblink.libutils"
+<manifest package="com.microblink.blinkid.libutils"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
