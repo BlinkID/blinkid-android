@@ -114,7 +114,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:6.4.0@aar') {
+    implementation('com.microblink:blinkid:6.5.0@aar') {
         transitive = true
     }
 }
@@ -122,11 +122,11 @@ dependencies {
 
 #### Importing Javadoc
 
-Android studio 3.0 should automatically import javadoc from maven dependency. If that doesn't happen, you can do that manually by following these steps:
+Android studio should automatically import javadoc from maven dependency. If that doesn't happen, you can do that manually by following these steps:
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/sdk/installing/studio-androidview.html)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-6.4.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-6.5.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -229,7 +229,7 @@ Android studio 3.0 should automatically import javadoc from maven dependency. If
 
 ### Android Version
 
-_BlinkID_ requires Android API level **21** or newer. SDK will work only on versions of Android 5.0 (Lollipop) or above.
+_BlinkID_ requires Android API level **21** or newer.
 
 ### Camera
 
@@ -237,7 +237,7 @@ Camera video preview resolution also matters. In order to perform successful sca
 
 ### Processor architecture
 
-_BlinkID_ is distributed with **ARMv7** and **ARM64** native library binaries. The support for **x86** and **x86_64** has been removed in _BlinkID v6.0_.
+_BlinkID_ is distributed with **ARMv7** and **ARM64** native library binaries.
 
 _BlinkID_ is a native library, written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled _BlinkID_ native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
 
