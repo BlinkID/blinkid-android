@@ -1,5 +1,13 @@
 # Release notes
 
+## v6.5.0
+- Improved the document side detection for US driver licenses which reduces the possibility of capturing the wrong side of the document. Barcode is now mandatory for the document back side of the US driving licenses
+
+### Bugfixes 
+- Fixed data matching issue in Guatamala Passport
+- Fixed `ArrayIndexOutOfBoundsException` in default UI
+- Fixed `NullPointerException` in `RecognizerRunnerView` that happened in rare cases
+
 ## v6.4.0
 ### New features
 - Added new result member `cardRotation` to `ImageAnalysisResult` structure
