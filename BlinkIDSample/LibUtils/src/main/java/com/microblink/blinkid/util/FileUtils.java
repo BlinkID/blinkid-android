@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
 
-import com.microblink.libutils.R;
+import com.microblink.blinkid.libutils.R;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
