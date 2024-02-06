@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -19,10 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.unit.dp
 import com.microblink.blinkid.activity.result.ResultStatus
 import com.microblink.blinkid.activity.result.contract.MbScan
-import com.microblink.blinkid.activity.result.contract.OneSideDocumentScan
+import com.microblink.blinkid.activity.result.contract.TwoSideDocumentScan
 import com.microblink.blinkid.entities.recognizers.Recognizer
 import com.microblink.blinkid.entities.recognizers.RecognizerBundle
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer
@@ -43,9 +41,7 @@ class MainActivity : AppCompatActivity() {
                 val blinkIdCustomLauncher = createBlinkIdCustomLauncher(this)
                 Column(
                     modifier = Modifier
-                        .padding(20.dp)
-                        .fillMaxSize()
-                        .padding(20.dp),
+                        .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -68,13 +64,13 @@ class MainActivity : AppCompatActivity() {
 
 @Composable
 fun createBlinkIdSimpleLauncher(context: Context): () -> Unit {
-    // OneSideDocumentScan() can also be replaced with TwoSideDocumentScan() for simple multi-side scanning
-    val launcher = rememberLauncherForActivityResult(OneSideDocumentScan()) { blinkIdResult ->
+    // TwoSideDocumentScan() can also be replaced with OneSideDocumentScan() for simple single-side scanning
+    val launcher = rememberLauncherForActivityResult(TwoSideDocumentScan()) { blinkIdResult ->
         if (blinkIdResult.resultStatus == ResultStatus.FINISHED && blinkIdResult.result != null) {
             Toast.makeText(
                 context,
-                "The name is " + (blinkIdResult.result!!.firstName?.value()
-                    ?: blinkIdResult.result!!.fullName?.value()),
+                "The name is " + (blinkIdResult.result?.firstName?.value()
+                    ?: blinkIdResult.result?.fullName?.value()),
                 Toast.LENGTH_SHORT
             ).show()
         } else if (blinkIdResult.resultStatus == ResultStatus.CANCELLED) {
@@ -91,7 +87,9 @@ fun createBlinkIdSimpleLauncher(context: Context): () -> Unit {
 @Composable
 fun createBlinkIdCustomLauncher(context: Context): () -> Unit {
     val barcodeRecognizer = IdBarcodeRecognizer()
-    val multiSideRecognizer = BlinkIdMultiSideRecognizer()
+    val multiSideRecognizer = BlinkIdMultiSideRecognizer().apply {
+        setSaveCameraFrames(true)
+    }
     val recognizerBundle = RecognizerBundle(barcodeRecognizer, multiSideRecognizer)
     var name = ""
     var source = ""
@@ -134,5 +132,9 @@ fun createBlinkIdCustomLauncher(context: Context): () -> Unit {
             ).show()
         }
     }
-    return { launcher.launch(BlinkIdUISettings(recognizerBundle)) }
+    val uiSettings = BlinkIdUISettings(recognizerBundle).apply {
+        setDocumentDataMatchRequired(true)
+    }
+
+    return { launcher.launch(uiSettings) }
 }

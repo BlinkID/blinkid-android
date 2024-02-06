@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,10 +20,13 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,36 +55,52 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
     var mRecognizerRunnerFragment: RecognizerRunnerFragment? = null
     private var mScanOverlay: BlinkIdOverlayController? = null
     lateinit var mRecognizerBundle: RecognizerBundle
-    private lateinit var showScanning: MutableState<Int>
+    private lateinit var currentScreen: MutableState<Screen>
 
     @SuppressLint("RestrictedApi")
+    @ExperimentalMaterial3Api
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // setting the license key has to be done in the Application class (in this example it is done through the com.microblink.BlinkIdSampleApp)
-
-        this.run {
-            setContent {
-                supportActionBar?.setShowHideAnimationEnabled(false)
-                showScanning =
-                    rememberSaveable { mutableIntStateOf(0) }
-                when (showScanning.value) {
-                    0 -> {
-                        LaunchedEffect(supportActionBar?.isShowing) {
-                            if (supportActionBar?.isShowing == false) supportActionBar?.show()
+        setContent {
+            var showTopBar = rememberSaveable { mutableStateOf(true) }
+            Scaffold(
+                topBar = {
+                    if (showTopBar.value) {
+                        TopAppBar(
+                            title = {
+                                Text(text = getString(R.string.app_name))
+                            },
+                            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = colorResource(id = R.color.mb_lime))
+                        )}
+                }
+            ) {
+                currentScreen =
+                    rememberSaveable { mutableStateOf(Screen.HOME) }
+                Column(
+                    modifier = Modifier
+                        .padding(it)
+                        .fillMaxSize()
+                        .background(colorResource(id = R.color.mb_blue_deep)),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    when (currentScreen.value) {
+                        Screen.HOME -> {
+                            showTopBar.value = true
+                            MainMenu()
                         }
-                        MainMenu()
-                    }
 
-                    1 -> {
-                        AndroidViewBindingBlinkIdFragment()
-                    }
-
-                    2 -> {
-                        LaunchedEffect(supportActionBar?.isShowing) {
-                            if (supportActionBar?.isShowing == false) supportActionBar?.show()
+                        Screen.SCANNING -> {
+                            showTopBar.value = false
+                            AndroidViewBindingBlinkIdFragment()
                         }
-                        ResultScreen()
+
+                        Screen.RESULTS -> {
+                            showTopBar.value = true
+                            ResultScreen()
+                        }
                     }
                 }
             }
@@ -116,37 +137,11 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
                 }
 
                 RecognitionSuccessType.SUCCESSFUL -> {
-                    when (mRecognizerBundle.recognizers[0].result) {
-                        is BlinkIdSingleSideRecognizer.Result -> {
-                            val result =
-                                mRecognizerBundle.recognizers[0].result as BlinkIdSingleSideRecognizer.Result
-                            Toast.makeText(
-                                this@MainActivity,
-                                "The name is " + (result.firstName?.value()
-                                    ?: result.fullName?.value()),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-
-                        is BlinkIdMultiSideRecognizer.Result -> {
-                            val result =
-                                mRecognizerBundle.recognizers[0].result as BlinkIdMultiSideRecognizer.Result
-                            Toast.makeText(
-                                this@MainActivity,
-                                "The name is " + (result.firstName?.value()
-                                    ?: result.fullName?.value()),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-
-                        else -> {
-                            Toast.makeText(
-                                this@MainActivity,
-                                "Successful scan",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Successful scan",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
                 RecognitionSuccessType.STAGE_SUCCESSFUL -> Toast.makeText(
@@ -164,7 +159,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
 
             supportFragmentManager.beginTransaction().apply {
                 mScanOverlay = null
-                showScanning.value = 2
+                currentScreen.value = Screen.RESULTS
             }.commit()
 
         }
@@ -191,76 +186,69 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
         scanResultListener: ScanResultListener
     ): BlinkIdOverlayController {
         val overlayStrings = ReticleOverlayStrings.Builder(this@MainActivity).build()
-        val settings = BlinkIdUISettings(recognizerBundle).also {
-            it.setShowFlashlightWarning(true)
-            it.setShowIntroductionDialog(true)
-            it.setShowOnboardingInfo(true)
-            it.setShowMandatoryFieldsMissing(true)
-            it.setAllowHapticFeedback(true)
-            it.setStrings(overlayStrings)
-            it.setOverlayViewStyle(R.style.CustomStyle)
+        val settings = BlinkIdUISettings(recognizerBundle).apply {
+            setShowFlashlightWarning(true)
+            setShowIntroductionDialog(true)
+            setShowOnboardingInfo(true)
+            setShowMandatoryFieldsMissing(true)
+            setAllowHapticFeedback(true)
+            setStrings(overlayStrings)
+            setOverlayViewStyle(R.style.CustomStyle)
         }
         return settings.createOverlayController(this, scanResultListener)
     }
 
     @Composable
     fun MainMenu() {
-        Column(
-            Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            val mButtonColors: ButtonColors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(id = R.color.mb_lime), contentColor = colorResource(
-                    id = R.color.mb_blue_deep
-                )
-            )
-            Button(colors = mButtonColors, onClick = {
-                supportActionBar?.hide()
-                mRecognizerBundle = RecognizerBundle(BlinkIdSingleSideRecognizer())
-                showScanning.value = 1
-            }) {
-                Text("SingleSide Scan")
-            }
-            Button(colors = mButtonColors, onClick = {
-                supportActionBar?.hide()
-                mRecognizerBundle = RecognizerBundle(BlinkIdMultiSideRecognizer())
-                showScanning.value = 1
-            }) {
-                Text("MultiSide Scan")
-            }
-
+        val mButtonColors: ButtonColors = ButtonDefaults.buttonColors(
+            containerColor = colorResource(id = R.color.mb_lime),
+            contentColor = colorResource(id = R.color.mb_blue_deep)
+        )
+        Button(colors = mButtonColors, onClick = {
+            mRecognizerBundle = RecognizerBundle(BlinkIdSingleSideRecognizer())
+            currentScreen.value = Screen.SCANNING
+        }) {
+            Text("SingleSide Scan")
+        }
+        Button(colors = mButtonColors, onClick = {
+            mRecognizerBundle = RecognizerBundle(BlinkIdMultiSideRecognizer())
+            currentScreen.value = Screen.SCANNING
+        }) {
+            Text("MultiSide Scan")
         }
     }
 
     @Composable
     fun ResultScreen() {
-        val result =
-            mRecognizerRunnerFragment?.recognizerRunnerView?.recognizerBundle?.recognizers?.get(0)
-        Column(
-            Modifier
-                .fillMaxSize()
-                .padding(top = 20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                result?.name?.let {
-                    Text(
-                        it,
-                        color = colorResource(id = R.color.mb_lime),
-                        fontSize = 20.sp
-                    )
-                }
-            }
+        val mRecognizer =
+            mRecognizerBundle?.recognizers?.get(0)
 
-            if (result != null) {
-                when (result.result) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(top = 20.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.Top
+        ) {
+            mRecognizer?.name?.let {
+                Text(
+                    it,
+                    color = colorResource(id = R.color.mb_lime),
+                    fontSize = 20.sp
+                )
+            }
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+        ) {
+            if (mRecognizer != null) {
+                when (mRecognizer.result) {
 
                     is BlinkIdSingleSideRecognizer.Result -> {
-                        val resultValues = result.result as BlinkIdSingleSideRecognizer.Result
+                        val resultValues = mRecognizer.result as BlinkIdSingleSideRecognizer.Result
                         ResultRow(
                             fieldName = "First name",
-                            result = resultValues.firstName?.value() ?: ""
+                            result = resultValues.firstName?.value() ?: "",
                         )
                         ResultRow(
                             fieldName = "Last name",
@@ -277,7 +265,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
                     }
 
                     is BlinkIdMultiSideRecognizer.Result -> {
-                        val resultValues = result.result as BlinkIdMultiSideRecognizer.Result
+                        val resultValues = mRecognizer.result as BlinkIdMultiSideRecognizer.Result
                         ResultRow(
                             fieldName = "First name",
                             result = resultValues.firstName?.value() ?: ""
@@ -299,7 +287,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
             }
         }
         BackHandler(true) {
-            showScanning.value = 0
+            currentScreen.value = Screen.HOME
         }
     }
 
@@ -310,7 +298,10 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
                 .fillMaxWidth()
                 .padding(start = 10.dp, top = 10.dp)
         ) {
-            Text("$fieldName: $result", color = Color.White)
+            Text(
+                "$fieldName: $result",
+                color = colorResource(id = R.color.mb_lime)
+            )
         }
     }
 
@@ -322,9 +313,15 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
         }
 
         BackHandler(true) {
-            showScanning.value = 0
+            currentScreen.value = Screen.HOME
             // this is done to reinit overlay when re-starting the scanning (so the introduction dialog is shown again)
             mScanOverlay = null
         }
     }
+}
+
+enum class Screen {
+    HOME,
+    SCANNING,
+    RESULTS
 }
