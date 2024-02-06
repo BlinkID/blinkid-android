@@ -3,8 +3,7 @@ apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.microblink.blinkid'
-    compileSdk 34
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.microblink.blinkid"
@@ -38,10 +37,6 @@ android {
         checkReleaseBuilds false
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
 
 dependencies {
