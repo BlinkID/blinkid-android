@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,13 +23,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -54,7 +51,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
 
     var mRecognizerRunnerFragment: RecognizerRunnerFragment? = null
     private var mScanOverlay: BlinkIdOverlayController? = null
-    lateinit var mRecognizerBundle: RecognizerBundle
+    private lateinit var mRecognizerBundle: RecognizerBundle
     private lateinit var currentScreen: MutableState<Screen>
 
     @SuppressLint("RestrictedApi")
@@ -72,7 +69,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
                             title = {
                                 Text(text = getString(R.string.app_name))
                             },
-                            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = colorResource(id = R.color.mb_lime))
+                            colors = TopAppBarDefaults.topAppBarColors(containerColor = colorResource(id = R.color.mb_lime))
                         )}
                 }
             ) {
@@ -180,7 +177,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
         return BlinkIdOverlayController(overlaySettings, scanResultListener, reticleOverlay)
     }
 
-    // can be used just like the previous function
+    // may be used instead of the previous function
     private fun createOverlayController(
         recognizerBundle: RecognizerBundle,
         scanResultListener: ScanResultListener
@@ -314,7 +311,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
 
         BackHandler(true) {
             currentScreen.value = Screen.HOME
-            // this is done to reinit overlay when re-starting the scanning (so the introduction dialog is shown again)
+            // re-initialize the overlay when restarting the scanning (so the introduction dialog is shown again)
             mScanOverlay = null
         }
     }
