@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MB_Theme" parent="Theme.AppCompat">
+    <style name="MB_Theme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/mb_lime</item>
         <item name="android:textColorPrimary">@color/mb_blue_deep</item>
     </style>
