@@ -7,6 +7,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.launch
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,15 +34,13 @@ class MainActivity : AppCompatActivity() {
         setContent {
                 val mButtonColors: ButtonColors = ButtonDefaults.buttonColors(
                     containerColor = colorResource(id = R.color.mb_lime),
-                    contentColor = colorResource(
-                        id = R.color.mb_blue_deep
-                    )
+                    contentColor = colorResource(id = R.color.mb_blue_deep)
                 )
                 val blinkIdSimpleLauncher = createBlinkIdSimpleLauncher(this)
                 val blinkIdCustomLauncher = createBlinkIdCustomLauncher(this)
                 Column(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize().background(colorResource(id = R.color.mb_blue_deep)),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
