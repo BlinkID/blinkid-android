@@ -122,6 +122,8 @@
     <string name="PPOpt1">Optional field 1</string>
     <string name="PPOpt2">Optional field 2</string>
     <string name="PPSex">Sex</string>
+    <string name="PPSponsor">Sponsor</string>
+    <string name="PPBloodType">Blood type</string>
     <string name="PPNationality">Nationality</string>
     <string name="PPNationalityCode">Nationality code</string>
     <string name="PPCitizenship">Citizenship</string>

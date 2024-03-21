@@ -107,25 +107,35 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildImageFromCamera1NV21Frame(byte%5B%5D,int,int,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)" class="member-name-link">buildImageFromCamera1NV21Frame</a><wbr>(byte[]&nbsp;imageBuffer,
- int&nbsp;imageWidth,
- int&nbsp;imageHeight,
- <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
- <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanningRegion)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildImageFromCamera2Image(android.media.Image,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)" class="member-name-link">buildImageFromCamera2Image</a><wbr>(android.media.Image&nbsp;image,
- <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
- <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanningRegion)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildImageFromJpegBytes(byte%5B%5D,int)" class="member-name-link">buildImageFromJpegBytes</a><wbr>(byte[]&nbsp;bytes,
  int&nbsp;imageOrientation)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildImageFromNativeContext(long,boolean,java.lang.Object)" class="member-name-link">buildImageFromNativeContext</a><wbr>(long&nbsp;nativeContext,
+ boolean&nbsp;ownsNativeObject,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;keep)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Builds image object from native context.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildInputImageFromCamera1NV21Frame(byte%5B%5D,int,int,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera1NV21Frame</a><wbr>(byte[]&nbsp;imageBuffer,
+ int&nbsp;imageWidth,
+ int&nbsp;imageHeight,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanningRegion)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildInputImageFromCamera2Image(android.media.Image,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)" class="member-name-link">buildInputImageFromCamera2Image</a><wbr>(android.media.Image&nbsp;image,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanningRegion)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Builds input image object from Camera2 frame in YUV_420_888 format.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildInputImageFromImage(com.microblink.blinkid.image.Image)" class="member-name-link">buildInputImageFromImage</a><wbr>(<a href="Image.html" title="class in com.microblink.blinkid.image">Image</a>&nbsp;img)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildInputImageFromNativeContext(long,boolean,java.lang.Object)" class="member-name-link">buildInputImageFromNativeContext</a><wbr>(long&nbsp;nativeContext,
  boolean&nbsp;ownsNativeObject,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;keep)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -183,16 +193,45 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="buildImageFromCamera2Image(android.media.Image,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)">
-<h3>buildImageFromCamera2Image</h3>
+<section class="detail" id="buildImageFromJpegBytes(byte[],int)">
+<h3>buildImageFromJpegBytes</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></span>&nbsp;<span class="element-name">buildImageFromCamera2Image</span><wbr><span class="parameters">(@NonNull
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></span>&nbsp;<span class="element-name">buildImageFromJpegBytes</span><wbr><span class="parameters">(@NonNull
+ byte[]&nbsp;bytes,
+ int&nbsp;imageOrientation)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="buildInputImageFromNativeContext(long,boolean,java.lang.Object)">
+<h3>buildInputImageFromNativeContext</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></span>&nbsp;<span class="element-name">buildInputImageFromNativeContext</span><wbr><span class="parameters">(long&nbsp;nativeContext,
+ boolean&nbsp;ownsNativeObject,
+ @Nullable
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;keep)</span></div>
+<div class="block">Builds image object from native context. This method is called from native code. Calling it
+ directly from Java with invalid native context will crash the app.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>nativeContext</code> - Native pointer containing native image object.</dd>
+<dd><code>ownsNativeObject</code> - Is native image owned by java object (i.e. should it be deleted on finalization)</dd>
+<dd><code>keep</code> - Object that must be kept alive while Image object is alive.</dd>
+<dt>Returns:</dt>
+<dd><a href="Image.html" title="class in com.microblink.blinkid.image"><code>Image</code></a> object for usage via RecognizerRunner's <a href="../directApi/RecognizerRunner.html" title="class in com.microblink.blinkid.directApi"><code>RecognizerRunner</code></a> object.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="buildInputImageFromCamera2Image(android.media.Image,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)">
+<h3>buildInputImageFromCamera2Image</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></span>&nbsp;<span class="element-name">buildInputImageFromCamera2Image</span><wbr><span class="parameters">(@NonNull
  android.media.Image&nbsp;image,
  @NonNull
  <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
  @Nullable
  <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanningRegion)</span></div>
-<div class="block">Builds image object from Camera2 frame in YUV_420_888 format.</div>
+<div class="block">Builds input image object from Camera2 frame in YUV_420_888 format.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>image</code> - <code>Image</code> object that contains image from which MicroBlink <a href="Image.html" title="class in com.microblink.blinkid.image"><code>Image</code></a> will be built. You must ensure that this object is not closed
@@ -205,10 +244,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="buildImageFromCamera1NV21Frame(byte[],int,int,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)">
-<h3>buildImageFromCamera1NV21Frame</h3>
+<section class="detail" id="buildInputImageFromCamera1NV21Frame(byte[],int,int,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle)">
+<h3>buildInputImageFromCamera1NV21Frame</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></span>&nbsp;<span class="element-name">buildImageFromCamera1NV21Frame</span><wbr><span class="parameters">(@NonNull
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></span>&nbsp;<span class="element-name">buildInputImageFromCamera1NV21Frame</span><wbr><span class="parameters">(@NonNull
  byte[]&nbsp;imageBuffer,
  int&nbsp;imageWidth,
  int&nbsp;imageHeight,
@@ -219,12 +258,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="buildImageFromJpegBytes(byte[],int)">
-<h3>buildImageFromJpegBytes</h3>
+<section class="detail" id="buildInputImageFromImage(com.microblink.blinkid.image.Image)">
+<h3>buildInputImageFromImage</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Image.html" title="class in com.microblink.blinkid.image">Image</a></span>&nbsp;<span class="element-name">buildImageFromJpegBytes</span><wbr><span class="parameters">(@Nullable
- byte[]&nbsp;bytes,
- int&nbsp;imageOrientation)</span></div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a></span>&nbsp;<span class="element-name">buildInputImageFromImage</span><wbr><span class="parameters">(<a href="Image.html" title="class in com.microblink.blinkid.image">Image</a>&nbsp;img)</span></div>
 </section>
 </li>
 </ul>

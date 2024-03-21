@@ -140,6 +140,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.PPFatherName, result.getFathersName());
         add(R.string.PPMotherName, result.getMothersName());
         add(R.string.PPSex, result.getSex());
+        add(R.string.PPSponsor, result.getSponsor());
+        add(R.string.PPBloodType, result.getBloodType());
 
         add(R.string.PPAddress, result.getAddress());
         add(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
@@ -235,6 +237,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPFatherName, result.getFathersName());
         addIfNotEmpty(R.string.PPMotherName, result.getMothersName());
         addIfNotEmpty(R.string.PPSex, result.getSex());
+        addIfNotEmpty(R.string.PPSponsor, result.getSponsor());
+        addIfNotEmpty(R.string.PPBloodType, result.getBloodType());
 
         addIfNotEmpty(R.string.PPAddress, result.getAddress());
         addIfNotEmpty(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
@@ -331,6 +335,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPFatherName, result.getFathersName());
         addIfNotEmpty(R.string.PPMotherName, result.getMothersName());
         addIfNotEmpty(R.string.PPSex, result.getSex());
+        addIfNotEmpty(R.string.PPSponsor, result.getSponsor());
+        addIfNotEmpty(R.string.PPBloodType, result.getBloodType());
 
         addIfNotEmpty(R.string.PPAddress, result.getAddress());
         addIfNotEmpty(R.string.PPAdditionalAddressInformation, result.getAdditionalAddressInformation());
