@@ -43,7 +43,7 @@
         <ImageButton
             android:id="@+id/defaultTorchButton"
             style="@style/MB_top_button"
-            android:src="@drawable/mb_ic_flash_off_24dp"/>
+            android:src="@drawable/mb_ic_flash_off"/>
 
     </LinearLayout>
 

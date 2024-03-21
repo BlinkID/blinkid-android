@@ -34,9 +34,9 @@ public abstract class SampleApplication extends Application {
         }
 
         if (isRecognitionSupported) {
-            String licenseFilePath = getLicenceFilePath();
-            if (licenseFilePath != null) {
-                MicroblinkSDK.setLicenseFile(licenseFilePath, this);
+            String licenseKey = getLicenseKey();
+            if (licenseKey != null) {
+                MicroblinkSDK.setLicenseKey(licenseKey, this);
             }
             MicroblinkSDK.setIntentDataTransferMode(IntentDataTransferMode.PERSISTED_OPTIMISED);
         }
@@ -50,6 +50,6 @@ public abstract class SampleApplication extends Application {
 
     protected abstract BaseResultExtractorFactory createResultExtractorFactory();
 
-    protected abstract String getLicenceFilePath();
+    protected abstract String getLicenseKey();
 
 }

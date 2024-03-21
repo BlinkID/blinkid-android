@@ -52,6 +52,7 @@ import com.microblink.blinkid.directApi.RecognizerRunner;
 import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
 import com.microblink.blinkid.hardware.orientation.Orientation;
 import com.microblink.blinkid.image.ImageBuilder;
+import com.microblink.blinkid.image.InputImage;
 import com.microblink.blinkid.recognition.RecognitionSuccessType;
 import com.microblink.blinkid.view.recognition.ScanResultListener;
 
@@ -102,7 +103,7 @@ public class Camera2Fragment extends Fragment implements ScanResultListener {
                 if (img != null) {
                     if (mRecognizer.getCurrentState() == RecognizerRunner.State.READY) {
                         mImageBeingRecognized = img;
-                        com.microblink.blinkid.image.Image image = ImageBuilder.buildImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
+                        InputImage image = ImageBuilder.buildInputImageFromCamera2Image(mImageBeingRecognized, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
                         Log.i(TAG, "Starting recognition");
                         mTimestamp = System.currentTimeMillis();
                         mRecognizer.recognizeVideoImage(image, Camera2Fragment.this);

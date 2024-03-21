@@ -370,9 +370,9 @@ public class MyScanActivity extends Activity implements ScanResultListener, Came
                     public void run() {
                         mTorchEnabled = !mTorchEnabled;
                         if (mTorchEnabled) {
-                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_on_24dp);
+                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_on);
                         } else {
-                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_off_24dp);
+                            mTorchButton.setImageResource(R.drawable.mb_ic_flash_off);
                         }
                     }
                 });
