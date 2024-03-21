@@ -113,6 +113,13 @@
 #### Deprecated Functionality:
 - `IdBarcodeRecognizer` is now marked as deprecated. We recommend transitioning to `BlinkIdMultiSideRecognizer`, which not only covers the functionality of `IdBarcodeRecognizer` but also offers additional features.
 
+#### Breaking changes
+- Add `shouldShowTorchButton` and `shouldShowCancelButton` to `ReticleOverlayView` constructor.
+- Splitting up `Image` class to `Image` and `InputImage`.`InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing.
+
+#### Bugfixes
+- Fixed `Background ANR at jdk.internal.misc.Unsafe.park` that would happen in rare cases 
+
 
 ## v6.5.1
 - Improved scanning of Bolivia IDs by addressing cases where the expiration date is covered by a signature, allowing the completion of the scanning process.
