@@ -21,7 +21,7 @@
             style="@style/MB_top_button"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/mb_ic_flash_off_24dp"
+            android:src="@drawable/mb_ic_flash_off"
             tools:ignore="RtlHardcoded"/>
     </RelativeLayout>
 

@@ -845,9 +845,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                     return;
                 }
                 if (torchOn) {
-                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_on_24dp);
+                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_on);
                 } else {
-                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_off_24dp);
+                    mIbTorch.setImageResource(R.drawable.mb_ic_flash_off);
                 }
             }
         });
@@ -962,7 +962,7 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         mTorchItem = menu.add(Menu.NONE, TORCH_ID, Menu.NONE, R.string.mb_light);
-        mTorchItem.setIcon(R.drawable.mb_ic_flash_off_24dp);
+        mTorchItem.setIcon(R.drawable.mb_ic_flash_off);
         mTorchItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
@@ -980,9 +980,9 @@ public class CustomVerificationFlowActivity extends AppCompatActivity implements
                             @Override
                             public void run() {
                                 if (mTorchOn) {
-                                    item.setIcon(R.drawable.mb_ic_flash_on_24dp);
+                                    item.setIcon(R.drawable.mb_ic_flash_on);
                                 } else {
-                                    item.setIcon(R.drawable.mb_ic_flash_off_24dp);
+                                    item.setIcon(R.drawable.mb_ic_flash_off);
                                 }
                             }
                         });

@@ -1,5 +1,126 @@
 # Release notes
 
+## v6.6.0
+
+### Document Updates
+
+#### New Documents Support:
+- Australia - Polycarbonate Passport
+- Indonesia - Polycarbonate Passport
+- Mexico - Consular Voter ID
+- Moldova - Polycarbonate Passport
+- Pakistan - Proof Of Registration
+- Panama - Polycarbonate Passport
+- USA - West Virginia - ID Card
+
+
+#### New Beta Documents Support:
+- Brazil - Ceara - ID Card
+- Brazil - Goias - ID Card
+- Brazil - Sergipe - ID Card
+- China - Exit Entry Permit
+- China - Mainland Travel Permit Taiwan
+- Colombia - Temporary Protection Permit
+- India - DL
+- India - Andhra Pradesh - DL
+- India - Haryana - DL
+- European Union - Health Insurance Card
+
+
+#### New Document Versions for Supported Documents:
+- Australia - Queensland - DL
+- Australia - Victoria - DL
+- Australia - Western Australia - DL
+- Bolivia - Minor's ID
+- Brazil - Alien ID
+- Estonia - DL
+- Finland - Alien ID
+- Guatemala - Paper Passport
+- India - Paper Passport - New side type
+- Malta - DL
+- Mexico - Guanajuato - DL 
+- Mexico - San Luis Potosi - DL
+- New Zealand - Polycarbonate Passport
+- Paraguay - ID Card
+- Slovenia - Residence Permit
+- USA - Green Card
+- USA - Work Permit
+- USA - Arizona - ID Card
+- USA - Colorado - DL
+- USA - Colorado - ID Card
+- USA - District of Columbia - DL
+- USA - District of Columbia - ID Card
+- USA - Idaho - DL
+- USA - Idaho - ID Card
+- USA - Missouri - ID Card
+- USA - Nebraska - ID Card
+- USA - Nevada - ID Card
+- USA - New York - ID Card
+- USA - North Dakota - DL
+- USA - Oklahoma - ID Card
+- USA - Pennsylvania - ID Card
+- USA - Utah - ID Card
+- USA - Virginia - DL
+- USA - Virginia - ID Card
+- USA - West Virginia - DL
+- USA - Wisconsin - DL
+- USA - Wisconsin - ID Card
+
+
+#### New Document Versions for Beta Supported Documents:
+- Australia - Queensland - Proof of Age Card
+- Brazil - ID Card
+- Ireland - Residence Permit
+- Mexico - Consular ID
+- Mexico - Residence Permit
+- Mexico - Nayarit - DL
+- USA - North Dakota - ID Card
+
+
+#### Out of Beta:
+
+- Croatia - Residence Permit
+- Moldova - Paper Passport
+
+### Platform Updates
+
+- Expanded geographic support with new `Region` enum values:
+  - `ANDHRA_PRADESH`
+  - `CEARA`
+  - `GOIAS`
+  - `GUERRERO_ACAPULCO_DE_JUAREZ`
+  - `HARYANA`
+  - `SERGIPE`   
+
+- Document recognition enhanced with new `Type` enum values:
+  - `EXIT_ENTRY_PERMIT`
+  - `MAINLAND_TRAVEL_PERMIT_TAIWAN`
+  - `NBI_CLEARANCE`
+  - `PROOF_OF_REGISTRATION`
+  - `TEMPORARY_PROTECTION_PERMIT`
+
+- UI flexibility:
+  - Introducing optional Torch button and cancel button through `BlinkIdUISettings` (`setShowTorchButton` and `setShowCancelButton`) and `ReticleOverlayView`.
+
+- Data extraction improvements:
+  - Added `Sponsor` and `BloodType` result fields to `BlinkIdMultiSideRecognizer.Result`, `BlinkIdSingleSideRecognizer.Result` and `VizResult`
+ 
+#### Accessibility Changes:
+- Refined UI to meet required contrast ratios, ensuring better readability for all users.
+- Clickable button areas have been enlarged to comply with accessibility standards, providing easier interaction and ensuring that users with motor impairments can comfortably use the interface.
+- Haptic feedback has been introduced throughout the scanning flow, highlighting important events and providing tactile confirmation to users
+
+#### Deprecated Functionality:
+- `IdBarcodeRecognizer` is now marked as deprecated. We recommend transitioning to `BlinkIdMultiSideRecognizer`, which not only covers the functionality of `IdBarcodeRecognizer` but also offers additional features.
+
+#### Breaking changes
+- Add `shouldShowTorchButton` and `shouldShowCancelButton` to `ReticleOverlayView` constructor.
+- Splitting up `Image` class to `Image` and `InputImage`.`InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing.
+
+#### Bugfixes
+- Fixed `Background ANR at jdk.internal.misc.Unsafe.park` that would happen in rare cases 
+
+
 ## v6.5.1
 - Improved scanning of Bolivia IDs by addressing cases where the expiration date is covered by a signature, allowing the completion of the scanning process.
 

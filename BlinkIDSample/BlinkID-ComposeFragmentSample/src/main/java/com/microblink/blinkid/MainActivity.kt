@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity(), RecognizerRunnerFragment.ScanningOverl
         val overlayStrings = ReticleOverlayStrings.Builder(context).build()
         val customStyle = R.style.CustomStyle
         val reticleOverlay: BlinkIdOverlayView =
-            ReticleOverlayView(true, true, true, false, true, true, overlayStrings, customStyle)
+            ReticleOverlayView(true, true, true, false, true, true, overlayStrings, customStyle, true, true)
         return BlinkIdOverlayController(overlaySettings, scanResultListener, reticleOverlay)
     }
 

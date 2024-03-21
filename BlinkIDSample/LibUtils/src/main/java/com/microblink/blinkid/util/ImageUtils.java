@@ -107,7 +107,7 @@ public class ImageUtils {
     public static void storeImage(@NonNull Image image, String imageName) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.US);
         String dateString = dateFormat.format(new Date());
-        String fullImageName = imageName + " - " + image.getImageType().name() + " - " + image.getImageFormat().name() + " - " + image.getImageOrientation().name()  + " - " + dateString + ".jpg";
+        String fullImageName = imageName + " - " + image.getImageFormat().name() + " - " + image.getImageOrientation().name()  + " - " + dateString + ".jpg";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             storeImageToScopedStorage(fullImageName, FRAMES_FOLDER, image.convertToBitmap());

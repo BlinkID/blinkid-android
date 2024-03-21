@@ -18,6 +18,7 @@ import com.microblink.blinkid.entities.recognizers.RecognizerBundle;
 import com.microblink.blinkid.hardware.orientation.Orientation;
 import com.microblink.blinkid.image.Image;
 import com.microblink.blinkid.image.ImageBuilder;
+import com.microblink.blinkid.image.InputImage;
 import com.microblink.blinkid.recognition.RecognitionSuccessType;
 import com.microblink.blinkid.util.Log;
 import com.microblink.blinkid.view.recognition.ScanResultListener;
@@ -183,7 +184,7 @@ public class Camera1Activity extends Activity implements ScanResultListener, Sur
     public void onPreviewFrame(byte[] data, Camera camera) {
         if (mRecognizerRunner.getCurrentState() == RecognizerRunner.State.READY) {
             // create image
-            Image img = ImageBuilder.buildImageFromCamera1NV21Frame(data, mFrameWidth, mFrameHeight, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
+            InputImage img = ImageBuilder.buildInputImageFromCamera1NV21Frame(data, mFrameWidth, mFrameHeight, Orientation.ORIENTATION_LANDSCAPE_RIGHT, null);
             mRecognizerRunner.recognizeVideoImage(img, this);
         } else {
             // just ask for another frame
