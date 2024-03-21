@@ -33,6 +33,15 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+    namespace 'com.microblink.blinkid'
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
@@ -40,7 +49,7 @@ dependencies {
         transitive = true
     }
 
-    implementation 'androidx.activity:activity-ktx:1.7.0-alpha02'
+    implementation 'androidx.activity:activity-ktx:1.8.2'
 
     // uncomment this to use custom LibBlinkID build
 //    implementation project(':LibBlinkID')

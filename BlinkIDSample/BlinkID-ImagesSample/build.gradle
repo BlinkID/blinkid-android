@@ -22,6 +22,7 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+    namespace 'com.microblink.blinkid'
 }
 
 dependencies {
