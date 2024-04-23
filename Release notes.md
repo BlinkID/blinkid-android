@@ -3,28 +3,29 @@
 ## v6.7.0
 
 ### New Features
-- **Real ID detection on US driver's license**
-	- BlinkID now includes the capability to identify Real ID symbols from US driver's licenses, providing users with immediate feedback on the presence or the absence of a Real ID symbol. This enhances user convenience and compliance with Real ID requirements, ensuring customers can quickly determine if a Real ID is available on a scanned US driver's license.
+- **Real ID symbol detection on US driver's license**
+	- BlinkID can now identify Real ID symbols from US driver’s licenses, providing feedback on their presence or absence. This ensures customers can quickly determine if a Real ID symbol is available on a scanned US driver’s license to be compliant with Real ID regulations.
 - **UX Improvements**
 	- Extended duration for UI messages
-		- UI messages now remain visible for a longer duration after scanning, improving user experience. Users can now review post-scanning messages at a comfortable pace, leading to a smoother process.
+		- UI messages now remain visible for a longer time after scanning, improving user experience. Users can now review post-scanning messages at a comfortable pace, leading to a smoother process.
 	- Success indicator for front side capture
-		- BlinkID now displays a clear success indicator after scanning the front side of a document. This visual cue enhances user confidence by providing immediate feedback during the capturing process.
-- **Partial anonymization of the `Document number`**
+		- BlinkID now displays a clear success indicator after scanning the front side of a document. This visual cue enhances user confidence by providing immediate feedback during the scanning process.
+- **Partial anonymization of the "Document Number"**
 	- To ensure user privacy and security, BlinkID now offers the option of partially anonymizing the document number from the scanned document.
 - **Mandatory Barcode Presence on US documents**
-	- To minimize the cases of capturing the front side of the document as the back frame in the results, BlinkID now requires the presence of a barcode before saving the back frame on US documents. Processing status `BarcodeDetectionFailed` is returned when mandatory barcode is not present on the back of US documents.
+	- To minimize the cases of capturing the front side of the document as the back frame in the results, BlinkID now requires the presence of a barcode before saving the back frame on US documents. Processing status `BarcodeDetectionFailed` is returned when the mandatory barcode is not present on the back of US documents.
 
 ### Minor API changes
 - Added `BarcodeDetectionFailed` as a new `ProcessingStatus`
-	- This status is triggered once the barcode was not found on the image. This processing status can only occur if the document has mandatory barcode.
+	- This status is triggered once the barcode was not found on the image. This processing status can only occur if the document has the mandatory barcode.
 - Added new boolean member `realIdDetectionStatus` to the `ImageAnalysisResult`. If `true`, Real ID symbol is present, `false` otherwise.
 - Added new member `documentNumberAnonymizationSettings` to the `ClassAnonymizationSettings` for seamless integration with the document number anonymization feature.
 
-### Bugfixes
+### Bug Fixes
 - Updated internal mapping for Myanmar passports to display nationality as "Myanmarese" instead of "Burmese" on Myanmar passports.
-- `Date of Issue` marked optional on Peru ID offering users more flexibility in capturing ID information.
-- `Date of Expiry` handling logic for MRZ improved in cases where documents with a date of expiry 1969 were not correctly sanitized.
+- On Peru ID `Date of Issue` is marked optional, offering customers more flexibility in capturing ID information.
+- Improved `Date of Expiry` handling logic for MRZ in cases where documents with a date of expiry year 1969 were not correctly sanitized.
+- Fixed Ping server URL error when using `proguard-android-optimize.txt` default proguard file.
 
 ## v6.6.1
 
