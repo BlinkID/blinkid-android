@@ -13,7 +13,7 @@ public final class BlinkIdSampleApp extends SampleApplication {
 
     @Override
     protected String getLicenceFilePath() {
-            return "com.microblink.blinkid.mblic";
+        return "com.microblink.blinkid.mblic";
     }
 
 }

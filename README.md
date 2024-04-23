@@ -70,6 +70,7 @@ Feeling ready to crack on with the integration? First make sure we support your 
     * [Reducing the final size of your app](#reduce-size)
         * [Consequences of removing processor architecture](#arch-consequences)
     * [Combining _BlinkID_ with other native libraries](#combineNativeLibraries)
+        * [Resolving conflict on `libc++_shared.so`](#dynamicCppRuntime)
 * [Troubleshooting](#troubleshoot)
 * [FAQ and known issues](#faq)
 * [Additional info](#info)
@@ -114,7 +115,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:6.6.1@aar') {
+    implementation('com.microblink:blinkid:6.7.0@aar') {
         transitive = true
     }
 }
@@ -126,7 +127,7 @@ Android studio should automatically import javadoc from maven dependency. If tha
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/studio/projects#ProjectView)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-6.6.1` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-6.7.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -1344,6 +1345,41 @@ You can also remove multiple processor architectures by specifying `exclude` dir
 ## <a name="combineNativeLibraries"></a> Combining _BlinkID_ with other native libraries
 
 If you are combining _BlinkID_ library with other libraries that contain native code into your application, make sure you match the architectures of all native libraries. For example, if third party library has got only ARMv7 version, you must use exactly ARMv7 version of _BlinkID_ with that library, but not ARM64. Using this architectures will crash your app at initialization step because JVM will try to load all its native dependencies in same preferred architecture and will fail with `UnsatisfiedLinkError`.
+
+### <a name="dynamicCppRuntime"></a> Resolving conflict on `libc++_shared.so`
+
+_BlinkID_ contains native code that depends on the C++ runtime. This runtime is provided by the `libc++_shared.so`, which needs to be available in your app that is using _BlinkID_. However, the same file is also used by various other libraries that contain native components. If you happen to integrate both such library together with _BlinkID_ in your app, your build will fail with an error similar to this one:
+
+```
+* What went wrong:
+Execution failed for task ':app:mergeDebugNativeLibs'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.MergeJavaResWorkAction
+   > 2 files found with path 'lib/arm64-v8a/libc++_shared.so' from inputs:
+      - <path>/.gradle/caches/transforms-3/3d428f9141586beb8805ce57f97bedda/transformed/jetified-opencv-4.5.3.0/jni/arm64-v8a/libc++_shared.so
+      - <path>/.gradle/caches/transforms-3/609476a082a81bd7af00fd16a991ee43/transformed/jetified-blinkid-6.7.0/jni/arm64-v8a/libc++_shared.so
+     If you are using jniLibs and CMake IMPORTED targets, see
+     https://developer.android.com/r/tools/jniLibs-vs-imported-targets
+```
+
+The error states that multiple different dependencies provide the same file `lib/arm64/libc++_shared.so` (in this case, OpenCV and BlinkID).
+
+You can resolve this issue by making sure that the dependency that uses _newer version of `libc++_shared.so`_ is listed first in your dependency list, and then, simply add the following to your `build.gradle`:
+
+```
+android {
+    packaging {
+        jniLibs {
+            pickFirsts.add("lib/armeabi-v7a/libc++_shared.so")
+            pickFirsts.add("lib/arm64-v8a/libc++_shared.so")
+        }
+    }
+}
+```
+
+**IMPORTANT NOTE**
+
+The code above will always select the first `libc++_shared.so` from your dependency list, so make sure that the dependency that uses the *latest version of `libc++_shared.so`* is listed first. This is because `libc++_shared.so` is backward-compatible, but not forward-compatible. This means that, e.g. `libBlinkID.so` built against `libc++_shared.so` from NDK r24 will work without problems when you package it together with `libc++_shared.so` from NDK r26, but will crash when you package it together with `libc++_shared.so` from NDK r21. This is true for all your native dependencies.
+
 # <a name="troubleshoot"></a> Troubleshooting
 
 ### Integration difficulties
@@ -1400,7 +1436,11 @@ This usually happens when you perform integration into Eclipse project and you f
 
 #### <a name="unsatisfied-link-error"></a> When my app starts, I get `UnsatisfiedLinkError`
 
-This error happens when JVM fails to load some native method from native library If performing integration into Android studio and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combine-native-libraries). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
+This error happens when JVM fails to load some native method from native library If performing integration into Android studio and this error happens, make sure that you have correctly combined _BlinkID_ SDK with [third party SDKs that contain native code](#combineNativeLibraries), especially if you need resolving [conflict over `libc++_shared.so`](#dynamicCppRuntime). If this error also happens in our integration sample apps, then it may indicate a bug in the SDK that is manifested on specific device. Please report that to our [support team](http://help.microblink.com).
+
+#### <a name="libcpp-shared-conflict"></a> During build, I get conflict about duplicate `libc++_shared.so`
+
+Please consult the section about [resolving `libc++_shared.so` conflict](#dynamicCppRuntime).
 
 #### <a name="late-metadata1"></a> I've added my callback to `MetadataCallbacks` object, but it is not being called
 
@@ -1429,6 +1469,7 @@ When automatic scanning of camera frames with our camera management is used (pro
 #### <a name="network-required-error"></a> I am getting a ‘Network required’ error when I'm on a private network
 
 Online trial licenses require a public network access for validation purposes. See [Licensing issues](#licensing-issues).
+
 
 #### <a name="ocr-result-forbidden"></a> `onOcrResult()` method in my `OcrCallback` is never invoked and all `Result` objects always return `null` in their OCR result getters
 

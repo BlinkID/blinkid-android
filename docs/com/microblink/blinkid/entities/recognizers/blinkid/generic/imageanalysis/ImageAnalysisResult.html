@@ -126,12 +126,13 @@ implements android.os.Parcelable</span></div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(boolean,int,int,int,int,int,int,int)" class="member-name-link">createFromNative</a><wbr>(boolean&nbsp;blurred,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(boolean,int,int,int,int,int,int,int,int)" class="member-name-link">createFromNative</a><wbr>(boolean&nbsp;blurred,
  int&nbsp;documentImageColorStatus,
  int&nbsp;documentImageMoireStatus,
  int&nbsp;faceDetectionStatus,
  int&nbsp;mrzDetectionStatus,
  int&nbsp;barcodeDetectionStatus,
+ int&nbsp;realIdDetectionStatus,
  int&nbsp;cardOrientation,
  int&nbsp;cardRotation)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
@@ -175,15 +176,20 @@ implements android.os.Parcelable</span></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Mrz detection status determined from the scanned image.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlurred()" class="member-name-link">isBlurred</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ImageAnalysisDetectionStatus.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRealIdDetectionStatus()" class="member-name-link">getRealIdDetectionStatus</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">RealID detection status determined from the scanned image.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlurred()" class="member-name-link">isBlurred</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Whether the image is blurred.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
  int&nbsp;flags)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -263,6 +269,14 @@ implements android.os.Parcelable</span></div>
 </section>
 </li>
 <li>
+<section class="detail" id="getRealIdDetectionStatus()">
+<h3>getRealIdDetectionStatus</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ImageAnalysisDetectionStatus.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisDetectionStatus</a></span>&nbsp;<span class="element-name">getRealIdDetectionStatus</span>()</div>
+<div class="block">RealID detection status determined from the scanned image.</div>
+</section>
+</li>
+<li>
 <section class="detail" id="getCardOrientation()">
 <h3>getCardOrientation</h3>
 <div class="member-signature"><span class="annotations">@NonNull
@@ -279,7 +293,7 @@ implements android.os.Parcelable</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="createFromNative(boolean,int,int,int,int,int,int,int)">
+<section class="detail" id="createFromNative(boolean,int,int,int,int,int,int,int,int)">
 <h3>createFromNative</h3>
 <div class="member-signature"><span class="annotations">@NonNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></span>&nbsp;<span class="element-name">createFromNative</span><wbr><span class="parameters">(boolean&nbsp;blurred,
@@ -288,6 +302,7 @@ implements android.os.Parcelable</span></div>
  int&nbsp;faceDetectionStatus,
  int&nbsp;mrzDetectionStatus,
  int&nbsp;barcodeDetectionStatus,
+ int&nbsp;realIdDetectionStatus,
  int&nbsp;cardOrientation,
  int&nbsp;cardRotation)</span></div>
 <div class="block">This method is called from native code to build <a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis"><code>ImageAnalysisResult</code></a> from native object.</div>

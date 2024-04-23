@@ -106,10 +106,11 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Country,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type,com.microblink.blinkid.entities.recognizers.blinkid.generic.FieldType%5B%5D)" class="member-name-link">ClassAnonymizationSettings</a><wbr>(<a href="classinfo/Country.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Country</a>&nbsp;country,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Country,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type,com.microblink.blinkid.entities.recognizers.blinkid.generic.FieldType%5B%5D,com.microblink.blinkid.entities.recognizers.blinkid.generic.DocumentNumberAnonymizationSettings)" class="member-name-link">ClassAnonymizationSettings</a><wbr>(<a href="classinfo/Country.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Country</a>&nbsp;country,
  <a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a>&nbsp;region,
  <a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a>&nbsp;type,
- <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]&nbsp;fields)</code></div>
+ <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]&nbsp;fields,
+ <a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a>&nbsp;documentNumberAnonymizationSettings)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -126,10 +127,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(int,int,int,int%5B%5D)" class="member-name-link">createFromNative</a><wbr>(int&nbsp;country,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(int,int,int,int%5B%5D,int,int)" class="member-name-link">createFromNative</a><wbr>(int&nbsp;country,
  int&nbsp;region,
  int&nbsp;type,
- int[]&nbsp;fields)</code></div>
+ int[]&nbsp;fields,
+ int&nbsp;prefixDigitsVisible,
+ int&nbsp;suffixDigitsVisible)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">This method is called from native code to build <a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassAnonymizationSettings</code></a> from native object.</div>
 </div>
@@ -139,31 +142,36 @@ loadScripts(document, 'script');</script>
 <div class="block">If set, specified fields will be anonymized on documents issued by
  specified country only.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFields()" class="member-name-link">getFields</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDocumentNumberAnonymizationSettings()" class="member-name-link">getDocumentNumberAnonymizationSettings</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">If set, some digits of the anonymized document number will be shown.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFields()" class="member-name-link">getFields</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Fields to be anonymized.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegion()" class="member-name-link">getRegion</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRegion()" class="member-name-link">getRegion</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">If set, specified fields will be anonymized on documents issued by
  specified region only.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">If set, specified fields will be anonymized on documents of specified
  type only.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeToArray()" class="member-name-link">serializeToArray</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeToArray()" class="member-name-link">serializeToArray</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Serializes <a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassAnonymizationSettings</code></a> to int array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#serializeToArray(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassAnonymizationSettings%5B%5D)" class="member-name-link">serializeToArray</a><wbr>(<a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a>[]&nbsp;array)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#serializeToArray(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassAnonymizationSettings%5B%5D)" class="member-name-link">serializeToArray</a><wbr>(<a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a>[]&nbsp;array)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -182,7 +190,7 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Country,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type,com.microblink.blinkid.entities.recognizers.blinkid.generic.FieldType[])">
+<section class="detail" id="&lt;init&gt;(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Country,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region,com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type,com.microblink.blinkid.entities.recognizers.blinkid.generic.FieldType[],com.microblink.blinkid.entities.recognizers.blinkid.generic.DocumentNumberAnonymizationSettings)">
 <h3>ClassAnonymizationSettings</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClassAnonymizationSettings</span><wbr><span class="parameters">(@Nullable
  <a href="classinfo/Country.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Country</a>&nbsp;country,
@@ -190,7 +198,9 @@ loadScripts(document, 'script');</script>
  <a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a>&nbsp;region,
  @Nullable
  <a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a>&nbsp;type,
- <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]&nbsp;fields)</span></div>
+ <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]&nbsp;fields,
+ @Nullable
+ <a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a>&nbsp;documentNumberAnonymizationSettings)</span></div>
 </section>
 </li>
 </ul>
@@ -202,12 +212,14 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="createFromNative(int,int,int,int[])">
+<section class="detail" id="createFromNative(int,int,int,int[],int,int)">
 <h3>createFromNative</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings</a></span>&nbsp;<span class="element-name">createFromNative</span><wbr><span class="parameters">(int&nbsp;country,
  int&nbsp;region,
  int&nbsp;type,
- int[]&nbsp;fields)</span></div>
+ int[]&nbsp;fields,
+ int&nbsp;prefixDigitsVisible,
+ int&nbsp;suffixDigitsVisible)</span></div>
 <div class="block">This method is called from native code to build <a href="ClassAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassAnonymizationSettings</code></a> from native object.</div>
 </section>
 </li>
@@ -246,6 +258,14 @@ loadScripts(document, 'script');</script>
 <h3>getFields</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</span>&nbsp;<span class="element-name">getFields</span>()</div>
 <div class="block">Fields to be anonymized.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDocumentNumberAnonymizationSettings()">
+<h3>getDocumentNumberAnonymizationSettings</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a></span>&nbsp;<span class="element-name">getDocumentNumberAnonymizationSettings</span>()</div>
+<div class="block">If set, some digits of the anonymized document number will be shown.</div>
 </section>
 </li>
 <li>
