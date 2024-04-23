@@ -30,7 +30,7 @@
 
 - fixed URL of the server performing online license check when it's enabled
   - in v9.1.1 the URL depended on the `BUILD_TYPE` property, pointing to production server only when `BUILD_TYPE` was set to `distribute`. However, apparently the `BUILD_TYPE` is not a compile-time property on Android like it's on other platforms and native code, so it was affected by the setting of the app that was integrating the SDK and that caused the SDK to call to a dev server which is unavailable from the external network
-- added android.permission.INTERNET permission to the manifest of LibBlinkCard
+- added `android.permission.INTERNET` permission to the manifest of `LibBlinkID`
   - this permission is needed in order to correctly perform license key validation for licenses that require that
 
 ## v6.6.0
@@ -146,6 +146,12 @@
 #### Deprecated Functionality:
 - `IdBarcodeRecognizer` is now marked as deprecated. We recommend transitioning to `BlinkIdMultiSideRecognizer`, which not only covers the functionality of `IdBarcodeRecognizer` but also offers additional features.
 
+#### Breaking changes
+- Add `shouldShowTorchButton` and `shouldShowCancelButton` to `ReticleOverlayView` constructor.
+- Splitting up `Image` class to `Image` and `InputImage`.`InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing.
+
+#### Bugfixes
+- Fixed `Background ANR at jdk.internal.misc.Unsafe.park` that would happen in rare cases
 
 ## v6.5.1
 - Improved scanning of Bolivia IDs by addressing cases where the expiration date is covered by a signature, allowing the completion of the scanning process.
