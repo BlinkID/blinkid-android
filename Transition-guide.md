@@ -1,3 +1,25 @@
+## 6.6.0
+
+### IDBarcodeRecognizer
+- `IdBarcodeRecognizer` is now deprecated as it is no longer maintained and all of its functionalities are available with `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer`
+	-  To achieve the same `IdBarcodeRecognizer` behavior with the BlinkID generic recognizers, the `RecognitionModeFilter` must be limited to only the `BarcodeId` recognition mode:
+    ```
+    recognizer = BlinkIdSingleSideRecognizer()
+    val recognitionModeFilter: RecognitionModeFilter = RecognitionModeFilter(false, false, false, false, true, false)
+    recognizer.recognitionModeFilter = recognitionModeFilter
+     ```
+	- The results are obtained by directly using the `result` or `barcodeResult` property from the recognizer result:
+
+     ```
+    recognizerBundle.loadFromIntent(data)
+    val result: BlinkIdSingleSideRecognizer.Result = recognizer.result
+    val name = result.firstName?.value()
+    //or
+    val barcodeResult: BlinkIdSingleSideRecognizer.Result = recognizer.result.barcodeResult
+    var barcodeFirstName = barcodeResult.firstName
+    
+    ```
+
 # Transition to BlinkID v6.0.0
 ## Breaking changes
 ### Repackaging of all classes
