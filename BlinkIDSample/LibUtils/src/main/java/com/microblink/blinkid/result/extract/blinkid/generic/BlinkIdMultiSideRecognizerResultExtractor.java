@@ -201,6 +201,7 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.MBDocumentFrontImageFaceStatus, result.getFrontImageAnalysisResult().getFaceDetectionStatus().name());
         add(R.string.MBDocumentFrontImageMrzStatus, result.getFrontImageAnalysisResult().getMrzDetectionStatus().name());
         add(R.string.MBDocumentFrontImageBarcodeStatus, result.getFrontImageAnalysisResult().getBarcodeDetectionStatus().name());
+        add(R.string.MBDocumentFrontImageRealIDStatus, result.getFrontImageAnalysisResult().getRealIdDetectionStatus().name());
         add(R.string.MBDocumentFrontImageCardOrientation, result.getFrontImageAnalysisResult().getCardOrientation().name());
         add(R.string.MBDocumentFrontImageCardRotation, result.getFrontImageAnalysisResult().getCardRotation() != null ? result.getFrontImageAnalysisResult().getCardRotation().name() : "null");
 
@@ -210,6 +211,7 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.MBDocumentBackImageFaceStatus, result.getBackImageAnalysisResult().getFaceDetectionStatus().name());
         add(R.string.MBDocumentBackImageMrzStatus, result.getBackImageAnalysisResult().getMrzDetectionStatus().name());
         add(R.string.MBDocumentBackImageBarcodeStatus, result.getBackImageAnalysisResult().getBarcodeDetectionStatus().name());
+        add(R.string.MBDocumentBackImageRealIDStatus, result.getBackImageAnalysisResult().getRealIdDetectionStatus().name());
         add(R.string.MBDocumentBackImageCardOrientation, result.getBackImageAnalysisResult().getCardOrientation().name());
         add(R.string.MBDocumentBackImageCardRotation, result.getBackImageAnalysisResult().getCardRotation() != null ? result.getBackImageAnalysisResult().getCardRotation().name() : "null");
 
@@ -298,6 +300,7 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.MBDocumentFrontImageFaceStatus, result.getFrontImageAnalysisResult().getFaceDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageMrzStatus, result.getFrontImageAnalysisResult().getMrzDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageBarcodeStatus, result.getFrontImageAnalysisResult().getBarcodeDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentFrontImageRealIDStatus, result.getFrontImageAnalysisResult().getRealIdDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageCardOrientation, result.getFrontImageAnalysisResult().getCardOrientation().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageCardRotation, result.getFrontImageAnalysisResult().getCardRotation() != null ? result.getFrontImageAnalysisResult().getCardRotation().name() : "null");
 
@@ -307,6 +310,7 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.MBDocumentBackImageFaceStatus, result.getBackImageAnalysisResult().getFaceDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentBackImageMrzStatus, result.getBackImageAnalysisResult().getMrzDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentBackImageBarcodeStatus, result.getBackImageAnalysisResult().getBarcodeDetectionStatus().name());
+        addIfNotEmpty(R.string.MBDocumentBackImageRealIDStatus, result.getBackImageAnalysisResult().getRealIdDetectionStatus().name());
         addIfNotEmpty(R.string.MBDocumentBackImageCardOrientation, result.getBackImageAnalysisResult().getCardOrientation().name());
         addIfNotEmpty(R.string.MBDocumentBackImageCardRotation, result.getBackImageAnalysisResult().getCardRotation() != null ? result.getBackImageAnalysisResult().getCardRotation().name() : "null");
 

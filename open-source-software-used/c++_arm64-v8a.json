@@ -54,7 +54,7 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "sweater/1.1.2@microblink/main#c1036e11e26d081947b24393a18ee315",
+        "package": "sweater/1.1.3@microblink/main#c83ffe0cafb7d85b783f0854c0b61711",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
@@ -96,13 +96,13 @@
         "description": "A massively spiffy yet delicately unobtrusive compression library."
     },
     {
-        "package": "opencv/4.9.2@microblink/main#bc5e716aa1b98ce67086c915bf92bc6d",
+        "package": "opencv/4.9.3@microblink/main#d487de0a7dc81c147de03a4839fab53e",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
     },
     {
-        "package": "libjpeg_turbo/3.0.2.1@microblink/main#8d4cd747400b9edbca03e136b9ad6cdf",
+        "package": "libjpeg_turbo/3.0.2.2@microblink/main#c5ae8c1d15ab8215718ea3df429e55e1",
         "url": "https://github.com/microblink/libjpeg-turbo",
         "license": "BSD-3-Clause, Zlib",
         "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"

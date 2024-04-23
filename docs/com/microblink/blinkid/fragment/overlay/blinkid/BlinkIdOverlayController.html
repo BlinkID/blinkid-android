@@ -51,7 +51,7 @@ loadScripts(document, 'script');</script>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -73,9 +73,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
 <div class="inheritance"><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">com.microblink.blinkid.fragment.overlay.BaseOverlayController</a>
-<div class="inheritance"><a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">com.microblink.blinkid.fragment.overlay.blinkid.BaseBlinkIdOverlayController</a>
 <div class="inheritance">com.microblink.blinkid.fragment.overlay.blinkid.BlinkIdOverlayController</div>
-</div>
 </div>
 </div>
 <section class="class-description" id="class-description">
@@ -85,7 +83,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BlinkIdOverlayController</span>
-<span class="extends-implements">extends <a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></span></div>
+<span class="extends-implements">extends <a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -93,9 +91,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="field-summary" id="field-summary">
 <h2>Field Summary</h2>
-<div class="inherited-list">
-<h3 id="fields-inherited-from-class-com.microblink.blinkid.fragment.overlay.blinkid.BaseBlinkIdOverlayController">Fields inherited from class&nbsp;com.microblink.blinkid.fragment.overlay.blinkid.<a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></h3>
-<code><a href="BaseBlinkIdOverlayController.html#documentRecognizerManager">documentRecognizerManager</a>, <a href="BaseBlinkIdOverlayController.html#imageUploadManager">imageUploadManager</a>, <a href="BaseBlinkIdOverlayController.html#pingSessionFlowManager">pingSessionFlowManager</a></code></div>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected final <a href="../DocumentRecognizerManager.html" title="class in com.microblink.blinkid.fragment.overlay">DocumentRecognizerManager</a></code></div>
+<div class="col-second even-row-color"><code><a href="#documentRecognizerManager" class="member-name-link">documentRecognizerManager</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#imageUploadManager" class="member-name-link">imageUploadManager</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected com.microblink.blinkid.fragment.overlay.PingSessionFlowManager</code></div>
+<div class="col-second even-row-color"><code><a href="#pingSessionFlowManager" class="member-name-link">pingSessionFlowManager</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-com.microblink.blinkid.fragment.overlay.BaseOverlayController">Fields inherited from class&nbsp;com.microblink.blinkid.fragment.overlay.<a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></h3>
 <code><a href="../BaseOverlayController.html#errorDialog">errorDialog</a>, <a href="../BaseOverlayController.html#handler">handler</a>, <a href="../BaseOverlayController.html#overlayState">overlayState</a>, <a href="../BaseOverlayController.html#recognizerRunnerFragment">recognizerRunnerFragment</a>, <a href="../BaseOverlayController.html#recognizerRunnerView">recognizerRunnerView</a>, <a href="../BaseOverlayController.html#scanResultListener">scanResultListener</a>, <a href="../BaseOverlayController.html#scanSoundPlayer">scanSoundPlayer</a>, <a href="../BaseOverlayController.html#torchController">torchController</a></code></div>
@@ -114,7 +124,8 @@ loadScripts(document, 'script');</script>
  <a href="BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a>&nbsp;overlayView)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Pass in your own implementation of <a href="BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid"><code>BlinkIdOverlayView</code></a> to customise the UI, or use one of
- our overlay views.</div>
+ our overlay views, <a href="reticleui/ReticleOverlayView.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui"><code>ReticleOverlayView</code></a>,
+ <a href="document/DocumentOverlayView.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.document"><code>DocumentOverlayView</code></a></div>
 </div>
 </div>
 </section>
@@ -130,18 +141,82 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createImageUploadManager()" class="member-name-link">createImageUploadManager</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBeepSoundResourceId()" class="member-name-link">getBeepSoundResourceId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.blinkid.entities.recognizers">HighResImagesBundle</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHighResImagesBundle()" class="member-name-link">getHighResImagesBundle</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRecognizerBundle()" class="member-name-link">getRecognizerBundle</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="reticleui/ScanRecognitionMode.html" title="enum class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanRecognitionMode(com.microblink.blinkid.fragment.overlay.DocumentRecognizerManager)" class="member-name-link">getScanRecognitionMode</a><wbr>(<a href="../DocumentRecognizerManager.html" title="class in com.microblink.blinkid.fragment.overlay">DocumentRecognizerManager</a>&nbsp;documentRecognizerManager)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSplashScreenLayoutId()" class="member-name-link">getSplashScreenLayoutId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onCameraAutofocusFailed()" class="member-name-link">onCameraAutofocusFailed</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFirstSideScanStarted()" class="member-name-link">onFirstSideScanStarted</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onDocumentSideChanged(long)" class="member-name-link">onDocumentSideChanged</a><wbr>(long&nbsp;firstSideDelay)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFirstSideScanStarted()" class="member-name-link">onFirstSideScanStarted</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFragmentConfigurationChanged(android.content.res.Configuration)" class="member-name-link">onFragmentConfigurationChanged</a><wbr>(android.content.res.Configuration&nbsp;newConfig)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFragmentDestroyed()" class="member-name-link">onFragmentDestroyed</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFragmentPaused()" class="member-name-link">onFragmentPaused</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFragmentResumed()" class="member-name-link">onFragmentResumed</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFragmentSaveInstanceState(android.os.Bundle)" class="member-name-link">onFragmentSaveInstanceState</a><wbr>(android.os.Bundle&nbsp;outState)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)" class="member-name-link">onFrameRecognitionDone</a><wbr>(<a href="../../../recognition/RecognitionSuccessType.html" title="enum class in com.microblink.blinkid.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)" class="member-name-link">onRecognizerRunnerViewCreated</a><wbr>(<a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called when <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
+ <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onScanningDone(com.microblink.blinkid.recognition.RecognitionSuccessType)" class="member-name-link">onScanningDone</a><wbr>(<a href="../../../recognition/RecognitionSuccessType.html" title="enum class in com.microblink.blinkid.recognition">RecognitionSuccessType</a>&nbsp;successType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This method is called when recognition is done.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pauseScanning()" class="member-name-link">pauseScanning</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resumeScanning()" class="member-name-link">resumeScanning</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldResetStateOnRecognizerResume()" class="member-name-link">shouldResetStateOnRecognizerResume</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-com.microblink.blinkid.fragment.overlay.blinkid.BaseBlinkIdOverlayController">Methods inherited from class&nbsp;com.microblink.blinkid.fragment.overlay.blinkid.<a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></h3>
-<code><a href="BaseBlinkIdOverlayController.html#getBeepSoundResourceId()">getBeepSoundResourceId</a>, <a href="BaseBlinkIdOverlayController.html#getHighResImagesBundle()">getHighResImagesBundle</a>, <a href="BaseBlinkIdOverlayController.html#getRecognizerBundle()">getRecognizerBundle</a>, <a href="BaseBlinkIdOverlayController.html#getScanRecognitionMode(com.microblink.blinkid.fragment.overlay.DocumentRecognizerManager)">getScanRecognitionMode</a>, <a href="BaseBlinkIdOverlayController.html#getSplashScreenLayoutId()">getSplashScreenLayoutId</a>, <a href="BaseBlinkIdOverlayController.html#onCameraAutofocusFailed()">onCameraAutofocusFailed</a>, <a href="BaseBlinkIdOverlayController.html#onDocumentSideChanged(long)">onDocumentSideChanged</a>, <a href="BaseBlinkIdOverlayController.html#onFragmentConfigurationChanged(android.content.res.Configuration)">onFragmentConfigurationChanged</a>, <a href="BaseBlinkIdOverlayController.html#onFragmentDestroyed()">onFragmentDestroyed</a>, <a href="BaseBlinkIdOverlayController.html#onFragmentPaused()">onFragmentPaused</a>, <a href="BaseBlinkIdOverlayController.html#onFragmentResumed()">onFragmentResumed</a>, <a href="BaseBlinkIdOverlayController.html#onFragmentSaveInstanceState(android.os.Bundle)">onFragmentSaveInstanceState</a>, <a href="BaseBlinkIdOverlayController.html#onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">onFrameRecognitionDone</a>, <a href="BaseBlinkIdOverlayController.html#onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)">onRecognizerRunnerViewCreated</a>, <a href="BaseBlinkIdOverlayController.html#onScanningDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">onScanningDone</a>, <a href="BaseBlinkIdOverlayController.html#pauseScanning()">pauseScanning</a>, <a href="BaseBlinkIdOverlayController.html#resumeScanning()">resumeScanning</a>, <a href="BaseBlinkIdOverlayController.html#shouldResetStateOnRecognizerResume()">shouldResetStateOnRecognizerResume</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-com.microblink.blinkid.fragment.overlay.BaseOverlayController">Methods inherited from class&nbsp;com.microblink.blinkid.fragment.overlay.<a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></h3>
 <code><a href="../BaseOverlayController.html#getContext()">getContext</a>, <a href="../BaseOverlayController.html#onFragmentCreated(android.os.Bundle)">onFragmentCreated</a>, <a href="../BaseOverlayController.html#onFragmentStarted()">onFragmentStarted</a>, <a href="../BaseOverlayController.html#onFragmentStopped()">onFragmentStopped</a>, <a href="../BaseOverlayController.html#onRecognizerRunnerFragmentAttached(com.microblink.blinkid.fragment.RecognizerRunnerFragment,android.app.Activity)">onRecognizerRunnerFragmentAttached</a>, <a href="../BaseOverlayController.html#onUnrecoverableError(java.lang.Throwable)">onUnrecoverableError</a>, <a href="../BaseOverlayController.html#setMeteringAreas()">setMeteringAreas</a></code></div>
@@ -154,6 +229,35 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="documentRecognizerManager">
+<h3>documentRecognizerManager</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="../DocumentRecognizerManager.html" title="class in com.microblink.blinkid.fragment.overlay">DocumentRecognizerManager</a></span>&nbsp;<span class="element-name">documentRecognizerManager</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="imageUploadManager">
+<h3>imageUploadManager</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></span>&nbsp;<span class="element-name">imageUploadManager</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="pingSessionFlowManager">
+<h3>pingSessionFlowManager</h3>
+<div class="member-signature"><span class="annotations">@NonNull
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">com.microblink.blinkid.fragment.overlay.PingSessionFlowManager</span>&nbsp;<span class="element-name">pingSessionFlowManager</span></div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
@@ -169,7 +273,8 @@ loadScripts(document, 'script');</script>
  @NonNull
  <a href="BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">BlinkIdOverlayView</a>&nbsp;overlayView)</span></div>
 <div class="block">Pass in your own implementation of <a href="BlinkIdOverlayView.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid"><code>BlinkIdOverlayView</code></a> to customise the UI, or use one of
- our overlay views.</div>
+ our overlay views, <a href="reticleui/ReticleOverlayView.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui"><code>ReticleOverlayView</code></a>,
+ <a href="document/DocumentOverlayView.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid.document"><code>DocumentOverlayView</code></a></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>overlaySettings</code> - configuration settings</dd>
@@ -187,23 +292,245 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="createImageUploadManager()">
-<h3>createImageUploadManager</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></span>&nbsp;<span class="element-name">createImageUploadManager</span>()</div>
+<section class="detail" id="getHighResImagesBundle()">
+<h3>getHighResImagesBundle</h3>
+<div class="member-signature"><span class="annotations">@AnyThread
+@NonNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../entities/recognizers/HighResImagesBundle.html" title="class in com.microblink.blinkid.entities.recognizers">HighResImagesBundle</a></span>&nbsp;<span class="element-name">getHighResImagesBundle</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRecognizerBundle()">
+<h3>getRecognizerBundle</h3>
+<div class="member-signature"><span class="annotations">@AnyThread
+@NonNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a></span>&nbsp;<span class="element-name">getRecognizerBundle</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onScanningDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">
+<h3>onScanningDone</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onScanningDone</span><wbr><span class="parameters">(@NonNull
+ <a href="../../../recognition/RecognitionSuccessType.html" title="enum class in com.microblink.blinkid.recognition">RecognitionSuccessType</a>&nbsp;successType)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../../../view/recognition/ScanResultListener.html#onScanningDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">ScanResultListener</a></code></span></div>
+<div class="block">This method is called when recognition is done.
+ This method might be called on background thread or main thread, depending on the type of scan.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>successType</code> - indicates the success type of recognition</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">
+<h3>onFrameRecognitionDone</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFrameRecognitionDone</span><wbr><span class="parameters">(<a href="../../../recognition/RecognitionSuccessType.html" title="enum class in com.microblink.blinkid.recognition">RecognitionSuccessType</a>&nbsp;recognitionSuccessType)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">ScanningOverlay</a></code></span></div>
+<div class="block">Called for each camera frame, after the recognition has been completed.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BaseBlinkIdOverlayController.html#createImageUploadManager()">createImageUploadManager</a></code>&nbsp;in class&nbsp;<code><a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></code></dd>
+<dd><code><a href="../ScanningOverlay.html#onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">onFrameRecognitionDone</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.blinkid.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onFrameRecognitionDone(com.microblink.blinkid.recognition.RecognitionSuccessType)">onFrameRecognitionDone</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>recognitionSuccessType</code> - frame recognition status.</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)">
+<h3>onRecognizerRunnerViewCreated</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onRecognizerRunnerViewCreated</span><wbr><span class="parameters">(@NonNull
+ <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment">RecognizerRunnerFragment</a>&nbsp;recognizerRunnerFragment)</span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)">ScanningOverlay</a></code></span></div>
+<div class="block">Called when <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created within given
+ <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a>. You can use <a href="../../RecognizerRunnerFragment.html#getRecognizerRunnerView()"><code>RecognizerRunnerFragment.getRecognizerRunnerView()</code></a>
+ to get the created <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> and configure it.
+ The most important thing you should do in this method is to set <a href="../../../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers"><code>RecognizerBundle</code></a> to
+ created <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> using <a href="../../../view/recognition/RecognizerRunnerView.html#setRecognizerBundle(com.microblink.blinkid.entities.recognizers.RecognizerBundle)"><code>RecognizerRunnerView.setRecognizerBundle(RecognizerBundle)</code></a>.
+ You can also register various callbacks to <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a>, except <a href="../../../view/CameraEventsListener.html" title="interface in com.microblink.blinkid.view"><code>CameraEventsListener</code></a>
+ (using <a href="../../../view/BaseCameraView.html#setCameraEventsListener(com.microblink.blinkid.view.CameraEventsListener)"><code>BaseCameraView.setCameraEventsListener(CameraEventsListener)</code></a>) and <a href="../../../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition"><code>ScanResultListener</code></a>
+ (using <a href="../../../view/recognition/RecognizerRunnerView.html#setScanResultListener(com.microblink.blinkid.view.recognition.ScanResultListener)"><code>RecognizerRunnerView.setScanResultListener(ScanResultListener)</code></a> - those two listeners will be set
+ to <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> within <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a> after calling this method - if you
+ need to observe camera events within <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a>, you can set your own <a href="../../../view/BaseCameraEventsListener.html" title="interface in com.microblink.blinkid.view"><code>BaseCameraEventsListener</code></a>
+ to it with <a href="../../RecognizerRunnerFragment.html#setCameraEventsListener(com.microblink.blinkid.view.BaseCameraEventsListener)"><code>RecognizerRunnerFragment.setCameraEventsListener(BaseCameraEventsListener)</code></a>.
+
+ In this method, you can also access <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a>'s content layout with method
+ <a href="../../RecognizerRunnerFragment.html#getContentLayout()"><code>RecognizerRunnerFragment.getContentLayout()</code></a> and add your views to it.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ScanningOverlay.html#onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)">onRecognizerRunnerViewCreated</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.blinkid.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onRecognizerRunnerViewCreated(com.microblink.blinkid.fragment.RecognizerRunnerFragment)">onRecognizerRunnerViewCreated</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>recognizerRunnerFragment</code> - <a href="../../RecognizerRunnerFragment.html" title="class in com.microblink.blinkid.fragment"><code>RecognizerRunnerFragment</code></a> within which <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="pauseScanning()">
+<h3>pauseScanning</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pauseScanning</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#pauseScanning()">ScanningOverlay</a></code></span></div>
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created, pauses the scanning
+ loop by calling <a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a>. But keeps camera active.
+ If the  <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.
+ <p>
+ You can resume scanning by calling <a href="../ScanningOverlay.html#resumeScanning()"><code>ScanningOverlay.resumeScanning()</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ScanningOverlay.html#pauseScanning()">pauseScanning</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.blinkid.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#pauseScanning()">pauseScanning</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list-long">
+<li><a href="../../../view/recognition/RecognizerRunnerView.html#pauseScanning()"><code>RecognizerRunnerView.pauseScanning()</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="resumeScanning()">
+<h3>resumeScanning</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resumeScanning</span>()</div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="../ScanningOverlay.html#resumeScanning()">ScanningOverlay</a></code></span></div>
+<div class="block">If the <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has been created, resumes the scanning
+ loop (that has been paused) by calling <a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a> }.
+ <p>
+ If the  <a href="../../../view/recognition/RecognizerRunnerView.html" title="class in com.microblink.blinkid.view.recognition"><code>RecognizerRunnerView</code></a> has not been created yet, does nothing.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ScanningOverlay.html#resumeScanning()">resumeScanning</a></code>&nbsp;in interface&nbsp;<code><a href="../ScanningOverlay.html" title="interface in com.microblink.blinkid.fragment.overlay">ScanningOverlay</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#resumeScanning()">resumeScanning</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list-long">
+<li><a href="../../../view/recognition/RecognizerRunnerView.html#resumeScanning(boolean)"><code>RecognizerRunnerView.resumeScanning(boolean)</code></a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldResetStateOnRecognizerResume()">
+<h3>shouldResetStateOnRecognizerResume</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldResetStateOnRecognizerResume</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../BaseOverlayController.html#shouldResetStateOnRecognizerResume()">shouldResetStateOnRecognizerResume</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getBeepSoundResourceId()">
+<h3>getBeepSoundResourceId</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getBeepSoundResourceId</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../BaseOverlayController.html#getBeepSoundResourceId()">getBeepSoundResourceId</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getSplashScreenLayoutId()">
+<h3>getSplashScreenLayoutId</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSplashScreenLayoutId</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../BaseOverlayController.html#getSplashScreenLayoutId()">getSplashScreenLayoutId</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="createImageUploadManager()">
+<h3>createImageUploadManager</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ImageUploadManager.html" title="interface in com.microblink.blinkid.fragment.overlay.blinkid">ImageUploadManager</a></span>&nbsp;<span class="element-name">createImageUploadManager</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onCameraAutofocusFailed()">
+<h3>onCameraAutofocusFailed</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onCameraAutofocusFailed</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onCameraAutofocusFailed()">onCameraAutofocusFailed</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onDocumentSideChanged(long)">
+<h3>onDocumentSideChanged</h3>
+<div class="member-signature"><span class="annotations">@CallSuper
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onDocumentSideChanged</span><wbr><span class="parameters">(long&nbsp;firstSideDelay)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onFirstSideScanStarted()">
 <h3>onFirstSideScanStarted</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFirstSideScanStarted</span>()</div>
+<div class="member-signature"><span class="annotations">@CallSuper
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFirstSideScanStarted</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onFragmentResumed()">
+<h3>onFragmentResumed</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFragmentResumed</span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="BaseBlinkIdOverlayController.html#onFirstSideScanStarted()">onFirstSideScanStarted</a></code>&nbsp;in class&nbsp;<code><a href="BaseBlinkIdOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay.blinkid">BaseBlinkIdOverlayController</a></code></dd>
+<dd><code><a href="../BaseOverlayController.html#onFragmentResumed()">onFragmentResumed</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onFragmentPaused()">
+<h3>onFragmentPaused</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFragmentPaused</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onFragmentPaused()">onFragmentPaused</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onFragmentDestroyed()">
+<h3>onFragmentDestroyed</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFragmentDestroyed</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onFragmentDestroyed()">onFragmentDestroyed</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onFragmentConfigurationChanged(android.content.res.Configuration)">
+<h3>onFragmentConfigurationChanged</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFragmentConfigurationChanged</span><wbr><span class="parameters">(@NonNull
+ android.content.res.Configuration&nbsp;newConfig)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onFragmentConfigurationChanged(android.content.res.Configuration)">onFragmentConfigurationChanged</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="onFragmentSaveInstanceState(android.os.Bundle)">
+<h3>onFragmentSaveInstanceState</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onFragmentSaveInstanceState</span><wbr><span class="parameters">(@Nullable
+ android.os.Bundle&nbsp;outState)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../BaseOverlayController.html#onFragmentSaveInstanceState(android.os.Bundle)">onFragmentSaveInstanceState</a></code>&nbsp;in class&nbsp;<code><a href="../BaseOverlayController.html" title="class in com.microblink.blinkid.fragment.overlay">BaseOverlayController</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getScanRecognitionMode(com.microblink.blinkid.fragment.overlay.DocumentRecognizerManager)">
+<h3>getScanRecognitionMode</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="reticleui/ScanRecognitionMode.html" title="enum class in com.microblink.blinkid.fragment.overlay.blinkid.reticleui">ScanRecognitionMode</a></span>&nbsp;<span class="element-name">getScanRecognitionMode</span><wbr><span class="parameters">(<a href="../DocumentRecognizerManager.html" title="class in com.microblink.blinkid.fragment.overlay">DocumentRecognizerManager</a>&nbsp;documentRecognizerManager)</span></div>
 </section>
 </li>
 </ul>

@@ -1,5 +1,38 @@
 # Release notes
 
+## v6.7.0
+
+### New Features
+- **Real ID detection on US driver's license**
+	- BlinkID now includes the capability to identify Real ID symbols from US driver's licenses, providing users with immediate feedback on the presence or the absence of a Real ID symbol. This enhances user convenience and compliance with Real ID requirements, ensuring customers can quickly determine if a Real ID is available on a scanned US driver's license.
+- **UX Improvements**
+	- Extended duration for UI messages
+		- UI messages now remain visible for a longer duration after scanning, improving user experience. Users can now review post-scanning messages at a comfortable pace, leading to a smoother process.
+	- Success indicator for front side capture
+		- BlinkID now displays a clear success indicator after scanning the front side of a document. This visual cue enhances user confidence by providing immediate feedback during the capturing process.
+- **Partial anonymization of the `Document number`**
+	- To ensure user privacy and security, BlinkID now offers the option of partially anonymizing the document number from the scanned document.
+- **Mandatory Barcode Presence on US documents**
+	- To minimize the cases of capturing the front side of the document as the back frame in the results, BlinkID now requires the presence of a barcode before saving the back frame on US documents. Processing status `BarcodeDetectionFailed` is returned when mandatory barcode is not present on the back of US documents.
+
+### Minor API changes
+- Added `BarcodeDetectionFailed` as a new `ProcessingStatus`
+	- This status is triggered once the barcode was not found on the image. This processing status can only occur if the document has mandatory barcode.
+- Added new boolean member `realIdDetectionStatus` to the `ImageAnalysisResult`. If `true`, Real ID symbol is present, `false` otherwise.
+- Added new member `documentNumberAnonymizationSettings` to the `ClassAnonymizationSettings` for seamless integration with the document number anonymization feature.
+
+### Bugfixes
+- Updated internal mapping for Myanmar passports to display nationality as "Myanmarese" instead of "Burmese" on Myanmar passports.
+- `Date of Issue` marked optional on Peru ID offering users more flexibility in capturing ID information.
+- `Date of Expiry` handling logic for MRZ improved in cases where documents with a date of expiry 1969 were not correctly sanitized.
+
+## v6.6.1
+
+- fixed URL of the server performing online license check when it's enabled
+  - in v9.1.1 the URL depended on the `BUILD_TYPE` property, pointing to production server only when `BUILD_TYPE` was set to `distribute`. However, apparently the `BUILD_TYPE` is not a compile-time property on Android like it's on other platforms and native code, so it was affected by the setting of the app that was integrating the SDK and that caused the SDK to call to a dev server which is unavailable from the external network
+- added android.permission.INTERNET permission to the manifest of LibBlinkCard
+  - this permission is needed in order to correctly perform license key validation for licenses that require that
+
 ## v6.6.0
 
 ### Document Updates
@@ -112,13 +145,6 @@
 
 #### Deprecated Functionality:
 - `IdBarcodeRecognizer` is now marked as deprecated. We recommend transitioning to `BlinkIdMultiSideRecognizer`, which not only covers the functionality of `IdBarcodeRecognizer` but also offers additional features.
-
-#### Breaking changes
-- Add `shouldShowTorchButton` and `shouldShowCancelButton` to `ReticleOverlayView` constructor.
-- Splitting up `Image` class to `Image` and `InputImage`.`InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing.
-
-#### Bugfixes
-- Fixed `Background ANR at jdk.internal.misc.Unsafe.park` that would happen in rare cases 
 
 
 ## v6.5.1

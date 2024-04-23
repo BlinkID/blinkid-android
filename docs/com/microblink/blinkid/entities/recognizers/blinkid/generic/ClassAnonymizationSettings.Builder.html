@@ -127,14 +127,20 @@ loadScripts(document, 'script');</script>
  specified country only.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRegion(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region)" class="member-name-link">setRegion</a><wbr>(<a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a>&nbsp;region)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDocumentNumberAnonymizationSettings(com.microblink.blinkid.entities.recognizers.blinkid.generic.DocumentNumberAnonymizationSettings)" class="member-name-link">setDocumentNumberAnonymizationSettings</a><wbr>(<a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a>&nbsp;documentNumberAnonymizationSettings)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">If set, the first and the last digits of document number will be shown according
+ to values in <a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>DocumentNumberAnonymizationSettings</code></a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings.Builder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRegion(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Region)" class="member-name-link">setRegion</a><wbr>(<a href="classinfo/Region.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Region</a>&nbsp;region)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">If set, specified fields will be anonymized on documents issued by
  specified region only.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setType(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type)" class="member-name-link">setType</a><wbr>(<a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a>&nbsp;type)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings.Builder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setType(com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo.Type)" class="member-name-link">setType</a><wbr>(<a href="classinfo/Type.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.classinfo">Type</a>&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">If set, specified fields will be anonymized on documents of specified
  type only.</div>
 </div>
@@ -233,6 +239,21 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>type</code> - type to be set</dd>
+<dt>Returns:</dt>
+<dd>this builder</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setDocumentNumberAnonymizationSettings(com.microblink.blinkid.entities.recognizers.blinkid.generic.DocumentNumberAnonymizationSettings)">
+<h3>setDocumentNumberAnonymizationSettings</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassAnonymizationSettings.Builder</a></span>&nbsp;<span class="element-name">setDocumentNumberAnonymizationSettings</span><wbr><span class="parameters">(@Nullable
+ <a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">DocumentNumberAnonymizationSettings</a>&nbsp;documentNumberAnonymizationSettings)</span></div>
+<div class="block">If set, the first and the last digits of document number will be shown according
+ to values in <a href="DocumentNumberAnonymizationSettings.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>DocumentNumberAnonymizationSettings</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>documentNumberAnonymizationSettings</code> - documentNumberAnonymizationSettings to be set</dd>
 <dt>Returns:</dt>
 <dd>this builder</dd>
 </dl>
