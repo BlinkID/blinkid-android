@@ -126,7 +126,8 @@ implements android.os.Parcelable</span></div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(boolean,int,int,int,int,int,int,int,int)" class="member-name-link">createFromNative</a><wbr>(boolean&nbsp;blurred,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(boolean,boolean,int,int,int,int,int,int,int,int)" class="member-name-link">createFromNative</a><wbr>(boolean&nbsp;blurDetected,
+ boolean&nbsp;glareDetected,
  int&nbsp;documentImageColorStatus,
  int&nbsp;documentImageMoireStatus,
  int&nbsp;faceDetectionStatus,
@@ -182,14 +183,19 @@ implements android.os.Parcelable</span></div>
 <div class="block">RealID detection status determined from the scanned image.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlurred()" class="member-name-link">isBlurred</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlurDetected()" class="member-name-link">isBlurDetected</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Whether the image is blurred.</div>
+<div class="block">Indicates if blur was detected on the scanned image.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isGlareDetected()" class="member-name-link">isGlareDetected</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Indicates if glare was detected on the scanned image.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
  int&nbsp;flags)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -222,10 +228,17 @@ implements android.os.Parcelable</span></div>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="isBlurred()">
-<h3>isBlurred</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlurred</span>()</div>
-<div class="block">Whether the image is blurred.</div>
+<section class="detail" id="isBlurDetected()">
+<h3>isBlurDetected</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlurDetected</span>()</div>
+<div class="block">Indicates if blur was detected on the scanned image.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isGlareDetected()">
+<h3>isGlareDetected</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isGlareDetected</span>()</div>
+<div class="block">Indicates if glare was detected on the scanned image.</div>
 </section>
 </li>
 <li>
@@ -293,10 +306,11 @@ implements android.os.Parcelable</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="createFromNative(boolean,int,int,int,int,int,int,int,int)">
+<section class="detail" id="createFromNative(boolean,boolean,int,int,int,int,int,int,int,int)">
 <h3>createFromNative</h3>
 <div class="member-signature"><span class="annotations">@NonNull
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></span>&nbsp;<span class="element-name">createFromNative</span><wbr><span class="parameters">(boolean&nbsp;blurred,
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ImageAnalysisResult.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">ImageAnalysisResult</a></span>&nbsp;<span class="element-name">createFromNative</span><wbr><span class="parameters">(boolean&nbsp;blurDetected,
+ boolean&nbsp;glareDetected,
  int&nbsp;documentImageColorStatus,
  int&nbsp;documentImageMoireStatus,
  int&nbsp;faceDetectionStatus,

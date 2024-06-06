@@ -195,7 +195,10 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
         add(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
 
-        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurred());
+        add(R.string.PPDocumentSubtype, result.getDocumentSubtype());
+
+        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentFrontImageGlareDetected, result.getFrontImageAnalysisResult().isGlareDetected());
         add(R.string.MBDocumentFrontImageColorStatus, result.getFrontImageAnalysisResult().getDocumentImageColorStatus().name());
         add(R.string.MBDocumentFrontImageMoireStatus, result.getFrontImageAnalysisResult().getDocumentImageMoireStatus().name());
         add(R.string.MBDocumentFrontImageFaceStatus, result.getFrontImageAnalysisResult().getFaceDetectionStatus().name());
@@ -205,7 +208,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.MBDocumentFrontImageCardOrientation, result.getFrontImageAnalysisResult().getCardOrientation().name());
         add(R.string.MBDocumentFrontImageCardRotation, result.getFrontImageAnalysisResult().getCardRotation() != null ? result.getFrontImageAnalysisResult().getCardRotation().name() : "null");
 
-        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentBackImageGlareDetected, result.getBackImageAnalysisResult().isGlareDetected());
         add(R.string.MBDocumentBackImageColorStatus, result.getBackImageAnalysisResult().getDocumentImageColorStatus().name());
         add(R.string.MBDocumentBackImageMoireStatus, result.getBackImageAnalysisResult().getDocumentImageMoireStatus().name());
         add(R.string.MBDocumentBackImageFaceStatus, result.getBackImageAnalysisResult().getFaceDetectionStatus().name());
@@ -294,7 +298,10 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
         addIfNotEmpty(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
 
-        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurred());
+        addIfNotEmpty(R.string.PPDocumentSubtype, result.getDocumentSubtype());
+
+        add(R.string.MBDocumentFrontImageBlurred, result.getFrontImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentFrontImageGlareDetected, result.getFrontImageAnalysisResult().isGlareDetected());
         addIfNotEmpty(R.string.MBDocumentFrontImageColorStatus, result.getFrontImageAnalysisResult().getDocumentImageColorStatus().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageMoireStatus, result.getFrontImageAnalysisResult().getDocumentImageMoireStatus().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageFaceStatus, result.getFrontImageAnalysisResult().getFaceDetectionStatus().name());
@@ -304,7 +311,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.MBDocumentFrontImageCardOrientation, result.getFrontImageAnalysisResult().getCardOrientation().name());
         addIfNotEmpty(R.string.MBDocumentFrontImageCardRotation, result.getFrontImageAnalysisResult().getCardRotation() != null ? result.getFrontImageAnalysisResult().getCardRotation().name() : "null");
 
-        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentBackImageBlurred, result.getBackImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentBackImageGlareDetected, result.getBackImageAnalysisResult().isGlareDetected());
         addIfNotEmpty(R.string.MBDocumentBackImageColorStatus, result.getBackImageAnalysisResult().getDocumentImageColorStatus().name());
         addIfNotEmpty(R.string.MBDocumentBackImageMoireStatus, result.getBackImageAnalysisResult().getDocumentImageMoireStatus().name());
         addIfNotEmpty(R.string.MBDocumentBackImageFaceStatus, result.getBackImageAnalysisResult().getFaceDetectionStatus().name());
@@ -372,6 +380,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         if (!driverLicenseInfo.isEmpty()) {
             addIfNotEmpty(R.string.PPDriverLicenseDetailedInfo, driverLicenseInfo.toString());
         }
+
+        addIfNotEmpty(R.string.PPDocumentSubtype, result.getDocumentSubtype());
     }
 
     private void extractMrzResults(MrzResult result) {

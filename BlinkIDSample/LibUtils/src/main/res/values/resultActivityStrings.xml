@@ -296,6 +296,7 @@
     <string name="PPIdCode">ID Code</string>
     <string name="PPVersionNumber">Version number</string>
     <string name="PPCharacterSet">Character set</string>
+    <string name="PPDocumentSubtype">Document subtype</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
@@ -355,11 +356,16 @@
     <string name="MBDocumentFrontImageCardRotation">Front image card rotation</string>
     <string name="MBDocumentBackImageCardRotation">Back image card rotation</string>
 
-    <string name="MBDocumentImageBlurred">Image blurred</string>
-    <string name="MBDocumentFrontImageBlurred">Front image blurred</string>
-    <string name="MBDocumentBackImageBlurred">Back image blurred</string>
-    <string name="MBDocumentFirstSideImageBlurred">First side image blurred</string>
-    <string name="MBDocumentSecondSideImageBlurred">Second side image blurred</string>
+    <string name="MBDocumentImageBlurred">Image blur detected</string>
+    <string name="MBDocumentImageGlareDetected">Image glare detected</string>
+    <string name="MBDocumentFrontImageBlurred">Front image blur detected</string>
+    <string name="MBDocumentBackImageBlurred">Back image blur detected</string>
+    <string name="MBDocumentFirstSideImageBlurred">First side image blur detected</string>
+    <string name="MBDocumentSecondSideImageBlurred">Second side image blur detected</string>
+    <string name="MBDocumentFrontImageGlareDetected">Front image glare detected</string>
+    <string name="MBDocumentBackImageGlareDetected">Back image glare detected</string>
+    <string name="MBDocumentFirstSideImageGlareDetected">First side image glare detected</string>
+    <string name="MBDocumentSecondSideImageGlareDetected">Second side image glare detected</string>
 
     <string name="MBAdditionalProcessingInfo">Additional processing info</string>
     <string name="MBFrontAdditionalProcessingInfo">Front additional processing info</string>

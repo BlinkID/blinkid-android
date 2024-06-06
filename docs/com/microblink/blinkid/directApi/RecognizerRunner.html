@@ -137,8 +137,7 @@ loadScripts(document, 'script');</script>
  <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
- when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.</div>
+<div class="block">Perform recognition of still image represented as Android Bitmap.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeBitmap(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.view.recognition.ScanResultListener)" class="member-name-link">recognizeBitmap</a><wbr>(android.graphics.Bitmap&nbsp;image,
@@ -189,6 +188,38 @@ loadScripts(document, 'script');</script>
  <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Use this method to directly recognize given string data without performing the OCR, while recognizer is active.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle,com.microblink.blinkid.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoBitmap</a><wbr>(android.graphics.Bitmap&nbsp;image,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoBitmap</a><wbr>(android.graphics.Bitmap&nbsp;image,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle,com.microblink.blinkid.view.recognition.ScanResultListener,com.microblink.blinkid.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoBitmapWithRecognizers</a><wbr>(android.graphics.Bitmap&nbsp;image,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+ <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.view.recognition.ScanResultListener,com.microblink.blinkid.entities.recognizers.RecognizerBundle)" class="member-name-link">recognizeVideoBitmapWithRecognizers</a><wbr>(android.graphics.Bitmap&nbsp;image,
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+ <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recognizeVideoImage(com.microblink.blinkid.image.InputImage,com.microblink.blinkid.view.recognition.ScanResultListener)" class="member-name-link">recognizeVideoImage</a><wbr>(<a href="../image/InputImage.html" title="class in com.microblink.blinkid.image">InputImage</a>&nbsp;image,
@@ -331,7 +362,7 @@ loadScripts(document, 'script');</script>
  <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
  @NonNull
  <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</span></div>
-<div class="block">Perform recognition of still image represented as Android Bitmap.Mainly for the use cases
+<div class="block">Perform recognition of still image represented as Android Bitmap. Mainly for the use cases
  when you need to recognize a single or more pre loaded Bitmaps, for example, from the gallery.
  If you want to recognize more consecutive images that come from the camera video stream,
  use <code>#recognizeVideoImage(Image, ScanResultListener)</code> instead.</div>
@@ -401,6 +432,144 @@ loadScripts(document, 'script');</script>
  <p/>
  Unlike method recognizeBitmap, this method will apply given settings for recognition of current image. This may be much
  slower than using method recognizeBitmap, but it is the only option if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>image</code> - Image that needs to be recognized.</dd>
+<dd><code>imageOrientation</code> - Orientation of the bitmap image.</dd>
+<dd><code>scanRegion</code> - Region of image that needs to be recognized. Rectangle is given as percentages
+                            of image size - x coordinate and width are percentages of image width and y coordinate
+                            and height are percentages of image height. Therefore, rectangle(0.f, 0.f, 1.f, 1.f)
+                            represents the whole image, whilst rectangle(0.5f, 0.f, 0.5f, 1.f) represents the
+                            right half of the image.</dd>
+<dd><code>resultListener</code> - Result listener that will handle recognition done event.</dd>
+<dd><code>recognizerBundle</code> - Recognizer bundle that will be used to perform this recognition.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if recognizer is not initialized or is currently working</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if given null scan result listener</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.view.recognition.ScanResultListener)">
+<h3>recognizeVideoBitmap</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recognizeVideoBitmap</span><wbr><span class="parameters">(@NonNull
+ android.graphics.Bitmap&nbsp;image,
+ @NonNull
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ @NonNull
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</span></div>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.
+ Mainly for the use cases when you need to recognize multiple consecutive frames that originally came from the camera
+ video stream, for example, when a recording of scanning session needs to be processed.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
+ Recognition will be performed with same settings that were used for initialization
+ of recognizer singleton.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>image</code> - Image that needs to be recognized.</dd>
+<dd><code>imageOrientation</code> - Orientation of the bitmap image.</dd>
+<dd><code>resultListener</code> - Result listener that will handle recognition done event.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if recognizer is not initialized or is currently working</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if given scan result listener is <code>null</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="recognizeVideoBitmap(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle,com.microblink.blinkid.view.recognition.ScanResultListener)">
+<h3>recognizeVideoBitmap</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recognizeVideoBitmap</span><wbr><span class="parameters">(@NonNull
+ android.graphics.Bitmap&nbsp;image,
+ @NonNull
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ @NonNull
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
+ @NonNull
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener)</span></div>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.
+ Mainly for the use cases when you need to recognize multiple consecutive frames that originally came from the camera
+ video stream, for example, when a recording of scanning session needs to be processed.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
+ Recognition will be performed with same settings that were used for initialization
+ of recognizer singleton.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>image</code> - Image that needs to be recognized.</dd>
+<dd><code>imageOrientation</code> - Orientation of the bitmap image.</dd>
+<dd><code>scanRegion</code> - Region of image that needs to be recognized. Rectangle is given as percentages
+                         of image size - x coordinate and width are percentages of image width and y coordinate
+                         and height are percentages of image height. Therefore, rectangle(0.f, 0.f, 1.f, 1.f)
+                         represents the whole image, whilst rectangle(0.5f, 0.f, 0.5f, 1.f) represents the
+                         right half of the image.</dd>
+<dd><code>resultListener</code> - Result listener that will handle recognition done event.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if recognizer is not initialized or is currently working</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if given null scan result listener</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.view.recognition.ScanResultListener,com.microblink.blinkid.entities.recognizers.RecognizerBundle)">
+<h3>recognizeVideoBitmapWithRecognizers</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recognizeVideoBitmapWithRecognizers</span><wbr><span class="parameters">(@NonNull
+ android.graphics.Bitmap&nbsp;image,
+ @NonNull
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ @NonNull
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+ @NonNull
+ <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</span></div>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.
+ Mainly for the use cases when you need to recognize multiple consecutive frames that originally came from the camera
+ video stream, for example, when a recording of scanning session needs to be processed.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
+ Unlike the method recognizeVideoBitmap, this method will apply given settings for recognition of current image.
+ This may be much slower than using method recognizeVideoBitmap, but it is the only option
+ if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>image</code> - Image that needs to be recognized.</dd>
+<dd><code>imageOrientation</code> - Orientation of the bitmap image.</dd>
+<dd><code>resultListener</code> - Result listener that will handle recognition done event.</dd>
+<dd><code>recognizerBundle</code> - Recognizer bundle that will be used to perform this recognition.</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if recognizer is not initialized or is currently working</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if given null scan result listener</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="recognizeVideoBitmapWithRecognizers(android.graphics.Bitmap,com.microblink.blinkid.hardware.orientation.Orientation,com.microblink.blinkid.geometry.Rectangle,com.microblink.blinkid.view.recognition.ScanResultListener,com.microblink.blinkid.entities.recognizers.RecognizerBundle)">
+<h3>recognizeVideoBitmapWithRecognizers</h3>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">recognizeVideoBitmapWithRecognizers</span><wbr><span class="parameters">(@NonNull
+ android.graphics.Bitmap&nbsp;image,
+ @NonNull
+ <a href="../hardware/orientation/Orientation.html" title="enum class in com.microblink.blinkid.hardware.orientation">Orientation</a>&nbsp;imageOrientation,
+ @NonNull
+ <a href="../geometry/Rectangle.html" title="class in com.microblink.blinkid.geometry">Rectangle</a>&nbsp;scanRegion,
+ @NonNull
+ <a href="../view/recognition/ScanResultListener.html" title="interface in com.microblink.blinkid.view.recognition">ScanResultListener</a>&nbsp;resultListener,
+ @NonNull
+ <a href="../entities/recognizers/RecognizerBundle.html" title="class in com.microblink.blinkid.entities.recognizers">RecognizerBundle</a>&nbsp;recognizerBundle)</span></div>
+<div class="block">Use this method to directly recognize Image from the video stream which are represented as an Android Bitmap.
+ Mainly for the use cases when you need to recognize multiple consecutive frames that originally came from the camera
+ video stream, for example, when a recording of scanning session needs to be processed.
+ <p/>
+ Recognition will be optimized for speed and will rely on time-redundancy
+ between consecutive video frames in order to yield best possible recognition result.
+ <p/>
+ Unlike the method recognizeVideoBitmap, this method will apply given settings for recognition of current image.
+ This may be much slower than using method recognizeVideoBitmap, but it is the only option
+ if RecognizerRunnerView was initialized after this RecognizerRunner.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>image</code> - Image that needs to be recognized.</dd>
