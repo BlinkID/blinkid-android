@@ -96,7 +96,7 @@
         "description": "A massively spiffy yet delicately unobtrusive compression library."
     },
     {
-        "package": "opencv/4.9.3@microblink/main#d487de0a7dc81c147de03a4839fab53e",
+        "package": "opencv/4.9.4@microblink/main#d0e7e18f80688ba430f55ee505994927",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"
@@ -126,6 +126,12 @@
         "description": "Abseil Common Libraries (C++) from Google"
     },
     {
+        "package": "qoixx/0.1.7.2@microblink/main#6d9ad45abf586eb8f9f126749eded2a1",
+        "url": "https://github.com/microblink/qoixx",
+        "license": "MIT License",
+        "description": "qoixx is a high performance MIT licensed single-header QOI implementation written in C++20."
+    },
+    {
         "package": "pimpl/1.0.1@microblink/main#4857170a202027c0fd2f22d0c2c4c7a3",
         "url": "https://github.com/microblink/pimpl",
         "license": "BSD 2-Clause \"Simplified\" License",
@@ -150,7 +156,7 @@
         "description": "A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors."
     },
     {
-        "package": "zxing-cpp/1.0.3@microblink/main#56a4fe9168bc7a3674998234184f7084",
+        "package": "zxing-cpp/1.1.0@microblink/main#6650d1dcd9e84e7917697e701c82ad47",
         "url": "https://github.com/microblink/zxing",
         "license": "Apache License 2.0",
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"

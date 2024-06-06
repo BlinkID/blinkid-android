@@ -178,8 +178,10 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         add(R.string.PPClassInfoIsoNumericCountryCode, classInfo.getIsoNumericCountryCode());
         add(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
         add(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
+        add(R.string.PPDocumentSubtype, result.getDocumentSubtype());
 
-        add(R.string.MBDocumentImageBlurred, result.getImageAnalysisResult().isBlurred());
+        add(R.string.MBDocumentImageBlurred, result.getImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentImageGlareDetected, result.getImageAnalysisResult().isGlareDetected());
         add(R.string.MBDocumentImageColorStatus, result.getImageAnalysisResult().getDocumentImageColorStatus().name());
         add(R.string.MBDocumentImageMoireStatus, result.getImageAnalysisResult().getDocumentImageMoireStatus().name());
         add(R.string.MBDocumentImageFaceStatus, result.getImageAnalysisResult().getFaceDetectionStatus().name());
@@ -262,7 +264,10 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         addIfNotEmpty(R.string.PPClassInfoIsoAlpha2CountryCode, classInfo.getIsoAlpha2CountryCode());
         addIfNotEmpty(R.string.PPClassInfoIsoAlpha3CountryCode, classInfo.getIsoAlpha3CountryCode());
 
-        add(R.string.MBDocumentImageBlurred, result.getImageAnalysisResult().isBlurred());
+        addIfNotEmpty(R.string.PPDocumentSubtype, result.getDocumentSubtype());
+
+        add(R.string.MBDocumentImageBlurred, result.getImageAnalysisResult().isBlurDetected());
+        add(R.string.MBDocumentImageGlareDetected, result.getImageAnalysisResult().isGlareDetected());
         addIfNotEmpty(R.string.MBDocumentImageColorStatus, result.getImageAnalysisResult().getDocumentImageColorStatus().name());
         addIfNotEmpty(R.string.MBDocumentImageMoireStatus, result.getImageAnalysisResult().getDocumentImageMoireStatus().name());
         addIfNotEmpty(R.string.MBDocumentImageFaceStatus, result.getImageAnalysisResult().getFaceDetectionStatus().name());
@@ -323,6 +328,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         if (!driverLicenseInfo.isEmpty()) {
             addIfNotEmpty(R.string.PPDriverLicenseDetailedInfo, driverLicenseInfo.toString());
         }
+        addIfNotEmpty(R.string.PPDocumentSubtype, result.getDocumentSubtype());
     }
 
     private void extractMrzResults(MrzResult result) {

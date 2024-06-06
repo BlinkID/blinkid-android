@@ -84,8 +84,7 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Only specified parameters will be taken into account during anonymization.
  If any of the parameters are left undefined or set to <code>null</code>, specific anonymization will be applied
- to all the members of that parameter. At least one <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>FieldType</code></a> has to be set in order
- for the setting to be applied.</div>
+ to all the members of that parameter. <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>FieldType</code></a> array has to be set. Empty array is allowed.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -167,13 +166,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Builder</span><wbr><span class="parameters">(@NonNull
  <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]&nbsp;fields)</span>
         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
-<div class="block">Constructs a new <a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassAnonymizationSettings.Builder</code></a> instance. At least one <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>FieldType</code></a> has to be set. Otherwise,
+<div class="block">Constructs a new <a href="ClassAnonymizationSettings.Builder.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassAnonymizationSettings.Builder</code></a> instance. <a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>FieldType</code></a> array has to be set, even if empty. Otherwise,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link"><code>IllegalArgumentException</code></a> will be thrown.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>fields</code> - fields to be anonymized</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the passed <code>fields</code> array is <code>null</code> or empty</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the passed <code>fields</code> array is <code>null</code></dd>
 </dl>
 </section>
 </li>

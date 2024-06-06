@@ -1,5 +1,39 @@
 # Release notes
 
+## v6.8.0
+
+### New Features
+- **Glare detection**
+	- We’ve introduced glare detection to BlinkID, which removes occlusion on document images caused by glare. You can control the strictness of glare detection with three options (relaxed, normal, and strict) to suit your use case.
+	- Real-time feedback during scanning includes a new UI message to help users position the document correctly and reduce glare.
+- **Improved blur detection**
+	- We’ve raised the threshold for our blur model, making it stricter. This improvement ensures that sharper images are accepted for processing. You can now control the strictness of blur detection with three options (relaxed, normal, and strict).
+	- Real-time feedback during scanning includes a new UI message to help users position the document optimally for a clear image.
+- **Support for extracting the subtypes of US driver’s licenses & ID cards**
+	- BlinkID now extracts precise information about subtypes of driver’s licenses and ID cards (e.g., conditional driver’s license, learner’s permit, provision, enhanced, etc.). This information is included in the scanning results, allowing you to tailor workflows or processes based on document limitations.
+- **Classifier improvements**
+	- We upgraded our classifier model to prevent double-capturing of the front side of a document, ensuring the front and the back sides are captured correctly. If the back side of a document is not detected, the processing status will return `UnsupportedClass`.
+- **Option to anonymize barcode data**
+	- You can now anonymize specific fields in the barcode results from an identity document, in addition to the anonymized fields already supported in the Visual Inspection Zone (VIZ).
+- **Accessibility and UI improvements**
+	- UI has now been improved to work better with a wide range of system font and UI elements sizes.
+### Breaking API changes
+- Changes to the `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer` settings:
+	- renamed `allowBlurFilter` to `enableBlurFilter`
+### Minor API changes
+- Added a new result member `documentSubtype` in `BlinkIdSingleSideRecognizer.Result`, `BlinkIdMultiSideRecognizer.Result,` and `VIZResult` to include subtype information for US driver’s licenses or ID cards (commercial, provisional, etc.)
+- Changes to the `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer` settings:
+	- added `enableGlareFilter` which is set to `true` by default
+	- added `blurStrictnessLevel` which is set to `Normal` by default (`Strict`, `Normal`, or `Relaxed`)
+	- added `glareStrictnessLevel` which is set to `Normal` by default (`Strict`, `Normal`, or `Relaxed`)
+- Changes to the `ImageAnalysisResult`:
+	- renamed `glare` to `glareDetected`
+	- renamed `blurred` to `blurDetected`
+- Changes to the `ClassAnonymizationSettings`:
+	- `FieldType` array may now be empty when using Builder pattern
+#### Bug Fixes
+- Fixed data match for Paraguay ID 2023 to cover inconsistencies between the MRZ and Visual Inspection Zone (VIZ)
+
 ## v6.7.0
 
 ### New Features
@@ -20,6 +54,7 @@
 	- This status is triggered once the barcode was not found on the image. This processing status can only occur if the document has the mandatory barcode.
 - Added new boolean member `realIdDetectionStatus` to the `ImageAnalysisResult`. If `true`, Real ID symbol is present, `false` otherwise.
 - Added new member `documentNumberAnonymizationSettings` to the `ClassAnonymizationSettings` for seamless integration with the document number anonymization feature.
+- Deprecated `DocumentScanUISettings`, please use `BlinkIdUISettings`
 
 ### Bug Fixes
 - Updated internal mapping for Myanmar passports to display nationality as "Myanmarese" instead of "Burmese" on Myanmar passports.
@@ -31,7 +66,7 @@
 
 - fixed URL of the server performing online license check when it's enabled
   - in v9.1.1 the URL depended on the `BUILD_TYPE` property, pointing to production server only when `BUILD_TYPE` was set to `distribute`. However, apparently the `BUILD_TYPE` is not a compile-time property on Android like it's on other platforms and native code, so it was affected by the setting of the app that was integrating the SDK and that caused the SDK to call to a dev server which is unavailable from the external network
-- added `android.permission.INTERNET` permission to the manifest of `LibBlinkID`
+- added android.permission.INTERNET permission to the manifest of LibBlinkCard
   - this permission is needed in order to correctly perform license key validation for licenses that require that
 
 ## v6.6.0
@@ -147,12 +182,6 @@
 #### Deprecated Functionality:
 - `IdBarcodeRecognizer` is now marked as deprecated. We recommend transitioning to `BlinkIdMultiSideRecognizer`, which not only covers the functionality of `IdBarcodeRecognizer` but also offers additional features.
 
-#### Breaking changes
-- Add `shouldShowTorchButton` and `shouldShowCancelButton` to `ReticleOverlayView` constructor.
-- Splitting up `Image` class to `Image` and `InputImage`.`InputImage` is to be used as an input to the recognizers. `Image` will be the result of recognizer processing.
-
-#### Bugfixes
-- Fixed `Background ANR at jdk.internal.misc.Unsafe.park` that would happen in rare cases
 
 ## v6.5.1
 - Improved scanning of Bolivia IDs by addressing cases where the expiration date is covered by a signature, allowing the completion of the scanning process.
