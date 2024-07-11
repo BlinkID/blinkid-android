@@ -180,6 +180,9 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
         add(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        add(R.string.PPRemarks, result.getRemarks());
+        add(R.string.PPResidencePermitType, result.getResidencePermitType());
+        add(R.string.PPVisaType, result.getVisaType());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
@@ -283,6 +286,9 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPDocumentAdditionalNumber, result.getDocumentAdditionalNumber());
         addIfNotEmpty(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
         addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        addIfNotEmpty(R.string.PPRemarks, result.getRemarks());
+        addIfNotEmpty(R.string.PPResidencePermitType, result.getResidencePermitType());
+        addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
@@ -375,6 +381,9 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPDocumentOptionalAdditionalNumber, result.getDocumentOptionalAdditionalNumber());
         addIfNotEmpty(R.string.PPPersonalAdditionalNumber, result.getAdditionalPersonalIdNumber());
         addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
+        addIfNotEmpty(R.string.PPRemarks, result.getRemarks());
+        addIfNotEmpty(R.string.PPResidencePermitType, result.getResidencePermitType());
+        addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {

@@ -297,6 +297,9 @@
     <string name="PPVersionNumber">Version number</string>
     <string name="PPCharacterSet">Character set</string>
     <string name="PPDocumentSubtype">Document subtype</string>
+    <string name="PPRemarks">Remarks</string>
+    <string name="PPResidencePermitType">Residence permit type</string>
+    <string name="PPVisaType">Visa type</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
