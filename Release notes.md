@@ -7,7 +7,7 @@
 	- We’re introducing the option for customers to define their own set of mandatory fields. This feature allows greater flexibility in the scanning process by enabling the extraction of only the necessary information from identity documents. Now you can customize the process and focus on only those fields that are relevant to your use case.
 	- Custom mandatory fields can be set at the document level or applied universally to all document types.
 - **Face detector improvements**
-	- We made significant enhancements to our face detector model.
+	- We’ve made significant enhancements to our BlinkID face detector model. Now, the updated model detects instances where a finger is covering the face image more precisely, improving the reliability of the face detection feature.
 - **Added new values to `ClassInfo` enum:**
 	- `Region`:
 		- `ALAGOAS` for Brazilian documents
