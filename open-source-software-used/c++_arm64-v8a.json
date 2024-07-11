@@ -90,13 +90,13 @@
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
     },
     {
-        "package": "zlib/1.3.1@microblink/main#3bb0d02536a06b4fb5df2043276f3075",
+        "package": "zlib/1.3.2@microblink/main#52419110a760a9cb8cd7bd57b01de0b2",
         "url": "https://github.com/microblink/zlib",
         "license": "Zlib",
         "description": "A massively spiffy yet delicately unobtrusive compression library."
     },
     {
-        "package": "opencv/4.9.4@microblink/main#d0e7e18f80688ba430f55ee505994927",
+        "package": "opencv/4.10.1@microblink/main#2bc2be2ecc71966cde69f7dbdf85a312",
         "url": "https://github.com/microblink/opencv",
         "license": "MIT",
         "description": "Microblink's fork of OpenCV"

@@ -229,6 +229,10 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         addLocation(R.string.PPPersonalAdditionalNumber, result.getAdditionalPersonalIdNumber());
         addLocation(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         addLocation(R.string.PPDocumentSubtype, result.getDocumentSubtype());
+        addLocation(R.string.PPRemarks, result.getRemarks());
+        addLocation(R.string.PPResidencePermitType, result.getResidencePermitType());
+        addLocation(R.string.PPVisaType, result.getVisaType());
+
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
             addLocation(R.string.PPRestrictions, driverLicenseInfo.getRestrictions());
@@ -280,6 +284,9 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
         allStringResults.add(result.getAdditionalPersonalIdNumber());
         allStringResults.add(result.getIssuingAuthority());
         allStringResults.add(result.getDocumentSubtype());
+        allStringResults.add(result.getRemarks());
+        allStringResults.add(result.getResidencePermitType());
+        allStringResults.add(result.getVisaType());
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
             allStringResults.add(driverLicenseInfo.getRestrictions());
