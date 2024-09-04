@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = '1.8.0'
+        kotlin_version = '1.9.25'
     }
     repositories {
         mavenCentral()
@@ -25,7 +25,7 @@ allprojects {
 // versions of libraries that all modules require
 
 project.ext {
-    blinkIdVersion = '6.9.0'
+    blinkIdVersion = '6.10.0'
     compileSdkVersion = 34
     targetSdkVersion = 34
     appCompatVersion = '1.6.1'

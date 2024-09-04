@@ -115,7 +115,7 @@ Add _BlinkID_ as a dependency and make sure `transitive` is set to true
 
 ```
 dependencies {
-    implementation('com.microblink:blinkid:6.9.0@aar') {
+    implementation('com.microblink:blinkid:6.10.0@aar') {
         transitive = true
     }
 }
@@ -127,7 +127,7 @@ Android studio should automatically import javadoc from maven dependency. If tha
 
 1. In Android Studio project sidebar, ensure [project view is enabled](https://developer.android.com/studio/projects#ProjectView)
 2. Expand `External Libraries` entry (usually this is the last entry in project view)
-3. Locate `blinkid-6.9.0` entry, right click on it and select `Library Properties...`
+3. Locate `blinkid-6.10.0` entry, right click on it and select `Library Properties...`
 4. A `Library Properties` pop-up window will appear
 5. Click the second `+` button in bottom left corner of the window (the one that contains `+` with little globe)
 6. Window for defining documentation URL will appear
@@ -1356,7 +1356,7 @@ Execution failed for task ':app:mergeDebugNativeLibs'.
 > A failure occurred while executing com.android.build.gradle.internal.tasks.MergeJavaResWorkAction
    > 2 files found with path 'lib/arm64-v8a/libc++_shared.so' from inputs:
       - <path>/.gradle/caches/transforms-3/3d428f9141586beb8805ce57f97bedda/transformed/jetified-opencv-4.5.3.0/jni/arm64-v8a/libc++_shared.so
-      - <path>/.gradle/caches/transforms-3/609476a082a81bd7af00fd16a991ee43/transformed/jetified-blinkid-6.9.0/jni/arm64-v8a/libc++_shared.so
+      - <path>/.gradle/caches/transforms-3/609476a082a81bd7af00fd16a991ee43/transformed/jetified-blinkid-6.10.0/jni/arm64-v8a/libc++_shared.so
      If you are using jniLibs and CMake IMPORTED targets, see
      https://developer.android.com/r/tools/jniLibs-vs-imported-targets
 ```

@@ -325,6 +325,7 @@
     <string name="MBFrontCameraFrame">Front raw camera frame</string>
     <string name="MBBackCameraFrame">Back raw camera frame</string>
     <string name="MBBarcodeCameraFrame">Barcode raw camera frame</string>
+    <string name="MBBarcodeStepUsed">Barcode step used</string>
     <string name="MBJsonResult">JSON result</string>
 
     <string name="MBDocumentImageColorStatus">Image color status</string>

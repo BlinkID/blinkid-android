@@ -1111,6 +1111,13 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Full name</td><td>Always if present</td></tr>
 <tr><td>Last name</td><td>Always if present</td></tr>
 
+<tr><th colspan=2>BOLIVIA Driver's License - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of expiry</td><td>Always</td></tr>
+<tr><td>Date of issue</td><td>Always</td></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+<tr><td>Vehicle class</td><td>Always</td></tr>
+
 <tr><th colspan=2>BOLIVIA Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Always</td></tr>
@@ -1332,6 +1339,12 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Full name</td><td>Always</td></tr>
 <tr><td>Place of birth</td><td>Always</td></tr>
 
+<tr><th colspan=2>BRAZIL DISTRITO FEDERAL Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Always</td></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+<tr><td>Personal ID number</td><td>Always</td></tr>
+
 <tr><th colspan=2>BRAZIL GOIAS Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Always</td></tr>
@@ -1404,6 +1417,12 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Issuing authority</td><td>Always</td></tr>
 <tr><td>Place of birth</td><td>Always</td></tr>
 
+<tr><th colspan=2>BRAZIL PARANA Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Always</td></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+<tr><td>Personal ID number</td><td>Always if present</td></tr>
+
 <tr><th colspan=2>BRAZIL PERNAMBUCO Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Always</td></tr>
@@ -1447,6 +1466,12 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Date of birth</td><td>Always</td></tr>
 <tr><td>Full name</td><td>Always</td></tr>
 <tr><td>Place of birth</td><td>Always</td></tr>
+
+<tr><th colspan=2>BRAZIL SANTA CATARINA Identity Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Always</td></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+<tr><td>Personal ID number</td><td>Always if present</td></tr>
 
 <tr><th colspan=2>BRAZIL SAO PAOLO Identity Card - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -3175,6 +3200,15 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Place of birth</td><td>Always</td></tr>
 <tr><td>Sex</td><td>Always</td></tr>
 
+<tr><th colspan=2>FRANCE Professional ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of issue</td><td>Always</td></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+<tr><td>First name</td><td>Always</td></tr>
+<tr><td>Last name</td><td>Always</td></tr>
+<tr><td>Sex</td><td>Always</td></tr>
+<tr><td>Employer</td><td>Always if present</td></tr>
+
 <tr><th colspan=2>FRANCE Residence Permit - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of expiry</td><td>Always</td></tr>
@@ -3361,7 +3395,7 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Place of birth</td><td>Always</td></tr>
 <tr><td>Sex</td><td>Always</td></tr>
 
-<tr><th colspan=2>GERMANY Eid - Front</th></tr>
+<tr><th colspan=2>GERMANY eID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Always</td></tr>
 <tr><td>Date of expiry</td><td>Always</td></tr>
@@ -5298,6 +5332,10 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Sex</td><td>Always</td></tr>
 <tr><td>Personal ID number</td><td>Always if present</td></tr>
 
+<tr><th colspan=2>MEXICO Tax ID - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Always</td></tr>
+
 <tr><th colspan=2>MEXICO Voter ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Address</td><td>Always</td></tr>
@@ -6708,6 +6746,7 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>MRZ</td><td>Always</td></tr>
 <tr><td>Marital status</td><td>Always</td></tr>
 <tr><td>Nationality</td><td>Always</td></tr>
+<tr><td>Barcode data</td><td>Pending</td></tr>
 
 <tr><th colspan=2>PERU Alien ID - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -6720,6 +6759,10 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Date of expiry</td><td>Always if present</td></tr>
 <tr><td>Date of issue</td><td>Always if present</td></tr>
 <tr><td>Document additional number</td><td>Always if present</td></tr>
+
+<tr><th colspan=2>PERU Alien ID - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>MRZ</td><td>Pending</td></tr>
 
 <tr><th colspan=2>PERU Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
@@ -7966,6 +8009,11 @@ in the tables in [documents.md](BlinkIDRecognizer.md) file in this repository.
 <tr><td>Date of issue</td><td>Always if present</td></tr>
 <tr><td>Document additional number</td><td>Always if present</td></tr>
 <tr><td>Issuing authority</td><td>Always if present</td></tr>
+
+<tr><th colspan=2>SWEDEN Social Security Card - Back</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Date of expiry</td><td>Always if present</td></tr>
+<tr><td>Date of issue</td><td>Always if present</td></tr>
 
 <tr><th colspan=2>SWITZERLAND Driver's License - Front</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>

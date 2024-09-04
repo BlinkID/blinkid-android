@@ -274,46 +274,56 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <div class="block">Enable or disable recognition of specific document groups supported by the current license.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUncertainFrontSideScan(boolean)" class="member-name-link">setAllowUncertainFrontSideScan</a><wbr>(boolean&nbsp;allowUncertainFrontSideScan)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowBarcodeScanOnly(boolean)" class="member-name-link">setAllowBarcodeScanOnly</a><wbr>(boolean&nbsp;allowBarcodeScanOnly)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.</div>
+<div class="block">This setting allows barcode recognition to proceed even if the initial extraction fails.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUnparsedMrzResults(boolean)" class="member-name-link">setAllowUnparsedMrzResults</a><wbr>(boolean&nbsp;allowUnparsedMrzResults)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUncertainFrontSideScan(boolean)" class="member-name-link">setAllowUncertainFrontSideScan</a><wbr>(boolean&nbsp;allowUncertainFrontSideScan)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
+<div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUnverifiedMrzResults(boolean)" class="member-name-link">setAllowUnverifiedMrzResults</a><wbr>(boolean&nbsp;allowUnverifiedMrzResults)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUnparsedMrzResults(boolean)" class="member-name-link">setAllowUnparsedMrzResults</a><wbr>(boolean&nbsp;allowUnparsedMrzResults)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowUnverifiedMrzResults(boolean)" class="member-name-link">setAllowUnverifiedMrzResults</a><wbr>(boolean&nbsp;allowUnverifiedMrzResults)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allow reading of standard MRZ (Machine Readable Zone) which gets successfully parsed,
  but check digits are incorrect (do not comply with the ICAO standard).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAnonymizationMode(com.microblink.blinkid.entities.recognizers.blinkid.generic.AnonymizationMode)" class="member-name-link">setAnonymizationMode</a><wbr>(<a href="AnonymizationMode.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">AnonymizationMode</a>&nbsp;anonymizationMode)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAnonymizationMode(com.microblink.blinkid.entities.recognizers.blinkid.generic.AnonymizationMode)" class="member-name-link">setAnonymizationMode</a><wbr>(<a href="AnonymizationMode.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">AnonymizationMode</a>&nbsp;anonymizationMode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Redact specific fields based on requirements or laws regarding a specific document.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeScanningStartedCallback(com.microblink.blinkid.entities.recognizers.blinkid.generic.BarcodeScanningStartedCallback)" class="member-name-link">setBarcodeScanningStartedCallback</a><wbr>(<a href="BarcodeScanningStartedCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">BarcodeScanningStartedCallback</a>&nbsp;barcodeScanningStartedCallback)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeScanningStartedCallback(com.microblink.blinkid.entities.recognizers.blinkid.generic.BarcodeScanningStartedCallback)" class="member-name-link">setBarcodeScanningStartedCallback</a><wbr>(<a href="BarcodeScanningStartedCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">BarcodeScanningStartedCallback</a>&nbsp;barcodeScanningStartedCallback)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the <a href="BarcodeScanningStartedCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>BarcodeScanningStartedCallback</code></a> that will be invoked from the recognizer when barcode scanning step starts.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlurStrictnessLevel(com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis.StrictnessLevel)" class="member-name-link">setBlurStrictnessLevel</a><wbr>(<a href="imageanalysis/StrictnessLevel.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">StrictnessLevel</a>&nbsp;blurStrictnessLevel)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlurStrictnessLevel(com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis.StrictnessLevel)" class="member-name-link">setBlurStrictnessLevel</a><wbr>(<a href="imageanalysis/StrictnessLevel.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic.imageanalysis">StrictnessLevel</a>&nbsp;blurStrictnessLevel)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Strictness level for blur detection.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClassFilter(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassFilter)" class="member-name-link">setClassFilter</a><wbr>(<a href="ClassFilter.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassFilter</a>&nbsp;classFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClassFilter(com.microblink.blinkid.entities.recognizers.blinkid.generic.ClassFilter)" class="member-name-link">setClassFilter</a><wbr>(<a href="ClassFilter.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic">ClassFilter</a>&nbsp;classFilter)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the <a href="ClassFilter.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>ClassFilter</code></a> that can determine whether document should be processed or filtered out.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClassifierCallback(com.microblink.blinkid.entities.recognizers.classifier.ClassifierCallback)" class="member-name-link">setClassifierCallback</a><wbr>(<a href="../../classifier/ClassifierCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.classifier">ClassifierCallback</a>&nbsp;classifierCallback)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClassifierCallback(com.microblink.blinkid.entities.recognizers.classifier.ClassifierCallback)" class="member-name-link">setClassifierCallback</a><wbr>(<a href="../../classifier/ClassifierCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.classifier">ClassifierCallback</a>&nbsp;classifierCallback)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the <a href="../../classifier/ClassifierCallback.html" title="interface in com.microblink.blinkid.entities.recognizers.classifier"><code>ClassifierCallback</code></a> that will be invoked from the recognizer when document
  is classified.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCombineFrameResults(boolean)" class="member-name-link">setCombineFrameResults</a><wbr>(boolean&nbsp;combineFrameResults)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This setting enables the aggregation of data from multiple frames.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCustomClassRules(com.microblink.blinkid.entities.recognizers.blinkid.generic.CustomClassRules%5B%5D)" class="member-name-link">setCustomClassRules</a><wbr>(<a href="CustomClassRules.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">CustomClassRules</a>[]&nbsp;customClassRules)</code></div>
@@ -430,20 +440,30 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <div class="block">Allow only results containing expected characters for a given field.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUncertainFrontSideScan()" class="member-name-link">shouldAllowUncertainFrontSideScan</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowBarcodeScanOnly()" class="member-name-link">shouldAllowBarcodeScanOnly</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.</div>
+<div class="block">This setting allows barcode recognition to proceed even if the initial extraction fails.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnparsedMrzResults()" class="member-name-link">shouldAllowUnparsedMrzResults</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUncertainFrontSideScan()" class="member-name-link">shouldAllowUncertainFrontSideScan</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
+<div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnverifiedMrzResults()" class="member-name-link">shouldAllowUnverifiedMrzResults</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnparsedMrzResults()" class="member-name-link">shouldAllowUnparsedMrzResults</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnverifiedMrzResults()" class="member-name-link">shouldAllowUnverifiedMrzResults</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allow reading of standard MRZ (Machine Readable Zone) which gets successfully parsed,
  but check digits are incorrect (do not comply with the ICAO standard).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldCombineFrameResults()" class="member-name-link">shouldCombineFrameResults</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This setting enables the aggregation of data from multiple frames.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEnableBlurFilter()" class="member-name-link">shouldEnableBlurFilter</a>()</code></div>
@@ -623,6 +643,30 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
  Each field is validated against a set of rules.
  All fields have to be successfully validated in order for a recognizer state to be <code>com.microblink.blinkid.recognition.RecognitionSuccessType.SUCCESSFUL</code>.
  Setting is used to improve scanning accuracy.
+ By default, this is set to 'true'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCombineFrameResults(boolean)">
+<h3>setCombineFrameResults</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCombineFrameResults</span><wbr><span class="parameters">(boolean&nbsp;combineFrameResults)</span></div>
+<div class="block">This setting enables the aggregation of data from multiple frames.
+ Disabling this setting will yield higher-quality captured images,
+ but it may slow down the scanning process due to the additional effort required to find the optimal frame.
+ Enabling this setting will simplify the extraction process,
+ but the extracted data will be aggregated from multiple frames instead of being sourced from a single frame.
+ By default, this is set to 'true'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldCombineFrameResults()">
+<h3>shouldCombineFrameResults</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldCombineFrameResults</span>()</div>
+<div class="block">This setting enables the aggregation of data from multiple frames.
+ Disabling this setting will yield higher-quality captured images,
+ but it may slow down the scanning process due to the additional effort required to find the optimal frame.
+ Enabling this setting will simplify the extraction process,
+ but the extracted data will be aggregated from multiple frames instead of being sourced from a single frame.
  By default, this is set to 'true'.</div>
 </section>
 </li>
@@ -965,6 +1009,28 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldAllowUncertainFrontSideScan</span>()</div>
 <div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.
  This only works for still images - video feeds will ignore this setting.
+ By default, this is set to 'false'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setAllowBarcodeScanOnly(boolean)">
+<h3>setAllowBarcodeScanOnly</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setAllowBarcodeScanOnly</span><wbr><span class="parameters">(boolean&nbsp;allowBarcodeScanOnly)</span></div>
+<div class="block">This setting allows barcode recognition to proceed even if the initial extraction fails.
+ If the barcode recognition is successful, the recognizer will still end in a valid state.
+ This setting is applicable only to photo frames.
+ For multi-side recognizers, it is permitted only for the back side.
+ By default, this is set to 'false'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldAllowBarcodeScanOnly()">
+<h3>shouldAllowBarcodeScanOnly</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldAllowBarcodeScanOnly</span>()</div>
+<div class="block">This setting allows barcode recognition to proceed even if the initial extraction fails.
+ If the barcode recognition is successful, the recognizer will still end in a valid state.
+ This setting is applicable only to photo frames.
+ For multi-side recognizers, it is permitted only for the back side.
  By default, this is set to 'false'.</div>
 </section>
 </li>

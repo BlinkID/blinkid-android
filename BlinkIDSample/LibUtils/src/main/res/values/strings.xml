@@ -19,6 +19,7 @@
     <string-array name="result_types">
         <item>Mixed (best)</item>
         <item>Mixed (non empty)</item>
+        <item>JSON</item>
         <item>Front side OCR</item>
         <item>Back side OCR</item>
         <item>MRZ</item>
