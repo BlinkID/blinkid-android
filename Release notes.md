@@ -1,5 +1,44 @@
 # Release notes
 
+## v6.10.0
+
+### New features
+- **Improved reliability and first-time successful scanning experience**
+	- **_Avoiding Double Scans of the Front Side_**: For a more reliable scanning process, BlinkID now prompts users to flip the document when they scan the front side twice. This improves the overall experience and reduces the chance of mistakes.
+	- **_Starting with the Right Side_**: If users attempt to scan the back side of a document first, BlinkID will prompt them to begin with the front side. This feature ensures that users follow the correct order, leading to a more reliable and user-friendly experience.
+### Expanded document coverage
+#### New document versions for supported documents
+- Sweden - Social Security Card - Back side
+- Bolivia - Driver's License - Back side
+- Brazil, Distrito Federal - Identity Card - Back side
+#### Out of beta
+- Colombia - Temporary Protection Permit
+#### New beta documents support
+- France - Professional ID
+- Mexico - Tax ID
+#### New document versions for beta-supported documents
+- Brazil, Parana - Identity Card - Back side
+- Brazil, Santa Catarina - Identity Card - Back side
+#### New segments supported on documents
+- Peru - Alien ID - MRZ
+### Accessibility improvements
+- **Enhanced button contrast** - Improved contrast for the close and flashlight buttons, making them easier to distinguish.
+- **Improved focus order** - Enhanced focus order on help and onboarding screens to ensure proper reading of instructions when using TalkBack.
+- **Accessible button names** - Added accessible names to the help and flashlight buttons, enabling TalkBack to read them correctly.
+- **Glare warning toast** - The toast is now correctly detected and read by TalkBack.
+### Bug fixes
+- Fallback for barcode scanning - `Barcode ID` recognition mode will now extract information from any supported barcode if full document recognition fails. Initially available only for US and Canadian documents, this feature is now available to all documents.
+- MRZ field on US documents - Set to optional by default and currently refers to: Minnesota (DL & ID), New York (DL & ID), Vermont (DL) and Washington (DL & ID).
+- `AdditionalProcessingInfo` - In cases of an empty result, this field now provides details about the reasons why scanning failed.
+- Improved handling of face photo occlusion - The UI message is slightly changed to prompt users to keep the face photo fully visible when there is a finger occlusion.
+### Other changes
+- The SDK is now supported on Android 15 16KB page size devices.
+- Added `imageExtractionFailures` to `AdditionalProcessingInfo` - this allows clients to actively track if any `ImageExtractionType` (`FullDocument`, `Face`, `Signature`) is not visible on the presented document.
+- Added a new result member, `barcodeStepUsed`, to both `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer`. This member indicates whether the barcode scanning step was utilized during the process.
+- Added two new settings for `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer`:
+	- `allowBarcodeScanOnly` - allows barcode recognition to proceed even if the initial extraction fails - set to `false` by default
+	- `combineFrameResults` - enables the aggregation of data from multiple frames - set to `true` by default
+
 ## v6.9.0
 
 ### New Features
@@ -7,7 +46,7 @@
 	- We’re introducing the option for customers to define their own set of mandatory fields. This feature allows greater flexibility in the scanning process by enabling the extraction of only the necessary information from identity documents. Now you can customize the process and focus on only those fields that are relevant to your use case.
 	- Custom mandatory fields can be set at the document level or applied universally to all document types.
 - **Face detector improvements**
-	- We’ve made significant enhancements to our BlinkID face detector model. Now, the updated model detects instances where a finger is covering the face image more precisely, improving the reliability of the face detection feature.
+	- We made significant enhancements to our face detector model.
 - **Added new values to `ClassInfo` enum:**
 	- `Region`:
 		- `ALAGOAS` for Brazilian documents

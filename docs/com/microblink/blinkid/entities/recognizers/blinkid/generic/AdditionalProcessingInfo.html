@@ -140,9 +140,10 @@ implements android.os.Parcelable</span></div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="AdditionalProcessingInfo.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">AdditionalProcessingInfo</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(int%5B%5D,int%5B%5D,int%5B%5D)" class="member-name-link">createFromNative</a><wbr>(int[]&nbsp;missingMandatoryFieldsArray,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFromNative(int%5B%5D,int%5B%5D,int%5B%5D,int%5B%5D)" class="member-name-link">createFromNative</a><wbr>(int[]&nbsp;missingMandatoryFieldsArray,
  int[]&nbsp;invalidCharacterFieldsArray,
- int[]&nbsp;extraPresentFieldsArray)</code></div>
+ int[]&nbsp;extraPresentFieldsArray,
+ int[]&nbsp;imageExtractionFailuresArray)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">This method is called from native code to build <a href="AdditionalProcessingInfo.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>AdditionalProcessingInfo</code></a> from native object.</div>
 </div>
@@ -154,28 +155,33 @@ implements android.os.Parcelable</span></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">List of fields that weren't expected on the document but were present.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInvalidCharacterFields()" class="member-name-link">getInvalidCharacterFields</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ImageExtractionType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ImageExtractionType</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getImageExtractionFailures()" class="member-name-link">getImageExtractionFailures</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">List of fields that contained characters which were not expected in that field.</div>
+<div class="block">List of failed image extractions.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMissingMandatoryFields()" class="member-name-link">getMissingMandatoryFields</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInvalidCharacterFields()" class="member-name-link">getInvalidCharacterFields</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">List of fields that contained characters which were not expected in that field.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FieldType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">FieldType</a>[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMissingMandatoryFields()" class="member-name-link">getMissingMandatoryFields</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">List of fields that were expected on the document but were missing.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEmpty()" class="member-name-link">isEmpty</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEmpty()" class="member-name-link">isEmpty</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks whether data is empty.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
- int&nbsp;flags)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToParcel(android.os.Parcel,int)" class="member-name-link">writeToParcel</a><wbr>(android.os.Parcel&nbsp;dest,
+ int&nbsp;flags)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -243,6 +249,13 @@ implements android.os.Parcelable</span></div>
 </section>
 </li>
 <li>
+<section class="detail" id="getImageExtractionFailures()">
+<h3>getImageExtractionFailures</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ImageExtractionType.html" title="enum class in com.microblink.blinkid.entities.recognizers.blinkid.generic">ImageExtractionType</a>[]</span>&nbsp;<span class="element-name">getImageExtractionFailures</span>()</div>
+<div class="block">List of failed image extractions.</div>
+</section>
+</li>
+<li>
 <section class="detail" id="isEmpty()">
 <h3>isEmpty</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEmpty</span>()</div>
@@ -254,7 +267,7 @@ implements android.os.Parcelable</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="createFromNative(int[],int[],int[])">
+<section class="detail" id="createFromNative(int[],int[],int[],int[])">
 <h3>createFromNative</h3>
 <div class="member-signature"><span class="annotations">@NonNull
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="AdditionalProcessingInfo.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic">AdditionalProcessingInfo</a></span>&nbsp;<span class="element-name">createFromNative</span><wbr><span class="parameters">(@NonNull
@@ -262,7 +275,9 @@ implements android.os.Parcelable</span></div>
  @NonNull
  int[]&nbsp;invalidCharacterFieldsArray,
  @NonNull
- int[]&nbsp;extraPresentFieldsArray)</span></div>
+ int[]&nbsp;extraPresentFieldsArray,
+ @NonNull
+ int[]&nbsp;imageExtractionFailuresArray)</span></div>
 <div class="block">This method is called from native code to build <a href="AdditionalProcessingInfo.html" title="class in com.microblink.blinkid.entities.recognizers.blinkid.generic"><code>AdditionalProcessingInfo</code></a> from native object.</div>
 </section>
 </li>

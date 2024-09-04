@@ -67,7 +67,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
     protected void extractData(BlinkIdSingleSideRecognizer.Result result, ResultSource resultSource, String jsonResult) {
         switch (resultSource) {
             case NONEMPTY:
-                extractMixedNonEmptyResults(result, jsonResult);
+                extractMixedNonEmptyResults(result);
                 break;
             case FRONT:
                 extractVisualResults(result.getVizResult());
@@ -83,6 +83,9 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
                 break;
             case LOCATIONS:
                 addAllLocationResults(result);
+                break;
+            case JSON:
+                extractJsonResults(jsonResult);
                 break;
             case MIXED:
             default:
@@ -199,11 +202,12 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
 
         add(R.string.MBAdditionalProcessingInfo, result.getAdditionalProcessingInfo().toString());
 
+        add(R.string.MBBarcodeStepUsed, result.isBarcodeStepUsed());
         add(R.string.MBCameraFrame, result.getCameraFrame());
         add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
     }
 
-    private void extractMixedNonEmptyResults(BlinkIdSingleSideRecognizer.Result result, String jsonResult) {
+    private void extractMixedNonEmptyResults(BlinkIdSingleSideRecognizer.Result result) {
         addIfNotEmpty(R.string.PPFirstName, result.getFirstName());
         addIfNotEmpty(R.string.PPLastName, result.getLastName());
         addIfNotEmpty(R.string.PPFullName, result.getFullName());
@@ -288,8 +292,12 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
 
         addIfNotEmpty(R.string.MBAdditionalProcessingInfo, result.getAdditionalProcessingInfo().toString());
 
+        add(R.string.MBBarcodeStepUsed, result.isBarcodeStepUsed());
         add(R.string.MBCameraFrame, result.getCameraFrame());
         add(R.string.MBBarcodeCameraFrame, result.getBarcodeCameraFrame());
+    }
+
+    private void extractJsonResults(String jsonResult) {
         add(R.string.MBJsonResult, jsonResult);
     }
 

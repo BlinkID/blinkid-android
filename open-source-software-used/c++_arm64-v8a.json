@@ -12,7 +12,7 @@
         "description": "Patches for deficient C++ runtime implementations"
     },
     {
-        "package": "gtest/1.14.4@microblink/main#fd39529aac0692de0c0f8224a6c0cc24",
+        "package": "gtest/1.14.6@microblink/main#ef25cbb3635dfa1a0505092b037d48c8",
         "url": "https://bitbucket.org/microblink/core-google-test/src",
         "license": "BSD 3-Clause",
         "description": "Google's C++ test framework"
@@ -84,7 +84,7 @@
         "description": "err - yet another take on C++ error handling"
     },
     {
-        "package": "mmap/1.0.1@microblink/main#9e90aa2c4058b3f9e679c134a8aa5e12",
+        "package": "mmap/1.0.2@microblink/main#49540e8a3d87662b601b9b433396582c",
         "url": "https://github.com/microblink/mmap",
         "license": "Boost Software License",
         "description": "portable, lightweight, powerful, near-zero-overhead memory mapping and virtual memory management"
@@ -126,7 +126,7 @@
         "description": "Abseil Common Libraries (C++) from Google"
     },
     {
-        "package": "qoixx/0.1.7.2@microblink/main#6d9ad45abf586eb8f9f126749eded2a1",
+        "package": "qoixx/0.1.7.3@microblink/main#7a99513f8b969271ba87111c1317f1f0",
         "url": "https://github.com/microblink/qoixx",
         "license": "MIT License",
         "description": "qoixx is a high performance MIT licensed single-header QOI implementation written in C++20."

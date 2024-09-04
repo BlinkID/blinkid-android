@@ -306,6 +306,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Driver's License</td><td width=35%>Permis de conduire</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport<sup> BETA</sup></td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Professional ID<sup> BETA</sup></td><td width=35%>Carte d'identification professionnelle / Carte BTP</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Titre de séjour</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>GEORGIA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>მართვის მოწმობა</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -446,7 +447,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pass</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Refugee Passport</td><td width=35%>Resedokument</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Sis ID</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Social Security Card</td><td width=35%>Identitetskort / Skatteverkets id-kort</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Social Security Card</td><td width=35%>Identitetskort / Skatteverkets id-kort</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SWITZERLAND</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Führerausweis / Permis de conduire / Licenza di condurre / Permiss da manischar</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>IDENTITÄTSKARTE CARTE D'IDENTITÉ CARTA D'IDENTITÀ CARTA D'IDENTITAD, Identitätskarte / Carte d’identité  / Carta d’identità / Carta d’identitad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -489,7 +490,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Driver's License<sup> BETA</sup></td><td width=35%>Driving licence</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%></td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BOLIVIA</h3></b></th></tr>
-<tr><td width=35%>Driver's License</td><td width=35%>Licencia para conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Driver's License</td><td width=35%>Licencia para conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Minors ID</td><td width=35%>Cédula de identidad para menores</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Paper Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -502,7 +503,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, CEARA</h3></b></th></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, DISTRITO FEDERAL</h3></b></th></tr>
-<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, GOIAS</h3></b></th></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, MARANHAO</h3></b></th></tr>
@@ -514,7 +515,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PARA</h3></b></th></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PARANA</h3></b></th></tr>
-<tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, PERNAMBUCO</h3></b></th></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, RIO DE JANEIRO</h3></b></th></tr>
@@ -522,7 +523,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, RIO GRANDE DO SUL</h3></b></th></tr>
 <tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SANTA CATARINA</h3></b></th></tr>
-<tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SAO PAOLO</h3></b></th></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidade</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>BRAZIL, SERGIPE</h3></b></th></tr>
@@ -540,7 +541,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula Digital Colombiana, Cédula de Ciudadanía (CC)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Minors ID</td><td width=35%>Tarjeta de identidad Biométrica (Azul)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Temporary Protection Permit<sup> BETA</sup></td><td width=35%>Permiso por protección temporal</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Temporary Protection Permit</td><td width=35%>Permiso por protección temporal</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>COSTA RICA</h3></b></th></tr>
 <tr><td width=35%>Driver's License<sup> BETA</sup></td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de identidad</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -587,6 +588,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Professional ID<sup> BETA</sup></td><td width=35%>Cédula Profesional</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Residence Permit<sup> BETA</sup></td><td width=35%>Tarjeta de Residencia Temporal y Residencia Permanente</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Pasaporte</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Tax ID<sup> BETA</sup></td><td width=35%>Cédula de Identificación Fiscal (CIF)</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Voter ID</td><td width=35%>Credencial para votar</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>MEXICO, AGUASCALIENTES</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK,<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -668,7 +670,7 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de Conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Cédula de Identidad Civil</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>PERU</h3></b></th></tr>
-<tr><td width=35%>Alien ID<sup> BETA</sup></td><td width=35%>Carné de Extranjería</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Alien ID<sup> BETA</sup></td><td width=35%>Carné de Extranjería</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Licencia de conducir</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>Documento Nacional de Identidad (DNI)</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Minors ID<sup> BETA</sup></td><td width=35%>Documento Nacional de Identidad (DNI) para menores</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
@@ -798,8 +800,8 @@ Other than documents listed here, BlinkID Recognizers also scan the <strong>Mach
 <tr><td width=35%>Identity Card</td><td width=35%>Carte d'identité biométrique CEDEAO, Carte nationale d'identité</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SOUTH AFRICA</h3></b></th></tr>
 <tr><td width=35%>Driver's License</td><td width=35%>Bestuurslisensie</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>ID Card</td><td width=35%>Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>ID Card<sup> BETA</sup></td><td width=35%>Green barcoded ID	book</td><td align="center" width=15%><sub>FRONT<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card</td><td width=35%>Smart ID card</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Identity Card<sup> BETA</sup></td><td width=35%>Green barcoded ID	book</td><td align="center" width=15%><sub>FRONT<br>VERTICAL</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>Passeport</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 </table><table><tr><th width=1200px colspan = 4 align="center"> <b><h3>SUDAN</h3></b></th></tr>
 <tr><td width=35%>Polycarbonate Passport</td><td width=35%>جواز سفر</td><td align="center" width=15%><sub>BIO-DATA PAGE </sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
