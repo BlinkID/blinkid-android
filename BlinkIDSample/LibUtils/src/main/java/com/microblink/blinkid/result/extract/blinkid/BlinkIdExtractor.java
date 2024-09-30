@@ -168,6 +168,14 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
                 root.put("cyrilic", cyrilic);
             }
 
+            if (!value.value(AlphabetType.Greek).isEmpty()) {
+                JSONObject greek = new JSONObject();
+                greek.put("value", value.value(AlphabetType.Greek));
+                greek.put("side", value.side(AlphabetType.Greek) != null ? value.side(AlphabetType.Greek) : "null");
+                greek.put("location", value.location(AlphabetType.Greek) != null ? value.location(AlphabetType.Greek).toString() : "null");
+                root.put("cyrilic", greek);
+            }
+
             add(key, root.toString(2).replaceAll("\\\\", ""));
 
         } catch (JSONException e) {
@@ -318,6 +326,10 @@ public abstract class BlinkIdExtractor<ResultType extends Recognizer.Result, Rec
             if (!stringResult.value(AlphabetType.Cyrillic).isEmpty() && stringResult.location(AlphabetType.Cyrillic) != null && stringResult.side(AlphabetType.Cyrillic) == side) {
                 paint.setColor(Color.BLUE);
                 canvas.drawRect(stringResult.location(AlphabetType.Cyrillic).toRectF(), paint);
+            }
+            if (!stringResult.value(AlphabetType.Greek).isEmpty() && stringResult.location(AlphabetType.Greek) != null && stringResult.side(AlphabetType.Greek) == side) {
+                paint.setColor(Color.YELLOW);
+                canvas.drawRect(stringResult.location(AlphabetType.Greek).toRectF(), paint);
             }
         }
     }

@@ -1,5 +1,130 @@
 # Release notes
 
+## v6.11.0
+
+### Expanded Document Coverage
+#### New Documents Support
+- Armenia - Paper Passport
+- Bahamas - Temporary Residence Permit
+- Bahamas - Work Permit
+- Bangladesh - Polycarbonate Passport
+- Comoros - Paper Passport
+- Dominican Republic - Non Voter ID
+- Greece - Polycarbonate Passport
+- Jamaica - Voter ID
+- Kazakhstan - Paper Passport
+- Kyrgyzstan - Paper Passport
+- Kyrgyzstan - Polycarbonate Passport
+- Lebanon - Driver's License
+- Tajikistan - Identity Card
+- Turkmenistan - Polycarbonate Passport
+- Uzbekistan - Identity Card
+
+#### New Document Versions for Supported Documents
+- Argentina - Alien ID
+- Bulgaria - Identity Card
+- Canada, British Columbia - Identity Card
+- Canada, British Columbia - Minors Public Services Card
+- Croatia - Driver's License
+- Jamaica - Paper Passport
+- Malaysia - i-Kad
+- Mexico, Coahuila - Driver's License
+- Montenegro - Driver's License
+- Namibia - Identity Card
+- Norway - Driver's License
+- Pakistan - Proof of Registration
+- Panama - Identity Card
+- Panama - Residence Permit
+- Peru - Minors ID
+- Portugal - Identity Card
+- Romania - Identity Card
+- Trinidad and Tobago - Driver's License
+- Turkey - Identity Card
+- USA, Arizona - Identity Card
+- USA, Colorado - Identity Card
+- USA, Michigan - Identity Card
+- USA, Mississippi - Driver's License
+- USA, Mississippi - Identity Card
+- USA, Montana - Identity Card
+- USA, North Carolina - Identity Card
+- USA, North Carolina - Driver's License
+- USA, North Dakota - Driver's License
+- USA, Vermont - Identity Card
+- USA, Virginia - Identity Card
+- USA, Wyoming - Driver's License
+- USA, Wyoming - Identity Card
+- Uzbekistan - Paper Passport
+
+#### New Beta Documents Support
+- Andorra - Paper Passport
+- Andorra - Polycarbonate Passport
+- Philippines - Driver's License
+- Armenia - Work Permit
+- Australia - Asic Card
+- Azerbaijan - Driver's License
+- Bahamas - Paper Passport 
+- Bahamas - Polycarbonate Passport
+- Cayman Islands - Paper Passport
+- Cayman Islands - Polycarbonate Passport
+- Cayman Islands - Voter ID
+- Gibraltar - Driver's License
+- Gibraltar - Identity Card
+- Gibraltar - Paper Passport
+- Gibraltar - Polycarbonate Passport
+- Guyana - Paper Passport
+- Kuwait - Bidoon Card
+- Kyrgyzstan - Driver's License
+- Monaco - Paper Passport
+- Pakistan - Afghan Citizen Card
+- Philippines, Bangsamoro - Driver's License
+- Saint Lucia - Driver's License
+- Saint Lucia - Paper Passport
+- San Marino - Polycarbonate Passport
+- Turks and Caicos Islands - Driver's License
+- Turks and Caicos Islands - Identity Card
+- Turks and Caicos Islands - Paper Passport
+- Australia - Interim Health Insurance Card
+- Australia - Reciprocal Health Insurance Card
+- UAE - Vehicle Registration
+
+#### New Document Versions for Beta-Supported Documents
+- Barbados - Identity Card
+- Brazil - Paper Passport
+- Dominican Republic - Driver's License
+- India, Gujarat - Driver's License
+- Mexico, Puebla - Driver's License
+- Philippines - Tax ID
+- Philippines - Health Insurance Card
+- Australia - Health Insurance Card
+
+#### New Segments Supported on Documents
+- USA - Green Card - `eligibilityCategory`
+- USA - Work Permit - `eligibilityCategory`
+- Greece - Driver's License - `placeOfBirth` (greek and latin)
+- Saudi Arabia - Resident ID - `nationality` (arabic)
+- Bahrain - `dateOfExpiry`
+- USA - Driver's license & ID card - `specificDocumentValidity`
+- Pakistan - Proof of Registration - `DependentDateOfBirth`, `DependentSex`, `DependentDocumentNumber` & `DependentFullName`
+
+### Renamed segments 
+- Barbados - Identity Card - `personalIdNumber` -> `documentNumber`
+- Panama - Identity Card - `personalIdNumber` -> `documentNumber`
+- Panama - Residence Permit - `personalIdNumber` -> `documentNumber`
+
+### New Features
+- **Greek Alphabet Support**
+  - We’ve added support for extracting `Place of Birth` in both Greek and Latin scripts.
+- API changes in `BlinkIdSingleSideRecognizer` and `BlinkIdMultiSideRecognizer`:
+    - new fields in result: `manufacturingYear`, `vehicleType`, `eligibilityCategory`, `specificDocumentValidity`, `dependentsInfo`
+    - new values in `ClassInfo` enums:
+        - Region: `BANGSAMORO`
+        - Type: `ASIC_CARD`, `BIDOON_CARD`, `INTERIM_HEALTH_INSURANCE_CARD`, `NON_VOTER_ID`, `RECIPROCAL_HEALTH_INSURANCE_CARD`, `VEHICLE_REGISTRATION`
+    - new values in `FieldType` enum: `ManufacturingYear`, `VehicleType`, `DependentDateOfBirth`, `DependentSex`, `DependentDocumentNumber`, `DependentFullName`, `EligibilityCategory`, `SpecificDocumentValidity`
+
+### Bug fixes
+- Fix for duplicate attrs resource: `attr/mb_onboardingImageColor` when combining multiple Microblink's SDKs in the same app
+
+
 ## v6.10.0
 
 ### New features

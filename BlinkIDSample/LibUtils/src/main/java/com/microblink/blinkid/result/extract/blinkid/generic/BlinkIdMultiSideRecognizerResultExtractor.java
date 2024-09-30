@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.BlinkIdMultiSideRecognizer;
+import com.microblink.blinkid.entities.recognizers.blinkid.generic.DependentInfo;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.DriverLicenseDetailedInfo;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.Side;
 import com.microblink.blinkid.entities.recognizers.blinkid.generic.StringResult;
@@ -28,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<BlinkIdMultiSideRecognizer.Result, BlinkIdMultiSideRecognizer> {
@@ -187,6 +189,10 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         add(R.string.PPRemarks, result.getRemarks());
         add(R.string.PPResidencePermitType, result.getResidencePermitType());
+        add(R.string.PPManufacturingYear, result.getManufacturingYear());
+        add(R.string.PPVehicleType, result.getVehicleType());
+        add(R.string.PPEligibilityCategory, result.getEligibilityCategory());
+        add(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         add(R.string.PPVisaType, result.getVisaType());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
@@ -236,6 +242,8 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         add(R.string.MBBackAdditionalProcessingInfo, result.getBackAdditionalProcessingInfo().toString());
 
         add(R.string.PPDataMatch, result.getDataMatch().toString());
+
+        add(R.string.PPDependentsInfo, Arrays.toString(result.getDependentsInfo()));
 
         add(R.string.MBBarcodeStepUsed, result.isBarcodeStepUsed());
         add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
@@ -294,6 +302,10 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         addIfNotEmpty(R.string.PPRemarks, result.getRemarks());
         addIfNotEmpty(R.string.PPResidencePermitType, result.getResidencePermitType());
+        addIfNotEmpty(R.string.PPManufacturingYear, result.getManufacturingYear());
+        addIfNotEmpty(R.string.PPVehicleType, result.getVehicleType());
+        addIfNotEmpty(R.string.PPEligibilityCategory, result.getEligibilityCategory());
+        addIfNotEmpty(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
@@ -344,6 +356,11 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
 
         addIfNotEmpty(R.string.PPDataMatch, result.getDataMatch().toString());
 
+        DependentInfo[] dependentsInfo = result.getDependentsInfo();
+        if (dependentsInfo.length > 0) {
+            add(R.string.PPDependentsInfo, Arrays.toString(result.getDependentsInfo()));
+        }
+
         add(R.string.MBBarcodeStepUsed, result.isBarcodeStepUsed());
         add(R.string.MBFrontCameraFrame, result.getFrontCameraFrame());
         add(R.string.MBBackCameraFrame, result.getBackCameraFrame());
@@ -393,7 +410,16 @@ public class BlinkIdMultiSideRecognizerResultExtractor extends BlinkIdExtractor<
         addIfNotEmpty(R.string.PPIssuingAuthority, result.getIssuingAuthority());
         addIfNotEmpty(R.string.PPRemarks, result.getRemarks());
         addIfNotEmpty(R.string.PPResidencePermitType, result.getResidencePermitType());
+        addIfNotEmpty(R.string.PPManufacturingYear, result.getManufacturingYear());
+        addIfNotEmpty(R.string.PPVehicleType, result.getVehicleType());
+        addIfNotEmpty(R.string.PPEligibilityCategory, result.getEligibilityCategory());
+        addIfNotEmpty(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
+
+        DependentInfo[] dependentsInfo = result.getDependentsInfo();
+        if (dependentsInfo.length > 0) {
+            add(R.string.PPDependentsInfo, Arrays.toString(dependentsInfo));
+        }
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {

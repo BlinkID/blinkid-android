@@ -99,6 +99,7 @@
     <string name="PPDocumentType">Document Type</string>
     <string name="PPMRZParsed">MRZ parsed</string>
     <string name="PPMRZVerified">MRZ verified</string>
+    <string name="PPDependentsInfo">Dependents info</string>
     <string name="PPDocumentBothSidesMatch">Document Both Sides Match</string>
     <string name="PPDataMatch">Data match</string>
     <string name="PPDocumentNumberMatch">Document number data match</string>
@@ -299,6 +300,10 @@
     <string name="PPDocumentSubtype">Document subtype</string>
     <string name="PPRemarks">Remarks</string>
     <string name="PPResidencePermitType">Residence permit type</string>
+    <string name="PPManufacturingYear">Manufacturing year</string>
+    <string name="PPVehicleType">Vehicle type</string>
+    <string name="PPEligibilityCategory">Eligibility category</string>
+    <string name="PPSpecificDocumentValidity">Specific document validity</string>
     <string name="PPVisaType">Visa type</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
