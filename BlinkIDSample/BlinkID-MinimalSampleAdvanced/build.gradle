@@ -51,7 +51,7 @@ dependencies {
         transitive = true
     }
 
-    implementation 'androidx.activity:activity-ktx:1.7.0-alpha02'
+    implementation 'androidx.activity:activity-ktx:1.9.2'
 
     implementation project(':LibUtils')
 

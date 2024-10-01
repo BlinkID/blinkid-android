@@ -54,7 +54,7 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "sweater/1.1.3@microblink/main#c83ffe0cafb7d85b783f0854c0b61711",
+        "package": "sweater/1.1.4@microblink/main#08f619e71a655de4d7c5305175fb4e4b",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
@@ -174,7 +174,7 @@
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
     },
     {
-        "package": "xnnpack/20230525.1.3@microblink/main#76b20374e1ba44656d13d3b5e9638b18",
+        "package": "xnnpack/20230525.1.4@microblink/main#492ca6c9a9ea680e1424c32500c912a0",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
