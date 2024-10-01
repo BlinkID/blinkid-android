@@ -49,7 +49,7 @@ dependencies {
         transitive = true
     }
 
-    implementation 'androidx.activity:activity-ktx:1.8.2'
+    implementation 'androidx.activity:activity-ktx:1.9.2'
 
     // uncomment this to use custom LibBlinkID build
 //    implementation project(':LibBlinkID')
