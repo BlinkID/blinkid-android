@@ -1,5 +1,10 @@
 # Release notes
 
+## v6.11.1
+
+### Bug fixes
+- Removed unused `libc++_shared.so` from the SDK 
+
 ## v6.11.0
 
 ### Expanded Document Coverage
