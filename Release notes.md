@@ -1,5 +1,20 @@
 # Release notes
 
+## v6.12.0
+
+### What's New
+- **Beta Feature: Second Page Passport Scanning**
+     - We’ve launched support for scanning and extracting data from the second page of passports for select countries - Slovenia, Ireland, and New Zealand. When BlinkID detects one of these passports, a UI message will guide the user to the second page. By default, this feature is disabled but can be enabled via the `BlinkIdMultiSideRecognizer.scanPassportDataPageOnly` setting - if set to `false`, it will be required to scan the second page of certain passports. This feature is in beta, and your feedback is appreciated.
+- USA Green Card - Enabled Data Match for the `Document Number` field, matching values from the VIZ (Visual Inspection Zone) and MRZ to further enhance extraction reliability.
+
+
+### Bug Fixes
+- Spain ID: Fixed an issue with indefinite expiry dates, ensuring consistent values between the MRZ and Visual Inspection Zone (VIZ).
+- Bulgaria ID: Improved parsing for indefinite expiry dates in the MRZ for better accuracy.
+- Netherlands ID & Norway Passport: Resolved issues with the `Personal ID number` field that were causing the data match feature to fail.
+- Chinese Passport: Enhanced reliability of extracted data with additional logic for the `Document Number` field.
+- German ID & Luxembourg ID: Adjusted name extraction logic to resolve issues with name separation, ensuring more consistent results.
+
 ## v6.11.2
 
 ### Bug fixes

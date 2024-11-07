@@ -12,7 +12,7 @@
         "description": "Patches for deficient C++ runtime implementations"
     },
     {
-        "package": "gtest/1.14.6@microblink/main#ef25cbb3635dfa1a0505092b037d48c8",
+        "package": "gtest/1.14.8@microblink/main#1eedab2c6d0c2bb53fd35e17fb734f8e",
         "url": "https://bitbucket.org/microblink/core-google-test/src",
         "license": "BSD 3-Clause",
         "description": "Google's C++ test framework"
@@ -54,13 +54,13 @@
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "sweater/1.1.4@microblink/main#08f619e71a655de4d7c5305175fb4e4b",
+        "package": "sweater/1.1.6@microblink/main#f15ba2c8c2048cce3c9f6ca3d9c407a5",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
     },
     {
-        "package": "cpuinfo/20230428.2@microblink/main#69c57badb6dd4e3e218c5d280cea949b",
+        "package": "cpuinfo/20241015.0@microblink/main#6562bb9b5cbcf24fd89fb38fdfcadf97",
         "url": "https://github.com/microblink/cpuinfo",
         "license": "BSD 2-Clause \"Simplified\" License",
         "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
@@ -168,13 +168,13 @@
         "description": "tqdm-like single header c++ pretty progress bar"
     },
     {
-        "package": "eigen/3.4.1@microblink/main#89924435ee7bbea82943ab36e0f2669c",
+        "package": "eigen/3.4.2@microblink/main#406195518d246c1d387b54df8ade9052",
         "url": "https://github.com/microblink/eigen-git-mirror",
         "license": "Mozilla Public License Version 2.0",
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
     },
     {
-        "package": "xnnpack/20230525.1.4@microblink/main#492ca6c9a9ea680e1424c32500c912a0",
+        "package": "xnnpack/20230525.1.5@microblink/main#30f7e3e2f8d052db14efcc52648ebad0",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
