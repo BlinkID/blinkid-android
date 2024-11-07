@@ -425,96 +425,106 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <div class="block">Process only cropped document images with corrected perspective (frontal images of a document).</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSignatureImageDpi(int)" class="member-name-link">setSignatureImageDpi</a><wbr>(int&nbsp;desiredDPI)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setScanPassportDataPageOnly(boolean)" class="member-name-link">setScanPassportDataPageOnly</a><wbr>(boolean&nbsp;scanPassportDataPageOnly)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets desired DPI (Dots Per Inch) for signature image that should be returned.</div>
+<div class="block">Scan only the data page ( page containing MRZ ) of the passport.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSkipUnsupportedBack(boolean)" class="member-name-link">setSkipUnsupportedBack</a><wbr>(boolean&nbsp;skipUnsupportedBack)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSignatureImageDpi(int)" class="member-name-link">setSignatureImageDpi</a><wbr>(int&nbsp;desiredDPI)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Back side of the document will not be scanned if only the front side is supported for a specific document.</div>
+<div class="block">Sets desired DPI (Dots Per Inch) for signature image that should be returned.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setValidateResultCharacters(boolean)" class="member-name-link">setValidateResultCharacters</a><wbr>(boolean&nbsp;validateResultCharacters)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSkipUnsupportedBack(boolean)" class="member-name-link">setSkipUnsupportedBack</a><wbr>(boolean&nbsp;skipUnsupportedBack)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Back side of the document will not be scanned if only the front side is supported for a specific document.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setValidateResultCharacters(boolean)" class="member-name-link">setValidateResultCharacters</a><wbr>(boolean&nbsp;validateResultCharacters)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allow only results containing expected characters for a given field.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowBarcodeScanOnly()" class="member-name-link">shouldAllowBarcodeScanOnly</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowBarcodeScanOnly()" class="member-name-link">shouldAllowBarcodeScanOnly</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This setting allows barcode recognition to proceed even if the initial extraction fails.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUncertainFrontSideScan()" class="member-name-link">shouldAllowUncertainFrontSideScan</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUncertainFrontSideScan()" class="member-name-link">shouldAllowUncertainFrontSideScan</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Proceed to scan the back side of a document even if some of the validity checks have failed while scanning the front side of a document.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnparsedMrzResults()" class="member-name-link">shouldAllowUnparsedMrzResults</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnparsedMrzResults()" class="member-name-link">shouldAllowUnparsedMrzResults</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allow reading of non-standard MRZ (Machine Readable Zone).</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnverifiedMrzResults()" class="member-name-link">shouldAllowUnverifiedMrzResults</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAllowUnverifiedMrzResults()" class="member-name-link">shouldAllowUnverifiedMrzResults</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allow reading of standard MRZ (Machine Readable Zone) which gets successfully parsed,
  but check digits are incorrect (do not comply with the ICAO standard).</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldCombineFrameResults()" class="member-name-link">shouldCombineFrameResults</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldCombineFrameResults()" class="member-name-link">shouldCombineFrameResults</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">This setting enables the aggregation of data from multiple frames.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEnableBlurFilter()" class="member-name-link">shouldEnableBlurFilter</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEnableBlurFilter()" class="member-name-link">shouldEnableBlurFilter</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Skip processing of the blurred frames.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEnableGlareFilter()" class="member-name-link">shouldEnableGlareFilter</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEnableGlareFilter()" class="member-name-link">shouldEnableGlareFilter</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Skip processing of the frames with glare.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeFaceImage()" class="member-name-link">shouldEncodeFaceImage</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeFaceImage()" class="member-name-link">shouldEncodeFaceImage</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether encoding of face image from document and writing it into the recognition result is enabled.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeFullDocumentImage()" class="member-name-link">shouldEncodeFullDocumentImage</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeFullDocumentImage()" class="member-name-link">shouldEncodeFullDocumentImage</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether encoding of full document images and writing them into the recognition result is enabled.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeSignatureImage()" class="member-name-link">shouldEncodeSignatureImage</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldEncodeSignatureImage()" class="member-name-link">shouldEncodeSignatureImage</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether encoding of signature image and writing it into the recognition result is enabled.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnFaceImage()" class="member-name-link">shouldReturnFaceImage</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnFaceImage()" class="member-name-link">shouldReturnFaceImage</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether face image will be available in <a href="../imageresult/FaceImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FaceImageResult</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnFullDocumentImage()" class="member-name-link">shouldReturnFullDocumentImage</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnFullDocumentImage()" class="member-name-link">shouldReturnFullDocumentImage</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether full document image will be available in
  <a href="../imageresult/FullDocumentImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>FullDocumentImageResult</code></a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnSignatureImage()" class="member-name-link">shouldReturnSignatureImage</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldReturnSignatureImage()" class="member-name-link">shouldReturnSignatureImage</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns whether signature image will be available in <a href="../imageresult/SignatureImageResult.html" title="interface in com.microblink.blinkid.entities.recognizers.blinkid.imageresult"><code>SignatureImageResult</code></a>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldSaveCameraFrames()" class="member-name-link">shouldSaveCameraFrames</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldSaveCameraFrames()" class="member-name-link">shouldSaveCameraFrames</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Save the raw camera frames at the moment of the data extraction or timeout.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldScanCroppedDocumentImage()" class="member-name-link">shouldScanCroppedDocumentImage</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldScanCroppedDocumentImage()" class="member-name-link">shouldScanCroppedDocumentImage</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Process only cropped document images with corrected perspective (frontal images of a document).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldScanPassportDataPageOnly()" class="member-name-link">shouldScanPassportDataPageOnly</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Scan only the data page ( page containing MRZ ) of the passport.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldSkipUnsupportedBack()" class="member-name-link">shouldSkipUnsupportedBack</a>()</code></div>
@@ -686,6 +696,24 @@ implements <a href="../CombinedRecognizer.html" title="interface in com.microbli
 <div class="block">Process only cropped document images with corrected perspective (frontal images of a document).
  This only applies to still images - video feed will ignore this setting.
  By default, this is set to 'false'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setScanPassportDataPageOnly(boolean)">
+<h3>setScanPassportDataPageOnly</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setScanPassportDataPageOnly</span><wbr><span class="parameters">(boolean&nbsp;scanPassportDataPageOnly)</span></div>
+<div class="block">Scan only the data page ( page containing MRZ ) of the passport.
+ If set to 'false', it will be required to scan the second page of certain passports.
+ By default, this is set to 'true'.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldScanPassportDataPageOnly()">
+<h3>shouldScanPassportDataPageOnly</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldScanPassportDataPageOnly</span>()</div>
+<div class="block">Scan only the data page ( page containing MRZ ) of the passport.
+ If set to 'false', it will be required to scan the second page of certain passports.
+ By default, this is set to 'true'.</div>
 </section>
 </li>
 <li>

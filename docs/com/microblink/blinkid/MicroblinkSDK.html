@@ -153,9 +153,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Set license key and unlock the SDK.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setPingProxyUrl(java.lang.String)" class="member-name-link">setPingProxyUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setMicroblinkProxyUrl(java.lang.String)" class="member-name-link">setMicroblinkProxyUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Set custom URL for Ping (used as a proxy).</div>
+<div class="block">Set custom URL for Ping and licence check (used as a proxy).</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setShowTrialLicenseWarning(boolean)" class="member-name-link">setShowTrialLicenseWarning</a><wbr>(boolean&nbsp;showTrialLicenseWarning)</code></div>
@@ -269,17 +269,19 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="setPingProxyUrl(java.lang.String)">
-<h3>setPingProxyUrl</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPingProxyUrl</span><wbr><span class="parameters">(@NonNull
+<section class="detail" id="setMicroblinkProxyUrl(java.lang.String)">
+<h3>setMicroblinkProxyUrl</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMicroblinkProxyUrl</span><wbr><span class="parameters">(@NonNull
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;url)</span></div>
-<div class="block">Set custom URL for Ping (used as a proxy). Will be applied if the correct license right exists.</div>
+<div class="block">Set custom URL for Ping and licence check (used as a proxy). If you need to set the proxy URL,
+ you should do it before setting the license key; otherwise this call won't have any effect.
+ Proxy URL will be applied if the correct license right exists; otherwise
+ <a href="licence/exception/InvalidLicenceKeyException.html" title="class in com.microblink.blinkid.licence.exception"><code>InvalidLicenceKeyException</code></a> will be thrown when setting the license key.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>url</code> - String containing the desired url base.</dd>
+<dd><code>url</code> - String containing the desired URL base. URL has to use HTTPS protocol.</dd>
 <dt>Throws:</dt>
-<dd><code>InvalidLicenseKeyException</code> - if license is not valid</dd>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if URL is not valid and doesn't use HTTPS protocol</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the URL is not using HTTPS protocol.</dd>
 </dl>
 </section>
 </li>
