@@ -1,5 +1,82 @@
 # Release notes
 
+## v6.13.0
+
+### What's New
+
+#### New Documents Support 
+- Benin - Identity Card
+- Costa Rica - Polycarbonate Passport
+- Gambia - Identity Card
+- Guinea - Identity Card
+- Nicaragua - Paper Passport
+- Pakistan - Polycarbonate Passport
+- Saudi Arabia - Polycarbonate Passport
+- Senegal - Paper Passport
+- Suriname - Identity Card
+- Uruguay - Paper Passport
+- Zimbabwe - Polycarbonate Passport
+
+#### New Document Versions for Supported Documents 
+- Australia, Northern Territory - Proof Of Age Card
+- Ecuador - Driver's License
+- Ecuador - Paper Passport
+- El Salvador - Identity Card
+- Finland - Identity Card
+- Germany - eID
+- Greece - Driver's License
+- Guatemala - Driver's License
+- Kenya - Identity Card
+- Luxembourg - Residence Permit
+- Mexico, Hidalgo - Driver's License
+- Mexico, Quintana Roo-Solidaridad - Driver's License
+- Mexico, Tamaulipas - Driver's License
+- Mozambique - Identity Card
+- New Zealand - Driver's License
+- Nicaragua - Identity Card
+- Tunisia - Driver's License
+- Uganda - Driver's License
+- UK - Asylum Request
+- UK - Proof Of Age Card
+- USA - Passport Card
+- USA, Michigan - Identity Card
+- USA, Tennessee - Driver's License
+- USA, Tennessee - Identity Card
+
+#### New Beta Documents Support 
+- Brazil, Alagoas - Identity Card
+- Grenada - Paper Passport
+- Honduras - Resident ID
+- Paraguay - Paper Passport
+- Saint Kitts and Nevis - Paper Passport
+- UAE - Esaad Card
+
+#### New Document Versions for Beta-Supported Documents 
+- El Salvador - Driver's License
+- Honduras - Driver's License
+- Hong Kong - Polycarbonate Passport
+- India, Gujarat - Driver's License
+- Liechtenstein - Driver's License
+- Mexico, Quintana Roo-Cozumel - Driver's License
+- Mozambique - Driver's License
+- Saint Lucia - Paper Passport
+
+#### Out of beta
+- UK - Asylum Request
+- USA, North Dakota - Identity Card
+
+### Minor API changes
+- added new items to enums:
+  - Type: `ESAAD_CARD`
+  - FieldType: `VehicleOwner`
+- added `vehicleOwner` result to `BlinkIdMultiSideRecognizer.Result`, `BlinkIdSingleSideRecognizer.Result`, and `VizResult`
+
+### Bug Fixes
+- NY ID/DL: Added logic to expose the Enhanced document subtype, allowing customers to distinguish between regular and enhanced versions.
+- Bolivia & Namibia ID: Resolved data match inconsistencies that were causing data match failures.
+- Romanian ID: Multi side scan no longer expects blank back card of old IDs, even with `skipUnsupportedBack` set to `false`.
+- Fixed `backImageAnalysisResult.cardRotation` not being correctly populated when scanning the wrong side of a document. 
+
 ## v6.12.0
 
 ### What's New

@@ -162,12 +162,6 @@
         "description": "ZXing (\"Zebra Crossing\") barcode scanning library for Java, Android"
     },
     {
-        "package": "tqdm/1.0.0@microblink/main#9f84ad8bec3a73f9635d64c0f49aea96",
-        "url": "https://bitbucket.org/microblink/core-tqdm",
-        "license": "MIT",
-        "description": "tqdm-like single header c++ pretty progress bar"
-    },
-    {
         "package": "eigen/3.4.2@microblink/main#406195518d246c1d387b54df8ade9052",
         "url": "https://github.com/microblink/eigen-git-mirror",
         "license": "Mozilla Public License Version 2.0",
@@ -190,6 +184,12 @@
         "url": "https://bitbucket.org/microblink/core-tensorflow/",
         "license": "Apache License 2.0",
         "description": "Computation using data flow graphs for scalable machine learning"
+    },
+    {
+        "package": "tqdm/1.0.0@microblink/main#9f84ad8bec3a73f9635d64c0f49aea96",
+        "url": "https://bitbucket.org/microblink/core-tqdm",
+        "license": "MIT",
+        "description": "tqdm-like single header c++ pretty progress bar"
     },
     {
         "package": "tinyxml2/2.2.4@microblink/main#e75d39f68113ec40fde0b991ffa76a37",

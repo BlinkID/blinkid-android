@@ -305,6 +305,7 @@
     <string name="PPEligibilityCategory">Eligibility category</string>
     <string name="PPSpecificDocumentValidity">Specific document validity</string>
     <string name="PPVisaType">Visa type</string>
+    <string name="PPVehicleOwner">Vehicle owner</string>
 
     <string name="MBRecognitionStatus">Recognition status</string>
     <string name="MBFullDocumentImage">Full document image</string>
