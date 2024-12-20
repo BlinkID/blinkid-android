@@ -176,6 +176,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         add(R.string.PPEligibilityCategory, result.getEligibilityCategory());
         add(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         add(R.string.PPVisaType, result.getVisaType());
+        add(R.string.PPVehicleOwner, result.getVehicleOwner());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
@@ -271,6 +272,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         addIfNotEmpty(R.string.PPEligibilityCategory, result.getEligibilityCategory());
         addIfNotEmpty(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
+        addIfNotEmpty(R.string.PPVehicleOwner, result.getVehicleOwner());
 
         DriverLicenseDetailedInfo driverLicenseInfo = result.getDriverLicenseDetailedInfo();
         if (!driverLicenseInfo.isEmpty()) {
@@ -362,6 +364,7 @@ public class BlinkIdSingleSideRecognizerResultExtractor extends BlinkIdExtractor
         addIfNotEmpty(R.string.PPEligibilityCategory, result.getEligibilityCategory());
         addIfNotEmpty(R.string.PPSpecificDocumentValidity, result.getSpecificDocumentValidity());
         addIfNotEmpty(R.string.PPVisaType, result.getVisaType());
+        addIfNotEmpty(R.string.PPVehicleOwner, result.getVehicleOwner());
 
         DependentInfo[] dependentsInfo = result.getDependentsInfo();
         if (dependentsInfo.length > 0) {
