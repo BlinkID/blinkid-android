@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="background">#333333</color>
-    <color name="backgroundDark">#222222</color>
-    <color name="microblink_blue">#0062F2</color>
-    <color name="textColor">#FFF</color>
-    <color name="preview_overlay_color">#22000000</color>
-</resources>
