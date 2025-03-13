@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">BlinkID Direct API Sample</string>
-
-    <string name="scan">Scan</string>
-    <string name="takePhoto">Take Photo</string>
-
-</resources>

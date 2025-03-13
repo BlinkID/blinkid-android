@@ -1,0 +1,5 @@
+package com.microblink.blinkid.sample.config
+
+object BlinkIdConfig {
+    const val licenseKey = "sRwCAB1jb20ubWljcm9ibGluay5ibGlua2lkLnNhbXBsZQBsZXlKRGNtVmhkR1ZrVDI0aU9qRTNOREU0T0RBME9UVTBPRE1zSWtOeVpXRjBaV1JHYjNJaU9pSmtaR1F3TmpabFppMDFPREl6TFRRd01EZ3RPVFE0TUMwMU5EVTRZakF4WVRVMllqZ2lmUT09itFq81+BsXnPNx0/n2rf2kwiIQOLqbsCQB6gmKLNoCVHc8KwvGtkduMoga0UFeWF2YLmXKc+PmeqU8Ax6+3MmuIWeZhzBYngmhERJF1p5avA0arq4HmYVJZwSfnw"
+}
