@@ -16,11 +16,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
-        // add Microblink maven repository to repositories list
-        maven {
-            url = uri("https://maven.microblink.com")
-        }
     }
 }
 

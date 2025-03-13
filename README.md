@@ -49,16 +49,14 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 ### Adding _BlinkID_ SDK dependency
 
-The `BlinkID` library is available on Microblink maven repository.
+The `BlinkID` library is available on Maven Central repository.
 
-In your project root add _Microblink_ maven repository to `repositories` list:
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
 
 ```
 repositories {
     // ... other repositories
-    maven {
-        url = uri("https://maven.microblink.com")
-    }
+    mavenCentral()
 }
 ```
 
@@ -402,14 +400,12 @@ Low-level API gives you more flexibility with the cost of a significantly larger
 For low-level API integration, only _BlinkID_ SDK core library: **blinkid-core** is needed.
 Both `blinkid-ux` and `microblink-ux` are not needed.
 
-In your project root, add _Microblink_ maven repository to the repositories list:
+In your project root, add `mavenCentral()` repository to the repositories list, if not already present:
 
 ```
 repositories {
     // ... other repositories
-    maven {
-        url = uri("https://maven.microblink.com")
-    }
+    mavenCentral()
 }
 ```
 
