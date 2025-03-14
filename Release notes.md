@@ -1,5 +1,56 @@
 # Release notes
 
+## v7.0.0
+
+We’re excited to introduce BlinkID v7, a major upgrade designed to simplify your integration and deliver a simpler ID scanning experience. With BlinkID v7, we’re taking a fresh approach to scanning logic by introducing a more straightforward, session-based API for an easier configuration path, all while boosting first-time scan success rate.
+
+### Highlights & Integration Improvements
+
+- **Lighter SDK**: By incorporating dynamic model loading, BlinkID v7 drastically reduces download size from ~10MB to ~3.8MB, and lowers memory usage.
+- **Unified session-based API**: We’ve moved away from juggling multiple recognizers (e.g., SingleSide, MultiSide) to a single session-based BlinkIDScanningSession, unifying scanning logic under one simplified API. There's no need to switch recognizers anymore.
+- **Backward compatibility**: Existing production keys will continue to work with v7.0. No new license key is required for the upgrade.
+- **More maintainable codebase**: This new architecture sets the stage for easier and faster updates.
+
+### Architecture Changes
+- **New core components**: Instead of Recognizer-based architecture, BlinkID uses a streamlined Session-based approach.
+- **Modern Kotlin features**: Written fully in `Kotlin`, the code is simple and easy to work with.
+- **Jetpack Compose**: `Jetpack Compose` is the main driver for the UI through blinkid-ux package.
+- **Simplified flow**: More straightforward API with clearer separation of concerns.
+
+### Major API Changes
+
+- New session-based API
+  - Replaces the recognizer-based approach with a single, streamlined session model for easier scanning logic and better maintainability.
+
+- Jetpack Compose UI & modular SDK
+  - UI is now built with Jetpack Compose, simplifying integration via `blinkid-ux`.
+  - The SDK is modular:
+    - `blinkid-core` for scanning logic.
+    - `blinkid-ux` for prebuilt UI components.
+
+- Simplified initialization & result handling
+  - New SDK initialization method:
+    ```kotlin
+    BlinkIdSdk.initializeSdk(BlinkIdSdkSettings(context, licenseKey))
+    ```
+  - Results are now retrieved through structured session-based callbacks instead of recognizer bundles.
+
+- Enhanced UI customization & source-available UX
+  - `UiSettings` enables direct customization of typography, colors, and strings.
+  - The source-available UI layer allows advanced modifications for branding and accessibility.
+
+- Many of the older settings have been renamed to be more intuitive, including among others:
+  - `blurStrictnessLevel` → `blurDetectionLevel`
+  - `enableBlurFilter` → `skipFramesWithBlur`
+  - `glareStrictnessLevel` → `glareDetectionLevel`
+  - `enableGlareFilter` → `skipFramesWithGlare`
+  - `combineFrameResults` → `enableMultiFrameExtraction`
+  - `cardRotation`→ `documentRotation`
+  - `...`
+
+### Plan Your Upgrade
+We have prepared a [Transition Guide](https://github.com/BlinkID/blinkid-android/blob/master/Transition%20guide.md) to help you get started with BlinkID v7.0. It outlines all major API changes and best practices for migrating existing code. Read the transition guide here. For any questions or feedback, reach out to support@microblink.com. We value your input and look forward to hearing how BlinkID v7 improves your app’s experience!
+
 ## v6.13.0
 
 ### What's New

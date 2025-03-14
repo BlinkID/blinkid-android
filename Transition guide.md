@@ -6,9 +6,9 @@ This guide will help you migrate your application from BlinkID v6 to the new Bli
 
 ### 1. Architecture changes
 
-- **New Core Components**: Instead of Recognizer-based architecture architecture, BlinkID uses a streamlined Session-based approach
+- **New Core Components**: Instead of Recognizer-based architecture, BlinkID uses a streamlined Session-based approach
 - **Modern Kotlin Features**: Written fully in Kotlin, the code is simple and easy to work with
-- **Jetpack Compose**: Jetpack Compose is the main driver for the UI through blinkid-ux package
+- **Jetpack Compose**: Jetpack Compose is the main driver for the UI through `blinkid-ux` package
 - **Simplified Flow**: More straightforward API with clearer separation of concerns
 
 ### 2. Integration methods
@@ -21,7 +21,7 @@ This guide will help you migrate your application from BlinkID v6 to the new Bli
 
 #### BlinkID v7 (New):
 ```kotlin
-1. Maven (maven.microblink.com)
+1. Maven (Maven Central)
 2. Manual Integration (through .aar)
 3. Custom integration (source-available UX module allows forking and customizations)
 ```
@@ -30,8 +30,10 @@ This guide will help you migrate your application from BlinkID v6 to the new Bli
 
 ### 1. Update dependencies
 
+#### Remove declaration of old maven repository:
+
 ```kts
-// Maven - DON'T remove
+// remove
 maven { url 'https://maven.microblink.com' }
 // from repositories declaration in your gradle files
 ```
@@ -192,16 +194,16 @@ findViewById<ComposeView>(R.id.my_composable).setContent {
 
 ```kotlin
 val blinkIdLauncher = rememberLauncherForActivityResult(
-   contract = MbBlinkIdScanning(),
+   contract = MbBlinkIdScan(),
    onResult = { scanningResult ->
-       if (scanningResult.status == BlinkIdActivityResultStatus.DocumentScanned) {
+       if (scanningResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
        // use scanningResult (BlinkIdScanningResult)
        }
    }
 )
 
 blinkIdLauncher.launch(
-    BlinkIdActivitySettings(
+    BlinkIdScanActivitySettings(
         BlinkIdSdkSettings(
             licenseKey = <your_license_key>
         ),
@@ -262,13 +264,13 @@ BlinkIdCameraScanningScreen(
 )
 ```
 
-Using the `MbBlinkIdActivity` result:
+Using the `BlinkIdScanActivity` result:
 ```kotlin
 val blinkIdLauncher = rememberLauncherForActivityResult(
-   contract = MbBlinkIdScanning(),
-   onResult = { scanningResult ->
-      if (scanningResult.status == BlinkIdActivityResultStatus.DocumentScanned) {
-         // use scanningResult (BlinkIdScanningResult)
+   contract = MbBlinkIdScan(),
+   onResult = { activityResult ->
+      if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
+          // use activityResult.result (BlinkIdScanningResult)
       }
    }
 )
