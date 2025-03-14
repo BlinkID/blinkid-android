@@ -196,7 +196,7 @@ BlinkIdCameraScanningScreen(
 )
 ```
 
-For a complete reference on available customization options, see [UiSettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.ux/-ui-settings/index.html) API docs.
+For a complete reference on available customization options, see [UiSettings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux/-ui-settings/index.html) API docs.
 
 ## <a name="advanced-customizations"></a> Advanced customizations
 
@@ -337,28 +337,28 @@ You can modify strings and add another language. For more information on how loc
 
 ## <a name="using-own-string-resources"></a> Defining your own string resources for UI elements
 
-You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.ux.theme/-sdk-strings/index.html) while creating the `UiSettings`.
+You can define string resources that will be used instead of predefined ones by using the custom [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) while creating the `UiSettings`.
 
 ## <a name="using-scan-activity"></a> Using SDK through `BlinkIdScanActivity`
 
 The simplest way of using BlinkID SDK is through our integrated activity.
 This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although many UI elements can still be customized.
 
-Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScanning](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scanning-contract/index.html) contract.
+Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
 ```kotlin
     val blinkIdLauncher = rememberLauncherForActivityResult(
-        contract = MbBlinkIdScanning(),
-        onResult = { scanningResult ->
-            if (scanningResult.status == BlinkIdActivityResultStatus.DocumentScanned) {
-                    // use scanningResult (BlinkIdScanningResult)
-                }
+        contract = MbBlinkIdScan(),
+        onResult = { activityResult ->
+            if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
+                // use activityResult.result (BlinkIdScanningResult)
             }
-        )
+        }
+    )
 ```
-When launching the contract, [BlinkIdActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-mb-blink-id-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
+When launching the contract, [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
 ```kotlin
     blinkIdLauncher.launch(
-        BlinkIdActivitySettings(
+        BlinkIdScanActivitySettings(
             BlinkIdSdkSettings(
                 licenseKey = <your_license_key>
             ),
@@ -370,11 +370,12 @@ When launching the contract, [BlinkIdActivitySettings](https://blinkid.github.io
         )
     )
 ```
-[BlinkIdActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-mb-blink-id-activity-settings/index.html) contain the following:
+[BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) contain the following:
 ```kotlin
-    data class BlinkIdActivitySettings(
+    data class BlinkIdScanActivitySettings(
         val blinkIdSdkSettings: BlinkIdSdkSettings,
         val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
+        val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
         val scanActivityUiColors: BlinkIdActivityColors? = null,
         val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
         val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
@@ -419,7 +420,7 @@ dependencies {
 
 ## <a name="core-api-sdk-and-session"></a> The `BlinkIdSdk` and `BlinkIdScanningSession`
 
-[BlinkIdSdk](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinki.core/-blink-id-sdk/index.html) is a singleton that is main entry point to the _BlinkID_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
+[BlinkIdSdk](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core/-blink-id-sdk/index.html) is a singleton that is main entry point to the _BlinkID_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
 
 Once you obtain an instance of the `BlinkIdSdk` class after the SDK initialization is completed, you can use it to start a document capture session.
 
@@ -458,14 +459,14 @@ val scanningSession = blinkIdSdk.createScanningSession(BlinkIdSessionSettings(
 ))
 ```
 
-3. To process each image (camera frame) that comes to the recognition, call the suspend function `BlinkIdScanningSession.process(InputImage): ProcessResult`
+3. To process each image (camera frame) that comes to the recognition, call the suspend function `BlinkIdScanningSession.process(InputImage): BlinkIdProcessResult`
 ```kotlin
 val processResult = scanningSesionSession.process(inputImage)
 ```
 
 There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.core.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
 
-Processing of the single frame returns [ProcessResult](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blinki-id-process-result/index.html) which contains:
+Processing of the single frame returns [ProcessResult](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blink-id-process-result/index.html) which contains:
 
 - Detailed analysis of the input image, including various detection statuses and potential issues that should be used for frame-by-frame UX updates.
 - Completeness status of the overall process.
