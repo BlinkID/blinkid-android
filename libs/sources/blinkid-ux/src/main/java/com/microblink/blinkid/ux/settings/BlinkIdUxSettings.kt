@@ -11,13 +11,13 @@ import com.microblink.blinkid.core.result.classinfo.Type
 /**
  * Configuration settings for the scanning UX.
  *
- * @param stepTimeoutDurationMs Duration of the scanning timeout for each scanning step
+ * @param stepTimeoutDuration Duration of the scanning timeout for each scanning step
  * (document side) in milliseconds. When timeout occurs, scanning starts from the beginning.
  * @param classFilter Defines which specific document classes are allowed during scanning.
  * Each document class is defined by the trio of [Country], [Region], and [Type].
  */
 @Parcelize
 data class BlinkIdUxSettings(
-    val stepTimeoutDurationMs: Duration = 15000.milliseconds,
+    val stepTimeoutDuration: Duration = 15000.milliseconds,
     val classFilter: ClassFilter? = null
 ) : Parcelable

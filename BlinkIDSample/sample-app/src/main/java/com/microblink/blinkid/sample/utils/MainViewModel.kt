@@ -89,8 +89,8 @@ class MainViewModel : ViewModel() {
 
     private fun unloadSdk() {
         try {
-            // also delete cached resources
-            localSdk?.closeAndDeleteCachedAssets()
+            // don't delete cached resources
+            localSdk?.close()
         } catch (_: Exception) {
             Log.w(TAG, "SDK is already closed")
         }
