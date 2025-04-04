@@ -1,5 +1,72 @@
 # Release notes
 
+## v7.1.0
+
+## What's New
+
+#### New Documents Support
+- Austria - Refugee Passport
+- Austria - Polycarbonate Refugee Passport
+- Burkina Faso - Driver's License
+- Burkina Faso - Paper Passport
+- Costa Rica - Residence Permit
+- Gambia - Paper Passport
+- Guinea - Polycarbonate Passport
+- Rwanda - Polycarbonate Passport
+- South Korea - Polycarbonate Passport
+- Tanzania - Polycarbonate Passport
+- Uganda - Paper Passport
+- Uganda - Polycarbonate Passport
+- Zambia - Driver's License
+- Zambia - Paper Passport
+- USA, Florida - Medical Marijuana ID
+- USA, Pennsylvania - - Medical Marijuana ID
+
+#### New Beta Documents Support
+- Benin - Paper Passport
+- Burundi - Polycarbonate Passport
+- Chad - Identity Card
+- Kenya - Driver's License
+- Mozambique - Polycarbonate Passport
+- Spain - Registration Certificate
+- Sudan - Identity Card
+- Zimbabwe - Driver's License
+- USA, Nevada - Medical Marijuana ID
+- USA, New York - Medical Marijuana ID
+- USA, Oklahoma - Medical Marijuana ID
+
+#### New Document Versions for Supported Documents
+- Bangladesh - Second data page support on Paper Passport and Polycarbonate Passport
+- Kosovo - Paper Passport
+- Mexico, Colima - Driver's License
+- Mexico, Mexico - Driver's License
+- Netherlands - Identity Card
+- Netherlands - Polycarbonate Passport
+- Romania - Identity Card, Back side scanning
+- Romania - Polycarbonate Passport
+- Singapore - Employment Pass, Back side scanning
+- Slovakia - Polycarbonate Passport
+- Syria - Paper Passport
+- USA, Wyoming - Driver's License
+
+#### New Document Versions for Beta-Supported Documents
+- Mexico, Guanajuato - Driver's License
+- Mexico, Puebla - Driver's License
+- Croatia - Health Insurance Card
+
+#### New Segments Supported on Documents
+- Greece
+	- Identity Cards, Driver's Licenses, Residence Permits and Passports
+	- expanding support for extracting segments in Greek script
+- Saudi Arabia, Identity Card
+	- expanding support for extracting segments in Arabic script
+- Egypt, Driver's Licenses
+	- expanding support for extracting segments in Arabic script
+
+## New features
+- Fixed data match overall result
+- Added `Typography` customization to to `BlinkIDScanActivity` through `BlinkIdScanActivitySettings`
+
 ## v7.0.0
 
 We’re excited to introduce BlinkID v7, a major upgrade designed to simplify your integration and deliver a simpler ID scanning experience. With BlinkID v7, we’re taking a fresh approach to scanning logic by introducing a more straightforward, session-based API for an easier configuration path, all while boosting first-time scan success rate.

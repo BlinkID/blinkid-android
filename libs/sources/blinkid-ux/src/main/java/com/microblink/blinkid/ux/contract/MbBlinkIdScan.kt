@@ -6,16 +6,20 @@ import android.content.Intent
 import android.os.Build
 import android.os.Parcelable
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.annotation.ColorRes
+import androidx.annotation.ColorInt
 import androidx.core.os.BundleCompat
 import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.core.session.BlinkIdSessionSettings
 import com.microblink.blinkid.ux.activity.BlinkIdScanActivity
+import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.Canceled
+import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.DocumentScanned
+import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.ErrorSdkInit
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.ux.DefaultShowHelpButton
 import com.microblink.ux.DefaultShowOnboardingDialog
 import com.microblink.ux.theme.SdkStrings
+import com.microblink.ux.utils.ParcelableUiTypography
 import kotlinx.parcelize.Parcelize
 
 class MbBlinkIdScan : ActivityResultContract<BlinkIdScanActivitySettings, BlinkIdScanActivityResult>() {
@@ -73,13 +77,13 @@ class MbBlinkIdScan : ActivityResultContract<BlinkIdScanActivitySettings, BlinkI
 
 @Parcelize
 data class BlinkIdScanActivityColors(
-    @ColorRes val primary: Int?,
-    @ColorRes val background: Int?,
-    @ColorRes val onBackground: Int?,
-    @ColorRes val helpButtonBackground: Int?,
-    @ColorRes val helpButton: Int?,
-    @ColorRes val helpTooltipBackground: Int?,
-    @ColorRes val helpTooltipText: Int?,
+    @ColorInt val primary: Int?,
+    @ColorInt val background: Int?,
+    @ColorInt val onBackground: Int?,
+    @ColorInt val helpButtonBackground: Int?,
+    @ColorInt val helpButton: Int?,
+    @ColorInt val helpTooltipBackground: Int?,
+    @ColorInt val helpTooltipText: Int?,
 ) : Parcelable
 
 /**
@@ -99,6 +103,11 @@ data class BlinkIdScanActivityColors(
  *           If set to `null`, the default colors will be used. Defaults to `null`.
  * @property scanActivityUiStrings Custom strings for the `BlinkIdScanActivity` user
  *           interface. Defaults to [SdkStrings.Default].
+ * @property scanActivityTypography Custom typography for the `BlinkIdScanActivity` user
+ *           interface. Due to a limitation of [Typography] class, [ParcelableUiTypography] mimics
+ *           [com.microblink.ux.theme.UiTypography] by allowing the customization of all the elements to a lesser extent.
+ *           The most important [TextStyle] and [Font] customizations are still available through this class.
+ *           Defaults to [ParcelableUiTypography.Default].
  * @property showOnboardingDialog Determines whether an onboarding dialog should be displayed to
  *           the user when the activity is first launched. Defaults to [DefaultShowOnboardingDialog].
  * @property showHelpButton Determines whether a help button should be displayed in the activity.
@@ -120,6 +129,7 @@ data class BlinkIdScanActivitySettings(
     val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
     val scanActivityUiColors: BlinkIdScanActivityColors? = null,
     val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
     val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
     val showHelpButton: Boolean = DefaultShowHelpButton,
     val enableEdgeToEdge: Boolean = true,

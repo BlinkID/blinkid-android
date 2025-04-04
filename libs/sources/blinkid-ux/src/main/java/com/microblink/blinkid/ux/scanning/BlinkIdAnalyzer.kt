@@ -56,7 +56,7 @@ class BlinkIdAnalyzer(
     private var firstImageTimestamp: Long? = null
     private val scanningUxTranslator = BlinkIdScanningUxTranslator()
     private val stepTimeoutDuration: Duration? =
-        if (uxSettings.stepTimeoutDurationMs == Duration.ZERO) null else uxSettings.stepTimeoutDurationMs
+        if (uxSettings.stepTimeoutDuration == Duration.ZERO) null else uxSettings.stepTimeoutDuration
 
     init {
         CoroutineScope(Default).launch {
@@ -74,7 +74,7 @@ class BlinkIdAnalyzer(
      * Current implementation of the analyzer cancels the session if the timeout occurs.
      * The timeout timer restarts every time the scanning is paused (onboarding dialog,
      * help dialog, card flip animation). Default timeout value can be checked at
-     * [BlinkIdUxSettings.stepTimeoutDurationMs].
+     * [BlinkIdUxSettings.stepTimeoutDuration].
      *
      * @param image The [ImageProxy] containing the image to be analyzed.
      *

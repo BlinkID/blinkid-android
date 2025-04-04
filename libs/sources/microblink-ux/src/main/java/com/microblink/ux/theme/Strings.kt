@@ -18,8 +18,7 @@ import kotlinx.parcelize.Parcelize
  * [Default] can be used to keep the original strings if only some of the elements are to be changed.
  *
  * This class shouldn't be modified, but rather a new instance should be
- * created and used in [com.microblink.blinkidverify.ux.UiSettings.verifySdkStrings]
- * when creating an instance of [com.microblink.blinkidverify.ux.CameraScanningScreen].
+ * created and used in [com.microblink.ux.UiSettings.sdkStrings].
  *
  * @property scanningStrings Strings that appear as instruction messages during the scanning session.
  *                           These instructions are triggered by specific UX events and will appear
@@ -46,7 +45,7 @@ public data class SdkStrings(
 }
 
 /**
- * @see com.microblink.blinkidverify.ux.theme.VerifySdkStrings
+ * @see com.microblink.ux.theme.SdkStrings
  */
 @Immutable
 @Parcelize
@@ -88,7 +87,7 @@ data class ScanningStrings(
 }
 
 /**
- * @see com.microblink.blinkidverify.ux.theme.VerifySdkStrings
+ * @see com.microblink.ux.theme.SdkStrings
  */
 @Immutable
 @Parcelize

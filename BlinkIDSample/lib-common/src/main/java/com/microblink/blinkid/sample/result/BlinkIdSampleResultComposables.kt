@@ -64,6 +64,7 @@ import com.microblink.blinkid.sample.ui.theme.Cobalt50
 import com.microblink.blinkid.sample.ui.theme.Cobalt800
 import com.microblink.blinkid.sample.ui.theme.DeepBlue
 import com.microblink.blinkid.sample.ui.theme.ErrorRed
+import com.microblink.ux.theme.Black
 
 @Composable
 fun BlinkIdSampleResultScreen(
@@ -1054,14 +1055,16 @@ fun SampleResultRowText(
                     Text(
                         modifier = Modifier,
                         text = it,
-                        style = ResultValueText
+                        style = ResultValueText,
+                        color = Black
                     )
                 }
                 result.subValue?.let {
                     Text(
                         modifier = Modifier,
                         text = it,
-                        style = ResultValueText
+                        style = ResultValueText,
+                        color = Black
                     )
                 }
             }
