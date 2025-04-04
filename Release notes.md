@@ -63,10 +63,9 @@
 - Egypt, Driver's Licenses
 	- expanding support for extracting segments in Arabic script
 
-## API Changes
+## New features
 - Fixed data match overall result
-- Added `Typography` customization to to `BlinkIDScanActivity` through `ParcelableUiTypography`
-- Numerous other fixes and improvements
+- Added `Typography` customization to to `BlinkIDScanActivity` through `BlinkIdScanActivitySettings`
 
 ## v7.0.0
 
