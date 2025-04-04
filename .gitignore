@@ -34,3 +34,5 @@ google-services.json
 
 # built maven bundles
 /libs/*maven-bundle.zip
+
+.DS_Store
