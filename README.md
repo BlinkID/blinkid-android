@@ -9,26 +9,26 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 # Table of contents
 * [Quick Start](#quick-start)
-    * [Quick start with the sample app](#quick-sample)
-    * [SDK integration](#sdk-integration)
+  * [Quick start with the sample app](#quick-sample)
+  * [SDK integration](#sdk-integration)
 * [Device requirements](#device-requirements)
-    * [Android version](#android-version-req)
-    * [Camera](#camera-req)
-    * [Processor architecture](#processor-arch-req)
+  * [Android version](#android-version-req)
+  * [Camera](#camera-req)
+  * [Processor architecture](#processor-arch-req)
 * [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
 * [Customizing the look and UX](#customizing-the-look)
-    * [Simple customizations](#simple-customizations)
-    * [Advanced customizations](#advanced-customizations)
+  * [Simple customizations](#simple-customizations)
+  * [Advanced customizations](#advanced-customizations)
 * [Changing default strings and localization](#changing-strings-and-localization)
-    * [Defining your own string resources for UI elements](#using-own-string-resources)
+  * [Defining your own string resources for UI elements](#using-own-string-resources)
 * [Using SDK through `BlinkIdScanActivity`](#using-scan-activity)
 * [Completely custom UX (advanced)](#low-level-api)
-    * [The `BlinkIdSdk` and `BlinkIdScanningSession`](#core-api-sdk-and-session)
+  * [The `BlinkIdSdk` and `BlinkIdScanningSession`](#core-api-sdk-and-session)
 * [Troubleshooting](#troubleshoot)
 * [Additional info](#additional-info)
-    * [BlinkID SDK size](#sdk-size)
-    * [API documentation](#api-documentation)
-    * [Contact](#contact)
+  * [BlinkID SDK size](#sdk-size)
+  * [API documentation](#api-documentation)
+  * [Contact](#contact)
 
 
 # <a name="quick-start"></a> Quick Start
@@ -64,7 +64,7 @@ Add _BlinkID_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-ux:7.0.0")
+    implementation("com.microblink:blinkid-ux:7.1.0")
 }
 ```
 
@@ -75,20 +75,20 @@ dependencies {
 2. You first need to initialize the SDK and obtain the `BlinkIdSdk` instance:
 ```kotlin
 val maybeInstance = BlinkIdSdk.initializeSdk(
-    BlinkIdSdkSettings(
-        licenseKey = <your_license_key>,
-    )
+  BlinkIdSdkSettings(
+    licenseKey = <your_license_key>,
+)
 )
 when {
-    maybeInstance.isSuccess -> {
-        val sdkInstance = maybeInstance.getOrNull()
-        // use the SDK instance
-    }
+  maybeInstance.isSuccess -> {
+    val sdkInstance = maybeInstance.getOrNull()
+    // use the SDK instance
+  }
 
-    maybeInstance.isFailure -> {
-        val exception = maybeInstance.exceptionOrNull()
-        Log.e(TAG, "Initialization failed", exception)
-    }
+  maybeInstance.isFailure -> {
+    val exception = maybeInstance.exceptionOrNull()
+    Log.e(TAG, "Initialization failed", exception)
+  }
 }
 ```
 `BlinkIdSdk.initializeSdk` is a suspend function which should be called from a coroutine.
@@ -96,15 +96,16 @@ when {
 3. Use `BlinkIdCameraScanningScreen` composable to the scanning UX and obtain results:
 ```kotlin
 BlinkIdCameraScanningScreen(
-    sdkInstance,
-    uiSettings = UiSettings(),
-    sessionSettings = BlinkIdSessionSettings(),
-    onScanningSuccess = { scanningResult ->
-        // scanningResult is BlinkIdScanningResult
-    },
-    onScanningCanceled = {
-        // user canceled the scanning
-    }
+  sdkInstance,
+  uiSettings = UiSettings(),
+  uxSettings = BlinkIdUxSettings(),
+  sessionSettings = BlinkIdSessionSettings(),
+  onScanningSuccess = { scanningResult ->
+    // scanningResult is BlinkIdScanningResult
+  },
+  onScanningCanceled = {
+    // user canceled the scanning
+  }
 )
 ```
 
@@ -130,7 +131,7 @@ To perform successful scans, the camera preview resolution must be at least **10
 
 _BlinkID_ SDK is distributed with **ARMv7** and **ARM64** native library binaries.
 
-_BlinkID is a native library written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled SDK's native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
+_BlinkID_ is a native library written in C++ and available for multiple platforms. Because of this, _BlinkID_ cannot work on devices with obscure hardware architectures. We have compiled SDK's native code only for the most popular Android [ABIs](https://en.wikipedia.org/wiki/Application_binary_interface).
 
 If you are combining _BlinkID_ library with other libraries that contain native code in your application, make sure to match the architectures of all native libraries. For example, if the third-party library has only ARMv7 version, you must use exactly ARMv7 version of _BlinkID_ with that library, but not ARM64. Using different architectures will crash your app at the initialization step because JVM will try to load all its native dependencies in the same preferred architecture and fail with `UnsatisfiedLinkError`.
 
@@ -151,7 +152,7 @@ android {
 
 # <a name="pre-bundling-resources"></a> Pre-bundling the SDK resources into your app
 
-If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkid](https://github.com/BlinkID/blinkid-android/tree/master/libs/resources/assets/microblink/blinkid) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
+If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkid](https://github.com/BlinkID/blinkid-android/tree/main/libs/resources/assets/microblink/blinki) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
 Use `BlinkIdSdkSettings` to set the following options when instantiating the SDK:
 
@@ -165,8 +166,6 @@ BlinkIdSdkSettings(
     // resourceLocalFolder = "path_within_app_assets"
 )
 ```
-
-
 
 # <a name="customizing-the-look"></a> Customizing the look and the UX
 
@@ -209,12 +208,14 @@ Create your implementation of scanning ViewModel (which must be a subclass of ou
 ```kotlin
 class YourBlinkIdScanningUxViewModel(
     blinkIdSdkInstance: BlinkIdSdk,
-    sessionSettings: ScanningSessionSettings
+    sessionSettings: ScanningSessionSettings,
+    uxSettings: BlinkIdUxSettings
 ) : CameraViewModel() {
 
     val imageAnalyzer = BlinkIdAnalyzer(
         blinkIdSdk = blinkIdSdkInstance,
         sessionSettings = sessionSettings,
+        uxSettings = uxSettings,
         scanningDoneHandler = object : BlinkIdScanningDoneHandler {
             override fun onScanningFinished(result: BlinkIdScanningResult) {
                 // TODO use scanning result
@@ -342,7 +343,7 @@ You can define string resources that will be used instead of predefined ones by 
 ## <a name="using-scan-activity"></a> Using SDK through `BlinkIdScanActivity`
 
 The simplest way of using BlinkID SDK is through our integrated activity.
-This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although many UI elements can still be customized.
+This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
 
 Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
 ```kotlin
@@ -373,23 +374,24 @@ When launching the contract, [BlinkIdScanActivitySettings](https://blinkid.githu
 [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) contain the following:
 ```kotlin
     data class BlinkIdScanActivitySettings(
-        val blinkIdSdkSettings: BlinkIdSdkSettings,
+        val sdkSettings: BlinkIdSdkSettings,
         val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
         val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-        val scanActivityUiColors: BlinkIdActivityColors? = null,
+        val scanActivityUiColors: BlinkIdScanActivityColors? = null,
         val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+        val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
         val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
         val showHelpButton: Boolean = DefaultShowHelpButton,
         val enableEdgeToEdge: Boolean = true,
         val deleteCachedAssetsAfterUse: Boolean = false
     )
 ```
-Most customizations regarding the UI are handled in the same way as with the Composable component. The only difference is a limitation in customizing `Typography` and `Colors`.
+Most customizations regarding the UI are handled in the same way as with the Composable component.
+The main difference can be found in how `Typography` is set.
 
-Currently, `Typography` cannot be customized through an activity.
+Customizing SDK `Typography` is still available through `scanctivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
 
 While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
-
 # <a name="low-level-api"></a> Completely custom UX (advanced)
 
 When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK.
@@ -414,7 +416,7 @@ Add _blinkid-core_ library as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-core:7.0.0")
+    implementation("com.microblink:blinkid-core:7.1.0")
 }
 ```
 
@@ -512,8 +514,8 @@ Here is the SDK size, calculated for supported ABIs:
 
 | ABI | Download size | Install size |
 | --- |:-------------:|:------------:|
-| armeabi-v7a |    2.72 MB    |   3.89 MB    |
-| arm64-v8a |    2.78 MB    |   4.58 MB    |
+| armeabi-v7a |    3.46 MB    |   4.64 MB    |
+| arm64-v8a |    3.51 MB    |   5.31 MB    |
 
 SDK size is calculated as application size increases when _BlinkID_ SDK is added, with all its dependencies included.
 
