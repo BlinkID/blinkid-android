@@ -169,6 +169,16 @@ BlinkIdSdkSettings(
 
 # <a name="customizing-the-look"></a> Customizing the look and the UX
 
+Almost every UI element can be easily modified in many different ways (color, size, font, background). This chapter provides basic guides regarding each implementation method.
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid_v7_ui_customizations.png" alt="BlinkID SDK">
+</p>
+
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/blinkid_v7_dialog_customizations.png" alt="BlinkID SDK">
+</p>
+
 ## <a name="simple-customizations"></a> Simple customizations
 
 You can use basic customization options in our default `BlinkIdCameraScanningScreen` composable:
@@ -301,6 +311,31 @@ fun YourCameraScanningScreen(
 }
 ``` 
 
+### Customizing `BlinkIdScanActivity`
+
+Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) class.
+
+```kotlin
+data class BlinkIdScanActivitySettings(
+  val sdkSettings: BlinkIdSdkSettings,
+  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
+  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
+  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
+  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+  val showHelpButton: Boolean = DefaultShowHelpButton,
+  val enableEdgeToEdge: Boolean = true,
+  val deleteCachedAssetsAfterUse: Boolean = false
+) 
+``` 
+
+Variable `scanActivityUiColors` of type [BlinkIdScanActivityColors](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-colors/index.html) defines UI colors during the scanning session.
+
+Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
+
+Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
+
 ### Modifying our ux libraries source code
 
 For larger control over the UX, you can use the open-source `blinkid-ux` and `microblink-ux` libraries and perform certain modifications. **Only the source files that specifically allow for modification by the license header** can be modified.
@@ -347,44 +382,44 @@ This eliminates the need for Compose integration and allows for quick and easy a
 
 Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
 ```kotlin
-    val blinkIdLauncher = rememberLauncherForActivityResult(
-        contract = MbBlinkIdScan(),
-        onResult = { activityResult ->
-            if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
-                // use activityResult.result (BlinkIdScanningResult)
-            }
-        }
-    )
+val blinkIdLauncher = rememberLauncherForActivityResult(
+  contract = MbBlinkIdScan(),
+  onResult = { activityResult ->
+      if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
+      // use activityResult.result (BlinkIdScanningResult)
+      }
+  }
+)
 ```
 When launching the contract, [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
 ```kotlin
-    blinkIdLauncher.launch(
-        BlinkIdScanActivitySettings(
-            BlinkIdSdkSettings(
-                licenseKey = <your_license_key>
-            ),
-            BlinkIdSessionSettings(
-                scanningSettings = ScanningSettings(
-                    // define additional settings here
-                )
-            )
-        )
+blinkIdLauncher.launch(
+  BlinkIdScanActivitySettings(
+    BlinkIdSdkSettings(
+      licenseKey = <your_license_key>
+    ),
+    BlinkIdSessionSettings(
+      scanningSettings = ScanningSettings( 
+      // define additional settings here
+      )
     )
+  )
+)
 ```
 [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) contain the following:
 ```kotlin
-    data class BlinkIdScanActivitySettings(
-        val sdkSettings: BlinkIdSdkSettings,
-        val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-        val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-        val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-        val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-        val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-        val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-        val showHelpButton: Boolean = DefaultShowHelpButton,
-        val enableEdgeToEdge: Boolean = true,
-        val deleteCachedAssetsAfterUse: Boolean = false
-    )
+data class BlinkIdScanActivitySettings(
+  val sdkSettings: BlinkIdSdkSettings,
+  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
+  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
+  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
+  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+  val showHelpButton: Boolean = DefaultShowHelpButton,
+  val enableEdgeToEdge: Boolean = true,
+  val deleteCachedAssetsAfterUse: Boolean = false
+)
 ```
 Most customizations regarding the UI are handled in the same way as with the Composable component.
 The main difference can be found in how `Typography` is set.
