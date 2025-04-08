@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">BlinkIDSample</string>
+    <string name="app_name" translatable="false">BlinkID Sample</string>
 
     <string name="btn_launch" translatable="false">Launch</string>
     <string name="btn_cancel" translatable="false">Cancel</string>

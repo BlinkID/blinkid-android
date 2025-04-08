@@ -20,6 +20,7 @@ materialVersion = "1.12.0"
 
 [libraries]
 blinkid-ux = { group = "com.microblink", name = "blinkid-ux", version.ref = "blinkIdSdkVersion" }
+blinkid-core = { group = "com.microblink", name = "blinkid-core", version.ref = "blinkIdSdkVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -29,7 +30,6 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3Version" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose" }
-blinkid-core = { group = "com.microblink", name = "blinkid-core", version.ref = "blinkIdSdkVersion" }
 androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }

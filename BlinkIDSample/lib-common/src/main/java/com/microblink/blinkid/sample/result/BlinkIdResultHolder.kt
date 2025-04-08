@@ -1,4 +1,4 @@
-package com.microblink.blinkid.sample.utils
+package com.microblink.blinkid.sample.result
 
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 

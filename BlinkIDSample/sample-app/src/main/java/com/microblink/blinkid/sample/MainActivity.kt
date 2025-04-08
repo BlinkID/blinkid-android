@@ -20,7 +20,7 @@ import com.microblink.blinkid.sample.navigation.Destination
 import com.microblink.blinkid.sample.result.BlinkIdSampleResultScreen
 import com.microblink.blinkid.sample.ui.MainScreen
 import com.microblink.blinkid.sample.ui.theme.BlinkIDTheme
-import com.microblink.blinkid.sample.utils.BlinkIdResultHolder
+import com.microblink.blinkid.sample.result.BlinkIdResultHolder
 import com.microblink.blinkid.sample.utils.MainViewModel
 import com.microblink.blinkid.ux.BlinkIdCameraScanningScreen
 import kotlinx.coroutines.launch
