@@ -42,7 +42,4 @@ android {
 dependencies {
     implementation(project(":lib-common"))
     implementation(libs.blinkid.core)
-    // use following set of dependencies if you want to use blinkid-ux library module
-    // instead of maven dependency, and remove implementation(libs.blinkid.ux) dependency
-//     implementation(project(":blinkid-ux"))
 }
