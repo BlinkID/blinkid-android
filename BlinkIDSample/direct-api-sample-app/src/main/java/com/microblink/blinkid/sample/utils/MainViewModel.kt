@@ -2,25 +2,16 @@ package com.microblink.blinkid.sample.utils
 
 import android.content.Context
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.microblink.blinkid.core.BlinkIdSdk
 import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
-import com.microblink.blinkid.core.session.BlinkIdSessionSettings
-import com.microblink.blinkid.core.session.InputImageSource
-import com.microblink.blinkid.core.session.ScanningMode
-import com.microblink.blinkid.core.settings.ScanningSettings
 import com.microblink.blinkid.sample.config.BlinkIdConfig.licenseKey
 import com.microblink.blinkid.sample.result.BlinkIdResultHolder
-import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.ux.UiSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlin.time.Duration
-import kotlin.time.Duration.Companion.milliseconds
 
 private const val TAG = "MainViewModel"
 
@@ -35,19 +26,8 @@ class MainViewModel : ViewModel() {
 
     val blinkIdUiSettings = UiSettings()
 
-    val blinkIdUxSettings = BlinkIdUxSettings()
-
-    var stepTimeoutDuration: MutableState<Duration> = mutableStateOf(10000.milliseconds)
-        private set
-
     var localSdk: BlinkIdSdk? = null
         private set
-
-    val scanningSessionSettings = BlinkIdSessionSettings(
-        inputImageSource = InputImageSource.Video,
-        scanningMode = ScanningMode.Automatic,
-        scanningSettings = ScanningSettings()
-    )
 
     suspend fun initializeLocalSdk(context: Context) {
         _mainState.update {
@@ -77,7 +57,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun onScanningResultAvailable(result: BlinkIdScanningResult) {
+    fun onDirectApiResultAvailable(result: BlinkIdScanningResult) {
         BlinkIdResultHolder.blinkIdResult = result
         // unload the SDK when not needed anymore to free up resources
         unloadSdk()

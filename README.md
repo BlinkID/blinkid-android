@@ -42,8 +42,8 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 #### Included sample apps:
 
-- **_app_** demonstrates quick and straightforward integration of the BlinkID SDK using the provided UX in Jetpack Compose to scan a document and display the results.
-
+- **_sample-app_** demonstrates quick and straightforward integration of the BlinkID SDK using the provided UX in Jetpack Compose to scan a document and display the results.
+- **_direct-api-sample-app_** demonstrates the functionality of BlinkID SDK by avoiding the document scanning process and without using the blinkid-ux library. This approach should be used if you are obtaining document images via other methods.
 
 ## <a name="sdk-integration"></a> SDK integration
 

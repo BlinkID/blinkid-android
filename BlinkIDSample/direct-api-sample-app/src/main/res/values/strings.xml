@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name" translatable="false">BlinkID Sample - Direct API</string>
+
+    <string name="btn_launch" translatable="false">Launch Direct API</string>
+    <string name="btn_cancel" translatable="false">Cancel</string>
+</resources>

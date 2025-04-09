@@ -1,8 +1,7 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -10,9 +9,13 @@ android {
     compileSdk = 35
 
     defaultConfig {
+        applicationId = "com.microblink.blinkid.sample"
         minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -31,17 +34,12 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.material3)
-    debugImplementation(libs.androidx.ui.tooling)
-    implementation(libs.androidx.navigation.compose)
-//    api(libs.blinkid.core)
-    api(libs.blinkid.ux)
-    api(libs.androidx.navigation.compose)
+    implementation(project(":lib-common"))
+    implementation(libs.blinkid.core)
 }
