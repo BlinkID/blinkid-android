@@ -10,6 +10,7 @@ This guide will help you migrate your application from BlinkID v6 to the new Bli
 - **Modern Kotlin Features**: Written fully in Kotlin, the code is simple and easy to work with
 - **Jetpack Compose**: Jetpack Compose is the main driver for the UI through `blinkid-ux` package
 - **Simplified Flow**: More straightforward API with clearer separation of concerns
+- **Updated minimum OS requirement**: BlinkID SDK now requires Android API level 24 (Android 7.0 Nougat) or newer. This update allows us to leverage modern development practices, improve stability, and streamline future updates.
 
 ### 2. Integration methods
 
