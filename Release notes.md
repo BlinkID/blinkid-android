@@ -77,6 +77,7 @@ We’re excited to introduce BlinkID v7, a major upgrade designed to simplify yo
 - **Unified session-based API**: We’ve moved away from juggling multiple recognizers (e.g., SingleSide, MultiSide) to a single session-based BlinkIDScanningSession, unifying scanning logic under one simplified API. There's no need to switch recognizers anymore.
 - **Backward compatibility**: Existing production keys will continue to work with v7.0. No new license key is required for the upgrade.
 - **More maintainable codebase**: This new architecture sets the stage for easier and faster updates.
+- **Updated minimum OS requirement**: BlinkID SDK now requires Android API level 24 (Android 7.0 Nougat) or newer. This update allows us to leverage modern development practices, improve stability, and streamline future updates.
 
 ### Architecture Changes
 - **New core components**: Instead of Recognizer-based architecture, BlinkID uses a streamlined Session-based approach.
