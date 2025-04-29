@@ -1,5 +1,25 @@
 # Release notes
 
+## v7.2.0
+
+### What's new
+- Added message for hand occlusion detection. The setting `skipImagesOccludedByHand` set to `true` by default
+- Added message for poor lighting conditions detection. The setting `skipImagesWithInadequateLightingConditions` set to `true` by default
+- Added "Demo" overlay for the demo licenses (non-production)
+- Added "Powered by Microblink" overlay option for licenses with this enabled
+
+### Other Changes
+- Renamed class `StatusMessage` to `CommonStatusMessage`
+
+### Bug Fixes
+- Fixed data match bug when partial anonymisation is enabled
+- Fixed face extraction bug for rotated face images on documents
+- Improved face extraction for documents without face image (skipping face image extraction in that case)
+- Fixed face extraction bug for Philippines Passport document
+- Fixed an issue with filling the ProcessResult during the Barcode Capture step, ensuring only relevant fields are filled
+- Fixed bug that forced scanning of the back side of the Germany Residence Permit in passport document
+- Fixed bug that caused skipping back side when only signature was present
+
 ## v7.1.0
 
 ## What's New
