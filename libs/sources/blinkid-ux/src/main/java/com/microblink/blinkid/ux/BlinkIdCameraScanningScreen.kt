@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
@@ -34,6 +35,7 @@ import com.microblink.ux.UiSettings
 import com.microblink.ux.camera.compose.CameraScreen
 import com.microblink.ux.state.MbTorchState
 import com.microblink.ux.state.ProcessingState
+import com.microblink.ux.utils.DeviceOrientationListener
 import kotlinx.coroutines.launch
 
 private const val TAG = "BlinkIdCameraScanningScreen"
@@ -88,6 +90,12 @@ fun BlinkIdCameraScanningScreen(
         }
     )
 
+    val applicationContext = LocalContext.current.applicationContext
+
+    DeviceOrientationListener(applicationContext) {
+        viewModel.setScreenOrientation(it)
+    }
+
     var initialUiStateSet by rememberSaveable { mutableStateOf(false) }
     if (!initialUiStateSet) {
         viewModel.setInitialUiStateFromUiSettings(uiSettings)
@@ -102,7 +110,6 @@ fun BlinkIdCameraScanningScreen(
         Scaffold(
             snackbarHost = { SnackbarHost(hostState = snackbarHostState) }
         ) { paddingValues ->
-
             CameraScreen(
                 cameraViewModel = viewModel,
             ) {
@@ -121,6 +128,8 @@ fun BlinkIdCameraScanningScreen(
                     overlayUiState.value,
                     onScanningCanceled,
                     uiSettings,
+                    showProductionOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveProductionOverlay,
+                    showDemoOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveDemoOverlay,
                     {
                         viewModel.changeTorchState()
                         viewModel.viewModelScope.launch {

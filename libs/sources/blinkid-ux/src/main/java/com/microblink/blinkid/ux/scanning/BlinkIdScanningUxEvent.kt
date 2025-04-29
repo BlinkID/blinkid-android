@@ -5,6 +5,7 @@
 
 package com.microblink.blinkid.ux.scanning
 
+import com.microblink.blinkid.core.result.DocumentRotation
 import com.microblink.blinkid.core.result.InputImageAnalysisResult
 import com.microblink.blinkid.core.session.BlinkIdProcessResult
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
@@ -42,6 +43,30 @@ data class BlinkIdDocumentLocatedLocation(
 data class DocumentImageAnalysisResult(
     val imageAnalysisResult: InputImageAnalysisResult
 ) : ScanningUxEvent
+
+/**
+ * Event that holds information about the passport page that needs
+ * to be presented in order to continue the scanning process.
+ *
+ * @property documentRotation Represents the information of the passport page rotation.
+ * This data should be corrected based on the rotation of the device by using [com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation] function.
+ */
+data class RequestPassportPage(
+    val documentRotation: DocumentRotation
+): ScanningUxEvent
+
+/**
+ * Event that holds information about the incorrect passport page that is
+ * currently being scanned.
+ *
+ * @property isScanningDataPage Informs whether the Passport scanning process is on the first page or not.
+ * @property documentRotation Represents the information of the passport page rotation.
+ * This data should be corrected based on the rotation of the device by using [com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation] function.
+ */
+data class ScanningWrongPassportPage(
+    val isScanningDataPage: Boolean,
+    val documentRotation: DocumentRotation
+): ScanningUxEvent
 
 /**
  * Dispatches user experience events to the [ScanningUxEventHandler] after translating

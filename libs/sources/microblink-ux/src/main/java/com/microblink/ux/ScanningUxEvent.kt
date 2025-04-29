@@ -67,6 +67,21 @@ interface ScanningUxEvent {
      */
     object ScanningDone: ScanningUxEvent
 
+    /**
+     * Face image was not found on the document.
+     */
+    object FaceImageNotFound: ScanningUxEvent
+
+    /**
+     * Document lighting is too bright.
+     */
+    object DocumentTooBright: ScanningUxEvent
+
+    /**
+     * Document lighting is too dark.
+     */
+    object DocumentTooDark: ScanningUxEvent
+
 }
 
 interface ScanningUxEventHandler {

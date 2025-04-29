@@ -5,6 +5,7 @@
 
 package com.microblink.ux
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,20 +24,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
-import com.microblink.ux.state.ProcessingState
-import com.microblink.ux.state.ReticleState
+import com.microblink.ux.components.DemoOverlay
 import com.microblink.ux.components.ErrorDialog
-import com.microblink.ux.components.TorchButton
-import com.microblink.ux.components.OnboardingDialog
-import com.microblink.ux.components.HelpScreens
-import com.microblink.ux.components.DocumentFlipAnimation
 import com.microblink.ux.components.ExitButton
 import com.microblink.ux.components.HelpBox
+import com.microblink.ux.components.HelpScreens
 import com.microblink.ux.components.MessageContainer
+import com.microblink.ux.components.OnboardingDialog
+import com.microblink.ux.components.ProductionOverlay
 import com.microblink.ux.components.Reticle
-import com.microblink.ux.state.ErrorState
+import com.microblink.ux.components.TorchButton
 import com.microblink.ux.state.BaseUiState
 import com.microblink.ux.state.CardAnimationState
+import com.microblink.ux.state.CommonStatusMessage
+import com.microblink.ux.state.ErrorState
+import com.microblink.ux.state.ProcessingState
+import com.microblink.ux.state.ReticleState
 import com.microblink.ux.state.StatusMessage
 
 /**
@@ -54,6 +57,10 @@ import com.microblink.ux.state.StatusMessage
  * @param onExitScanning A callback function invoked when the user wants to
  *                       exit the scanning process.
  * @param uiSettings The [UiSettings] used to configure the UI.
+ * @param showProductionOverlay A [Boolean] defining whether a `Microblink` logo overlay will be shown during scanning.
+ *                              The setting value is defined by license and shouldn't be modified
+ * @param showDemoOverlay A [Boolean] defining whether a `Powered by Microblink` text overlay will be shown during scanning.
+ *  *                     The setting value is defined by license and shouldn't be modified
  * @param onTorchStateChange A callback function invoked when the user wants to
  *                           change the torch state.
  * @param onFlipDocumentAnimationCompleted A callback function invoked when the
@@ -83,6 +90,8 @@ fun ScanningUx(
     uiState: BaseUiState,
     onExitScanning: () -> Unit,
     uiSettings: UiSettings,
+    showProductionOverlay: Boolean,
+    showDemoOverlay: Boolean,
     onTorchStateChange: () -> Unit,
     onFlipDocumentAnimationCompleted: () -> Unit,
     onReticleSuccessAnimationCompleted: () -> Unit,
@@ -97,6 +106,7 @@ fun ScanningUx(
         reticleState = uiState.processingState,
         instructionMessage = uiState.statusMessage,
         cardAnimationState = uiState.cardAnimationState,
+        showDemoOverlay = showDemoOverlay,
         onFlipDocumentAnimationCompleted = onFlipDocumentAnimationCompleted,
         onReticleSuccessAnimationCompleted = onReticleSuccessAnimationCompleted
     )
@@ -120,6 +130,7 @@ fun ScanningUx(
                 onChangeHelpTooltipVisibility
             )
         }
+        if (showProductionOverlay) ProductionOverlay(Modifier.align(Alignment.BottomCenter))
     }
 
     if (uiSettings.showOnboardingDialog && uiState.onboardingDialogDisplayed) {
@@ -170,12 +181,13 @@ internal fun ScanningScreenCentralElements(
     reticleState: ProcessingState,
     instructionMessage: StatusMessage,
     cardAnimationState: CardAnimationState,
+    showDemoOverlay: Boolean,
     onFlipDocumentAnimationCompleted: () -> Unit,
     onReticleSuccessAnimationCompleted: () -> Unit
 ) {
 
     var _reticleState by remember { mutableStateOf(ReticleState.Sensing) }
-    var _instructionMessage by remember { mutableStateOf(StatusMessage.Empty) }
+    var _instructionMessage: StatusMessage by remember { mutableStateOf(CommonStatusMessage.Empty) }
     var _cardAnimationState by remember { mutableStateOf(CardAnimationState.Hidden) }
     var showInstructionDialog by remember { mutableStateOf(true) }
     var showAnimation by remember { mutableStateOf(false) }
@@ -186,7 +198,7 @@ internal fun ScanningScreenCentralElements(
 
     LaunchedEffect(instructionMessage) {
         _instructionMessage = instructionMessage
-        showInstructionDialog = instructionMessage != StatusMessage.Empty
+        showInstructionDialog = instructionMessage != CommonStatusMessage.Empty
     }
 
     LaunchedEffect(cardAnimationState) {
@@ -201,33 +213,53 @@ internal fun ScanningScreenCentralElements(
         val screenWidth = configuration.screenWidthDp
         val screenDimensionMinDp =
             if (screenWidth < screenHeight) screenWidth.dp else screenHeight.dp
-        Box(
+        Column(
             Modifier
                 .fillMaxWidth()
                 .weight(0.55f)
-                .padding(bottom = 10.dp), contentAlignment = Alignment.BottomCenter
+                .padding(bottom = 10.dp),
+            verticalArrangement = Arrangement.Bottom
         ) {
-            if (showAnimation) {
-                DocumentFlipAnimation(
-                    screenDimensionMinDp,
-                    onFlipDocumentAnimationCompleted
-                )
-            } else {
-                Reticle(
-                    _reticleState,
-                    screenDimensionMinDp,
-                    onReticleSuccessAnimationCompleted
-                )
+            if (showDemoOverlay) {
+                Row(
+                    Modifier
+                        .weight(0.25f)
+                        .align(Alignment.CenterHorizontally),
+                    verticalAlignment = Alignment.Bottom
+                ) {
+                    DemoOverlay(modifier = Modifier.padding(bottom = 20.dp))
+                }
+            }
+            Box(
+                Modifier
+                    .weight(0.30f)
+                    .fillMaxWidth(), contentAlignment = Alignment.BottomCenter
+            ) {
+                if (showAnimation) {
+                    _cardAnimationState.Animate(
+                        screenDimensionMinDp,
+                        onFlipDocumentAnimationCompleted
+                    )
+                } else {
+                    Reticle(
+                        _reticleState,
+                        screenDimensionMinDp,
+                        onReticleSuccessAnimationCompleted
+                    )
+                }
             }
         }
-        Row(
+        Column(
             Modifier
                 .fillMaxWidth()
-                .weight(0.45f)
+                .weight(0.45f),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            if (showInstructionDialog) {
-                _instructionMessage.statusMessageToStringRes()?.let {
-                    MessageContainer(it, Gray.copy(0.9f))
+            Row {
+                if (showInstructionDialog) {
+                    _instructionMessage.statusMessageToStringRes()?.let {
+                        MessageContainer(it, Gray.copy(0.9f))
+                    }
                 }
             }
         }

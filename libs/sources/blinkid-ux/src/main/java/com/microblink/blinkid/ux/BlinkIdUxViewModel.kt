@@ -19,14 +19,25 @@ import com.microblink.blinkid.ux.scanning.BlinkIdAnalyzer
 import com.microblink.blinkid.ux.scanning.BlinkIdDocumentLocatedLocation
 import com.microblink.blinkid.ux.scanning.BlinkIdScanningDoneHandler
 import com.microblink.blinkid.ux.scanning.DocumentImageAnalysisResult
+import com.microblink.blinkid.ux.scanning.RequestPassportPage
+import com.microblink.blinkid.ux.scanning.ScanningWrongPassportPage
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
+import com.microblink.blinkid.ux.state.BlinkIdStatusMessage
 import com.microblink.blinkid.ux.state.BlinkIdUiState
+import com.microblink.blinkid.ux.state.PassportPage
+import com.microblink.blinkid.ux.state.ShowPassportMoveToLeft
+import com.microblink.blinkid.ux.state.ShowPassportMoveToRight
+import com.microblink.blinkid.ux.state.ShowPassportMoveToTop
+import com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation
+import com.microblink.blinkid.ux.utils.getPassportPageFromRotation
 import com.microblink.ux.ScanningUxEvent
 import com.microblink.ux.ScanningUxEventHandler
 import com.microblink.ux.UiSettings
 import com.microblink.ux.camera.CameraViewModel
 import com.microblink.ux.camera.ImageAnalyzer
 import com.microblink.ux.state.CardAnimationState
+import com.microblink.ux.state.CardAnimationState.ShowFlipLandscape
+import com.microblink.ux.state.CommonStatusMessage
 import com.microblink.ux.state.DocumentSide
 import com.microblink.ux.state.DocumentSide.Back
 import com.microblink.ux.state.DocumentSide.Barcode
@@ -37,6 +48,7 @@ import com.microblink.ux.state.ProcessingState
 import com.microblink.ux.state.ReticleState
 import com.microblink.ux.state.StatusMessage
 import com.microblink.ux.utils.ErrorReason
+import com.microblink.ux.utils.ScreenOrientation
 import com.microblink.ux.utils.toErrorState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -107,7 +119,7 @@ internal class BlinkIdUxViewModel(
 
                                     _uiState.update {
                                         it.copy(
-                                            statusMessage = StatusMessage.Empty,
+                                            statusMessage = CommonStatusMessage.Empty,
                                             processingState = ProcessingState.SuccessAnimation,
                                             reticleState = ReticleState.Success
                                         )
@@ -126,9 +138,20 @@ internal class BlinkIdUxViewModel(
                                         _uiState.update {
                                             it.copy(
                                                 processingState = newProcessingState,
-                                                statusMessage = if (it.currentSide == Front) StatusMessage.ScanFrontSide
-                                                else if (it.currentSide == Back) StatusMessage.ScanBackSide
-                                                else StatusMessage.ScanBarcode
+                                                statusMessage =
+                                                    if (it.activePassportPage != null) {
+                                                        when (it.activePassportPage) {
+                                                            PassportPage.Top -> BlinkIdStatusMessage.PassportScanTopPage
+                                                            PassportPage.Right -> BlinkIdStatusMessage.PassportScanRightPage
+                                                            PassportPage.Left -> BlinkIdStatusMessage.PassportScanLeftPage
+                                                            else -> BlinkIdStatusMessage.PassportScanTopPage
+                                                        }
+                                                    } else
+                                                        when (it.currentSide) {
+                                                            Front -> CommonStatusMessage.ScanFrontSide
+                                                            Back -> CommonStatusMessage.ScanBackSide
+                                                            else -> CommonStatusMessage.ScanBarcode
+                                                        }
                                             )
                                         }
                                         updateStateStartTime()
@@ -146,7 +169,7 @@ internal class BlinkIdUxViewModel(
                                         _uiState.update {
                                             it.copy(
                                                 processingState = newProcessingState,
-                                                statusMessage = StatusMessage.Empty
+                                                statusMessage = CommonStatusMessage.Empty
                                             )
                                         }
                                         updateStateStartTime()
@@ -160,11 +183,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.EliminateBlur
+                                            statusMessage = CommonStatusMessage.EliminateBlur
                                         )
                                     }
                                     updateStateStartTime()
@@ -176,11 +201,61 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
+                                    ) {
+                                        break
+                                    }
+                                    _uiState.update {
+                                        it.copy(
+                                            processingState = newProcessingState,
+                                            statusMessage = CommonStatusMessage.KeepDocumentVisible
+                                        )
+                                    }
+                                    updateStateStartTime()
+                                }
+
+                                is ScanningUxEvent.FaceImageNotFound -> {
+                                    val newProcessingState = ProcessingState.Error
+                                    if (shouldStayInCurrentState(
+                                            uiState.value.processingState,
+                                            newProcessingState
+                                        )
                                     ) break
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.KeepDocumentVisible
+                                            statusMessage = CommonStatusMessage.KeepFacePhotoVisible
+                                        )
+                                    }
+                                    updateStateStartTime()
+                                }
+
+                                is ScanningUxEvent.DocumentTooBright -> {
+                                    val newProcessingState = ProcessingState.Error
+                                    if (shouldStayInCurrentState(
+                                            uiState.value.processingState,
+                                            newProcessingState
+                                        )
+                                    ) break
+                                    _uiState.update {
+                                        it.copy(
+                                            processingState = newProcessingState,
+                                            statusMessage = CommonStatusMessage.DecreaseLightingIntensity
+                                        )
+                                    }
+                                    updateStateStartTime()
+                                }
+
+                                is ScanningUxEvent.DocumentTooDark -> {
+                                    val newProcessingState = ProcessingState.Error
+                                    if (shouldStayInCurrentState(
+                                            uiState.value.processingState,
+                                            newProcessingState
+                                        )
+                                    ) break
+                                    _uiState.update {
+                                        it.copy(
+                                            processingState = newProcessingState,
+                                            statusMessage = CommonStatusMessage.IncreaseLightingIntensity
                                         )
                                     }
                                     updateStateStartTime()
@@ -192,11 +267,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.MoveFarther
+                                            statusMessage = CommonStatusMessage.MoveFarther
                                         )
                                     }
                                     updateStateStartTime()
@@ -208,11 +285,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             ProcessingState.Error
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.MoveDocumentFromEdge
+                                            statusMessage = CommonStatusMessage.MoveDocumentFromEdge
                                         )
                                     }
                                     updateStateStartTime()
@@ -224,11 +303,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.MoveCloser
+                                            statusMessage = CommonStatusMessage.MoveCloser
                                         )
                                     }
                                     updateStateStartTime()
@@ -240,11 +321,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.AlignDocument
+                                            statusMessage = CommonStatusMessage.AlignDocument
                                         )
                                     }
                                     updateStateStartTime()
@@ -256,11 +339,13 @@ internal class BlinkIdUxViewModel(
                                             uiState.value.processingState,
                                             newProcessingState
                                         )
-                                    ) break
+                                    ) {
+                                        break
+                                    }
                                     _uiState.update {
                                         it.copy(
                                             processingState = newProcessingState,
-                                            statusMessage = StatusMessage.EliminateGlare
+                                            statusMessage = CommonStatusMessage.EliminateGlare
                                         )
                                     }
                                     updateStateStartTime()
@@ -270,10 +355,55 @@ internal class BlinkIdUxViewModel(
                                     _uiState.update {
                                         it.copy(
                                             processingState = ProcessingState.Error,
-                                            statusMessage = StatusMessage.ScanningWrongSide
+                                            statusMessage = CommonStatusMessage.ScanningWrongSide
                                         )
                                     }
                                     updateStateStartTime()
+                                }
+
+                                is ScanningWrongPassportPage -> {
+                                    val page =
+                                        if (event.isScanningDataPage == true) {
+                                            PassportPage.Data
+                                        } else {
+                                            getPassportPageFromRotation(
+                                                getCorrectedDocumentRotation(
+                                                    event.documentRotation,
+                                                    uiState.value.screenOrientation
+                                                )
+                                            )
+                                        }
+                                    _uiState.update {
+                                        it.copy(
+                                            processingState = ProcessingState.Error,
+                                            statusMessage = when (page) {
+                                                PassportPage.Top -> BlinkIdStatusMessage.PassportWrongPageTop
+                                                PassportPage.Right -> BlinkIdStatusMessage.PassportWrongPageRight
+                                                PassportPage.Left -> BlinkIdStatusMessage.PassportWrongPageLeft
+                                                PassportPage.Data -> BlinkIdStatusMessage.ScanPassportDataPage
+                                            },
+                                            activePassportPage = page
+                                        )
+                                    }
+                                    updateStateStartTime()
+                                }
+
+                                is RequestPassportPage -> {
+                                    imageAnalyzer?.pauseAnalysis()
+                                    val page =
+                                        getPassportPageFromRotation(
+                                            getCorrectedDocumentRotation(
+                                                event.documentRotation,
+                                                uiState.value.screenOrientation
+                                            )
+                                        )
+                                    _uiState.update {
+                                        it.copy(
+                                            processingState = ProcessingState.SuccessAnimation,
+                                            statusMessage = CommonStatusMessage.Empty,
+                                            activePassportPage = page
+                                        )
+                                    }
                                 }
 
                                 is ScanningUxEvent.RequestDocumentSide -> {
@@ -295,13 +425,14 @@ internal class BlinkIdUxViewModel(
                                                     // TODO: support for portrait animations
                                                     processingState =
                                                         ProcessingState.SuccessAnimation
-                                                    statusMessage = StatusMessage.Empty
+                                                    statusMessage = CommonStatusMessage.Empty
                                                     imageAnalyzer?.pauseAnalysis()
                                                 }
 
                                                 Barcode -> {
                                                     processingState = ProcessingState.Sensing
-                                                    statusMessage = StatusMessage.ScanBarcode
+                                                    statusMessage =
+                                                        CommonStatusMessage.ScanBarcode
                                                     currentSide = Barcode
                                                 }
                                             }
@@ -316,7 +447,8 @@ internal class BlinkIdUxViewModel(
                                                 Barcode -> {
                                                     // TODO: add should stay in processing state
                                                     processingState = ProcessingState.Sensing
-                                                    statusMessage = StatusMessage.ScanBarcode
+                                                    statusMessage =
+                                                        CommonStatusMessage.ScanBarcode
                                                     currentSide = Barcode
                                                 }
                                             }
@@ -324,7 +456,7 @@ internal class BlinkIdUxViewModel(
 
                                         Barcode -> {
                                             // impossible to reach anything else other than barcode
-                                            statusMessage = StatusMessage.ScanBarcode
+                                            statusMessage = CommonStatusMessage.ScanBarcode
                                         }
                                     }
 
@@ -366,9 +498,21 @@ internal class BlinkIdUxViewModel(
                 onboardingDialogDisplayed = uiSettings.showOnboardingDialog
             )
         }
-        if (_uiState.value.onboardingDialogDisplayed) changeOnboardingDialogVisibility(true)
-        else changeOnboardingDialogVisibility(false)
+        if (_uiState.value.onboardingDialogDisplayed) {
+            changeOnboardingDialogVisibility(true)
+        } else {
+            changeOnboardingDialogVisibility(false)
+        }
     }
+
+    fun setScreenOrientation(screenOrientation: ScreenOrientation) {
+        _uiState.update {
+            it.copy(
+                screenOrientation = screenOrientation
+            )
+        }
+    }
+
 
     override fun analyzeImage(image: ImageProxy) {
         image.use {
@@ -383,10 +527,8 @@ internal class BlinkIdUxViewModel(
         return if (currentState == newState) true
         else if (newState.reticleState == ReticleState.Success) false
         else if (_uiState.value.cardAnimationState != CardAnimationState.Hidden) true
-        else if (currentState.reticleState == ReticleState.IndefiniteProgress && newState.reticleState == ReticleState.Error) return false
-        else if ((System.nanoTime()
-                .nanoseconds - uiStateStartTime) < currentState.minDuration
-        ) true
+        else if (currentState.reticleState == ReticleState.IndefiniteProgress && newState.reticleState == ReticleState.Error) false
+        else if ((System.nanoTime().nanoseconds - uiStateStartTime) < currentState.minDuration) true
         else false
     }
 
@@ -468,8 +610,9 @@ internal class BlinkIdUxViewModel(
             it.copy(
                 errorState = ErrorState.NoError,
                 processingState = ProcessingState.Sensing,
-                statusMessage = StatusMessage.ScanFrontSide,
-                currentSide = Front
+                statusMessage = CommonStatusMessage.ScanFrontSide,
+                currentSide = Front,
+                activePassportPage = null
             )
         }
         updateStateStartTime()
@@ -480,15 +623,38 @@ internal class BlinkIdUxViewModel(
     fun onReticleSuccessAnimationCompleted() {
         // TODO: update to work with barcode
         if (!isScanningDone) {
-            _uiState.update {
-                it.copy(
-                    processingState =
-                        ProcessingState.CardAnimation,
-                    statusMessage = StatusMessage.FlipDocument,
-                    currentSide = Back,
-                    cardAnimationState =
-                        CardAnimationState.ShowFlipLandscape
-                )
+            if (_uiState.value.activePassportPage != null) {
+                _uiState.update {
+                    it.copy(
+                        processingState = ProcessingState.CardAnimation,
+                        statusMessage = when (it.activePassportPage) {
+                            PassportPage.Top -> BlinkIdStatusMessage.PassportMoveToTop
+                            PassportPage.Right -> BlinkIdStatusMessage.PassportMoveToRight
+                            PassportPage.Left -> BlinkIdStatusMessage.PassportMoveToLeft
+                            else -> BlinkIdStatusMessage.ScanPassportDataPage
+                        },
+                        currentSide = Back,
+                        cardAnimationState =
+                            when (it.activePassportPage) {
+                                PassportPage.Top -> ShowPassportMoveToTop
+                                PassportPage.Right -> ShowPassportMoveToRight
+                                PassportPage.Left -> ShowPassportMoveToLeft
+                                else -> ShowPassportMoveToTop
+                            }
+                    )
+                }
+            } else {
+                _uiState.update {
+                    it.copy(
+                        processingState =
+                            ProcessingState.CardAnimation,
+                        statusMessage = CommonStatusMessage.FlipDocument,
+                        currentSide = Back,
+                        cardAnimationState =
+                            ShowFlipLandscape
+                    )
+                }
+
             }
         } else {
             _uiState.update {

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Di chuyển đến nơi sáng hơn</string>
+  <string name="mb_decrease_lighting_intensity">Di chuyển đến nơi ít sáng hơn</string>
+  <string name="mb_passport_scan_data_page_instructions">Quét trang chứa dữ liệu của tài liệu</string>
   <string name="mb_document_class_filtered_dialog_message">Thử quét tài liệu khác.</string>
   <string name="mb_document_class_filtered_dialog_title">Tài liệu không được chấp nhận</string>
   <string name="mb_ok">Được rồi</string>

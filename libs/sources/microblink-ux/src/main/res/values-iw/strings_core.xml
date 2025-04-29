@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">עברו למקום בהיר יותר</string>
+  <string name="mb_decrease_lighting_intensity">עברו למקום עם פחות תאורה</string>
+  <string name="mb_passport_scan_data_page_instructions">סרקו את עמוד הנתונים במסמך</string>
   <string name="mb_document_class_filtered_dialog_message">נסו לסרוק מסמך אחר.</string>
   <string name="mb_document_class_filtered_dialog_title">המסמך לא התקבל</string>
   <string name="mb_ok">בסדר</string>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Déplacer le document vers un endroit plus lumineux</string>
+  <string name="mb_decrease_lighting_intensity">Se déplacer vers un endroit moins éclairé</string>
+  <string name="mb_passport_scan_data_page_instructions">Numériser la page de données du document</string>
   <string name="mb_document_class_filtered_dialog_message">Essayez de scanner un autre document.</string>
   <string name="mb_document_class_filtered_dialog_title">Document rejeté</string>
   <string name="mb_ok">D\'accord</string>

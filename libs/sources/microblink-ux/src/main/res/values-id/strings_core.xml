@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Pindah ke tempat yang lebih terang</string>
+  <string name="mb_decrease_lighting_intensity">Pindah ke tempat dengan pencahayaan yang lebih sedikit</string>
+  <string name="mb_passport_scan_data_page_instructions">Memindai halaman data dokumen</string>
   <string name="mb_document_class_filtered_dialog_message">Coba pindai dokumen yang berbeda.</string>
   <string name="mb_document_class_filtered_dialog_title">Dokumen tidak diterima</string>
   <string name="mb_ok">Oke</string>
