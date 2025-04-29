@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Přesuňte se na lépe osvětlené místo</string>
+  <string name="mb_decrease_lighting_intensity">Přesuňte se na méně osvětlené místo</string>
+  <string name="mb_passport_scan_data_page_instructions">Naskenujte datovou stránku dokumentu</string>
   <string name="mb_document_class_filtered_dialog_message">Zkuste naskenovat jiný dokument.</string>
   <string name="mb_document_class_filtered_dialog_title">Dokument nebyl přijat</string>
   <string name="mb_ok">OK</string>

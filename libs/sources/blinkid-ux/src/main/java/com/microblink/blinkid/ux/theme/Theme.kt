@@ -40,7 +40,7 @@ fun BlinkIdSdkTheme(
     CompositionLocalProvider(
         LocalBaseUiColors provides (uiSettings.uiColors
             ?: if (darkTheme) UiColors.DefaultDark else UiColors.Default),
-        LocalBaseSdkStrings provides (uiSettings.sdkStrings ?: BlinkIdTheme.sdkStrings),
+        LocalBaseBlinkIdSdkStrings provides (uiSettings.sdkStrings as? BlinkIdSdkStrings ?: BlinkIdTheme.sdkStrings),
         LocalTheme provides if (darkTheme) DarkBlinkIdColorScheme else BlinkIdColorScheme,
         LocalTypography provides (uiSettings.typography ?: SdkTypography(null))
 
@@ -57,9 +57,9 @@ internal object BlinkIdTheme {
         @Composable
         get() = LocalBaseUiColors.current
 
-    val sdkStrings: SdkStrings
+    val sdkStrings: BlinkIdSdkStrings
         @Composable
-        get() = LocalBaseSdkStrings.current
+        get() = LocalBaseBlinkIdSdkStrings.current
 
     val sdkTheme: ColorScheme
         @Composable

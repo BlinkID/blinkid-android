@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">ย้ายไปยังจุดที่สว่างกว่า</string>
+  <string name="mb_decrease_lighting_intensity">ย้ายไปยังจุดที่มีแสงสว่างน้อยกว่า</string>
+  <string name="mb_passport_scan_data_page_instructions">สแกนหน้าข้อมูลของเอกสาร</string>
   <string name="mb_document_class_filtered_dialog_message">ลองสแกนเอกสารอย่างอื่นดู</string>
   <string name="mb_document_class_filtered_dialog_title">ไม่รองรับเอกสารนี้</string>
   <string name="mb_ok">ตกลง</string>

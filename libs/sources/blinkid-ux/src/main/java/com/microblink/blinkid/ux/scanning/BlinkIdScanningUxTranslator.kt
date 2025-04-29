@@ -6,9 +6,12 @@
 package com.microblink.blinkid.ux.scanning
 
 import com.microblink.blinkid.core.result.ImageAnalysisDetectionStatus
+import com.microblink.blinkid.core.result.ImageAnalysisLightingStatus
+import com.microblink.blinkid.core.result.ImageExtractionType
 import com.microblink.blinkid.core.result.ProcessingStatus
 import com.microblink.blinkid.core.result.ScanningSide
 import com.microblink.blinkid.core.result.ScanningStatus
+import com.microblink.blinkid.core.result.classinfo.Type
 import com.microblink.blinkid.core.session.BlinkIdProcessResult
 import com.microblink.blinkid.core.session.BlinkIdScanningSession
 import com.microblink.core.image.InputImage
@@ -32,6 +35,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
     private val backToBarcodeTimeout = 3.seconds
     private var barcodeDispatched = false
+    private var isPassport = false
 
     private var currentSide = DocumentSide.Front
 
@@ -66,10 +70,18 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
             return events
         }
 
+        imageAnalysisResult.documentClassInfo.type?.let {
+            isPassport = it == Type.Passport
+        }
+
         if (currentSide == DocumentSide.Front) {
             if (processResult.resultCompleteness.scanningStatus == ScanningStatus.SideScanned) {
                 currentSide = DocumentSide.Back
-                events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
+                if (isPassport) {
+                    events.add(
+                        RequestPassportPage(documentRotation = imageAnalysisResult.documentRotation)
+                    )
+                } else events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
             }
         } else if (currentSide == DocumentSide.Back) {
             if (processResult.inputImageAnalysisResult.scanningSide != ScanningSide.Second) {
@@ -108,16 +120,39 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
         when (imageAnalysisResult.processingStatus) {
 
             ProcessingStatus.AwaitingOtherSide -> {
-                events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+                if (isPassport) RequestPassportPage(documentRotation = imageAnalysisResult.documentRotation)
+                else events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
                 hasEvents = true
             }
 
             ProcessingStatus.ScanningWrongSide -> {
-                events.add(ScanningUxEvent.ScanningWrongSide)
+                if (isPassport) {
+                    events.add(
+                        ScanningWrongPassportPage(
+                            isScanningDataPage = currentSide == DocumentSide.Front,
+                            documentRotation = imageAnalysisResult.documentRotation
+                        )
+                    )
+                } else events.add(ScanningUxEvent.ScanningWrongSide)
                 hasEvents = true
             }
 
-            else -> { }
+            ProcessingStatus.ImageReturnFailed -> {
+                if (processResult.inputImageAnalysisResult.imageExtractionFailures.contains(ImageExtractionType.Face)) {
+                    events.add(ScanningUxEvent.FaceImageNotFound)
+                    hasEvents = true
+                }
+
+            }
+
+            ProcessingStatus.MandatoryFieldMissing -> {
+                events.add(
+                    ScanningUxEvent.DocumentNotFullyVisible
+                )
+                hasEvents = true
+            }
+
+            else -> {}
         }
 
         if (hasEvents) {
@@ -145,17 +180,38 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
         hasEvents = true
 
-        if (imageAnalysisResult.blurDetectionStatus == ImageAnalysisDetectionStatus.Detected) events.add(ScanningUxEvent.BlurDetected)
-        else if (imageAnalysisResult.glareDetectionStatus == ImageAnalysisDetectionStatus.Detected) events.add(ScanningUxEvent.GlareDetected)
-        else if (imageAnalysisResult.documentHandOcclusionStatus == ImageAnalysisDetectionStatus.Detected) events.add(ScanningUxEvent.DocumentNotFullyVisible)
-        else hasEvents = false
+        if (imageAnalysisResult.glareDetectionStatus == ImageAnalysisDetectionStatus.Detected) {
+            events.add(
+                ScanningUxEvent.GlareDetected
+            )
+        } else if (imageAnalysisResult.blurDetectionStatus == ImageAnalysisDetectionStatus.Detected) {
+            events.add(
+                ScanningUxEvent.BlurDetected
+            )
+        } else if (imageAnalysisResult.documentHandOcclusionStatus == ImageAnalysisDetectionStatus.Detected) {
+            events.add(
+                ScanningUxEvent.DocumentNotFullyVisible
+            )
+        } else if (imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooBright) {
+            events.add(
+                ScanningUxEvent.DocumentTooBright
+            )
+        } else if (imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooDark) {
+            events.add(
+                ScanningUxEvent.DocumentTooDark
+            )
+        } else {
+            hasEvents = false
+        }
 
         if (hasEvents) {
             events.add(DocumentImageAnalysisResult(imageAnalysisResult = imageAnalysisResult))
             return events
         }
 
-        if (documentLocated) events.add(ScanningUxEvent.DocumentNotFullyVisible)
+        if (documentLocated) {
+            events.add(ScanningUxEvent.DocumentNotFullyVisible)
+        }
         events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
         events.add(DocumentImageAnalysisResult(imageAnalysisResult = imageAnalysisResult))
         return events
@@ -164,6 +220,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
     fun resetSession() {
         firstBackRequestedTimestamp = null
         barcodeDispatched = false
+        isPassport = false
     }
 
     private fun shouldRequestBarcode(processResult: BlinkIdProcessResult): Boolean {

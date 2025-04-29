@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Move to brighter spot</string>
+  <string name="mb_decrease_lighting_intensity">Move to spot with less lighting</string>
+  <string name="mb_passport_scan_data_page_instructions">Scan the data page of the document</string>
   <string name="mb_document_class_filtered_dialog_message">Try scanning a different document.</string>
   <string name="mb_document_class_filtered_dialog_title">Document not accepted</string>
   <string name="mb_ok">OK</string>

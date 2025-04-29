@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">Premaknite se na svetlejšo točko</string>
+  <string name="mb_decrease_lighting_intensity">Premaknite se na mesto z manj svetlobe</string>
+  <string name="mb_passport_scan_data_page_instructions">Optično preberite podatkovno stran dokumenta</string>
   <string name="mb_document_class_filtered_dialog_message">Poskusite optično prebrati drug dokument.</string>
   <string name="mb_document_class_filtered_dialog_title">Dokument ni sprejet</string>
   <string name="mb_ok">V redu</string>

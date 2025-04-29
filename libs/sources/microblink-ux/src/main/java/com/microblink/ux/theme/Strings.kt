@@ -31,7 +31,7 @@ import kotlinx.parcelize.Parcelize
  */
 @Immutable
 @Parcelize
-public data class SdkStrings(
+open class SdkStrings(
     val scanningStrings: ScanningStrings,
     val helpDialogsStrings: HelpDialogsStrings
 ): Parcelable {
@@ -49,21 +49,23 @@ public data class SdkStrings(
  */
 @Immutable
 @Parcelize
-data class ScanningStrings(
-    @StringRes val instructionsFrontSide: Int,
-    @StringRes val instructionsBackSide: Int,
-    @StringRes val instructionsBarcode: Int,
-    @StringRes val instructionsFlipDocument: Int,
-    @StringRes val instructionsDocumentTooCloseToEdge: Int,
-    @StringRes val instructionsDocumentNotFullyVisible: Int,
-    @StringRes val instructionsDocumentTilted: Int,
-    @StringRes val instructionsFacePhotoNotFullyVisible: Int,
-    @StringRes val instructionsScanningWrongSide: Int,
-    @StringRes val instructionsBlurDetected: Int,
-    @StringRes val instructionsGlareDetected: Int,
-    @StringRes val instructionsMoveFarther: Int,
-    @StringRes val instructionsMoveCloser: Int,
-    @StringRes val snackbarFlashlightWarning: Int
+open class ScanningStrings(
+    @StringRes open val instructionsFrontSide: Int,
+    @StringRes open val instructionsBackSide: Int,
+    @StringRes open val instructionsBarcode: Int,
+    @StringRes open val instructionsFlipDocument: Int,
+    @StringRes open val instructionsDocumentTooCloseToEdge: Int,
+    @StringRes open val instructionsDocumentNotFullyVisible: Int,
+    @StringRes open val instructionsDocumentTilted: Int,
+    @StringRes open val instructionsFacePhotoNotFullyVisible: Int,
+    @StringRes open val instructionsScanningWrongSide: Int,
+    @StringRes open val instructionsBlurDetected: Int,
+    @StringRes open val instructionsGlareDetected: Int,
+    @StringRes open val instructionsMoveFarther: Int,
+    @StringRes open val instructionsMoveCloser: Int,
+    @StringRes open val instructionsIncreaseLight: Int,
+    @StringRes open val instructionsDecreaseLight: Int,
+    @StringRes open val snackbarFlashlightWarning: Int
 ): Parcelable {
     companion object {
         val Default: ScanningStrings =
@@ -81,6 +83,8 @@ data class ScanningStrings(
                 instructionsGlareDetected = R.string.mb_glare_detected,
                 instructionsMoveFarther = R.string.mb_move_farther,
                 instructionsMoveCloser = R.string.mb_move_closer,
+                instructionsIncreaseLight = R.string.mb_increase_lighting_intensity,
+                instructionsDecreaseLight = R.string.mb_decrease_lighting_intensity,
                 snackbarFlashlightWarning = R.string.mb_flashlight_warning_message
             )
     }
@@ -131,7 +135,6 @@ data class HelpDialogsStrings(
             )
     }
 }
-
 
 var LocalBaseSdkStrings = staticCompositionLocalOf {
     SdkStrings.Default

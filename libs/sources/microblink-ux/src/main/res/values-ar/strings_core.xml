@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">انتقل إلى مكان ذي إضاءة أعلى</string>
+  <string name="mb_decrease_lighting_intensity">انتقل إلى مكان ذي إضاءة أقل</string>
+  <string name="mb_passport_scan_data_page_instructions">قم بالمسح الضوئي لصفحة البيانات الخاصة بالمستند</string>
   <string name="mb_document_class_filtered_dialog_message">حاول مسح مستند آخر.\n</string>
   <string name="mb_document_class_filtered_dialog_title">المستند غير مقبول</string>
   <string name="mb_ok">\nنعم</string>

@@ -6,6 +6,8 @@
 package com.microblink.ux.state
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.Dp
+import com.microblink.ux.components.DocumentFlipAnimation
 import com.microblink.ux.components.flipAnimationDurationMs
 import com.microblink.ux.components.successAnimationDurationMs
 import com.microblink.ux.theme.SdkTheme
@@ -62,12 +64,24 @@ enum class MbTorchState {
  * Current state of the flip-card animation shown after the first side
  * has been successfully scanned.
  */
-enum class CardAnimationState(val isPortrait: Boolean) {
-    Hidden(false),
-    ShowFlipLandscape(false),
-    ShowFlipPortrait(true),
-    ShowRotationToPortrait(true),
-    ShowRotationToLandscape(false)
+fun interface CardAnimationState {
+
+    companion object {
+        val Hidden = CardAnimationState { _, _ -> }
+    }
+
+    @Composable
+    fun Animate(
+        screenDimensionMin: Dp,
+        onAnimationCompleted: () -> Unit
+    )
+
+    object ShowFlipLandscape : CardAnimationState {
+        @Composable
+        override fun Animate(screenDimensionMin: Dp, onAnimationCompleted: () -> Unit) {
+            DocumentFlipAnimation(screenDimensionMin, onAnimationCompleted)
+        }
+    }
 }
 
 /**
@@ -104,15 +118,23 @@ enum class HapticFeedbackState {
 }
 
 /**
+ * Interface that represents the status messages that may be shown
+ * during the scanning session.
+ */
+interface StatusMessage {
+    @Composable
+    fun statusMessageToStringRes(): Int?
+}
+
+/**
  * Represents all the instruction messages that may be shown
  * during the scanning session.
  *
  * This enum class defines the various status messages that can be displayed to the
  * user during the document scanning process. Each enum value corresponds to a
  * specific instruction or feedback message.
- *
  */
-enum class StatusMessage {
+enum class CommonStatusMessage : StatusMessage {
     Empty,
     ScanFrontSide,
     ScanBackSide,
@@ -123,6 +145,7 @@ enum class StatusMessage {
     MoveFarther,
     MoveCloser,
     KeepDocumentVisible,
+    KeepFacePhotoVisible,
     AlignDocument,
     MoveDocumentFromEdge,
     IncreaseLightingIntensity,
@@ -145,7 +168,7 @@ enum class StatusMessage {
      *
      */
     @Composable
-    fun statusMessageToStringRes(): Int? {
+    override fun statusMessageToStringRes(): Int? {
         val strings = SdkTheme.sdkStrings.scanningStrings
         return when (this) {
             Empty -> null
@@ -158,10 +181,11 @@ enum class StatusMessage {
             MoveFarther -> strings.instructionsMoveFarther
             MoveCloser -> strings.instructionsMoveCloser
             KeepDocumentVisible -> strings.instructionsDocumentNotFullyVisible
+            KeepFacePhotoVisible -> strings.instructionsFacePhotoNotFullyVisible
             AlignDocument -> strings.instructionsDocumentTilted
             MoveDocumentFromEdge -> strings.instructionsDocumentTooCloseToEdge
-            IncreaseLightingIntensity -> null
-            DecreaseLightingIntensity -> null
+            IncreaseLightingIntensity -> strings.instructionsIncreaseLight
+            DecreaseLightingIntensity -> strings.instructionsDecreaseLight
             EliminateBlur -> strings.instructionsBlurDetected
             EliminateGlare -> strings.instructionsGlareDetected
             FilterSpecificMessage -> null

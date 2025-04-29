@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+  <string name="mb_increase_lighting_intensity">移到更亮的點</string>
+  <string name="mb_decrease_lighting_intensity">移到照明較暗的點</string>
+  <string name="mb_passport_scan_data_page_instructions">掃描文件的資料頁</string>
   <string name="mb_document_class_filtered_dialog_message">請嘗試掃描其他文件。</string>
   <string name="mb_document_class_filtered_dialog_title">文件未獲接受</string>
   <string name="mb_ok">好的</string>

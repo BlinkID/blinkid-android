@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>blinkid-ux</artifactId>
-    <version>7.1.0</version>
+    <version>7.2.0</version>
     <packaging>aar</packaging>
     <name>BlinkID SDK for Android</name>
     <description>SDK that enables scanning of ID documents and passports in your Android application</description>
@@ -36,19 +36,19 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>2.1.10</version>
+            <version>2.1.20</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.microblink</groupId>
             <artifactId>blinkid-core</artifactId>
-            <version>7.1.0</version>
+            <version>7.2.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.microblink</groupId>
             <artifactId>microblink-ux</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
