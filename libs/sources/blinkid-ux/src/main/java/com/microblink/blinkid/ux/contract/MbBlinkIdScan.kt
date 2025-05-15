@@ -123,7 +123,7 @@ data class BlinkIdScanActivityColors(
  *
  */
 @Parcelize
-data class BlinkIdScanActivitySettings(
+data class BlinkIdScanActivitySettings @JvmOverloads constructor(
     val sdkSettings: BlinkIdSdkSettings,
     val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
     val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),

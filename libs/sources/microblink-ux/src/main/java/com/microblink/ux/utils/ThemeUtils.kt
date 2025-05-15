@@ -28,7 +28,7 @@ import kotlinx.parcelize.Parcelize
  * @property lineHeight Line height. Defaults to `null`.
  */
 @Parcelize
-data class ParcelableTextStyle(
+data class ParcelableTextStyle @JvmOverloads constructor(
     val fontFamily: List<ParcelableFont>? = null,
     val fontWeight: FontWeight? = null,
     val fontSize: TextUnit? = null,
@@ -76,7 +76,7 @@ data class ParcelableTextStyle(
  * @property style Font style. Defaults to [FontStyle.Normal].
  */
 @Parcelize
-data class ParcelableFont(
+data class ParcelableFont @JvmOverloads constructor(
     @FontRes val resId: Int,
     val weight: FontWeight = FontWeight.Normal,
     val style: FontStyle = FontStyle.Normal,
@@ -172,6 +172,7 @@ data class ParcelableUiTypography(
          *  all of the original sizes, weights, and line heights of the SDK remain, while the
          *  font changes. To change other font parameters, create a new Typography object.
          */
+        @JvmStatic
         fun Default(fontFamily: FontFamily?): ParcelableUiTypography =
             ParcelableUiTypography(
                 onboardingText = UiTypography.Default(fontFamily).onboardingText.toParcelableTextStyle(),

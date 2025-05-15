@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.microblink</groupId>
     <artifactId>microblink-ux</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <packaging>aar</packaging>
     <name>Microblink UX Library for Android</name>
     <description>Base library for all Microblink&apos;s UX modules.</description>
