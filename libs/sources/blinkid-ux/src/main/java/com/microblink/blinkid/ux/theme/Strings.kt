@@ -58,7 +58,7 @@ data class BlinkIdSdkStrings(
     blinkIdHelpDialogsStrings
 ) {
     companion object {
-        val Default: BlinkIdSdkStrings =
+        @JvmStatic val Default: BlinkIdSdkStrings =
             BlinkIdSdkStrings(
                 blinkIdScanningStrings = BlinkIdScanningStrings.Default,
                 blinkIdHelpDialogsStrings = HelpDialogsStrings.Default
