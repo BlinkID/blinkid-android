@@ -1,5 +1,11 @@
 # Release notes
 
+## v7.2.1
+
+### What's new
+- We've temporarily lowered the minimum required Kotlin version to `v1.9.24` only for `blinkid-core` library to address compatibility issues. This change will be reverted in a near future.
+- Added additional functions for better interoperability with Java to following classes: `BlinkIdSdkSettings`, `BlinkIdScanActivitySettings`, `BlinkIdUxSettings`, `BlinkIdSdkStrings`, `ParcelableTextStyle`, `ParcelableFont`
+
 ## v7.2.0
 
 ### What's new

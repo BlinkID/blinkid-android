@@ -24,6 +24,7 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 * [Using SDK through `BlinkIdScanActivity`](#using-scan-activity)
 * [Completely custom UX (advanced)](#low-level-api)
   * [The `BlinkIdSdk` and `BlinkIdScanningSession`](#core-api-sdk-and-session)
+* [Using SDK with Java and Views](#legacy-api)
 * [Troubleshooting](#troubleshoot)
 * [Additional info](#additional-info)
   * [BlinkID SDK size](#sdk-size)
@@ -42,8 +43,9 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 #### Included sample apps:
 
-- **_sample-app_** demonstrates quick and straightforward integration of the BlinkID SDK using the provided UX in Jetpack Compose to scan a document and display the results.
+- **_sample-app_** emonstrates quick and straightforward integration of the BlinkID SDK using the provided UX in Jetpack Compose to scan a document and display the results.
 - **_direct-api-sample-app_** demonstrates the functionality of BlinkID SDK by avoiding the document scanning process and without using the blinkid-ux library. This approach should be used if you are obtaining document images via other methods.
+- **_java-sample-app_** demonstrates quick and straightforward integration of the BlinkID SDK using only Java (without Jetpack Compose) through `BlinkIdScanActivity`.
 
 ## <a name="sdk-integration"></a> SDK integration
 
@@ -528,6 +530,37 @@ You will get [BlinkIdScanningResult](https://blinkid.github.io/blinkid-android/b
 To terminate the scanning session, ensure that `BlinkIdScanningSession.close()` is called.
 
 **If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIdSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkId.close()`.
+
+# <a name="legacy-api"></a> Using SDK with Java and Views
+
+Even though BlinkID v7 and above uses modern Android Jetpack components like Compose and coroutines, most functionalities still work with legacy code.
+It is important to note that even without using Jetpack Compose, it is highly recommended to use Kotlin when implementing the SDK, as it not only eases the implementation process, but also allows for some new functionalities.
+
+If the client insists on using only Java (and Android Views), BlinkID functionalities can be used through [`BlinkIdScanActivity`](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-blink-id-scan-activity/index.html?query=class%20BlinkIdScanActivity%20:%20AppCompatActivity).
+A simple implementation like the following should suffice:
+
+```java
+ActivityResultLauncher<BlinkIdScanActivitySettings> resultLauncher = registerForActivityResult(
+        new MbBlinkIdScan(),
+        result -> {
+          // handle result here
+        }
+);
+```
+When launching the contract, [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) need to be defined. These settings include basic SDK information such as license key and additional settings for customizing the scanning experience.
+```java
+String licenseKey = "your_license_key";
+BlinkIdSdkSettings sdkSettings = new BlinkIdSdkSettings(licenseKey);
+BlinkIdScanActivitySettings activitySettings = new BlinkIdScanActivitySettings(sdkSettings);
+
+resultLauncher.launch(activitySettings);
+```
+
+A **_java-sample-app_** can be found in the sample app list where the SDK is implemented using Java and Android Views.
+Additional helper functions have been created to simplify the implementation process with default class values from Kotlin.
+
+For more information on how to use `BlinkIdScanActivity`, please refer to the [`Using SDK through BlinkIdScanActivity`](#using-scan-activity) section.
+Currently, this is the **only officially supported** way of using our SDK with Java and without Kotlin/Jetpack Compose. 
 
 # <a name="troubleshoot"></a> Troubleshooting
 
