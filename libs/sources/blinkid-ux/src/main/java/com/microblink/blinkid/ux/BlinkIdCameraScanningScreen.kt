@@ -5,6 +5,9 @@ package com.microblink.blinkid.ux
  * license for files located in the UX/UI lib folder.
  */
 
+import android.app.Activity
+import android.app.Application
+import android.os.Bundle
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -105,6 +108,39 @@ fun BlinkIdCameraScanningScreen(
     val snackbarHostState = remember { SnackbarHostState() }
 
     BlinkIdSdkTheme(uiSettings) {
+        val app = applicationContext as? Application
+        app?.registerActivityLifecycleCallbacks(object :
+            Application.ActivityLifecycleCallbacks {
+            override fun onActivityCreated(
+                activity: Activity,
+                savedInstanceState: Bundle?
+            ) {
+            }
+
+            override fun onActivityStarted(activity: Activity) {
+            }
+
+            override fun onActivityResumed(activity: Activity) {
+                viewModel.lifecycleResumeAnalysis()
+            }
+
+            override fun onActivityPaused(activity: Activity) {
+                viewModel.lifecyclePauseAnalysis()
+            }
+
+            override fun onActivityStopped(activity: Activity) {
+            }
+
+            override fun onActivitySaveInstanceState(
+                activity: Activity,
+                outState: Bundle
+            ) {
+            }
+
+            override fun onActivityDestroyed(activity: Activity) {
+            }
+
+        })
         val snackbarWarningMessage =
             stringResource(BlinkIdTheme.sdkStrings.scanningStrings.snackbarFlashlightWarning)
         Scaffold(
@@ -112,6 +148,7 @@ fun BlinkIdCameraScanningScreen(
         ) { paddingValues ->
             CameraScreen(
                 cameraViewModel = viewModel,
+                onCameraScreenLongPress = { viewModel.changeHelpTooltipVisibility(true) },
             ) {
                 val overlayUiState = viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -128,6 +165,7 @@ fun BlinkIdCameraScanningScreen(
                     overlayUiState.value,
                     onScanningCanceled,
                     uiSettings,
+                    uxSettings.allowHapticFeedback,
                     showProductionOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveProductionOverlay,
                     showDemoOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveDemoOverlay,
                     {
@@ -145,6 +183,7 @@ fun BlinkIdCameraScanningScreen(
                     },
                     viewModel::onFlipAnimationCompleted,
                     viewModel::onReticleSuccessAnimationCompleted,
+                    viewModel::onHapticFeedbackCompleted,
                     viewModel::changeOnboardingDialogVisibility,
                     viewModel::changeHelpScreensVisibility,
                     viewModel::changeHelpTooltipVisibility,

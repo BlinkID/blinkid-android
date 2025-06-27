@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -111,9 +112,10 @@ fun OnboardingDialogContent(
                 LocalContext.current,
                 onboardingScreenResources.pageImage
             )?.toBitmap()?.asImageBitmap()!!,
-            // TODO: accessibility
             contentDescription = stringResource(onboardingScreenResources.pageTitle),
-            modifier = Modifier.padding(horizontal = 10.dp),
+            modifier = Modifier
+                .padding(horizontal = 10.dp)
+                .clearAndSetSemantics {},
         )
     }
     Spacer(Modifier.height(16.dp))
@@ -143,7 +145,7 @@ fun OnboardingDialogContent(
                 onDismissOnboardingDialog()
             }) {
             Text(
-                stringResource(R.string.mb_dialog_done_button),
+                text = stringResource(R.string.mb_dialog_done_button),
                 style = SdkTheme.sdkTypography.onboardingButton
             )
         }

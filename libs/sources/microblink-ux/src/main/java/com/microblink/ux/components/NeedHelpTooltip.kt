@@ -14,6 +14,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.microblink.ux.R
@@ -41,7 +42,7 @@ fun NeedHelpTooltip(
             scope.launch {
                 tooltipState.show()
             }
-            delay(5000)
+            delay(needHelpTooltipDurationMs)
             scope.launch {
                 tooltipState.dismiss()
             }
@@ -57,6 +58,7 @@ fun NeedHelpTooltip(
             enableUserInput = false,
             tooltip = {
                 RichTooltip(
+                    modifier = Modifier.clearAndSetSemantics {},
                     shape = RoundedCornerShape(8.dp),
                     colors = TooltipDefaults.richTooltipColors()
                         .copy(containerColor = helpTooltipBackgroundColor),

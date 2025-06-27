@@ -61,7 +61,6 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
         session: BlinkIdScanningSession,
     ): List<ScanningUxEvent> {
         val events = mutableListOf<ScanningUxEvent>()
-        var documentLocated = false
 
         val imageAnalysisResult = processResult.inputImageAnalysisResult
 
@@ -109,7 +108,6 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
                     ScanningUxEvent.DocumentLocated
                 }
             )
-            documentLocated = true
         } else {
             events.add(ScanningUxEvent.DocumentNotFound)
         }
@@ -145,7 +143,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
             }
 
-            ProcessingStatus.MandatoryFieldMissing -> {
+            ProcessingStatus.MandatoryFieldMissing, ProcessingStatus.MrzParsingFailed, ProcessingStatus.InvalidCharactersFound -> {
                 events.add(
                     ScanningUxEvent.DocumentNotFullyVisible
                 )
@@ -209,9 +207,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
             return events
         }
 
-        if (documentLocated) {
-            events.add(ScanningUxEvent.DocumentNotFullyVisible)
-        }
+        events.add(ScanningUxEvent.DocumentNotFound)
         events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
         events.add(DocumentImageAnalysisResult(imageAnalysisResult = imageAnalysisResult))
         return events

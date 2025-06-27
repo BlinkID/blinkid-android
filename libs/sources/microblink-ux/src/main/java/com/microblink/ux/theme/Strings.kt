@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.microblink.ux.R
+import com.microblink.ux.theme.SdkStrings.Companion.Default
 import kotlinx.parcelize.Parcelize
 
 
@@ -21,25 +22,26 @@ import kotlinx.parcelize.Parcelize
  * created and used in [com.microblink.ux.UiSettings.sdkStrings].
  *
  * @property scanningStrings Strings that appear as instruction messages during the scanning session.
- *                           These instructions are triggered by specific UX events and will appear
- *                           on screen accordingly.
+ * These instructions are triggered by specific UX events and will appear on screen accordingly.
  * @property helpDialogsStrings Strings used in onboarding and help dialogs. These strings shouldn't
- *                              be customized as they provide adequate instructions tailored specifically
- *                              to our scanning experience. However, if the scanning experience is changed
- *                              in any way, onboarding and help screen instructions may also be adjusted.
- *
+ * be customized as they provide adequate instructions tailored specifically to our scanning experience.
+ * However, if the scanning experience is changed in any way, onboarding and help screen instructions may also be adjusted.
+ * @property accessibilityStrings Strings that are used by accessibility TalkBack service for specific
+ * buttons, labels, and actions.
  */
 @Immutable
 @Parcelize
 open class SdkStrings(
     val scanningStrings: ScanningStrings,
-    val helpDialogsStrings: HelpDialogsStrings
-): Parcelable {
+    val helpDialogsStrings: HelpDialogsStrings,
+    val accessibilityStrings: AccessibilityStrings
+) : Parcelable {
     companion object {
         val Default: SdkStrings =
             SdkStrings(
                 scanningStrings = ScanningStrings.Default,
-                helpDialogsStrings = HelpDialogsStrings.Default
+                helpDialogsStrings = HelpDialogsStrings.Default,
+                accessibilityStrings = AccessibilityStrings.Default
             )
     }
 }
@@ -66,7 +68,7 @@ open class ScanningStrings(
     @StringRes open val instructionsIncreaseLight: Int,
     @StringRes open val instructionsDecreaseLight: Int,
     @StringRes open val snackbarFlashlightWarning: Int
-): Parcelable {
+) : Parcelable {
     companion object {
         val Default: ScanningStrings =
             ScanningStrings(
@@ -112,7 +114,7 @@ data class HelpDialogsStrings(
     @StringRes val helpMrzMessage1: Int,
     @StringRes val helpMessage2: Int,
     @StringRes val helpMessage3: Int,
-): Parcelable {
+) : Parcelable {
     companion object {
         val Default: HelpDialogsStrings =
             HelpDialogsStrings(
@@ -133,6 +135,39 @@ data class HelpDialogsStrings(
                 helpMessage2 = R.string.mb_help_screen_msg2,
                 helpMessage3 = R.string.mb_help_screen_msg3
             )
+    }
+}
+
+/**
+ * @see com.microblink.ux.theme.SdkStrings
+ */
+@Immutable
+@Parcelize
+data class AccessibilityStrings(
+    @StringRes val documentScanned: Int,
+    @StringRes val firstSideScanned: Int,
+    @StringRes val previousPage: Int,
+    @StringRes val nextPage: Int,
+    @StringRes val showHelpScreens: Int,
+    @StringRes val turnFlashlightOff: Int,
+    @StringRes val turnFlashlightOn: Int,
+    @StringRes val exitScanning: Int,
+    @StringRes val flashlightOff: Int,
+    @StringRes val flashlightOn: Int
+) : Parcelable {
+    companion object {
+        val Default: AccessibilityStrings = AccessibilityStrings(
+            documentScanned = R.string.mb_accessibility_success_document_scanned,
+            firstSideScanned = R.string.mb_accessibility_success_first_side_scanned,
+            previousPage = R.string.mb_accessibility_previous_page,
+            nextPage = R.string.mb_accessibility_next_page,
+            showHelpScreens = R.string.mb_accessibility_show_help_screens,
+            turnFlashlightOff = R.string.mb_accessibility_turn_flashlight_off,
+            turnFlashlightOn = R.string.mb_accessibility_turn_flashlight_on,
+            exitScanning = R.string.mb_accessibility_exit_scanning,
+            flashlightOff = R.string.mb_accessibility_flashlight_off,
+            flashlightOn = R.string.mb_accessibility_flashlight_on
+        )
     }
 }
 

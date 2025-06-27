@@ -11,11 +11,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import com.microblink.ux.UiSettings
-import com.microblink.ux.theme.LocalBaseSdkStrings
 import com.microblink.ux.theme.LocalBaseUiColors
 import com.microblink.ux.theme.LocalTheme
 import com.microblink.ux.theme.LocalTypography
-import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.theme.SdkTypography
 import com.microblink.ux.theme.UiColors
 import com.microblink.ux.theme.UiTypography
@@ -40,10 +38,10 @@ fun BlinkIdSdkTheme(
     CompositionLocalProvider(
         LocalBaseUiColors provides (uiSettings.uiColors
             ?: if (darkTheme) UiColors.DefaultDark else UiColors.Default),
-        LocalBaseBlinkIdSdkStrings provides (uiSettings.sdkStrings as? BlinkIdSdkStrings ?: BlinkIdTheme.sdkStrings),
+        LocalBaseBlinkIdSdkStrings provides (uiSettings.sdkStrings as? BlinkIdSdkStrings
+            ?: BlinkIdTheme.sdkStrings),
         LocalTheme provides if (darkTheme) DarkBlinkIdColorScheme else BlinkIdColorScheme,
         LocalTypography provides (uiSettings.typography ?: SdkTypography(null))
-
     ) {
         MaterialTheme(
             colorScheme = uiSettings.colorScheme ?: BlinkIdTheme.sdkTheme,

@@ -11,6 +11,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.microblink.blinkid.ux.theme.BlinkIdSdkStrings.Companion.Default
 import com.microblink.ux.R
+import com.microblink.ux.theme.AccessibilityStrings
 import com.microblink.ux.theme.HelpDialogsStrings
 import com.microblink.ux.theme.ScanningStrings
 import com.microblink.ux.theme.SdkStrings
@@ -24,18 +25,21 @@ import kotlinx.parcelize.Parcelize
  * created and used in [com.microblink.ux.UiSettings.sdkStrings].
  *
  * @property blinkIdScanningStrings Strings that appear as instruction messages during the scanning session.
- *                           These instructions are triggered by specific UX events and will appear
- *                           on screen accordingly. Includes both BlinkID specific and common SDK strings.
+ *           These instructions are triggered by specific UX events and will appear on screen accordingly.
+ *           Includes both BlinkID specific and common SDK strings.
  * @property blinkIdHelpDialogsStrings Strings used in onboarding and help dialogs. These strings shouldn't
- *                              be customized as they provide adequate instructions tailored specifically
- *                              to our scanning experience. However, if the scanning experience is changed
- *                              in any way, onboarding and help screen instructions may also be adjusted.
+ *           be customized as they provide adequate instructions tailored specifically to our scanning experience.
+ *           However, if the scanning experience is changed in any way, onboarding and help screen instructions
+ *           may also be adjusted.
+ * @property blinkIdAccessibilityStrings Strings that are used by accessibility TalkBack service for specific
+ *           buttons, labels, and actions.
  */
 @Immutable
 @Parcelize
 data class BlinkIdSdkStrings(
     val blinkIdScanningStrings: BlinkIdScanningStrings,
-    val blinkIdHelpDialogsStrings: HelpDialogsStrings
+    val blinkIdHelpDialogsStrings: HelpDialogsStrings,
+    val blinkIdAccessibilityStrings: AccessibilityStrings
 ) : Parcelable, SdkStrings(
     ScanningStrings(
         blinkIdScanningStrings.instructionsFrontSide,
@@ -55,13 +59,15 @@ data class BlinkIdSdkStrings(
         blinkIdScanningStrings.instructionsDecreaseLight,
         blinkIdScanningStrings.snackbarFlashlightWarning
     ),
-    blinkIdHelpDialogsStrings
+    blinkIdHelpDialogsStrings,
+    blinkIdAccessibilityStrings
 ) {
     companion object {
         @JvmStatic val Default: BlinkIdSdkStrings =
             BlinkIdSdkStrings(
                 blinkIdScanningStrings = BlinkIdScanningStrings.Default,
-                blinkIdHelpDialogsStrings = HelpDialogsStrings.Default
+                blinkIdHelpDialogsStrings = HelpDialogsStrings.Default,
+                blinkIdAccessibilityStrings = AccessibilityStrings.Default
             )
     }
 }

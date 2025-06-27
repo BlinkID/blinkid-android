@@ -1,6 +1,6 @@
 [
     {
-        "package": "hash/2.0.2@microblink/main#f13f101395e62ac0f7ea8a5c1511b92b",
+        "package": "hash/2.0.3@microblink/main#bca5158cdd3532fd9a32d7539b66194f",
         "url": "https://github.com/microblink/hash-library",
         "license": "zlib",
         "description": "Portable C++ Hashing Library"
@@ -12,7 +12,7 @@
         "description": "Patches for deficient C++ runtime implementations"
     },
     {
-        "package": "gtest/1.14.8@microblink/main#1eedab2c6d0c2bb53fd35e17fb734f8e",
+        "package": "gtest/1.14.9@microblink/main#92cbac29cb2870655027eb912cd72358",
         "url": "https://bitbucket.org/microblink/core-google-test/src",
         "license": "BSD 3-Clause",
         "description": "Google's C++ test framework"
@@ -48,19 +48,19 @@
         "description": "A fast JSON parser/generator for C++ with both SAX/DOM style API"
     },
     {
-        "package": "utfcpp/3.2.2@microblink/main#1f2203969d96fbb009386a28c871b581",
+        "package": "utfcpp/4.0.6@microblink/main#ea11de5465f5305ad0fc5d691185d7a5",
         "url": "https://github.com/microblink/utfcpp",
         "license": "Boost Software License 1.0",
         "description": "UTF-8 with C++ in a Portable Way"
     },
     {
-        "package": "sweater/1.1.6@microblink/main#f15ba2c8c2048cce3c9f6ca3d9c407a5",
+        "package": "sweater/1.1.7@microblink/main#00226324984e8fb052dd8e703b48d28e",
         "url": "https://github.com/microblink/sweater",
         "license": "MIT",
         "description": "Humble Outer Dispatch"
     },
     {
-        "package": "cpuinfo/20241015.0@microblink/main#6562bb9b5cbcf24fd89fb38fdfcadf97",
+        "package": "cpuinfo/20250509.9@microblink/main#40de5b1b7859404e36455d2a5a670efb",
         "url": "https://github.com/microblink/cpuinfo",
         "license": "BSD 2-Clause \"Simplified\" License",
         "description": "cpuinfo is a library to detect essential for performance optimization information about host CPU"
@@ -108,7 +108,7 @@
         "description": "SIMD-accelerated libjpeg-compatible JPEG codec library"
     },
     {
-        "package": "libpng/1.6.42@microblink/main#07724945d4103c360e9cb46a6ebb7391",
+        "package": "libpng/1.6.48@microblink/main#a894c6d32b60eb517232069228102b95",
         "url": "https://github.com/microblink/libpng",
         "license": "libpng-2.0",
         "description": "An Open, Extensible Image Format with Lossless Compression"
@@ -120,7 +120,7 @@
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
     },
     {
-        "package": "abseil/20230802.1.5@microblink/main#bc59392428de29fb32008a4721805645",
+        "package": "abseil/20230802.2.0@microblink/main#26e189ef1d57122e19806f0794b40c80",
         "url": "https://github.com/microblink/abseil-cpp",
         "license": "Apache-2.0",
         "description": "Abseil Common Libraries (C++) from Google"
@@ -168,13 +168,13 @@
         "description": "Eigen is a C++ template library for linear algebra: vectors, matrices, and related algorithms. It is versatile, fast, elegant and works on many platforms (OS/Compilers)."
     },
     {
-        "package": "xnnpack/20230525.1.5@microblink/main#30f7e3e2f8d052db14efcc52648ebad0",
+        "package": "xnnpack/20230525.1.6@microblink/main#3e5e60789c103ebfec170c7898cdfe4d",
         "url": "https://github.com/microblink/XNNPACK",
         "license": "BSD",
         "description": "XNNPACK library"
     },
     {
-        "package": "kiwaku/20230809.2@microblink/main#e54c95111cde3fb09ca2a8e2937ea041",
+        "package": "kiwaku/20230809.3@microblink/main#4386c7f0bd8838531bfacaf13c89a992",
         "url": "https://github.com/microblink/kiwaku",
         "license": "BSL-1.0",
         "description": "C++20 and onward collection of high performance data containers and related tools"

@@ -17,26 +17,34 @@ import kotlin.time.Duration.Companion.milliseconds
 /**
  * Represents the different states of the reticle and UI elements during the scanning process.
  *
- * This enum class defines the various states that the UI can be in
+ * This sealed class defines the various states that the UI can be in
  * while a document is being captured and processed. Each state is associated with
  * a specific [ReticleState] and a minimum duration.
  *
  * @property reticleState The [ReticleState] associated with this processing state.
- * @property minDuration The minimum duration that this state should last, it is
- *                      in milliseconds.
- *
+ * @property duration The regular duration for which this state should last.
+ * @property minDuration The minimum duration that this state should last, should the following
+ *                       state be of higher priority.
  */
-enum class ProcessingState(
+sealed class ProcessingState(
     val reticleState: ReticleState,
+    val duration: Duration,
     val minDuration: Duration
 ) {
-    Sensing(ReticleState.Sensing, 1000.milliseconds),
-    Processing(ReticleState.IndefiniteProgress, 1000.milliseconds),
-    CardAnimation(ReticleState.Hidden, flipAnimationDurationMs.milliseconds),
-    SuccessAnimation(ReticleState.Success, successAnimationDurationMs.milliseconds),
-    Success(ReticleState.Hidden, 0.milliseconds),
-    Error(ReticleState.Error, 1500.milliseconds),
-    ErrorDialog(ReticleState.Hidden, 0.milliseconds)
+    object Sensing : ProcessingState(ReticleState.Sensing, 2000.milliseconds, 1000.milliseconds)
+    object Processing : ProcessingState(ReticleState.IndefiniteProgress, 1500.milliseconds, 1000.milliseconds)
+    object CardAnimation : ProcessingState(ReticleState.Hidden, flipAnimationDurationMs.milliseconds, flipAnimationDurationMs.milliseconds)
+    object Success : ProcessingState(ReticleState.Hidden, 0.milliseconds, 0.milliseconds)
+    object Error : ProcessingState(ReticleState.Error, 3000.milliseconds, 1000.milliseconds)
+    object ErrorDialog : ProcessingState(ReticleState.Hidden, 0.milliseconds, 0.milliseconds)
+
+    class SuccessAnimation(
+        val isFirstSide: Boolean
+    ) : ProcessingState(
+        if (isFirstSide) ReticleState.SuccessFirstSide else ReticleState.Success,
+        successAnimationDurationMs.milliseconds,
+        successAnimationDurationMs.milliseconds
+    )
 }
 
 /**
@@ -46,6 +54,7 @@ enum class ReticleState {
     Hidden,
     Sensing,
     IndefiniteProgress,
+    SuccessFirstSide,
     Success,
     Error
 }
@@ -191,6 +200,34 @@ enum class CommonStatusMessage : StatusMessage {
             FilterSpecificMessage -> null
             ScanningWrongSide -> strings.instructionsScanningWrongSide
         }
+    }
+}
+
+/**
+ * A class responsible for counting the occurrences of different `CommonStatusMessage` types.
+ *
+ * This class provides a way to track how many times each specific status message
+ * has been encountered. It uses a mutable map internally to store the counts.
+ */
+class StatusMessageCounter {
+    private val counts = mutableMapOf<StatusMessage, Int>()
+
+    fun increment(message: StatusMessage) {
+        counts[message] = (counts[message] ?: 0) + 1
+    }
+
+    fun incrementIfNotPresent(message: StatusMessage) {
+        if ((counts[message] ?: 0) == 0) {
+            counts[message] = 1
+        }
+    }
+
+    fun getCount(message: StatusMessage): Int = counts[message] ?: 0
+
+    fun getAllCounts(): Map<StatusMessage, Int> = counts.toMap()
+
+    fun reset() {
+        counts.clear()
     }
 }
 

@@ -52,6 +52,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
@@ -91,12 +94,15 @@ fun HelpScreens(
         })
         Column(modifier = Modifier.height(if (orientation == Configuration.ORIENTATION_PORTRAIT) 520.dp else 240.dp)) {
             Row(
-                Modifier
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Button(
+                    modifier = Modifier.semantics {
+                        traversalIndex = 2f
+                    },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.primary
@@ -110,13 +116,16 @@ fun HelpScreens(
 
                     }) {
                     Text(
-                        if (pagerState.canScrollBackward) stringResource(R.string.mb_dialog_back_button) else stringResource(
+                        text = if (pagerState.canScrollBackward) stringResource(R.string.mb_dialog_back_button) else stringResource(
                             R.string.mb_dialog_skip_button
                         ),
                         style = SdkTheme.sdkTypography.helpDialogButton
                     )
                 }
                 Button(
+                    modifier = Modifier.semantics {
+                        traversalIndex = 2f
+                    },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.primary
@@ -129,7 +138,7 @@ fun HelpScreens(
                         } else onChangeHelpScreensState(false)
                     }) {
                     Text(
-                        if (pagerState.canScrollForward) stringResource(R.string.mb_dialog_next_button) else stringResource(
+                        text = if (pagerState.canScrollForward) stringResource(R.string.mb_dialog_next_button) else stringResource(
                             R.string.mb_dialog_done_button
                         ),
                         style = SdkTheme.sdkTypography.helpDialogButton
@@ -140,6 +149,9 @@ fun HelpScreens(
             when (orientation) {
                 Configuration.ORIENTATION_LANDSCAPE -> {
                     HelpScreensContentLandscape(
+                        modifier = Modifier.semantics {
+                            traversalIndex = 1f
+                        },
                         pagerState = pagerState,
                         helpScreens = helpScreens
                     )
@@ -147,6 +159,9 @@ fun HelpScreens(
 
                 else -> {
                     HelpScreensContentPortrait(
+                        modifier = Modifier.semantics {
+                            traversalIndex = 1f
+                        },
                         pagerState = pagerState,
                         helpScreens = helpScreens
                     )
@@ -158,12 +173,13 @@ fun HelpScreens(
 
 @Composable
 fun HelpScreensContentPortrait(
+    modifier: Modifier,
     pagerState: PagerState,
     helpScreens: List<HelpScreenPage>
 ) {
     Column {
         HorizontalPager(
-            modifier = Modifier
+            modifier = modifier
                 .weight(0.80f)
                 .fillMaxWidth(),
             state = pagerState
@@ -176,13 +192,13 @@ fun HelpScreensContentPortrait(
                             LocalContext.current,
                             page.pageImage
                         )?.toBitmap()?.asImageBitmap()!!,
-                        // TODO: accessibility
                         stringResource(page.pageTitle),
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
                             .padding(horizontal = 10.dp)
                             .fillMaxWidth()
-                            .align(Alignment.CenterHorizontally),
+                            .align(Alignment.CenterHorizontally)
+                            .clearAndSetSemantics {},
                     )
                 }
                 Column(
@@ -206,7 +222,7 @@ fun HelpScreensContentPortrait(
                         )
                         Spacer(Modifier.height(16.dp))
                         Text(
-                            modifier = Modifier.fillMaxHeight(),
+                            modifier = modifier.fillMaxHeight(),
                             text = stringResource(page.pageMessage),
                             style = SdkTheme.sdkTypography.helpDialogText,
                             textAlign = TextAlign.Start,
@@ -243,10 +259,11 @@ fun HelpScreensContentPortrait(
 
 @Composable
 fun HelpScreensContentLandscape(
+    modifier: Modifier,
     pagerState: PagerState,
     helpScreens: List<HelpScreenPage>
 ) {
-    Column(Modifier.fillMaxSize()) {
+    Column(modifier.fillMaxSize()) {
         HorizontalPager(
             modifier = Modifier
                 .weight(0.80f)
@@ -289,7 +306,7 @@ fun HelpScreensContentLandscape(
                     ) {
                         Spacer(Modifier.height(16.dp))
                         Text(
-                            modifier = Modifier.fillMaxHeight(),
+                            modifier = modifier.fillMaxHeight(),
                             text = stringResource(page.pageMessage),
                             style = SdkTheme.sdkTypography.helpDialogText,
                             textAlign = TextAlign.Start,
@@ -342,7 +359,7 @@ fun fillHelpScreens(): HelpScreens {
                 pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.helpTitle2,
                 pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.helpMessage2
             ), HelpScreenPage(
-                pageImage = R.drawable.mb_blinkid_help_id_blur,
+                pageImage = R.drawable.mb_blinkid_help_id_page_three,
                 pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.helpTitle3,
                 pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.helpMessage3
             )
