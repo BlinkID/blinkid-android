@@ -164,6 +164,8 @@ class BlinkIdScanActivity : AppCompatActivity() {
             colorScheme = colorScheme,
             uiColors = uiColors,
             sdkStrings = blinkIdScanActivitySettings.scanActivityUiStrings,
+            showOnboardingDialog = blinkIdScanActivitySettings.showOnboardingDialog,
+            showHelpButton = blinkIdScanActivitySettings.showHelpButton
         )
     }
 }

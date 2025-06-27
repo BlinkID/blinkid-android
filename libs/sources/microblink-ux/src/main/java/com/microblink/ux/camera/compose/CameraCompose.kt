@@ -24,6 +24,7 @@ import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -31,6 +32,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
@@ -66,6 +68,7 @@ import kotlin.coroutines.suspendCoroutine
 fun CameraScreen(
     cameraViewModel: CameraViewModel,
     cameraSettings: CameraSettings = CameraSettings(),
+    onCameraScreenLongPress: () -> Unit = { },
     content: @Composable () -> Unit
 ) {
     val context = LocalContext.current
@@ -83,7 +86,15 @@ fun CameraScreen(
     }
     if (cameraPermissionGranted.value) {
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .pointerInput(Unit) {
+                    detectTapGestures(
+                        onLongPress = {
+                            onCameraScreenLongPress()
+                        }
+                    )
+                }
         ) {
             CameraPreview(
                 cameraSettings,

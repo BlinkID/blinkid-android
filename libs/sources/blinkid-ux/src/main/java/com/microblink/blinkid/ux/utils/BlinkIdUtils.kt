@@ -60,11 +60,11 @@ fun getCorrectedDocumentRotation(
 fun getPassportPageFromRotation(
     documentRotation: DocumentRotation
 ): PassportPage {
-    when (documentRotation) {
-        DocumentRotation.Zero -> return PassportPage.Top
-        DocumentRotation.Clockwise90 -> return PassportPage.Right
-        DocumentRotation.CounterClockwise90 -> return PassportPage.Left
-        DocumentRotation.UpsideDown -> return PassportPage.Top
-        DocumentRotation.NotAvailable -> return PassportPage.Top
+    return when (documentRotation) {
+        DocumentRotation.Zero -> PassportPage.Top
+        DocumentRotation.Clockwise90 -> PassportPage.Right
+        DocumentRotation.CounterClockwise90 -> PassportPage.Left
+        DocumentRotation.UpsideDown -> PassportPage.Top
+        DocumentRotation.NotAvailable -> PassportPage.Top
     }
 }

@@ -25,6 +25,7 @@ import com.microblink.ux.theme.SdkTheme
 
 @Composable
 fun MessageContainer(
+    modifier: Modifier = Modifier,
     @StringRes textRes: Int,
     backgroundColor: Color
 ) {
@@ -34,14 +35,16 @@ fun MessageContainer(
     val maxWidth = if (screenHeight > screenWidth) screenWidth * 0.8f else screenWidth * 0.4f
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .widthIn(0.dp, maxWidth.dp)
             .clip(RoundedCornerShape(8.dp))
             .background(backgroundColor)
-            .padding(8.dp),
+            .padding(8.dp)
     ) {
         Text(
-            text = stringResource(textRes), textAlign = TextAlign.Center, color = White,
+            text = stringResource(textRes),
+            textAlign = TextAlign.Center,
+            color = White,
             style = SdkTheme.sdkTypography.scanningInstructions
         )
     }

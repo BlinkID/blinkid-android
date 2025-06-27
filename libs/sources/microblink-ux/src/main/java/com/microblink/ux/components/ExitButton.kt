@@ -17,8 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.microblink.ux.R
 import com.microblink.ux.theme.Gray
+import com.microblink.ux.theme.SdkTheme
 import com.microblink.ux.theme.White
 
 @Composable
@@ -41,7 +43,7 @@ fun ExitButton(
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(R.drawable.mb_icon_exit),
-            contentDescription = "",
+            contentDescription = stringResource(SdkTheme.sdkStrings.accessibilityStrings.exitScanning),
             colorFilter = ColorFilter.tint(exitButtonColor)
         )
     }

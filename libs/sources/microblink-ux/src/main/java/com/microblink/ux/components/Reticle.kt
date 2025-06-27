@@ -33,15 +33,21 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import com.microblink.ux.R
 import com.microblink.ux.state.ReticleState
 import com.microblink.ux.theme.ErrorRed
 import com.microblink.ux.theme.Gray
+import com.microblink.ux.theme.SdkTheme
 import com.microblink.ux.theme.White
 
 @Composable
 fun Reticle(
+    modifier: Modifier,
     reticleState: ReticleState,
     screenDimensionMin: Dp,
     onReticleSuccessAnimationCompleted: () -> Unit
@@ -67,13 +73,32 @@ fun Reticle(
                 reticleRadius,
                 Gray.copy(0.5f)
             )
-            ReticleElementFullCircleAnimation(reticleRadius, White.copy(0.3f),
+            ReticleElementFullCircleAnimation(
+                reticleRadius, White.copy(0.3f),
                 White
             )
         }
 
+        ReticleState.SuccessFirstSide -> {
+            ReticleSuccess(
+                modifier = Modifier.semantics {
+                    liveRegion = LiveRegionMode.Assertive
+                },
+                reticleRadius = reticleRadius,
+                onReticleSuccessAnimationCompleted = onReticleSuccessAnimationCompleted,
+                isAfterFirstSide = true
+            )
+        }
+
         ReticleState.Success -> {
-            ReticleSuccess(reticleRadius, onReticleSuccessAnimationCompleted = onReticleSuccessAnimationCompleted)
+            ReticleSuccess(
+                modifier = Modifier.semantics {
+                    liveRegion = LiveRegionMode.Assertive
+                },
+                reticleRadius = reticleRadius,
+                onReticleSuccessAnimationCompleted = onReticleSuccessAnimationCompleted,
+                isAfterFirstSide = false
+            )
         }
 
         ReticleState.Error -> {
@@ -191,7 +216,12 @@ internal fun ReticleElementDashedCircle(
     )
     AnimatedVisibility(
         visible,
-        enter = fadeIn(animationSpec = tween(reticleDashAppearAnimationDurationMs, reticleDashAppearDelayDurationMs))
+        enter = fadeIn(
+            animationSpec = tween(
+                reticleDashAppearAnimationDurationMs,
+                reticleDashAppearDelayDurationMs
+            )
+        )
     ) {
         Canvas(
             modifier = Modifier.size(reticleRadius)
@@ -218,28 +248,33 @@ internal fun ReticleElementDashedCircle(
 
 @Composable
 fun ReticleSuccess(
+    modifier: Modifier,
     reticleRadius: Dp,
     @DrawableRes successDrawable: Int = R.drawable.mb_reticle_success,
-    onReticleSuccessAnimationCompleted: () -> Unit
+    onReticleSuccessAnimationCompleted: () -> Unit,
+    isAfterFirstSide: Boolean
 ) {
     // TODO: customizable drawable through DocVerTheme
     val successPainter = painterResource(successDrawable)
     val animationDone = remember { MutableTransitionState(false) }
 
     LaunchedEffect(animationDone.currentState) {
-        if (animationDone.currentState ) {
+        if (animationDone.currentState) {
             onReticleSuccessAnimationCompleted()
         }
     }
 
     AnimatedVisibility(
+        modifier = modifier,
         enter = scaleIn(tween(successAnimationDurationMs)),
         visibleState = animationDone.apply { targetState = true }
     ) {
         Image(
-            modifier = Modifier.size(reticleRadius),
+            modifier = modifier.size(reticleRadius),
             painter = successPainter,
-            contentDescription = "Success drawable"
+            contentDescription = if (isAfterFirstSide) stringResource(SdkTheme.sdkStrings.accessibilityStrings.firstSideScanned) else stringResource(
+                SdkTheme.sdkStrings.accessibilityStrings.documentScanned
+            )
         )
     }
 }

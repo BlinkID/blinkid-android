@@ -5,8 +5,6 @@
 
 package com.microblink.ux.components
 
-import android.content.res.Resources
-import com.microblink.ux.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,10 +16,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import com.microblink.ux.R
 import com.microblink.ux.state.MbTorchState
 import com.microblink.ux.theme.Gray
+import com.microblink.ux.theme.SdkTheme
 import com.microblink.ux.theme.White
 
 @Composable
@@ -49,7 +49,11 @@ fun TorchButton(
             }
     ) {
         Image(
-            modifier = Modifier.fillMaxSize(), painter = icon, contentDescription = "",
+            modifier = Modifier.fillMaxSize(),
+            painter = icon,
+            contentDescription = if (torchState == MbTorchState.On) stringResource(SdkTheme.sdkStrings.accessibilityStrings.turnFlashlightOff) else stringResource(
+                SdkTheme.sdkStrings.accessibilityStrings.turnFlashlightOn
+            ),
             colorFilter = ColorFilter.tint(torchButtonColor)
         )
     }
