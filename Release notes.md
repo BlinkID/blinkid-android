@@ -1,5 +1,72 @@
 # Release notes
 
+## v7.3.0
+
+### What's new
+- Improved extraction for Canada/Nunavut ID and DL by introducing error correction for "1" and "I" characters which look the same in the font used on a document
+
+#### New Documents Support
+- Canada, Nunavut - Driver's License
+- Canada, Nunavut - Identity Card
+- Liberia - Identity Card
+- Mali - Identity Card
+- UK - Military ID
+
+#### New Document Versions for Supported Documents
+- Bahrain - Identity Card
+- Canada - Weapon Permit
+- Chile - Alien ID
+- Chile - Identity Card
+- Finland - Driver's License
+- Indonesia - Driver's License
+- Kosovo - Identity Card
+- Latvia - Polycarbonate Passport
+- Mexico, Chiapas - Driver's License
+- Mexico, Ciudad de Mexico - Driver's License
+- Mexico, Durango - Driver's License
+- Mexico, Jalisco - Driver's License
+- Sri Lanka - Driver's License
+- USA, Alaska - Driver's License
+- USA, New Hampshire - Driver's License
+- European Union - Health Insurance Card
+
+#### New Beta Documents Support
+- Canada - Non Card Tribal ID
+- Dominica - Paper Passport
+- Dominica - Polycarbonate Passport
+- UAE - Diplomatic ID
+- USA, Georgia - Medical Marijuana ID
+
+#### New Document Versions for Beta-Supported Documents
+- Egypt - Driver's License
+- Mexico, Quintana Roo - Driver's License
+- Philippines - Postal ID
+- Vietnam - Identity Card
+
+#### New Segments Supported on Documents
+- European Union, Health Insurance Card - `countryCode`
+- Italy, Identity Card - `documentOptionalAdditionalNumber`
+- France, Identity Card - `additionalNameInformation`
+- UK, Asylum Request - `residencePermitType`, `remarks`
+- UK, Residence Permit - `residencePermitType`, `remarks`, `certificateNumber`, `nationalInsuranceNumber`
+
+#### Renamed segments
+- Bahrain - Identity Card - `documentNumber` -> `personalIdNumber`
+
+### Bugs and fixes
+- Fixed document number extraction from Canada/Nunavut barcodes
+- Fix for ARGENTINA ID and ALIEN_ID documents - made separate barcode scanning step optional for these documents; they have a barcode on the front side, and requiring barcode extraction was causing the scanning process to get stuck on the front
+- Onboarding and help screen settings now correctly apply to `BlinkIdScanActivity`
+
+### UI/UX updates
+- Complete scanning instruction messages revamp - the scanning session is now more stable and cleaner, which ensures a better scanning experience
+- Added new accessibility features
+- Added haptic feedback during the scanning session (setting `allowHapticFeedback`)
+- Added a separate timeout timer for the Barcode step
+- Updated help screens with new illustrations
+- Updated `Need help?` tooltip triggers
+- Updated translations for Croatian language
+
 ## v7.2.1
 
 ### What's new
