@@ -77,6 +77,7 @@ dependencies {
 2. You first need to initialize the SDK and obtain the `BlinkIdSdk` instance:
 ```kotlin
 val maybeInstance = BlinkIdSdk.initializeSdk(
+  context,
   BlinkIdSdkSettings(
     licenseKey = <your_license_key>,
 )
@@ -471,8 +472,8 @@ Once you obtain an instance of the `BlinkIdSdk` class after the SDK initializati
 1. First initialize the SDK to obtain `BlinkIdSdk` instance by calling `BlinkIdSdk.initializeSdk` suspend function from a Coroutine:
 ```kotlin
 val maybeInstance = BlinkIdSdk.initializeSdk(
+    context,
     BlinkIdSdkSettings(
-        context = context,
         licenseKey = "your_license_key",
     )
 )
