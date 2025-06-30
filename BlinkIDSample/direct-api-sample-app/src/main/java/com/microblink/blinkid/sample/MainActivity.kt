@@ -21,17 +21,15 @@ import com.microblink.blinkid.core.session.BlinkIdSessionSettings
 import com.microblink.blinkid.core.session.InputImageSource
 import com.microblink.blinkid.core.settings.CroppedImageSettings
 import com.microblink.blinkid.core.settings.ScanningSettings
+import com.microblink.blinkid.sample.navigation.Destination
 import com.microblink.blinkid.sample.result.BlinkIdResultHolder
 import com.microblink.blinkid.sample.result.BlinkIdSampleResultScreen
+import com.microblink.blinkid.sample.ui.MainScreenDirectApi
 import com.microblink.blinkid.sample.ui.theme.BlinkIDTheme
 import com.microblink.blinkid.sample.utils.MainViewModel
-import com.microblink.blinkid.ux.BlinkIdCameraScanningScreen
-import com.microblink.core.image.InputImage
-import com.microblink.blinkid.sample.navigation.Destination
-import com.microblink.blinkid.sample.ui.MainScreenDirectApi
 import com.microblink.blinkid.sample.utils.getBitmapFromAsset
+import com.microblink.core.image.InputImage
 import kotlinx.coroutines.launch
-import kotlin.getValue
 
 class MainActivity : ComponentActivity() {
 

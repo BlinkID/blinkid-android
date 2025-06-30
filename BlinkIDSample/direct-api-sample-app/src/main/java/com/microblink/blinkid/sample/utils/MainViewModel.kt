@@ -8,7 +8,6 @@ import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.sample.config.BlinkIdConfig.licenseKey
 import com.microblink.blinkid.sample.result.BlinkIdResultHolder
-import com.microblink.ux.UiSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -23,8 +22,6 @@ data class MainState(
 class MainViewModel : ViewModel() {
     private val _mainState = MutableStateFlow(MainState())
     var mainState = _mainState.asStateFlow()
-
-    val blinkIdUiSettings = UiSettings()
 
     var localSdk: BlinkIdSdk? = null
         private set

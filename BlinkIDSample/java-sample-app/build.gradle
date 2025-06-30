@@ -27,8 +27,8 @@ android {
 }
 
 dependencies {
-    implementation libs.androidx.activity
-    implementation libs.material
-    implementation libs.androidx.appcompat
-    implementation libs.blinkid.ux
+    implementation(libs.androidx.activity)
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.blinkid.ux)
 }

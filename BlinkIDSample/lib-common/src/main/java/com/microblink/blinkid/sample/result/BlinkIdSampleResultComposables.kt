@@ -44,6 +44,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.text.TextStyle
@@ -64,7 +65,6 @@ import com.microblink.blinkid.sample.ui.theme.Cobalt50
 import com.microblink.blinkid.sample.ui.theme.Cobalt800
 import com.microblink.blinkid.sample.ui.theme.DeepBlue
 import com.microblink.blinkid.sample.ui.theme.ErrorRed
-import com.microblink.ux.theme.Black
 
 @Composable
 fun BlinkIdSampleResultScreen(

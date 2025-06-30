@@ -40,6 +40,6 @@ android {
 }
 
 dependencies {
+    // implementation(libs.blinkid.core) is included in lib-common - this is the only dependency needed for direct API
     implementation(project(":lib-common"))
-    implementation(libs.blinkid.core)
 }

@@ -38,10 +38,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.material3)
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.navigation.compose)
-//    api(libs.blinkid.core)
-    api(libs.blinkid.ux)
+    api(libs.androidx.foundation.android)
+    api(libs.androidx.material3)
+    api(libs.blinkid.core)
     api(libs.androidx.navigation.compose)
 }
