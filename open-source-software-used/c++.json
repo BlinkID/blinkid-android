@@ -120,7 +120,7 @@
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
     },
     {
-        "package": "abseil/20230802.2.0@microblink/main#26e189ef1d57122e19806f0794b40c80",
+        "package": "abseil/20250512.0@microblink/main#29bf786c2055253ad2f60aa61d7dbd28",
         "url": "https://github.com/microblink/abseil-cpp",
         "license": "Apache-2.0",
         "description": "Abseil Common Libraries (C++) from Google"
@@ -144,7 +144,7 @@
         "description": "Experimental range library for C++11/14/17"
     },
     {
-        "package": "adv_obfuscator/20170904.0@microblink/main#2fc3ff7bc343b093deadb9ff1ee6f0f9",
+        "package": "adv_obfuscator/20170904.1@microblink/main#aa4c2ce54111773ef9ce027667b68d71",
         "url": "https://github.com/microblink/ADVobfuscator",
         "license": "https://github.com/microblink/ADVobfuscator#copyright-and-license",
         "description": "Obfuscation library based on C++11/14 and metaprogramming"
