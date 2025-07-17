@@ -1,5 +1,24 @@
 # Release notes
 
+## v7.4.0
+
+#### New Documents Support
+- Canada, Newfoundland And Labrador - Identity Card
+- Canada, Northwest Territories - Driver's License
+- Canada, Northwest Territories - Identity Card
+- Canada, Prince Edward Island - Identity Card
+- Canada, Yukon - Identity Card
+
+#### New Document Versions for Supported Documents
+- Canada, Yukon - Driver's License
+
+### API Changes
+- Renamed `Product` enum to `MbProduct`
+- `dependentsInfo` in `VizResult` is now nullable
+
+#### Bug fixes
+- Replaced caching directory for storing downloaded resource files - avoid rare crashes on specific devices
+
 ## v7.3.0
 
 ### What's new
