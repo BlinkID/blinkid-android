@@ -5,6 +5,7 @@
 
 package com.microblink.blinkid.ux
 
+import android.content.Context
 import android.os.CountDownTimer
 import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.microblink.blinkid.core.BlinkIdSdk
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.core.session.BlinkIdSessionSettings
+import com.microblink.blinkid.core.utils.ping.sendPingletsIfAllowed
 import com.microblink.blinkid.ux.scanning.BlinkIdAnalyzer
 import com.microblink.blinkid.ux.scanning.BlinkIdDocumentLocatedLocation
 import com.microblink.blinkid.ux.scanning.BlinkIdScanningDoneHandler
@@ -28,13 +30,17 @@ import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.blinkid.ux.state.ShowPassportMoveToLeft
 import com.microblink.blinkid.ux.state.ShowPassportMoveToRight
 import com.microblink.blinkid.ux.state.ShowPassportMoveToTop
+import com.microblink.blinkid.ux.utils.UxPingletTracker
 import com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation
 import com.microblink.blinkid.ux.utils.getPassportPageFromRotation
+import com.microblink.core.ping.config.PingSendTriggerPoint
+import com.microblink.core.ping.pinglets.UxEvent
 import com.microblink.ux.ScanningUxEvent
 import com.microblink.ux.ScanningUxEventHandler
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraHardwareInfoHelper
+import com.microblink.ux.camera.CameraInputDetails
 import com.microblink.ux.camera.CameraViewModel
-import com.microblink.ux.camera.ImageAnalyzer
 import com.microblink.ux.components.needHelpTooltipDefaultTimeToAppearMs
 import com.microblink.ux.components.uiCountingWindowDurationMs
 import com.microblink.ux.state.CardAnimationState
@@ -54,6 +60,7 @@ import com.microblink.ux.state.StatusMessageCounter
 import com.microblink.ux.utils.ErrorReason
 import com.microblink.ux.utils.ScreenOrientation
 import com.microblink.ux.utils.toErrorState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -61,6 +68,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.nanoseconds
@@ -72,7 +80,7 @@ internal class BlinkIdUxViewModel(
     sessionSettings: BlinkIdSessionSettings,
     uxSettings: BlinkIdUxSettings
 ) : CameraViewModel() {
-    private var imageAnalyzer: ImageAnalyzer? = null
+    private var imageAnalyzer: BlinkIdAnalyzer? = null
 
     private val _uiState = MutableStateFlow(BlinkIdUiState())
     val uiState: StateFlow<BlinkIdUiState> = _uiState.asStateFlow()
@@ -84,6 +92,12 @@ internal class BlinkIdUxViewModel(
     private val appearanceCounter: StatusMessageCounter = StatusMessageCounter()
 
     private var isCountingActive: Boolean = true
+
+    private var currentScreenOrientation: ScreenOrientation? = null
+
+    private var lastTrackedErrorType: UxEvent.ErrorMessageType? = null
+
+    private var cameraHardwareInfoReported = false
 
     val helpTooltipTimeToDisplayInMs =
         if (uxSettings.stepTimeoutDuration.inWholeMilliseconds == 0L) {
@@ -99,249 +113,264 @@ internal class BlinkIdUxViewModel(
             }
 
             override fun onFinish() {
+                UxPingletTracker.UxEvent.trackSimpleEvent(
+                    UxPingletTracker.UxEvent.SimpleUxEventType.HelpTooltipDisplayed,
+                    getSessionNumber()
+                )
                 changeHelpTooltipVisibility(true)
             }
 
         }
 
     init {
-        viewModelScope.launch {
-            imageAnalyzer = BlinkIdAnalyzer(
-                blinkIdSdk = blinkIdSdkInstance,
-                sessionSettings = sessionSettings,
-                uxSettings = uxSettings,
-                scanningDoneHandler = object : BlinkIdScanningDoneHandler {
-                    override fun onScanningFinished(result: BlinkIdScanningResult) {
-                        _uiState.update {
-                            it.copy(blinkIdScanningResult = result)
-                        }
+        imageAnalyzer = BlinkIdAnalyzer(
+            blinkIdSdk = blinkIdSdkInstance,
+            sessionSettings = sessionSettings,
+            uxSettings = uxSettings,
+            scanningDoneHandler = object : BlinkIdScanningDoneHandler {
+                override fun onScanningFinished(result: BlinkIdScanningResult) {
+                    _uiState.update {
+                        it.copy(blinkIdScanningResult = result)
                     }
+                }
 
-                    override fun onError(error: ErrorReason) {
-                        lifecyclePauseAnalysis()
-                        appearanceCounter.reset()
-                        _uiState.update {
-                            it.copy(
-                                errorState = error.toErrorState(),
-                                processingState = ProcessingState.ErrorDialog,
-                                hapticFeedbackState = HapticFeedbackState.VibrationOneTimeLong,
-                                activePassportPage = null
-                            )
-                        }
+                override fun onError(error: ErrorReason) {
+                    lifecyclePauseAnalysis()
+                    appearanceCounter.reset()
+                    UxPingletTracker.UxEvent.trackAlertDisplayedEvent(
+                        alertType = when (error) {
+                            ErrorReason.ErrorInvalidLicense -> UxEvent.AlertType.INVALIDLICENSEKEY
+                            ErrorReason.ErrorTimeoutExpired -> UxEvent.AlertType.STEPTIMEOUT
+                            ErrorReason.ErrorNetworkError -> UxEvent.AlertType.NETWORKERROR
+                            ErrorReason.ErrorDocumentClassFiltered -> UxEvent.AlertType.DOCUMENTCLASSNOTALLOWED
+
+                        },
+                        sessionNumber = getSessionNumber()
+                    )
+                    _uiState.update {
+                        it.copy(
+                            errorState = error.toErrorState(),
+                            processingState = ProcessingState.ErrorDialog,
+                            hapticFeedbackState = HapticFeedbackState.VibrationOneTimeLong,
+                            activePassportPage = null
+                        )
                     }
+                }
 
-                    override fun onScanningCanceled() {}
-                },
-                uxEventHandler = object : ScanningUxEventHandler {
-                    override fun onUxEvents(events: List<ScanningUxEvent>) {
-                        var newStatusMessage: StatusMessage? = null
-                        var newProcessingState: ProcessingState? = null
-                        var newActivePassportPage: PassportPage? = null
-                        for (event in events) {
-                            when (event) {
-                                is ScanningUxEvent.ScanningDone -> {
-                                    lifecyclePauseAnalysis()
-                                    newStatusMessage = CommonStatusMessage.Empty
-                                    newProcessingState = ProcessingState.SuccessAnimation(false)
-                                }
+                override fun onScanningCanceled() {}
+            },
+            uxEventHandler = object : ScanningUxEventHandler {
+                override fun onUxEvents(events: List<ScanningUxEvent>) {
+                    var newStatusMessage: StatusMessage? = null
+                    var newProcessingState: ProcessingState? = null
+                    var newActivePassportPage: PassportPage? = null
+                    var newCurrentSide: DocumentSide? = null
+                    for (event in events) {
+                        when (event) {
+                            is ScanningUxEvent.ScanningDone -> {
+                                lifecyclePauseAnalysis()
+                                newStatusMessage = CommonStatusMessage.Empty
+                                newProcessingState = ProcessingState.SuccessAnimation(false)
+                            }
 
-                                is ScanningUxEvent.DocumentNotFound -> {
-                                    newProcessingState = ProcessingState.Sensing
+                            is ScanningUxEvent.DocumentNotFound -> {
+                                newProcessingState = ProcessingState.Sensing
 
-                                    newStatusMessage =
-                                        if (uiState.value.activePassportPage != null) {
-                                            when (uiState.value.activePassportPage) {
-                                                PassportPage.Top -> BlinkIdStatusMessage.PassportScanTopPage
-                                                PassportPage.Right -> BlinkIdStatusMessage.PassportScanRightPage
-                                                PassportPage.Left -> BlinkIdStatusMessage.PassportScanLeftPage
-                                                else -> BlinkIdStatusMessage.PassportScanTopPage
-                                            }
-                                        } else {
-                                            when (uiState.value.currentSide) {
-                                                Front -> CommonStatusMessage.ScanFrontSide
-                                                Back -> CommonStatusMessage.ScanBackSide
-                                                else -> CommonStatusMessage.ScanBarcode
-                                            }
+                                newStatusMessage =
+                                    if (uiState.value.activePassportPage != null) {
+                                        when (uiState.value.activePassportPage) {
+                                            PassportPage.Top -> BlinkIdStatusMessage.PassportScanTopPage
+                                            PassportPage.Right -> BlinkIdStatusMessage.PassportScanRightPage
+                                            PassportPage.Left -> BlinkIdStatusMessage.PassportScanLeftPage
+                                            else -> BlinkIdStatusMessage.PassportScanTopPage
                                         }
-
-                                }
-
-                                is ScanningUxEvent.DocumentLocated, is BlinkIdDocumentLocatedLocation -> {
-                                    // newProcessingState = ProcessingState.Processing
-                                    // Not used in this UI implementation.
-                                    // Can be used for processing state.
-                                }
-
-                                is ScanningUxEvent.BlurDetected -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.EliminateBlur
-                                }
-
-                                is ScanningUxEvent.DocumentNotFullyVisible -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.KeepDocumentVisible
-                                }
-
-                                is ScanningUxEvent.FaceImageNotFound -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.KeepFacePhotoVisible
-                                }
-
-                                is ScanningUxEvent.DocumentTooBright -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.DecreaseLightingIntensity
-                                }
-
-                                is ScanningUxEvent.DocumentTooDark -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.IncreaseLightingIntensity
-                                }
-
-                                is ScanningUxEvent.DocumentTooClose -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.MoveFarther
-                                }
-
-                                is ScanningUxEvent.DocumentTooCloseToCameraEdge -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.MoveDocumentFromEdge
-                                }
-
-                                is ScanningUxEvent.DocumentTooFar -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.MoveCloser
-                                }
-
-                                is ScanningUxEvent.DocumentTooTilted -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.RotateDocument
-                                }
-
-                                is ScanningUxEvent.GlareDetected -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.EliminateGlare
-                                }
-
-                                is ScanningUxEvent.ScanningWrongSide -> {
-                                    newProcessingState = ProcessingState.Error
-                                    newStatusMessage = CommonStatusMessage.ScanningWrongSide
-                                }
-
-                                is ScanningWrongPassportPage -> {
-                                    val page =
-                                        if (event.isScanningDataPage) {
-                                            PassportPage.Data
-                                        } else {
-                                            getPassportPageFromRotation(
-                                                getCorrectedDocumentRotation(
-                                                    event.documentRotation,
-                                                    uiState.value.screenOrientation
-                                                )
-                                            )
+                                    } else {
+                                        when (uiState.value.currentSide) {
+                                            Front -> CommonStatusMessage.ScanFrontSide
+                                            Back -> CommonStatusMessage.ScanBackSide
+                                            else -> CommonStatusMessage.ScanBarcode
                                         }
-                                    newStatusMessage =
-                                        when (page) {
-                                            PassportPage.Top -> BlinkIdStatusMessage.PassportWrongPageTop
-                                            PassportPage.Right -> BlinkIdStatusMessage.PassportWrongPageRight
-                                            PassportPage.Left -> BlinkIdStatusMessage.PassportWrongPageLeft
-                                            PassportPage.Data -> BlinkIdStatusMessage.ScanPassportDataPage
-                                        }
-                                    newProcessingState = ProcessingState.Error
-                                    newActivePassportPage = page
-                                }
+                                    }
 
-                                is RequestPassportPage -> {
-                                    lifecyclePauseAnalysis()
-                                    newActivePassportPage =
+                            }
+
+                            is ScanningUxEvent.DocumentLocated, is BlinkIdDocumentLocatedLocation -> {
+                                // newProcessingState = ProcessingState.Processing
+                                // Not used in this UI implementation.
+                                // Can be used for processing state.
+                            }
+
+                            is ScanningUxEvent.BlurDetected -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.EliminateBlur
+                            }
+
+                            is ScanningUxEvent.DocumentNotFullyVisible -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.KeepDocumentVisible
+                            }
+
+                            is ScanningUxEvent.FaceImageNotFound -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.KeepFacePhotoVisible
+                            }
+
+                            is ScanningUxEvent.DocumentTooBright -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.DecreaseLightingIntensity
+                            }
+
+                            is ScanningUxEvent.DocumentTooDark -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.IncreaseLightingIntensity
+                            }
+
+                            is ScanningUxEvent.DocumentTooClose -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.MoveFarther
+                            }
+
+                            is ScanningUxEvent.DocumentTooCloseToCameraEdge -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.MoveDocumentFromEdge
+                            }
+
+                            is ScanningUxEvent.DocumentTooFar -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.MoveCloser
+                            }
+
+                            is ScanningUxEvent.DocumentTooTilted -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.RotateDocument
+                            }
+
+                            is ScanningUxEvent.GlareDetected -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.EliminateGlare
+                            }
+
+                            is ScanningUxEvent.ScanningWrongSide -> {
+                                newProcessingState = ProcessingState.Error
+                                newStatusMessage = CommonStatusMessage.ScanningWrongSide
+                            }
+
+                            is ScanningWrongPassportPage -> {
+                                val page =
+                                    if (event.isScanningDataPage) {
+                                        PassportPage.Data
+                                    } else {
                                         getPassportPageFromRotation(
                                             getCorrectedDocumentRotation(
                                                 event.documentRotation,
                                                 uiState.value.screenOrientation
                                             )
                                         )
-                                    newProcessingState =
-                                        ProcessingState.SuccessAnimation(true)
-                                    newStatusMessage = CommonStatusMessage.Empty
-                                }
+                                    }
+                                newStatusMessage =
+                                    when (page) {
+                                        PassportPage.Top -> BlinkIdStatusMessage.PassportWrongPageTop
+                                        PassportPage.Right -> BlinkIdStatusMessage.PassportWrongPageRight
+                                        PassportPage.Left -> BlinkIdStatusMessage.PassportWrongPageLeft
+                                        PassportPage.Data -> BlinkIdStatusMessage.ScanPassportDataPage
+                                    }
+                                newProcessingState = ProcessingState.Error
+                                newActivePassportPage = page
+                            }
 
-                                is ScanningUxEvent.RequestDocumentSide -> {
-                                    var currentSide: DocumentSide = uiState.value.currentSide
-                                    when (uiState.value.currentSide) {
-                                        Front -> {
-                                            when (event.side) {
-                                                Front -> {
-                                                }
+                            is RequestPassportPage -> {
+                                lifecyclePauseAnalysis()
+                                newActivePassportPage =
+                                    getPassportPageFromRotation(
+                                        getCorrectedDocumentRotation(
+                                            event.documentRotation,
+                                            uiState.value.screenOrientation
+                                        )
+                                    )
+                                newProcessingState =
+                                    ProcessingState.SuccessAnimation(true)
+                                newStatusMessage = CommonStatusMessage.Empty
+                            }
 
-                                                Back -> {
-                                                    // TODO: support for portrait animations
-                                                    newProcessingState =
-                                                        ProcessingState.SuccessAnimation(true)
-                                                    newStatusMessage = CommonStatusMessage.Empty
-                                                    lifecyclePauseAnalysis()
-                                                }
-
-                                                Barcode -> {
-                                                    newProcessingState = ProcessingState.Sensing
-                                                    newStatusMessage =
-                                                        CommonStatusMessage.ScanBarcode
-                                                    currentSide = Barcode
-                                                    isCountingActive = false
-                                                    imageAnalyzer?.pauseAnalysis()
-                                                    imageAnalyzer?.resumeAnalysis()
-                                                }
+                            is ScanningUxEvent.RequestDocumentSide -> {
+                                var currentSide: DocumentSide = uiState.value.currentSide
+                                when (uiState.value.currentSide) {
+                                    Front -> {
+                                        when (event.side) {
+                                            Front -> {
                                             }
-                                        }
 
-                                        Back -> {
-                                            when (event.side) {
-                                                Front -> {}
-
-                                                Back -> {}
-
-                                                Barcode -> {
-                                                    newProcessingState = ProcessingState.Sensing
-                                                    newStatusMessage =
-                                                        CommonStatusMessage.ScanBarcode
-                                                    currentSide = Barcode
-                                                    isCountingActive = false
-                                                    imageAnalyzer?.pauseAnalysis()
-                                                    imageAnalyzer?.resumeAnalysis()
-                                                }
+                                            Back -> {
+                                                // TODO: support for portrait animations
+                                                newProcessingState =
+                                                    ProcessingState.SuccessAnimation(true)
+                                                newStatusMessage = CommonStatusMessage.Empty
+                                                lifecyclePauseAnalysis()
                                             }
-                                        }
 
-                                        Barcode -> {
-                                            // Impossible to reach anything else other than barcode.
-                                            currentSide = Barcode
-                                            newStatusMessage = CommonStatusMessage.ScanBarcode
+                                            Barcode -> {
+                                                newProcessingState = ProcessingState.Sensing
+                                                newStatusMessage =
+                                                    CommonStatusMessage.ScanBarcode
+                                                newCurrentSide = Barcode
+                                                isCountingActive = false
+                                                imageAnalyzer?.pauseAnalysis()
+                                                imageAnalyzer?.resumeAnalysis()
+                                            }
                                         }
                                     }
 
-                                }
+                                    Back -> {
+                                        when (event.side) {
+                                            Front -> {}
 
-                                is DocumentImageAnalysisResult -> {
-                                    // Not used in this UI implementation.
-                                    // Can be used for additional frame debugging.
+                                            Back -> {}
+
+                                            Barcode -> {
+                                                newProcessingState = ProcessingState.Sensing
+                                                newStatusMessage =
+                                                    CommonStatusMessage.ScanBarcode
+                                                newCurrentSide = Barcode
+                                                isCountingActive = false
+                                                imageAnalyzer?.pauseAnalysis()
+                                                imageAnalyzer?.resumeAnalysis()
+                                            }
+                                        }
+                                    }
+
+                                    Barcode -> {
+                                        // Impossible to reach anything else other than barcode.
+                                        currentSide = Barcode
+                                        newStatusMessage = CommonStatusMessage.ScanBarcode
+                                    }
                                 }
 
                             }
-                        }
 
-                        updateUiState(
-                            newProcessingState,
-                            newStatusMessage,
-                            newActivePassportPage
-                        )
+                            is DocumentImageAnalysisResult -> {
+                                // Not used in this UI implementation.
+                                // Can be used for additional frame debugging.
+                            }
+
+                        }
                     }
+
+                    updateUiState(
+                        newProcessingState,
+                        newStatusMessage,
+                        newActivePassportPage,
+                        newCurrentSide
+                    )
                 }
-            )
-        }
+            }
+        )
     }
 
     private fun updateUiState(
         newProcessingState: ProcessingState?,
         newStatusMessage: StatusMessage?,
-        newActivePassportPage: PassportPage?
+        newActivePassportPage: PassportPage?,
+        newCurrentSide: DocumentSide?
     ) {
         newProcessingState?.let {
             if (newProcessingState is ProcessingState.SuccessAnimation || newStatusMessage == CommonStatusMessage.ScanBarcode) {
@@ -388,6 +417,38 @@ internal class BlinkIdUxViewModel(
                             else -> null
                         }
                         selectedStatusMessage?.let {
+                            if (selectedProcessingState == ProcessingState.Error) {
+                                val errorType: UxEvent.ErrorMessageType? =
+                                    when (selectedStatusMessage) {
+                                        is CommonStatusMessage -> when (selectedStatusMessage) {
+                                            CommonStatusMessage.MoveCloser -> UxEvent.ErrorMessageType.MOVECLOSER
+                                            CommonStatusMessage.MoveFarther -> UxEvent.ErrorMessageType.MOVEFARTHER
+                                            CommonStatusMessage.KeepDocumentVisible, CommonStatusMessage.KeepFacePhotoVisible
+                                                -> UxEvent.ErrorMessageType.KEEPVISIBLE
+
+                                            CommonStatusMessage.ScanningWrongSide -> UxEvent.ErrorMessageType.FLIPSIDE
+                                            CommonStatusMessage.AlignDocument -> UxEvent.ErrorMessageType.ALIGNDOCUMENT
+                                            CommonStatusMessage.MoveDocumentFromEdge -> UxEvent.ErrorMessageType.MOVEFROMEDGE
+                                            CommonStatusMessage.IncreaseLightingIntensity -> UxEvent.ErrorMessageType.INCREASELIGHTING
+                                            CommonStatusMessage.DecreaseLightingIntensity -> UxEvent.ErrorMessageType.DECREASELIGHTING
+                                            CommonStatusMessage.EliminateBlur -> UxEvent.ErrorMessageType.ELIMINATEBLUR
+                                            CommonStatusMessage.EliminateGlare -> UxEvent.ErrorMessageType.ELIMINATEGLARE
+                                            else -> null
+                                        }
+
+                                        else -> null
+                                    }
+                                errorType?.let {
+                                    // We track error message event only when the errorMessageType changes
+                                    if (errorType != lastTrackedErrorType) {
+                                        lastTrackedErrorType = errorType
+                                        UxPingletTracker.UxEvent.trackErrorMessageEvent(
+                                            it,
+                                            getSessionNumber()
+                                        )
+                                    }
+                                }
+                            }
                             _uiState.update {
                                 it.copy(
                                     reticleState = selectedProcessingState.reticleState,
@@ -396,9 +457,11 @@ internal class BlinkIdUxViewModel(
                                     hapticFeedbackState = newHapticFeedbackState
                                         ?: it.hapticFeedbackState,
                                     activePassportPage = newActivePassportPage
-                                        ?: it.activePassportPage
+                                        ?: it.activePassportPage,
+                                    currentSide = newCurrentSide ?: it.currentSide
                                 )
                             }
+
                             appearanceCounter.incrementIfNotPresent(selectedStatusMessage)
                             updateStateStartTime()
                         }
@@ -442,6 +505,14 @@ internal class BlinkIdUxViewModel(
     }
 
     fun setScreenOrientation(screenOrientation: ScreenOrientation) {
+        if (currentScreenOrientation != screenOrientation) {
+            currentScreenOrientation = screenOrientation
+            // track pinglet only when screen orientation changes
+            UxPingletTracker.ScanningConditions.trackScreenOrientationChange(
+                screenOrientation = screenOrientation,
+                sessionNumber = getSessionNumber()
+            )
+        }
         _uiState.update {
             it.copy(
                 screenOrientation = screenOrientation
@@ -543,26 +614,22 @@ internal class BlinkIdUxViewModel(
     }
 
     fun changeTorchState() {
-        when (_uiState.value.torchState) {
-            MbTorchState.On -> {
-                _torchOn.value = false
-                _uiState.update {
-                    it.copy(torchState = MbTorchState.Off)
-                }
-            }
-
-            MbTorchState.Off -> {
-                _torchOn.value = true
-                _uiState.update {
-                    it.copy(
-                        torchState = MbTorchState.On,
-                        hapticFeedbackState = HapticFeedbackState.VibrationOneTimeShort
-                    )
-                }
-            }
-
-            MbTorchState.NotSupportedByCamera -> {}
+        val (newTorchState, hapticState) = when (_uiState.value.torchState) {
+            MbTorchState.On -> MbTorchState.Off to HapticFeedbackState.VibrationOff
+            MbTorchState.Off -> MbTorchState.On to HapticFeedbackState.VibrationOneTimeShort
+            MbTorchState.NotSupportedByCamera -> return
         }
+        _torchOn.value = newTorchState == MbTorchState.On
+        _uiState.update {
+            it.copy(
+                torchState = newTorchState,
+                hapticFeedbackState = hapticState
+            )
+        }
+        UxPingletTracker.ScanningConditions.trackTorchStateUpdate(
+            newTorchState == MbTorchState.On,
+            getSessionNumber()
+        )
     }
 
     fun changeHelpTooltipVisibility(show: Boolean) {
@@ -580,6 +647,10 @@ internal class BlinkIdUxViewModel(
 
     fun changeOnboardingDialogVisibility(show: Boolean) {
         if (show) {
+            UxPingletTracker.UxEvent.trackSimpleEvent(
+                UxPingletTracker.UxEvent.SimpleUxEventType.OnboardingInfoDisplayed,
+                getSessionNumber()
+            )
             lifecyclePauseAnalysis()
         } else {
             lifecycleResumeAnalysis()
@@ -589,14 +660,29 @@ internal class BlinkIdUxViewModel(
         }
     }
 
-    fun changeHelpScreensVisibility(show: Boolean) {
-        if (show) {
-            lifecyclePauseAnalysis()
-        } else {
-            lifecycleResumeAnalysis()
-        }
+    fun onHelpScreensDisplayRequested() {
+        UxPingletTracker.UxEvent.trackSimpleEvent(
+            UxPingletTracker.UxEvent.SimpleUxEventType.HelpOpened,
+            getSessionNumber()
+        )
+        lifecyclePauseAnalysis()
         _uiState.update {
-            it.copy(helpDisplayed = show)
+            it.copy(helpDisplayed = true)
+        }
+    }
+
+    fun onHelpScreensCloseRequested(allPagesVisited: Boolean) {
+        UxPingletTracker.UxEvent.trackHelpCloseEvent(
+            helpCloseType = if (allPagesVisited) {
+                UxEvent.HelpCloseType.CONTENTFULLYVIEWED
+            } else {
+                UxEvent.HelpCloseType.CONTENTSKIPPED
+            },
+            sessionNumber = getSessionNumber()
+        )
+        lifecycleResumeAnalysis()
+        _uiState.update {
+            it.copy(helpDisplayed = false)
         }
     }
 
@@ -668,11 +754,74 @@ internal class BlinkIdUxViewModel(
         }
     }
 
+    fun onCameraPermissionCheck() {
+        UxPingletTracker.CameraPermission.trackCameraPermissionCheck(getSessionNumber())
+        BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.CameraPermissionCheck)
+    }
+
+    fun onCameraPermissionRequest() {
+        UxPingletTracker.CameraPermission.trackCameraPermissionRequest(getSessionNumber())
+    }
+
+    fun onCameraPermissionUserResponse(cameraPermissionGranted: Boolean) {
+        UxPingletTracker.CameraPermission.trackCameraPermissionUserResponse(
+            cameraPermissionGranted,
+            getSessionNumber()
+        )
+    }
+
+    fun onCameraPreviewStarted() {
+        UxPingletTracker.UxEvent.trackSimpleEvent(
+            UxPingletTracker.UxEvent.SimpleUxEventType.CameraStarted,
+            getSessionNumber()
+        )
+        BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.CameraStarted)
+    }
+
+    fun onCameraPreviewStopped() {
+        UxPingletTracker.UxEvent.trackSimpleEvent(
+            UxPingletTracker.UxEvent.SimpleUxEventType.CameraClosed,
+            getSessionNumber()
+        )
+    }
+
+    fun onCameraInputInfoAvailable(context: Context, cameraInputDetails: CameraInputDetails) {
+        UxPingletTracker.CameraInfo.trackCameraInputInfo(cameraInputDetails, getSessionNumber())
+        if (!cameraHardwareInfoReported) {
+            cameraHardwareInfoReported = true
+            viewModelScope.launch {
+                withContext(Dispatchers.IO) {
+                    val cameraDetailsList = CameraHardwareInfoHelper.getCameraHardwareInfo(context)
+                    UxPingletTracker.CameraInfo.trackCameraHardwareInfo(cameraDetailsList)
+                }
+            }
+        }
+
+    }
+
+    fun onCloseButtonClicked() {
+        UxPingletTracker.UxEvent.trackSimpleEvent(
+            UxPingletTracker.UxEvent.SimpleUxEventType.CloseButtonClicked,
+            getSessionNumber()
+        )
+    }
+
+    fun onAppMovedToBackground() {
+        UxPingletTracker.UxEvent.trackSimpleEvent(
+            UxPingletTracker.UxEvent.SimpleUxEventType.AppMovedToBackground,
+            getSessionNumber()
+        )
+    }
+
+    private fun getSessionNumber(): Int = imageAnalyzer?.getSessionNumber() ?: 0
+
     override fun onCleared() {
         super.onCleared()
+        BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.CameraScreenClosed)
         lifecyclePauseAnalysis()
         imageAnalyzer?.cancel()
         imageAnalyzer?.close()
+        imageAnalyzer = null
     }
 
     companion object {

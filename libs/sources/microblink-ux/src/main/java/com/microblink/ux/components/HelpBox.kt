@@ -18,7 +18,7 @@ fun HelpBox(
     modifier: Modifier,
     helpScreensButtonDisplayed: Boolean,
     helpTooltipDisplayed: Boolean,
-    onChangeOnboardingDialogState: (Boolean) -> Unit,
+    onDisplayHelpRequested: () -> Unit,
     onChangeHelpTooltipState: (Boolean) -> Unit
 ) {
     var _helpScreensButtonDisplayed by rememberSaveable {
@@ -33,7 +33,7 @@ fun HelpBox(
         NeedHelpTooltip(
             modifier,
             onChangeHelpTooltipState,
-            onChangeOnboardingDialogState,
+            onDisplayHelpRequested,
             helpTooltipDisplayed
         )
     }

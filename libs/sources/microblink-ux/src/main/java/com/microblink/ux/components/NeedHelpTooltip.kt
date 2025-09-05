@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 fun NeedHelpTooltip(
     modifier: Modifier,
     onChangeHelpTooltipState: (Boolean) -> Unit,
-    onChangeOnboardingDialogState: (Boolean) -> Unit,
+    onDisplayHelpRequested: () -> Unit,
     helpTooltipDisplayed: Boolean
 ) {
     val tooltipState = rememberTooltipState(isPersistent = true)
@@ -71,7 +71,7 @@ fun NeedHelpTooltip(
             state = tooltipState,
         ) {
             HelpButton(
-                onChangeOnboardingDialogState = onChangeOnboardingDialogState
+                onDisplayHelpRequested = onDisplayHelpRequested
             )
         }
     }

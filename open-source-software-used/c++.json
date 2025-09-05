@@ -120,7 +120,7 @@
         "description": "Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data"
     },
     {
-        "package": "abseil/20250512.0@microblink/main#29bf786c2055253ad2f60aa61d7dbd28",
+        "package": "abseil/20250512.0.1@microblink/main#120e2c1b766e76087248ee491d67cb52",
         "url": "https://github.com/microblink/abseil-cpp",
         "license": "Apache-2.0",
         "description": "Abseil Common Libraries (C++) from Google"
@@ -196,5 +196,11 @@
         "url": "https://github.com/microblink/tinyxml2",
         "license": "Zlib",
         "description": "a simple, small, efficient, C++ XML parser"
+    },
+    {
+        "package": "re2/20240702.0.0@microblink/main#97effdb903f6546348047925d9d1f365",
+        "url": "https://github.com/microblink/re2",
+        "license": "BSD-3-Clause",
+        "description": "Fast, safe, thread-friendly regular expression library"
     }
 ]
