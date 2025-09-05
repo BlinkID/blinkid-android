@@ -1,5 +1,27 @@
 # Release notes
 
+## v7.5.0
+
+### What's New
+- We introduced event tracking across the SDK lifecycle, giving you deeper insights into user journeys, success rates, and drop-off points during scanning sessions. These enhanced analytics make it easier to identify optimization opportunities and ensure the best possible user experience.
+- Updated detection analysis logic in case of photo mode
+- Added new `parsed` result member to the BarcodeResult which indicates whether the raw barcode data was successfully parsed
+- Barcode recognition is now allowed on all document classes; unparsable barcodes will be returned as raw data
+- 
+### Bugfixes
+- Fixed the issue with scanning the back of the Essad Card which was causing only Date of Expiry to be extracted
+- Fixed the issue with additionalNameInformation extraction for France ID and Residence Permit
+  Android
+
+### Other Changes
+- Declared additional `android.permission.ACCESS_NETWORK_STATE` in the `blinkid-core` library manifest
+    - This is a normal protection-level permission, automatically granted at install time – no runtime request is required
+    - The permission is used to check whether a network connection is available
+- Added new optional callbacks to the `CameraCompose` Composable from the `microblink-ux` library:
+    - `CameraPermissionCallbacks` - track camera permission events
+    - `CameraPreviewCallbacks` - track camera preview lifecycle events
+    - `CameraInputDetailsCallback` - receive camera input configuration details
+
 ## v7.4.0
 
 #### New Documents Support
