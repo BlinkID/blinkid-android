@@ -5,9 +5,7 @@ package com.microblink.blinkid.ux
  * license for files located in the UX/UI lib folder.
  */
 
-import android.app.Activity
-import android.app.Application
-import android.os.Bundle
+import android.content.Context
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -15,6 +13,7 @@ import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,6 +22,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.MutableCreationExtras
@@ -35,6 +38,10 @@ import com.microblink.blinkid.ux.theme.BlinkIdSdkTheme
 import com.microblink.blinkid.ux.theme.BlinkIdTheme
 import com.microblink.ux.ScanningUx
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraInputDetails
+import com.microblink.ux.camera.compose.CameraInputDetailsCallback
+import com.microblink.ux.camera.compose.CameraPermissionCallbacks
+import com.microblink.ux.camera.compose.CameraPreviewCallbacks
 import com.microblink.ux.camera.compose.CameraScreen
 import com.microblink.ux.state.MbTorchState
 import com.microblink.ux.state.ProcessingState
@@ -107,40 +114,17 @@ fun BlinkIdCameraScanningScreen(
 
     val snackbarHostState = remember { SnackbarHostState() }
 
+    DisposableEffect(Unit) {
+        val observer = getDefaultLifecycleObserver(viewModel)
+        val processLifecycle = ProcessLifecycleOwner.get().lifecycle
+        processLifecycle.addObserver(observer)
+
+        onDispose {
+            processLifecycle.removeObserver(observer)
+        }
+    }
+
     BlinkIdSdkTheme(uiSettings) {
-        val app = applicationContext as? Application
-        app?.registerActivityLifecycleCallbacks(object :
-            Application.ActivityLifecycleCallbacks {
-            override fun onActivityCreated(
-                activity: Activity,
-                savedInstanceState: Bundle?
-            ) {
-            }
-
-            override fun onActivityStarted(activity: Activity) {
-            }
-
-            override fun onActivityResumed(activity: Activity) {
-                viewModel.lifecycleResumeAnalysis()
-            }
-
-            override fun onActivityPaused(activity: Activity) {
-                viewModel.lifecyclePauseAnalysis()
-            }
-
-            override fun onActivityStopped(activity: Activity) {
-            }
-
-            override fun onActivitySaveInstanceState(
-                activity: Activity,
-                outState: Bundle
-            ) {
-            }
-
-            override fun onActivityDestroyed(activity: Activity) {
-            }
-
-        })
         val snackbarWarningMessage =
             stringResource(BlinkIdTheme.sdkStrings.scanningStrings.snackbarFlashlightWarning)
         Scaffold(
@@ -149,6 +133,12 @@ fun BlinkIdCameraScanningScreen(
             CameraScreen(
                 cameraViewModel = viewModel,
                 onCameraScreenLongPress = { viewModel.changeHelpTooltipVisibility(true) },
+                cameraPermissionCallbacks = rememberCameraPermissionCallbacks(viewModel),
+                cameraPreviewCallbacks = rememberCameraPreviewCallbacks(viewModel),
+                cameraInputDetailsCallback = rememberCameraInputDetailsCallback(
+                    viewModel,
+                    applicationContext
+                )
             ) {
                 val overlayUiState = viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -163,7 +153,10 @@ fun BlinkIdCameraScanningScreen(
                 ScanningUx(
                     Modifier.padding(paddingValues),
                     overlayUiState.value,
-                    onScanningCanceled,
+                    {
+                        viewModel.onCloseButtonClicked()
+                        onScanningCanceled()
+                    },
                     uiSettings,
                     uxSettings.allowHapticFeedback,
                     showProductionOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveProductionOverlay,
@@ -185,7 +178,8 @@ fun BlinkIdCameraScanningScreen(
                     viewModel::onReticleSuccessAnimationCompleted,
                     viewModel::onHapticFeedbackCompleted,
                     viewModel::changeOnboardingDialogVisibility,
-                    viewModel::changeHelpScreensVisibility,
+                    viewModel::onHelpScreensDisplayRequested,
+                    viewModel::onHelpScreensCloseRequested,
                     viewModel::changeHelpTooltipVisibility,
                     viewModel::onRetryTimeout,
                     onScanningCanceled
@@ -193,4 +187,68 @@ fun BlinkIdCameraScanningScreen(
             }
         }
     }
+}
+
+@Composable
+private fun rememberCameraPreviewCallbacks(viewModel: BlinkIdUxViewModel) = remember(viewModel) {
+    object : CameraPreviewCallbacks {
+        override fun onCameraPreviewStarted() {
+            viewModel.onCameraPreviewStarted()
+        }
+
+        override fun onCameraPreviewStopped() {
+            viewModel.onCameraPreviewStopped()
+        }
+    }
+}
+
+@Composable
+private fun rememberCameraPermissionCallbacks(viewModel: BlinkIdUxViewModel) =
+    remember(viewModel) {
+        object : CameraPermissionCallbacks {
+            override fun onCameraPermissionCheck() {
+                viewModel.onCameraPermissionCheck()
+            }
+
+            override fun onCameraPermissionRequested() {
+                viewModel.onCameraPermissionRequest()
+            }
+
+            override fun onCameraPermissionUserResponse(cameraPermissionGranted: Boolean) {
+                viewModel.onCameraPermissionUserResponse(cameraPermissionGranted)
+            }
+
+        }
+    }
+
+@Composable
+private fun rememberCameraInputDetailsCallback(
+    viewModel: BlinkIdUxViewModel,
+    applicationContext: Context
+) = remember(viewModel) {
+    object : CameraInputDetailsCallback {
+        override fun onCameraInputDetailsAvailable(cameraInputDetails: CameraInputDetails) {
+            viewModel.onCameraInputInfoAvailable(
+                applicationContext.applicationContext,
+                cameraInputDetails
+            )
+        }
+    }
+}
+
+private fun getDefaultLifecycleObserver(viewModel: BlinkIdUxViewModel): LifecycleObserver {
+    val observer = object : DefaultLifecycleObserver {
+        override fun onStop(owner: LifecycleOwner) {
+            viewModel.onAppMovedToBackground()
+        }
+
+        override fun onPause(owner: LifecycleOwner) {
+            viewModel.lifecyclePauseAnalysis()
+        }
+
+        override fun onResume(owner: LifecycleOwner) {
+            viewModel.lifecycleResumeAnalysis()
+        }
+    }
+    return observer
 }

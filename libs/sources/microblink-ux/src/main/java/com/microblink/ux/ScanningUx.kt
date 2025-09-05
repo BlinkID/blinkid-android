@@ -114,7 +114,8 @@ fun ScanningUx(
     onReticleSuccessAnimationCompleted: () -> Unit,
     onHapticFeedbackCompleted: () -> Unit,
     onChangeOnboardingDialogVisibility: (Boolean) -> Unit,
-    onChangeHelpScreensVisibility: (Boolean) -> Unit,
+    onHelpScreensDisplayRequested: () -> Unit,
+    onHelpScreensCloseRequested: (allPagesDisplayed: Boolean) -> Unit,
     onChangeHelpTooltipVisibility: (Boolean) -> Unit,
     onRetry: () -> Unit,
     onDoneError: () -> Unit
@@ -162,7 +163,7 @@ fun ScanningUx(
                         .semantics { traversalIndex = 2f },
                     uiState.helpButtonDisplayed,
                     uiState.helpTooltipDisplayed,
-                    onChangeHelpScreensVisibility,
+                    onHelpScreensDisplayRequested,
                     onChangeHelpTooltipVisibility
                 )
             }
@@ -176,7 +177,7 @@ fun ScanningUx(
             OnboardingDialog { onChangeOnboardingDialogVisibility(false) }
         }
         if (uiSettings.showHelpButton && uiState.helpDisplayed) {
-            HelpScreens(onChangeHelpScreensVisibility)
+            HelpScreens(onHelpScreensCloseRequested)
         }
         when (uiState.errorState) {
             ErrorState.NoError -> {}
@@ -248,6 +249,7 @@ internal fun ScanningScreenCentralElements(
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             vibrator?.vibrate(shortHapticFeedback())
                         } else {
+                            @Suppress("DEPRECATION")
                             vibrator?.vibrate(shortHapticFeedbackDurationMs)
                         }
                         lastHapticFeedbackTime = now
@@ -257,6 +259,7 @@ internal fun ScanningScreenCentralElements(
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             vibrator?.vibrate(longHapticFeedback())
                         } else {
+                            @Suppress("DEPRECATION")
                             vibrator?.vibrate(longHapticFeedbackDurationMs)
                         }
                         lastHapticFeedbackTime = now

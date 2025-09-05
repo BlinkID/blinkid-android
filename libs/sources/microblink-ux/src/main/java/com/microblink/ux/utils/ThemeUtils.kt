@@ -54,9 +54,9 @@ data class ParcelableTextStyle @JvmOverloads constructor(
             repeat(fontCount) {
                 fonts.add(ParcelableFont.create(parcel))
             }
-            val weight = parcel.readValue(Int.javaClass.classLoader)
-            val size = parcel.readValue(Float.javaClass.classLoader)
-            val height = parcel.readValue(Float.javaClass.classLoader)
+            val weight = parcel.readValue(Int::class.java.classLoader)
+            val size = parcel.readValue(Float::class.java.classLoader)
+            val height = parcel.readValue(Float::class.java.classLoader)
             return ParcelableTextStyle(
                 fontFamily = fonts,
                 fontWeight = weight?.let { FontWeight(it as Int) },

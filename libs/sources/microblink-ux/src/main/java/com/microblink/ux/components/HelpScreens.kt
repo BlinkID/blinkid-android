@@ -41,6 +41,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
@@ -66,7 +67,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HelpScreens(
-    onChangeHelpScreensState: (Boolean) -> Unit
+    onHelpScreensCloseRequested: (allPagesDisplayed: Boolean) -> Unit
 ) {
     var orientation by remember { mutableStateOf(Configuration.ORIENTATION_PORTRAIT) }
 
@@ -80,9 +81,10 @@ fun HelpScreens(
     val coroutineScope = rememberCoroutineScope()
     val bottomSheetState =
         rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val allPagesVisited = rememberSaveable { mutableStateOf(false) }
     ModalBottomSheet(
         onDismissRequest = {
-            onChangeHelpScreensState(false)
+            onHelpScreensCloseRequested(allPagesVisited.value)
         },
         sheetMaxWidth = 800.dp,
         sheetState = bottomSheetState,
@@ -92,6 +94,15 @@ fun HelpScreens(
         val pagerState = rememberPagerState(pageCount = {
             helpScreens.size
         })
+
+        val visitedPages = rememberSaveable { mutableSetOf<Int>() }
+        LaunchedEffect(pagerState.currentPage) {
+            visitedPages.add(pagerState.currentPage)
+            if (visitedPages.size == helpScreens.size) {
+                allPagesVisited.value = true
+            }
+        }
+
         Column(modifier = Modifier.height(if (orientation == Configuration.ORIENTATION_PORTRAIT) 520.dp else 240.dp)) {
             Row(
                 modifier = Modifier
@@ -112,7 +123,7 @@ fun HelpScreens(
                             coroutineScope.launch {
                                 pagerState.animateScrollToPage(pagerState.currentPage - 1)
                             }
-                        } else onChangeHelpScreensState(false)
+                        } else onHelpScreensCloseRequested(allPagesVisited.value)
 
                     }) {
                     Text(
@@ -135,7 +146,7 @@ fun HelpScreens(
                             coroutineScope.launch {
                                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
                             }
-                        } else onChangeHelpScreensState(false)
+                        } else onHelpScreensCloseRequested(allPagesVisited.value)
                     }) {
                     Text(
                         text = if (pagerState.canScrollForward) stringResource(R.string.mb_dialog_next_button) else stringResource(

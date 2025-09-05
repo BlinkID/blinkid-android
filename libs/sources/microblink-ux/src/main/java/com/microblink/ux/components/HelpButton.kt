@@ -23,7 +23,7 @@ import com.microblink.ux.theme.SdkTheme
 @Composable
 fun HelpButton(
     modifier: Modifier = Modifier,
-    onChangeOnboardingDialogState: (Boolean) -> Unit
+    onDisplayHelpRequested: () -> Unit
 ) {
     val helpButtonBackgroundColor = SdkTheme.uiColors.helpButtonBackground
     val helpButtonColor = SdkTheme.uiColors.helpButton
@@ -34,7 +34,7 @@ fun HelpButton(
             .clip(CircleShape)
             .background(helpButtonBackgroundColor)
             .clickable {
-                onChangeOnboardingDialogState(true)
+                onDisplayHelpRequested()
             }
     ) {
         Icon(
