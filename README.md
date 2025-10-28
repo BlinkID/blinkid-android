@@ -170,6 +170,20 @@ BlinkIdSdkSettings(
 )
 ```
 
+# <a name="activity-vs-compose"></a> Choosing between Composable or default scanning activity
+
+There are two primary methods for integrating the BlinkID SDK into your Android application: via the `BlinkIdCameraScanningScreen` composable or the `BlinkIdScanActivity` activity. Each approach offers distinct advantages and trade-offs. The following guidelines can help determine the most suitable integration method for your use case.
+
+When to use the `BlinkIdCameraScanningScreen` composable:
+- Single-activity architecture: If your application is structured around a single activity, this composable is the recommended integration point
+- Immediate scanning readiness: The composable allows preloading of all required resources and license validation before initiating the scanning process, ensuring that scanning can begin instantly without additional initialization delays
+- Advanced scanning customizations: This method supports extensive customization of the scanning workflow and user experience (see [Advanced customizations](#advanced-customizations)))
+
+When to use the `BlinkIdScanActivity` activity:
+Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the BlinkID SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
+Minimal customization requirements: If you are satisfied with the default scanning experience provided by the BlinkID SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
+
+
 # <a name="customizing-the-look"></a> Customizing the look and the UX
 
 Almost every UI element can be easily modified in many different ways (color, size, font, background). This chapter provides basic guides regarding each implementation method.
@@ -354,8 +368,13 @@ Strings used within built-in activities and UX can be localized to any language.
 
 We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, and `Vietnamese`.
 
+#### <a name="newLanguages"></a> New languages (v7.6)
+
+In version **v7.6** we've added **33 new** languages or variations of languages: `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, Brazilian Portuguese`, and `Canadian French`.
+
 The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
 
+When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For customized language picker, please consult official Android documentation.
 
 #### <a name="addLanguage"></a> Adding new language
 
