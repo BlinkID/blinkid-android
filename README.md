@@ -16,6 +16,7 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
   * [Camera](#camera-req)
   * [Processor architecture](#processor-arch-req)
 * [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
+* [Choosing between Composable and default scanning activity](#activity-vs-compose)
 * [Customizing the look and UX](#customizing-the-look)
   * [Simple customizations](#simple-customizations)
   * [Advanced customizations](#advanced-customizations)
@@ -170,7 +171,7 @@ BlinkIdSdkSettings(
 )
 ```
 
-# <a name="activity-vs-compose"></a> Choosing between Composable or default scanning activity
+# <a name="activity-vs-compose"></a> Choosing between Composable and default scanning activity
 
 There are two primary methods for integrating the BlinkID SDK into your Android application: via the `BlinkIdCameraScanningScreen` composable or the `BlinkIdScanActivity` activity. Each approach offers distinct advantages and trade-offs. The following guidelines can help determine the most suitable integration method for your use case.
 
@@ -182,6 +183,14 @@ When to use the `BlinkIdCameraScanningScreen` composable:
 When to use the `BlinkIdScanActivity` activity:
 Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the BlinkID SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
 Minimal customization requirements: If you are satisfied with the default scanning experience provided by the BlinkID SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
+
+## <a name="working-with-camera-x"></a> Working with CameraX
+
+CameraX is a core component of the BlinkID SDK, and its behavior during configuration changes is important to consider. By default, CameraX reinitializes the camera when certain system events occur (such as device rotation or screen size changes), which can cause the camera preview to temporarily display a black screen. This effect is more pronounced on older devices due to slower camera operations.
+
+When using the `BlinkIdScanActivity` integration method, the SDK addresses this by specifying the `android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"` attribute for the `BlinkIdScanActivity` in the `AndroidManifest.xml`. This prevents the activity from being recreated during these configuration changes, resulting in a seamless scanning experience.
+
+When using the `BlinkIdCameraScanningScreen` composable, device rotation triggers activity recreation, leading to a brief black screen as the camera is reinitialized. To avoid this, you can set the same `android:configChanges` attribute in your app's `AndroidManifest.xml`. If you prefer the activity to be recreated on rotation (e.g., to reload resources or UI), this step is optional. Either way, the SDK will work as intended. For more details, see [official Android documentation](https://developer.android.com/guide/topics/resources/runtime-changes).
 
 
 # <a name="customizing-the-look"></a> Customizing the look and the UX
@@ -368,7 +377,7 @@ Strings used within built-in activities and UX can be localized to any language.
 
 We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, and `Vietnamese`.
 
-#### <a name="newLanguages"></a> New languages (v7.6)
+#### <a name="new-languages"></a> New languages (v7.6)
 
 In version **v7.6** we've added **33 new** languages or variations of languages: `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, Brazilian Portuguese`, and `Canadian French`.
 
