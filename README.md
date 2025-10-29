@@ -16,6 +16,7 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
   * [Camera](#camera-req)
   * [Processor architecture](#processor-arch-req)
 * [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
+* [Choosing between Composable and default scanning activity](#activity-vs-compose)
 * [Customizing the look and UX](#customizing-the-look)
   * [Simple customizations](#simple-customizations)
   * [Advanced customizations](#advanced-customizations)
@@ -43,9 +44,9 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 #### Included sample apps:
 
-- **_sample-app_** emonstrates quick and straightforward integration of the BlinkID SDK using the provided UX in Jetpack Compose to scan a document and display the results.
-- **_direct-api-sample-app_** demonstrates the functionality of BlinkID SDK by avoiding the document scanning process and without using the blinkid-ux library. This approach should be used if you are obtaining document images via other methods.
-- **_java-sample-app_** demonstrates quick and straightforward integration of the BlinkID SDK using only Java (without Jetpack Compose) through `BlinkIdScanActivity`.
+- **_sample-app_** emonstrates quick and straightforward integration of the _BlinkID_ SDK using the provided UX in Jetpack Compose to scan a document and display the results.
+- **_direct-api-sample-app_** demonstrates the functionality of _BlinkID_ SDK by avoiding the document scanning process and without using the blinkid-ux library. This approach should be used if you are obtaining document images via other methods.
+- **_java-sample-app_** demonstrates quick and straightforward integration of the _BlinkID_ SDK using only Java (without Jetpack Compose) through `BlinkIdScanActivity`.
 
 ## <a name="sdk-integration"></a> SDK integration
 
@@ -102,6 +103,7 @@ BlinkIdCameraScanningScreen(
   sdkInstance,
   uiSettings = UiSettings(),
   uxSettings = BlinkIdUxSettings(),
+  cameraSettings: CameraSettings = CameraSettings(),
   sessionSettings = BlinkIdSessionSettings(),
   onScanningSuccess = { scanningResult ->
     // scanningResult is BlinkIdScanningResult
@@ -129,6 +131,10 @@ _BlinkID_ SDK requires Android API level **24** or newer.
 ## <a name="camera-req"></a> Camera
 
 To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
+
+_BlinkID_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods. 
+
+**NOTE**: Most of the front facing cameras on Android devices are lower quality and do not have autofocus. This highly impacts their ability to successfully complete the scan.
 
 ## <a name="processor-arch-req"></a> Processor architecture
 
@@ -161,14 +167,43 @@ Use `BlinkIdSdkSettings` to set the following options when instantiating the SDK
 
 ```kotlin
 BlinkIdSdkSettings(
-    context = context,
     licenseKey = <your_license_key>,
-    // disable resource download
+    /* define license key licensee (optional) */
+    // licensee = <your_license>,
+    /* disable or enable resource download /*
     downloadResources = false,
-    // define path if you are not using a default one: "microblink/blinkid"
-    // resourceLocalFolder = "path_within_app_assets"
+    /* define path if you are not using a default one */
+    // resourceDownloadUrl = <download_path>,
+    /* define path if you are not using a default one: "microblink/blinkid" */
+    // resourceLocalFolder = <path_within_app_assets>
+    /* set custom timeout on resrouces download (10 seconds by default) /*
+    // resourceRequestTimeout = RequestTimeout.DEFAULT,
+    /* set custom proxy URL (needs to be allowed by license) /*
+    // val microblinkProxyUrl: String? = null
 )
 ```
+
+# <a name="activity-vs-compose"></a> Choosing between Composable and default scanning activity
+
+There are two primary methods for integrating the _BlinkID_ SDK into your Android application: via the `BlinkIdCameraScanningScreen` composable or the `BlinkIdScanActivity` activity. Each approach offers distinct advantages and trade-offs. The following guidelines can help determine the most suitable integration method for your use case.
+
+When to use the `BlinkIdCameraScanningScreen` composable:
+- Single-activity architecture: If your application is structured around a single activity, this composable is the recommended integration point
+- Immediate scanning readiness: The composable allows preloading of all required resources and license validation before initiating the scanning process, ensuring that scanning can begin instantly without additional initialization delays
+- Advanced scanning customizations: This method supports extensive customization of the scanning workflow and user experience (see [Advanced customizations](#advanced-customizations))
+
+When to use the `BlinkIdScanActivity` activity:
+- Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the _BlinkID_ SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
+- Minimal customization requirements: If you are satisfied with the default scanning experience provided by the _BlinkID_ SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
+
+## <a name="working-with-camera-x"></a> Working with CameraX
+
+CameraX is a core component of the _BlinkID_ SDK, and its behavior during configuration changes is important to consider. By default, CameraX reinitializes the camera when certain system events occur (such as device rotation or screen size changes), which can cause the camera preview to temporarily display a black screen. This effect is more pronounced on older devices due to slower camera operations.
+
+When using the `BlinkIdScanActivity` integration method, the SDK addresses this by specifying the `android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout"` attribute for the `BlinkIdScanActivity` in the `AndroidManifest.xml`. This prevents the activity from being recreated during these configuration changes, resulting in a seamless scanning experience.
+
+When using the `BlinkIdCameraScanningScreen` composable, device rotation triggers activity recreation, leading to a brief black screen as the camera is reinitialized. To avoid this, you can set the same `android:configChanges` attribute in your app's `AndroidManifest.xml`. If you prefer the activity to be recreated on rotation (e.g., to reload resources or UI), this step is optional. Either way, the SDK will work as intended. For more details, see [official Android documentation](https://developer.android.com/guide/topics/resources/runtime-changes).
+
 
 # <a name="customizing-the-look"></a> Customizing the look and the UX
 
@@ -188,8 +223,14 @@ You can use basic customization options in our default `BlinkIdCameraScanningScr
 
 ```kotlin
 BlinkIdCameraScanningScreen(
-    sdkInstance,
-    // ui settings options
+    blinkIdSdk = sdkInstance,
+    /* UX settings options */
+    uxSettings = BlinkIdUxSettings(
+        stepTimeoutDuration = yourTimeoutDuration,
+        allowHapticFeedback = true, // or false
+        classFilter = null // all documents are accepted by default
+    ),
+    /* UI settings options */
     uiSettings = UiSettings(
         typography = yourTypography,
         colorScheme = yourColorScheme,
@@ -197,6 +238,10 @@ BlinkIdCameraScanningScreen(
         sdkStrings = yourSdkStrings,
         showOnboardingDialog = true, // or false
         showHelpButton = true // or false
+    ),
+    cameraSettings = CameraSettings(
+        lensFacing = CameraLensFacing.LensFacingBack, // or CameraLensFacing.LensFacingFront
+        desiredResolution = Resolution.Resolution2160p // range between 720p and 4320p
     ),
     sessionSettings = BlinkIdSessionSettings(),
     onScanningSuccess = { scanningResult ->
@@ -321,6 +366,7 @@ Customizing pre-made SDK scanning activity is somewhat limited compared to custo
 ```kotlin
 data class BlinkIdScanActivitySettings(
   val sdkSettings: BlinkIdSdkSettings,
+  val cameraSettings: CameraSettings = CameraSettings(),
   val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
   val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
   val scanActivityUiColors: BlinkIdScanActivityColors? = null,
@@ -354,8 +400,13 @@ Strings used within built-in activities and UX can be localized to any language.
 
 We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, and `Vietnamese`.
 
+#### <a name="new-languages"></a> New languages (v7.6)
+
+In version **v7.6** we've added **33 new** languages or variations of languages: `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, Brazilian Portuguese`, and `Canadian French`.
+
 The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
 
+When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For customized language picker, please consult official Android documentation.
 
 #### <a name="addLanguage"></a> Adding new language
 
@@ -380,7 +431,7 @@ You can define string resources that will be used instead of predefined ones by 
 
 ## <a name="using-scan-activity"></a> Using SDK through `BlinkIdScanActivity`
 
-The simplest way of using BlinkID SDK is through our integrated activity.
+The simplest way of using _BlinkID_ SDK is through our integrated activity.
 This eliminates the need for Compose integration and allows for quick and easy access to results. By using this integration method customization is reduced, although most UI elements can still be customized.
 
 Activity is accessed through `rememberLauncherForActivityResult` by using [MbBlinkIdScan](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-mb-blink-id-scan/index.html) contract.
@@ -398,10 +449,10 @@ When launching the contract, [BlinkIdScanActivitySettings](https://blinkid.githu
 ```kotlin
 blinkIdLauncher.launch(
   BlinkIdScanActivitySettings(
-    BlinkIdSdkSettings(
+    sdkSettings = BlinkIdSdkSettings(
       licenseKey = <your_license_key>
     ),
-    BlinkIdSessionSettings(
+    scanningSessionSettings = BlinkIdSessionSettings(
       scanningSettings = ScanningSettings( 
       // define additional settings here
       )
@@ -413,6 +464,7 @@ blinkIdLauncher.launch(
 ```kotlin
 data class BlinkIdScanActivitySettings(
   val sdkSettings: BlinkIdSdkSettings,
+  val cameraSettings: CameraSettings = CameraSettings(),
   val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
   val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
   val scanActivityUiColors: BlinkIdScanActivityColors? = null,
@@ -589,7 +641,7 @@ Here is the SDK size, calculated for supported ABIs:
 SDK size is calculated as application size increases when _BlinkID_ SDK is added, with all its dependencies included.
 
 ## <a name="api-documentation"></a> API documentation
-You can find the BlinkID SDK **KDoc** documentation [here](https://blinkid.github.io/blinkid-android/index.html).
+You can find the _BlinkID_ SDK **KDoc** documentation [here](https://blinkid.github.io/blinkid-android/index.html).
 
 ## <a name="contact"></a> Contact
 For any other questions, feel free to contact us at [help.microblink.com](http://help.microblink.com).
