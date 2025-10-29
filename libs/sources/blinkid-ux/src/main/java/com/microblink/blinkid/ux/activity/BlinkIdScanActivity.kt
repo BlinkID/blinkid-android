@@ -13,12 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
-import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.ux.BlinkIdCameraScanningScreen
 import com.microblink.blinkid.ux.contract.BlinkIdScanActivitySettings
 import com.microblink.blinkid.ux.contract.BlinkIdScanningResultHolder
 import com.microblink.blinkid.ux.contract.MbBlinkIdScan
 import com.microblink.blinkid.ux.theme.BlinkIdSdkTheme
+import com.microblink.core.ping.util.PingletTracker
 import com.microblink.ux.UiSettings
 import com.microblink.ux.components.LoadingScreen
 import com.microblink.ux.theme.DarkColorScheme
@@ -50,20 +50,18 @@ class BlinkIdScanActivity : AppCompatActivity() {
         activityViewModel.viewModelScope.launch {
             activityViewModel.initializeLocalSdk(
                 context = this@BlinkIdScanActivity,
-                blinkIdSdkSettings = BlinkIdSdkSettings(
-                    licenseKey = blinkIdScanActivitySettings.sdkSettings.licenseKey,
-                    licensee = blinkIdScanActivitySettings.sdkSettings.licensee,
-                    downloadResources = blinkIdScanActivitySettings.sdkSettings.downloadResources,
-                    resourceDownloadUrl = blinkIdScanActivitySettings.sdkSettings.resourceDownloadUrl,
-                    resourceLocalFolder = blinkIdScanActivitySettings.sdkSettings.resourceLocalFolder,
-                    resourceRequestTimeout = blinkIdScanActivitySettings.sdkSettings.resourceRequestTimeout
-                ),
+                blinkIdSdkSettings = blinkIdScanActivitySettings.sdkSettings,
                 onInitFailed = { exception ->
                     Log.e(TAG, "SDK initialization failed", exception)
                     onCancel(MbBlinkIdScan.CancelReason.ErrorSdkInit)
                 }
             )
         }
+
+        PingletTracker.Log.trackInfo(
+            context = this,
+            logMessage = "Using BlinkIdScanActivity"
+        )
 
         setContent {
 
@@ -79,6 +77,7 @@ class BlinkIdScanActivity : AppCompatActivity() {
                             blinkIdSdk = it,
                             uxSettings = blinkIdScanActivitySettings.uxSettings,
                             uiSettings = uiSettings,
+                            cameraSettings = blinkIdScanActivitySettings.cameraSettings,
                             sessionSettings = blinkIdScanActivitySettings.scanningSessionSettings,
                             onScanningSuccess = { result ->
                                 BlinkIdScanningResultHolder.blinkIdScanningResult = result

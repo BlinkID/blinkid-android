@@ -5,6 +5,9 @@
 
 package com.microblink.ux.camera
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 /**
  * Enum representing the camera resolution that is being used.
  */
@@ -24,7 +27,7 @@ enum class CameraLensFacing {
 }
 
 /**
- * Configuration settings for the camera used in the verification process.
+ * Configuration settings for the camera used in the scanning process.
  *
  * This data class allows you to specify the preferred camera lens facing and
  * the desired resolution for the camera.
@@ -35,7 +38,8 @@ enum class CameraLensFacing {
  *                            Defaults to [Resolution.Resolution2160p].
  *
  */
+@Parcelize
 data class CameraSettings(
     val lensFacing: CameraLensFacing = CameraLensFacing.LensFacingBack,
     val desiredResolution: Resolution = Resolution.Resolution2160p
-)
+) : Parcelable

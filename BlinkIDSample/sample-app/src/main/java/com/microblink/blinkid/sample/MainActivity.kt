@@ -81,6 +81,7 @@ class MainActivity : ComponentActivity() {
                         sdk,
                         uxSettings = viewModel.blinkIdUxSettings,
                         uiSettings = viewModel.blinkIdUiSettings,
+                        cameraSettings = viewModel.cameraSettings,
                         sessionSettings = viewModel.scanningSessionSettings,
                         onScanningSuccess = { result ->
                             viewModel.onScanningResultAvailable(result)

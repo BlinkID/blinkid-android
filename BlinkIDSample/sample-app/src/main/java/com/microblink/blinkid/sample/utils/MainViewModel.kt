@@ -16,6 +16,7 @@ import com.microblink.blinkid.sample.config.BlinkIdConfig.licenseKey
 import com.microblink.blinkid.sample.result.BlinkIdResultHolder
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraSettings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -36,6 +37,8 @@ class MainViewModel : ViewModel() {
     val blinkIdUiSettings = UiSettings()
 
     val blinkIdUxSettings = BlinkIdUxSettings()
+
+    val cameraSettings = CameraSettings()
 
     var stepTimeoutDuration: MutableState<Duration> = mutableStateOf(10000.milliseconds)
         private set

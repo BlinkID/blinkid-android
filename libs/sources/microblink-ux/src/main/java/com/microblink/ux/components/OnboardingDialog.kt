@@ -26,7 +26,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -38,6 +38,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -49,7 +51,7 @@ import com.microblink.ux.theme.SdkTheme
 
 @Composable
 fun OnboardingDialog(onDismissOnboardingDialog: () -> Unit) {
-    var orientation by remember { mutableStateOf(Configuration.ORIENTATION_PORTRAIT) }
+    var orientation by remember { mutableIntStateOf(Configuration.ORIENTATION_PORTRAIT) }
 
     val configuration = LocalConfiguration.current
 
@@ -112,7 +114,7 @@ fun OnboardingDialogContent(
                 LocalContext.current,
                 onboardingScreenResources.pageImage
             )?.toBitmap()?.asImageBitmap()!!,
-            contentDescription = stringResource(onboardingScreenResources.pageTitle),
+            contentDescription = null,
             modifier = Modifier
                 .padding(horizontal = 10.dp)
                 .clearAndSetSemantics {},
@@ -121,6 +123,9 @@ fun OnboardingDialogContent(
     Spacer(Modifier.height(16.dp))
     Column(verticalArrangement = Arrangement.Center) {
         Text(
+            modifier = Modifier.semantics {
+                heading()
+            },
             text = stringResource(onboardingScreenResources.pageTitle),
             style = SdkTheme.sdkTypography.onboardingTitle,
             color = MaterialTheme.colorScheme.primary,

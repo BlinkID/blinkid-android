@@ -94,24 +94,24 @@
   <div class="breadcrumbs"><a href="../../index.html">blinkid-ux</a><span class="delimiter">/</span><a href="../index.html">com.microblink.blinkid.ux.scanning</a><span class="delimiter">/</span><span class="current">ScanningWrongPassportPage</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Scanning</span><wbr><span>Wrong</span><wbr><span>Passport</span><wbr><span><span>Page</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">ScanningWrongPassportPage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>isScanningDataPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentRotation<span class="token operator">: </span><a href="../../../blinkid-core/com.microblink.blinkid.core.result/-document-rotation/index.html">DocumentRotation</a></span></span><span class="token punctuation">)</span> : <a href="../../../microblink-ux/com.microblink.ux/-scanning-ux-event/index.html">ScanningUxEvent</a></div><p class="paragraph">Event that holds information about the incorrect passport page that is currently being scanned.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">ScanningWrongPassportPage</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>activePassportPage<span class="token operator">: </span><a href="../../com.microblink.blinkid.ux.state/-passport-page/index.html">PassportPage</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>documentRotation<span class="token operator">: </span><a href="../../../blinkid-core/com.microblink.blinkid.core.result/-document-rotation/index.html">DocumentRotation</a></span></span><span class="token punctuation">)</span> : <a href="../../../microblink-ux/com.microblink.ux/-scanning-ux-event/index.html">ScanningUxEvent</a></div><p class="paragraph">Event that holds information about the incorrect passport page that is currently being scanned.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="">Constructors</h2>
-        <div class="table"><a data-name="1287925394%2FConstructors%2F1900084154" anchor-label="ScanningWrongPassportPage" id="1287925394%2FConstructors%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
+        <div class="table"><a data-name="162190991%2FConstructors%2F1900084154" anchor-label="ScanningWrongPassportPage" id="162190991%2FConstructors%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":blinkid-ux:dokkaHtmlPartial/release" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-scanning-wrong-passport-page.html"><span>Scanning</span><wbr><span>Wrong</span><wbr><span>Passport</span><wbr><span><span>Page</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1287925394%2FConstructors%2F1900084154"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="162190991%2FConstructors%2F1900084154"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">isScanningDataPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">documentRotation<span class="token operator">: </span><a href="../../../blinkid-core/com.microblink.blinkid.core.result/-document-rotation/index.html">DocumentRotation</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">activePassportPage<span class="token operator">: </span><a href="../../com.microblink.blinkid.ux.state/-passport-page/index.html">PassportPage</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">documentRotation<span class="token operator">: </span><a href="../../../blinkid-core/com.microblink.blinkid.core.result/-document-rotation/index.html">DocumentRotation</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -120,7 +120,22 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="">Properties</h2>
-        <div class="table"><a data-name="1696000799%2FProperties%2F1900084154" anchor-label="documentRotation" id="1696000799%2FProperties%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
+        <div class="table"><a data-name="203931121%2FProperties%2F1900084154" anchor-label="activePassportPage" id="203931121%2FProperties%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":blinkid-ux:dokkaHtmlPartial/release" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="active-passport-page.html"><span>active</span><wbr><span>Passport</span><wbr><span><span>Page</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="203931121%2FProperties%2F1900084154"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="active-passport-page.html">activePassportPage</a><span class="token operator">: </span><a href="../../com.microblink.blinkid.ux.state/-passport-page/index.html">PassportPage</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Represents the current passport page that is being scanned. Used only for <a href="../../com.microblink.blinkid.ux.state/-passport-page/-barcode/index.html">PassportPage.Barcode</a> and <a href="../../com.microblink.blinkid.ux.state/-passport-page/-data/index.html">PassportPage.Data</a> since screen orientation is also required to determine other page orientations.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1696000799%2FProperties%2F1900084154" anchor-label="documentRotation" id="1696000799%2FProperties%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
           <div class="table-row" data-filterable-current=":blinkid-ux:dokkaHtmlPartial/release" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -131,21 +146,6 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="document-rotation.html">documentRotation</a><span class="token operator">: </span><a href="../../../blinkid-core/com.microblink.blinkid.core.result/-document-rotation/index.html">DocumentRotation</a></div><div class="brief "><p class="paragraph">Represents the information of the passport page rotation. This data should be corrected based on the rotation of the device by using <a href="../../com.microblink.blinkid.ux.utils/get-corrected-document-rotation.html">com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation</a> function.</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="-1993003004%2FProperties%2F1900084154" anchor-label="isScanningDataPage" id="-1993003004%2FProperties%2F1900084154" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release"></a>
-          <div class="table-row" data-filterable-current=":blinkid-ux:dokkaHtmlPartial/release" data-filterable-set=":blinkid-ux:dokkaHtmlPartial/release">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="is-scanning-data-page.html"><span>is</span><wbr><span>Scanning</span><wbr><span>Data</span><wbr><span><span>Page</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1993003004%2FProperties%2F1900084154"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blinkid-ux:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="is-scanning-data-page.html">isScanningDataPage</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Informs whether the Passport scanning process is on the first page or not.</p></div></div></div>
                 </div>
               </div>
             </div>

@@ -20,6 +20,14 @@ abstract class CameraViewModel: ViewModel() {
 
     val torchOn: StateFlow<Boolean> = _torchOn.asStateFlow()
 
+    private val _isTorchSupported: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    val isTorchSupported: StateFlow<Boolean> = _isTorchSupported.asStateFlow()
+
+    fun updateTorchSupportState(isSupported: Boolean) {
+        _isTorchSupported.value = isSupported
+    }
+
     /**
      * Analyzes an image to produce a result.
      *

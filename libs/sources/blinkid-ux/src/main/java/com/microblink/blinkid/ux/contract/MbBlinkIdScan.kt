@@ -18,6 +18,7 @@ import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.ErrorS
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.ux.DefaultShowHelpButton
 import com.microblink.ux.DefaultShowOnboardingDialog
+import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.utils.ParcelableUiTypography
 import kotlinx.parcelize.Parcelize
@@ -95,6 +96,7 @@ data class BlinkIdScanActivityColors(
  *
  * @property sdkSettings The core SDK settings required for initializing and
  *           running the BlinkID SDK. This is a mandatory parameter.
+ * @property cameraSettings The [CameraSettings] used for document scanning. Defaults to [CameraSettings] with default values.
  * @property scanningSessionSettings Configuration options for the document scanning session. This
  *           allows you to customize aspects of the scanning process, such as certain visual check strictness
  *           and timeout duration. Defaults to `BlinkIdSessionSettings()`.
@@ -125,6 +127,7 @@ data class BlinkIdScanActivityColors(
 @Parcelize
 data class BlinkIdScanActivitySettings @JvmOverloads constructor(
     val sdkSettings: BlinkIdSdkSettings,
+    val cameraSettings: CameraSettings = CameraSettings(),
     val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
     val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
     val scanActivityUiColors: BlinkIdScanActivityColors? = null,

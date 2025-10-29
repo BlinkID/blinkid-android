@@ -35,6 +35,8 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
@@ -264,17 +266,25 @@ fun ReticleSuccess(
         }
     }
 
+    val stringFirstSideScanned =
+        stringResource(SdkTheme.sdkStrings.accessibilityStrings.firstSideScanned)
+    val stringDocumentScanned =
+        stringResource(SdkTheme.sdkStrings.accessibilityStrings.documentScanned)
+
     AnimatedVisibility(
         modifier = modifier,
         enter = scaleIn(tween(successAnimationDurationMs)),
         visibleState = animationDone.apply { targetState = true }
     ) {
         Image(
-            modifier = modifier.size(reticleRadius),
+            contentDescription = null,
             painter = successPainter,
-            contentDescription = if (isAfterFirstSide) stringResource(SdkTheme.sdkStrings.accessibilityStrings.firstSideScanned) else stringResource(
-                SdkTheme.sdkStrings.accessibilityStrings.documentScanned
-            )
+            modifier = modifier
+                .size(reticleRadius)
+                .clearAndSetSemantics {
+                    this.contentDescription =
+                        if (isAfterFirstSide) stringFirstSideScanned else stringDocumentScanned
+                }
         )
     }
 }

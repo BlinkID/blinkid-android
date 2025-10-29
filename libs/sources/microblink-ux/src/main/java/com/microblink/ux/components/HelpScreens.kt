@@ -38,6 +38,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -54,6 +55,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.text.style.TextAlign
@@ -69,7 +71,7 @@ import kotlinx.coroutines.launch
 fun HelpScreens(
     onHelpScreensCloseRequested: (allPagesDisplayed: Boolean) -> Unit
 ) {
-    var orientation by remember { mutableStateOf(Configuration.ORIENTATION_PORTRAIT) }
+    var orientation by remember { mutableIntStateOf(Configuration.ORIENTATION_PORTRAIT) }
 
     val configuration = LocalConfiguration.current
 
@@ -199,11 +201,11 @@ fun HelpScreensContentPortrait(
             Column(Modifier.fillMaxHeight()) {
                 Column(Modifier.weight(0.4f)) {
                     Image(
-                        ContextCompat.getDrawable(
+                        bitmap = ContextCompat.getDrawable(
                             LocalContext.current,
                             page.pageImage
                         )?.toBitmap()?.asImageBitmap()!!,
-                        stringResource(page.pageTitle),
+                        contentDescription = null,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
                             .padding(horizontal = 10.dp)
@@ -218,7 +220,6 @@ fun HelpScreensContentPortrait(
                         .padding(bottom = 20.dp),
                 ) {
                     Spacer(Modifier.height(20.dp))
-                    // TODO: accessibility
                     Column(
                         modifier = Modifier
                             .padding(start = 40.dp, end = 40.dp)
@@ -226,6 +227,9 @@ fun HelpScreensContentPortrait(
                             .weight(weight = 0.6f, fill = false)
                     ) {
                         Text(
+                            modifier = Modifier.semantics {
+                                heading()
+                            },
                             text = stringResource(page.pageTitle),
                             style = SdkTheme.sdkTypography.helpDialogTitle,
                             textAlign = TextAlign.Start,
@@ -293,7 +297,7 @@ fun HelpScreensContentLandscape(
                             LocalContext.current,
                             page.pageImage
                         )?.toBitmap()?.asImageBitmap()!!,
-                        stringResource(page.pageTitle),
+                        contentDescription = null,
                         contentScale = ContentScale.Fit,
                         modifier = Modifier
                             .fillMaxWidth()
@@ -306,6 +310,9 @@ fun HelpScreensContentLandscape(
                         .weight(0.65f)
                 ) {
                     Text(
+                        modifier = Modifier.semantics {
+                            heading()
+                        },
                         text = stringResource(page.pageTitle),
                         style = SdkTheme.sdkTypography.helpDialogTitle,
                         textAlign = TextAlign.Start,
