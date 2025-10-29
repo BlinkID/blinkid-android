@@ -81,7 +81,7 @@
 - Camera selection setting is now available for our integrated scanning solutions through `CameraSettings`
 - Torch button is now not shown on devices and cameras that do not support it
 - Accessibility improvements regarding `TalkBack` and navigation
-- 33 new languages (Full list [here](https://github.com/BlinkID/blinkid-android?tab=readme-ov-file#-adding-new-language))
+- 33 new languages (Full list [here](https://github.com/BlinkID/blinkid-android?tab=readme-ov-file#-new-languages-v76))
 - Changed default `tiltDetectionLevel` from `Off` to `Mid`
 #### UI/UX bugs and fixes
 - The correct color from `MaterialTheme` is now applied to the loading screen
