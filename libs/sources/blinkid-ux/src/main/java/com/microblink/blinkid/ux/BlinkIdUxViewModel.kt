@@ -27,12 +27,14 @@ import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.blinkid.ux.state.BlinkIdStatusMessage
 import com.microblink.blinkid.ux.state.BlinkIdUiState
 import com.microblink.blinkid.ux.state.PassportPage
+import com.microblink.blinkid.ux.state.ShowPassportMoveToBarcode
 import com.microblink.blinkid.ux.state.ShowPassportMoveToLeft
 import com.microblink.blinkid.ux.state.ShowPassportMoveToRight
 import com.microblink.blinkid.ux.state.ShowPassportMoveToTop
 import com.microblink.blinkid.ux.utils.UxPingletTracker
 import com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation
 import com.microblink.blinkid.ux.utils.getPassportPageFromRotation
+import com.microblink.blinkid.ux.utils.pingletOrientationDelayMs
 import com.microblink.core.ping.config.PingSendTriggerPoint
 import com.microblink.core.ping.pinglets.UxEvent
 import com.microblink.ux.ScanningUxEvent
@@ -82,11 +84,16 @@ internal class BlinkIdUxViewModel(
 ) : CameraViewModel() {
     private var imageAnalyzer: BlinkIdAnalyzer? = null
 
+    private var firstImageTimestamp: Long? = null
+    private val stepTimeoutDuration: Duration? =
+        if (uxSettings.stepTimeoutDuration == Duration.ZERO) null else uxSettings.stepTimeoutDuration
+
     private val _uiState = MutableStateFlow(BlinkIdUiState())
     val uiState: StateFlow<BlinkIdUiState> = _uiState.asStateFlow()
 
     var uiStateStartTime: Duration = Duration.ZERO
     val countingWindowDuration: Duration = uiCountingWindowDurationMs.milliseconds
+    private var lastScreenOrientationPingTime: Long = 0L
 
     private val statusCounter: StatusMessageCounter = StatusMessageCounter()
     private val appearanceCounter: StatusMessageCounter = StatusMessageCounter()
@@ -100,14 +107,13 @@ internal class BlinkIdUxViewModel(
     private var cameraHardwareInfoReported = false
 
     val helpTooltipTimeToDisplayInMs =
-        if (uxSettings.stepTimeoutDuration.inWholeMilliseconds == 0L) {
+        if (stepTimeoutDuration == null) {
             needHelpTooltipDefaultTimeToAppearMs
         } else {
             uxSettings.stepTimeoutDuration.inWholeMilliseconds / 2
         }
 
-    private
-    val helpTooltipTimer =
+    private val helpTooltipTimer =
         object : CountDownTimer(helpTooltipTimeToDisplayInMs, helpTooltipTimeToDisplayInMs) {
             override fun onTick(millisUntilFinished: Long) {
             }
@@ -165,6 +171,21 @@ internal class BlinkIdUxViewModel(
                     var newProcessingState: ProcessingState? = null
                     var newActivePassportPage: PassportPage? = null
                     var newCurrentSide: DocumentSide? = null
+                    stepTimeoutDuration?.let {
+                        if (firstImageTimestamp == null && isCountingActive) {
+                            firstImageTimestamp = System.nanoTime()
+                        }
+                        if (isCountingActive) {
+                            firstImageTimestamp?.let { timestamp ->
+                                val currentDuration =
+                                    (System.nanoTime() - timestamp).toDuration(DurationUnit.NANOSECONDS)
+                                if (currentDuration > stepTimeoutDuration) {
+                                    imageAnalyzer?.timeoutAnalysis()
+                                    firstImageTimestamp = null
+                                }
+                            }
+                        }
+                    }
                     for (event in events) {
                         when (event) {
                             is ScanningUxEvent.ScanningDone -> {
@@ -182,6 +203,7 @@ internal class BlinkIdUxViewModel(
                                             PassportPage.Top -> BlinkIdStatusMessage.PassportScanTopPage
                                             PassportPage.Right -> BlinkIdStatusMessage.PassportScanRightPage
                                             PassportPage.Left -> BlinkIdStatusMessage.PassportScanLeftPage
+                                            PassportPage.Barcode -> BlinkIdStatusMessage.PassportScanBarcodePage
                                             else -> BlinkIdStatusMessage.PassportScanTopPage
                                         }
                                     } else {
@@ -242,7 +264,7 @@ internal class BlinkIdUxViewModel(
 
                             is ScanningUxEvent.DocumentTooTilted -> {
                                 newProcessingState = ProcessingState.Error
-                                newStatusMessage = CommonStatusMessage.RotateDocument
+                                newStatusMessage = CommonStatusMessage.AlignDocument
                             }
 
                             is ScanningUxEvent.GlareDetected -> {
@@ -257,8 +279,10 @@ internal class BlinkIdUxViewModel(
 
                             is ScanningWrongPassportPage -> {
                                 val page =
-                                    if (event.isScanningDataPage) {
+                                    if (event.activePassportPage == PassportPage.Data) {
                                         PassportPage.Data
+                                    } else if (event.activePassportPage == PassportPage.Barcode) {
+                                        PassportPage.Barcode
                                     } else {
                                         getPassportPageFromRotation(
                                             getCorrectedDocumentRotation(
@@ -273,6 +297,7 @@ internal class BlinkIdUxViewModel(
                                         PassportPage.Right -> BlinkIdStatusMessage.PassportWrongPageRight
                                         PassportPage.Left -> BlinkIdStatusMessage.PassportWrongPageLeft
                                         PassportPage.Data -> BlinkIdStatusMessage.ScanPassportDataPage
+                                        PassportPage.Barcode -> BlinkIdStatusMessage.PassportWrongPageBarcode
                                     }
                                 newProcessingState = ProcessingState.Error
                                 newActivePassportPage = page
@@ -280,13 +305,16 @@ internal class BlinkIdUxViewModel(
 
                             is RequestPassportPage -> {
                                 lifecyclePauseAnalysis()
-                                newActivePassportPage =
+                                newActivePassportPage = if (event.isBarcodePageRequested) {
+                                    PassportPage.Barcode
+                                } else {
                                     getPassportPageFromRotation(
                                         getCorrectedDocumentRotation(
                                             event.documentRotation,
                                             uiState.value.screenOrientation
                                         )
                                     )
+                                }
                                 newProcessingState =
                                     ProcessingState.SuccessAnimation(true)
                                 newStatusMessage = CommonStatusMessage.Empty
@@ -364,6 +392,16 @@ internal class BlinkIdUxViewModel(
                 }
             }
         )
+
+        viewModelScope.launch {
+            isTorchSupported.collect { isTorchSupported ->
+                _uiState.update {
+                    it.copy(
+                        torchState = if (isTorchSupported) MbTorchState.Off else MbTorchState.NotSupportedByCamera
+                    )
+                }
+            }
+        }
     }
 
     private fun updateUiState(
@@ -492,7 +530,7 @@ internal class BlinkIdUxViewModel(
         statusCounter.reset()
         return if (mostFrequent.isNotEmpty()) {
             when (mostFrequent[0]) {
-                CommonStatusMessage.RotateDocument, CommonStatusMessage.ScanFrontSide, CommonStatusMessage.ScanBackSide, CommonStatusMessage.ScanBarcode, BlinkIdStatusMessage.PassportScanTopPage, BlinkIdStatusMessage.PassportScanLeftPage, BlinkIdStatusMessage.PassportScanRightPage -> {
+                CommonStatusMessage.RotateDocument, CommonStatusMessage.ScanFrontSide, CommonStatusMessage.ScanBackSide, CommonStatusMessage.ScanBarcode, BlinkIdStatusMessage.PassportScanTopPage, BlinkIdStatusMessage.PassportScanLeftPage, BlinkIdStatusMessage.PassportScanRightPage, BlinkIdStatusMessage.PassportScanBarcodePage -> {
                     Pair(ProcessingState.Sensing, mostFrequent[0])
                 }
 
@@ -505,13 +543,17 @@ internal class BlinkIdUxViewModel(
     }
 
     fun setScreenOrientation(screenOrientation: ScreenOrientation) {
+        val currentTime = System.currentTimeMillis()
         if (currentScreenOrientation != screenOrientation) {
             currentScreenOrientation = screenOrientation
-            // track pinglet only when screen orientation changes
-            UxPingletTracker.ScanningConditions.trackScreenOrientationChange(
-                screenOrientation = screenOrientation,
-                sessionNumber = getSessionNumber()
-            )
+            // track pinglet only when screen orientation changes (with a delay)
+            if (currentTime - lastScreenOrientationPingTime >= pingletOrientationDelayMs) {
+                UxPingletTracker.ScanningConditions.trackScreenOrientationChange(
+                    screenOrientation = screenOrientation,
+                    sessionNumber = getSessionNumber()
+                )
+                lastScreenOrientationPingTime = currentTime
+            }
         }
         _uiState.update {
             it.copy(
@@ -528,14 +570,17 @@ internal class BlinkIdUxViewModel(
 
     fun lifecyclePauseAnalysis() {
         imageAnalyzer?.pauseAnalysis()
+        firstImageTimestamp = null
         helpTooltipTimer.cancel()
         statusCounter.reset()
         isCountingActive = false
     }
 
     fun lifecycleResumeAnalysis() {
-        imageAnalyzer?.resumeAnalysis()
-        helpTooltipTimer.start()
+        if (!_uiState.value.onboardingDialogDisplayed && !_uiState.value.helpDisplayed && _uiState.value.errorState == ErrorState.NoError) {
+            imageAnalyzer?.resumeAnalysis()
+            helpTooltipTimer.start()
+        }
     }
 
     suspend fun waitForMinimumStateDuration(newProcessingState: ProcessingState) {
@@ -591,6 +636,7 @@ internal class BlinkIdUxViewModel(
                             PassportPage.Top -> BlinkIdStatusMessage.PassportScanTopPage
                             PassportPage.Right -> BlinkIdStatusMessage.PassportScanRightPage
                             PassportPage.Left -> BlinkIdStatusMessage.PassportScanLeftPage
+                            PassportPage.Barcode -> BlinkIdStatusMessage.PassportScanBarcodePage
                             else -> BlinkIdStatusMessage.PassportScanTopPage
                         }
                     } else
@@ -646,6 +692,9 @@ internal class BlinkIdUxViewModel(
     }
 
     fun changeOnboardingDialogVisibility(show: Boolean) {
+        _uiState.update {
+            it.copy(onboardingDialogDisplayed = show)
+        }
         if (show) {
             UxPingletTracker.UxEvent.trackSimpleEvent(
                 UxPingletTracker.UxEvent.SimpleUxEventType.OnboardingInfoDisplayed,
@@ -655,9 +704,6 @@ internal class BlinkIdUxViewModel(
         } else {
             lifecycleResumeAnalysis()
         }
-        _uiState.update {
-            it.copy(onboardingDialogDisplayed = show)
-        }
     }
 
     fun onHelpScreensDisplayRequested() {
@@ -665,10 +711,10 @@ internal class BlinkIdUxViewModel(
             UxPingletTracker.UxEvent.SimpleUxEventType.HelpOpened,
             getSessionNumber()
         )
-        lifecyclePauseAnalysis()
         _uiState.update {
             it.copy(helpDisplayed = true)
         }
+        lifecyclePauseAnalysis()
     }
 
     fun onHelpScreensCloseRequested(allPagesVisited: Boolean) {
@@ -680,10 +726,10 @@ internal class BlinkIdUxViewModel(
             },
             sessionNumber = getSessionNumber()
         )
-        lifecycleResumeAnalysis()
         _uiState.update {
             it.copy(helpDisplayed = false)
         }
+        lifecycleResumeAnalysis()
     }
 
     fun onRetryTimeout() {
@@ -720,6 +766,7 @@ internal class BlinkIdUxViewModel(
                             PassportPage.Top -> BlinkIdStatusMessage.PassportMoveToTop
                             PassportPage.Right -> BlinkIdStatusMessage.PassportMoveToRight
                             PassportPage.Left -> BlinkIdStatusMessage.PassportMoveToLeft
+                            PassportPage.Barcode -> BlinkIdStatusMessage.PassportMoveToBarcode
                             else -> BlinkIdStatusMessage.ScanPassportDataPage
                         },
                         currentSide = Back,
@@ -728,6 +775,7 @@ internal class BlinkIdUxViewModel(
                                 PassportPage.Top -> ShowPassportMoveToTop
                                 PassportPage.Right -> ShowPassportMoveToRight
                                 PassportPage.Left -> ShowPassportMoveToLeft
+                                PassportPage.Barcode -> ShowPassportMoveToBarcode
                                 else -> ShowPassportMoveToTop
                             }
                     )

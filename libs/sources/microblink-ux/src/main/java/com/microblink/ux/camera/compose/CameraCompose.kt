@@ -116,7 +116,8 @@ fun CameraScreen(
             CameraPreview(
                 cameraSettings = cameraSettings,
                 torchOn = torchOn.value,
-                imageAnalyzer = { imageProxy -> cameraViewModel.analyzeImage(imageProxy) },
+                onTorchSupportStateAvailable = cameraViewModel::updateTorchSupportState,
+                imageAnalyzer = cameraViewModel::analyzeImage,
                 cameraPreviewCallbacks = cameraPreviewCallbacks,
                 cameraInputDetailsCallback = cameraInputDetailsCallback
             )
@@ -138,6 +139,7 @@ fun CameraScreen(
 private fun CameraPreview(
     cameraSettings: CameraSettings = CameraSettings(),
     torchOn: Boolean,
+    onTorchSupportStateAvailable: (Boolean) -> Unit,
     imageAnalyzer: (ImageProxy) -> Unit,
     cameraPreviewCallbacks: CameraPreviewCallbacks? = null,
     cameraInputDetailsCallback: CameraInputDetailsCallback? = null
@@ -281,6 +283,8 @@ private fun CameraPreview(
 
         // Reset tracking flag for new camera session
         cameraInputInfoReported.value = false
+
+        onTorchSupportStateAvailable(boundCamera.cameraInfo.hasFlashUnit())
     }
 
     LaunchedEffect(torchOn) {

@@ -75,9 +75,11 @@ internal object UxPingletTracker: PingletTracker() {
                         )
                     },
                 ),
-                sessionNumber = CameraHardwareInfo.SESSION_NUMBER
+                sessionNumber = SESSION_NUMBER
             )
         }
+
+        private const val SESSION_NUMBER = 0
     }
 
     /**

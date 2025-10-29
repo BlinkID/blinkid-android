@@ -5,6 +5,7 @@ import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.ux.utils.ScreenOrientation
 
 internal const val passportMovePageAnimationDurationMs = 2000
+internal const val pingletOrientationDelayMs = 1000L
 
 fun getCorrectedDocumentRotation(
     documentRotation: DocumentRotation,
