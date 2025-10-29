@@ -78,7 +78,7 @@
         "description": "JSON for Modern C++ parser and generator."
     },
     {
-        "package": "err/1.0.1@microblink/main#eacbc2adc310db0e96d61d4220650f8b",
+        "package": "err/1.0.2@microblink/main#c37bea8eb2a49b4f46fdd47f028d144d",
         "url": "https://github.com/microblink/err",
         "license": "Boost Software License",
         "description": "err - yet another take on C++ error handling"
@@ -174,7 +174,7 @@
         "description": "XNNPACK library"
     },
     {
-        "package": "kiwaku/20230809.3@microblink/main#4386c7f0bd8838531bfacaf13c89a992",
+        "package": "kiwaku/20230809.4@microblink/main#6e5eb5cb85661173d4d516738282e5db",
         "url": "https://github.com/microblink/kiwaku",
         "license": "BSL-1.0",
         "description": "C++20 and onward collection of high performance data containers and related tools"

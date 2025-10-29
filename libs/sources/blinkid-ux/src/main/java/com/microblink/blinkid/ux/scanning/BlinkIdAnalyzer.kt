@@ -12,12 +12,9 @@ import androidx.camera.core.ImageProxy
 import com.microblink.blinkid.core.BlinkIdSdk
 import com.microblink.blinkid.core.session.BlinkIdScanningSession
 import com.microblink.blinkid.core.session.BlinkIdSessionSettings
-import com.microblink.blinkid.core.utils.ping.sendPingletsIfAllowed
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
-import com.microblink.blinkid.ux.utils.UxPingletTracker
 import com.microblink.core.RemoteLicenseCheckException
 import com.microblink.core.image.InputImage
-import com.microblink.core.ping.config.PingSendTriggerPoint
 import com.microblink.ux.ScanningUxEventHandler
 import com.microblink.ux.camera.ImageAnalyzer
 import com.microblink.ux.utils.ErrorReason
@@ -25,9 +22,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import kotlin.time.Duration
-import kotlin.time.DurationUnit
-import kotlin.time.toDuration
 
 /**
  * Analyzes images from the camera and processes them using the BlinkID SDK.
@@ -54,12 +48,10 @@ class BlinkIdAnalyzer(
 ) : ImageAnalyzer {
     private val TAG = "BlinkIdAnalyzer"
 
-    private var session: BlinkIdScanningSession? = runBlocking { blinkIdSdk.createScanningSession(sessionSettings) }
+    private var session: BlinkIdScanningSession? =
+        runBlocking { blinkIdSdk.createScanningSession(sessionSettings) }
     private var analysisPaused = false
-    private var firstImageTimestamp: Long? = null
     private val scanningUxTranslator = BlinkIdScanningUxTranslator()
-    private val stepTimeoutDuration: Duration? =
-        if (uxSettings.stepTimeoutDuration == Duration.ZERO) null else uxSettings.stepTimeoutDuration
 
     /**
      * Analyzes an image from the camera.
@@ -79,9 +71,6 @@ class BlinkIdAnalyzer(
     @OptIn(ExperimentalGetImage::class)
     override fun analyze(image: ImageProxy) {
         if (analysisPaused) return
-        if (firstImageTimestamp == null && stepTimeoutDuration != null) {
-            firstImageTimestamp = System.nanoTime()
-        }
         runBlocking {
             val inputImage = InputImage.createFromCameraXImageProxy(image)
             inputImage.use {
@@ -117,25 +106,6 @@ class BlinkIdAnalyzer(
                                     val sessionResult = session.getResult()
                                     pauseAnalysis()
                                     scanningDoneHandler.onScanningFinished(sessionResult)
-                                } else if (stepTimeoutDuration != null) {
-                                    firstImageTimestamp?.let { timestamp ->
-                                        val currentDuration =
-                                            (System.nanoTime() - timestamp).toDuration(DurationUnit.NANOSECONDS)
-                                        if (currentDuration > stepTimeoutDuration) {
-                                            Log.w(TAG, "processing timeout occurred")
-                                            pauseAnalysis()
-                                            scanningUxTranslator.resetSession()
-                                            scanningDoneHandler.onError(ErrorReason.ErrorTimeoutExpired)
-                                            UxPingletTracker.UxEvent.trackSimpleEvent(
-                                                UxPingletTracker.UxEvent.SimpleUxEventType.StepTimeout,
-                                                getSessionNumber() ?: 0
-                                            )
-                                            BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.PlatformScanTimeout)
-                                            // finish with whatever result we have
-                                        } else {
-                                            Log.v(TAG, "continuing processing...")
-                                        }
-                                    }
                                 } else {
                                     Log.v(TAG, "Neither complete nor timeout, continuing...")
                                 }
@@ -151,11 +121,17 @@ class BlinkIdAnalyzer(
 
     override fun pauseAnalysis() {
         analysisPaused = true
-        firstImageTimestamp = null
     }
 
     override fun resumeAnalysis() {
         analysisPaused = false
+    }
+
+    override fun timeoutAnalysis() {
+        Log.e(TAG, "processing timeout occurred")
+        analysisPaused = true
+        scanningUxTranslator.resetSession()
+        scanningDoneHandler.onError(ErrorReason.ErrorTimeoutExpired)
     }
 
     fun getSessionNumber(): Int? {

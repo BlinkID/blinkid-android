@@ -47,8 +47,13 @@ fun DocumentFlipAnimation(
     }
 
 
-    Box(modifier = Modifier.width((screenDimensionMin/2)).height((screenDimensionMin/4))) {
-        val documentFlipPainter = painterResource(if (rotation.value > -90f) documentDrawable.front else documentDrawable.back)
+    Box(
+        modifier = Modifier
+            .width((screenDimensionMin / 2))
+            .height((screenDimensionMin / 4))
+    ) {
+        val documentFlipPainter =
+            painterResource(if (rotation.value > -90f) documentDrawable.front else documentDrawable.back)
         Image(
             painter = documentFlipPainter,
             contentDescription = null,

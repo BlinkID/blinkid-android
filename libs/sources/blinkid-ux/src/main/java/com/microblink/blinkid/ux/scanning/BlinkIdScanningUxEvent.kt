@@ -10,6 +10,7 @@ import com.microblink.blinkid.core.result.InputImageAnalysisResult
 import com.microblink.blinkid.core.session.BlinkIdProcessResult
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.core.session.BlinkIdScanningSession
+import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.core.geometry.Quadrilateral
 import com.microblink.core.image.InputImage
 import com.microblink.ux.ScanningUxEvent
@@ -48,10 +49,12 @@ data class DocumentImageAnalysisResult(
  * Event that holds information about the passport page that needs
  * to be presented in order to continue the scanning process.
  *
+ * @property isBarcodePageRequested Indicates whether the requested page is the barcode page.
  * @property documentRotation Represents the information of the passport page rotation.
  * This data should be corrected based on the rotation of the device by using [com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation] function.
  */
 data class RequestPassportPage(
+    val isBarcodePageRequested: Boolean,
     val documentRotation: DocumentRotation
 ): ScanningUxEvent
 
@@ -59,12 +62,13 @@ data class RequestPassportPage(
  * Event that holds information about the incorrect passport page that is
  * currently being scanned.
  *
- * @property isScanningDataPage Informs whether the Passport scanning process is on the first page or not.
+ * @property activePassportPage Represents the current passport page that is being scanned.
+ * Used only for [PassportPage.Barcode] and [PassportPage.Data] since screen orientation is also required to determine other page orientations.
  * @property documentRotation Represents the information of the passport page rotation.
  * This data should be corrected based on the rotation of the device by using [com.microblink.blinkid.ux.utils.getCorrectedDocumentRotation] function.
  */
 data class ScanningWrongPassportPage(
-    val isScanningDataPage: Boolean,
+    val activePassportPage: PassportPage?,
     val documentRotation: DocumentRotation
 ): ScanningUxEvent
 

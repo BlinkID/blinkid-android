@@ -11,9 +11,12 @@ import com.microblink.blinkid.core.result.ImageExtractionType
 import com.microblink.blinkid.core.result.ProcessingStatus
 import com.microblink.blinkid.core.result.ScanningSide
 import com.microblink.blinkid.core.result.ScanningStatus
+import com.microblink.blinkid.core.result.classinfo.Country
 import com.microblink.blinkid.core.result.classinfo.Type
 import com.microblink.blinkid.core.session.BlinkIdProcessResult
 import com.microblink.blinkid.core.session.BlinkIdScanningSession
+import com.microblink.blinkid.ux.state.PassportPage
+import com.microblink.blinkid.ux.state.PassportType
 import com.microblink.core.image.InputImage
 import com.microblink.core.session.DetectionStatus
 import com.microblink.ux.ScanningUxEvent
@@ -35,7 +38,8 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
     private val backToBarcodeTimeout = 3.seconds
     private var barcodeDispatched = false
-    private var isPassport = false
+
+    private var passportType: PassportType? = null
 
     private var currentSide = DocumentSide.Front
 
@@ -69,18 +73,30 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
             return events
         }
 
-        imageAnalysisResult.documentClassInfo.type?.let {
-            isPassport = it == Type.Passport
+        imageAnalysisResult.documentClassInfo.type?.takeIf { it == Type.Passport }?.let {
+            passportType = if (
+                imageAnalysisResult.documentClassInfo.country == Country.Usa ||
+                imageAnalysisResult.documentClassInfo.country == Country.India
+            ) {
+                PassportType.BackSideBarcode
+            } else {
+                PassportType.Regular
+            }
         }
 
         if (currentSide == DocumentSide.Front) {
             if (processResult.resultCompleteness.scanningStatus == ScanningStatus.SideScanned) {
                 currentSide = DocumentSide.Back
-                if (isPassport) {
+                if (passportType != null) {
                     events.add(
-                        RequestPassportPage(documentRotation = imageAnalysisResult.documentRotation)
+                        RequestPassportPage(
+                            documentRotation = imageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = passportType == PassportType.BackSideBarcode
+                        )
                     )
-                } else events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
+                } else {
+                    events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
+                }
             }
         } else if (currentSide == DocumentSide.Back) {
             if (processResult.inputImageAnalysisResult.scanningSide != ScanningSide.Second) {
@@ -118,25 +134,51 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
         when (imageAnalysisResult.processingStatus) {
 
             ProcessingStatus.AwaitingOtherSide -> {
-                if (isPassport) RequestPassportPage(documentRotation = imageAnalysisResult.documentRotation)
-                else events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+                when (passportType) {
+                    PassportType.Regular -> events.add(
+                        RequestPassportPage(
+                            documentRotation = imageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = false
+                        )
+                    )
+
+                    PassportType.BackSideBarcode -> events.add(
+                        RequestPassportPage(
+                            documentRotation = imageAnalysisResult.documentRotation,
+                            isBarcodePageRequested = true
+                        )
+                    )
+
+                    null -> events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+                }
                 hasEvents = true
             }
 
             ProcessingStatus.ScanningWrongSide -> {
-                if (isPassport) {
-                    events.add(
-                        ScanningWrongPassportPage(
-                            isScanningDataPage = currentSide == DocumentSide.Front,
+                val isScanningDataPage = currentSide == DocumentSide.Front
+                events.add(
+                    when (passportType) {
+                        PassportType.Regular -> ScanningWrongPassportPage(
+                            activePassportPage = if (isScanningDataPage) PassportPage.Data else null,
                             documentRotation = imageAnalysisResult.documentRotation
                         )
-                    )
-                } else events.add(ScanningUxEvent.ScanningWrongSide)
+
+                        PassportType.BackSideBarcode -> ScanningWrongPassportPage(
+                            activePassportPage = if (isScanningDataPage) PassportPage.Data else PassportPage.Barcode,
+                            documentRotation = imageAnalysisResult.documentRotation
+                        )
+
+                        else -> ScanningUxEvent.ScanningWrongSide
+                    }
+                )
                 hasEvents = true
             }
 
             ProcessingStatus.ImageReturnFailed -> {
-                if (processResult.inputImageAnalysisResult.imageExtractionFailures.contains(ImageExtractionType.Face)) {
+                if (processResult.inputImageAnalysisResult.imageExtractionFailures.contains(
+                        ImageExtractionType.Face
+                    )
+                ) {
                     events.add(ScanningUxEvent.FaceImageNotFound)
                     hasEvents = true
                 }
@@ -216,7 +258,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
     fun resetSession() {
         firstBackRequestedTimestamp = null
         barcodeDispatched = false
-        isPassport = false
+        passportType = null
     }
 
     private fun shouldRequestBarcode(processResult: BlinkIdProcessResult): Boolean {

@@ -8,6 +8,7 @@ package com.microblink.blinkid.ux.state
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
+import com.microblink.blinkid.ux.components.EmptyAnimation
 import com.microblink.blinkid.ux.components.PassportPageAnimation
 import com.microblink.blinkid.ux.theme.BlinkIdTheme
 import com.microblink.ux.DefaultShowHelpButton
@@ -24,6 +25,7 @@ import com.microblink.ux.state.ProcessingState
 import com.microblink.ux.state.ReticleState
 import com.microblink.ux.state.StatusMessage
 import com.microblink.ux.utils.ScreenOrientation
+import kotlin.time.Duration
 
 data class BlinkIdUiState(
     val blinkIdScanningResult: BlinkIdScanningResult? = null,
@@ -57,12 +59,15 @@ enum class BlinkIdStatusMessage : StatusMessage {
     PassportMoveToTop,
     PassportMoveToRight,
     PassportMoveToLeft,
+    PassportMoveToBarcode,
     PassportWrongPageTop,
     PassportWrongPageRight,
     PassportWrongPageLeft,
+    PassportWrongPageBarcode,
     PassportScanTopPage,
     PassportScanRightPage,
-    PassportScanLeftPage;
+    PassportScanLeftPage,
+    PassportScanBarcodePage;
 
     @Composable
     override fun statusMessageToStringRes(): Int? {
@@ -72,12 +77,15 @@ enum class BlinkIdStatusMessage : StatusMessage {
             PassportMoveToTop -> strings.instructionsPassportMoveToTopPage
             PassportMoveToRight -> strings.instructionsPassportMoveToRightPage
             PassportMoveToLeft -> strings.instructionsPassportMoveToLeftPage
+            PassportMoveToBarcode -> strings.instructionsPassportMoveToBarcodePage
             PassportWrongPageTop -> strings.instructionsPassportWrongPageTop
             PassportWrongPageRight -> strings.instructionsPassportWrongPageRight
             PassportWrongPageLeft -> strings.instructionsPassportWrongPageLeft
+            PassportWrongPageBarcode -> strings.instructionsPassportWrongPageBarcode
             PassportScanTopPage -> strings.instructionsPassportScanTopPage
             PassportScanRightPage -> strings.instructionsPassportScanRightPage
             PassportScanLeftPage -> strings.instructionsPassportScanLeftPage
+            PassportScanBarcodePage -> strings.instructionsPassportScanBarcodePage
         }
     }
 }
@@ -86,7 +94,13 @@ enum class PassportPage {
     Data,
     Top,
     Left,
-    Right
+    Right,
+    Barcode
+}
+
+enum class PassportType {
+    Regular,
+    BackSideBarcode
 }
 
 object ShowPassportMoveToTop : CardAnimationState {
@@ -107,5 +121,12 @@ object ShowPassportMoveToLeft : CardAnimationState {
     @Composable
     override fun Animate(screenDimensionMin: Dp, onAnimationCompleted: () -> Unit) {
         PassportPageAnimation(PassportPage.Left, screenDimensionMin, onAnimationCompleted)
+    }
+}
+
+object ShowPassportMoveToBarcode : CardAnimationState {
+    @Composable
+    override fun Animate(screenDimensionMin: Dp, onAnimationCompleted: () -> Unit) {
+        EmptyAnimation(Duration.ZERO, onAnimationCompleted)
     }
 }

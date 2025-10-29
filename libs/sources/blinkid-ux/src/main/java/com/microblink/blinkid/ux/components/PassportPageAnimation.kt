@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.blinkid.ux.utils.passportMovePageAnimationDurationMs
@@ -117,9 +118,14 @@ fun PassportPageAnimation(
                 )
                 Image(
                     painter = painterResource(R.drawable.mb_passport_page_highlight),
-                    contentDescription = "",
+                    contentDescription = null,
                     modifier = Modifier
-                        .offset(animatedOffset.value.x, animatedOffset.value.y)
+                        .offset {
+                            IntOffset(
+                                animatedOffset.value.x.roundToPx(),
+                                animatedOffset.value.y.roundToPx()
+                            )
+                        }
                         .fillMaxSize()
                 )
             }

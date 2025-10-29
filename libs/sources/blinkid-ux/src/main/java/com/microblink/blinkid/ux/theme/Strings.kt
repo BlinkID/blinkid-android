@@ -98,12 +98,15 @@ data class BlinkIdScanningStrings(
     @StringRes val instructionsPassportMoveToTopPage: Int,
     @StringRes val instructionsPassportMoveToRightPage: Int,
     @StringRes val instructionsPassportMoveToLeftPage: Int,
+    @StringRes val instructionsPassportMoveToBarcodePage: Int,
     @StringRes val instructionsPassportWrongPageTop: Int,
     @StringRes val instructionsPassportWrongPageRight: Int,
     @StringRes val instructionsPassportWrongPageLeft: Int,
+    @StringRes val instructionsPassportWrongPageBarcode: Int,
     @StringRes val instructionsPassportScanTopPage: Int,
     @StringRes val instructionsPassportScanRightPage: Int,
-    @StringRes val instructionsPassportScanLeftPage: Int
+    @StringRes val instructionsPassportScanLeftPage: Int,
+    @StringRes val instructionsPassportScanBarcodePage: Int
 ) : Parcelable, ScanningStrings(
     instructionsFrontSide,
     instructionsBackSide,
@@ -145,12 +148,15 @@ data class BlinkIdScanningStrings(
                 instructionsPassportMoveToTopPage = R.string.mb_instructions_turn_page_top,
                 instructionsPassportMoveToRightPage = R.string.mb_instructions_turn_page_right,
                 instructionsPassportMoveToLeftPage = R.string.mb_instructions_turn_page_left,
+                instructionsPassportMoveToBarcodePage = R.string.mb_instructions_scan_barcode_last_page,
                 instructionsPassportWrongPageTop = R.string.mb_scanning_wrong_page_top,
                 instructionsPassportWrongPageRight = R.string.mb_scanning_wrong_page_right,
                 instructionsPassportWrongPageLeft = R.string.mb_scanning_wrong_page_left,
+                instructionsPassportWrongPageBarcode = R.string.mb_instructions_scan_barcode_last_page,
                 instructionsPassportScanTopPage = R.string.mb_top_page_instructions,
                 instructionsPassportScanRightPage = R.string.mb_right_page_instructions,
                 instructionsPassportScanLeftPage = R.string.mb_left_page_instructions,
+                instructionsPassportScanBarcodePage = R.string.mb_instructions_scan_barcode_last_page
             )
     }
 }

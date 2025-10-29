@@ -51,26 +51,21 @@ fun DeviceOrientationListener(
 
         val orientationEventListener = object : OrientationEventListener(applicationContext) {
             override fun onOrientationChanged(orientation: Int) {
-                if (orientation >= 350 || orientation < 10) {
-                    if (currentOrientation != ScreenOrientation.Portrait) {
-                        onOrientationChange(ScreenOrientation.Portrait)
-                        currentOrientation = ScreenOrientation.Portrait
-                    }
-                } else if (orientation in 80..149) {
-                    if (currentOrientation != ScreenOrientation.LandscapeLeft) {
-                        onOrientationChange(ScreenOrientation.LandscapeLeft)
-                        currentOrientation = ScreenOrientation.LandscapeLeft
-                    }
-                } else if (orientation in 210..289) {
-                    if (currentOrientation != ScreenOrientation.LandscapeRight) {
-                        onOrientationChange(ScreenOrientation.LandscapeRight)
-                        currentOrientation = ScreenOrientation.LandscapeRight
-                    }
-                } else if (orientation in 150..209) {
-                    if (currentOrientation != ScreenOrientation.ReversePortrait) {
-                        onOrientationChange(ScreenOrientation.ReversePortrait)
-                        currentOrientation = ScreenOrientation.ReversePortrait
-                    }
+                if (orientation == ORIENTATION_UNKNOWN) return
+                val newOrientation = if (orientation >= 337 || orientation < 23) {
+                    ScreenOrientation.Portrait
+                } else if (orientation in 67..113) {
+                    ScreenOrientation.LandscapeLeft
+                } else if (orientation in 247..293) {
+                    ScreenOrientation.LandscapeRight
+                } else if (orientation in 157..203) {
+                    ScreenOrientation.ReversePortrait
+                } else {
+                    currentOrientation
+                }
+                if (newOrientation != currentOrientation) {
+                    onOrientationChange(newOrientation)
+                    currentOrientation = newOrientation
                 }
             }
         }

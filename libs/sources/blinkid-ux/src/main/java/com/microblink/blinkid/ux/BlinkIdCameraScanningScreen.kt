@@ -38,6 +38,7 @@ import com.microblink.blinkid.ux.theme.BlinkIdSdkTheme
 import com.microblink.blinkid.ux.theme.BlinkIdTheme
 import com.microblink.ux.ScanningUx
 import com.microblink.ux.UiSettings
+import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.camera.CameraInputDetails
 import com.microblink.ux.camera.compose.CameraInputDetailsCallback
 import com.microblink.ux.camera.compose.CameraPermissionCallbacks
@@ -64,6 +65,8 @@ private const val TAG = "BlinkIdCameraScanningScreen"
  * @param uxSettings The [BlinkIdUxSettings] used to customize the UX.
  * @param uiSettings The [UiSettings] used to customize the UI.
  *                         Defaults to [UiSettings] with default values.
+ * @param cameraSettings The [CameraSettings] used for document scanning.
+ *                       Defaults to [CameraSettings] with default values.
  * @param sessionSettings The [BlinkIdSessionSettings] used to configure
  *                        the capture session. Defaults to [BlinkIdSessionSettings] with default values.
  * @param onScanningSuccess A callback function invoked when a document is
@@ -78,6 +81,7 @@ fun BlinkIdCameraScanningScreen(
     blinkIdSdk: BlinkIdSdk,
     uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
     uiSettings: UiSettings = UiSettings(),
+    cameraSettings: CameraSettings = CameraSettings(),
     sessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
     onScanningSuccess: (BlinkIdScanningResult) -> Unit,
     onScanningCanceled: () -> Unit,
@@ -132,6 +136,7 @@ fun BlinkIdCameraScanningScreen(
         ) { paddingValues ->
             CameraScreen(
                 cameraViewModel = viewModel,
+                cameraSettings = cameraSettings,
                 onCameraScreenLongPress = { viewModel.changeHelpTooltipVisibility(true) },
                 cameraPermissionCallbacks = rememberCameraPermissionCallbacks(viewModel),
                 cameraPreviewCallbacks = rememberCameraPreviewCallbacks(viewModel),

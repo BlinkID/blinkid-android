@@ -3,7 +3,8 @@
     android:width="85dp"
     android:height="25dp"
     android:viewportWidth="85"
-    android:viewportHeight="25">
+    android:viewportHeight="25"
+    tools:ignore="VectorPath">
   <path
       android:pathData="M20.0877,6.572C21.4017,6.572 22.2657,5.681 22.2657,4.412C22.2657,3.125 21.4107,2.261 20.0877,2.261H17.4867V8.84H18.6387V6.572H20.0877ZM19.8627,3.287C20.6277,3.287 21.0597,3.683 21.0597,4.403C21.0597,5.123 20.6367,5.546 19.8447,5.546H18.6387V3.287H19.8627Z"
       android:fillColor="#ffffff"/>
