@@ -67,7 +67,7 @@ Add _BlinkID_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-ux:7.5.0")
+    implementation("com.microblink:blinkid-ux:7.6.0")
 }
 ```
 
@@ -402,7 +402,7 @@ We have already prepared strings for several languages which you can use out of 
 
 #### <a name="new-languages"></a> New languages (v7.6)
 
-In version **v7.6** we've added **33 new** languages or variations of languages: `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, Brazilian Portuguese`, and `Canadian French`.
+In version **v7.6** we've added **33 new** languages or variations of languages: `Danish`, `English (U.K.)`, `Finnish`, `Greek`, `Icelandic`, `Latvian`, `Norwegian`, `Polish`, `Swedish`, `Turkish`, `Ukrainian`, `Russian`, `Japanese`, `Korean`, `Hindi`, `Urdu`, `Bengali`, `Farsi`, `Swahili`, `Amharic`, `Hausa`, `Yoruba`, `Nepali`, `Kazakh`, `Uzbek`, `Pashto`, `Sinhala`, `Georgian`, `Khmer`, `Akan (Twi, Fante)`, `Mexican Spanish`, `Brazilian Portuguese`, and `Canadian French`.
 
 The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
 
@@ -506,7 +506,7 @@ Add _blinkid-core_ library as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-core:7.5.0")
+    implementation("com.microblink:blinkid-core:7.6.0")
 }
 ```
 
