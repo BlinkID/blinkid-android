@@ -225,7 +225,7 @@ You can use basic customization options in our default `BlinkIdCameraScanningScr
 BlinkIdCameraScanningScreen(
     blinkIdSdk = sdkInstance,
     /* UX settings options */
-    ux settings = BlinkIdUxSettings(
+    uxSettings = BlinkIdUxSettings(
         stepTimeoutDuration = yourTimeoutDuration,
         allowHapticFeedback = true, // or false
         classFilter = null // all documents are accepted by default
