@@ -1,4 +1,4 @@
-<p align="center" >
+f<p align="center" >
   <img src="https://raw.githubusercontent.com/wiki/blinkid/blinkid-android/images/logo-microblink.png" alt="Microblink" title="Microblink">
 </p>
 
@@ -178,11 +178,11 @@ There are two primary methods for integrating the BlinkID SDK into your Android 
 When to use the `BlinkIdCameraScanningScreen` composable:
 - Single-activity architecture: If your application is structured around a single activity, this composable is the recommended integration point
 - Immediate scanning readiness: The composable allows preloading of all required resources and license validation before initiating the scanning process, ensuring that scanning can begin instantly without additional initialization delays
-- Advanced scanning customizations: This method supports extensive customization of the scanning workflow and user experience (see [Advanced customizations](#advanced-customizations)))
+- Advanced scanning customizations: This method supports extensive customization of the scanning workflow and user experience (see [Advanced customizations](#advanced-customizations))
 
 When to use the `BlinkIdScanActivity` activity:
-Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the BlinkID SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
-Minimal customization requirements: If you are satisfied with the default scanning experience provided by the BlinkID SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
+- Java-only applications: If your app is implemented entirely in Java, using the activity is preferable; while composables can be wrapped in Views for Java integration, the BlinkID SDK leverages concurrency features that are not natively supported in Java, potentially requiring additional effort to ensure correct operation (see *java-sample-app*)
+- Minimal customization requirements: If you are satisfied with the default scanning experience provided by the BlinkID SDK and only require basic UI modifications (such as colors and strings), integrating via the activity is the simplest approach
 
 ## <a name="working-with-camera-x"></a> Working with CameraX
 
