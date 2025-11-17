@@ -1,5 +1,11 @@
 # Release notes
 
+## v7.6.1
+
+### What's New
+- For some documents, the document type was returned as None, which was causing confusion. To prevent this, we are filling in the document type from the barcode in case customers are using BarcodeId mode.
+- The fix is applied to all the AAMVA types, plus some others (Argentina, Canada, Colombia, Nigeria, Panama, Paraguay, SouthAfrica).
+
 ## v7.6.0
 
 ### What's New
