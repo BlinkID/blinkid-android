@@ -13,6 +13,7 @@ import com.microblink.blinkid.ux.theme.BlinkIdSdkStrings.Companion.Default
 import com.microblink.ux.R
 import com.microblink.ux.theme.AccessibilityStrings
 import com.microblink.ux.theme.HelpDialogsStrings
+import com.microblink.ux.theme.LocalBaseSdkStrings
 import com.microblink.ux.theme.ScanningStrings
 import com.microblink.ux.theme.SdkStrings
 import kotlinx.parcelize.Parcelize
@@ -42,35 +43,52 @@ data class BlinkIdSdkStrings(
     val blinkIdAccessibilityStrings: AccessibilityStrings
 ) : Parcelable, SdkStrings(
     ScanningStrings(
-        blinkIdScanningStrings.instructionsFrontSide,
-        blinkIdScanningStrings.instructionsBackSide,
-        blinkIdScanningStrings.instructionsBarcode,
-        blinkIdScanningStrings.instructionsFlipDocument,
-        blinkIdScanningStrings.instructionsDocumentTooCloseToEdge,
-        blinkIdScanningStrings.instructionsDocumentNotFullyVisible,
-        blinkIdScanningStrings.instructionsDocumentTilted,
-        blinkIdScanningStrings.instructionsFacePhotoNotFullyVisible,
+        blinkIdScanningStrings.instructionsFirstSide,
+        blinkIdScanningStrings.instructionsSecondSide,
+        blinkIdScanningStrings.instructionsFlip,
+        blinkIdScanningStrings.instructionsNotFullyVisible,
+        blinkIdScanningStrings.instructionsTilted,
         blinkIdScanningStrings.instructionsScanningWrongSide,
         blinkIdScanningStrings.instructionsBlurDetected,
-        blinkIdScanningStrings.instructionsGlareDetected,
         blinkIdScanningStrings.instructionsMoveFarther,
         blinkIdScanningStrings.instructionsMoveCloser,
-        blinkIdScanningStrings.instructionsIncreaseLight,
-        blinkIdScanningStrings.instructionsDecreaseLight,
         blinkIdScanningStrings.snackbarFlashlightWarning
     ),
     blinkIdHelpDialogsStrings,
     blinkIdAccessibilityStrings
 ) {
     companion object {
-        @JvmStatic val Default: BlinkIdSdkStrings =
+        @JvmStatic
+        val Default: BlinkIdSdkStrings =
             BlinkIdSdkStrings(
                 blinkIdScanningStrings = BlinkIdScanningStrings.Default,
-                blinkIdHelpDialogsStrings = HelpDialogsStrings.Default,
+                blinkIdHelpDialogsStrings = HelpDialogsStrings.BlinkIdDefaults,
                 blinkIdAccessibilityStrings = AccessibilityStrings.Default
             )
     }
+
+    init {
+        LocalBaseSdkStrings = staticCompositionLocalOf {
+            BlinkIdSdkStrings.Default
+        }
+    }
 }
+
+val HelpDialogsStrings.Companion.BlinkIdDefaults: HelpDialogsStrings
+    get() = HelpDialogsStrings(
+        onboardingTitle = R.string.mb_onboarding_dialog_title,
+        onboardingMessage = R.string.mb_onboarding_dialog_message,
+        helpTitles = listOf(
+            R.string.mb_help_screen_title1,
+            R.string.mb_help_screen_title2,
+            R.string.mb_help_screen_title3
+        ),
+        helpMessages = listOf(
+            R.string.mb_help_screen_msg1,
+            R.string.mb_help_screen_msg2,
+            R.string.mb_help_screen_msg3,
+        )
+    )
 
 /**
  * Includes common SDK strings from [ScanningStrings] and BlinkID specific strings.
@@ -78,21 +96,20 @@ data class BlinkIdSdkStrings(
 @Immutable
 @Parcelize
 data class BlinkIdScanningStrings(
-    @StringRes override val instructionsFrontSide: Int,
-    @StringRes override val instructionsBackSide: Int,
-    @StringRes override val instructionsBarcode: Int,
-    @StringRes override val instructionsFlipDocument: Int,
-    @StringRes override val instructionsDocumentTooCloseToEdge: Int,
-    @StringRes override val instructionsDocumentNotFullyVisible: Int,
-    @StringRes override val instructionsDocumentTilted: Int,
-    @StringRes override val instructionsFacePhotoNotFullyVisible: Int,
+    @StringRes override val instructionsFirstSide: Int,
+    @StringRes override val instructionsSecondSide: Int,
+    @StringRes val instructionsBarcode: Int,
+    @StringRes override val instructionsFlip: Int,
+    @StringRes override val instructionsNotFullyVisible: Int,
+    @StringRes override val instructionsTilted: Int,
+    @StringRes val instructionsFacePhotoNotFullyVisible: Int,
     @StringRes override val instructionsScanningWrongSide: Int,
     @StringRes override val instructionsBlurDetected: Int,
-    @StringRes override val instructionsGlareDetected: Int,
+    @StringRes val instructionsGlareDetected: Int,
     @StringRes override val instructionsMoveFarther: Int,
     @StringRes override val instructionsMoveCloser: Int,
-    @StringRes override val instructionsIncreaseLight: Int,
-    @StringRes override val instructionsDecreaseLight: Int,
+    @StringRes val instructionsIncreaseLight: Int,
+    @StringRes val instructionsDecreaseLight: Int,
     @StringRes override val snackbarFlashlightWarning: Int,
     @StringRes val instructionsPassportDataPage: Int,
     @StringRes val instructionsPassportMoveToTopPage: Int,
@@ -108,33 +125,27 @@ data class BlinkIdScanningStrings(
     @StringRes val instructionsPassportScanLeftPage: Int,
     @StringRes val instructionsPassportScanBarcodePage: Int
 ) : Parcelable, ScanningStrings(
-    instructionsFrontSide,
-    instructionsBackSide,
-    instructionsBarcode,
-    instructionsFlipDocument,
-    instructionsDocumentTooCloseToEdge,
-    instructionsDocumentNotFullyVisible,
-    instructionsDocumentTilted,
-    instructionsFacePhotoNotFullyVisible,
+    instructionsFirstSide,
+    instructionsSecondSide,
+    instructionsFlip,
+    instructionsNotFullyVisible,
+    instructionsTilted,
     instructionsScanningWrongSide,
     instructionsBlurDetected,
-    instructionsGlareDetected,
     instructionsMoveFarther,
     instructionsMoveCloser,
-    instructionsIncreaseLight,
-    instructionsDecreaseLight,
     snackbarFlashlightWarning
 ) {
     companion object {
+        @JvmStatic
         val Default: BlinkIdScanningStrings =
             BlinkIdScanningStrings(
-                instructionsFrontSide = R.string.mb_front_instructions,
-                instructionsBackSide = R.string.mb_back_instructions,
+                instructionsFirstSide = R.string.mb_front_instructions,
+                instructionsSecondSide = R.string.mb_back_instructions,
                 instructionsBarcode = R.string.mb_back_instructions_barcode,
-                instructionsFlipDocument = R.string.mb_camera_flip_document,
-                instructionsDocumentTooCloseToEdge = R.string.mb_document_too_close_to_edge,
-                instructionsDocumentNotFullyVisible = R.string.mb_document_not_fully_visible,
-                instructionsDocumentTilted = R.string.mb_keep_document_parallel,
+                instructionsFlip = R.string.mb_camera_flip_document,
+                instructionsNotFullyVisible = R.string.mb_document_not_fully_visible,
+                instructionsTilted = R.string.mb_keep_document_parallel,
                 instructionsFacePhotoNotFullyVisible = R.string.mb_face_photo_not_fully_visible,
                 instructionsScanningWrongSide = R.string.mb_scanning_wrong_side,
                 instructionsBlurDetected = R.string.mb_blur_detected,

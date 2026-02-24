@@ -36,10 +36,19 @@ import com.microblink.blinkid.core.session.BlinkIdSessionSettings
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.blinkid.ux.theme.BlinkIdSdkTheme
 import com.microblink.blinkid.ux.theme.BlinkIdTheme
+import com.microblink.blinkid.ux.utils.fillErrorDialogs
+import com.microblink.blinkid.ux.utils.fillHelpScreens
+import com.microblink.blinkid.ux.utils.onAppMovedToBackground
+import com.microblink.blinkid.ux.utils.onCameraPermissionCheck
+import com.microblink.blinkid.ux.utils.onCameraPermissionRequest
+import com.microblink.blinkid.ux.utils.onCameraPermissionUserResponse
+import com.microblink.blinkid.ux.utils.onCameraPreviewStarted
+import com.microblink.blinkid.ux.utils.onCameraPreviewStopped
+import com.microblink.blinkid.ux.utils.onCloseButtonClicked
 import com.microblink.ux.ScanningUx
 import com.microblink.ux.UiSettings
-import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.camera.CameraInputDetails
+import com.microblink.ux.camera.CameraSettings
 import com.microblink.ux.camera.compose.CameraInputDetailsCallback
 import com.microblink.ux.camera.compose.CameraPermissionCallbacks
 import com.microblink.ux.camera.compose.CameraPreviewCallbacks
@@ -159,10 +168,12 @@ fun BlinkIdCameraScanningScreen(
                     Modifier.padding(paddingValues),
                     overlayUiState.value,
                     {
-                        viewModel.onCloseButtonClicked()
+                        onCloseButtonClicked(viewModel.getSessionNumber())
                         onScanningCanceled()
                     },
                     uiSettings,
+                    fillHelpScreens(),
+                    fillErrorDialogs(viewModel::onRetryTimeout, onScanningCanceled),
                     uxSettings.allowHapticFeedback,
                     showProductionOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveProductionOverlay,
                     showDemoOverlay = !blinkIdSdk.getLicenseToken().licenseRights.allowRemoveDemoOverlay,
@@ -185,9 +196,7 @@ fun BlinkIdCameraScanningScreen(
                     viewModel::changeOnboardingDialogVisibility,
                     viewModel::onHelpScreensDisplayRequested,
                     viewModel::onHelpScreensCloseRequested,
-                    viewModel::changeHelpTooltipVisibility,
-                    viewModel::onRetryTimeout,
-                    onScanningCanceled
+                    viewModel::changeHelpTooltipVisibility
                 )
             }
         }
@@ -198,11 +207,11 @@ fun BlinkIdCameraScanningScreen(
 private fun rememberCameraPreviewCallbacks(viewModel: BlinkIdUxViewModel) = remember(viewModel) {
     object : CameraPreviewCallbacks {
         override fun onCameraPreviewStarted() {
-            viewModel.onCameraPreviewStarted()
+            onCameraPreviewStarted(viewModel.getSessionNumber())
         }
 
         override fun onCameraPreviewStopped() {
-            viewModel.onCameraPreviewStopped()
+            onCameraPreviewStopped(viewModel.getSessionNumber())
         }
     }
 }
@@ -212,15 +221,18 @@ private fun rememberCameraPermissionCallbacks(viewModel: BlinkIdUxViewModel) =
     remember(viewModel) {
         object : CameraPermissionCallbacks {
             override fun onCameraPermissionCheck() {
-                viewModel.onCameraPermissionCheck()
+                onCameraPermissionCheck(viewModel.getSessionNumber())
             }
 
             override fun onCameraPermissionRequested() {
-                viewModel.onCameraPermissionRequest()
+                onCameraPermissionRequest(viewModel.getSessionNumber())
             }
 
             override fun onCameraPermissionUserResponse(cameraPermissionGranted: Boolean) {
-                viewModel.onCameraPermissionUserResponse(cameraPermissionGranted)
+                onCameraPermissionUserResponse(
+                    viewModel.getSessionNumber(),
+                    cameraPermissionGranted
+                )
             }
 
         }
@@ -244,7 +256,7 @@ private fun rememberCameraInputDetailsCallback(
 private fun getDefaultLifecycleObserver(viewModel: BlinkIdUxViewModel): LifecycleObserver {
     val observer = object : DefaultLifecycleObserver {
         override fun onStop(owner: LifecycleOwner) {
-            viewModel.onAppMovedToBackground()
+            onAppMovedToBackground(viewModel.getSessionNumber())
         }
 
         override fun onPause(owner: LifecycleOwner) {

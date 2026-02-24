@@ -12,6 +12,7 @@ import android.content.pm.PackageManager
 import android.util.Size
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.OptIn
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraControl
 import androidx.camera.core.CameraSelector
@@ -24,6 +25,8 @@ import androidx.camera.core.ViewPort
 import androidx.camera.core.resolutionselector.AspectRatioStrategy
 import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
+import androidx.camera.camera2.interop.Camera2CameraInfo
+import androidx.camera.camera2.interop.ExperimentalCamera2Interop
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -247,6 +250,7 @@ private fun CameraPreview(
                     }
                     cameraInputDetailsCallback.onCameraInputDetailsAvailable(
                         CameraInputDetails(
+                            cameraId = getCameraIdOrEmpty(camera.value),
                             cameraFacing = when (camera.value?.cameraInfo?.lensFacing) {
                                 CameraSelector.LENS_FACING_FRONT -> CameraLensFacing.LensFacingFront
                                 CameraSelector.LENS_FACING_BACK -> CameraLensFacing.LensFacingBack
@@ -307,6 +311,16 @@ private suspend fun Context.getCameraProvider(): ProcessCameraProvider =
             }, ContextCompat.getMainExecutor(this))
         }
     }
+
+@OptIn(ExperimentalCamera2Interop::class)
+private fun getCameraIdOrEmpty(camera: Camera?): String {
+    if (camera == null) return ""
+    return try {
+        Camera2CameraInfo.from(camera.cameraInfo).cameraId
+    } catch (_: Throwable) {
+        ""
+    }
+}
 
 @SuppressLint("ClickableViewAccessibility")
 private fun enableTapToFocus(previewView: PreviewView, cameraControl: CameraControl) {

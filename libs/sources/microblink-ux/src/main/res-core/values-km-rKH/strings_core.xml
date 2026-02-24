@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="mb_camera_permission_required">តម្រូវឱ្យមានការអនុញ្ញាតពីកាមេរ៉ា។</string>
+  <string name="mb_close">បិទ</string>
+  <string name="mb_dialog_back_button">ត្រឡប់មកវិញ</string>
+  <string name="mb_dialog_done_button">រួចរាល់</string>
+  <string name="mb_dialog_next_button">បន្ទាប់</string>
+  <string name="mb_dialog_skip_button">រំលង</string>
+  <string name="mb_enable_camera">បើកកាមេរ៉ា</string>
+  <string name="mb_enable_permission_help">ឥឡូវនេះ អ្នកនឹងត្រូវបាននាំទៅកាន់ការកំណត់ការអនុញ្ញាត ដែលអ្នកត្រូវផ្តល់ការអនុញ្ញាតកាមេរ៉ាដល់កម្មវិធី។</string>
+  <string name="mb_enable_permission_help_instant_app">សូមផ្តល់ការអនុញ្ញាតកាមេរ៉ានៅក្នុងការកំណត់ការអនុញ្ញាតកម្មវិធី។</string>
+  <string name="mb_license_locked">ការស្កេនមិនមានទេ</string>
+  <string name="mb_loading">កំពុងផ្ទុក…</string>
+  <string name="mb_move_closer">ផ្លាស់ទីទៅជិត</string>
+  <string name="mb_move_farther">ផ្លាស់ទីទៅឆ្ងាយ</string>
+  <string name="mb_need_help_tooltip">ត្រូវការជំនួយ?</string>
+  <string name="mb_ok">យល់ព្រម</string>
+  <string name="mb_retry">ព្យាយាមម្តងទៀត</string>
+  <string name="mb_warning">ការព្រមាន</string>
+</resources>

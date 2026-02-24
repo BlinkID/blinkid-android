@@ -1,7 +1,10 @@
 package com.microblink.blinkid.ux.utils
 
+import com.microblink.blinkid.core.BlinkIdSdk
 import com.microblink.blinkid.core.result.DocumentRotation
+import com.microblink.blinkid.core.utils.ping.sendPingletsIfAllowed
 import com.microblink.blinkid.ux.state.PassportPage
+import com.microblink.core.ping.config.PingSendTriggerPoint
 import com.microblink.ux.utils.ScreenOrientation
 
 internal const val passportMovePageAnimationDurationMs = 2000
@@ -68,4 +71,49 @@ fun getPassportPageFromRotation(
         DocumentRotation.UpsideDown -> PassportPage.Top
         DocumentRotation.NotAvailable -> PassportPage.Top
     }
+}
+
+fun onCameraPermissionCheck(sessionNumber: Int) {
+    UxPingletTracker.CameraPermission.trackCameraPermissionCheck(sessionNumber)
+    BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.CameraPermissionCheck)
+}
+
+fun onCameraPermissionRequest(sessionNumber: Int) {
+    UxPingletTracker.CameraPermission.trackCameraPermissionRequest(sessionNumber)
+}
+
+fun onCameraPermissionUserResponse(sessionNumber: Int, cameraPermissionGranted: Boolean) {
+    UxPingletTracker.CameraPermission.trackCameraPermissionUserResponse(
+        cameraPermissionGranted,
+        sessionNumber
+    )
+}
+
+fun onCameraPreviewStarted(sessionNumber: Int) {
+    UxPingletTracker.UxEvent.trackSimpleEvent(
+        UxPingletTracker.UxEvent.SimpleUxEventType.CameraStarted,
+        sessionNumber
+    )
+    BlinkIdSdk.sendPingletsIfAllowed(PingSendTriggerPoint.CameraStarted)
+}
+
+fun onCameraPreviewStopped(sessionNumber: Int) {
+    UxPingletTracker.UxEvent.trackSimpleEvent(
+        UxPingletTracker.UxEvent.SimpleUxEventType.CameraClosed,
+        sessionNumber
+    )
+}
+
+fun onCloseButtonClicked(sessionNumber: Int) {
+    UxPingletTracker.UxEvent.trackSimpleEvent(
+        UxPingletTracker.UxEvent.SimpleUxEventType.CloseButtonClicked,
+        sessionNumber
+    )
+}
+
+fun onAppMovedToBackground(sessionNumber: Int) {
+    UxPingletTracker.UxEvent.trackSimpleEvent(
+        UxPingletTracker.UxEvent.SimpleUxEventType.AppMovedToBackground,
+        sessionNumber
+    )
 }

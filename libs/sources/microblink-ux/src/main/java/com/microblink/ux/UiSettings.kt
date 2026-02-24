@@ -5,11 +5,20 @@
 
 package com.microblink.ux
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import com.microblink.ux.contract.ScanActivitySettings
+import com.microblink.ux.theme.DarkColorScheme
+import com.microblink.ux.theme.LightColorScheme
+import com.microblink.ux.theme.LocalBaseUiColors
+import com.microblink.ux.theme.LocalTheme
 import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.theme.UiColors
 import com.microblink.ux.theme.UiTypography
+import com.microblink.ux.utils.toUiTypography
 
 const val DefaultShowOnboardingDialog = true
 const val DefaultShowHelpButton = true
@@ -49,3 +58,61 @@ public data class UiSettings(
     val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
     val showHelpButton: Boolean = DefaultShowHelpButton
 )
+
+@Composable
+fun createUiSettings(scanActivitySettings: ScanActivitySettings): UiSettings {
+    val primaryColor =
+        if (scanActivitySettings.scanActivityUiColors?.primary != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.primary!!
+        ) else if (isSystemInDarkTheme()) DarkColorScheme.primary else LightColorScheme.primary
+    val backgroundColor =
+        if (scanActivitySettings.scanActivityUiColors?.background != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.background!!
+        ) else if (isSystemInDarkTheme()) DarkColorScheme.background else LightColorScheme.background
+    val onBackgroundColor =
+        if (scanActivitySettings.scanActivityUiColors?.onBackground != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.onBackground!!
+        ) else if (isSystemInDarkTheme()) DarkColorScheme.onBackground else LightColorScheme.onBackground
+
+    val colorScheme = LocalTheme.current.copy(
+        primary = primaryColor,
+        background = backgroundColor,
+        onBackground = onBackgroundColor
+    )
+
+    val helpButtonColor =
+        if (scanActivitySettings.scanActivityUiColors?.helpButton != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.helpButton!!
+        ) else if (isSystemInDarkTheme()) UiColors.DefaultDark.helpButton else UiColors.Default.helpButton
+    val helpButtonBackgroundColor =
+        if (scanActivitySettings.scanActivityUiColors?.helpButtonBackground != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.helpButtonBackground!!
+        ) else if (isSystemInDarkTheme()) UiColors.DefaultDark.helpButtonBackground else UiColors.Default.helpButtonBackground
+    val helpTooltipTextColor =
+        if (scanActivitySettings.scanActivityUiColors?.helpTooltipText != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.helpTooltipText!!
+        ) else if (isSystemInDarkTheme()) UiColors.DefaultDark.helpTooltipText else UiColors.Default.helpTooltipText
+    val helpTooltipBackgroundColor =
+        if (scanActivitySettings.scanActivityUiColors?.helpTooltipBackground != null) Color(
+            scanActivitySettings.scanActivityUiColors!!.helpTooltipBackground!!
+        ) else if (isSystemInDarkTheme()) UiColors.DefaultDark.helpTooltipBackground else UiColors.Default.helpTooltipBackground
+
+    val uiColors = LocalBaseUiColors.current.copy(
+        helpButton = helpButtonColor,
+        helpButtonBackground = helpButtonBackgroundColor,
+        helpTooltipText = helpTooltipTextColor,
+        helpTooltipBackground = helpTooltipBackgroundColor
+    )
+
+    val uiTypography = scanActivitySettings.scanActivityTypography.toUiTypography()
+
+    return UiSettings(
+        typography = uiTypography,
+        colorScheme = colorScheme,
+        uiColors = uiColors,
+        sdkStrings = scanActivitySettings.scanActivityUiStrings,
+        showOnboardingDialog = scanActivitySettings.showOnboardingDialog,
+        showHelpButton = scanActivitySettings.showHelpButton
+    )
+}
+

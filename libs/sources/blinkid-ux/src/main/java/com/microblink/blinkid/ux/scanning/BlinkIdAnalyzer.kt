@@ -5,7 +5,6 @@
 
 package com.microblink.blinkid.ux.scanning
 
-import android.util.Log
 import androidx.annotation.OptIn
 import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageProxy
@@ -15,8 +14,11 @@ import com.microblink.blinkid.core.session.BlinkIdSessionSettings
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.core.RemoteLicenseCheckException
 import com.microblink.core.image.InputImage
+import com.microblink.core.utils.MbLog
+import com.microblink.ux.ScanningUxEvent
 import com.microblink.ux.ScanningUxEventHandler
 import com.microblink.ux.camera.ImageAnalyzer
+import com.microblink.ux.state.UiScanningSide
 import com.microblink.ux.utils.ErrorReason
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Default
@@ -32,7 +34,7 @@ import kotlinx.coroutines.runBlocking
  * session, timeouts, and dispatches UI events.
  *
  * @param blinkIdSdk An instance of the [BlinkIdSdk] used for processing images.
- * @param sessionSettings The [BlinkIdSessionSettings] used to configure the capture session.
+ * @param sessionSettings The [BlinkIdSessionSettings] used to configure the scanning session.
  * @property uxSettings The [BlinkIdUxSettings] used to customize the UX.
  * @property scanningDoneHandler A [BlinkIdScanningDoneHandler] to handle the completion
  *                                of the scanning process.
@@ -41,7 +43,7 @@ import kotlinx.coroutines.runBlocking
  */
 class BlinkIdAnalyzer(
     blinkIdSdk: BlinkIdSdk,
-    sessionSettings: BlinkIdSessionSettings,
+    private val sessionSettings: BlinkIdSessionSettings,
     private val uxSettings: BlinkIdUxSettings,
     private val scanningDoneHandler: BlinkIdScanningDoneHandler,
     private val uxEventHandler: ScanningUxEventHandler? = null,
@@ -78,7 +80,7 @@ class BlinkIdAnalyzer(
                     try {
                         val sessionProcessResult = session.process(inputImage)
                         if (session.isCanceled) {
-                            Log.w(TAG, "processing has been canceled")
+                            MbLog.w(TAG) { "processing has been canceled" }
                         } else {
                             sessionProcessResult.getOrNull()?.let { processResult ->
 
@@ -95,19 +97,24 @@ class BlinkIdAnalyzer(
                                     }
                                 }
 
-                                uxEventHandler?.dispatchBlinkIdEvents(
-                                    scanningUxTranslator,
+                                val events = scanningUxTranslator.translate(
                                     processResult,
                                     inputImage,
-                                    session
+                                    sessionSettings.scanningSettings
                                 )
+
+                                if (events.any { it is ScanningUxEvent.RequestSide && it.side == UiScanningSide.Barcode }) {
+                                    session.setAllowBarcodeStep()
+                                }
+
+                                uxEventHandler?.onUxEvents(events)
 
                                 if (processResult.resultCompleteness.isComplete()) {
                                     val sessionResult = session.getResult()
                                     pauseAnalysis()
                                     scanningDoneHandler.onScanningFinished(sessionResult)
                                 } else {
-                                    Log.v(TAG, "Neither complete nor timeout, continuing...")
+                                    MbLog.v(TAG) { "Neither complete nor timeout, continuing..." }
                                 }
                             }
                         }
@@ -128,7 +135,7 @@ class BlinkIdAnalyzer(
     }
 
     override fun timeoutAnalysis() {
-        Log.e(TAG, "processing timeout occurred")
+        MbLog.e(TAG) { "processing timeout occurred" }
         analysisPaused = true
         scanningUxTranslator.resetSession()
         scanningDoneHandler.onError(ErrorReason.ErrorTimeoutExpired)
@@ -151,8 +158,9 @@ class BlinkIdAnalyzer(
     }
 
     override fun close() {
-        val s = session
-        session = null
-        s?.close()
+        session?.also { s ->
+            session = null
+            s.close()
+        }
     }
 }

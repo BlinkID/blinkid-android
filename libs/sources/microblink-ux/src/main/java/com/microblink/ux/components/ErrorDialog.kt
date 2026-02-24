@@ -7,6 +7,7 @@ package com.microblink.ux.components
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,8 +30,10 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.microblink.ux.R
 import com.microblink.ux.theme.SdkTheme
 
 @Composable
@@ -56,23 +59,25 @@ fun ErrorDialog(
         ) {
             Column(
                 Modifier.padding(vertical = 24.dp, horizontal = 24.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    modifier = Modifier.semantics {
-                        heading()
-                    },
+                    modifier = Modifier
+                        .padding(end = 12.dp)
+                        .semantics {
+                            heading()
+                        },
                     text = stringResource(title),
                     style = SdkTheme.sdkTypography.errorDialogTitle,
-                    color = MaterialTheme.colorScheme.primary
+                    color = MaterialTheme.colorScheme.onBackground
                 )
                 description?.let {
                     Spacer(Modifier.height(20.dp))
                     Text(
-                        modifier = Modifier.padding(horizontal = 10.dp),
+                        modifier = Modifier.padding(end = 12.dp),
                         color = MaterialTheme.colorScheme.onBackground,
                         text = stringResource(it),
-                        textAlign = TextAlign.Center,
+                        textAlign = TextAlign.Start,
                         style = SdkTheme.sdkTypography.errorDialogText
                     )
                 }
@@ -84,6 +89,7 @@ fun ErrorDialog(
                         containerColor = Color.Transparent,
                         contentColor = MaterialTheme.colorScheme.primary
                     ),
+                    contentPadding = PaddingValues(start = 12.dp),
                     onClick = onButtonClick
                 ) {
                     Text(
@@ -95,4 +101,28 @@ fun ErrorDialog(
 
         }
     }
+}
+
+@Preview
+@Composable
+private fun TimeoutErrorDialogPreview() {
+    ErrorDialog(
+        title = R.string.mb_recognition_timeout_dialog_title,
+        description = R.string.mb_close,
+        buttonText = R.string.mb_retry,
+        onDismissErrorDialog = {},
+        onButtonClick = {}
+    )
+}
+
+@Preview
+@Composable
+private fun LicenseLockedErrorDialogPreview() {
+    ErrorDialog(
+        R.string.mb_license_locked,
+        null,
+        R.string.mb_close,
+        onDismissErrorDialog = {},
+        onButtonClick = { }
+    )
 }

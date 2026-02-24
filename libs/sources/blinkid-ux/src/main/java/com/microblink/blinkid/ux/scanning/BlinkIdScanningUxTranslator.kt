@@ -5,22 +5,22 @@
 
 package com.microblink.blinkid.ux.scanning
 
-import com.microblink.blinkid.core.result.ImageAnalysisDetectionStatus
-import com.microblink.blinkid.core.result.ImageAnalysisLightingStatus
 import com.microblink.blinkid.core.result.ImageExtractionType
 import com.microblink.blinkid.core.result.ProcessingStatus
-import com.microblink.blinkid.core.result.ScanningSide
 import com.microblink.blinkid.core.result.ScanningStatus
 import com.microblink.blinkid.core.result.classinfo.Country
 import com.microblink.blinkid.core.result.classinfo.Type
 import com.microblink.blinkid.core.session.BlinkIdProcessResult
-import com.microblink.blinkid.core.session.BlinkIdScanningSession
+import com.microblink.blinkid.core.settings.ScanningSettings
 import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.blinkid.ux.state.PassportType
 import com.microblink.core.image.InputImage
+import com.microblink.core.result.ImageAnalysisDetectionStatus
+import com.microblink.core.result.ImageAnalysisLightingStatus
+import com.microblink.core.result.ScanningSide
 import com.microblink.core.session.DetectionStatus
 import com.microblink.ux.ScanningUxEvent
-import com.microblink.ux.state.DocumentSide
+import com.microblink.ux.state.UiScanningSide
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.Duration.Companion.seconds
 
@@ -41,12 +41,12 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
     private var passportType: PassportType? = null
 
-    private var currentSide = DocumentSide.Front
+    private var currentSide = UiScanningSide.First
 
     private var firstBackRequestedTimestamp: Long? = null
 
     /**
-     * Translates the given [BlinkIdProcessResult], [InputImage], and [BlinkIdScanningSession]
+     * Translates the given [BlinkIdProcessResult] and [InputImage]
      * into a list of [ScanningUxEvent] objects.
      *
      * This function analyzes the current state of the scanning session and the
@@ -55,14 +55,14 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
      *
      * @param processResult The [BlinkIdProcessResult] from the scanning session.
      * @param inputImage The [InputImage] used for the process. Can be `null`.
-     * @param session The [BlinkIdScanningSession] that was used for the process.
+     * @param scanningSettings The [ScanningSettings] used to configure scanning behavior.
      * @return A list of [ScanningUxEvent] objects representing the user
      *         experience events that should be dispatched.
      */
     override suspend fun translate(
         processResult: BlinkIdProcessResult,
         inputImage: InputImage?,
-        session: BlinkIdScanningSession,
+        scanningSettings: ScanningSettings,
     ): List<ScanningUxEvent> {
         val events = mutableListOf<ScanningUxEvent>()
 
@@ -84,9 +84,9 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
             }
         }
 
-        if (currentSide == DocumentSide.Front) {
+        if (currentSide == UiScanningSide.First) {
             if (processResult.resultCompleteness.scanningStatus == ScanningStatus.SideScanned) {
-                currentSide = DocumentSide.Back
+                currentSide = UiScanningSide.Second
                 if (passportType != null) {
                     events.add(
                         RequestPassportPage(
@@ -95,19 +95,18 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
                         )
                     )
                 } else {
-                    events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Back))
+                    events.add(ScanningUxEvent.RequestSide(UiScanningSide.Second))
                 }
             }
-        } else if (currentSide == DocumentSide.Back) {
+        } else if (currentSide == UiScanningSide.Second) {
             if (processResult.inputImageAnalysisResult.scanningSide != ScanningSide.Second) {
-                currentSide = DocumentSide.Front
+                currentSide = UiScanningSide.First
             } else if (firstBackRequestedTimestamp == null) {
                 firstBackRequestedTimestamp = System.nanoTime()
             } else {
                 if (shouldRequestBarcode(processResult)) {
                     barcodeDispatched = true
-                    session.setAllowBarcodeStep()
-                    events.add(ScanningUxEvent.RequestDocumentSide(DocumentSide.Barcode))
+                    events.add(ScanningUxEvent.RequestSide(UiScanningSide.Barcode))
                 }
             }
         }
@@ -149,13 +148,13 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
                         )
                     )
 
-                    null -> events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+                    null -> events.add(ScanningUxEvent.RequestSide(side = currentSide))
                 }
                 hasEvents = true
             }
 
             ProcessingStatus.ScanningWrongSide -> {
-                val isScanningDataPage = currentSide == DocumentSide.Front
+                val isScanningDataPage = currentSide == UiScanningSide.First
                 events.add(
                     when (passportType) {
                         PassportType.Regular -> ScanningWrongPassportPage(
@@ -204,9 +203,9 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
         when (imageAnalysisResult.documentDetectionStatus) {
             DetectionStatus.CameraTooFar -> events.add(ScanningUxEvent.DocumentTooFar)
-            DetectionStatus.CameraTooClose -> events.add(ScanningUxEvent.DocumentTooClose)
+            DetectionStatus.CameraTooClose,
+            DetectionStatus.DocumentTooCloseToCameraEdge -> events.add(ScanningUxEvent.DocumentTooClose)
             DetectionStatus.DocumentPartiallyVisible -> events.add(ScanningUxEvent.DocumentNotFullyVisible)
-            DetectionStatus.DocumentTooCloseToCameraEdge -> events.add(ScanningUxEvent.DocumentTooCloseToCameraEdge)
             DetectionStatus.CameraAngleTooSteep -> events.add(ScanningUxEvent.DocumentTooTilted)
             else -> {
                 hasEvents = false
@@ -220,26 +219,26 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
 
         hasEvents = true
 
-        if (imageAnalysisResult.glareDetectionStatus == ImageAnalysisDetectionStatus.Detected) {
-            events.add(
-                ScanningUxEvent.GlareDetected
-            )
-        } else if (imageAnalysisResult.blurDetectionStatus == ImageAnalysisDetectionStatus.Detected) {
-            events.add(
-                ScanningUxEvent.BlurDetected
-            )
-        } else if (imageAnalysisResult.documentHandOcclusionStatus == ImageAnalysisDetectionStatus.Detected) {
-            events.add(
-                ScanningUxEvent.DocumentNotFullyVisible
-            )
-        } else if (imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooBright) {
-            events.add(
-                ScanningUxEvent.DocumentTooBright
-            )
-        } else if (imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooDark) {
-            events.add(
-                ScanningUxEvent.DocumentTooDark
-            )
+        if (scanningSettings.skipImagesWithGlare &&
+            imageAnalysisResult.glareDetectionStatus == ImageAnalysisDetectionStatus.Detected
+        ) {
+            events.add(ScanningUxEvent.GlareDetected)
+        } else if (scanningSettings.skipImagesWithBlur &&
+            imageAnalysisResult.blurDetectionStatus == ImageAnalysisDetectionStatus.Detected
+        ) {
+            events.add(ScanningUxEvent.BlurDetected)
+        } else if (scanningSettings.skipImagesOccludedByHand &&
+            imageAnalysisResult.documentHandOcclusionStatus == ImageAnalysisDetectionStatus.Detected
+        ) {
+            events.add(ScanningUxEvent.DocumentNotFullyVisible)
+        } else if (scanningSettings.skipImagesWithInadequateLightingConditions &&
+            imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooBright
+        ) {
+            events.add(ScanningUxEvent.DocumentTooBright)
+        } else if (scanningSettings.skipImagesWithInadequateLightingConditions &&
+            imageAnalysisResult.documentLightingStatus == ImageAnalysisLightingStatus.TooDark
+        ) {
+            events.add(ScanningUxEvent.DocumentTooDark)
         } else {
             hasEvents = false
         }
@@ -250,7 +249,7 @@ class BlinkIdScanningUxTranslator : BlinkIdUxTranslator {
         }
 
         events.add(ScanningUxEvent.DocumentNotFound)
-        events.add(ScanningUxEvent.RequestDocumentSide(side = currentSide))
+        events.add(ScanningUxEvent.RequestSide(side = currentSide))
         events.add(DocumentImageAnalysisResult(imageAnalysisResult = imageAnalysisResult))
         return events
     }

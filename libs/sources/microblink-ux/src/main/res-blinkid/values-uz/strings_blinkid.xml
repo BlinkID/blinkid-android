@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <string name="mb_back_instructions">Hujjatning orqa tomonini skanerlang</string>
+  <string name="mb_back_instructions_barcode">Shtrix-kodni skanerlash</string>
+  <string name="mb_blur_detected">Hujjat va telefonni qimirlatmang</string>
+  <string name="mb_camera_flip_document">Orqa tomonga aylantiring</string>
+  <string name="mb_decrease_lighting_intensity">Yorugʻligi kamroq joyga oling</string>
+  <string name="mb_document_class_filtered_dialog_message">Boshqa hujjatni skanerlab koʻring</string>
+  <string name="mb_document_class_filtered_dialog_title">Hujjat qabul qilinmadi</string>
+  <string name="mb_document_not_fully_visible">Hujjat toʻliq koʻrinsin</string>
+  <string name="mb_face_photo_not_fully_visible">Yuz surati toʻliq koʻrinib tursin</string>
+  <string name="mb_flashlight_warning_message">Chaqnoq akslanishining oldini oling.\nBuning uchun ID hujjatingizni ohista siljiting.</string>
+  <string name="mb_front_instructions">Hujjatning old tomonini skanerlang</string>
+  <string name="mb_glare_detected">Akslanishni olib tashlash uchun hujjatni eging yoki siljiting</string>
+  <string name="mb_help_screen_msg1">Barmogʻingiz hujjatning ayrim qismlarini, jumladan, pastki qatorlarni berkitib qoʻymasin. Hujjat maydoni boʻylab oʻtadigan gologramma aks etishiga ham diqqat qarating.</string>
+  <string name="mb_help_screen_msg2">Yorqin yorugʻlik bevosita tushmasin, chunki u hujjatda aks etadi va hujjatning ayrim qismlari tushunarsiz boʻlib qolishi mumkin. Hujjatdagi maʼlumotlarni oʻqish imkoni boʻlmasa, ular kamerada ham koʻrinmaydi.</string>
+  <string name="mb_help_screen_msg3">Skanerlaganda telefon va hujjatni qimirlatmang. Ulardan istalgan birining qimirlashi rasm xira olinishiga va hujjatdagi maʼlumotlar tushunarsiz chiqishiga sabab boʻlishi mumkin.</string>
+  <string name="mb_help_screen_title1">Barcha maydonlar koʻrinib tursin</string>
+  <string name="mb_help_screen_title2">Kuchli yorugʻlik tushmasin</string>
+  <string name="mb_help_screen_title3">Skanerlayotganda qimirlatmang</string>
+  <string name="mb_increase_lighting_intensity">Yorugʻroq joyga oling</string>
+  <string name="mb_instructions_scan_barcode_last_page">Oxirgi sahifadan shtrix-kodni skanerlang</string>
+  <string name="mb_instructions_turn_page_left">Chapdagi sahifaga oʻting</string>
+  <string name="mb_instructions_turn_page_right">Oʻngdagi sahifaga oʻting</string>
+  <string name="mb_instructions_turn_page_top">Tepadagi sahifaga oʻting</string>
+  <string name="mb_keep_document_parallel">Hujjatni telefonga baravar ushlang</string>
+  <string name="mb_left_page_instructions">Chap sahifani skanerlang</string>
+  <string name="mb_onboarding_dialog_message">Hujjat yetarlicha yoritilganiga ishonch hosil qiling. Hujjatning barcha maydonlari kamera ekranida koʻrinishi kerak.</string>
+  <string name="mb_onboarding_dialog_title">Barcha tafsilotlar koʻrinib tursin</string>
+  <string name="mb_passport_scan_data_page_instructions">Hujjatning maʼlumotlar sahifasini skanerlang</string>
+  <string name="mb_recognition_timeout_dialog_message">Hujjatni oʻqish imkonsiz. Qayta urining.</string>
+  <string name="mb_recognition_timeout_dialog_retry_button">Qayta urining</string>
+  <string name="mb_recognition_timeout_dialog_title">Skanerlandi</string>
+  <string name="mb_right_page_instructions">Oʻng sahifani skanerlang</string>
+  <string name="mb_scanning_wrong_page_left">Chap sahifaga oʻting</string>
+  <string name="mb_scanning_wrong_page_right">Oʻng sahifaga oʻting</string>
+  <string name="mb_scanning_wrong_page_top">Yuqori sahifaga oʻting</string>
+  <string name="mb_scanning_wrong_side">Hujjatni boshqa tomonga aylantiring</string>
+  <string name="mb_top_page_instructions">Yuqori sahifani skanerlang</string>
+  <string name="mb_unsupported_document_message">Dastaklanadigan hujjatning old tomonini skanerlang</string>
+</resources>

@@ -5,12 +5,13 @@
 
 package com.microblink.ux.state
 
+
 interface BaseUiState {
     val reticleState: ReticleState
     val processingState: ProcessingState
     val cardAnimationState: CardAnimationState
     val statusMessage: StatusMessage
-    val currentSide: DocumentSide
+    val currentSide: UiScanningSide
     val torchState: MbTorchState
     val cancelRequestState: CancelRequestState
     val helpButtonDisplayed: Boolean

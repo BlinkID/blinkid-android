@@ -35,7 +35,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.traversalIndex
 import androidx.compose.ui.unit.dp
 import com.microblink.ux.components.DemoOverlay
-import com.microblink.ux.components.ErrorDialog
 import com.microblink.ux.components.ExitButton
 import com.microblink.ux.components.HelpBox
 import com.microblink.ux.components.HelpScreens
@@ -106,6 +105,8 @@ fun ScanningUx(
     uiState: BaseUiState,
     onExitScanning: () -> Unit,
     uiSettings: UiSettings,
+    helpScreens: HelpScreens,
+    errorStateDialogs: Map<ErrorState, @Composable () -> Unit>,
     allowHapticFeedback: Boolean,
     showProductionOverlay: Boolean,
     showDemoOverlay: Boolean,
@@ -116,9 +117,7 @@ fun ScanningUx(
     onChangeOnboardingDialogVisibility: (Boolean) -> Unit,
     onHelpScreensDisplayRequested: () -> Unit,
     onHelpScreensCloseRequested: (allPagesDisplayed: Boolean) -> Unit,
-    onChangeHelpTooltipVisibility: (Boolean) -> Unit,
-    onRetry: () -> Unit,
-    onDoneError: () -> Unit
+    onChangeHelpTooltipVisibility: (Boolean) -> Unit
 ) {
     Box(
         Modifier
@@ -174,45 +173,17 @@ fun ScanningUx(
         }
 
         if (uiSettings.showOnboardingDialog && uiState.onboardingDialogDisplayed) {
-            OnboardingDialog { onChangeOnboardingDialogVisibility(false) }
+            OnboardingDialog(helpScreens.onboardingDialogPage) {
+                onChangeOnboardingDialogVisibility(
+                    false
+                )
+            }
         }
         if (uiSettings.showHelpButton && uiState.helpDisplayed) {
-            HelpScreens(onHelpScreensCloseRequested)
+            HelpScreens(helpScreens.helpDialogPages, onHelpScreensCloseRequested)
         }
-        when (uiState.errorState) {
-            ErrorState.NoError -> {}
-            ErrorState.ErrorInvalidLicense ->
-                ErrorDialog(
-                    R.string.mb_license_locked,
-                    null,
-                    R.string.mb_close,
-                    onButtonClick = onDoneError
-                )
 
-            ErrorState.ErrorNetworkError ->
-                ErrorDialog(
-                    R.string.mb_license_locked,
-                    null,
-                    R.string.mb_close,
-                    onButtonClick = onDoneError
-                )
-
-            ErrorState.ErrorTimeoutExpired ->
-                ErrorDialog(
-                    R.string.mb_recognition_timeout_dialog_title,
-                    R.string.mb_recognition_timeout_dialog_message,
-                    R.string.mb_recognition_timeout_dialog_retry_button,
-                    onButtonClick = onRetry
-                )
-
-            ErrorState.ErrorDocumentClassFiltered ->
-                ErrorDialog(
-                    R.string.mb_document_class_filtered_dialog_title,
-                    R.string.mb_document_class_filtered_dialog_message,
-                    R.string.mb_recognition_timeout_dialog_retry_button,
-                    onButtonClick = onRetry
-                )
-        }
+        errorStateDialogs[uiState.errorState]?.invoke()
     }
 }
 

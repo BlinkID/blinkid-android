@@ -141,7 +141,7 @@ fun CameraPermissionDeniedScreen(requestCameraPermission: () -> Unit) {
                 onDismissRequest = { shouldShowDialog.value = false },
                 title = {
                     Text(
-                        text = stringResource(R.string.mb_warning_dialog_title),
+                        text = stringResource(R.string.mb_warning),
                         color = Black
                     )
                 },
