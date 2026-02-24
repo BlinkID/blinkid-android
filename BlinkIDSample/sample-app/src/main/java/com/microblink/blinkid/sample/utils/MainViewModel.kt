@@ -9,12 +9,12 @@ import com.microblink.blinkid.core.BlinkIdSdk
 import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.core.session.BlinkIdSessionSettings
-import com.microblink.blinkid.core.session.InputImageSource
 import com.microblink.blinkid.core.session.ScanningMode
 import com.microblink.blinkid.core.settings.ScanningSettings
 import com.microblink.blinkid.sample.config.BlinkIdConfig.licenseKey
 import com.microblink.blinkid.sample.result.BlinkIdResultHolder
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
+import com.microblink.core.session.InputImageSource
 import com.microblink.ux.UiSettings
 import com.microblink.ux.camera.CameraSettings
 import kotlinx.coroutines.flow.MutableStateFlow

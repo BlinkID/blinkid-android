@@ -52,7 +52,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.microblink.blinkid.core.result.DateResult
 import com.microblink.blinkid.core.result.SingleSideScanningResult
 import com.microblink.blinkid.core.result.StringResult
 import com.microblink.blinkid.core.result.barcode.BarcodeResult
@@ -65,6 +64,7 @@ import com.microblink.blinkid.sample.ui.theme.Cobalt50
 import com.microblink.blinkid.sample.ui.theme.Cobalt800
 import com.microblink.blinkid.sample.ui.theme.DeepBlue
 import com.microblink.blinkid.sample.ui.theme.ErrorRed
+import com.microblink.core.result.DateResult
 
 @Composable
 fun BlinkIdSampleResultScreen(
