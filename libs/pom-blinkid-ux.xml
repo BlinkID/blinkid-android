@@ -66,7 +66,7 @@
         <dependency>
             <groupId>com.microblink</groupId>
             <artifactId>microblink-ux</artifactId>
-            <version>1.5.0</version>
+            <version>1.6.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
