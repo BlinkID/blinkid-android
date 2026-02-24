@@ -44,7 +44,7 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 #### Included sample apps:
 
-- **_sample-app_** emonstrates quick and straightforward integration of the _BlinkID_ SDK using the provided UX in Jetpack Compose to scan a document and display the results.
+- **_sample-app_** demonstrates quick and straightforward integration of the _BlinkID_ SDK using the provided UX in Jetpack Compose to scan a document and display the results.
 - **_direct-api-sample-app_** demonstrates the functionality of _BlinkID_ SDK by avoiding the document scanning process and without using the blinkid-ux library. This approach should be used if you are obtaining document images via other methods.
 - **_java-sample-app_** demonstrates quick and straightforward integration of the _BlinkID_ SDK using only Java (without Jetpack Compose) through `BlinkIdScanActivity`.
 
@@ -67,7 +67,7 @@ Add _BlinkID_ as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-ux:7.6.1")
+    implementation("com.microblink:blinkid-ux:7.7.0")
 }
 ```
 
@@ -80,7 +80,7 @@ dependencies {
 val maybeInstance = BlinkIdSdk.initializeSdk(
   context,
   BlinkIdSdkSettings(
-    licenseKey = <your_license_key>,
+    licenseKey = "your_license_key",
 )
 )
 when {
@@ -101,8 +101,8 @@ when {
 ```kotlin
 BlinkIdCameraScanningScreen(
   sdkInstance,
-  uiSettings = UiSettings(),
   uxSettings = BlinkIdUxSettings(),
+  uiSettings = UiSettings(),
   cameraSettings: CameraSettings = CameraSettings(),
   sessionSettings = BlinkIdSessionSettings(),
   onScanningSuccess = { scanningResult ->
@@ -132,7 +132,7 @@ _BlinkID_ SDK requires Android API level **24** or newer.
 
 To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
 
-_BlinkID_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods. 
+_BlinkID_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
 
 **NOTE**: Most of the front facing cameras on Android devices are lower quality and do not have autofocus. This highly impacts their ability to successfully complete the scan.
 
@@ -167,19 +167,19 @@ Use `BlinkIdSdkSettings` to set the following options when instantiating the SDK
 
 ```kotlin
 BlinkIdSdkSettings(
-    licenseKey = <your_license_key>,
-    /* define license key licensee (optional) */
-    // licensee = <your_license>,
-    /* disable or enable resource download /*
+    licenseKey = "license-key",
+    // define license key licensee (optional)
+    licensee = "licensee",
+    // disable or enable resource download
     downloadResources = false,
-    /* define path if you are not using a default one */
-    // resourceDownloadUrl = <download_path>,
-    /* define path if you are not using a default one: "microblink/blinkid" */
-    // resourceLocalFolder = <path_within_app_assets>
-    /* set custom timeout on resrouces download (10 seconds by default) /*
-    // resourceRequestTimeout = RequestTimeout.DEFAULT,
-    /* set custom proxy URL (needs to be allowed by license) /*
-    // val microblinkProxyUrl: String? = null
+    // define path if you are not using a default one
+    resourceDownloadUrl = "download-path",
+    // define path if you are not using a default one: "microblink/blinkid"
+    resourceLocalFolder = "path-within-app-assets",
+    // set custom timeout on resrouces download (10 seconds by default)
+    resourceRequestTimeout = RequestTimeout.DEFAULT,
+    // set custom proxy URL (needs to be allowed by license)
+    microblinkProxyUrl = null
 )
 ```
 
@@ -243,7 +243,11 @@ BlinkIdCameraScanningScreen(
         lensFacing = CameraLensFacing.LensFacingBack, // or CameraLensFacing.LensFacingFront
         desiredResolution = Resolution.Resolution2160p // range between 720p and 4320p
     ),
-    sessionSettings = BlinkIdSessionSettings(),
+    sessionSettings = BlinkIdSessionSettings(
+        inputImageSource = InputImageSource.Video,
+        scanningMode = ScanningMode.Automatic,
+        scanningSettings = ScanningSettings()
+    ),
     onScanningSuccess = { scanningResult ->
         // result is BlinkIdScanningResult
     },
@@ -366,9 +370,9 @@ Customizing pre-made SDK scanning activity is somewhat limited compared to custo
 ```kotlin
 data class BlinkIdScanActivitySettings(
   val sdkSettings: BlinkIdSdkSettings,
-  val cameraSettings: CameraSettings = CameraSettings(),
   val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
   val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
+  val cameraSettings: CameraSettings = CameraSettings(),
   val scanActivityUiColors: BlinkIdScanActivityColors? = null,
   val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
   val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
@@ -464,9 +468,9 @@ blinkIdLauncher.launch(
 ```kotlin
 data class BlinkIdScanActivitySettings(
   val sdkSettings: BlinkIdSdkSettings,
-  val cameraSettings: CameraSettings = CameraSettings(),
   val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
   val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
+  val cameraSettings: CameraSettings = CameraSettings(),
   val scanActivityUiColors: BlinkIdScanActivityColors? = null,
   val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
   val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
@@ -506,7 +510,7 @@ Add _blinkid-core_ library as a dependency in module level `build.gradle(.kts)`:
 
 ```
 dependencies {
-    implementation("com.microblink:blinkid-core:7.6.1")
+    implementation("com.microblink:blinkid-core:7.7.0")
 }
 ```
 
@@ -584,6 +588,8 @@ To terminate the scanning session, ensure that `BlinkIdScanningSession.close()` 
 
 **If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIdSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkId.close()`.
 
+Note that `BlinkIdScanningSession.close()`, `BlinkIdSdk.close()` and `BlinkIdSdk.closeAndDeleteCachedAssets()` are blocking calls. Do not call them on the main/UI thread; run them on a background dispatcher/thread (for example `Dispatchers.IO`).
+
 # <a name="legacy-api"></a> Using SDK with Java and Views
 
 Even though BlinkID v7 and above uses modern Android Jetpack components like Compose and coroutines, most functionalities still work with legacy code.
@@ -613,7 +619,7 @@ A **_java-sample-app_** can be found in the sample app list where the SDK is imp
 Additional helper functions have been created to simplify the implementation process with default class values from Kotlin.
 
 For more information on how to use `BlinkIdScanActivity`, please refer to the [`Using SDK through BlinkIdScanActivity`](#using-scan-activity) section.
-Currently, this is the **only officially supported** way of using our SDK with Java and without Kotlin/Jetpack Compose. 
+Currently, this is the **only officially supported** way of using our SDK with Java and without Kotlin/Jetpack Compose.
 
 # <a name="troubleshoot"></a> Troubleshooting
 
@@ -623,6 +629,41 @@ In case of problems with SDK integration, make sure that you have followed [inte
 * high-resolution scan/photo of the item that you are trying to read
 * information about device that you are using - we need the exact model name of the device. You can obtain that information with any app like [this one](https://play.google.com/store/apps/details?id=ru.andr7e.deviceinfohw)
 * please stress that you are reporting a problem related to the Android version of _BlinkID_ SDK
+
+### Logging additional info
+If you are having problems with scanning certain items, undesired behaviour on specific device(s), crashes inside BlinkID or anything unmentioned, please do as follows:
+* enable logging to get the ability to see what is library doing. To enable logging, put this line in your application:
+
+```kotlin
+com.microblink.core.utils.MbLog.logLevel = com.microblink.core.utils.MbLog.LogLevel.Verbose
+```
+After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
+
+If you want to monitor some, but not all additional logs in your app, there are several log levels that adjust this behavior.
+```kotlin
+enum class LogLevel {
+    /**
+    * No logs.
+    */
+    Quiet,
+    /**
+     * Log only warnings and errors.
+     */
+    WarningsAndErrors,
+    /**
+     * Log warnings, errors and information messages.
+     */
+    Information,
+    /**
+     * Log warnings, errors, information and debug messages.
+     */
+    Debug,
+    /**
+     * Log all messages.
+     */
+    Verbose;
+}
+```
 
 # <a name="additional-info"></a> Additional info
 
@@ -635,8 +676,8 @@ Here is the SDK size, calculated for supported ABIs:
 
 | ABI | Download size | Install size |
 | --- |:-------------:|:------------:|
-| armeabi-v7a |    3.42 MB    |   4.57 MB    |
-| arm64-v8a |    3.48 MB    |   5.27 MB    |
+| armeabi-v7a |    3.51 MB    |   4.68 MB    |
+| arm64-v8a |    3.57 MB    |   5.39 MB    |
 
 SDK size is calculated as application size increases when _BlinkID_ SDK is added, with all its dependencies included.
 
