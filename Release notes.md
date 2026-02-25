@@ -128,10 +128,10 @@
   - `parentsInfo` (new class)
 
 - Android permissions:
-- `blinkid-ux`: Removed the mandatory ***camera hardware requirement*** from AndroidManifest.xml to improve compatibility with specific devices that incorrectly report camera hardware presence. The camera feature is now declared as optional:
-  ```xml
-  <uses-feature android:name="android.hardware.camera.any" android:required="false"/> 
-  ```
+  - `blinkid-ux`: Removed the mandatory ***camera hardware requirement*** from AndroidManifest.xml to improve compatibility with specific devices that incorrectly report camera hardware presence. The camera feature is now declared as optional:
+    ```xml
+    <uses-feature android:name="android.hardware.camera.any" android:required="false"/> 
+    ```
   
 ### Breaking changes
 The following changes will impact your implementation only if you have ***advanced SDK customizations*** and don’t use the default `Activity` or `Composable`:
