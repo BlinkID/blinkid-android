@@ -1,8 +1,3 @@
-/**
- * Copyright (c) Microblink. All rights reserved. This code is provided for
- * use as-is and may not be copied, modified, or redistributed.
- */
-
 package com.microblink.blinkid.ux.utils
 
 import com.microblink.core.ping.pinglets.CameraHardwareInfo
@@ -18,11 +13,15 @@ import com.microblink.ux.camera.FocusType
 import com.microblink.ux.utils.ScreenOrientation
 
 /**
+ * Copyright (c) Microblink. All rights reserved. This code is provided for
+ * use as-is and may not be copied, modified, or redistributed.
+ */
+/**
  * UX-specific Pinglet tracker for monitoring user experience events and camera-related activities.
  * This object extends [PingletTracker] to provide specialized tracking capabilities for user interface
  * events, camera hardware information, scanning conditions, and camera permissions within the UX layer.
  */
-internal object UxPingletTracker: PingletTracker() {
+object UxPingletTracker: PingletTracker() {
 
     /**
      * Camera-related information tracking utilities.
@@ -36,6 +35,7 @@ internal object UxPingletTracker: PingletTracker() {
         fun trackCameraInputInfo(cameraInputDetails: CameraInputDetails, sessionNumber: Int) {
             addPingletToQueueIfManagerExists(
                 pinglet = CameraInputInfo(
+                    deviceId = cameraInputDetails.cameraId,
                     cameraFacing = when(cameraInputDetails.cameraFacing) {
                         CameraLensFacing.LensFacingFront -> CameraInputInfo.CameraFacing.FRONT
                         CameraLensFacing.LensFacingBack -> CameraInputInfo.CameraFacing.BACK
@@ -58,6 +58,7 @@ internal object UxPingletTracker: PingletTracker() {
                 pinglet = CameraHardwareInfo(
                     availableCameras = cameraDevicesDetails.devicesDetails.map { cameraDetails ->
                         CameraHardwareInfo.AvailableCamerasItem(
+                            deviceId = cameraDetails.cameraId,
                             cameraFacing = when (cameraDetails.facing) {
                                 CameraLensFacing.LensFacingFront -> CameraHardwareInfo.CameraFacing.FRONT
                                 CameraLensFacing.LensFacingBack -> CameraHardwareInfo.CameraFacing.BACK

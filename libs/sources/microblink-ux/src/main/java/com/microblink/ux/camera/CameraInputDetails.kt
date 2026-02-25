@@ -8,6 +8,7 @@ package com.microblink.ux.camera
 /**
  * Class representing camera input information for image analysis.
  *
+ * @property cameraId Camera ID of the camera used for obtaining images (e.g. "0", "1", "2").
  * @property cameraFacing Camera lens facing of the camera used for the obtaining images.
  * @property cameraFrameWidth Full width of the input image used for analysis,
  * as provided by the camera - matches the camera resolution selected for image analysis.
@@ -20,6 +21,7 @@ package com.microblink.ux.camera
  * input image in the preview that is being analysed.
  */
 data class CameraInputDetails(
+    val cameraId: String,
     val cameraFacing: CameraLensFacing,
     val cameraFrameWidth: Int,
     val cameraFrameHeight: Int,

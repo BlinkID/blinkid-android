@@ -1,16 +1,14 @@
 package com.microblink.ux
 
-import com.microblink.ux.state.DocumentSide
+import com.microblink.ux.state.UiScanningSide
 
 interface ScanningUxEvent {
     /**
      * Request to scan a specific side of the document.
      *
-     * @property side Specified the [DocumentSide] that is to be scanned.
+     * @property side Specified the [UiScanningSide] that is to be scanned.
      */
-    data class RequestDocumentSide(
-        val side: DocumentSide
-    ) : ScanningUxEvent
+    data class RequestSide(val side: UiScanningSide) : ScanningUxEvent
 
     /**
      * Camera image is too blurry for accurate document capture.
@@ -47,15 +45,10 @@ interface ScanningUxEvent {
      */
     object DocumentTooClose : ScanningUxEvent
 
-    /*
+    /**
      * Part of document is occluded or partially outside of the camera.
      */
     object DocumentNotFullyVisible : ScanningUxEvent
-
-    /**
-     * Document is positioned too close to the screen edge.
-     */
-    object DocumentTooCloseToCameraEdge : ScanningUxEvent
 
     /**
      * Document is not parallel to the camera plane.

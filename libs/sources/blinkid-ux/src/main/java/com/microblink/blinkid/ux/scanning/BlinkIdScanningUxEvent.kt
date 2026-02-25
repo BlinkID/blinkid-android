@@ -7,14 +7,11 @@ package com.microblink.blinkid.ux.scanning
 
 import com.microblink.blinkid.core.result.DocumentRotation
 import com.microblink.blinkid.core.result.InputImageAnalysisResult
-import com.microblink.blinkid.core.session.BlinkIdProcessResult
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
-import com.microblink.blinkid.core.session.BlinkIdScanningSession
 import com.microblink.blinkid.ux.state.PassportPage
 import com.microblink.core.geometry.Quadrilateral
 import com.microblink.core.image.InputImage
 import com.microblink.ux.ScanningUxEvent
-import com.microblink.ux.ScanningUxEventHandler
 import com.microblink.ux.utils.ErrorReason
 
 interface BlinkIdScanningDoneHandler {
@@ -71,27 +68,3 @@ data class ScanningWrongPassportPage(
     val activePassportPage: PassportPage?,
     val documentRotation: DocumentRotation
 ): ScanningUxEvent
-
-/**
- * Dispatches user experience events to the [ScanningUxEventHandler] after translating
- * the process results.
- *
- * This extension function simplifies the process of translating [BlinkIdProcessResult] from
- * the scanning session into a list of [ScanningUxEvent] objects and then
- * dispatching these events to the [ScanningUxEventHandler].
- *
- * @receiver The [ScanningUxEventHandler] to which the translated events will be dispatched.
- * @param translator The [BlinkIdUxTranslator] used to translate the process result into
- *                   [ScanningUxEvent] objects.
- * @param processResult The [BlinkIdProcessResult] from the scanning session.
- * @param inputImage The [InputImage] used for the process. Can be `null`.
- * @param session The [BlinkIdScanningSession] that was used for the process.
- */
-suspend fun ScanningUxEventHandler.dispatchBlinkIdEvents(
-    translator: BlinkIdUxTranslator,
-    processResult: BlinkIdProcessResult,
-    inputImage: InputImage?,
-    session: BlinkIdScanningSession
-) {
-    onUxEvents(translator.translate(processResult, inputImage, session))
-}

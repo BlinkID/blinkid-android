@@ -49,6 +49,7 @@ object CameraHardwareInfoHelper {
 
             cameraDevicesDetails.add(
                 CameraDetails(
+                    cameraId = camera2Info.cameraId,
                     facing = when (characteristics) {
                         CameraCharacteristics.LENS_FACING_FRONT -> CameraLensFacing.LensFacingFront
                         else -> CameraLensFacing.LensFacingBack
@@ -134,11 +135,13 @@ data class CameraDevicesDetails (
  * This class captures the key characteristics of an individual camera that are
  * relevant for scanning performance and analytics tracking.
  *
+ * @property cameraId Camera ID of this camera device (e.g. "0", "1", "2").
  * @property facing The direction the camera faces (front or back)
  * @property focusType The focus capability of the camera (auto or fixed)
  * @property resolutions List of supported resolutions for image analysis
  */
 data class CameraDetails(
+    val cameraId: String,
     val facing: CameraLensFacing,
     val focusType: FocusType,
     val resolutions: List<Size>

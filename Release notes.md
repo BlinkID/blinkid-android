@@ -1,5 +1,172 @@
 # Release notes
 
+## v7.7.0
+
+### What's new
+- Barcode extraction is marked as optional on documents where barcode detecton has bad performance (Cuba ID and Passport, Philippines DL, Haiti ID, Sudan ID, Egypt ID, Ecuador Passport, Ghana Passport, Iraq Passport, Nicaragua Passport, Pakistan Passport)
+
+## Bug fixes
+- In situations where some fields on different sides of a document have values in multiple alphabets it could happen that while merging results we overwrite them and keep only one alphabet. With this version this is fixed and both alphabets are returned.
+
+### New documents support
+- Angola - Identity Card
+- Antigua And Barbuda - Paper Passport
+- Barbados - Paper Passport
+- Belize - Paper Passport
+- Benin - Driver's License
+- Benin - Polycarbonate Passport
+- Bermuda - Paper Passport
+- Bermuda - Polycarbonate Passport
+- Bhutan - Paper Passport
+- Botswana - Paper Passport
+- Brazil, Acre - Identity Card
+- Brazil, Espirito Santo - Identity Card
+- Brazil, Mato Grosso Do Sul - Identity Card
+- Brazil, Paraiba - Identity Card
+- Brazil, Piaui - Identity Card
+- Brazil, Rio Grande Do Norte - Identity Card
+- Brazil, Tocantins - Identity Card
+- Central African Republic - Paper Passport
+- Chad - Paper Passport
+- Chad - Polycarbonate Passport
+- Congo - Paper Passport
+- Democratic Republic Of The Congo - Paper Passport
+- Djibouti - Paper Passport
+- Djibouti - Polycarbonate Passport
+- Equatorial Guinea - Paper Passport
+- Equatorial Guinea - Polycarbonate Passport
+- Eswatini - Identity Card
+- Ethiopia - Paper Passport
+- Federated States Of Micronesia - Paper Passport
+- Gabon - Paper Passport
+- Gabon - Polycarbonate Passport
+- Ghana - Polycarbonate Passport
+- Ghana - Social Security Card
+- Guinea - Driver's License
+- Guinea Bissau - Paper Passport
+- Guinea Bissau - Polycarbonate Passport
+- India, Odisha - Driver's License
+- India, Uttarakhand - Driver's License
+- Ireland - Proof Of Age Card
+- Laos - Paper Passport
+- Lesotho - Paper Passport
+- Liberia - Driver's License
+- Liberia - Social Security Card
+- Madagascar - Paper Passport
+- Malawi - Driver's License
+- Mauritania - Identity Card
+- Mauritania - Polycarbonate Passport
+- Mexico - Social Security Card
+- Mongolia - Paper Passport
+- Mongolia - Polycarbonate Passport
+- Namibia - Paper Passport
+- Niger - Paper Passport
+- Nigeria - Nin Card
+- Papua New Guinea - Paper Passport
+- Philippines - eID
+- Puerto Rico - Identity Card
+- Saint Thomas And Prince - Paper Passport
+- Saint Vincent And The Grenadines - Paper Passport
+- Seychelles - Paper Passport
+- Seychelles - Polycarbonate Passport
+- South Sudan - Polycarbonate Passport
+- Taiwan - Paper Passport
+- Togo - Gendarmerie ID
+- Togo - Military ID
+- Togo - Police ID
+- Togo - Residence Permit
+- Togo - Voter ID
+- Tonga - Paper Passport
+- Yemen - Paper Passport
+- Ghana - Health Insurance Card
+
+#### New document versions for supported documents
+- Afghanistan - Identity Card
+- Cameroon - Identity Card
+- Chile - Driver's License
+- Colombia - Alien ID
+- Costa Rica - Identity Card
+- Malaysia - Driver's License
+- Moldova - Identity Card
+- Netherlands - Driver's License
+- Panama - Driver's License
+- South Korea - Driver's License
+- South Korea - Identity Card
+- Sweden - Driver's License
+- UK - Polycarbonate Passport
+- USA - Veteran ID
+- USA, Alaska - Identity Card
+- USA, California - Driver's License
+- USA, California - Identity Card
+- USA, North Carolina - Driver's License
+- USA, Texas - Driver's License
+- USA, Texas - Identity Card
+- USA, Texas - Weapon Permit
+- Vietnam - Driver's License
+- Zimbabwe - Identity Card
+
+#### New segments supported on documents
+- Greece, Estonia, Finland, Hungary, Ireland, Latvia, Lithuania, Norway, Romania, Slovenia, Croatia, Slovakia, Poland, Malta, Austria, Luxembourg, Netherlands, Bulgaria, Portugal, Cyprus, Sweden, Czechia, Belgium, Germany, Italy, Spain, Switzerland, Denmark - Residence Permit: remarks, residencePermitType
+- Belgium, Minors ID: added parentsInfo vector
+- Nicaragua, Passport: barcode
+- USA, Social Security Card: workRestriction
+- China, Identity Card: permanentExpiry (Chinese)
+
+### Minor API changes
+- Added new items to enums:
+  - new `FieldType` enum values: `EffectiveDate`, `ParentsLastName`, `ParentsLastName2`, `ParentsFirstName2`, `WorkRestriction`, `ParentsFirstName`, `SocialSecurityStatus`, `LegalStatus`, `HusbandName`, `ChinPermanentExpiry`
+  - new `Type` enum values: `NinCard`, `MySSSCard`, `GendarmerieId`, `PoliceId`
+  - new `Country` enum value:`SaintThomasAndPrince`
+  - new `Region` enum values:`Acre`,`EspiritoSanto`,`MatoGrossoDoSul`,`Paraiba`,`Piaui`,`RioGrandeDoNorte`,`Tocantins`,`Odisha`,`Uttarakhand`
+
+- Added member results to `ScanningResult` and `VizResult`
+  - `effectiveDate`
+  - `husbandName`
+  - `legalStatus`
+  - `socialSecurityStatus`
+  - `workRestriction`
+  - `parentsInfo` (new class)
+
+- Android permissions:
+  - `blinkid-ux`: Removed the mandatory ***camera hardware requirement*** from AndroidManifest.xml to improve compatibility with specific devices that incorrectly report camera hardware presence. The camera feature is now declared as optional:
+    ```xml
+    <uses-feature android:name="android.hardware.camera.any" android:required="false"/> 
+    ```
+  
+### Breaking changes
+The following changes will impact your implementation only if you have ***advanced SDK customizations*** and don’t use the default `Activity` or `Composable`:
+- `DocumentSide`(`Front`, `Back`, `Barcode`) renamed to `UiScanningSide` (`First`, `Second`, `Barcode`)
+- `CommonStatusMessage` changed its members (to remove `Document`, `Front`, and `Back` occurrences):
+  - `ScanFrontSide` to `ScanFirstSide`
+  - `ScanBackSide` to `ScanSecondSide`
+  - `FlipDocument` to `Flip`
+  - `KeepDocumentVisible` to `KeepVisible`
+  - `AlignDocument` to `Align`
+  - `ScanBarcode`, `RotateDocument`, `RotateDocumentShort`, `KeepFacePhotoVisible`, `IncreaseLightingIntensity`, `DecreaseLightingIntensity`, `EliminateGlare` and `FilterSpecificMessage`  have been moved from `CommonStatusMessage` to `BlinkIdStatusMessage`
+- Composable `HelpScreens` is implemented through a list of `HelpScreenPage` data classes
+- Composable `OnboardingDialog` is implemented through a single `HelpScreenPage` instance
+- Error dialogs for the default UI are now defined in the `ComposableUtils.kt` file
+- `BlinkIdScanActivityColors` replaced with `ScanActivityColors`
+- `BlinkIdScanActivitySettings` now extends a new `ScanActivitySettings` interface
+- Changed members of `ScanningUxEvent`:
+  - `RequestDocumentSide(DocumentSide)` to `RequestSide(UiScanningSide)`
+- `BlinkIdColorScheme` and `DarkBlinkIdColorScheme` are replaced with `LightColorScheme` and `DarkColorScheme`
+- Removed `DocumentDrawable` (composable used for `FlipAnimation`) - animations now directly use a `Drawable`
+- `DocumentFlipAnimation` replaced with `FlipAnimation`
+
+The following changes will possibly impact any implementation:
+- `DocumentAlreadyScannedException` renamed to `ScanAlreadyCompletedException`
+- `BlinkIdScanActivityResultStatus`(`DocumentScanned`, `Canceled`, `ErrorSdkInit`) renamed to `ScanActivityResultStatus`(`Scanned`, `Canceled`, `ErrorSdkInit`)
+  
+These changes were introduced to make the transition to future BlinkID v8000 SDK easier.
+
+### Improvements and bug fixes
+- Accessibility fixes for dialogs (`OnboardingDialog` and `HelpDialog`)
+- Removed `MoveDocumentFromEdge` scanning UI message
+- UI messages now correctly reflect `skipImagesWithBlur`, `skipImagesWithGlare`, `skipImagesWithInadequateLightingConditions` and `skipImagesOccludedByHand` settings - when enabled, feedback message is provided to the user to adjust the document. These settings should be set to `true` when the goal of the scan is not only to correctly read all the data fields but also to capture the document image.
+- Fixed bug which could cause a crash when closing `BlinkIdScanningSession` in some situations
+- Added `MbLog` for additional debugging and logging capabilities
+
 ## v7.6.1
 
 ### What's New
@@ -70,7 +237,7 @@
 
 #### New Segments Supported on Documents
 - Switzerland, Residence Permit - 'dateOfEntry'
-- Hungary, Identity Card - 'maidenName', 'nationality', 'sexOrGender', 'documentNumber', 'dateOfBirth'
+- Hungary, Identity Card - 'maidenName', 'nationality', 'sex', 'documentNumber', 'dateOfBirth'
 - Greece, Identity Card - 'fathersName' (Latin and Greek), 'mothersName' (Latin and Greek), 'personalIdNumber', 'issuingAuthority' (Greek), 'municipalityOfRegistration' (Greek)
 - Mexico, Voter ID - 'sectionCode', 'stateCode', 'municipalityCode', 'localityCode'
 - Mexico, Consular Voter ID - 'stateCode', 'stateName'

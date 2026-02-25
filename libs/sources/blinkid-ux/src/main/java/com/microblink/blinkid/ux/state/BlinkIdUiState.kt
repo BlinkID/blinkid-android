@@ -17,13 +17,13 @@ import com.microblink.ux.state.BaseUiState
 import com.microblink.ux.state.CancelRequestState
 import com.microblink.ux.state.CardAnimationState
 import com.microblink.ux.state.CommonStatusMessage
-import com.microblink.ux.state.DocumentSide
 import com.microblink.ux.state.ErrorState
 import com.microblink.ux.state.HapticFeedbackState
 import com.microblink.ux.state.MbTorchState
 import com.microblink.ux.state.ProcessingState
 import com.microblink.ux.state.ReticleState
 import com.microblink.ux.state.StatusMessage
+import com.microblink.ux.state.UiScanningSide
 import com.microblink.ux.utils.ScreenOrientation
 import kotlin.time.Duration
 
@@ -32,8 +32,8 @@ data class BlinkIdUiState(
     override val reticleState: ReticleState = ReticleState.Hidden,
     override val processingState: ProcessingState = ProcessingState.Sensing,
     override val cardAnimationState: CardAnimationState = CardAnimationState.Hidden,
-    override val statusMessage: StatusMessage = CommonStatusMessage.ScanFrontSide,
-    override val currentSide: DocumentSide = DocumentSide.Front,
+    override val statusMessage: StatusMessage = CommonStatusMessage.ScanFirstSide,
+    override val currentSide: UiScanningSide = UiScanningSide.First,
     override val torchState: MbTorchState = MbTorchState.Off,
     override val cancelRequestState: CancelRequestState = CancelRequestState.CancelNotRequested,
     override val helpButtonDisplayed: Boolean = DefaultShowHelpButton,
@@ -55,6 +55,14 @@ data class BlinkIdUiState(
  * specific instruction or feedback message.
  */
 enum class BlinkIdStatusMessage : StatusMessage {
+    ScanBarcode,
+    RotateDocument,
+    RotateDocumentShort,
+    KeepFacePhotoVisible,
+    IncreaseLightingIntensity,
+    DecreaseLightingIntensity,
+    EliminateGlare,
+    FilterSpecificMessage,
     ScanPassportDataPage,
     PassportMoveToTop,
     PassportMoveToRight,
@@ -73,6 +81,14 @@ enum class BlinkIdStatusMessage : StatusMessage {
     override fun statusMessageToStringRes(): Int? {
         val strings = BlinkIdTheme.sdkStrings.blinkIdScanningStrings
         return when (this) {
+            ScanBarcode -> strings.instructionsBarcode
+            RotateDocument -> null
+            RotateDocumentShort -> null
+            KeepFacePhotoVisible -> strings.instructionsFacePhotoNotFullyVisible
+            IncreaseLightingIntensity -> strings.instructionsIncreaseLight
+            DecreaseLightingIntensity -> strings.instructionsDecreaseLight
+            EliminateGlare -> strings.instructionsGlareDetected
+            FilterSpecificMessage -> null
             ScanPassportDataPage -> strings.instructionsPassportDataPage
             PassportMoveToTop -> strings.instructionsPassportMoveToTopPage
             PassportMoveToRight -> strings.instructionsPassportMoveToRightPage

@@ -15,8 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.microblink.ux.R
+import com.microblink.ux.theme.DarkColorScheme
+import com.microblink.ux.theme.LightColorScheme
 import com.microblink.ux.theme.SdkTheme
 
 @Composable
@@ -36,9 +39,25 @@ fun LoadingScreen() {
 
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = stringResource(id = R.string.mb_verify_loading),
+            text = stringResource(id = R.string.mb_loading),
             style = SdkTheme.sdkTypography.loadingScreen,
-            color = SdkTheme.sdkTypography.loadingScreen.color
+            color = MaterialTheme.colorScheme.onBackground
         )
+    }
+}
+
+@Preview(name = "Light Mode", showBackground = true)
+@Composable
+private fun LoadingScreenPreviewLight() {
+    MaterialTheme(colorScheme = LightColorScheme) {
+        LoadingScreen()
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+private fun LoadingScreenPreviewDark() {
+    MaterialTheme(colorScheme = DarkColorScheme) {
+        LoadingScreen()
     }
 }

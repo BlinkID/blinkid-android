@@ -8,7 +8,18 @@ package com.microblink.ux.components
 import android.os.Build
 import android.os.VibrationEffect
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
+import kotlin.comparisons.then
 
 internal val uiButtonRadiusDp = 36.dp
 
@@ -43,3 +54,30 @@ fun longHapticFeedback(): VibrationEffect {
         longHapticFeedbackAmplitude
     )
 }
+
+fun Modifier.drawScrollbar(
+    scrollState: ScrollState,
+    color: Color = Color.Gray.copy(alpha = 0.5f),
+    nestedScrollConnection: NestedScrollConnection? = null
+): Modifier = this
+    .then(nestedScrollConnection?.let { Modifier.nestedScroll(it) } ?: Modifier)
+    .verticalScroll(scrollState)
+    .drawWithContent {
+        drawContent()
+
+        val canScroll = scrollState.maxValue > 0
+        if (canScroll) {
+            val scrollbarWidth = 6.dp.toPx()
+            val scrollbarHeight =
+                (size.height / (scrollState.maxValue + size.height)) * size.height / 2
+            val scrollProgress = scrollState.value.toFloat() / scrollState.maxValue
+            val scrollbarOffsetY = scrollProgress * (size.height - scrollbarHeight)
+
+            drawRoundRect(
+                color = color,
+                topLeft = Offset(size.width - scrollbarWidth, scrollbarOffsetY),
+                size = Size(scrollbarWidth, scrollbarHeight),
+                cornerRadius = CornerRadius(scrollbarWidth / 2, scrollbarWidth / 2)
+            )
+        }
+    }

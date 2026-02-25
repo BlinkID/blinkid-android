@@ -5,9 +5,10 @@
 
 package com.microblink.ux.state
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
-import com.microblink.ux.components.DocumentFlipAnimation
+import com.microblink.ux.components.FlipAnimation
 import com.microblink.ux.components.flipAnimationDurationMs
 import com.microblink.ux.components.successAnimationDurationMs
 import com.microblink.ux.theme.SdkTheme
@@ -85,10 +86,24 @@ fun interface CardAnimationState {
         onAnimationCompleted: () -> Unit
     )
 
-    object ShowFlipLandscape : CardAnimationState {
+    /**
+     * Parameterized flip animation that can use SDK-specific drawables.
+     *
+     * @param firstSideDrawable Drawable resource for the first side (front)
+     * @param secondSideDrawable Drawable resource for the second side (back)
+     */
+    class ShowFlipLandscape(
+        @param:DrawableRes private val firstSideDrawable: Int,
+        @param:DrawableRes private val secondSideDrawable: Int
+    ) : CardAnimationState {
         @Composable
         override fun Animate(screenDimensionMin: Dp, onAnimationCompleted: () -> Unit) {
-            DocumentFlipAnimation(screenDimensionMin, onAnimationCompleted)
+            FlipAnimation(
+                firstSideDrawable = firstSideDrawable,
+                secondSideDrawable = secondSideDrawable,
+                screenDimensionMin = screenDimensionMin,
+                onAnimationCompleted = onAnimationCompleted
+            )
         }
     }
 }
@@ -145,23 +160,14 @@ interface StatusMessage {
  */
 enum class CommonStatusMessage : StatusMessage {
     Empty,
-    ScanFrontSide,
-    ScanBackSide,
-    ScanBarcode,
-    FlipDocument,
-    RotateDocument,
-    RotateDocumentShort,
+    ScanFirstSide,
+    ScanSecondSide,
+    Flip,
     MoveFarther,
     MoveCloser,
-    KeepDocumentVisible,
-    KeepFacePhotoVisible,
-    AlignDocument,
-    MoveDocumentFromEdge,
-    IncreaseLightingIntensity,
-    DecreaseLightingIntensity,
+    KeepVisible,
+    Align,
     EliminateBlur,
-    EliminateGlare,
-    FilterSpecificMessage,
     ScanningWrongSide;
 
     /**
@@ -181,23 +187,14 @@ enum class CommonStatusMessage : StatusMessage {
         val strings = SdkTheme.sdkStrings.scanningStrings
         return when (this) {
             Empty -> null
-            ScanFrontSide -> strings.instructionsFrontSide
-            ScanBackSide -> strings.instructionsBackSide
-            ScanBarcode -> strings.instructionsBarcode
-            FlipDocument -> strings.instructionsFlipDocument
-            RotateDocument -> null
-            RotateDocumentShort -> null
+            ScanFirstSide -> strings.instructionsFirstSide
+            ScanSecondSide -> strings.instructionsSecondSide
+            Flip -> strings.instructionsFlip
             MoveFarther -> strings.instructionsMoveFarther
             MoveCloser -> strings.instructionsMoveCloser
-            KeepDocumentVisible -> strings.instructionsDocumentNotFullyVisible
-            KeepFacePhotoVisible -> strings.instructionsFacePhotoNotFullyVisible
-            AlignDocument -> strings.instructionsDocumentTilted
-            MoveDocumentFromEdge -> strings.instructionsDocumentTooCloseToEdge
-            IncreaseLightingIntensity -> strings.instructionsIncreaseLight
-            DecreaseLightingIntensity -> strings.instructionsDecreaseLight
+            KeepVisible -> strings.instructionsNotFullyVisible
+            Align -> strings.instructionsTilted
             EliminateBlur -> strings.instructionsBlurDetected
-            EliminateGlare -> strings.instructionsGlareDetected
-            FilterSpecificMessage -> null
             ScanningWrongSide -> strings.instructionsScanningWrongSide
         }
     }
@@ -232,10 +229,10 @@ class StatusMessageCounter {
 }
 
 /**
- * Specifies the current document side.
+ * Specifies the current scanning side.
  */
-enum class DocumentSide {
-    Front,
-    Back,
+enum class UiScanningSide {
+    First,
+    Second,
     Barcode
 }

@@ -80,7 +80,7 @@ data class UiTypography(
                 ),
                 errorDialogTitle = TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Normal,
                     fontSize = 20.sp,
                     lineHeight = 24.sp,
                 ),
@@ -92,9 +92,9 @@ data class UiTypography(
                 ),
                 errorDialogButton = TextStyle(
                     fontFamily = fontFamily,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 17.sp,
-                    lineHeight = 22.sp,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
                 ),
                 scanningInstructions = TextStyle(
                     fontFamily = fontFamily,

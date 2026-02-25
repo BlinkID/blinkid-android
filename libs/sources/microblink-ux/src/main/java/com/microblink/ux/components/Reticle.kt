@@ -269,7 +269,7 @@ fun ReticleSuccess(
     val stringFirstSideScanned =
         stringResource(SdkTheme.sdkStrings.accessibilityStrings.firstSideScanned)
     val stringDocumentScanned =
-        stringResource(SdkTheme.sdkStrings.accessibilityStrings.documentScanned)
+        stringResource(SdkTheme.sdkStrings.accessibilityStrings.scanCompleted)
 
     AnimatedVisibility(
         modifier = modifier,

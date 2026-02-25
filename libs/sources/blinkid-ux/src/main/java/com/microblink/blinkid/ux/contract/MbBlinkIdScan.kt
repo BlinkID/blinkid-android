@@ -6,19 +6,19 @@ import android.content.Intent
 import android.os.Build
 import android.os.Parcelable
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.annotation.ColorInt
 import androidx.core.os.BundleCompat
 import com.microblink.blinkid.core.BlinkIdSdkSettings
 import com.microblink.blinkid.core.session.BlinkIdScanningResult
 import com.microblink.blinkid.core.session.BlinkIdSessionSettings
 import com.microblink.blinkid.ux.activity.BlinkIdScanActivity
-import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.Canceled
-import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.DocumentScanned
-import com.microblink.blinkid.ux.contract.BlinkIdScanActivityResultStatus.ErrorSdkInit
 import com.microblink.blinkid.ux.settings.BlinkIdUxSettings
 import com.microblink.ux.DefaultShowHelpButton
 import com.microblink.ux.DefaultShowOnboardingDialog
 import com.microblink.ux.camera.CameraSettings
+import com.microblink.ux.contract.CancelReason
+import com.microblink.ux.contract.ScanActivityColors
+import com.microblink.ux.contract.ScanActivityResultStatus
+import com.microblink.ux.contract.ScanActivitySettings
 import com.microblink.ux.theme.SdkStrings
 import com.microblink.ux.utils.ParcelableUiTypography
 import kotlinx.parcelize.Parcelize
@@ -34,7 +34,7 @@ class MbBlinkIdScan : ActivityResultContract<BlinkIdScanActivitySettings, BlinkI
         if (resultCode == Activity.RESULT_OK) {
             BlinkIdScanningResultHolder.blinkIdScanningResult?.let { result ->
                 return BlinkIdScanActivityResult(
-                    status = BlinkIdScanActivityResultStatus.DocumentScanned,
+                    status = ScanActivityResultStatus.Scanned,
                     result = result
                 )
             }
@@ -49,17 +49,17 @@ class MbBlinkIdScan : ActivityResultContract<BlinkIdScanActivitySettings, BlinkI
             return when (cancelReason) {
                 CancelReason.ErrorSdkInit ->
                     BlinkIdScanActivityResult(
-                        status = BlinkIdScanActivityResultStatus.ErrorSdkInit,
+                        status = ScanActivityResultStatus.ErrorSdkInit,
                         result = null
                     )
 
                 CancelReason.UserRequested -> BlinkIdScanActivityResult(
-                    status = BlinkIdScanActivityResultStatus.Canceled,
+                    status = ScanActivityResultStatus.Canceled,
                     result = null
                 )
 
                 else -> BlinkIdScanActivityResult(
-                    status = BlinkIdScanActivityResultStatus.Canceled,
+                    status = ScanActivityResultStatus.Canceled,
                     result = null
                 )
             }
@@ -70,22 +70,7 @@ class MbBlinkIdScan : ActivityResultContract<BlinkIdScanActivitySettings, BlinkI
         const val EXTRA_CANCEL_REASON = "ExtraCancelReason"
     }
 
-    enum class CancelReason {
-        UserRequested,
-        ErrorSdkInit
-    }
 }
-
-@Parcelize
-data class BlinkIdScanActivityColors(
-    @ColorInt val primary: Int?,
-    @ColorInt val background: Int?,
-    @ColorInt val onBackground: Int?,
-    @ColorInt val helpButtonBackground: Int?,
-    @ColorInt val helpButton: Int?,
-    @ColorInt val helpTooltipBackground: Int?,
-    @ColorInt val helpTooltipText: Int?,
-) : Parcelable
 
 /**
  * Configuration settings for the [BlinkIdScanActivity].
@@ -127,17 +112,17 @@ data class BlinkIdScanActivityColors(
 @Parcelize
 data class BlinkIdScanActivitySettings @JvmOverloads constructor(
     val sdkSettings: BlinkIdSdkSettings,
-    val cameraSettings: CameraSettings = CameraSettings(),
     val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
     val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-    val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-    val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-    val showHelpButton: Boolean = DefaultShowHelpButton,
-    val enableEdgeToEdge: Boolean = true,
-    val deleteCachedAssetsAfterUse: Boolean = false
-) : Parcelable {
+    override val cameraSettings: CameraSettings = CameraSettings(),
+    override val scanActivityUiColors: ScanActivityColors? = null,
+    override val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    override val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+    override val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+    override val showHelpButton: Boolean = DefaultShowHelpButton,
+    override val enableEdgeToEdge: Boolean = true,
+    override val deleteCachedAssetsAfterUse: Boolean = false
+) : ScanActivitySettings {
     internal fun saveToIntent(intent: Intent) {
         intent.putExtra(INTENT_EXTRAS_BLINKID_SETTINGS, this)
     }
@@ -162,19 +147,6 @@ data class BlinkIdScanActivitySettings @JvmOverloads constructor(
 }
 
 /**
- * @property DocumentScanned Document has been successfully scanned.
- * @property Canceled Scanning process has been canceled by the user, or because of any other unexpected error.
- * @property ErrorSdkInit Scanning process has been canceled because of the license check error. This happens
- *        if you use license which is online activated, and activation fails.
- *
- */
-public enum class BlinkIdScanActivityResultStatus {
-    DocumentScanned,
-    Canceled,
-    ErrorSdkInit
-}
-
-/**
  * Class containing results of the BlinkID Scanning activity.
  *
  * @property status Represents the status of the activity result and shows whether the activity completed
@@ -184,6 +156,6 @@ public enum class BlinkIdScanActivityResultStatus {
  *
  */
 public data class BlinkIdScanActivityResult(
-    val status: BlinkIdScanActivityResultStatus,
+    val status: ScanActivityResultStatus,
     val result: BlinkIdScanningResult?
 )

@@ -27,7 +27,7 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -48,8 +48,12 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -69,6 +73,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HelpScreens(
+    helpScreenPages: List<HelpScreenPage>,
     onHelpScreensCloseRequested: (allPagesDisplayed: Boolean) -> Unit
 ) {
     var orientation by remember { mutableIntStateOf(Configuration.ORIENTATION_PORTRAIT) }
@@ -84,23 +89,26 @@ fun HelpScreens(
     val bottomSheetState =
         rememberModalBottomSheetState(skipPartiallyExpanded = true)
     val allPagesVisited = rememberSaveable { mutableStateOf(false) }
+
     ModalBottomSheet(
         onDismissRequest = {
             onHelpScreensCloseRequested(allPagesVisited.value)
         },
         sheetMaxWidth = 800.dp,
         sheetState = bottomSheetState,
-        containerColor = MaterialTheme.colorScheme.background
+        containerColor = MaterialTheme.colorScheme.background,
+        dragHandle = {
+            BottomSheetDefaults.DragHandle(modifier = Modifier.clearAndSetSemantics { })
+        }
     ) {
-        val helpScreens = fillHelpScreens().helpDialogPages
         val pagerState = rememberPagerState(pageCount = {
-            helpScreens.size
+            helpScreenPages.size
         })
 
         val visitedPages = rememberSaveable { mutableSetOf<Int>() }
         LaunchedEffect(pagerState.currentPage) {
             visitedPages.add(pagerState.currentPage)
-            if (visitedPages.size == helpScreens.size) {
+            if (visitedPages.size == helpScreenPages.size) {
                 allPagesVisited.value = true
             }
         }
@@ -159,6 +167,20 @@ fun HelpScreens(
                 }
             }
 
+            // Prevent bottom sheet from closing when scrolling
+            val nestedScrollConnection = remember {
+                object : NestedScrollConnection {
+                    override fun onPostScroll(
+                        consumed: Offset,
+                        available: Offset,
+                        source: NestedScrollSource
+                    ): Offset {
+                        // Consume any remaining scroll to prevent bottom sheet from closing
+                        return available
+                    }
+                }
+            }
+
             when (orientation) {
                 Configuration.ORIENTATION_LANDSCAPE -> {
                     HelpScreensContentLandscape(
@@ -166,7 +188,8 @@ fun HelpScreens(
                             traversalIndex = 1f
                         },
                         pagerState = pagerState,
-                        helpScreens = helpScreens
+                        helpScreens = helpScreenPages,
+                        nestedScrollConnection = nestedScrollConnection
                     )
                 }
 
@@ -176,7 +199,8 @@ fun HelpScreens(
                             traversalIndex = 1f
                         },
                         pagerState = pagerState,
-                        helpScreens = helpScreens
+                        helpScreens = helpScreenPages,
+                        nestedScrollConnection = nestedScrollConnection
                     )
                 }
             }
@@ -188,7 +212,8 @@ fun HelpScreens(
 fun HelpScreensContentPortrait(
     modifier: Modifier,
     pagerState: PagerState,
-    helpScreens: List<HelpScreenPage>
+    helpScreens: List<HelpScreenPage>,
+    nestedScrollConnection: NestedScrollConnection? = null
 ) {
     Column {
         HorizontalPager(
@@ -223,7 +248,7 @@ fun HelpScreensContentPortrait(
                     Column(
                         modifier = Modifier
                             .padding(start = 40.dp, end = 40.dp)
-                            .verticalScroll(rememberScrollState())
+                            .drawScrollbar(rememberScrollState(), nestedScrollConnection = nestedScrollConnection)
                             .weight(weight = 0.6f, fill = false)
                     ) {
                         Text(
@@ -276,7 +301,8 @@ fun HelpScreensContentPortrait(
 fun HelpScreensContentLandscape(
     modifier: Modifier,
     pagerState: PagerState,
-    helpScreens: List<HelpScreenPage>
+    helpScreens: List<HelpScreenPage>,
+    nestedScrollConnection: NestedScrollConnection? = null
 ) {
     Column(modifier.fillMaxSize()) {
         HorizontalPager(
@@ -308,6 +334,10 @@ fun HelpScreensContentLandscape(
                 Column(
                     modifier = Modifier
                         .weight(0.65f)
+                        .then(
+                            nestedScrollConnection?.let { Modifier.nestedScroll(it) } ?: Modifier
+                        )
+                        .drawScrollbar(rememberScrollState(), nestedScrollConnection = nestedScrollConnection)
                 ) {
                     Text(
                         modifier = Modifier.semantics {
@@ -320,7 +350,6 @@ fun HelpScreensContentLandscape(
                     )
                     Column(
                         modifier = Modifier
-                            .verticalScroll(rememberScrollState())
                     ) {
                         Spacer(Modifier.height(16.dp))
                         Text(
@@ -357,32 +386,6 @@ fun HelpScreensContentLandscape(
             }
         }
     }
-}
-
-@Composable
-fun fillHelpScreens(): HelpScreens {
-    return HelpScreens(
-        onboardingDialogPage = HelpScreenPage(
-            pageImage = R.drawable.mb_blinkid_onboarding_id,
-            pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.onboardingTitle,
-            pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.onboardingMessage,
-        ),
-        helpDialogPages = listOf(
-            HelpScreenPage(
-                pageImage = R.drawable.mb_blinkid_help_id_page_one,
-                pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.helpTitle1,
-                pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.helpMessage1
-            ), HelpScreenPage(
-                pageImage = R.drawable.mb_blinkid_help_id_page_two,
-                pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.helpTitle2,
-                pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.helpMessage2
-            ), HelpScreenPage(
-                pageImage = R.drawable.mb_blinkid_help_id_page_three,
-                pageTitle = SdkTheme.sdkStrings.helpDialogsStrings.helpTitle3,
-                pageMessage = SdkTheme.sdkStrings.helpDialogsStrings.helpMessage3
-            )
-        )
-    )
 }
 
 data class HelpScreens(
