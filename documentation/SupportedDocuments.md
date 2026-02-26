@@ -240,7 +240,8 @@ Other than documents listed here, BlinkID also scans the <strong>Machine Readabl
 <tr><td width=35%>eID</td><td width=35%>Pambansang pagkakakilanlan</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Identity Card</td><td width=35%>PhilSys ID / PhilID</td><td align="center" width=15%><sub>FRONT, BACK</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Multipurpose ID</td><td width=35%>Unified Multi-Purpose ID</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
-<tr><td width=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+<tr><td width=35%>Mysss Card</td><td width=35%></td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
+idth=35%>Paper Passport</td><td width=35%></td><td align="center" width=15%><sub>BIO-DATA PAGE</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Postal ID</td><td width=35%>Postal identity card</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Professional ID</td><td width=35%>PRC License</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>
 <tr><td width=35%>Social Security Card</td><td width=35%>SSS ID</td><td align="center" width=15%><sub>FRONT</sub></td><td align="center" width=15%><sub>Latin</sub></td></tr>

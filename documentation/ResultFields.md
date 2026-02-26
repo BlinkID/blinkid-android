@@ -9191,6 +9191,12 @@ in the tables in [SupportedDocuments.md](SupportedDocuments.md) file in this rep
 <tr><td>Last name</td><td>Mandatory</td></tr>
 <tr><td>Sex</td><td>Mandatory</td></tr>
 
+<tr><th colspan=2>PHILIPPINES Mysss Card - Front</th></tr>
+<tr><th>Field</th><th>Presence</th></tr>
+<tr><td>Document number</td><td>Mandatory</td></tr>
+<tr><td>First name</td><td>Mandatory</td></tr>
+<tr><td>Last name</td><td>Mandatory</td></tr>
+
 <tr><th colspan=2>PHILIPPINES Paper Passport - Bio-data page</th></tr>
 <tr><th>Field</th><th>Presence</th></tr>
 <tr><td>Date of birth</td><td>Mandatory</td></tr>
