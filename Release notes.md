@@ -64,6 +64,7 @@
 - Nigeria - Nin Card
 - Papua New Guinea - Paper Passport
 - Philippines - eID
+- Philippines - MySSS Card
 - Puerto Rico - Identity Card
 - Saint Thomas And Prince - Paper Passport
 - Saint Vincent And The Grenadines - Paper Passport
