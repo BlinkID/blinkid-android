@@ -9,15 +9,15 @@ The _BlinkID_ Android SDK is a comprehensive solution for implementing secure do
 
 # Table of contents
 * [Quick Start](#quick-start)
-  * [Quick start with the sample app](#quick-sample)
+  * [Quick start with the sample apps](#quick-sample)
   * [SDK integration](#sdk-integration)
 * [Device requirements](#device-requirements)
   * [Android version](#android-version-req)
   * [Camera](#camera-req)
   * [Processor architecture](#processor-arch-req)
-* [Pre-bundling the SDK resources in your app](#pre-bundling-resources)
+* [Pre-bundling the SDK resources into your app](#pre-bundling-resources)
 * [Choosing between Composable and default scanning activity](#activity-vs-compose)
-* [Customizing the look and UX](#customizing-the-look)
+* [Customizing the look and the UX](#customizing-the-look)
   * [Simple customizations](#simple-customizations)
   * [Advanced customizations](#advanced-customizations)
 * [Changing default strings and localization](#changing-strings-and-localization)
@@ -73,7 +73,7 @@ dependencies {
 
 ### Launching the BlinkID scanning session and obtaining the results
 
-1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/).. License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
+1. A valid license key is required to initialize the document capture process. You can request a free trial license key, after you register, at [Microblink Developer Hub](https://developer.microblink.com/). License is bound to the [application ID](https://developer.android.com/studio/build/configure-app-module#set-application-id) of your app, so please ensure you enter the correct application ID when asked.
 
 2. You first need to initialize the SDK and obtain the `BlinkIdSdk` instance:
 ```kotlin
@@ -97,13 +97,13 @@ when {
 ```
 `BlinkIdSdk.initializeSdk` is a suspend function which should be called from a coroutine.
 
-3. Use `BlinkIdCameraScanningScreen` composable to the scanning UX and obtain results:
+3. Use `BlinkIdCameraScanningScreen` composable to display the scanning UX and obtain results:
 ```kotlin
 BlinkIdCameraScanningScreen(
   sdkInstance,
   uxSettings = BlinkIdUxSettings(),
   uiSettings = UiSettings(),
-  cameraSettings: CameraSettings = CameraSettings(),
+  cameraSettings = CameraSettings(),
   sessionSettings = BlinkIdSessionSettings(),
   onScanningSuccess = { scanningResult ->
     // scanningResult is BlinkIdScanningResult
@@ -116,11 +116,11 @@ BlinkIdCameraScanningScreen(
 
 ### Scanning session result
 
-After the document scanning session is finished the SDK returns an object of type [BlinkIdScanningResult](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blink-id-scanning-result/index.html).
+After the document scanning session is finished, the SDK returns an object of type [BlinkIdScanningResult](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blink-id-scanning-result/index.html).
 The object contains extraction process details, document class info, and extraction results. Results are separated into general results and section results.
 General results are a combined set from each entry with the individual data points taken from the most reliable data source (Barcode > MRZ > Visual).
 
-Section results are separated by document side and by data source (Barcode, MRZ, Visual). Each of these individual data sources are available if present on the document (and allowed through scanning settings).
+Section results are separated by document side and by data source (Barcode, MRZ, Visual). Each of these individual data sources is available if present on the document (and allowed through scanning settings).
 
 # <a name="device-requirements"></a> Device requirements
 
@@ -132,7 +132,7 @@ _BlinkID_ SDK requires Android API level **24** or newer.
 
 To perform successful scans, the camera preview resolution must be at least **1080p**. Note that the camera preview resolution is not the same as the video recording resolution.
 
-_BlinkID_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the deivce has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
+_BlinkID_ SDK allows the selection of higher and lower resolutions of camera selected for the scanning process. Additionally, if the device has more than one camera, it is possible to select between `CameraLensFacing.LensFacingBack` and `CameraLensFacing.LensFacingFront`. Both settings are accessible through `CameraSettings` in all implementation methods.
 
 **NOTE**: Most of the front facing cameras on Android devices are lower quality and do not have autofocus. This highly impacts their ability to successfully complete the scan.
 
@@ -161,7 +161,7 @@ android {
 
 # <a name="pre-bundling-resources"></a> Pre-bundling the SDK resources into your app
 
-If you want to reduce the SDK startup time and network traffic, you have option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkid](https://github.com/BlinkID/blinkid-android/tree/master/libs/resources/assets/microblink/blinkid) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
+If you want to reduce the SDK startup time and network traffic, you have the option to pre-bundle the SDK resources as assets into your application. All required resources are located in [libs/resources/assets/microblink/blinkid](https://github.com/BlinkID/blinkid-android/tree/master/libs/resources/assets/microblink/blinkid) folder. You can bundle it to your application by including the mentioned folder to application's assets. Copy the mentioned `libs/resources/assets/microblink` directory to `src/main/assets` folder of your application module (or appropriate folder for desired app flavor).
 
 Use `BlinkIdSdkSettings` to set the following options when instantiating the SDK:
 
@@ -176,7 +176,7 @@ BlinkIdSdkSettings(
     resourceDownloadUrl = "download-path",
     // define path if you are not using a default one: "microblink/blinkid"
     resourceLocalFolder = "path-within-app-assets",
-    // set custom timeout on resrouces download (10 seconds by default)
+    // set custom timeout on resources download (10 seconds by default)
     resourceRequestTimeout = RequestTimeout.DEFAULT,
     // set custom proxy URL (needs to be allowed by license)
     microblinkProxyUrl = null
@@ -234,7 +234,7 @@ BlinkIdCameraScanningScreen(
     uiSettings = UiSettings(
         typography = yourTypography,
         colorScheme = yourColorScheme,
-        uiColors = youReticleColors,
+        uiColors = yourReticleColors,
         sdkStrings = yourSdkStrings,
         showOnboardingDialog = true, // or false
         showHelpButton = true // or false
@@ -335,7 +335,7 @@ class YourBlinkIdScanningUxViewModel(
         }
     }
 
-     override fun onCleared() {
+    override fun onCleared() {
         super.onCleared()
         // cancel and close image analyzer when view model is cleared
         imageAnalyzer.cancel()
@@ -365,29 +365,7 @@ fun YourCameraScanningScreen(
 
 ### Customizing `BlinkIdScanActivity`
 
-Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) class.
-
-```kotlin
-data class BlinkIdScanActivitySettings(
-  val sdkSettings: BlinkIdSdkSettings,
-  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-  val cameraSettings: CameraSettings = CameraSettings(),
-  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-  val showHelpButton: Boolean = DefaultShowHelpButton,
-  val enableEdgeToEdge: Boolean = true,
-  val deleteCachedAssetsAfterUse: Boolean = false
-) 
-``` 
-
-Variable `scanActivityUiColors` of type [BlinkIdScanActivityColors](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-colors/index.html) defines UI colors during the scanning session.
-
-Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
-
-Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
+Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) class. For the full list of available settings, see [Using SDK through `BlinkIdScanActivity`](#using-scan-activity).
 
 ### Modifying our ux libraries source code
 
@@ -402,7 +380,7 @@ They are located in `libs/sources/blinkid-ux` and `libs/sources/microblink-ux` m
 
 Strings used within built-in activities and UX can be localized to any language.
 
-We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portugese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, and `Vietnamese`.
+We have already prepared strings for several languages which you can use out of the box. You can also modify those strings, or you can add your own language. Languages natively supported by our SDK are the following: `Arabic`, `Chinese simplified`, `Chinese traditional`, `Croatian`, `Czech`, `Dutch`, `Filipino`, `French`, `German`, `Hebrew`, `Hungarian`, `Indonesian`, `Italian`, `Malay`, `Portuguese`, `Romanian`, `Serbian`, `Slovak`, `Slovenian`, `Spanish`, `Thai`, and `Vietnamese`.
 
 #### <a name="new-languages"></a> New languages (v7.6)
 
@@ -410,11 +388,11 @@ In version **v7.6** we've added **33 new** languages or variations of languages:
 
 The language is automatically adapted to the user's OS language settings. Additionally, to force a specific language, you have to enable it from the code.
 
-When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For customized language picker, please consult official Android documentation.
+When implementing a language picker within the app it is recommended to use the official [Android OS app-specific language picker](https://developer.android.com/guide/topics/resources/app-languages). For a customized language picker, please consult official Android documentation.
 
 #### <a name="addLanguage"></a> Adding new language
 
-_BlinkID_ can easily be translated to other languages. The `res` folder in `microblink-ux` has folder `values` which contains `strings_core.xml` - this file contains english strings. In order to make e.g. croatian translation, create a folder `values-hr` in your project and put the copy of `strings_core.xml` inside it. Then, open that file and translate the strings from English into Croatian.
+_BlinkID_ can easily be translated to other languages. The `res` folder in `microblink-ux` has folder `values` which contains `strings_core.xml` - this file contains English strings. In order to make e.g. a Croatian translation, create a folder `values-hr` in your project and put the copy of `strings_core.xml` inside it. Then, open that file and translate the strings from English into Croatian.
 
 #### <a name="stringChanging"></a> Changing strings in the existing language
 
@@ -424,8 +402,8 @@ To modify an existing string, the best approach would be to:
 2. Find `strings_core.xml` in folder `res/values-hr`
 3. Choose a string key which you want to change. For example: ```<string name="mb_close">Close</string>```
 4. In your project create a file `strings_core.xml` in the folder `res/values-hr`, if it doesn't already exist
-5. Create an entry in the file with the value for the string which you want. For example: ```<string name="mb_back">Zatvori</string>```
-6. Repeat for all the string you wish to change
+5. Create an entry in the file with the value for the string which you want. For example: ```<string name="mb_close">Zatvori</string>```
+6. Repeat for all the strings you wish to change
 
 You can modify strings and add another language. For more information on how localization works in Android, check out the [official Android documentation](https://developer.android.com/guide/topics/resources/localization).
 
@@ -443,7 +421,7 @@ Activity is accessed through `rememberLauncherForActivityResult` by using [MbBli
 val blinkIdLauncher = rememberLauncherForActivityResult(
   contract = MbBlinkIdScan(),
   onResult = { activityResult ->
-      if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
+      if (activityResult.status == ScanActivityResultStatus.Scanned) {
       // use activityResult.result (BlinkIdScanningResult)
       }
   }
@@ -467,25 +445,26 @@ blinkIdLauncher.launch(
 [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) contain the following:
 ```kotlin
 data class BlinkIdScanActivitySettings(
-  val sdkSettings: BlinkIdSdkSettings,
-  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-  val cameraSettings: CameraSettings = CameraSettings(),
-  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-  val showHelpButton: Boolean = DefaultShowHelpButton,
-  val enableEdgeToEdge: Boolean = true,
-  val deleteCachedAssetsAfterUse: Boolean = false
+    val sdkSettings: BlinkIdSdkSettings, 
+    val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(), 
+    val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(), 
+    val cameraSettings: CameraSettings = CameraSettings(), 
+    val scanActivityUiColors: ScanActivityColors? = null, 
+    val scanActivityUiStrings: SdkStrings = SdkStrings.Default, 
+    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null), 
+    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog, 
+    val showHelpButton: Boolean = DefaultShowHelpButton, 
+    val enableEdgeToEdge: Boolean = true, 
+    val deleteCachedAssetsAfterUse: Boolean = false
 )
 ```
-Most customizations regarding the UI are handled in the same way as with the Composable component.
-The main difference can be found in how `Typography` is set.
+Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.contract/-scan-activity-colors/index.html) defines UI colors during the scanning session. While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
 
-Customizing SDK `Typography` is still available through `scanctivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
 
-While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
+Variable `scanActivityTypography` of type [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) allows you to define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations. This class offers only the most important `TextStyle` and `Font` parameters.
+
+Most other customizations regarding the UI are handled in the same way as with the Composable component.
 # <a name="low-level-api"></a> Completely custom UX (advanced)
 
 When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK.
@@ -516,11 +495,11 @@ dependencies {
 
 ## <a name="core-api-sdk-and-session"></a> The `BlinkIdSdk` and `BlinkIdScanningSession`
 
-[BlinkIdSdk](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core/-blink-id-sdk/index.html) is a singleton that is main entry point to the _BlinkID_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that licence check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
+[BlinkIdSdk](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core/-blink-id-sdk/index.html) is a singleton that is the main entry point to the _BlinkID_ SDK. It manages the global state of the SDK. This involves managing the main processing, unlocking the SDK, ensuring that license check is up-to-date, downloading resources, and performing all necessary synchronization for the processing operations.
 
 Once you obtain an instance of the `BlinkIdSdk` class after the SDK initialization is completed, you can use it to start a document capture session.
 
-[BlinkIdScanningSession](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blink-id-scanning-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and final result when it becomes available.
+[BlinkIdScanningSession](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.blinkid.core.session/-blink-id-scanning-session/index.html) is the main object that accepts images and camera frames, processes them and returns frame-by-frame results, and the final result when it becomes available.
 
 
 ### <a name="analyzing-image-stream"></a> Analyzing the stream of images
@@ -557,7 +536,7 @@ val scanningSession = blinkIdSdk.createScanningSession(BlinkIdSessionSettings(
 
 3. To process each image (camera frame) that comes to the recognition, call the suspend function `BlinkIdScanningSession.process(InputImage): BlinkIdProcessResult`
 ```kotlin
-val processResult = scanningSesionSession.process(inputImage)
+val processResult = scanningSession.process(inputImage)
 ```
 
 There are helper methods for creating [InputImage](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.core.image/-input-image/index.html) from `android.media.Image`, `androidx.camera.core.ImageProxy` and standard Android Bitmap.
@@ -571,7 +550,7 @@ You should keep calling the process function until the result completeness indic
 
 ### <a name="core-api-obtaining-results"></a> Obtaining scanning results
 
-If after analysis of some image completeness status of `BlinkIdProcessResult` indicates that document capture is complete, only then you should get the final result from the `ScanningSession`:
+If, after analysis of some image, the completeness status of `BlinkIdProcessResult` indicates that document capture is complete, only then you should get the final result from the `ScanningSession`:
 
 ```kotlin
 if (processResult.resultCompleteness.isComplete()) {
@@ -586,7 +565,7 @@ You will get [BlinkIdScanningResult](https://blinkid.github.io/blinkid-android/b
 
 To terminate the scanning session, ensure that `BlinkIdScanningSession.close()` is called.
 
-**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIdSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it and the future, you can eliminate the need for re-downloading the resources by calling `BlinkId.close()`.
+**If you are finished with the SDK processing, terminate the SDK to free up resources** by invoking `BlinkIdSdk.closeAndDeleteCachedAssets()` on the SDK instance. If you just wish to close the SDK but may need to use it in the future, you can eliminate the need for re-downloading the resources by calling `BlinkIdSdk.close()`.
 
 Note that `BlinkIdScanningSession.close()`, `BlinkIdSdk.close()` and `BlinkIdSdk.closeAndDeleteCachedAssets()` are blocking calls. Do not call them on the main/UI thread; run them on a background dispatcher/thread (for example `Dispatchers.IO`).
 
@@ -595,7 +574,7 @@ Note that `BlinkIdScanningSession.close()`, `BlinkIdSdk.close()` and `BlinkIdSdk
 Even though BlinkID v7 and above uses modern Android Jetpack components like Compose and coroutines, most functionalities still work with legacy code.
 It is important to note that even without using Jetpack Compose, it is highly recommended to use Kotlin when implementing the SDK, as it not only eases the implementation process, but also allows for some new functionalities.
 
-If the client insists on using only Java (and Android Views), BlinkID functionalities can be used through [`BlinkIdScanActivity`](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-blink-id-scan-activity/index.html?query=class%20BlinkIdScanActivity%20:%20AppCompatActivity).
+If the client insists on using only Java (and Android Views), BlinkID functionalities can be used through [`BlinkIdScanActivity`](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-blink-id-scan-activity/index.html).
 A simple implementation like the following should suffice:
 
 ```java
@@ -632,14 +611,15 @@ In case of problems with SDK integration, make sure that you have followed [inte
 
 ### Logging additional info
 If you are having problems with scanning certain items, undesired behaviour on specific device(s), crashes inside BlinkID or anything unmentioned, please do as follows:
-* enable logging to get the ability to see what is library doing. To enable logging, put this line in your application:
+* enable logging to get the ability to see what the library is doing. To enable logging, put this line in your application:
 
 ```kotlin
 com.microblink.core.utils.MbLog.logLevel = com.microblink.core.utils.MbLog.LogLevel.Verbose
 ```
-After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
+After this line, the library will display as much information about its work as possible. Please save the entire log of the scanning session to a file that you will send to us. It is important to send the entire log, not just the part where the crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
 
-If you want to monitor some, but not all additional logs in your app, there are several log levels that adjust this behavior.
+If you want to monitor some, but not all additional logs in your app, there are several log levels that adjust this behavior. For more info check the documentation [here](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.core.utils/-mb-log/index.html).
+
 ```kotlin
 enum class LogLevel {
     /**
