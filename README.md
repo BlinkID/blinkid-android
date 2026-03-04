@@ -369,21 +369,21 @@ Customizing pre-made SDK scanning activity is somewhat limited compared to custo
 
 ```kotlin
 data class BlinkIdScanActivitySettings(
-  val sdkSettings: BlinkIdSdkSettings,
-  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-  val cameraSettings: CameraSettings = CameraSettings(),
-  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-  val showHelpButton: Boolean = DefaultShowHelpButton,
-  val enableEdgeToEdge: Boolean = true,
-  val deleteCachedAssetsAfterUse: Boolean = false
-) 
+    val sdkSettings: BlinkIdSdkSettings,
+    val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
+    val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
+    val cameraSettings: CameraSettings = CameraSettings(),
+    val scanActivityUiColors: ScanActivityColors? = null,
+    val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
+    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
+    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
+    val showHelpButton: Boolean = DefaultShowHelpButton,
+    val enableEdgeToEdge: Boolean = true,
+    val deleteCachedAssetsAfterUse: Boolean = false
+)
 ``` 
 
-Variable `scanActivityUiColors` of type [BlinkIdScanActivityColors](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-colors/index.html) defines UI colors during the scanning session.
+Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.contract/-scan-activity-colors/index.html) defines UI colors during the scanning session.
 
 Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
 
@@ -443,7 +443,7 @@ Activity is accessed through `rememberLauncherForActivityResult` by using [MbBli
 val blinkIdLauncher = rememberLauncherForActivityResult(
   contract = MbBlinkIdScan(),
   onResult = { activityResult ->
-      if (activityResult.status == BlinkIdScanActivityResultStatus.DocumentScanned) {
+      if (activityResult.status == ScanActivityResultStatus.Scanned) {
       // use activityResult.result (BlinkIdScanningResult)
       }
   }
@@ -467,23 +467,23 @@ blinkIdLauncher.launch(
 [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) contain the following:
 ```kotlin
 data class BlinkIdScanActivitySettings(
-  val sdkSettings: BlinkIdSdkSettings,
-  val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-  val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-  val cameraSettings: CameraSettings = CameraSettings(),
-  val scanActivityUiColors: BlinkIdScanActivityColors? = null,
-  val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-  val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-  val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-  val showHelpButton: Boolean = DefaultShowHelpButton,
-  val enableEdgeToEdge: Boolean = true,
-  val deleteCachedAssetsAfterUse: Boolean = false
+    val sdkSettings: BlinkIdSdkSettings, 
+    val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(), 
+    val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(), 
+    val cameraSettings: CameraSettings = CameraSettings(), 
+    val scanActivityUiColors: ScanActivityColors? = null, 
+    val scanActivityUiStrings: SdkStrings = SdkStrings.Default, 
+    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null), 
+    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog, 
+    val showHelpButton: Boolean = DefaultShowHelpButton, 
+    val enableEdgeToEdge: Boolean = true, 
+    val deleteCachedAssetsAfterUse: Boolean = false
 )
 ```
 Most customizations regarding the UI are handled in the same way as with the Composable component.
 The main difference can be found in how `Typography` is set.
 
-Customizing SDK `Typography` is still available through `scanctivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+Customizing SDK `Typography` is still available through `scanActivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
 
 While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
 # <a name="low-level-api"></a> Completely custom UX (advanced)
@@ -595,7 +595,7 @@ Note that `BlinkIdScanningSession.close()`, `BlinkIdSdk.close()` and `BlinkIdSdk
 Even though BlinkID v7 and above uses modern Android Jetpack components like Compose and coroutines, most functionalities still work with legacy code.
 It is important to note that even without using Jetpack Compose, it is highly recommended to use Kotlin when implementing the SDK, as it not only eases the implementation process, but also allows for some new functionalities.
 
-If the client insists on using only Java (and Android Views), BlinkID functionalities can be used through [`BlinkIdScanActivity`](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-blink-id-scan-activity/index.html?query=class%20BlinkIdScanActivity%20:%20AppCompatActivity).
+If the client insists on using only Java (and Android Views), BlinkID functionalities can be used through [`BlinkIdScanActivity`](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.activity/-blink-id-scan-activity/index.html).
 A simple implementation like the following should suffice:
 
 ```java
@@ -639,7 +639,8 @@ com.microblink.core.utils.MbLog.logLevel = com.microblink.core.utils.MbLog.LogLe
 ```
 After this line, library will display as much information about its work as possible. Please save the entire log of scanning session to a file that you will send to us. It is important to send the entire log, not just the part where crash occurred, because crashes are sometimes caused by unexpected behaviour in the early stage of the library initialization.
 
-If you want to monitor some, but not all additional logs in your app, there are several log levels that adjust this behavior.
+If you want to monitor some, but not all additional logs in your app, there are several log levels that adjust this behavior. For more info check the documentation [here](https://blinkid.github.io/blinkid-android/blinkid-core/com.microblink.core.utils/-mb-log/index.html).
+
 ```kotlin
 enum class LogLevel {
     /**
