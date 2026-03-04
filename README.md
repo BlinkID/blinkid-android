@@ -365,29 +365,7 @@ fun YourCameraScanningScreen(
 
 ### Customizing `BlinkIdScanActivity`
 
-Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) class.
-
-```kotlin
-data class BlinkIdScanActivitySettings(
-    val sdkSettings: BlinkIdSdkSettings,
-    val scanningSessionSettings: BlinkIdSessionSettings = BlinkIdSessionSettings(),
-    val uxSettings: BlinkIdUxSettings = BlinkIdUxSettings(),
-    val cameraSettings: CameraSettings = CameraSettings(),
-    val scanActivityUiColors: ScanActivityColors? = null,
-    val scanActivityUiStrings: SdkStrings = SdkStrings.Default,
-    val scanActivityTypography: ParcelableUiTypography = ParcelableUiTypography.Default(null),
-    val showOnboardingDialog: Boolean = DefaultShowOnboardingDialog,
-    val showHelpButton: Boolean = DefaultShowHelpButton,
-    val enableEdgeToEdge: Boolean = true,
-    val deleteCachedAssetsAfterUse: Boolean = false
-)
-``` 
-
-Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.contract/-scan-activity-colors/index.html) defines UI colors during the scanning session.
-
-Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
-
-Finally, through `scanActivityTypography` of type [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html), you can define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations.
+Customizing pre-made SDK scanning activity is somewhat limited compared to customizing a composable but still offers many customization options. Custom colors, fonts, and text styles are provided through [BlinkIdScanActivitySettings](https://blinkid.github.io/blinkid-android/blinkid-ux/com.microblink.blinkid.ux.contract/-blink-id-scan-activity-settings/index.html) class. For the full list of available settings, see [Using SDK through `BlinkIdScanActivity`](#using-scan-activity).
 
 ### Modifying our ux libraries source code
 
@@ -480,12 +458,13 @@ data class BlinkIdScanActivitySettings(
     val deleteCachedAssetsAfterUse: Boolean = false
 )
 ```
-Most customizations regarding the UI are handled in the same way as with the Composable component.
-The main difference can be found in how `Typography` is set.
+Variable `scanActivityUiColors` of type [ScanActivityColors](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.contract/-scan-activity-colors/index.html) defines UI colors during the scanning session. While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
 
-Customizing SDK `Typography` is still available through `scanActivityTypography` which is [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) type. This class offers only the most important `TextStyle` and `Font` parameters.
+Variable `scanActivityUiStrings` of type [SdkStrings](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.theme/-sdk-strings/index.html) allows for Strings customizations and adjustment of default translations.
 
-While `Colors` are fully customizable, the client needs to make sure that `Dark` and `Light` themes follow the current system state. In the Compose implementation, this is handled directly by the SDK.
+Variable `scanActivityTypography` of type [ParcelableUiTypography](https://blinkid.github.io/blinkid-android/microblink-ux/com.microblink.ux.utils/-parcelable-ui-typography/index.html) allows you to define different fonts and text styles for every text object found in the scanning screen. Due to limitations of the native `Typography` class, we created a custom solution that enables all important text customizations. This class offers only the most important `TextStyle` and `Font` parameters.
+
+Most other customizations regarding the UI are handled in the same way as with the Composable component.
 # <a name="low-level-api"></a> Completely custom UX (advanced)
 
 When using the low-level API, you are responsible for preparing the input image stream (or static images) for analysis as well as building a completely custom UX from scratch based on the image-by-image feedback from the SDK.
